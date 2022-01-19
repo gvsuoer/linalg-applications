@@ -1,0 +1,766 @@
+\achapter{31}{Vector Spaces} \label{sec:vector_spaces}
+
+\vspace*{-17 pt}
+\framebox{
+\parbox{\dimexpr\linewidth-3\fboxsep-3\fboxrule}
+{\begin{fqs}
+\item What is a vector space? 
+\item What is a subspace of a vector space?
+\item What is a linear combination of vectors in a vector space $V$?
+\item What is the span of a set of vectors in a vector space $V$? 
+\item What special structure does the span of a set of vectors in a vector space $V$ have?
+\item Why is the vector space concept important? 
+\end{fqs}}}% \hspace*{3 pt}}
+
+\vspace*{13 pt}
+
+\csection{Application: The Hat Puzzle}
+
+In a New York Times article (April 10, 2001) ``Why Mathematicians Now Care About Their Hat Color", the following puzzle is posed.
+%\footnote{\url{https://www.nytimes.com/2001/04/10/science/why-mathematicians-now-care-about-their-hat-color.html}}
+\begin{quote} ``Three players enter a room and a red or blue hat is placed on each person's head. The color of each hat is determined by a coin toss, with the outcome of one coin toss having no effect on the others. Each person can see the other players' hats but not his own.
+
+No communication of any sort is allowed, except for an initial strategy session before the game begins. Once they have had a chance to look at the other hats, the players must simultaneously guess the color of their own hats or pass. The group shares a hypothetical \$3 million prize if at least one player guesses correctly and no players guess incorrectly."
+\end{quote}
+
+The game can be played with more players, and the problem is to find a strategy for the group that maximizes its chance of winning. One strategy is for a designated player to make a random guess and for the others to pass. This gives a 50\% chance of winning. However, there are much better strategies that provide a nearly 100\% probability of winning as the number of players increases. One such strategy is based on Hamming codes and subspaces of a particular vector space to implement the most effective approach. 
+
+
+\csection{Introduction}
+
+We have previously seen that $\R^n$ and the set of fixed size matrices have a nice algebraic structure when endowed with the addition and scalar multiplication operations. In fact, as we will see, there are many other sets of elements that have the same kind of structure with natural addition and scalar multiplication operations. Due to this underlying similar structure, these sets are connected in some way and can all be studied jointly. Mathematicians look for these kinds of connections between seemingly dissimilar objects and, from a mathematical standpoint, it is convenient to study all of these similar structures at once by combining them into a larger collection. This motivates the idea of a \emph{vector space} that we will investigate in this chapter.
+
+An example of a set that has a structure similar to vectors is a collection of polynomials. Let $\pol_1$ be the collection of all polynomials of degree less than or equal to 1 with real coefficients. That is,
+\[\pol_1 = \{ a_0 + a_1t : a_0, a_1 \in \R\}.\]
+
+So, for example, the polynomials $2+t$, $5t$, $-7$, and $\sqrt{12}-\pi t$ are in $\pol_1$, but $\sqrt{t}$ is not in $\pol_1$. Two polynomials $a(t)=a_0+a_1t$ and $b(t)=b_0+b_1t$ in $\pol_1$ are equal if $a_0=b_0$ and $a_1=b_1$. 
+
+We define addition of polynomials in $\pol_1$ by adding the coefficients of the like degree terms. So if $a(t) = a_0+a_1t$ and $b(t) = b_0+b_1t$, then the polynomial sum of $a(t)$ and $b(t)$ is 
+\[a(t)+b(t) = (a_0+a_1t) + (b_0+b_1t) = (a_0+b_0) + (a_1+b_1)t.\]
+So, for example,
+\[ (2+3t)+(-1+5t) = (2+(-1)) + (3+5)t = 1+8 t . \]
+
+We now consider the properties of the addition operation. For example, we can ask if polynomial addition is commutative. That is, if $a(t)$ and $b(t)$ are in $\pol_1$, must it be the case that 
+\[a(t)+b(t)~=~b(t)+a(t)?\]
+To show that addition is commutative in $\pol_1$, we choose arbitrary polynomials $a(t) = a_0 + a_1t$ and $b(t) = b_0 + b_1t$ in $\pol_1$. Then we have 
+\begin{align*}
+a(t)+b(t) &= (a_0+b_0) + (a_1+b_1)t \\
+	&= (b_0+a_0) + (b_1+a_1)t \\
+	&= b(t)+a(t).
+\end{align*}
+Note that in the middle step, we used the definition of equality of polynomials since $a_0+b_0=b_0+a_0$ and $a_1+b_1=b_1+a_1$ due to the fact that addition of real numbers is commutative. So addition of elements in $\pol_1$ is a commutative operation. 
+
+
+
+\begin{pa} \label{pa:5_a} ~
+\be
+\item Now we investigate other properties of addition in $\pol_1$.
+	\ba
+	\item To show addition is associative in $\pol_1$, we need to verify that if $a(t) = a_0 + a_1t$, $b(t) = b_0+b_1t$, and $c(t) = c_0 + c_1t$ are in $\pol_1$, it must be the case that
+\[(a(t) + b(t)) + c(t) = a(t) + (b(t)+c(t)).\]
+Either verify this property by using the definition of two polynomials being equal, or give a counterexample to show the equality fails in that case.
+
+
+	\item Find a polynomial $z(t) \in \pol_1$ such that
+\[a(t) + z(t) = a(t)\]
+for all $a(t) \in \pol_1$. This polynomial is called the \emph{zero} polynomial or the \emph{additive identity} polynomial in $\pol_1$. 
+
+	\item If $a(t) = a_0 + a_1t$ is an element of $\pol_1$, is there an element $p(t) \in \pol_1$ such that
+\[a(t) + p(t) = z(t),\]
+where $z(t)$ is the additive identity polynomial you found above? If not, why not? If so, what polynomial is $p(t)$? Explain.
+
+	\ea
+
+\item  We can also define a multiplication of polynomials by scalars (real numbers). 
+	\ba
+	\item What element in $\pol_1$ could be the scalar multiple $\frac{1}{2} (2+3t)$?
+
+
+	\item In general, if $k$ is a scalar and $a(t) = a_0 + a_1t$ is in $\pol_1$, how do we define the scalar multiple $ka(t)$ in $\pol_1$?
+
+
+	\item If $k$ is a scalar and $a(t) = a_0 + a_1t$ and $b(t) = b_0 + b_1t$ are elements in $\pol_1$, is it true that
+\[k(a(t) + b(t)) = ka(t) + kb(t)?\]
+If no, explain why. If yes, verify your answer using the definition of two polynomials being equal.
+
+	\item If $k$ and $m$ are scalars and $a(t) = a_0 + a_1t$ is an element in $\pol_1$, is it true that
+\[(k+m)a(t) = ka(t) + ma(t)?\]
+If no, explain why. If yes, verify your answer.
+
+
+	\item If $k$ and $m$ are scalars and $a(t) = a_0 + a_1t$ is an element in $\pol_1$, is it true that
+\[(km)a(t) = k(ma(t))?\]
+If no, explain why. If yes, verify your answer.
+
+	\item If $a(t) = a_0 + a_1t$ is an element of $\pol_1$, is it true that
+\[1a(t) = a(t)?\]
+If no, explain why. If yes, verify your answer.
+
+
+	\ea
+	
+\ee
+
+
+\end{pa}
+
+
+\csection{Spaces with Similar Structure to $\R^n$}
+
+Mathematicians look for patterns and for similarities between mathematical objects. In doing so, mathematicians often consider larger collections of objects that are sorted according to their similarities and then study these collections rather than just the objects themselves. This perspective can be very powerful -- whatever can be shown to be true about an arbitrary element in a collection will then be true for every specific element in the collection. In this section we study the larger collection of sets that share the algebraic structure of vectors in $\R^n$. These sets are called  \emph{vector spaces}.
+
+In Preview Activity \ref{pa:5_a}, we showed that the set $\pol_1$ of polynomials of degree less than or equal to one with real coefficients, with the operations of addition and scalar multiplication defined by 
+\[(a_0+a_1t)+(b_0+b_1t) = (a_0+b_0) + (a_1+b_1)t \ \ \ \text{ and } \ \ \ k(a_0+a_1t) = (ka_0) + (ka_1)t,\]
+has a structure similar to $\R^2$.
+
+By structure we mean how the elements in the set relate to each other under addition and multiplication by scalars. That is, if $a(t)=a_0+a_1t$, $b(t)$, and $c(t)$ are elements of $\pol_1$ and $k$ and $m$ are scalars, then 
+\begin{enumerate}
+\item $a(t) + b(t)$ is an element of $\pol_1$,
+\item $a(t)+b(t) = b(t) + a(t)$,
+\item $(a(t)+b(t)) + c(t) = a(t) + (b(t)+c(t))$,
+\item there is a zero polynomial $z(t)$ (namely, $0+0t$) in $\pol_1$ so that $a(t) + z(t) = a(t)$,
+\item there is an element $-a(t)$ in $\pol_1$ (namely, $(-a_0)+(-a_1)t$) so that $a(t) + (-a(t)) = z(t)$,
+\item $k a(t)$ is an element of $\pol_1$,
+\item $(k+m) a(t) = ka(t) + ma(t)$,
+\item $k(a(t)+b(t)) = ka(t) + kb(t)$,
+\item $(km) a(t) = k(m a(t))$,
+\item $1 a(t) = a(t)$.
+\end{enumerate}
+
+The properties we saw for polynomials in $\pol_1$ stated above are the same as the properties for vector addition and multiplication by scalars in $\R^n$, as well as matrix addition and multiplication by scalars identified in Section \ref{sec:matrix_operations}. This indicates that polynomials in $\pol_1$, vectors in $\R^n$, and the set of $m \times n$ matrices behave in much the same way as regards their addition and multiplication by scalars. There is an even closer connection between linear polynomials and vectors in $\R^2$. An element $a(t) = a_0 + a_1t$ in $\pol_1$ can be naturally associated with the vector $\left[ \begin{array}{c} a_0 \\ a_1 \end{array} \right]$ in $\R^2$. All the results of polynomial addition and multiplication by scalars then translate to corresponding results of addition and multiplication by scalars of vectors in $\R^2$. So for all intents and purposes, as far as addition and multiplication by scalars is concerned, there is no difference between elements in $\pol_1$ and vectors in $\R^2$ -- the only difference is how we choose to present the elements (as polynomials or as vectors). This sameness of structure of our sets as it relates to addition and multiplication by scalars is the type of similarity mentioned in the introduction. We can study all of the types of objects that exhibit this same structure at one time by studying vector spaces.
+
+\csection{Vector Spaces}
+
+We defined vector spaces in the context of subspaces of $\R^n$ in Definition \ref{def:3_a_1}. In general, any set that has the same kind of additive and multiplicative structure as our sets of vectors, matrices, and linear polynomials is called a vector space. As we will see, the ideas that we introduced about subspaces of $\R^n$ apply to vector spaces in general, so the material in this chapter should have a familiar feel. 
+
+
+
+\begin{definition} \label{def:vector_space} A set $V$ on which an operation of addition and a multiplication by scalars is defined is a \textbf{vector space}\index{vector space} if for all $\vu$, $\vv$, and $\vw$ in $V$ and all scalars $a$ and $b$:
+\begin{enumerate}
+\item $\vu + \vv$ is an element of $V$ (we say that $V$ is \emph{closed} under the addition in $V$),
+\item $\vu + \vv = \vv + \vu$ (we say that the addition in $V$ is \emph{commutative}),
+\item $(\vu + \vv) + \vw = \vu + (\vv + \vw)$ (we say that the addition in $V$ is \emph{associative}),
+\item there is a zero vector $\vzero$ in $V$ so that $\vu + \vzero = \vu$ (we say that $V$ contains an \emph{additive identity} $\vzero$),
+\item for each $\vx$ in $V$ there is an element $\vy$ in $V$ so that $\vx + \vy = \vzero$ (we say that $V$ contains an \emph{additive inverse} $\vy$ for each element $\vx$ in $V$),
+\item $a \vu$ is an element of $V$ (we say that $V$ is \emph{closed} under multiplication by scalars),
+\item $(a+b) \vu = a\vu + b\vu$ (we say that \emph{multiplication by scalars distributes over scalar addition}),
+\item $a(\vu + \vv) = a\vu + a\vv$ (we say that \emph{multiplication by scalars distributes over addition in $V$}),
+\item $(ab) \vu = a(b\vu)$,
+\item $1 \vu = \vu$.
+\end{enumerate}
+\end{definition}
+
+\begin{note} Unless otherwise stated, in this book the scalars\index{scalars} will refer to real numbers. However, we can define vector spaces where scalars are complex numbers, or rational numbers, or integers modulo $p$ where $p$ is a prime number, or, more generally, elements of a field. A field is an algebraic structure which generalizes the structure of real numbers and rational numbers under the addition and multiplication operations. Since we will focus on the real numbers as scalars, the reader is not required to be familiar with the concept of a field.
+\end{note}
+
+Because of the similarity of the way elements in vector spaces behave compared to vectors in $\R^n$, we call the elements in a vector space \emph{vectors}. There are many examples of vectors spaces, which is what makes this idea so powerful.
+
+
+\begin{example} ~
+\begin{enumerate}
+\item The space $\R^n$ of all vectors with $n$ components is a vector space using the standard vector addition and multiplication by scalars. The zero element is the zero vector $\vzero$ whose components are all 0.
+\item The set $\pol_1$ of all polynomials of degree less than or equal to 1 with addition and scalar multiplication as defined earlier. Recall that $\pol_1$ is essentially the same as $\R^2$.
+\item The properties listed in the introduction for $\pol_1$ are equally true for the collection of all polynomials of degree less than or equal to some fixed number. We label as $\pol_n$ this set of all polynomials of degree less than or equal to $n$, with the standard addition and scalar multiplication. Note that $\pol_n$ is essentially the same as $\R^{n+1}$. More generally, the space $\pol$ of all polynomials is also a vector space with standard addition and scalar multiplication.
+\item As a subspace of $\R^n$, the eigenspace of an $n \times n$ matrix corresponding to an eigenvalue $\lambda$ is a vector space.
+\item As a subspace of $\R^n$, the null space of an $m \times n$ matrix is a vector space.
+\item As a subspace of $\R^m$, the column space of an $m \times n$ matrix is a vector space.
+\item The span of a set of vectors in $\R^n$ is a subspace of $\R^n$, and is therefore a vector space. 
+\item Let $V$ be a vector space and let $\vzero$ be the additive identity in $V$. The set $\{\vzero\}$ is a vector space in which $\vzero + \vzero = \vzero$ and $k\vzero = \vzero$ for any scalar $k$. This space is called the \emph{trivial} vector space. 
+\item The space $\M_{m \times n}$ (or $\M_{m \times n}(\R)$ when it is important to indicate that the entries of our matrices are real numbers) of all $m \times n$ matrices with real entries with the standard addition and multiplication by scalars we have already defined. In this case, $\M_{m \times n}$ is essentially the same vector space as $\R^{mn}$.
+\item The space $\F$ of all functions from $\R$ to $\R$, where we define the sum of two functions $f$ and $g$ in $\F$ as the function $f+g$ satisfying
+\[(f+g)(x) = f(x) + g(x)\]
+for all real numbers $x$, and the scalar multiple $cf$ of the function $f$ by the scalar $c$ to be the function satisfying
+\[(cf)(x) = cf(x)\]
+for all real numbers $x$. The verification of the vector space properties for this space is left to the reader. 
+\item The space $\R^\infty$ of all infinite real sequences $(x_1, x_2, x_3, \ldots)$. We define addition and scalar multiplication termwise:
+\[ (x_1, x_2, x_3, \ldots) + (y_1, y_2, y_3, \ldots) = (x_1+y_1, x_2+y_2, x_3+y_3, \ldots) \, ,\] 
+\[c(x_1, x_2, x_3, \ldots) = (cx_1, cx_2, cx_3, \ldots) \, \]
+is a vector space. In addition, the set of convergent sequences inside $\R^\infty$ forms a vector space using this addition and multiplication by scalars (as we did in $\R^n$, we will call this set of convergent sequences a subspace of $\R^{\infty}$).
+\item (For those readers who are familiar with differential equations). The set of solutions to a second order homogeneous differential equation forms a vector space under addition and scalar multiplication defined as in the space $\F$ above.
+\item The set of polynomials of positive degree in $\pol_1$ is not a vector space using the standard addition and multiplication by scalars in $\pol_1$ is not a vector space. Notice that $t + (-t)$ is not a polynomial of positive degree, and so this set is not closed under addition. 
+\item The color space where each color is assigned an RGB (red, green, blue) coordinate between 0 and 255, with addition and scalar multiplication defined component-wise, however, does not define a vector space. The color space is not closed under either operation due to the color coordinates being integers ranging from 0 to 255. 
+\end{enumerate}
+\end{example}
+
+
+
+It is important to note that the set of defining properties of a vector space is intended to be a minimum set. Any other properties of a vector space must be verified or proved using the defining properties. For example, in $\R^n$ it is clear that the scalar multiple $0\vv$ is the zero vector for any vector $\vv$ in $\R^n$. This might be true in any vector space, but it is not a defining property. Therefore, if this property is true, then we must be able to prove it using just the defining properties. To see how this might work, let $\vv$ be any vector in a vector space $V$. We want to show that $0 \vv = \vzero$ (the existence of the zero vector is property (4)). Using the fact that $0+0 = 0$ and that scalar multiplication distributes over scalar addition, we can see that 
+\[0\vv = (0+0)\vv = 0\vv + 0\vv.\]
+Property (5) tells us that $V$ contains an additive inverse for every vector in $V$, so let $\vu$ be an additive inverse of the vector $0\vv$ in $V$. Then $0\vv + \vu = \vzero$\footnote{It is very important to keep track of the different kinds of zeros here -- the boldface zero $\vzero$ is the additive identity in the vector space and the non-bold 0 is the scalar zero.} and so
+\begin{align*}
+0\vv + \vu &= (0\vv + 0\vv) + \vu \\
+\vzero &= 0\vv + (0\vv + \vu) \\
+\vzero &= 0\vv + \vzero.
+\end{align*}
+Now $\vzero$ has the property that $\vzero + \vw = \vw+ \vzero = \vw$ for any vector $\vw$ in $V$ (by properties (4) and (2)), and so we can conclude that 
+\[\vzero = 0\vv.\]
+
+
+\begin{activity} \label{act:5_a_1} Another property that will be useful is a cancellation property. In the set of real numbers we know that if $a+b = c+b$, then $a=c$, and we verify this by subtracting $b$ from both sides. This is the same as adding the additive inverse of $b$ to both sides, so we ought to be able to make the same argument using additive inverses in a vector space. To see how, let $\vu$, $\vv$, and $\vw$ be vectors in a vector space and suppose that 
+\begin{equation} \label{eq:5_a_1}
+\vu + \vw = \vv + \vw.
+\end{equation}
+\ba
+\item Why does our space contain an additive inverse $\vz$ of $\vw$?
+
+
+
+\item Now add the vector $\vz$ to both sides of equation (\ref{eq:5_a_1}) to obtain
+\begin{equation} \label{eq:5_a_2}
+(\vu+\vw) + \vz = (\vv+\vw) + \vz.
+\end{equation}
+Which property of a vector space allows us to state the following equality? 
+\begin{equation} \label{eq:5_a_3}
+\vu+(\vw+\vz) = \vv+(\vw+\vz).
+\end{equation}
+
+
+
+\item Now use the properties of additive inverses and the additive identity to explain why $\vu = \vv$. Conclude that we have a cancellation law for addition in any vector space.
+
+
+
+\ea
+
+\end{activity}
+
+
+
+We should also note that the definition of a vector space only states the existence of a zero vector and an additive inverse for each vector in the space, and does not say that there cannot be more than one zero vector or more than one additive inverse of a vector in the space. The reason why is that the uniqueness of the zero vector and an additive inverse of a vector can be proved from the defining properties of a vector space, and so we don't list this consequence as a defining property. Similarly, the defining properties of a vector space do not state that the additive inverse of a vector $\vv$ is the scalar multiple $(-1)\vv$. Verification of these properties are left for the exercises. We summarize the results of this section in the following theorem.
+
+
+
+\begin{theorem} Let $V$ be any vector space with identity $\vzero$. 
+\begin{itemize}
+\item $0 \vv = \vzero$ for any vector $\vv$ in $V$.  
+\item The vector $\vzero$ is unique.
+\item $c \vzero = \vzero$ for any scalar $c$.
+\item For any $\vv$ in $V$, the additive inverse of $\vv$ is unique.
+\item The additive inverse of a vector $\vv$ in $V$ is the vector $(-1)\vv$. 
+\item If $\vu$, $\vv$, and $\vw$ are in $V$ and $\vu + \vw = \vv + \vw$, then $\vu = \vv$. 
+\end{itemize}
+\end{theorem}
+
+
+\csection{Subspaces}
+
+In Section \ref{sec:R_n} we saw that $\R^n$ contained subsets that we called subspaces that had the same algebraic structure as $\R^n$. The same idea applies to vector spaces in general. 
+
+
+
+\begin{activity} \label{act:5_a_2} Let $H = \left\{ at : a \in \R \right\}$. Notice that $H$ is a subset of $\pol_1$.
+    \ba
+    \item Is $H$ closed under the addition in $\pol_1$? Verify your answer.
+
+    
+
+    \item Does $H$ contain the zero vector from $\pol_1$? Verify your answer.
+
+    
+
+    \item Is $H$ closed under multiplication by scalars? Verify your answer.
+
+    
+
+    \item Explain why $H$ satisfies every other property of the definition of a vector space automatically just by being a subset of $\pol_1$ and using the same operations as in $\pol_1$. Conclude that $H$ is a vector space.
+
+
+
+    \ea
+\end{activity}
+
+
+
+Activity \ref{act:5_a_2} illustrates an important point. There is a fundamental difference in the types of properties that define a vector space. Some of the properties that define a vector space are true for any subset of the vector space because they are properties of the operations (such as the commutative and associative properties). The other properties (closure, the inclusion of the zero vector, and the inclusion of additive inverses) are set properties, not properties of the operations. So these three properties have to be specifically checked to see if a subset of a vector space is also a vector space.  This leads to the definition of a \emph{subspace}, a subset of a vector space which is a vector space itself.
+
+\begin{definition} \label{def:5_a_subspace} A subset $H$ of a vector space $V$ is a \textbf{subspace}\index{vector space!subspace}\index{subspace of a vector space} of $V$ if
+\begin{enumerate}
+\item whenever $\vu$ and $\vv$ are in $H$ it is also true that $\vu + \vv$ is in $H$ (that is, $H$ is \emph{closed} under addition),
+\item whenever $\vu$ is in $H$ and $a$ is a scalar it is also true that $a\vu$ is in $H$ (that is, $H$ is \emph{closed} under scalar multiplication),
+\item $\vzero$ is in $H$.
+\end{enumerate}
+\end{definition}
+
+
+\begin{activity} \label{act:5_a_3} Is the given subset $H$ a subspace of the indicated vector space $V$? Verify your answer.
+    \ba
+    \item $V$ is any vector space and $H = \{\vzero\}$
+    
+		
+    \item $V = M_{2 \times 2}$, the vector space of $2 \times 2$ matrices and $H = \left\{ \left[ \begin{array}{cc} 2x&y \\ 0 & x \end{array} \right] \big| \text{ $x$ and $y$ are scalars} \right\}$.
+
+
+    \item $V = \pol_2$, the vector space of all polynomials of degree less than or equal to 2 and $H = \left\{ 2at^2+1 \mid a \text{ is a scalar} \right\}$. 
+    
+
+    \item $V=\pol_2$ and $H=\left\{at\mid a \text{ is a scalar} \right\} \cup \left\{bt^2\mid b \text{ is a scalar} \right\}$.
+    
+    \item $V=\F$ and $H=\pol_2$.
+    
+    \ea
+\end{activity}
+
+
+
+There is an interesting subspace relationship between the spaces $\pol_1, \pol_2, \pol_3, \ldots$ and $\pol$. For every $i$, $\pol_i$ is a subspace of $\pol$. Furthermore, $\pol_1$ is a subspace of $\pol_2$, $\pol_2$ is a subspace of $\pol_3$, and so on. Note however that a similar relationship does NOT hold for $\R^n$, even though $\pol_i$ looks like $\R^{i+1}$. For example, $\R^1$ is NOT a subspace of $\R^2$. Similarly, $\R^2$ is NOT a subspace of $\R^3$. Since the vectors in different $\R^n$'s are of different sizes, none of the $\R^i$'s is a subset of another $\R^n$ with $i \neq n$, and hence, $\R^i$ is not a subspace of $\R^n$ when $i<n$.
+
+\subsection*{The Subspace Spanned by a Set of Vectors}
+
+In $\R^n$ we showed that the span of any set of vectors forms a subspace of $\R^n$. The same is true in any vector space. Recall that the span of a set of vectors in $\R^n$ is the set of all linear combinations of those vectors. So before we can discuss the span of a set of vectors in a vector space, we need to extend the definition of linear combinations to vector spaces (compare to Definitions \ref{1_d_linear_combination} and \ref{def:1_d_span}).   
+
+
+
+\begin{definition} Let $V$ be a vector space. A \textbf{linear combination}\index{linear combination of vectors in a vector space} of vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ in $V$ is a vector of the form 
+\[x_1\vv_1+x_2\vv_2 + \cdots + x_k \vv_k,\]
+where $x_1$, $x_2$, $\ldots$, $x_k$ are scalars. The \textbf{span}\index{span of a set of vectors in a vector space} of the vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ is the collection of all linear combinations of $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$. That is,
+\[\Span\{\vv_1, \vv_2, \ldots, \vv_k\} = \{x_1\vv_1+x_2\vv_2 + \cdots + x_k \vv_k \mid x_1, x_2, \ldots, x_k \text{ are scalars}\}.\]
+\end{definition}
+
+
+
+The argument that the span of any finite set of vectors in a vector space forms a subspace is the same as we gave for the span of a set of vectors in $\R^n$ (see Theorem \ref{thm:3_a_span_subspace}). The proof is left for the exercises.   
+
+
+
+\begin{theorem} \label{thm:VS_span} Given a vector space $V$ and vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_m$ in $V$, $\Span\{\vv_1, \vv_2, \ldots, \vv_m\}$ is a subspace of $V$.
+\end{theorem}
+
+
+The subspace $\Span\{\vv_1, \vv_2, \ldots, \vv_m\}$ is called the \emph{subspace of $V$ spanned by $\vv_1, \vv_2, \ldots, \vv_m$}.\index{subspace of a vector space spanned by a set of vectors}
+
+
+\begin{activity} \label{act:5_a_4} ~
+	\ba
+	\item Let $H = \left\{ a_2t^2-a_1t : a_2 \text{ and } a_1 \text{ are real numbers}\right\}$. Note that $H$ is a subset of $\pol_2$. Find two vectors $\vv_1, \vv_2$ in $\pol_2$ so that $H= \Span\{\vv_1, \vv_2\}$ and hence conclude that $H$ is a subspace of $\pol_2$. (Note that the vectors $\vv_1, \vv_2$ are not unique.)
+	
+	\item Let $p_1(t) = 1-t^2$ and $p_2(t) = 1+t^2$, and let $S = \{p_1(t), p_2(t)\}$ in $\pol_2$. Is the polynomial $q(t) = 3-2t^2$ in $\Span \ S$? (Hint: Create a matrix equation of the form $A \vx = \vb$ by setting up an appropriate polynomial equation involving $p_1(t)$, $p_2(t)$ and $q(t)$. Under what conditions on $A$ is the system $A \vx = \vb$ consistent?) 
+
+	\item With $S$ as in part (b), describe as best you can the subspace $\Span \ S$ of $\pol_2$. 
+
+	\ea
+		
+\end{activity}
+
+Given a subspace $H$, the set $S$ such that $H=\Span \ S$ is called a \emph{spanning set} of $H$.\index{spanning set} In order to determine if a set $S=\{\vv_1, \vv_2, \ldots, \vv_k\}$ is a spanning set for $H$, all we need to do is to show that for every $\vb$ in $H$, the equation
+\[ x_1 \vv_1 + x_2\vv_2 + \cdots + x_k \vv_k = \vb \]
+has a solution. We will see important uses of special spanning sets called bases in the rest of this chapter. 
+
+\csection{Examples}
+
+\ExampleIntro
+
+\begin{example} Determine if each of the following sets is a vector space. 
+	\ba
+	\item $V = \{(x,y,z) : x,y,z \in \R\}$ with addition and multiplication by scalars defined by
+	\[(a,b,c) \oplus (x,y,z) = (a+x, c+z, b+y) \ \text{ and } \ k(x,y,z) = (kx,kz,ky),\]
+where $(a,b,c)$ and $(x,y,z)$ are in $V$ and $k \in \R$
+	
+	\item $V = \{x \in \R : x > 0\}$ with addition $\oplus$ and multiplication by scalars defined by
+	\[x \oplus y = xy  \ \text{ and } \ kx = x^k,\]
+where $x$ and $y$ are in $V$, $k \in \R$, and $xy$ is the standard product of $x$ and $y$ 
+
+	\item The set $W$ of all $2 \times 2$ matrices of the form $\left[ \begin{array}{cc} a&0\\b&0 \end{array} \right]$ where $a$ and $b$ are real numbers using the standard addition and multiplication by scalars on matrices. 	
+	
+	\item The set $W$ of all functions $f$ from $\R$ to $\R$ such that $f(0) \geq 0$ using the standard addition and multiplication by scalars on functions. 	
+		
+	\ea
+
+\ExampleSolution
+	\ba
+	\item We consider the vector space properties in Definition \ref{def:vector_space}. Let $(a,b,c)$, $(u,v,w)$, and $(x,y,z)$ be in $V$ and let $k,m  \in \R$. By the definition of addition and multiplication by scalars, both $(a,b,c) + (x,y,z)$ and $k (x,y,z)$ are in $V$. Note also that
+	\begin{align*}
+	(a,b,c) \oplus (x,y,z) &= (a+x, c+z, b+y)  \\
+		&= (x+a, z+c, y+b) \\
+		&= (x,y,z) \oplus (a,b,c),
+	\end{align*}
+	and so addition is commutative in $V$.  
+	
+	Since 
+	\[((1,1,0)\oplus(0,1,1)) \oplus (0,0,1) = (1,1,2) \oplus (0,0,1) = (1,3,1)\]
+	and 
+	\[(1,1,0)\oplus ((0,1,1) \oplus (0,0,1)) = (1,1,0) \oplus (0,2,1) = (1,1,3),\]
+	we see that addition is not associative and conclude that $V$ is not a vector space. 
+	At this point we can stop since we have shown that $V$ is not a vector space. %However, there is an element $(0,0,0)$ in $V$ so that 
+%	\[(x,y,z) \oplus (0,0,0) = (x,y,z).\]
+%	Thus, $V$ contains an additive identity. Also, 
+%	\[(x,y,z) \oplus (-x,-y,-z) = (0,0,0)\]
+%	and $V$ contains an additive inverse for each of its elements. 
+	
+%	The set $V$ does not satisfy property (7). To see why, notice that 
+%	\[(1+1)(1,2,3) = ((2)1, (2)2, (2)3) = (2,4,6)\]
+%	while
+%	\[(1)(1,2,3) \oplus (1)(1,2,3) = (2, 6,4).\]
+%	But,
+%	\begin{align*}
+%	k((a,b,c) \oplus (x,y,z)) &= k (a+x, c+z, b+y) \\
+%		&= (k(a+x), k(c+z), k(b+y)) \\
+%		&= (ka+kx, kc+kz, kb+ky) \\
+%		&= (ka, kb, kc) \oplus (kx,ky,kz) \\
+%		&= k(a,b,c) \oplus k(x,y,z),
+%	\end{align*}
+%	so $V$ satisfies property (8).
+	
+%	Similarly,
+%	\begin{align*}
+%	(km)(x,y,z) &= ((km)x, (km)y, (km)z) \\
+%		&= (k(mx), k(my), k(mz)) \\
+%		&= k(mx,my,mz) \\
+%		&= k(m(x,y,z))
+%	\end{align*}
+%	and $V$ satisfies property (9).
+	
+%	Finally, 
+%	\[1(x,y,z) = (1x, 1y, 1z) = (x,y,z)\]
+%	and $V$ satisfies property 10. 
+	
+
+	\item We consider the vector space properties in Definition \ref{def:vector_space}. Let $x$, $y$, and $z$ be in $V$ and let $k,m  \in \R$. Since $x$ and $y$ are both positive real numbers, we know that $xy$ is a positive real number. Thus, $x \oplus y \in V$ and $V$ is closed under its addition. Also, $x^k$ is a positive real number, so $x^k \in V$ as well. 
+
+Now
+	\[x \oplus y = xy = yx = y \oplus x\]
+	and addition is commutative in $V$.  
+	
+Also,
+\[(x \oplus y) \oplus z = (xy) \oplus z = (xy)z = x(yz) = x \oplus (yz) = x \oplus (y \oplus z)\]
+and addition is associative in $V$. 
+
+Since 
+\[1 \oplus x = 1x = x,\]
+$V$ contains an additive identity, which is $1$.  The fact that $x$ is a positive real number implies that $\frac{1}{x}$ is a positive real number. Thus, $\frac{1}{x} \in V$ and
+\[x \oplus \frac{1}{x} = x\left(\frac{1}{x}\right) = 1\]
+and $V$ contains an additive inverse for each of its elements. 
+
+We have that 
+\begin{align*}
+(k+m)x &= x^{k+m} = x^kx^m = x^k \oplus x^m = k(x) \oplus m(x), \\
+k(x \oplus +y) &= k(xy) = x^ky^k = x^k \oplus y^k = k(x) \oplus k(y), \\
+(km)x &= x^{km} = \left(x^m\right)^k = (m(x))^k = k(m(x)) \\
+1x &= x^1 = x.
+\end{align*}
+So $V$ satisfies all of the properties of a vector space. 
+
+	\item Recall that $\M_{2 \times 2}$ is a vector space using the standard addition and multiplication by scalars on matrices. Any matrix of the form $\left[ \begin{array}{cc} a&0\\b&0 \end{array} \right]$  can be written as 
+	\[\left[ \begin{array}{cc} a&0\\b&0 \end{array} \right] = a\left[ \begin{array}{cc} 1&0\\0&0 \end{array} \right]  + b \left[ \begin{array}{cc} 0&0\\1&0 \end{array} \right].\]
+	So $W = \Span\left\{\left[ \begin{array}{cc} 1&0\\0&0 \end{array} \right],  \left[ \begin{array}{cc} 0&0\\1&0 \end{array} \right]\right\}$ and $W$ is a subspace of $\M_{2 \times 2}$. Thus, $W$ is a vector space. 
+	
+	\item We will show that $W$ is not a vector space. Let $f: \R \to \R$ be defined by $f(x) = 1$. Then $f(0) \geq 0$ and $f \in W$. However, if $h = (-1)f$, then $h(0) = (-1)f(0) = -1$ and $h \notin W$. It follows that $W$ is not closed under multiplication by scalars and $W$ is not a vector space. 
+	
+	\ea
+	
+\end{example}
+
+\begin{example} Let $V$ be a vector space and $\vu$ and $\vv$ vectors in $V$. Also, let $a$ and $b$ be scalars. You may use the result of Exercise \ref{ex:5_a_scalar_times_0} that $c \vzero = \vzero$ for any scalar $c$ in any vector space. 
+	\ba
+	\item If $a \vv = b \vv$ and $\vv \neq \vzero$, must $a = b$? Use the properties of a vector space or provide a counterexample to justify your answer. 
+	
+	\item If $a \vu = a \vv$ and $a \neq 0$, must $\vu = \vv$? Use the properties of a vector space or provide a counterexample to justify your answer.
+
+	\item If $a\vu = b\vv$, must $a = b$ and $\vu = \vv$? Use the properties of a vector space or provide a counterexample to justify your answer.
+	
+	\ea
+
+\ExampleSolution
+	\ba
+	\item We will show that this statement is true. Suppose $a \vv = b \vv$ and $\vv \neq \vzero$. Then $\vzero = a \vv - b \vv = (a-b)\vv$. If $a = b$, then we are done. So suppose $a \neq b$. Then $a-b \neq 0$ and $\frac{1}{a-b}$ is a real number. Then \begin{align*}
+\frac{1}{a-b} \vzero &= \frac{1}{a-b}((a-b)\vv) \\
+\vzero &= \left(\frac{1}{a-b}(a-b)\right) \vv \\
+\vzero &= \vv.
+\end{align*}
+But we assumed that $\vv \neq \vzero$, so we can conclude that $a = b$ as desired. 
+	
+	\item We will show that this statement is true. Suppose $a \vu = a \vv$ and $a \neq 0$. Then $\vzero = a \vu - a \vv = a(\vu - \vv)$. Since $a \neq 0$, we know that $\frac{1}{a}$ is a real number. Thus,
+\begin{align*}
+\frac{1}{a} \vzero &= \frac{1}{a} \left(a (\vu - \vv)\right) \\ 
+\vzero &= \left( \frac{1}{a}a\right) (\vu - \vv) \\
+\vzero &= \vu - \vv \\
+\vu &= \vv.
+\end{align*}
+
+	\item We will demonstrate that this statement is false with a counterexample. Let $a = 1$, $b = 2$, $\vu = [2 \ 0]^{\tr}$ and $\vv = [1 \ 0]^{\tr}$ in $\R^2$. Then 
+	\[a \vu = 1[2 \ 0]^{\tr} = [2 \ 0]^{\tr} = 2[1 \ 0]^{\tr} = b \vv,\]
+	but $a \neq b$ and $\vu \neq \vv$.  
+
+	
+	\ea
+	
+\end{example}
+
+
+\csection{Summary}
+
+\begin{itemize}
+\item  A set $V$ on which an operation of addition and a multiplication by scalars is defined is a vector space if for all $\vu$, $\vv$, and $\vw$ in $V$ and all scalars $a$ and $b$:
+\begin{enumerate}
+\item $\vu + \vv$ is an element of $V$,
+\item $\vu + \vv = \vv + \vu$,
+\item $(\vu + \vv) + \vw = \vu + (\vv + \vw)$,
+\item there is a zero vector $\vzero$ in $V$ so that $\vu + \vzero = \vu$,
+\item for each $\vx$ in $V$ there is an element $\vy$ in $V$ so that $\vx + \vy = \vzero$,
+\item $a \vu$ is an element of $V$,
+\item $(a+b) \vu = a\vu + b\vu$,
+\item $a(\vu + \vv) = a\vu + a\vv$,
+\item $(ab) \vu = a(b\vu)$,
+\item $1 \vu = \vu$.
+\end{enumerate}
+\item A subset $H$ of a vector space $V$ is a subspace of $V$ if
+\begin{enumerate}
+\item whenever $\vu$ and $\vv$ are in $H$ it is also true that $\vu + \vv$ is in $H$,
+\item whenever $\vu$ is in $H$ and $a$ is a scalar it is also true that $a\vu$ is in $H$,
+\item $\vzero$ is in $H$.
+\end{enumerate}
+\item A linear combination of vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ in a vector space $V$ is a vector of the form 
+\[x_1\vv_1+x_2\vv_2 + \cdots + x_k \vv_k,\]
+where $x_1$, $x_2$, $\ldots$, $x_k$ are scalars. 
+\item The span of the vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ in a vector space $V$ is the collection of all linear combinations of $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$. That is,
+\[\Span\{\vv_1, \vv_2, \ldots, \vv_k\} = \{x_1\vv_1+x_2\vv_2 + \cdots + x_k \vv_k : x_1, x_2, \ldots, x_k \text{ are scalars}\}.\]
+\item The span of any finite set of vectors in a vector space $V$ is always a subspace of $V$. 
+\item This concept of vector space is important because there are many different types of sets (e.g., $\R^n$, $\M_{m \times n}$, $\pol_n$, $\F$) that have similar structure, and we can relate them all as members of this larger collection of vector spaces. 
+\end{itemize}
+
+
+\csection{Exercises}
+\be
+\item The definition of a vector space only states the existence of a zero vector and does not say how many zero vectors the space might have. In this exercise we show that the zero vector in a vector space is unique. To show that the zero vector is unique, we assume that two vectors $\vzero_1$ and $\vzero_2$ have the zero vector property.  
+	\ba
+	\item Using the fact that $\vzero_1$ is a zero vector, what vector is $\vzero_1 + \vzero_2$?
+
+	\item Using the fact that $\vzero_2$ is a zero vector, what vector is $\vzero_1 + \vzero_2$? 
+
+	\item How do we conclude that the zero vector is unique? 
+	
+	\ea
+
+
+\item The definition of a vector space only states the existence of an additive inverse for each vector in the space, but does not say how many additive inverses a vector can have. In this exercise we show that the additive inverse of a vector in a vector space is unique. To show that a vector $\vv$ has only one additive inverse, we suppose that $\vv$ has two additive inverses, $\vu$ and $\vw$, and demonstrate that $\vu = \vw$. 
+	\ba
+	\item What equations must $\vu$ and $\vw$ satisfy if $\vu$ and $\vw$ are additive inverses of $\vv$?
+		
+	\item Use the equations from part (a) to show that $\vu = \vw$. Clearly identify all vector space properties you use in your argument.
+
+	\ea
+
+
+
+\item Let $V$ be a vector space and $\vv$ a vector in $V$. In all of the vector spaces we have seen to date, the additive inverse of the vector $\vv$ is equal to the scalar multiple $(-1)\vv$. This seems reasonable, but it is important to note that this result is not stated in the definition of a vector space, so this it is something that we need to verify. To show that $(-1)\vv$ is an additive inverse of the vector $\vv$, we need to demonstrate that 
+\[\vv + (-1)\vv = \vzero.\]
+Verify this equation, explicitly stating which properties you use at each step.
+
+\item \label{ex:5_a_scalar_times_0} It is reasonable to expect that if $c$ is any scalar and $\vzero$ is the zero vector in a vector space $V$, then $c \vzero = \vzero$. Use the fact that $\vzero + \vzero = \vzero$ to prove this statement.
+
+	
+\item Let $W_1, W_2$ be two subspaces of a vector space $V$. Determine whether $W_1 \cap W_2$ and $W_1 \cup W_2$ are subspaces of $V$. Justify each answer clearly.
+
+\item Find three vectors $\vv_1, \vv_2, \vv_3$ to express 
+\[W=\left\{ \left[ \begin{array}{c} a+2b+c \\ b-3c \\ a-c \end{array} \right] : a, b, c \text{ in } \R \right\}\]
+as $\Span \{\vv_1, \vv_2, \vv_3\} $. How does this justify why $W$ is a subspace of $\R^3$?
+ 
+\item Find three vectors $\vv_1, \vv_2, \vv_3$ to express 
+\[W=\left\{ \left[ \begin{array}{cc} a+b & a-2c \\ 3b+c & a+b-c \end{array} \right] : a, b, c \text{ in } \R \right\}\]
+as $\Span \{\vv_1, \vv_2, \vv_3\} $. How does this justify why $W$ is a subspace of $\M_{2 \times 2}$?
+
+\item Let $\F$ be the set of all functions from $\R$ to $\R$, where we define the sum of two functions $f$ and $g$ in $\F$ as the function $f+g$ satisfying
+\[(f+g)(x) = f(x) + g(x)\]
+for all real numbers $x$, and the scalar multiple $cf$ of the function $f$ by the scalar $c$ to be the function satisfying
+\[(cf)(x) = cf(x)\]
+for all real numbers $x$. Show that $\F$ is a vector space using these operations. 
+
+\item Prove Theorem \ref{thm:VS_span}. (Hint: Compare to Theorem \ref{thm:3_a_span_subspace}.) 
+
+
+\item Determine if each of the following sets of elements is a vector space or not. If appropriate, you can identify a set as a subspace of another vector space, or as a span of a collection of vectors to shorten your solution.
+
+\ba 
+\item A line through the origin in $\R^n$.
+
+\item The first quadrant in $\R^2$.
+
+\item The set of vectors $\left\{ \left[ \begin{array}{c} a \\ 0 \end{array} \right] : a \text{ in } \Z \right\}$.
+
+\item The set of all differentiable functions from $\R$ to $\R$.
+
+\item The set of all functions from $\R$ to $\R$ which are increasing for every $x$. (Assume that a function $f$ is increasing if $f(a) > f(b)$ whenever $a > b$.)
+
+\item The set of all functions $f$ from $\R$ to $\R$ for which $f(c)=0$ for some fixed $c$ in $\R$.  
+
+\item The set of polynomials of the form $a+bt$, where $a+b=0$.  
+
+%\item The set of pairs $(m,n)$ with $m, n$ in $\Z_3$, the set of congruence classes modulo 3, and addition and scalar multiplication in this set defined component-wise modulo 3.
+
+\item The set of all upper triangular $4\times 4$ real matrices.
+
+\item The set of complex numbers $\C$ where scalar multiplication is defined as multiplication by real numbers.
+
+\ea
+
+\item A reasonable way to extend the idea of the vector space $\R^n$ to infinity is to let $\R^\infty$ be the set of all sequences of real numbers. Define addition and multiplication by scalars on $\R^{\infty}$ by 
+\[\{x_n\} + \{y_n\} = \{x_n + y_n\} \ \text{ and } \ c\{x_n\} = \{cx_n\}\]
+where $\{x_n\}$ denotes the sequence $x_1, x_2, x_3, \ldots$, $\{y_n\}$ denotes the sequence $y_1, y_2, y_3, \ldots$ and $c$ is a scalar. 
+	\ba
+	\item Show that $\R^{\infty}$ is a vector space using these operations. 
+
+
+
+	\item Is the set of sequences that have infinitely many zeros a subspace of $\R^{\infty}$? Verify your answer. 
+
+
+   	\item Is the set of sequences which are eventually zero a subspace of $\R^{\infty}$? Verify your answer. (A sequence $\{x_n\}$ is \emph{eventually zero} if there is an  index $k_0$ such that $x_n = 0$ whenever $n \geq k_0$.) 
+
+
+	 \item Is the set of decreasing sequences a subspace of $\R^{\infty}$? Verify your answer. (A sequence $\{x_n\}$ is \emph{decreasing} if $x_{n+1} \leq x_n$ for each $n$.) 
+
+	
+	\item Is the set of sequences in $\R^{\infty}$ that have limits at infinity a subspace of $\R^{\infty}$? 
+	
+
+	\item Let $\ell^2$ be the set of all square summable sequences in $\R^{\infty}$, that is sequences $\{x_n\}$ so that $\sum_{k = 1}^{\infty} x_k^2$ is finite. So, for example, the sequence $\left\{\frac{1}{n}\right\}$ is in $\ell^2$. Show that $\ell^2$ is a subspace of $\R^{\infty}$ (the set $\ell^2$ is an example of what is called a \emph{Hilbert space} by defining the inner product $\langle \{x_n\}, \{y_n\} \rangle = \sum_{n = 1}^{\infty} x_ny_n$). (Hint: show that $2u^2 + 2v^2 - (u+v)^2 \geq 0$ for any real numbers $u$ and $v$.)
+
+
+	\ea
+	
+\item \label{ex:5_a_sum} Given two subspaces $H_1, H_2$ of a vector space $V$, define 
+\[ H_1+H_2 = \{ \vw \mid \vw=\vu+\vv \text{ where } \vu \text{ in }H_1, \vv \text{ in }H_2\} \,.\]
+Show that $H_1+H_2$ is a subspace of $V$ containing both $H_1, H_2$ as subspaces. The space $H_1+H_2$ is the sum\index{subspace!sum} of the subspaces $H_1$ and $H_2$. 
+	
+\item Label each of the following statements as True or False. Provide justification for your response.
+\ba
+\item \textbf{True/False} The intersection of any two subspaces of $V$ is also a subspace.
+
+\item \textbf{True/False} The union of any two subspaces of $V$ is also a subspace.
+
+\item \textbf{True/False} If $H$ is a subspace of a vector space $V$, then $-H=\{ (-1)\vv: \vv \text{ in } H\}$ is equal to $H$.
+
+\item \textbf{True/False} If $\vv$ is a nonzero vector in $H$, a subspace of $\R^n$, then $H$ contains the line through the origin and $\vv$ in $\R^n$.
+
+\item \textbf{True/False} If $\vv_1, \vv_2$ are nonzero, non-parallel vectors in $H$, a subspace of $\R^n$, then $H$ contains the plane through the origin, $\vv_1$ and $\vv_2$ in $\R^n$.
+
+\item \textbf{True/False} The smallest subspace in $\R^n$ containing a vector $\vv$ is a line through the origin.
+
+\item \textbf{True/False} The largest subspace of $V$ is $V$.
+
+\item \textbf{True/False} The space $\pol_1$ is a subspace of $\pol_n$ for $n \geq 1$.
+
+%\item \textbf{True/False} The space of differentiable functions from $\R$ to $\R$ is a subspace of $\F$.
+
+%\item \textbf{True/False} The space of increasing functions from $\R$ to $\R$ is a subspace of $\F$.
+
+\item \textbf{True/False} The set of constant functions from $\R$ to $\R$ is a subspace of $\F$.
+
+\item \textbf{True/False} The set of all polynomial functions with rational coefficients is a subspace of $\F$.
+
+\ea	
+	
+\ee
+
+\csection{Project: Hamming Codes and the Hat Puzzle}
+
+Recall the hat problem from the beginning of this section. Three players are assigned either a red or blue hat and can only see the colors of the hats of the other players. The goal is to devise a high probability strategy for one player to correctly guess the color of their hat. The players have a 50\% chance of winning if one player guesses randomly and all of the others pass. However, the group can do better than 50\% with a reasonably simple strategy. There are 2 possibilities for each hat color for a total of $2^3 = 8$ possible distributions of hat colors. Of these, only red-red-red and blue-blue-blue contain only one hat color, so $6/8$ of $3/4$ of the possible hat distributions have two hats of one color and one of the other color. So if a player sees two hats of the same color, that player guesses the other color and passes otherwise. This gives a 75\% chance of winning. This strategy will only work for three players, though. We want to develop an effective strategy that works for larger groups of players. 
+
+There is a strategy, based on \emph{Hamming codes} that can be utilized when the number of players is of the form $2^k-1$ with $k \geq 2$. This strategy will provide a winning probability of
+\[1 - 2^{-k}.\]
+Note that as $k \to \infty$, this probability has a limit of 1. Note also that if $k=2$ (so that there are 3 players), then the probability is $\frac{3}{4}$ or $75\%$ -- the same strategy we came up with earlier. 
+
+To understand this strategy, we need to build a slightly different kind of vector space than we have seen until now, one that is based on a binary choice of red or blue. To do so, we identify the hat colors with numbers -- 0 for red and 1 for blue. So let $\mathbb{F} = \{0,1\}$. Assume there are $n = 2^k-1$ players for some integer $k \geq 2$. We can then view a distribution of hats among the $n = 2^k-1$ players as a vector with $n$ components from $\mathbb{F}$. That is,
+\[\mathbb{F}^n = \{ [\alpha_1 \ \alpha_2 \ \cdots \ \alpha_n]^{\tr} : \alpha_i \in \mathbb{F}\}.\]
+
+We can give some structure to both $\mathbb{F}$ and $\mathbb{F}^n$ by noting that we can define addition and multiplication in $\mathbb{F}$ by 
+\begin{alignat*}{3}
+0 + 0 &= 0,  	&\hspace{0.3in}		0 + 1 &= 1 + 0 = 1, &\hspace{0.3in}  1+1 &= 0 \\
+ 0 \cdot 0 &= 0,  &				0 \cdot 1 &= 1 \cdot 0 = 0, &	 1 \cdot 1 &= 1.
+\end{alignat*}
+
+\begin{pactivity} \label{act:hat_1} Show that $\mathbb{F}$ has the same structure as $\R$. That is, show that for all $x$, $y$, and $z$ in $\mathbb{F}$, the following properties are satisfied. 
+	\ba
+	\item $x + y \in \mathbb{F}$ and $xy \in \mathbb{F}$ 
+	\item $x + y = y + x$ and $xy=yx$ 
+	\item $(x + y) + z = x + (y + z)$ and $(xy)z = x(yz)$ 
+	\item There is an element $0$ in $\mathbb{F}$ such that $x+ 0 = x$ 
+	\item There is an element $1$ in $\mathbb{F}$ such that $(1)x = x$ 
+	\item There is an element $-x$ in $\mathbb{F}$ such that $x+(-x) = 0$
+	\item If $x \neq 0$, there is an element $\frac{1}{x}$ in $\mathbb{F}$ such that $x\left(\frac{1}{x}\right) = 1$
+	\item $x (y + z) = (x y) + (x z)$ 
+	\ea
+	
+
+\end{pactivity}
+
+
+Project Activity \ref{act:hat_1} shows that $\mathbb{F}$ has the same properties as $\R$ -- that is that $\mathbb{F}$ is a field.  Until now, we have worked with vector spaces whose scalars come from the set of real numbers, but that is not necessary. None of the results we have discovered so far about vector spaces require our scalars to come from $\R$. In fact, we can replace $\R$ with any field and all of the same vector space properties hold. It follows that $V = \mathbb{F}^n$ is a vector space over $\mathbb{F}$. As we did in $\R^n$, we define the standard unit vectors $\ve_1 = [1 \ 0 \ 0 \ \cdots \ 0]^{\tr}$, $\ve_2 = [0 \ 1 \ 0 \ 0 \ \ldots \ 0]^{\tr}$, $\ldots$, $\ve_n = [0 \ 0 \ 0 \ \ldots \ 0 \ 1]^{\tr}$ in $V = \mathbb{F}^n$. 
+
+Now we return to the hat puzzle. We have $n = 2^k-1$ players. Label the players $1$, $2$, $\ldots$, $n$. We can now represent a random placements of hats on heads  as a vector $\vv = [\alpha_1 \ \alpha_2 \ \cdots \ \alpha_n]^{\tr}$
+ in $V = \mathbb{F}^n$, where $\alpha_i = 0$ in the $i$th entry represents a red hat and  $\alpha_i =1$ a blue hat on player $i$. Since player $i$ can see all of the other hats, from player $i$'s perspective the distribution of hats has the form
+ \[\vv = \vv_i+ \beta_i \ve_i,\]
+ where $\beta_i$ is the unknown color of hat on player $i$'s head and 
+ \[\vv_i = [\alpha_1 \ \alpha_2 \ \cdots \ \alpha_{i-1} \ 0 \ \alpha_{i+1} \ \cdots \alpha_n]^{\tr}.\]
+In order to analyze the vectors $\vv$ from player $i$'s perspective and to devise an effective strategy, we will partition the set $V$ into an appropriate disjoint union of subsets.  
+ 
+To provide a different way to look at players, we will use a subspace of $V$. Let $W$ be a subspace of $V$ that has a basis of $k$ vectors. The elements of $W$ are the linear combinations of $k$ basis vectors, and each basis vector in a linear combination has 2 possibilities for its weight (from $\mathbb{F}$). Thus, $W$ contains exactly $2^k = n+1$ vectors.  We can then use the $n=2^k-1$ nonzero vectors in $W$ to represent our players. Each distribution of hats can be seen as a linear combination of the vectors in $W$. Let $\vw_1$, $\vw_2$, $\ldots$, $\vw_{2^k-1}$ be the nonzero vectors in $W$. We then define a function $\phi : V \to W$ as 
+\[\phi([\alpha_1 \ \alpha_2 \ \cdots \ \alpha_n]^{\tr}) = \sum_{i=1}^{n} \alpha_i \vw_i\]
+that identifies a distribution of hats with a vector in $W$. The subspace that we need to devise our strategy is what is called a Hamming code. 
+
+\begin{pactivity} \label{act:hat_2}  Let 
+\[H = \left\{[\alpha_1 \ \alpha_2 \ \cdots \ \alpha_n]^{\tr} \in V : \sum_{i=1}^{n} \alpha_i \vw_i = \vzero\right\}.\]
+Show that $H$ is a subspace of $V$. (The subspace $H$ is called the $\left(2^k-1, 2^k-k-1\right)$ \emph{Hamming code}\index{Hamming code} (where the first component is the number of elements in a basis for $V$ and the second the number of elements in a basis for $H$). Hamming codes are examples of linear codes -- those codes that are subspaces of the larger vector space.) 
+
+
+\end{pactivity}
+
+
+
+
+Now for each $i$ between 0 and $n$ we define $H_i = \ve_i + H$ as 
+\[H_i = \ve_i + H = \{\ve_i + \vh : \vh \in H\},\]
+where we let $\ve_0 = \vzero$. The sets $H_i$ are called \emph{cosets} of $H$. 
+
+\begin{pactivity} \label{act:hat_3} To complete our strategy for the hat puzzle, we need to know some additional information about the sets $H_i$. 
+	\ba
+	\item Show that the sets $H_i$ are disjoint. That is, show that $H_i \cap H_j = \emptyset$ if $i \neq j$. (Hint: If $\vv \in H_i$ and $\vv \in H_j$, what can we say about $\ve_i - \ve_j$?) 
+
+
+	\item Since $H_i \subseteq V$ for each $i$, it follows that $\bigcup_{i=0}^n H_i \subseteq V$. Now we show that $V = \bigcup_{i=0}^n H_i$ by demonstrating that $\bigcup_{i=0}^n H_i$ has exactly the same number of elements as $V$. We will need one fact for our argument. We will see in a later section that $H$ has a basis of $n-k$ elements, so the number of elements in $H$ is $2^{n-k}$. 
+
+		\begin{enumerate}[i.]
+		\item Since the sets $H_i$ are disjoint, the number of elements in $\bigcup_{i=1}^n H_i$ is equal to the sum of the number of elements in each $H_i$. Show that each $H_i$ has the same number of elements as $H$. 
+
+
+		\item Now use the fact that the number of elements in $\bigcup_{i=0}^n H_i$ is equal to the sum of the number of elements in each $H_i$ to argue that $V = \bigcup_{i=0}^n H_i$.
+	
+		\end{enumerate}
+
+	\ea
+\end{pactivity}
+
+
+The useful idea from Project Activity \ref{act:hat_3} is that any hat distribution in $V$ is in exactly one of the sets $H_i$.  Recall that a hat distribution $\vv = [\alpha_1 \ \alpha_2 \ \cdots \ \alpha_n]^{\tr}$ in $V$ can be written from player $i$'s perspective as  
+\[\vv = \vv_i + \beta_i \ve_i,\]
+where $\vv_i =  [\alpha_1 \ \alpha_2 \ \cdots \ \alpha_{i-1} \ 0 \ \alpha_{i+1} \ \cdots \ \cdots \ \alpha_n]^{\tr}$. Our strategy for the hat game can now be revealed.
+\begin{itemize}
+ \item If $\vv_i + \beta_i \ve_i$ is not in $H$ for either choice of $\beta_i$, then player $i$ should pass.
+ \item If $\vv_i + \beta_i \ve_i$ is in $H$, then player $i$ guesses $1 + \beta_i$. 
+ \end{itemize}
+ 
+\begin{pactivity} \label{act:hat_4} Let us analyze this strategy.
+	\ba
+	\item Explain why every player guesses wrong if $\vv$ is in $H$. 
+
+
+	\item Now we see determine that our strategy is a winning strategy for all hat distributions $\vv$ that are not in $H$.  First we need to know that these two options are the only ones. That is, show that it is not possible for $\vv_i + \beta_i \ve_i$ to be in $H$ for both choices of $\beta_i$. 
+		
+	\item Now we want to demonstrate that this is a winning strategy if $\vv \notin H$. That is, at least one player guesses a correct hat color and no one else guesses incorrectly. So assume $\vv \notin H$. 
+		\begin{enumerate}[i.]
+		\item We know that $\vv \in H_i$ for some unique choice of $i$, so let $\vv = \ve_i + h$ for some $h \in H$. Explain why player $i$ can correctly choose color $1+ \alpha_i$. 
+		
+	\item Finally, we need to argue that every player except player $i$ must pass. So consider player $j$, with $j \neq i$. Recall that 
+\[\vv = \vv_j + \alpha_j \ve_j.\]
+Analyze our strategy and the conditions under which player $j$ does not pass. Show that this leads to a contradiction. 
+
+
+		\end{enumerate}
+	\ea
+\end{pactivity}
+
+Project Activity \ref{act:hat_4} completes our analysis of this strategy and shows that our strategy results in a win with probability 
+\[1 - \frac{|H|}{|V|} = 1 - \frac{2^{2^k-k-1}}{2^{2^k-1}} = 1 - 2^{-k}.\]
+
+
+
+	

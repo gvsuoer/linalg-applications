@@ -1,0 +1,881 @@
+\achapter{8}{Matrix Operations} \label{sec:matrix_operations}
+
+\vspace*{-17 pt}
+\framebox{
+\parbox{\dimexpr\linewidth-3\fboxsep-3\fboxrule}
+{\begin{fqs}
+\item Under what conditions can we add two matrices and how is the matrix sum defined? 
+\item Under what conditions can we multiply a matrix by a scalar and how is a scalar multiple of a matrix defined? 
+\item Under what conditions can we multiply two matrices and how is the matrix product defined?
+\item What properties do matrix addition, scalar multiplication of matrices and matrix multiplication satisfy? Are these properties similar to properties that are satisfied by vector operations? 
+\item What are two properties that make matrix multiplication fundamentally different than our standard product of real numbers? 
+\item What is the interpretation of matrix multiplication from the perspective of linear transformations?
+\item How is the transpose of a matrix defined? 
+\end{fqs}}}% \hspace*{3 pt}}
+
+\vspace*{13 pt}
+
+\csection{Application: Algorithms for Matrix Multiplication}
+
+Matrix multiplication is widely used in applications ranging from scientific computing and pattern recognition to counting paths in graphs. As a consequence, much work is being done in developing efficient algorithms for matrix multiplication. 
+
+We will see that a matrix product can be calculated through the row-column method. Recall that the product of two $2 \times 2$ matrices $A = \left[ \begin{array}{cc} a_{11}&a_{12}\\a_{21}&a_{22} \end{array} \right]$ and $B = \left[ \begin{array}{cc} b_{11}&b_{12}\\b_{21}&b_{22} \end{array} \right]$ is given by 
+\[AB = \left[ \begin{array}{cc} a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22} \\ a_{21}b_{11}+a_{22}b_{21} & a_{21}b_{12}+a_{22}b_{22} \end{array} \right],\]
+This product involves eight scalar multiplications and some scalar additions. As we will see, multiplication is more computationally expensive than addition, so we will focus on multiplication. In 1969, a German mathematician named Volker Strassen showed\footnote{Strassen, Volker, Gaussian Elimination is not Optimal, Number. Math. 13, p. 354-356, 1969} that the product of two $2 \times 2$ matrices can be calculated using only seven multiplications. While this is not much of an improvement, the Strassen algorithm can be applied to larger matrices, using matrix partitions (which allow for parallel computation), and its publication led to additional research on faster algorithms for matrix multiplication. More details are provided later in this section. 
+
+
+
+\csection{Introduction}
+
+A vector is a list of numbers in a specified order and a matrix is an ordered array of objects. In fact, a vector can be thought of as a matrix of size $n \times 1$. Vectors and matrices are so alike in this way that it would seem natural that we can define operations on matrices just as we did with vectors. 
+
+Recall that a matrix is made of rows and columns -- the entries reading from left to right form the \emph{rows} of the matrix and the entries reading from top to bottom form the \emph{columns}. The number of rows and columns of a matrix is called the \emph{size} of the matrix, so an $m \times n$ matrix has $m$ rows and $n$ columns. If we label the entry in the $i$th row and $j$th column of a matrix $A$ as $a_{ij}$, then we write $A = [a_{ij}]$. 
+
+We can generalize the operations of addition and scalar multiplication on vectors to matrices similarly. Given two matrices $A=[a_{ij}]$ and $B=[b_{ij}]$ of the same size, we define the sum $A+B$ by
+\[ A+B= [ a_{ij}+b_{ij} ] \]
+when the sizes of the matrices $A$ and $B$ match. In other words, for matrices of the same size the matrix addition is defined by adding corresponding entries in the matrices. For example,
+\[ \left[ \begin{array}{rc} 1 & 2 \\ -2 & 3  \end{array} \right] + \left[ \begin{array}{cc} 1 & 3 \\ 2 & 4  \end{array} \right] = \left[ \begin{array}{cc} 2 & 5 \\ 0 & 7  \end{array} \right]  \,.\]
+
+We define the scalar multiple of a matrix $A=[a_{ij}]$ by scalar $c$ to be the matrix $cA$ defined by
+\[ cA= [ ca_{ij}] \, .\index{matrix!scalar multiple}\]
+This means that we multiply each entry of the matrix $A$ by the scalar $c$. As an example, 
+\[ 3 \left[ \begin{array}{rc} 1 & 2 \\ -2 & 3  \end{array} \right] = \left[ \begin{array}{rc} 3 & 6 \\ -6 & 9  \end{array} \right] \,.\]
+
+Even though we did not have a multiplication operation on vectors, we had a matrix-vector product, which is a special case of a matrix-matrix product since a vector is a matrix with one column. However, generalizing the matrix-vector product to a matrix-matrix product is not immediate as it is not immediately clear what we can do with the other columns. We will consider this question in this section.
+
+Note that all of the matrix operations can be performed on a calculator. After entering each matrix in the calculator, just use $+$, $-$ and $\times$ operations to find the result of the matrix operation. (Just for fun, try using $\div$ with matrices to see if it will work.)\\
+
+\begin{pa} \label{pa:2_a} ~
+\be
+\item Pick three different varying sizes of pairs of $A, B$ matrices which can be added. For each pair:
+	\ba
+	\item Find the matrices $A+B$ and $B+A$.
+
+	\item How are the two matrices $A+B$ and $B+A$ related? What does this tell us about matrix addition?
+
+	\ea
+
+
+\item Let $A = \left[ \begin{array}{rc} 1 & 0 \\ -2 & 8  \end{array} \right]$,  $B = \left[ \begin{array}{cc} 1 & 1 \\ 3 & 4  \end{array} \right]$, and  $C = \left[ \begin{array}{cr} 0 & -5 \\ 1 & 6  \end{array} \right]$. Determine the entries of the matrix $A + 2B - 7C$.
+
+
+\item \label{p:matrix_multiplication} Now we turn to multiplication of matrices. Our first goal is to find out what conditions we need on the sizes of matrices $A$ and $B$ if the matrix-matrix product $AB$ is defined and what the size of the resulting product matrix is. We know the condition and the size of the result in the special case of $B$ being a vector, i.e., a matrix with one column. So our conjectures for the general case should match what we know in the special case.
+
+In each part of this problem, use any appropriate tool (e.g., your calculator, Maple, Mathematica, Wolfram$|$Alpha) to determine the matrix product $AB$, if it exists. If you obtain a product, write it down and explain how its size is related to the sizes of $A$ and $B$. If you receive an error, write down the error and guess why the error occurred and/or what it means. 
+	\ba
+	\item $A = \left[ \begin{array}{ccc} 1&2&0 \\ 0&1&1 \end{array} \right]  \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{crc} 3&5&0\\0&-2&1 \end{array} \right]$
+
+
+
+	\item $A = \left[ \begin{array}{ccc} 1&2&0 \\ 0&1&1 \end{array} \right]  \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{crc} 3&0\\5&-2 \\ 0&1 \end{array} \right]$
+
+
+ \item $A = \left[ \begin{array}{cc} 1 & 2 \\ 3 & 4\end{array} \right]  \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{ccc}
+1 & 1 & 1 \\1 & 0 & 1 \\ 0 & 2 & 0\end{array} \right]$
+
+ \item $A = \left[ \begin{array}{cc} 1 & 2 \\ 3 & 4 \\ 5 & 6 \\ 7 & 8 \end{array} \right]  \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{rcc} 1 & 2 & 3 \\ -1 & 1 & 1\end{array} \right]$
+
+  \item Make a guess for the condition on the sizes of two matrices $A, B$ for which the product $AB$ is defined. How is the size of the product matrix related to the sizes of $A$ and $B$?
+
+
+	\ea
+
+\item The final matrix products, when defined, in problem \ref{p:matrix_multiplication} might seem unrelated to the individual matrices at first. In this problem, we will uncover this relationship using our knowledge of the matrix-vector product.
+
+Let $A = \left[ \begin{array}{rr} 3 & -1 \\ -2 & 3 \end{array} \right]$ and $B = \left[ \begin{array}{ccc} 0 & 2 & 1 \\ 1 & 3 & 2\end{array} \right]$. 
+
+\ba
+\item Calculate $AB$ using any tool.
+
+\item Using the matrix-vector product, calculate $A \vx$ where $\vx$ is the first column (i.e., calculate $A\begin{bmatrix} 0 \\ 1\end{bmatrix}$), and then the second column of $B$ (i.e., calculate $A\begin{bmatrix} 2 \\ 3\end{bmatrix}$), and then the third column of $B$ (i.e., calculate $A\begin{bmatrix} 1 \\ 2\end{bmatrix}$). Do you notice these output vectors within $AB$?
+
+\item Describe as best you can a definition of $AB$ using the matrix-vector product.
+
+\ea
+\ee
+
+\end{pa}
+
+
+
+\csection{Properties of Matrix Addition and Multiplication by Scalars}
+
+Just as we were able to define an algebra of vectors with addition and multiplication by scalars, we can define an algebra of matrices. We will see that the properties of these operations on matrices are immediate generalizations of the properties of the operations on vectors. We will then see how the matrix product arises through the connection of matrices to linear transformations. Finally, we define the transpose of a matrix. The transpose of a matrix will be useful in applications such as graph theory and least-squares fitting of curves, as well as in advanced topics such as inner product spaces and the dual space of a vector space.
+
+We learned in Preview Activity \ref{pa:2_a} that we can add two matrices of the same size together by adding corresponding entries and we can multiply any matrix by a scalar by multiplying each entry of the matrix by that scalar. More generally, if $A = [a_{ij}]$ and $B = [b_{ij}]$ are $m \times n$ matrices and $c$ is any scalar, then  
+\[A + B = [a_{ij}+b_{ij}] \ \ \text{ and } \ \ cA = [ca_{ij}].\index{matrix!sum}\]
+
+As we have done each time we have introduced a new operation, we ask what properties the operation has. For example, you determined in Preview Activity \ref{pa:2_a} that addition of matrices is a commutative operation. More specifically, for every two $m\times n$ matrices $A$ and $B$, $A+B=B+A$. We can use similar arguments to verify the following properties of matrix addition and multiplication by scalars. Notice that these properties are very similar to the properties of addition and scalar multiplication of vectors we discussed earlier. This should come as no surprise since the $n$-dimensional vectors are $n\times 1$ matrices. In a strange twist, we will see that matrices themselves can be considered as vectors when we discuss vector spaces in a later section.
+
+
+
+\begin{theorem} \label{thm:matrix_sum_properties} Let $A$, $B$, and $C$ be $m \times n$ matrices and let $a$ and $b$ be scalars. Then
+\begin{enumerate}
+\item $A+B = B+A$ (this property tells us that matrix addition is \emph{commutative})
+\item $(A+B) + C = A + (B+C)$ (this property tells us that matrix addition is \emph{associative})
+\item The $m \times n$ matrix $0$ whose entries are all 0 has the property that $A + 0 = A$. The matrix $0$ is called the \textbf{zero matrix} (It is generally clear from the context what the size of the 0 matrix is.).
+\item  The scalar multiple $(-1)A$ of the matrix $A$ has the property that $(-1)A + A = 0$. The matrix $(-1)A = -A$ is called the \textbf{additive inverse} of the matrix $A$.
+\item $(a+b) A = aA + bA$ (this property tells us that \emph{scalar multiplication of matrices distributes over scalar addition})
+\item $a(A+B) = aA + aB$ (this property tells us that \emph{scalar multiplication of matrices distributes over matrix addition})
+\item $(ab) A = a(bA)$
+\item $1A=A$.
+\end{enumerate}
+\end{theorem}
+
+
+
+Later on, we will see that these properties define the set of all $m \times n$ matrices as a \emph{vector space}. These properties just say that, regarding addition and multiplication by scalars, we can manipulate matrices just as we do real numbers. Note, however, we have not yet defined an operation of multiplication on matrices. That is the topic for the next section. 
+
+\csection{A Matrix Product}
+
+As we saw in Preview Activity \ref{pa:2_a}, a matrix-matrix product can be found in a way which makes use of and also generalizes the matrix-vector product.
+
+
+
+\begin{definition} The \textbf{matrix product}\index{matrix!product} of a $k \times m$ matrix $A$ and an $m \times n$ matrix $B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]$ with columns $\vb_1$, $\vb_2$, $\ldots$, $\vb_n$ is the $k \times n$ matrix
+\[[A\vb_1 \ A\vb_2 \ \cdots \ A\vb_n].\]
+\end{definition}
+
+
+
+We now consider the motivation behind this definition by thinking about the matrix transformations corresponding to each of the matrices $A, B$ and $AB$.
+Recall that left multiplication by an $m \times n$ matrix $B$ defines a transformation $T$ from $\R^n$ to $\R^m$ by $T(\vx)=B\vx$. The domain of $T$ is $\R^n$ because the number of components of $\vx$ have to match the number of entries in each of row of $B$ in order for the matrix-vector product $B\vx$ to be defined. Similarly, a $k \times m$ matrix $A$ defines a transformation $A$ from $\R^m$ to $\R^k$. Since transformations are functions, we can compose them as long as the output vectors of the inside transformation lie in the domain of the outside transformation. Therefore if $T$ is the inside transformation and $S$ is the outside transformation, the composition $S\circ T$ is defined. So a natural question to ask is if we are given
+\begin{itemize}
+\item a transformation $T$ from $\R^n$ to $\R^m$ where $T(\vx) = B \vx$ for an $m \times n$ matrix $B$ and
+\item a transformation $S$ from $\R^m$ to $\R^k$ with $S(\vy) = A \vy$ for some $k \times m$ matrix $A$,
+\end{itemize}
+is there a matrix that represents the transformation $S \circ T$ defined by $(S\circ T)(\vx)=S(T(\vx))$? We investigate this question in the next activity in the special case of a $2\times 3$ matrix $A$ and a $3\times 2$ matrix $B$.
+
+\begin{activity} \label{act:A2.1_1} In this activity, we look for the meaning of the matrix product from a transformation perspective. Let $S$ and $T$ be matrix transformations defined by 
+\[S(\vy) = A \vy \ \ \ \text{ and } \ \ \ T(\vx) = B \vx,\]
+where 
+\[A = \left[ \begin{array}{ccc} 1&2&0 \\ 0&1&1 \end{array} \right]  \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{cr} 3&0\\5&-2 \\ 0&1 \end{array} \right].\]
+	\ba
+	\item What are the domains and codomains of $S$ and $T$? Why is the composite transformation $S \circ T$ defined? What is the domain of $S\circ T$? What is the codomain of $S\circ T$? (Recall that $S \circ T$ is defined by $(S \circ T)(\vx) = S(T(\vx))$, i.e., we substitute the output $T(\vx)$ as the input into the transformation $S$.)
+
+
+
+	\item Let $\vx = \left[ \begin{array}{c} x \\ y \end{array} \right]$. Determine the components of $T(\vx)$.
+	
+
+
+	\item Find the components of $S\circ T(\vx)=S(T(\vx))$. 
+	
+
+
+	\item Find a matrix $C$ so that $S(T(\vx)) = C\vx$. 
+	
+
+
+	\item Use the definition of composition of transformations and the definitions of the $S$ and $T$ transformations to explain why it is reasonable to define $AB$ to be the matrix $C$. Does the matrix $C$ agree with the 
+\[AB = \left[ \begin{array}{cr} 13 & -4 \\ 5 & -1 \end{array} \right]\]
+you found in Preview Activity \ref{pa:2_a} using technology?
+	
+
+
+	\ea
+\end{activity}
+
+
+
+We now consider this result in the general case of a $k\times m$ matrix $A$ and an $m \times n$ matrix $B$, where $A$ and $B$ define matrix transformations $S$ and $T$, respectively. In other words, $S$ and $T$ are matrix transformations defined by $S(\vx) = A\vx$ and $T(\vx) = B\vx$. The domain of $S$ is $\R^m$ and the codomain is $\R^k$. The domain of $T$ is $\R^n$ and the codomain is $\R^m$. The composition $S\circ T$ is defined because the output vectors of $T$ are in $\R^m$ and they lie in the domain of $S$. The domain of $S\circ T$ is the same as the domain of $T$ since the input vectors first go through the $T$ transformation. The codomain of $S\circ T$ is the same as the codomain of $S$ since the final output vectors are produced by applying the $S$ transformation.
+
+Let us see how we can obtain the matrix corresponding to the transformation $S\circ T$. Let $B = \left[ \vb_1 \ \vb_2  \  \cdots \ \vb_n  \right]$, where $\vb_j$ is the $j$th column of $B$, and let $\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right]$. Recall that the matrix vector product $B\vx$ is the linear combination of the columns of $B$ with the corresponding weights from $\vx$. So
+\[T(\vx) = B\vx = x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n.\]
+Note that each of the $\vb_j$ vectors are in $\R^m$ since $B$ is an $m\times n$ matrix. Therefore, each of these vectors can be multiplied by matrix $A$ and we can evaluate $S(B\vx)$. Therefore, $S\circ T$ is defined and 
+\begin{equation} 
+(S \circ T)(\vx) = S(T(\vx))= A(B\vx) = A\left( x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n\right). \label{eq:2_a_1}
+\end{equation}
+The properties of matrix-vector products show that
+\begin{equation} 
+A\left( x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n\right) = x_1 A\vb_1 + x_2 A\vb_2 + \cdots + x_n A\vb_n. \label{eq:2_a_2}
+\end{equation}
+This expression is a linear combination of $A\vb_i$'s with $x_i$'s being the weights. Therefore, if we let $C$ be the matrix with columns $A \vb_1$, $A\vb_2$, $\ldots$, $A\vb_n$, that is
+\[C = [A \vb_1 \ A\vb_2 \ \cdots \ A\vb_n],\]
+then 
+\begin{equation}
+x_1 A\vb_1 + x_2 A\vb_2 + \cdots + x_n A\vb_n = C \vx \label{eq:2_a_3}
+\end{equation}
+by definition of the matrix-vector product. Combining equations (\ref{eq:2_a_1}), (\ref{eq:2_a_2}), and (\ref{eq:2_a_3}) shows that
+\[(S \circ T)(\vx) = C \vx\]
+where $C = [A \vb_1 \ A\vb_2 \ \cdots \ A\vb_n]$. 
+
+Also note that since $T(\vx)=B\vx$ and $S(\vy)=A\vy$, we find 
+\begin{equation} 
+(S\circ T)(\vx)= S(T(\vx))= S(B\vx)=A(B(\vx)) \,.  \label{eq:2_a_4}
+\end{equation}
+Since the matrix representing the transformation $S\circ T$ is the matrix 
+\[[A \vb_1 \ A\vb_2 \ \cdots \ A\vb_n]\]
+where $\vb_1$, $\vb_2$, $\ldots$, $\vb_n$ are the columns of the matrix $B$, it is natural to define $AB$ to be this matrix in light of equation \eqref{eq:2_a_4}.
+
+
+
+Matrix multiplication has some properties that are unfamiliar to us as the next activity illustrates.
+
+
+
+\begin{activity} \label{act:A2.1_2} Let $A~=~\left[ \begin{array}{rr} 3 & -1 \\ -2 & 6 \end{array} \right]$, $B~=~\left[ \begin{array}{cc} 0 & 2 \\ 1 & 3  \end{array} \right]$, $C~=~\left[ \begin{array}{cc} 1 & 1 \\ 1 & 1 \end{array} \right]$, $D~=~\left[ \begin{array}{rr} 3 & -3 \\ -3 & 3 \end{array} \right]$ and $E~=~\left[ \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array} \right]$. 
+	\ba
+	\item Find the indicated products (by hand or using a calculator).\\
+		$AB$ \hspace{0.75cm} $BA$ \hspace{0.75cm} $DC$ \hspace{0.75cm} $AC$ \hspace{0.75cm} $BC$ \hspace{0.75cm} $AE$ \hspace{0.75cm} $EB$
+
+   
+
+   
+		
+	\item Is matrix multiplication commutative? Explain.
+	
+
+
+\item Is there an identity element for matrix multiplication? In other words, is there a matrix $I$ for which $AI=IA=A$ for any matrix $A$? Explain.
+
+
+    
+	\item If $a$ and $b$ are real numbers with $ab=0$, then we know that either $a=0$ or $b=0$. Is this same property true with matrix multiplication? Explain. 
+	
+
+
+	\item If $a$, $b$, and $c$ are real numbers with $c \neq 0$ and $ac = bc$, we know that $a=b$. Is this same property true with matrix multiplication?  Explain.
+	
+	
+	
+	
+    \ea
+\end{activity}
+
+
+
+As we saw in Activity \ref{act:A2.1_2}, there are matrices $A, B$ for which $AB\neq BA$. On the other hand, there are matrices for which $AB=BA$. For example, this equality will always hold for a square matrix $A$ and if $B$ is the identity matrix of the same size. It also holds if $A=B$. If the equality $AB=BA$ holds, we say that matrices $A$ and $B$ \emph{commute}. So the identity matrix commutes with all square matrices of the same size and every matrix $A$ commutes with $A^k$ for any power $k$.
+
+
+
+There is an alternative method of calculating a matrix product that we will often use that we illustrate in the next activity. This alternate version depends on the product of a row matrix with a vector. Suppose $A = [a_1 \ a_2 \ \cdots \ a_n]$ is a $1 \times n$ matrix and $\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right]$ is an $n \times 1$ vector. Then the product $A \vx$ is the $1 \times 1$ vector 
+\[[a_1 \ a_2 \ \cdots \ a_n]\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right] = [a_1x_1+a_2x_2 + \cdots + a_nx_n].\]
+In this situation, we usually identify the $1 \times 1$ matrix with its scalar entry and write 
+\begin{equation} \label{eq:2_a_5}
+[a_1 \ a_2 \ \cdots \ a_n] \cdot \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right] = a_1x_1+a_2x_2 + \cdots + a_nx_n.
+\end{equation}
+The product $\cdot$ in (\ref{eq:2_a_5}) is called the \emph{scalar} or \emph{dot}\index{dot product} product of $[a_1 \ a_2 \ \cdots \ a_n]$ with $\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right]$. 
+
+
+
+\begin{activity} \label{act:A2.1_3} Let $A = \left[ \begin{array}{crr} 1&-1&2 \\ 3&0&-4 \\ 2&-5&1 \end{array} \right]$ and $B = \left[ \begin{array}{cr} 4&-2 \\ 6&0 \\ 1&3 \end{array} \right]$. 
+
+Let $\va_i$ be the $i$th row of $A$ and $\vb_j$ the $j$th column of $B$. For example, $\va_1=[ \, 1 \; -1 \; 2 \, ]$ and $\vb_2 = \left[ \begin{array}{r} -2 \\ 0 \\ 3 \end{array} \right]$. 
+
+Calculate the entries of the matrix $C$, where 
+\[C = \left[ \begin{array}{cc} \va_1 \cdot \vb_1 & \va_1 \cdot \vb_2 \\ \va_2 \cdot \vb_1 & \va_2 \cdot \vb_2 \\ \va_3 \cdot \vb_1 & \va_3 \cdot \vb_2 \end{array} \right]\,, \]
+where $\va_i \cdot \vb_j$ refers to the scalar product of row $i$ of $A$ with column $j$ of $B$.\footnote{Recall from Exercise \ref{ex:1_e_scalar_product} of Section \ref{sec:matrix_vector} that the scalar product $\vu \cdot \vv$ of a $1 \times n$ matrix $\vu = [u_1 \ u_2 \ \ldots \ u_n]$ and an $n \times 1$ vector $\vv=\left[ \begin{array}{c} v_1\\ v_2\\ \vdots \\ v_n \end{array} \right]$ is $\vu \cdot \vv = u_1v_1 + u_2v_2 + u_3v_3 + \cdots + u_nv_n$.} Compare your result with the result of $AB$ calculated via the product of $A$ with the columns of $B$.
+
+
+
+\end{activity}
+
+
+
+
+
+Activity \ref{act:A2.1_3} shows that these is an alternate way to calculate a matrix product. To see how this works in general, let $A = [a_{ij}]$ be a $k \times m$ matrix and $B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]$ an $m \times n$ matrix. We know that
+\[AB = [A\vb_1 \ A\vb_2 \ \cdots \ A\vb_n].\]
+Now let $\vr_1$, $\vr_2$, $\ldots$, $\vr_k$ be the rows of $A$ so that $A = \left[ \begin{array}{c} \vr_1 \\ \vr_2 \\ \vdots \\ \vr_k \end{array} \right]$. First we argue that if $\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_m \end{array} \right]$, then 
+\[A \vx = \left[ \begin{array}{c} \vr_1 \cdot \vx \\ \vr_2 \cdot \vx \\ \vdots \\ \vr_k \cdot \vx \end{array} \right].\]
+This is the \emph{scalar product} (or \emph{dot product}) definition of the matrix-vector product.
+
+To show that this definition gives the same result as the linear combination definition of matrix-vector product, we first let $A = [\vc_1 \ \vc_2 \ \cdots \ \vc_m]$, where $\vc_1$, $\vc_2$, $\ldots$, $\vc_m$ are the columns of $A$. By our linear combination definition of the matrix-vector product, we obtain 
+\begin{align*}
+A \vx &= x_1\vc_1 + x_2 \vc_2 + \cdots + x_m \vc_m \\
+	&= x_1 \left[ \begin{array}{c} a_{11} \\ a_{21} \\ \vdots \\ a_{k1} \end{array} \right] + x_2 \left[ \begin{array}{c} a_{12} \\ a_{22} \\ \vdots \\ a_{k2} \end{array} \right] + \cdots + x_m \left[ \begin{array}{c} a_{1m} \\ a_{2m} \\ \vdots \\ a_{km} \end{array} \right] \\
+	&= \left[ \begin{array}{c} a_{11}x_1+a_{12}x_2+ \cdots + a_{1m}x_m \\ a_{21}x_1+a_{22}x_2+ \cdots + a_{2m}x_m  \\ \vdots \\ a_{k1}x_1+a_{k2}x_2+ \cdots + a_{km}x_m \end{array} \right] \\
+	&= \left[ \begin{array}{c} \vr_1 \cdot \vx \\ \vr_2 \cdot \vx \\ \vdots \\ \vr_k \cdot \vx \end{array} \right].
+\end{align*}
+Therefore, the above work shows that both linear combination and scalar product definitions give the same matrix-vector product.
+
+Applying this to the matrix product $AB$ defined in terms of the matrix-vector product, we see that 
+\[A \vb_j = \left[ \begin{array}{c} \vr_1 \cdot \vb_j \\ \vr_2 \cdot \vb_j \\ \vdots \\ \vr_k \cdot \vb_j \end{array} \right].\]
+So the $i,j$th entry of the matrix product $AB$ is found by taking the scalar product of the $i$th row of $A$ with the $j$th column of $B$. In other words,
+\[(AB)_{ij} = \vr_i \cdot \vb_j\]
+where $\vr_i$ is the $i$th row of $A$ and $\vb_j$ is the $j$th column of $B$.
+
+\subsection*{Properties of Matrix Multiplication}
+
+Activity \ref{act:A2.1_2} shows that we must be very careful not to assume that matrix multiplication behaves like multiplication of real numbers. However, matrix multiplication does satisfy some familiar properties. For example, we now have an addition and multiplication of matrices under certain conditions, so we might ask if matrix multiplication distributes over matrix addition. To answer this question we take two \emph{arbitrary} $k \times m$ matrices $A$ and $B$ and an \emph{arbitrary} $m \times n$ matrix $C =  [\vc_1 \ \vc_2 \ \cdots \ \vc_n]$. Then
+\begin{align*}
+(A+B)C &= [(A+B)\vc_1 \ (A+B)\vc_2 \ \cdots \ (A+B)\vc_n] \\
+    &= [A\vc_1+B\vc_1 \ A\vc_2+B\vc_2 \ \cdots \ A\vc_n+B\vc_n] \\
+    &= [A\vc_1 \ A\vc_2 \ \cdots \ A\vc_n] + [B\vc_1 \ B\vc_2 \ \cdots \ B\vc_n] \\
+    &= AC + BC.
+\end{align*}
+Similar arguments can be used to show the following properties of matrix multiplication.
+
+
+
+\begin{theorem} \label{thm:matrix_product_properties}  Let $A$, $B$, and $C$ be matrices of the appropriate sizes for all sums and products to be defined and let $a$ be a scalar. Then
+\begin{enumerate}
+\item $(AB)C = A(BC)$  (this property tells us that matrix multiplication is \emph{associative})
+\item $(A+B)C = AC + BC$ (this property tells us that matrix multiplication on the right \emph{distributes over matrix addition})
+\item $A(B+C) = AB + AC$ (this property tells us that matrix multiplication on the left \emph{distributes over matrix addition})
+\item There is a square matrix $I_n$ with the property that $AI_n = A$ or $I_nA = A$ for whichever product is defined. 
+\item $a(AB) = (aA)B = A(aB)$
+\end{enumerate}
+\end{theorem}
+
+
+
+We verified the second part of this theorem and will assume that all of the properties of this theorem hold. The matrix $I_n$ introduced in Theorem \ref{thm:matrix_product_properties} is called the \emph{(multiplicative) identity matrix}. We usually omit the word multiplicative and refer to the $I_n$ simply as the identity matrix. This does not cause any confusion since we refer to the additive identity matrix as simply the zero matrix.
+
+
+ 
+\begin{definition} Let $n$ be a positive integer. The $n \times n$ \textbf{identity matrix}\index{identity matrix} $I_n$ is the matrix $I_n = [a_{ij}]$, where $a_{ii} = 1$ for each $i$ and $a_{ij} = 0$ if $i \neq j$.
+\end{definition}
+
+
+
+We also write the matrix $I_n$ as
+\[I_n = \left[ \begin{array}{ccccccc} 1 & 0 & 0 & 0 & \cdots & 0 & 0 \\ 0 & 1 & 0 & 0 & \cdots & 0 & 0 \\ 0 & 0 & 1 & 0 & \cdots & 0 & 0 \\ \vdots & & & & \ddots & & \vdots \\ 0 & 0 & 0 & 0 & \cdots & 1 & 0 \\ 0 & 0& 0 & 0 & \cdots & 0 & 1 \end{array} \right].\]
+
+The matrix $I_n$ has the property that for any $n \times n$ matrix $A$,
+\[AI_n = I_n A = A\,.\]
+so $I_n$ is a multiplicative identity in the set of all $n \times n$ matrices. More generally, for an $m\times n$ matrix $A$,
+\[ AI_n = I_mA = A \,.\]
+
+\csection{The Transpose of a Matrix}
+
+One additional operation on matrices is the transpose. The transpose of a matrix occurs in many useful formulas in linear algebra and in applications of linear algebra. 
+
+
+
+\begin{definition} The \textbf{transpose}\index{matrix!transpose} of an $m \times n$ matrix $A = [a_{ij}]$ is the $n \times m$ matrix
+$A^{\tr}$ whose $i,j$th entry is $a_{ji}$. 
+\end{definition}
+
+
+
+Written out, the transpose of the $m \times n$ matrix 
+\[A = \left[ \begin{array}{ccccc}
+a_{11} & a_{12} & \cdots    & a_{1n-1} & a_{1n} \\
+a_{21} & a_{22} & \cdots    & a_{2n-1} & a_{2n} \\
+ \vdots &       & \ddots    &           &\vdots \\
+a_{m1} & a_{m2} & \cdots    & a_{mn-1} & a_{mn}
+\end{array} \right]\]
+is the $n \times m$ matrix
+\[A^{\tr} = \left[ \begin{array}{ccccc}
+a_{11} & a_{21} & \cdots & a_{m-11} & a_{m1} \\
+a_{12} & a_{22} & \cdots & a_{m-12} & a_{m2} \\
+ \vdots &       & \ddots &          &\vdots \\
+a_{1n} & a_{2n} & \cdots & a_{m-1n} & a_{mn}
+\end{array} \right].\]
+In other words, the transpose of a matrix $A$ is the matrix $A^{\tr}$ whose rows are the columns of $A$. Alternatively, the transpose of $A$ is the matrix $A^{\tr}$ whose columns are the rows of $A$. We can also view the transpose of $A$ as the reflection of $A$ across its main diagonal, where the \emph{diagonal}\index{diagonal of a matrix} of a matrix $A = [a_{ij}]$ consists of the entries of the form $[a_{ii}]$.   
+
+
+
+\begin{activity} \label{act:A2.1_4} ~
+    \ba
+    \item Find the transpose of each of the indicated matrices.
+
+$\!\!\!\!\!\!\! \left[ \begin{array}{cccc}
+1 & 2   & 3   & 4   \\
+5 & 6  & 7   & 8
+\end{array} \right]$ \hspace{1cm} $\left[ \begin{array}{r}
+1 \\ -1  \\ 0 \end{array} \right]$ \hspace{1cm} $\left[ \begin{array}{cr}
+1 &2 \\ 4 & -3 \\ 0 &-1 \end{array} \right]$ 
+
+    
+
+\item Find the transpose of the new matrix for each part above. What can you conjecture based on your results?
+
+\item There are certain special types of matrices that are given names. 
+
+\begin{definition} \label{def:special_matrices} Let $A$ be a square matrix whose $ij$th entry is $a_{ij}$. 
+	\begin{enumerate}
+	\item The matrix $A$ is a \textbf{diagonal matrix}\index{diagonal matrix} if $a_{ij} = 0$ whenever $i \neq j$.
+	\item The matrix $A$ is a \textbf{symmetric}\index{symmetric matrix} matrix if $A^{\tr} = A$.
+	\item The matrix $A$ is an \textbf{upper triangular}\index{upper triangular matrix} if $a_{ij} = 0$ whenever $i > j$.
+	\item The matrix $A$ is a \textbf{lower triangular}\index{lower triangular matrix} if $a_{ij} = 0$ whenever $i < j$.
+	\end{enumerate}
+\end{definition}
+	\begin{enumerate}[i.]
+	\item Find an example of a diagonal matrix $A$. What can you say about $A^{\tr}$? 
+	\item Find an example of a non-diagonal symmetric matrix $B$. If $B^{\tr} = B$, must $B$ be a square matrix?  
+	\item Find an example of an upper triangular matrix $C$. What kind of a matrix is $C^{\tr}$? 
+	\end{enumerate}
+	
+   \ea
+\end{activity}
+
+
+We will see later that diagonal matrices are important in that their powers are easy to calculate. Symmetric matrices arise frequently in applications such as in graph theory as adjacency matrices and in quantum mechanics as observables, and have many useful properties including being diagonalizable and having real eigenvalues, as we will also see later. 
+
+\csection{Properties of the Matrix Transpose}
+
+As with every other operation, we want to understand what properties the matrix transpose has. Properties of transposes are shown in the following theorem.
+
+
+
+\begin{theorem} \label{thm:transpose_props} Let $A$ and $B$ be matrices of the appropriate sizes and let $a$ be a scalar. Then
+\begin{enumerate}
+\item $\left(A^{\tr}\right)^{\tr} = A$
+\item $(A+B)^{\tr} = A^{\tr} + B^{\tr}$
+\item $(AB)^{\tr} = B^{\tr}A^{\tr}$
+\item $(aA)^{\tr} = aA^{\tr}$
+\end{enumerate}
+\end{theorem}
+
+
+
+The one property that might seem strange is the third one. To understand this property, suppose $A$ is an $m \times n$ matrix and $B$ an $n \times k$ matrix so that the product $AB$ is defined. We will argue that $(AB)^{\tr} = B^{\tr}A^{\tr}$ by comparing the $i,j$th entry of each side.
+\begin{itemize}
+\item First notice that the $i,j$th entry of $(AB)^{\tr}$ is the $j,i$th entry of $AB$. The $j,i$th entry of $AB$ is found by taking the scalar product of the $j$th row of $A$ with the $i$th column of $B$. Thus,
+\begin{center} the $i,j$th entry of $(AB)^{\tr}$ is the scalar product of the $j$th row of $A$ with the $i$th column of $B$. \end{center}
+\item The $i,j$th entry of $B^{\tr}A^{\tr}$ is the scalar product of the $i$th row of $B^{\tr}$ with the $j$th column of $A^{\tr}$. But the $i$th row of $B^{\tr}$ is the $i$th column of $B$ and the $j$th column of $A^{\tr}$ is the $j$th row of $A$. So
+\begin{center} the $i,j$th entry of $B^{\tr}A^{\tr}$ is the scalar product of the $j$th row of $A$ with the $i$th column of $B$. \end{center}
+\end{itemize}
+Since the two matrices  $(AB)^{\tr}$ and $B^{\tr}A^{\tr}$ have the same size and same corresponding entries, they are the same matrix.
+
+\csection{Examples}
+
+\ExampleIntro
+
+\begin{example} Let 
+\[\begin{array}{ccc}
+A = \left[ \begin{array}{ccrc} 1&2&0&1\\3&0&-4&5\\7&6&-1&0 \end{array} \right] &&  B = \left[ \begin{array}{rcr} -2&4&-3\\5&1&9\\1&1&-2 \end{array} \right] \\ 
+&& \\
+C = \left[ \begin{array}{crc} 0&-1&6\\3&-2&5\\1&0&4 \end{array} \right] && D = \left[ \begin{array}{cr} 10&-4\\5&2\\8&-1 \end{array} \right] \\ 
+&& \\
+E = \left[ \begin{array}{cr} 1&0\\4&-3\\5&-1 \end{array} \right] &\text{ and }  & F = \left[ \begin{array}{rcr} -2&1&5\\6&3&-8\\1&0&-1\\ 7&0&-5 \end{array} \right].
+\end{array}\]
+Determine the results of the following operations, if defined. If not defined, explain why.
+	\ba
+	\begin{minipage}{1.5in}
+	\item $AF$
+	\end{minipage}
+	\begin{minipage}{1.5in}
+	\item $A(BC)$
+	\end{minipage}
+	\begin{minipage}{1.5in}
+	\item $(BC)A$
+	\end{minipage}
+	
+	\begin{minipage}{1.5in}
+	\item $(B+C)D$
+	\end{minipage}
+	\begin{minipage}{1.5in}
+	\item $D^{\tr}E$
+	\end{minipage}
+	\begin{minipage}{1.5in}
+	\item $\left(A^{\tr}+F\right)^{\tr}$
+	\end{minipage}
+	\ea
+
+\ExampleSolution
+\ba
+\item Since $A$ is a $3 \times 4$ matrix and $F$ is a $4 \times 3$ matrix, the number of columns of $A$ equals the number of rows of $F$ and the matrix produce $AF$ is defined. Recall that if $F = [\vf_1 \ \vf_2 \ \vf_3]$, where $\vf_1$, $\vf_2$, $\vf_3$ are the columns of $F$, then $AF = [A\vf_1 \ A\vf_2 \ A\vf_3]$. Recall also that $A \vf_1$ is the linear combination of the columns of $A$ with weights from $\vf_1$, so 
+\begin{align*}
+A\vf_1 &= \left[ \begin{array}{ccrc} 1&2&0&1\\3&0&-4&5\\7&6&-1&0 \end{array} \right] \left[ \begin{array}{r} -2\\6\\1\\7 \end{array} \right] \\
+	&= (-2) \left[ \begin{array}{c} 1\\3\\7 \end{array} \right]  + (6)  \left[ \begin{array}{c} 2\\0\\6 \end{array} \right]  + (1)  \left[ \begin{array}{r} 0\\-4\\-1 \end{array} \right] + (7)  \left[ \begin{array}{c} 1\\5\\0 \end{array} \right] \\
+	&=  \left[ \begin{array}{c} -2+12+0+7 \\ -6+0-4+35 \\ -14+36-1+0\end{array} \right] \\
+	&=  \left[ \begin{array}{c} 17\\25\\21 \end{array} \right],
+\end{align*}
+\begin{align*}
+A\vf_2 &= \left[ \begin{array}{ccrc} 1&2&0&1\\3&0&-4&5\\7&6&-1&0 \end{array} \right] \left[ \begin{array}{c} 1\\3\\0\\0 \end{array} \right] \\
+	&= (1) \left[ \begin{array}{c} 1\\3\\7 \end{array} \right]  + (3)  \left[ \begin{array}{c} 2\\0\\6 \end{array} \right]  + (0)  \left[ \begin{array}{r} 0\\-4\\-1 \end{array} \right] + (0)  \left[ \begin{array}{c} 1\\5\\0 \end{array} \right] \\
+	&=  \left[ \begin{array}{c} 1+6+0+0\\ 3+0+0+0 \\ 7+18+0+0\end{array} \right] \\
+	&=  \left[ \begin{array}{c} 7\\3\\25 \end{array} \right],
+\end{align*}
+and
+\begin{align*}
+A\vf_3 &= \left[ \begin{array}{ccrc} 1&2&0&1\\3&0&-4&5\\7&6&-1&0 \end{array} \right] \left[ \begin{array}{r} 5\\-8\\-1\\-5 \end{array} \right] \\
+	&= (5) \left[ \begin{array}{c} 1\\3\\7 \end{array} \right]  - (8)  \left[ \begin{array}{c} 2\\0\\6 \end{array} \right]  - (1)  \left[ \begin{array}{r} 0\\-4\\-1 \end{array} \right] - (5)  \left[ \begin{array}{c} 1\\5\\0 \end{array} \right] \\
+	&=  \left[ \begin{array}{c} 5-16-0-5 \\ 15-0+4-25 \\ 35-48+1-0\end{array} \right] \\
+	&=  \left[ \begin{array}{r} -16\\-6\\-12 \end{array} \right].
+\end{align*}
+So $AF = \left[ \begin{array}{ccr} 17&7&-16\\25&3&-6\\21&25&-12 \end{array} \right]$. 
+
+Alternatively, if $A = \left[ \begin{array}{c} \va_1\\ \va_2 \\ \va_3 \\ \va_4 \end{array}\right]$, then the matrix product $AF$ is the matrix whose $ij$ entry is $\va_i \cdot \vf_j$. Using this method we have 
+\[AF = \left[ \begin{array}{ccc} \va_1 \cdot \vf_1&\va_1 \cdot \vf_2 & \va_1 \cdot \vf_3 \\ \va_2 \cdot \vf_1&\va_2 \cdot \vf_2 & \va_2 \cdot \vf_3 \\ \va_3 \cdot \vf_1&\va_3 \cdot \vf_2 & \va_3 \cdot \vf_3 \end{array} \right].\]
+Now 
+\begin{align*}
+\va_1 \cdot \vf_1 &= (1)(-2)+(2)(6)+(0)(1)+(1)(7) = 17 \\ 
+\va_1 \cdot \vf_2 &= (1)(1)+(2)(3)+(0)(0)+(1)(0) = 7 \\ 
+\va_1 \cdot \vf_3 &= (1)(5)+(2)(-8)+(0)(-1)+(1)(-5) = -16 \\  
+\va_2 \cdot \vf_1 &= (3)(-2)+(0)(6)+(-4)(1)+(5)(7) = 25 \\
+\va_2 \cdot \vf_2 &= (3)(1)+(0)(3)+(-4)(0)+(5)(0) = 3 \\
+\va_2 \cdot \vf_3 &= (3)(5)+(0)(-8)+(-4)(-1)+(5)(-5) = -6 \\ 
+\va_3 \cdot \vf_1 &= (7)(-2)+(6)(6)+(-1)(1)+(0)(7) = 21\\
+\va_3 \cdot \vf_2 &= (7)(1)+(6)(3)+(-1)(0)+(0)(0) = 25 \\
+\va_3 \cdot \vf_3 &=(7)(5)+(6)(-8)+(-1)(-1)+(0)(-5) = -12,
+\end{align*}
+so $AF = \left[ \begin{array}{ccr} 17&7&-16\\25&3&-6\\21&25&-12 \end{array} \right]$. 
+%\begin{align*}
+%AF &= \left[ \begin{array}{ccrc} 1&2&0&1\\3&0&-4&5\\7&6&-1&0 \end{array} \right] \left[ \begin{array}{rcr} -2&1&5\\6&3&-8\\1&0&-1\\ 7&0&-5 \end{array} \right] \\
+%	&= \left[ \begin{array}{ccc} (1)(-2)+(2)(6)+(0)(1)+(1)(7)&(1)(1)+(2)(3)+(0)(0)+(1)(0)&(1)(5)+(2)(-8)+(0)(-1)+(1)(-5) \\  (3)(-2)+(0)(6)+(-4)(1)+(5)(7)&(3)(1)+(0)(3)+(-4)(0)+(5)(0)&(3)(5)+(0)(-8)+(-4)(-1)+(5)(-5) \\ (7)(-2)+(6)(6)+(-1)(1)+(0)(7)&(7)(1)+(6)(3)+(-1)(0)+(0)(0)&(7)(5)+(6)(-8)+(-1)(-1)+(0)(-5) \end{array} \right] \\
+%	&= \left[ \begin{array}{ccr} 17&7&-16\\25&3&-6\\21&25&-12 \end{array} \right].
+%\end{align*}
+
+\item Since $BC$ is a $3 \times 3$ matrix but $A$ is $3 \times 4$, the number of columns of $A$ is not equal to the number of rows of $BC$. We conclude that $A(BC)$ is not defined.
+
+\item Since $BC$ is a $3 \times 3$ matrix and $A$ is $3 \times 4$, the number of columns of $BC$ is equal to the number of rows of $A$. Thus, the quantity $(BC)A$ is defined. First we calculate $BC$ using the dot product of the rows of $B$ with the columns of $C$. Letting $B = \left[ \begin{array}{c} \vb_1 \\ \vb_2 \\ \vb_3 \end{array} \right]$ and $C = [\vc_1 \ \vc_2 \ \vc_3]$, where $\vb_1$, $\vb_2$, and $\vb_3$ are the rows of $B$ and $\vc_1$, $\vc_2$, and $\vc_3$ are the columns of $C$, we have 
+\[BC = \left[ \begin{array}{ccc} \vb_1 \cdot \vc_1 & \vb_1 \cdot \vc_2 & \vb_1 \cdot \vc_3 \\ \vb_2 \cdot \vc_1 & \vb_2 \cdot \vc_2 & \vb_2 \cdot \vc_3 \\ \vb_3 \cdot \vc_1 & \vb_3 \cdot \vc_2 & \vb_3 \cdot \vc_3 \end{array} \right].\]
+Now 
+\begin{align*}
+\vb_1 \cdot \vc_1 &= (-2)(0)+(4)(3)+(-3)(1) = 9 \\
+\vb_1 \cdot \vc_1 &= (-2)(-1)+(4)(-2)+(-3)(0) = -6 \\
+\vb_1 \cdot \vc_1 &= (-2)(6)+(4)(5)+(-3)(4) = -4 \\ 
+\vb_1 \cdot \vc_1 &= (5)(0)+(1)(3)+(9)(1) = 12 \\
+\vb_1 \cdot \vc_1 &= (5)(-1)+(1)(-2)+(9)(0) = -7 \\
+\vb_1 \cdot \vc_1 &= (5)(6)+(1)(5)+(9)(4) = 71 \\ 
+\vb_1 \cdot \vc_1 &=(1)(0)+(1)(3)+(-2)(1) = 1 \\
+\vb_1 \cdot \vc_1 &= (1)(-1)+(1)(-2)+(-2)(0) = -3 \\
+\vb_1 \cdot \vc_1 &= (1)(6)+(1)(5)+(-2)(4) = 3, 
+\end{align*}
+so $BC = \left[ \begin{array}{crr} 9&-6&-4 \\ 12&-7&71 \\ 1&-3&3 \end{array} \right]$. 
+%\begin{align*}
+%BC &= \left[ \begin{array}{rcr} -2&4&-3\\5&1&9\\1&1&-2 \end{array} \right] \left[ \begin{array}{crc} 0&-1&6\\3&-2&5\\1&0&4 \end{array} \right]  \\
+%	&= \left[ \begin{array}{ccc} (-2)(0)+(4)(3)+(-3)(1) & (-2)(-1)+(4)(-2)+(-3)(0) & (-2)(6)+(4)(5)+(-3)(4)  \\ (5)(0)+(1)(3)+(9)(1) & (5)(-1)+(1)(-2)+(9)(0) & (5)(6)+(1)(5)+(9)(4) \\ (1)(0)+(1)(3)+(-2)(1) & (1)(-1)+(1)(-2)+(-2)(0) & (1)(6)+(1)(5)+(-2)(4) \end{array} \right] \\
+%	&= \left[ \begin{array}{crr} 9&-6&-4 \\ 12&-7&71 \\ 1&-3&3 \end{array} \right].
+%\end{align*}
+If $BC = \left[ \begin{array}{c} \vr_1 \\  \vr_2 \\ \vr_3 \end{array} \right]$ and $A = [\vs_1 \ \vs_2 \ \vs_3 \ \vs_4]$, where $\vr_1$, $\vr_2$, and $\vr_3$ are the rows of $BC$ and $\vs_1$, $\vs_2$, $\vs_3$, and $\vs_4$ are the columns of $A$, then 
+\[(BC)A = \left[ \begin{array}{cccc} \vr_1 \cdot \vs_1 & \vr_1 \cdot \vs_2 & \vr_1 \cdot \vr_3 & \vr_1 \cdot \vs_4 \\ \vr_2 \cdot \vs_1 & \vr_2 \cdot \vs_2 & \vr_2 \cdot \vs_3 & \vr_2 \cdot \vs_4 \\ \vr_3 \cdot \vs_1 & \vr_3 \cdot \vs_2 & \vr_3 \cdot \vs_3 & \vr_3 \cdot \vs_4  \end{array} \right].\]
+Now
+\begin{align*}
+\vr_1 \cdot \vs_1 &= (9)(1)+(-6)(3)+(-4)(7) = -37 \\
+\vr_1 \cdot \vs_2 &= (9)(2)+(-6)(0)+(-4)(6) = -6 \\
+\vr_1 \cdot \vs_3 &= (9)(0)+(-6)(-4)+(-4)(-1) = 28 \\
+\vr_1 \cdot \vs_4 &= (9)(1)+(-6)(5)+(-4)(0) = -21 \\ 
+\vr_2 \cdot \vs_1 &= (12)(1)+(-7)(3)+(71)(7) = 488 \\
+\vr_2 \cdot \vs_2 &= (12)(2)+(-7)(0)+(71)(6) = 450 \\
+\vr_2 \cdot \vs_3 &= (12)(0)+(-7)(-4)+(71)(-1) = -43 \\
+\vr_2 \cdot \vs_4 &= (12)(1)+(-7)(5)+(71)(0) = -23 \\
+\vr_3 \cdot \vs_1 &= (1)(1)+(-3)(3)+(3)(7) = 13 \\
+\vr_3 \cdot \vs_2 &= (1)(2)+(-3)(0)+(3)(6) = 20 \\
+\vr_3 \cdot \vs_3 &= (1)(0)+(-3)(-4)+(3)(-1) = 9 \\
+\vr_3 \cdot \vs_4 &= (1)(1)+(-3)(5)+(3)(0) = -14,
+\end{align*}
+so $(BC)A =  \left[ \begin{array}{rrrr} -37&-6&28&-21 \\ 488&450&-43&-23 \\ 13&20&9&-14 \end{array} \right]$. 
+%\begin{align*}
+%(BC)A &=  \left[ \begin{array}{crr} 9&-6&-4 \\ 12&-7&71 \\ 1&-3&3 \end{array} \right] \left[ \begin{array}{ccrc} 1&2&0&1\\3&0&-4&5\\7&6&-1&0 \end{array} \right] \\
+%	&= \left[ \begin{array}{cccc} (9)(1)+(-6)(3)+(-4)(7) & (9)(2)+(-6)(0)+(-4)(6) & (9)(0)+(-6)(-4)+(-4)(-1) & (9)(1)+(-6)(5)+(-4)(0) \\ (12)(1)+(-7)(3)+(71)(7) & (12)(2)+(-7)(0)+(71)(6) & (12)(0)+(-7)(-4)+(71)(-1) & (12)(1)+(-7)(5)+(71)(0) \\ (1)(1)+(-3)(3)+(3)(7) & (1)(2)+(-3)(0)+(3)(6) & (1)(0)+(-3)(-4)+(3)(-1) & (1)(1)+(-3)(5)+(3)(0) \end{array} \right] \\
+%	&= \left[ \begin{array}{rrrr} -37&-6&28&-21 \\ 488&450&-43&-23 \\ 13&20&9&-14 \end{array} \right].
+%\end{align*}
+
+\item  Since $B$ and $C$ are both $3 \times 3$ matrices, their sum is defined and is a $3 \times 3$ matrix. Because $D$ is $3 \times 2$ matrix, the number of columns of $B+C$ is equal to the number of rows of $D$. Thus, the quantity $(B+C)D$ is defined and, using the row-column method of matrix multiplication as earlier,  
+\begin{align*}
+(B+C)D &= \left( \left[ \begin{array}{rcr} -2&4&-3\\5&1&9\\1&1&-2 \end{array} \right] +  \left[ \begin{array}{crc} 0&-1&6\\3&-2&5\\1&0&4 \end{array} \right] \right) \left[ \begin{array}{cr} 10&-4\\5&2\\8&-1 \end{array} \right] \\
+	&=  \left[ \begin{array}{ccc} -2+0&4-1&-3+6\\5+3&1-2&9+5\\1+1&1+0&-2+4 \end{array} \right]  \left[ \begin{array}{cr} 10&-4\\5&2\\8&-1 \end{array} \right] \\
+	&= \left[ \begin{array}{rrc} -2&3&3\\8&-1&14\\2&1&2 \end{array} \right]  \left[ \begin{array}{cr} 10&-4\\5&2\\8&-1 \end{array} \right] \\
+%	&= \left[ \begin{array}{cc} (-2)(10)+(3)(5)+(3)(8)&(-2)(-4)+(3)(2)+(3)(-1) \\ (8)(10)+(-1)(5)+(14)(8)&(8)(-4)+(-1)(2)+(14)(-1)  \\ (2)(10)+(1)(5)+(2)(8)&(2)(-4)+(1)(2)+(2)(-1) \end{array} \right] \\
+	&=  \left[ \begin{array}{cr} 19&11 \\ 187&-48 \\ 41&-8 \end{array} \right].
+\end{align*}
+
+\item Since $D^{\tr}$ is a $2 \times 3$ matrix and $E$ is $3 \times 2$, the number of columns of $D^{\tr}$ is equal to the number of rows of $E$. Thus, $D^{\tr}E$ is defined and 
+\begin{align*}
+D^{\tr}E &= \left[ \begin{array}{cr} 10&-4\\5&2\\8&-1 \end{array} \right]^{\tr} 
+ \left[ \begin{array}{cr} 1&0\\4&-3\\5&-1 \end{array} \right] \\
+	&= \left[ \begin{array}{rcr} 10&5&8\\ -4&2&-1 \end{array} \right] \left[ \begin{array}{cr} 1&0\\4&-3\\5&-1 \end{array} \right] \\
+%	&= \left[ \begin{array}{cc} (10)(1)+(5)(4)+(8)(5)&(10)(0)+(5)(-3)+(8)(-1) \\ (-4)(1)+(2)(4)+(-1)(5)&(-4)(0)+(2)(-3)+(-1)(-1) \end{array} \right] \\
+	&= \left[ \begin{array}{rr} 70&-23 \\ -1&-5 \end{array} \right].
+\end{align*}
+
+
+
+\item The fact that $A$ is a $3 \times 4$ matrix means that $A^{\tr}$ is a $4 \times 3$ matrix. Since $F$ is also a $4 \times 3$ matrix, the sum $A^{\tr}+F$ is defined. The transpose of any matrix is also defined, so $\left(A^{\tr}+F\right)^{\tr}$ is defined and 
+\begin{align*}
+\left(A^{\tr}+F\right)^{\tr} &= \left( \left[ \begin{array}{ccrc} 1&2&0&1\\3&0&-4&5\\7&6&-1&0 \end{array} \right]^{\tr} +  \left[ \begin{array}{rcr} -2&1&5\\6&3&-8\\1&0&-1\\ 7&0&-5 \end{array} \right] \right)^{\tr} \\
+	&= \left( \left[ \begin{array}{crr} 1&3&7\\2&0&6\\0&-4&-1 \\ 1&5&0 \end{array} \right] + \left[ \begin{array}{rcr} -2&1&5\\6&3&-8\\1&0&-1\\ 7&0&-5 \end{array} \right] \right)^{\tr} \\
+	&= \left( \left[ \begin{array}{ccc} 1-2&3+1&7+5\\2+6&0+3&6-8\\0+1&-4+0&-1-1 \\ 1+7&5+0&0-5 \end{array} \right] \right)^{\tr} \\
+	&= \left( \left[ \begin{array}{rrr} -1&4&12\\8&3&-2\\1&-4&-2 \\ 8&5&-5 \end{array} \right] \right)^{\tr} \\
+	&= \left[ \begin{array}{rrrr} -1&8&1&8\\4&3&-4&5\\ 12&-2&-2&-5 \end{array} \right].
+\end{align*}
+
+\ea
+
+\end{example} 
+
+\begin{example} Let $A = \left[ \begin{array}{cr} 2&-1\\7&-2 \end{array}\right]$ and $B = \left[ \begin{array}{rc} 4&6 \\ -3&5 \end{array} \right]$. 
+	\ba
+	\item Determine the matrix sum $A+B$. Then use this sum to calculate $(A+B)^2$. 
+	
+	\item Now calculate $(A+B)^2$ in a different way. Use the fact that matrix multiplication distributes over matrix addition to expand (like foiling) $(A+B)^2$ into a sum of matrix products. The calculate each summand and add to find $(A+B)^2$. You should obtain the same result as part (a). If not, what could be wrong? 
+	
+	\ea
+
+\ExampleSolution	
+\ba
+\item Adding corresponding terms shows that $A+B = \left[ \begin{array}{cc} 6&5\\4&3 \end{array} \right]$. 
+Squaring this sum yields the result $(A+B)^2 = \left[ \begin{array}{cc} 56&45 \\ 36&29 \end{array} \right]$. 
+
+\item Expanding $(A+B)^2$ (remember that matrix multiplication is not commutative) gives us
+\begin{align*}
+(A+B)^2 &= (A+B)(A+B) \\
+	&= A^2 + AB + BA + B^2 \\
+	&= \left[ \begin{array}{rr} -3&0 \\ 0&-3 \end{array} \right] +  \left[ \begin{array}{cc} 11&7 \\ 34&32 \end{array} \right] +  \left[ \begin{array}{cr} 50&-16 \\ 29&-7 \end{array} \right] +  \left[ \begin{array}{rc} -2&54 \\ -27&7 \end{array} \right] \\
+	&=  \left[ \begin{array}{cc} 56&45 \\ 36&29 \end{array} \right] 
+\end{align*}
+just as in part (a). If instead you obtained the matrix  $\left[ \begin{array}{cc} 17&68 \\41&68 \end{array} \right]$ you likely made the mistake of equating $(A+B)^2$ with $A^2+2AB+B^2$. These two matrices are not equal in general, because we cannot say that $AB$ is equal to $BA$. 
+
+\ea
+	
+\end{example}
+
+\csection{Summary}
+
+In this section we defined a matrix sum, scalar multiples of matrices, the matrix product, and the transpose of a matrix.
+\begin{itemize}
+\item The sum of two $m \times n$ matrices $A = [a_{ij}]$ and $B = [b_{ij}]$ is the $m \times n$ matrix $A+B$ whose $i,j$th entry is $a_{ij} + b_{ij}$.
+\item If  $A = [a_{ij}]$ is an $m \times n$ matrix, the scalar multiple $kA$ of $A$ by the scalar $k$ is the $m \times n$ matrix whose $i,j$th entry is $ka_{ij}$.
+\item If $A$ is a $k \times m$ matrix and $B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]$ is an $m \times n$ matrix, then the matrix product $AB$ of the matrices $A$ and $B$ is the $k \times n$ matrix
+\[[A\vb_1 \ A\vb_2 \ \cdots \ A\vb_n].\]
+The matrix product is defined in this way so that the matrix of a composite $S \circ T$ of linear transformations is the product of matrices of $S$ and $T$.
+\item An alternate way of calculating the product of an $k \times m$ matrix $A$ with rows $\vr_1$, $\vr_2$, $\ldots$, $\vr_k$  and an $m \times n$ matrix $B$ with columns $\vb_1$, $\vb_2$, $\ldots$, $\vb_n$ is that the product $AB$ is the $k \times n$ matrix whose $i,j$th entry is $\vr_i \cdot \vb_j$. 
+\item Matrix multiplication does not behave as the standard multiplication on real numbers. For example, we can have a product of two non-zero matrices equal to the zero matrix and there is no cancellation law for matrix multiplication.
+\item The transpose of an $m \times n$ matrix $A = [a_{ij}]$ is the $n \times m$ matrix $A^{\tr}$ whose $i,j$th entry is $a_{ji}$.
+\end{itemize}
+
+
+
+
+\csection{Exercises}
+
+\be
+\item Calculate $AB$ for each of the following matrix pairs by hand in two ways.
+
+\ba
+\item $A = \left[ \begin{array}{cc} 1&0\\0&1\\0&0 \end{array} \right]$, $B = \left[ \begin{array}{cc} a&b \\ c&d \end{array} \right]$
+
+\item $A = \left[ \begin{array}{ccr} 1&0&-1 \end{array} \right]$, $B = \left[ \begin{array}{cc} 1&2 \\ 2&3 \\ 3&4\end{array} \right]$
+\ea
+
+\item For each of the following $A$ matrices, find all $2\times 2$ matrices $B=\left[ \begin{array}{cc} a&b\\c&d \end{array} \right]$ which commute with the given $A$. (Two matrices $A$ and $B$ commute with each other if $AB = BA$.)
+
+\ba 
+\begin{minipage}{1.5in}
+\item $ A = \left[ \begin{array}{cc} 2&0 \\ 0 & 2 \end{array} \right]$
+\end{minipage}
+\begin{minipage}{1.5in}
+\item $ A = \left[ \begin{array}{cc} 2&0 \\ 0 & 3 \end{array} \right]$
+\end{minipage}
+\begin{minipage}{1.5in}
+\item $ A = \left[ \begin{array}{cc} 0&1 \\ 0 & 0 \end{array} \right]$
+\end{minipage}
+\ea
+
+\item Find all possible, if any, $X$ matrices satisfying each of the following matrix equations.
+\ba
+\item $ \left[ \begin{array}{cc} 1&2 \\ 0 & 2 \end{array} \right] X = \left[ \begin{array}{cc} 0&1 \\ 0 & 0 \end{array} \right]$
+\item $ \left[ \begin{array}{rr} 1&-2 \\ -2 & 4 \end{array} \right] X = \left[ \begin{array}{cc} 0&1 \\ 0 & 0 \end{array} \right]$
+\item $ \left[ \begin{array}{rr} 1&-2 \\ -2 & 4 \end{array} \right] X = \left[ \begin{array}{cc} 0&1 \\ 0 &-2 \end{array} \right]$
+\ea
+
+\item For each of the following $A$ matrices, compute $A^2=AA, A^3=AAA, A^4$. Use your results to conjecture a formula for $A^m$. Interpret your answer geometrically using the transformation interpretation.
+
+\ba 
+\begin{minipage}{1.5in}
+\item $ A = \left[ \begin{array}{cc} 2&0 \\ 0 & 3 \end{array} \right]$
+\end{minipage}
+\begin{minipage}{1.5in}
+\item $ A = \left[ \begin{array}{cc} 1&1 \\ 0 & 1 \end{array} \right]$
+\end{minipage}
+\begin{minipage}{1.5in}
+\item $ A = \left[ \begin{array}{cr} 0&-1 \\ 1 & 0 \end{array} \right]$
+\end{minipage}
+\ea
+
+\item If $A\vv=2\vv$ for unknown $A$ matrix and $\vv$ vector, determine an expression for $A^2 \vv$, $A^3\vv$, \ldots, $A^m\vv$.
+
+\item If $A\vv=2\vv$ and $A\vu=3\vu$, find an expression for $A^m(a\vv+b\vu)$ in terms of $\vv$ and $\vu$.
+
+\item A matrix $A$ is a \textbf{nilpotent} matrix if $A^m=0$, i.e., $A^m$ is the zero matrix, for some positive integer $m$. Explain why the matrices  
+\[ A = \left[ \begin{array}{cc} 0 & a \\ 0 & 0 \end{array} \right] \, , \, B = \left[ \begin{array}{ccc} 0 & a & b \\ 0 & 0& c\\ 0&0&0 \end{array} \right] \]
+are nilpotent matrices.
+
+\item Suppose $A$ is an $n\times n$ matrix for which $A^2=0$. Show that there is a matrix $B$ for which $(I_n+A)B=I_n$ where $I_n$ is the identity matrix of size $n$.
+
+\item Let $A$, $B$, and $C$ be $m \times n$ matrices and let $a$ and $b$ be scalars. Verify Theorem \ref{thm:matrix_sum_properties}. That is, show that 
+	\ba
+	\item $A+B = B+A$ 
+	\item $(A+B) + C = A + (B+C)$ 
+	\item The $m \times n$ matrix $0$ whose entries are all 0 has the property that $A + 0 = A$. 
+	\item  The scalar multiple $(-1)A$ of the matrix $A$ has the property that $(-1)A + A = 0$. 
+	\item $(a+b) A = aA + bA$ 
+	\item $a(A+B) = aA + aB$ 
+	\item $(ab) A = a(bA)$
+	\item $1A=A$.
+	\ea
+
+\item Let $A$, $B$, and $C$ be matrices of the appropriate sizes for all sums and products to be defined and let $a$ be a scalar. Verify the remaining parts of Theorem \ref{thm:matrix_product_properties}. That is, show that 
+	\ba
+	\item $(AB)C = A(BC)$ 
+	\item $A(B+C) = AB + AC$ 
+	\item There is a square matrix $I_n$ with the property that $AI_n = A$ or $I_nA = A$ for whichever product is defined. 
+	\item $a(AB) = (aA)B = A(aB)$
+	\ea
+
+\item Let $A = [a_{ij}]$ and $B = [b_{ij}]$ be matrices of the appropriate sizes, and let $a$ be a scalar. Verify the remaining parts of Theorem \ref{thm:transpose_props}. That is, show that
+	\ba
+	\item $\left(A^{\tr}\right)^{\tr} = A$
+	\item $(A+B)^{\tr} = A^{\tr} + B^{\tr}$
+	\item $(aA)^{\tr} = aA^{\tr}$
+	\ea
+
+\item \label{ex:2_a_matrix_exponential} The \emph{matrix exponential}\index{matrix!exponential} is an important tool in solving differential equations. Recall from calculus that the Taylor series expansion for $e^x$ centered at $x=0$ is 
+\begin{equation*} %\label{eq:exponential_series}
+e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots,
+\end{equation*}
+and that this Taylor series converges to $e^x$ for every real number $x$. We extend this idea to define the matrix exponential $e^A$ for any square matrix $A$ with real entries as 
+\[e^A = \sum_{n=0}^{\infty} \frac{1}{n!}A^n = I_n + A + \frac{1}{2!}A^2 + \frac{1}{3!}A^3 + \cdots\]
+We explore this idea with an example.  Let $B = \left[ \begin{array}{cr} 2&0\\0&-1 \end{array} \right]$. 
+	\ba
+	\item Calculate $B^2$, $B^3$, $B^4$. Explain why $B^n = \left[ \begin{array}{cc} 2^n&0\\0&(-1)^n \end{array} \right]$ for any positive integer $n$. 
+
+	\item Show that  $I_2 + B + B^2 + B^3 + B^4$ is equal to 
+	\[\left[\renewcommand{\arraystretch}{1.4} \begin{array}{cc} 1+2+\frac{2^2}{2} + \frac{2^3}{3!} + \frac{2^4}{4!}&0\\0&1+(-1)+\frac{(-1)^2}{2} + \frac{(-1)^3}{3!} + \frac{(-1)^4}{4!} \end{array} \right].\]
+
+	\item Explain why $e^B = \left[\renewcommand{\arraystretch}{1.4} \begin{array}{cc} e^2&0\\0&e^{-1} \end{array} \right]$.
+
+	\ea
+
+\item Show that if $A$ and $B$ are $2\times 2$ rotation matrices, then $AB$ is also a $2\times 2$ rotation matrix. 
+	
+\item Label each of the following statements as True or False. Provide justification for your response. Throughout, assume that matrices are of the appropriate sizes so that any matrix sums or products are defined. 
+\ba
+\item \textbf{True/False} For any three matrices $A, B, C$ with $A \neq 0$, $AB=AC$ implies $B=C$.
+
+\item \textbf{True/False} For any three matrices $A, B, C$ with $A \neq 0$, $AB=CA$ implies $B=C$.
+
+\item \textbf{True/False} If $A^2$ is the zero matrix, then $A$ itself is the zero matrix.
+
+\item \textbf{True/False} If $AB=BA$ for every $n \times n$ matrix $B$, then $A$ is the identity matrix $I_n$.
+
+\item \textbf{True/False} If matrix products $AB$ and $BA$ are both defined, then $A$ and $B$ are both square matrices of the same size.
+
+\item \textbf{True/False} If $\vx_1$ is a solution for $A\vx=\vb_1$ (i.e., that $A\vx_1 = \vb_1$) and $\vx_2$ is a solution for $B\vx=\vb_2$, then $\vx_1+\vx_2$ is a solution for $(A+B)\vx=\vb_1+\vb_2$.
+
+\item \textbf{True/False} If $B$ is an $m\times n$ matrix with two equal columns, then the matrix $AB$ has two equal columns for every $k \times m$ matrix.
+
+\item \textbf{True/False} If $A^2 = I_2$, then $A=-I_2$ or $A=I_2$.
+
+
+
+\ea
+\ee
+
+\csection{Project: Strassen's Algorithm and Partitioned Matrices}
+
+Strassen's algorithm\index{Strassen's algorithm} is an algorithm for matrix multiplication that can be more efficient than the standard row-column method. To understand this method, we begin with the $2 \times 2$ case which will highlight the essential ideas.  
+
+\begin{pactivity} \label{:pact:Strassen_1} We first work with the $2 \times 2$ case.
+\ba
+\item Let $A = [a_{ij}] = \left[ \begin{array}{cc} 1&2\\3&4 \end{array} \right]$ and $B =  [b_{ij}] = \left[ \begin{array}{cc} 5&6\\7&8 \end{array} \right]$. 
+	\begin{enumerate}[i.]
+	\item Calculate the matrix product $AB$. 
+
+	\item Rather than using eight multiplications to calculate $AB$, Strassen came up with the idea of using the following seven products:
+\begin{align*}
+h_1 &= (a_{11}+a_{22})(b_{11}+b_{22}) \\
+h_2 &= (a_{21}+a_{22})b_{11} \\
+h_3 &= a_{11}(b_{12}-b_{22}) \\
+h_4 &= a_{22}(b_{21}-b_{11}) \\
+h_5 &= (a_{11}+a_{12})b_{22} \\
+h_6 &=(a_{21}-a_{11})(b_{11}+b_{12}) \\
+h_7 &= (a_{12}-a_{22})(b_{21}+b_{22}).
+\end{align*}
+Calculate $h_1$ through $h_7$ for the given matrices $A$ and $B$. Then calculate the quantities
+\[h_1+h_4-h_5+h_7,  \  h_3+h_5, \  h_2+h_4, \ \text{ and }  h_1+h_3-h_2+h_6 .\]
+What do you notice?
+
+
+	\end{enumerate}
+
+
+\item Now we repeat part (a) in general. Suppose we want to calculate the matrix product $AB$ for arbitrary $2 \times 2$ matrices $A = \left[ \begin{array}{cc} a_{11}&a_{12}\\a_{21}&a_{22} \end{array} \right]$ and $B = \left[ \begin{array}{cc} b_{11}&b_{12}\\b_{21}&b_{22} \end{array} \right]$.
+
+Let 
+\begin{align*}
+h_1 &= (a_{11}+a_{22})(b_{11}+b_{22}) \\
+h_2 &= (a_{21}+a_{22})b_{11} \\
+h_3 &= a_{11}(b_{12}-b_{22}) \\
+h_4 &= a_{22}(b_{21}-b_{11}) \\
+h_5 &= (a_{11}+a_{12})b_{22} \\
+h_6 &=(a_{21}-a_{11})(b_{11}+b_{12}) \\
+h_7 &= (a_{12}-a_{22})(b_{21}+b_{22}).
+\end{align*}
+
+Show that 
+\[AB = \left[ \begin{array}{cc} h_1+h_4-h_5+h_7 & h_3+h_5 \\ h_2+h_4 & h_1+h_3-h_2+h_6 \end{array} \right].\]	
+
+
+\ea
+
+\end{pactivity}
+
+The next step is to understand how Strassen's algorithm can be applied to larger matrices. This involves the idea of partitioned (or block) matrices.\index{partitioned matrices} Recall that the matrix-matrix product of the $k \times m$ matrix $A$ and the $m \times n$ matrix $B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]$ is defined as 
+\[AB = [A\vb_1 \ A\vb_2 \ \cdots \ A\vb_n].\]
+In this process, we think of $B$ as being partitioned into $n$ columns. We can expand on this idea to partition both $A$ and $B$ when calculating a matrix-matrix product. 
+
+\begin{pactivity} We illustrate the idea of partitioned matrices with an example. Let $A = \left[ \begin{array}{crcrc} 1&-2&3&-6&4 \\ 7&5&2&-1&0 \\ 3&-8&1&0&9 \end{array} \right]$.We can partition $A$ into smaller matrices 
+\[A = \left[ \begin{array}{crc|rc} 1&-2&3&-6&4 \\ 7&5&2&-1&0  \\ \hline 3&-8&1&0&9 \end{array} \right],\]
+which are indicated by the vertical and horizontal lines. As a shorthand, we can describe this partition of $A$ as
+\[A = \left[ \begin{array}{cc} A_{11}&A_{12} \\ A_{21}&A_{22} \end{array} \right],\]
+where $A_{11} = \left[ \begin{array}{crc} 1&-2&3\\ 7&5&2   \end{array} \right]$, $A_{12} = \left[ \begin{array}{rc} -6&4 \\ -1&0  \end{array} \right]$, $A_{21} = \left[ \begin{array}{crc} 3&-8&1\end{array} \right]$, and $A_{22} =  [0 \ 9 ]$. The submatrices $A_{ij}$ are called \emph{blocks}. If $B$  is a matrix such that $AB$ is defined, then $B$ must have five rows. As an example, $AB$ is defined if $B = \left[ \begin{array}{cc} 1&3\\2&0 \\ 4&1\\6&5\\4&2 \end{array} \right]$. The partition of $A$ breaks $A$ up into blocks with three and two columns, respectively. So if we partition $B$ into blocks with three and two rows, then we can use the blocks to calculate the matrix product $AB$. For example, partition $B$ as 
+\[B = \left[ \begin{array}{cc} 1&3\\2&0 \\ 4&1\\ \hline 6&5\\4&2 \end{array} \right] = \left[ \begin{array}{c} B_{11}\\B_{21} \end{array} \right].\]
+Show that 
+\[AB = \left[ \begin{array}{cc} A_{11}&A_{12} \\ A_{21}&A_{22} \end{array} \right] \left[ \begin{array}{c} B_{11}\\B_{21} \end{array} \right] = \left[ \begin{array}{cc} A_{11}B_{11}+A_{12}B_{21} \\ A_{21}B_{11}+A_{22}B_{21} \end{array} \right].\]
+
+
+\end{pactivity}
+
+An advantage to using partitioned matrices is that computations with them can be done in parallel, which lessens the time it takes to do the work. In general, we can multiply partitioned matrices as though the submatrices are scalars. That is,
+\[ \left[ \begin{array}{cccc} A_{11}&A_{12}&\cdots&A_{1m} \\ A_{21}&A_{22}&\cdots&A_{2m}\\ \vdots & \vdots &\ddots & \vdots \\ A_{i1}&A_{i2}&\cdots&A_{im}  \\ \vdots & \vdots &\ddots & \vdots \\ A_{k1}&A_{k2}&\cdots&A_{km} \end{array} \right] \left[ \begin{array}{cccccc} B_{11}&B_{12}&\cdots&B_{1j} & \cdots &B_{1n} \\ B_{21}&B_{22}&\cdots&B_{2j}&\cdots &B_{2n}\\ \vdots & \vdots &\ddots & \vdots&\ddots&\vdots \\ B_{m1}&B_{m2}&\cdots&B_{mj} &\cdots &B_{mn}\end{array} \right] = [P_{ij}],\]
+where
+\[P_{ij} = A_{i1}B_{1j} + A_{i2}B_{2j} + \cdots + A_{im}B_{mj} = \sum_{t=1}^{m} A_{it}B_{tj},\]
+provided that all the submatrix products are defined. 
+
+Now we can apply Strassen's algorithm to larger matrices using partitions. This method is sometimes referred to as divide and conquer.
+
+\begin{pactivity} Let $A$ and $B$ be two $r \times r$ matrices.  If $r$ is not a power of $2$, then pad the rows and columns of $A$ and $B$ with zeros to make them of size $2^m \times 2^m$ for some integer $m$. (From a practical perspective, we might instead just use unequal block sizes.) Let $n = 2^m$.  Partition $A$ and $B$ as 
+\[A = \left[ \begin{array}{cc} A_{11}&A_{12}\\A_{21}&A_{22} \end{array} \right] \ \text{ and } \  B = \left[ \begin{array}{cc} B_{11}&B_{12}\\B_{21}&B_{22} \end{array} \right],\]
+where each submatrix is of size $\frac{n}{2} \times \frac{n}{2}$. Now we use the Strassen algorithm just as in the $2 \times 2$ case, treating the submatrices as if they were scalars (with the additional constraints of making sure that the dimensions match up so that products are defined, and ensuring we multiply in the correct order). Letting
+\begin{align*}
+M_1 &= (A_{11}+A_{22})(B_{11}+B_{22}) \\
+M_2 &= (A_{21}+A_{22})B_{11} \\
+M_3 &= A_{11}(B_{12}-B_{22}) \\
+M_4 &= A_{22}(B_{21}-B_{11}) \\
+M_5 &= (A_{11}+A_{12})B_{22} \\
+M_6 &=(A_{21}-A_{11})(B_{11}+B_{12}) \\
+M_7 &= (A_{12}-A_{22})(B_{21}+B_{22}),
+\end{align*}
+then the same algebra as in Project Activity \ref{:pact:Strassen_1} shows that 
+\[AB = \left[ \begin{array}{cc} M_1+M_4-M_5+M_7 & M_3+M_5 \\ M_2+M_4 & M_1+M_3-M_2+M_6 \end{array} \right].\]	
+Apply Strassen's algorithm to calculate the matrix product $AB$, where 
+\[A = \left[ \begin{array}{crr} 1&3&-1\\2&4&6\\7&-2&5 \end{array} \right] \text{ and } B = \left[ \begin{array}{crc} 2&5&3\\2&-4&1\\1&6&4 \end{array} \right].\]
+
+
+\end{pactivity}
+
+While Strassen's algorithm can be more efficient, it does not always speed up the process. We investigate this in the next activity. 
+
+\begin{pactivity} We introduce a little notation to help us describe the efficiency of our calculations. We won't be formal with this notation, rather work with it in an informal way. Big O (the letter ``O") notation is used to describe the complexity of an algorithm. Generally speaking, in computer science big O notation can be used to describe the run time of an algorithm, the space used by the algorithm, or the number of computations required. The letter ``O" is used because the behavior described is also called the order. Big O measures the asymptotic time of an algorithm, not its exact time. For example, if it takes $6n^2-n+8$ steps to complete an algorithm, then we say that the algorithm grows at the order of $n^2$ (we ignore the constants and the smaller power terms, since they become insignificant as $n$ increases) and we describe its growth as $O{\left(n^2\right)}$. To measure the efficiency of an algorithm to determine a matrix product, we will measure the number of operations it takes to calculate the product. 
+
+\ba
+\item Suppose $A$ and $B$ are $n \times n$ matrices. Explain why the operation of addition (that is, calculating $A+B$) is $O{\left(n^2\right)}$. 
+
+
+\item Suppose $A$ and $B$ are $n \times n$ matrices. How many multiplications are required to calculate the matrix product $AB$? Explain. 
+ 
+\item The standard algorithm for calculating a matrix product of two $n \times n$ matrices requires $n^3$ multiplications and a number of additions. Since additions are much less costly in terms of operations, the standard matrix product is $O{\left(n^3\right)}$. We won't show it here, but using Strassen's algorithm on a product of $2^m \times 2^m$ matrices is $O{\left(n^{\log_2(7)}\right)}$, where $n = 2^m$. That means that Strassen's algorithm applied to an $n \times n$ matrix (where $n$ is a power of $2$) requires approximately $n^{\log_2(7)}$ multiplications. We use this to analyze situations to determine when Strassen's algorithm is computationally more efficient than the standard algorithm.
+	\begin{enumerate}[i.]
+	\item  Suppose $A$ and $B$ are $5 \times 5$ matrices. Determine the number of multiplications required to calculate the matrix product $AB$ using the standard matrix product. Then determine the approximate number of multiplications required to calculate the matrix product $AB$ using Strassen's algorithm. Which is more efficient? (Remember, we can only apply Strassen's algorithm to square matrices whose sizes are powers of $2$.) 
+
+\item Repeat part i. with $125 \times 125$ matrices. Which method is more efficient?
+	
+	\end{enumerate}
+\ea
+
+\end{pactivity}
+
+
+As a final note, Strassen's algorithm is approximately $O{\left(n^{2.81}\right)}$. As of 2018, the best algorithm for matrix multiplication, developed by Virginia Williams at Stanford University,  is approximately $O{\left(n^{2.373}\right)}$.\footnote{V. V. Williams, Multiplying matrices in $O{\left(n^{2.373}\right)}$ time, Stanford University, (2014).}
+
+
+
+
+

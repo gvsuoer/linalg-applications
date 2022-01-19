@@ -1,0 +1,658 @@
+\achapter{13}{The Null Space and Column Space of a Matrix } \label{sec:null_space}
+
+\vspace*{-17 pt}
+\framebox{
+\parbox{\dimexpr\linewidth-3\fboxsep-3\fboxrule}
+{\begin{fqs}
+\item What is the null space of a matrix? 
+\item What is the column space of a matrix?
+\item What important structure do the null space and column space of a matrix have?
+\item What is the kernel of a matrix transformation?
+\item How is the kernel of a matrix transformation $T$ defined by $T(\vx) = A\vx$ related to the null space of $A$?
+\item What is the range of a matrix transformation?
+\item How is the range of a matrix transformation $T$ defined by $T(\vx) = A\vx$ related to the column space of $A$?
+\item How do we find a basis for $\Nul A$? 
+\item How do we find a basis for $\Col A$? 
+\end{fqs}}}% \hspace*{3 pt}}
+
+\vspace*{13 pt}
+
+\csection{Application: The Lights Out Game}
+
+Lights Out (LO) is a commercial game released by Tiger Toys in 1995 (later bought out by Hasbro). The game consists of a $5 \times 5$ grid in which each square is either lit or unlit. Pressing a square changes the status of the square itself and all the squares to the left, right, up, or down. The player's job is to turn all the lights out. You can play a sample game at \url{https://www.geogebra.org/m/wcmctahp}. There is a method to solve any solvable Lights Out game that can be uncovered through linear algebra that we will uncover later in this section. Column spaces and null spaces play important roles in this method. 
+
+\csection{Introduction}
+
+Recall that a subspace of $\R^n$ is a subset of $\R^n$ which is a vector space in itself. More specifically, a subset $W$ or $\R^n$ is a subspace of $\R^n$ if 
+\begin{enumerate}
+\item whenever $\vu$ and $\vv$ are in $W$ it is also true that $\vu + \vv$ is in $W$ (that is, $W$ is \textbf{closed} under addition),
+\item whenever $\vu$ is in $W$ and $a$ is a scalar it is also true that $a\vu$ is in $W$ (that is, $W$ is \textbf{closed} under scalar multiplication),
+\item $\vzero$ is in $W$.
+\end{enumerate}
+
+Given a matrix $A$, there are several subspaces that are connected to $A$. Two specific such subspaces are the null space of $A$ and the column space of $A$. We will see that these subspaces provide answers to the big questions we have been considering since the beginning of the semester, such as ``Do columns of $A$ span $\R^m$?" ``Are the columns of $A$ linearly independent?" ``Is the transformation $T$ defined by matrix multiplication by $A$ one-to-one?" ``Is the transformation $T$ onto?" 
+
+In this preview activity, we start examining the \emph{null space}. 
+
+
+\begin{pa} \label{pa:3_b} ~
+\be
+\item Let $A =  \left[ \begin {array}{ccc} 2&1&3\\ 1&1&4 \end {array} \right]$.
+	\ba
+	\item Find the general solution to the homogeneous equation $A \vx = \vzero$. Write your solutions in parametric vector form. (Recall that the parametric vector form expresses the solutions to an equation as linear combinations of vectors with free variables as the weights. An example would be $x_3 \left[ \begin{array}{r} 1\\0\\-1\\0\end{array}\right] + x_4 \left[ \begin{array}{r} -2\\1\\0\\1\end{array} \right]$.)
+
+
+
+	\item Find two specific solutions $\vx_1$ and $\vx_2$ to the homogeneous equation $A \vx = \vzero$. Is $\vx_1 + \vx_2$ a solution to $A \vx = \vzero$? Explain.
+
+
+
+	\item Is $3\vx_1$ a solution to $A \vx = \vzero$? Explain. 
+
+
+
+	\item Is $\vzero$ a solution to $A \vx = \vzero$? 
+	
+	
+	
+	\item What does the above seem to indicate about the set of solutions to the homogeneous system $A \vx = \vzero$? 
+
+
+
+	\ea
+
+\item Let $A$ be an $m \times n$ matrix. As problem 1 implies, the set of solutions to a homogeneous matrix-vector equation $A \vx = \vzero$ appears to be a subspace. We give a special name to this set.
+
+
+
+\begin{definition} \label{def:null_space} The \textbf{null space}\index{null space} of an $m \times n$ matrix $A$ is the set of all solutions to $A \vx = \vzero$.
+\end{definition}
+
+
+
+We denote the null space of a matrix $A$ as $\Nul A$. In set notation we write
+\[\Nul A = \{ \vx : A \vx = \vzero\}.\]
+Note that since $A\vx=\vzero$ corresponds to a homogeneous system of linear equations, $\Nul A$ also represents the solution set of a homogeneous system.\\
+
+Let $A =  \left[ \begin{array}{cccc} 2&1&3&0\\ 1&1&4&1 \end{array} \right]$. Find all vectors in $\Nul A$. 
+
+
+
+\item So far we considered specific examples of null spaces. But what are the properties of a null space in general? Let $A$ be an \emph{arbitrary} $m \times n$ matrix. 
+	\ba
+	\item The null space of an $m \times n$ matrix is a subset of $\R^k$ for some integer $k$. What is $k$?
+
+
+	
+	\item Now suppose $\vu$ and $\vv$ are two vectors in $\Nul A$. By definition, that means $A\vu=\vzero$, $A\vv=\vzero$. Use properties of the matrix-vector product to show that $\vu + \vv$ is also in $\Nul A$. 
+
+
+
+\item Now suppose $\vu$ is a vector in $\Nul A$ and $a$ is a scalar. Explain why $a\vu$ is also in $\Nul A$. 
+
+
+
+	\item Explain why $\Nul A$ is a subspace of $\R^n$. 
+
+	\ea
+	
+\ee
+\end{pa}
+
+
+\csection{The Null Space of a Matrix and the Kernel of a Matrix Transformation}
+
+In this section we explore the \emph{null space} and see how the null space of a matrix is related to the matrix transformation defined by the matrix. 
+
+
+Let $A$ be an $m \times n$ matrix. In Preview Activity \ref{pa:3_b} we defined the null space of a matrix $A$ (see Definition \ref{def:null_space}) as the set of solutions to the matrix equation $A \vx = \vzero$. Note that the null space of an $m \times n$ matrix is a subset of $\R^n$. We saw that the null space of $A$ is closed under addition and scalar multiplication -- that is, if $\vu$ and $\vv$ are in $\Nul A$ and $a$ and $b$ are any scalars, then $\vu + \vv$ and $a \vu$ are also in $\Nul A$. Since the zero vector is always in $\Nul A$, we can conclude that the null space of $A$ is a subspace of $\R^n$. 
+
+
+
+There is a connection between the null space of a matrix and the matrix transformation it defines. Recall that any $m \times n$ matrix $A$ defines a matrix transformation $T$ from $\R^n$ to $\R^m$ by $T(\vx) = A \vx$. The null space of $A$ is then the collection of vectors $\vx$ in $\R^n$ so that $T(\vx) = \vzero$. So if $T$ is a matrix transformation from $\R^n$ to $\R^m$, then the set 
+\[\{\vx \text{ in } \R^n : T(\vx) = \vzero\}\]
+ is a subspace of $\R^n$ equal to the null space of $A$. This set is is given a special name. 
+
+
+
+\begin{definition} Let $T : \R^n \to \R^n$ be a matrix transformation. The \textbf{kernel}\index{kernel} of $T$ is the set
+\[\Ker(T) = \{\vx \in \R^n : T(\vx) = \vzero\}.\]
+\end{definition}
+
+
+\begin{activity} \label{act:3_b_1} 
+If $T$ is a matrix transformation defined by a matrix $A$, then there is a convenient way to determine if $T$ is one-to-one.
+\ba
+\item Let $T$ be the matrix transformation defined by $T(\vx) = A\vx$, where 
+\[A = \left[ \begin{array}{ccr} 1&2&-1 \\ 0&1&4 \end{array} \right].\]
+Find all of the vectors in $\Nul A$. If $\Nul A$ contains more than one vector, can $T$ be one-to-one? Why?
+
+
+\item Let $T$ be the matrix transformation defined by $T(\vx) = A\vx$, where 
+\[A = \left[ \begin{array}{rc} 1&0 \\ 2&1 \\ -1&4 \end{array} \right].\]
+Find all of the vectors in $\Nul A$. Is $T$ one-to-one? Why?
+
+
+\item To find the vectors in the null space of a matrix $A$ we solve the system $A \vx = \vzero$. Since a homogeneous system is always consistent, there are two possibilities for $\Nul A$: either $\Nul A = \{\vzero\}$ or $\Nul A$ contains infinitely many vectors. 
+	\begin{enumerate}[i.]
+	\item Under what conditions on $A$ is $\Nul A = \{\vzero\}$? What does that mean about $T$ being one-to-one or not? Explain. 
+
+	\item Under what conditions is $\Nul A$ infinite? What does that mean about $T$ being one-to-one or not? Explain.
+
+\item Is is possible for $\Nul A$ to be the whole space $\R^n$? If so, give an example. If not, explain why not.
+
+\end{enumerate}
+
+\ea
+\end{activity}
+
+
+Recall that for a function to be  one-to-one, each output must come from exactly one input. Since a matrix transformation $T$ defined by $T(\vx) = A \vx$ always maps the zero vector to the zero vector, for $T$ to be one-to-one it must be the case that the zero vector is the only vector that $T$ maps to the zero vector. This means that the null space of $A$ must be $\{\vzero\}$. Activity \ref{act:3_b_1} demonstrates that if the matrix $A$ that defines the transformation $T$ has a pivot in every column, then $T(\vx) = \vb$ will have exactly one solution for each $\vb$ in the range of $T$. So a trivial null space is enough to characterize a one-to-one matrix transformation.  
+
+
+\begin{theorem} \label{thm:3_b_one_to_one_kernel} A matrix transformation $T$ from $\R^n$ to $\R^m$ defined by $T(\vx) = A\vx$ is one-to-one if and only if 
+\[\Nul A = \Ker(T) = \{\vzero\}.\] 
+\end{theorem}
+
+
+\csection{The Column Space of a Matrix and the Range of a Matrix Transformation}
+
+Given an $m \times n$ matrix $A$, we have seen that the matrix-vector product $A \vx$ is a linear combination of the columns of $A$ with weights from $\vx$. It follows that the equation $A \vx = \vb$ has a solution if and only if $\vb$ is a linear combination of the columns of $A$. So the span of the columns of $A$ tells us for which vectors the equation $A \vx = \vb$ is consistent. We give the span of the columns of a matrix $A$ a special name. 
+
+
+\begin{definition} The \textbf{column space}\index{column space} of an $m \times n$ matrix $A$ is the span of the columns of $A$.
+\end{definition}
+
+
+We denote the column space of $A$ as $\Col A$. Given that $A \vx$ is a linear combination of the columns of $A$, we can also write the column space of an $m \times n$ matrix $A$ as
+\[\Col A = \{A \vx : \vx \text{ is in } \R^n\}.\]
+For the matrix transformation $T$ defined by $T(\vx) = A\vx$, the set of all vectors of the form $A \vx$ is also the range of the transformation $T$. So for a matrix transformation $T$ with matrix $A$ we have $\Range(T) = \Col A$. 
+
+\begin{activity} \label{act:3_b_2} As a span of a set of vectors, we know that $\Col A$ is a subspace of $\R^k$ for an appropriate value of $k$.  
+\ba
+\item Let $M =  \left[ \begin{array}{ccccr} 1&1&1&0&2 \\ 0&1&0&1&1 \\ 1&0&1&1&-1 \\ 0&1&0&1&1 \end{array} \right]$. 
+The space $\Col M$ is a subspace of $\R^k$ for some positive integer $k$. What is $k$ in this case?
+
+
+\item If $A$ is an $m \times n$ matrix, then $\Col A$ is a subspace of $\R^k$ for some positive integer $k$. What is $k$ in this case?
+
+
+\item Recall that a matrix transformation $T$ given by $T(\vx)=A\vx$ where $A$ is an $m\times n$ matrix is onto if for every $\vb$ in $\R^m$ there exists a $\vx$ in $\R^n$ for which $T(\vx)=\vb$. How does $T$ being onto relate to the $\Col A$? 
+
+
+\ea
+\end{activity}
+
+As you saw in Activity \ref{act:3_b_2}, a matrix transformation $T$ defined by $T(\vx)=A\vx$ is onto if the column space of $A$, which consists of the image vectors under the transformation $T$, is equal to $\R^m$. In other words, we want the $\Range(T)$ to equal $\R^m$.
+
+\begin{theorem} \label{thm:3_b_onto_range} A matrix transformation $T$ from $\R^n$ to $\R^m$ defined by $T(\vx) = A\vx$ is onto if and only if 
+\[\Col A = \Range(T) = \R^m.\] 
+\end{theorem}
+
+
+
+\csection{The Row Space of a Matrix}
+
+As you might expect, if there is a column space for a matrix then there is also a row space for a matrix. The row space is defined just as the column space as the span of the rows of a matrix. 
+
+\begin{definition} The \textbf{row space}\index{row space} of an $m \times n$ matrix $A$ is the span of the row of $A$.
+\end{definition}
+
+There is really nothing new here, though. Since the rows of $A$ are the columns of $A^{\tr}$, it follows that $\Row A = \Col A^{\tr}$. So if we want to learn anything about the row space of $A$, we can just translate all of our questions to the column space of $A^{\tr} $. 
+
+\csection{Bases for $\Nul A$ and $\Col A$}
+
+When confronted with a subspace of $\R^n$, we will usually want to find a minimal spanning set -- a smallest spanning set -- for the space. Recall that a minimal spanning set is also called a basis for the space. So a basis for a space must span that space, and to be a minimal spanning set we have seen that a basis must also be linearly independent.  So to prove that a set is a basis for a subspace of $\R^n$ we need to demonstrate two things: that the set is linearly independent, and that the set spans the subspace. 
+
+
+
+\begin{activity} \label{act:3_b_3} In this activity we see how to find a basis for $\Col A$ and $\Nul A$ for a specific matrix $A$. Let 
+\[A =  \left[ \begin{array}{rrrrr} 1&1&1&0&2 \\ 0&1&0&1&1 \\ 1&0&1&1&-1 \\ 0&1&0&1&1 \end{array} \right].\] Assume that the reduced row echelon form of $A$ is 
+\[R= \left[ \begin{array}{rrrrr} 1&0&1&0&0 \\ 0&1&0&0&2 \\ 0&0&0&1&-1 \\ 0&0&0&0&0\end{array} \right].\] 
+\ba 
+\item First we examine $\Col A$. Recall that to find a minimal spanning set of a set of vectors $\{\vv_1, \vv_2, \ldots, \vv_k\}$ in $\R^n$ we just select the pivot columns of the matrix $[\vv_1  \ \vv_2  \ \cdots \  \vv_k]$. 
+	\begin{enumerate}[i.]
+	\item Find a basis for $\Col A$.
+
+
+
+	\item Does $\Col A$ equal $\Col R$? Explain.
+	
+
+
+	\end{enumerate}
+	
+\item Now we look at $\Nul A$. 
+	\begin{enumerate}[i.]
+	\item Write the general solution to the homogeneous system $A \vx = \vzero$ in vector form. 
+
+
+
+	\item Find a spanning set for $\Nul A$. 
+
+
+
+	\item Find a basis for $\Nul A$. Explain how you know you have a basis.  
+
+
+
+	\end{enumerate}
+
+\ea
+
+\end{activity}
+
+
+You should have noticed that Activity \ref{act:3_b_3} (a) provides a process for finding a basis for $\Col A$ -- the pivot columns of $A$ form a basis for $\Col A$. Similarly, Activity \ref{act:3_b_3} (b) shows us that we can find a basis for $\Nul A$ by writing the general solution to the homogeneous equation $A\vx = \vzero$ as a linear combination of vectors whose weights are the variables corresponding to the non-pivot columns of $A$ -- and these vectors form a basis for $\Nul A$. As we will argue next, these process always give us bases for $\Col A$ and $\Nul A$. 
+
+Let $A$ be an $m \times n$ matrix, and let $R$ be the reduced row echelon form of $A$. Suppose $R$ has $k$ non-pivot columns and $n-k$ pivot columns. We can rearrange the columns so that the non-pivot columns of $R$ are the last $k$ columns (this just amounts to relabeling the unknowns in the system).
+
+\begin{description}
+\item[Basis for $\Nul A$.] Here we argue that the method described following Activity \ref{act:3_b_3} to find a spanning set for the null space always yields a basis for the null space.
+
+First note that $\Nul R = \Nul A$, since the system $A\vx = \vzero$ has the same solution set as $R \vx = \vzero$. So it is enough to find a basis for $\Nul R$. If every column of $R$ is a pivot column, then $R \vx = \vzero$ has only the trivial solution and the null space of $R$ is $\{ \vzero \}$. Let us now consider the case where $R$ contains non-pivot columns. If we let $\vx = [x_1 \ x_2 \ \ldots \ x_n]^{\tr}$, and if $R\vx = \vzero$ then we can write $x_1$, $x_2$, $\ldots$, $x_{n-k}$ in terms of $x_{n-k+1}$, $x_{n-k+2}$, $\ldots$, and $x_n$. From these equations we can write $\vx$ as a linear combination of some vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ with $x_{n-k+1}$, $x_{n-2+2}$, $\ldots$, $x_n$ as weights. By construction, each of the vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ has a component that is 1 with the corresponding component as 0 in all the other $\vv_i$. Therefore, the vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ are linearly independent and span $\Nul R$ (and $\Nul A$). In other words, the method we have developed to find the general solution to $A \vx = \vzero$ always produces a basis for $\Nul A$.
+\item[Basis for $\Col A$.] Here we explain why the pivot columns of $A$ form a basis for $\Col A$.  Recall that the product $A \vx$ expresses a linear combination of the columns of $A$ with weights from $\vx$, and every such linear combination is matched with a product $R \vx$ giving a linear combination of the columns of $R$ \emph{using the same weights}. So if a set of columns of $R$ is linearly independent (or dependent), then the set of corresponding columns in $A$ is linearly independent (or dependent) and vice versa. Since each pivot column of $R$ is a vector with 1 in one entry (a different entry for different pivot columns) and zeros elsewhere, the pivot columns of $R$ are clearly linearly independent. It follows that the pivot columns of $A$ are linearly independent. All that remains is to explain why the pivot columns of $A$ span $\Col A$. 
+
+Let $\vr_1$, $\vr_2$, $\ldots$, $\vr_n$ be the columns of $R$ so that $R~=~[\vr_1 \ \ \vr_2 \ \ \cdots \ \ \vr_n]$, and let $\va_1$, $\va_2$, $\ldots$, $\va_n$ be the columns of $A$ so that $A~=~[\va_1 \ \ \va_2 \ \ \cdots \ \ \va_n]$. Suppose $\va_i$ is a non-pivot column for $A$ and $\vr_i$ the corresponding non-pivot column in $R$. Each pivot column is composed of a single 1 with the rest of its entries 0. Also, if a non-pivot column contains a nonzero entry, then there is a corresponding pivot column that contains a 1 in the corresponding position. So $\vr_i$ is a linear combination of $\vr_1$, $\vr_2$, $\ldots$, $\vr_{n-k}$ -- the pivot columns of $R$. Thus,
+\[\vr_i = c_1 \vr_1 + c_2\vr_2 + \cdots + c_{n-k}\vr_{n-k}\]
+for some scalars $c_1$, $c_2$, $\ldots$, $c_{n-k}$. Let $\vx = [c_1 \ c_2 \ \cdots \ c_{n-k} \ 0 \ \cdots 0 \ -1 \ 0 \ \cdots \ 0]^{\tr}$, where the $-1$ is in position $i$. Then $R \vx = \vzero$ and so $A \vx = \vzero$. Thus, 
+\[\va_i = c_1 \va_1 + c_2\va_2 + \cdots + c_{n-k}\va_{n-k}\]
+and $\va_i$ is a linear combination of the pivot columns of $A$. So every non-pivot column of $A$ is in the span of $A$ and we conclude that the pivot columns of $A$ form a basis for $\Col A$. 
+\end{description}
+
+\noindent \textbf{IMPORTANT POINT:} It is the pivot columns of $A$ that form a basis for $\Col A$, not the pivot columns of the reduced row echelon form $R$ of $A$. In general, $\Col R \neq \Col A$. 
+
+We can incorporate the ideas of this section to expand the Invertible Matrix Theorem.
+
+
+
+\begin{theorem}[The Invertible Matrix Theorem] Let $A$ be an $n \times n$ matrix. The following statements are equivalent.
+\begin{enumerate}
+\item The matrix $A$ is an invertible matrix.
+\item \label{item:3_b_trivial_soln} The matrix equation $A \vx = \vzero$ has only the trivial solution.
+\item The matrix $A$ has $n$ pivot columns.
+\item Every row of $A$ contains a pivot. 
+\item The columns of $A$ span $\R^n$.
+\item The matrix $A$ is row equivalent to the identity matrix $I_n$.
+\item The columns of $A$ are linearly independent.
+\item The columns of $A$ form a basis for $\R^n$.
+\item The matrix transformation $T$ from $\R^n$ to $\R^n$ defined by $T(\vx) = A\vx$ is one-to-one.
+\item The matrix equation $A \vx = \vb$ has exactly one solution for each vector $\vb$ in $\R^n$.
+\item The matrix transformation $T$ from $\R^n$ to $\R^n$ defined by $T(\vx) = A\vx$ is onto.
+\item \label{item:3_b_AC_I} There is an $n \times n$ matrix $C$ so that $AC = I_n$.
+\item \label{item:3_b_DA_I} There is an $n \times n$ matrix $D$ so that $DA = I_n$.
+\item The scalar 0 is not an eigenvalue of $A$.
+\item The matrix $A^{\tr}$ is invertible.
+\item $\Nul A = \{\vzero\}$.
+\item $\Col A = \R^n$.
+\end{enumerate}
+\end{theorem}
+
+
+\csection{Examples}
+
+\ExampleIntro
+
+\begin{example} ~
+\ba
+\item Let $A = \left[ \begin{array}{rrrr} 1&0&-2&3 \\ -2&-4&0&-14 \\ 1&3&1&9 \end{array} \right]$.
+	\begin{enumerate}[i.]
+	\item Find a basis for $\Col A$. 
+	
+	\item  Describe $\Col A$ geometrically (e.g., as a line, a plane, a union of lines, etc.) in the appropriate larger space. 
+	
+	\end{enumerate}
+	
+\item Let $B = \left[ \begin{array}{rrr} 0&-2&1\\-1&0&1 \\ 6&-10&-1 \\ 1&-4&1  \end{array} \right]$.
+	\begin{enumerate}[i.]
+	\item Find a basis for $\Nul B$. 
+	
+	\item  Describe $\Nul B$ geometrically (e.g., as a line, a plane, a union of lines, etc.) in the appropriate larger space. 
+	
+	\end{enumerate}
+	
+\ea
+	
+\ExampleSolution
+\ba
+\item We use $A = \left[ \begin{array}{rrrr} 1&0&-2&3 \\ -2&-4&0&-14 \\ 1&3&1&9 \end{array} \right]$.
+	\begin{enumerate}[i.]
+	\item Technology shows that the reduced row echelon form of $A$ is 
+	\[\left[ \begin {array}{ccrc} 1&0&-2&3\\ 0&1&1&2 \\ 0&0&0&0\end {array} \right].\]
+	The first two columns of $A$ are the pivot columns of $A$. Since the pivot columns of $A$ form a basis for $\Col A$, a basis for $\Col A$ is 
+	\[\left\{ \left[ \begin {array}{r} 1\\ -2 \\ 1\end {array} \right], \left[ \begin {array}{r} 0\\ -4 \\ 3\end {array} \right] \right\}.\]
+
+	\item Let $\vv_1 =  \left[ \begin {array}{r} 1\\ -2 \\ 1\end {array} \right]$ and $\vv_2 =  \left[ \begin {array}{r} 0\\ -4 \\ 3\end {array} \right]$. Since neither $\vv_1$ nor $\vv_2$ is a scalar multiple of the other, we see that $\Col A$ is the span of two linearly independent vectors in $\R^3$. Thus, we conclude that $\Col A$ is the plane in $\R^3$ through the origin and the points $(1,-2,1)$ and $(0,-4,3)$. 
+	
+	\end{enumerate}
+	
+\item We use $B = \left[ \begin{array}{rrr} 0&-2&1\\-1&0&1 \\ 6&-10&-1 \\ 1&-4&1  \end{array} \right]$.
+	\begin{enumerate}[i.]
+	\item Technology shows that the reduced row echelon form of $B$ is 
+	\[\left[ \renewcommand{\arraystretch}{1.5} \begin {array}{ccr} 1&0&-1\\ 0&1&-\frac{1}{2} \\ 0&0&0 \\ 0&0&0\end {array} \right].\]
+	To find a basis for $\Nul B$, we must solve the homogeneous equation $B \vx = \vzero$. If $\vx = \left[ \begin{array}{c}x_1\\x_2\\x_3 \end{array} \right]$ and $B \vx = \vzero$, the reduced row echelon form of $B$ shows that $x_3$ is free, $x_2 = \frac{1}{2}x_3$, and $x_1 = x_3$. So 
+	\begin{align*}
+	\vx &= \left[ \begin{array}{c}x_1\\x_2\\x_3 \end{array} \right] \\
+		&= \left[ \renewcommand{\arraystretch}{1.5} \begin{array}{c}x_3\\ \frac{1}{2}x_3 \\x_3 \end{array} \right] \\
+		&= x_3\left[ \renewcommand{\arraystretch}{1.5} \begin{array}{c}1\\ \frac{1}{2}1\\1 \end{array} \right] .
+	\end{align*}
+	 Thus, a basis for $\Nul B$ is 
+	\[\left\{ \left[ \begin {array}{c} 2\\ 1 \\ 2\end {array} \right] \right\}.\]
+
+	\item  Since $\Nul B = \Span\left\{ \left[ \begin {array}{c} 2\\ 1 \\ 2\end {array} \right] \right\}$ is the span of one nonzero vector in $\R^3$, we conclude that $\Nul B$ is the line in $\R^3$ through the origin and the point $(2,1,2)$.
+	\end{enumerate}
+	
+\ea
+
+
+\end{example}
+
+
+\begin{example} Let $A = \left[ \begin{array}{rr} 1&3\\-1&2 \\ 0&-2\\5&6 \end{array} \right]$, and let $T$ be the matrix transformation defined by $T(\vx) = A\vx$.
+\ba
+\item What are the domain and codomain of $T$? Why? 
+
+\item Find all vectors $\vx$ such that $T(\vx) = \vzero$. How is this set of vectors related to $\Nul A$? Explain.
+
+\item Is $T$ one-to-one? Explain.
+
+\item Is $T$ onto? If yes, explain why. If no, find a basis for the range of $T$. 
+
+\ea
+
+\ExampleSolution
+
+\ba
+\item Recall that $A \vx$ is a linear combination of the columns of $A$ with weights from $\vx$. So $A \vx$ is defined only when the number of components of $\vx$ is equal to the number of columns of $A$. This explains why the domain of $T$ is $\R^2$. Also, since each output of $T$ is a linear combination of the columns of $A$, the codomain of $T$ is $\R^4$. 
+
+\item The set of vectors $\vx$ such that $\vzero = T(\vx) = A\vx$ is the same as $\Nul A$. The reduced row echelon form of $A$ is 
+\[\left[ \begin{array}{cc} 1&0\\0&1\\0&0\\0&0 \end{array}\right].\]
+Since both columns of $A$ are pivot columns, the columns of $A$ are linearly independent. This implies that $A \vx = \vzero$ has only the trivial solution. Therefore, the only vector $\vx$ such that $T(\vx) = \vzero$ is the zero vector in $\R^2$. 
+
+\item The previous part shows that $\Ker(T) = \{\vzero\}$. This means that $T$ is one-to-one by Theorem \ref{thm:3_b_one_to_one_kernel}. 
+
+\item Recall that the range of $T$ is the same as $\Col A$. The reduced row echelon form of $A$ has a row of zeros, so $A \vx = \vb$ is not consistent for every $\vb$ in $\R^4$. We conclude that $T$ is not onto. To find a basis for the range of $T$, we just need to find a basis for $\Col A$. The pivot columns of $A$ form such a basis, so a basis for the range of $T$ is 
+\[\left\{ \left[ \begin{array}{r} 1\\-1 \\ 0\\5 \end{array} \right], \left[ \begin{array}{r} 3\\2 \\ -2\\6 \end{array} \right] \right\}.\]
+
+\ea
+
+\end{example}
+
+\csection{Summary}
+
+\begin{itemize}
+\item The null space of an $m \times n$ matrix $A$ is the set of vectors $\vx$ in $\R^n$ so that $A \vx = \vzero$. In set notation
+\[\Nul A = \{\vx : A \vx = \vzero\}.\]
+\item The column space of a matrix $A$ is the span of the columns of $A$.
+\item A subset $W$ of $\R^n$ is a subspace of $\R^n$ if
+\begin{enumerate}
+\item $\vu + \vv$ is in $W$ whenever $\vu$ and $\vv$ are in $W$ (when this property is satisfied we say that $W$ is \emph{closed} under addition),
+\item $a \vu$ is in $W$ whenever $a$ is a scalar and $\vu$ is in $W$ (when this property is satisfied we say that $W$ is \emph{closed} under multiplication by scalars),
+\item $\vzero$ is in $W$.
+\end{enumerate}
+\item The null space of an $m \times n$ matrix is a subspace of $\R^n$ while the column space of $A$ is a subspace of $\R^m$.
+\item The span of any set of vectors in $\R^n$ is a subspace of $\R^n$. 
+\item The kernel of a matrix transformation $T : \R^n \to \R^m$ is the set 
+\[\Ker(T) = \{\vx \in \R^n : T(\vx) = \vzero\}.\]
+\item The kernel of a matrix transformation $T$ defined by $T(\vx) = A\vx$ is the same set as $\Nul A$. 
+\item The range of a matrix transformation $T : \R^n \to \R^m$ is the set 
+\[\Range(T) = \{T(\vx) : \vx \in \R^n\}.\]
+\item The range of a matrix transformation $T$ defined by $T(\vx) = A\vx$ is the same set as $\Col A$. 
+\item A basis for the null space of a matrix $A$ can be found by writing the general solution to the homogeneous equation $A \vx = \vzero$ as a linear combination of vectors whose weights are the variables corresponding to the non-pivot columns of $A$. The number of vectors in a basis for $\Nul A$ is the number of non-pivot columns of $A$.
+\item The pivot columns of a matrix $A$ form a basis for the column space of $A$.
+\end{itemize}
+
+
+
+\csection{Exercises}
+\be
+\item Find a basis for the null space and column space of the matrix 
+\[A=\left[ \begin{array}{cccr} 1 & 2& 3& 4\\ 0 & 0 & 2 & -2 \\ 1 & 2 & 5 & 2 \end{array} \right].\]
+Of which spaces are the null and column spaces of $A$ subspaces?
+
+\item If the column space of $\left[ \begin{array}{ccr} 1&2&-1\\1&1&1\\1&2&c\end{array} \right]$ has basis $\left\{ \left[ \begin{array}{c} 1\\1\\1 \end{array} \right], \left[ \begin{array}{c} 2\\1\\2 \end{array} \right]\right\}$, what must $c$ be?
+
+\item If the null space of $\left[ \begin{array}{ccc} 2&1&a\\ 1&2&b \end{array} \right]$ has basis $\left\{ \left[ \begin{array}{r} 2\\-1\\1 \end{array} \right]\right\}$, what must $a$ and $b$ be?
+
+\item Find a matrix with at least four non-zero and distinct columns for which the column space has basis $\left\{ \left[ \begin{array}{c} 1\\1\\1\end{array} \right] , \left[ \begin{array}{c} 2\\2\\3\end{array} \right] \right\}$.
+
+\item Find a matrix with at least two rows whose null space has basis $\left\{ \left[ \begin{array}{r} 1\\1\\-1\end{array} \right] \right\}$.
+
+\item Find a matrix whose column space has basis $\left\{ \left[ \begin{array}{c} 1\\1\\1\end{array} \right] , \left[ \begin{array}{c} 2\\2\\3\end{array} \right] \right\}$ and whose null space has basis $\left\{ \left[ \begin{array}{r} 2\\1\\-1\end{array} \right] \right\}$.
+
+\item If possible, find a $4\times 4$ matrix whose column space does not equal $\R^4$ but whose null space equals $\{\vzero\}$. Explain your answer. If not possible, explain why not.
+
+\item Label each of the following statements as True or False. Provide justification for your response.
+\ba
+\item \textbf{True/False} For a $3\times 4$ matrix, the null space contains vectors other than the zero vector.
+
+\item \textbf{True/False} For a $4\times 3$ matrix, the null space contains vectors other than the zero vector.
+
+\item \textbf{True/False} If Nul $A$ is not the zero subspace, then the transformation ${\bf x} \mapsto A{\bf x}$ is not one-to-one.
+
+\item \textbf{True/False} If the transformation ${\bf x} \mapsto A{\bf x}$ is onto where $A$ is an $m\times n$ matrix, then Col $A=\R^m$.
+
+\item \textbf{True/False} For a $4\times 3$ matrix $A$, Col $A$ cannot equal $\R^4$.
+
+\item \textbf{True/False} For a $3\times 4$ matrix $A$, Col $A$ cannot equal $\R^3$.
+
+\item \textbf{True/False} The null space of the matrix $\begin{bmatrix} 1 & 1 & 1 \\1 & 1 & 1 \\ 1 & 1 & 1\end{bmatrix}$ consists of the two vectors $[-1 \ 0 \ 1]^{\tr}$ and $[0 \ -1 \ 1]^{\tr}$.
+
+\item \textbf{True/False} A basis for the null space of the matrix $\begin{bmatrix} 1 & 1 & 1 \\1 & 1 & 1 \\ 1 & 1 & 1\end{bmatrix}$ consists of the two vectors $[-1 \ 0 \ 1]^{\tr}$ and $[0 \ -1 \ 1]^{\tr}$.
+
+\item \textbf{True/False} There does not exist a matrix whose null space equals its column space.
+
+\item \textbf{True/False} The column space of every $4\times 4$ matrix is $\R^4$ and its null space is $\{\vzero\}$.
+
+\ea
+
+\ee
+
+\csection{Project: Solving the Lights Out Game}
+The Lights Out game starts with a $5 \times 5$ grid on which some of the squares are lit (on) and some are not lit (off). We will call such a state a \emph{configuration}. Pressing a square that is on turns it off and changes the state of all adjacent (vertically and horizontally) squares, and pressing a square that is off turns it on and changes the state of all adjacent (vertically and horizontally) squares. To model this situation, we consider the number system $\Z_2 = \{0,1\}$ consisting only of 0 and 1, where 0 represents the off state and 1 the on state. We can also think of 1 as the act of pressing a square and 0 as the act of not pressing -- that is,
+\begin{itemize}
+\item $0+0 = 0$ (not pressing an off square leaves it off),
+\item $0+1 = 1 = 1 + 0$ (pressing an off square turns it on or not pressing a lit square leaves it lit),
+\item $1+1 = 0$ (pressing a lit square turns it off).
+\end{itemize}
+
+The numbers 0 and 1 in $\Z_2$ will be the only numbers we use when playing the Lights Out game, so all of our matrix entries will be in $\Z_2$ and all of our calculations are done in $\Z_2$. 
+
+There are two ways we can view a Lights Out game.
+\begin{itemize}
+\item We can view each configuration as a $5 \times 5$ matrix. In this situation, we label the entries in the grid as shown in Figure \ref{F:LO}. Each entry in the grid will be assigned a 0 or 1 according to whether the light in that entry is off or on.
+
+\item For our purposes a better way to visualize a Lights Out configuration is as a $25 \times 1$ vector. The components in this vector correspond to the entries in the $5 \times 5$ grid with the correspondence given by the numbering demonstrated in Figure \ref{F:LO} (for the sake of space, this array is shown in a row instead of a column). Again, each component is assigned a 0 or 1 according to whether the light for that entry is off or on. In this view, each configuration is a vector with 25 components in $\Z_2$.
+\end{itemize}
+
+\begin{figure}[h]
+\begin{center}
+
+\resizebox{!}{1.0in}{\includegraphics{LO}} \\
+
+\vspace{6pt}
+
+\resizebox{!}{0.22in}{\includegraphics{LO_vector}}
+
+\end{center}
+\caption{Two representations of the Lights Out game.}
+\label{F:LO}
+\end{figure}
+
+We will take the latter perspective and view the Lights Out game as if it is played on a $25 \times 1$ board with entries in $\Z_2$. The space of all of these Lights Out configurations is denoted as $\Z_2^{25}$ (similar to $\R^{25}$, but with entries in $\Z_2$ rather than $\R$). Since $\Z_2$ is a field, the space $\Z_2^{25}$ is a vector space just as $\R^{25}$ is. This is the environment in which we will play the Lights Out game.
+
+If we think about the game as played on a $25 \times 1$ board, then pressing a square correlates to selecting one of the 25 components of a configuration vector. Each time we press a square, we make a move that changes the status of that square and all the squares vertically or horizontally adjacent to it from the $5 \times 5$ board. Recalling that adding 1 to a square has the effect of changing its status (from on to off or off to on), and each move that we make in the game can be represented as a $25 \times 1$ vector that is added to a configuration. For example, the move of pressing the first square is given by adding the vector
+\[\vm_{1} = [ 1 \ 1 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0\  0 \ 0 \ 0 \ 0 \ 0 ]^{\tr}\]
+to a configuration vector and the move of pressing the second square is represented by adding the vector 
+\[\vm_{2} = [ 1 \ 1 \ 1 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0\  0 \ 0 \ 0 \ 0 \ 0 ]^{\tr}.\]
+
+
+
+\begin{pactivity} Let $\vm_i$ be the move of pressing the $i$th square for $i$ from 1 to 25. 
+\ba
+\item Find vector representations for $\vm_9$ and $\vm_{22}$. %each of the other 23 moves
+
+
+\item Let $M = [m_{ij}] =  \left[\vm_1 | \vm_2 | \cdots | \vm_{25} \right]$. Explain why $m_{ij} = m_{ji}$ for each $i$ and $j$. In other words, explain why $M^{\tr} = M$. (Such a matrix is called a \emph{symmetric} matrix.)
+
+
+\ea
+
+\end{pactivity}
+
+The goal of the Lights Out game is to begin with an initial configuration $\vc$ (a vector in $\Z_2^{25}$) and determine if we can apply a sequence of moves to obtain the configuration in which all the entries are 0 (or all the lights are off). The vector in $\Z_2^{25}$ of all 0s is the zero vector in $\Z_2^{25}$ and we will denote it as $\vzero$. Some basic algebra of vector addition in $\Z_2$ (or mod 2) will help us understand the strategy.
+
+Start with a configuration $\vc$. If we press the $i$th square, then we obtain the new configuration $\vc_1 = \vm_i + \vc$ (where each move $\vm_i$ is also in $\Z_2^{25}$).
+
+\begin{pactivity} \label{act_LO_1} ~
+\ba
+\item What happens if we press the $i$th square twice in a row? Explain in terms of the action and the game and verify using vector addition.
+
+
+\item Explain why applying move $\vm_i$ then move $\vm_j$ is the same as applying move $\vm_j$, then $\vm_i$.
+
+
+\item Explain how the answers to the previous two questions show that to play the game we only need to determine which buttons to press (and only once each) without worrying about the order in which the buttons are pressed.
+
+
+\ea
+
+\end{pactivity}
+
+
+
+What we have seen is that to play the game we are really looking for scalars $x_1$, $x_2$, $\ldots$, $x_{25}$ in $\Z_2$ (in other words, either 0 or 1) so that
+\begin{equation}
+x_1\vm_1 + x_2\vm_2 + \cdots + x_{25}\vm_{25} + \vc = \vzero. \label{eq:LO1}
+\end{equation}
+
+
+
+\begin{pactivity} Explain why (\ref{eq:LO1}) has the equivalent matrix equation
+\begin{equation}
+M\vx = \vc, \label{eq:LO2}
+\end{equation}
+where $M = \left[\vm_1 | \vm_2 | \cdots | \vm_{25} \right]$, or 
+\[M =
+\arraycolsep=3.0pt
+\left[ \begin{array}{c c c c c c c c c c c c c c c c c c c c c c c c c }
+1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 \\
+\end{array}\right].\]
+Explicitly identify the vector $\vx$. Also, explain why $\vc$ is on the right side of this equation. 
+
+
+\end{pactivity}
+
+
+To solve a Lights Out game now, all we need do is determine a solution, if one exists, to the matrix equation (\ref{eq:LO2}). 
+\begin{pactivity} \label{act:LO_2} For this activity you may use the fact that the reduced row echelon form of the matrix $M$ (using algebra in $\Z_2$) is as shown below. 
+\ba
+\item Find a basis for the column space of $M$. 
+
+\item Explain why not every Lights Out puzzle can be solved. That is, explain why there are some initial configurations of lights on and off for which it is not possible to turn out all the lights (without turning off the game). Relate this to the column space of $M$.
+
+
+\ea
+
+\end{pactivity}
+
+ The reduced row echelon form of the matrix $M$ (using algebra in $\Z_2$):
+\[ \arraycolsep=3pt \left[ \begin {array}{ccccccccccccccccccccccccc}
+1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1 \\
+0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0 \\
+0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&1 \\
+0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0 \\
+0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1 \\
+0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&1 \\
+0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0 \\
+0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&1 \\
+0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0 \\
+0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&0&1&1 \\
+0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0&1&0 \\
+0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&1&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&0&0&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&0&1&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0&1&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&1&1 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0&0&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&1&1 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&0&0&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&1&1 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&0&0&1 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&0&1&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&1&1&1 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0 \\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0
+\end {array} \right].\]
+
+
+To find conditions under which a Lights Out game is not solvable, we will demonstrate that  if $A$ is an $n \times n$ matrix, then the scalar product of any vector in $\Nul A^{\tr}$ with any column of $A$ is $\vzero$. Let $A = [a_{ij}]$ be an $n \times n$ matrix with columns $\va_1$, $\va_2$, $\ldots$, $\va_n$. Represent the entries in the $i$th column as  $\va_i = [a_{1i} \ a_{2i} \ \ldots \ a_{ni}]^{\tr}$ for each $i$ between 1 and $n$. Note that $\va_i$ is also the $i$th row of $A^{\tr}$. Also, let $\vx = [x_1 \ x_2 \ \ldots \ x_n]^{\tr}$ be a vector in $\Nul A^{\tr}$. Then $A^{\tr} \vx = \vzero$. Using the row-column method of multiplying a matrix by a vector, when we multiply the $i$th row of $A^{\tr}$ with $\vx$ we obtain
+    \begin{equation}
+    a_{1i}x_1 + a_{2i}x_2 + \cdots + a_{ni}x_n = 0. \label{eq:LO_dp}
+    \end{equation}
+    This equation is valid for each $i$ between 1 and $n$. Recall that the sum in (\ref{eq:LO_dp}) is the scalar product of $\va_i$ and $\vx$ and is denoted  $\va_i \cdot \vx$. That is,
+     \[\va_i \cdot \vx = a_{i1}x_1 + a_{i2}x_2 + \cdots + a_{in}x_n.\]
+     The fact that $\vx$ is in $\Nul A^{\tr}$ means $\va_i \cdot \vx = \vzero$ for every $i$ between 1 and $n$. In other words, the scalar product of any vector in $\Nul A^{\tr}$ with any column of $A$ is $\vzero$. (When the scalar product of two vectors is $\vzero$, we call the vectors \emph{orthogonal} -- a fancy word for ``perpendicular".) Since scalar products are linear, we can extend this result to the following.
+     
+ \begin{theorem} \label{thm:LO_Nul_Col} Let $A$ be an $n \times n$ matrix. If $\vx$ is any vector in $\Col A$ and $\vy$ is any vector in $\Nul A^{\tr}$, then $\vx \cdot \vy = 0$. 
+\end{theorem}
+     
+With Theorem \ref{thm:LO_Nul_Col} in mind we can return to our analysis of the Lights Out game, applying this result to the matrix $M$. 
+
+\begin{pactivity} ~
+\ba
+\item Find a basis for the null space of $M^{\tr}$. (Recall that $M^{\tr} = M$, so you can use the reduced row echelon form of $M$ (using algebra in $\Z_2$) given earlier.) 
+
+
+
+\item Use  Theorem \ref{thm:LO_Nul_Col}  to show that if $\vc = [c_1 \  c_2 \  \ldots \  c_{25}]^{\tr}$ is an initial Lights Out configuration that is solvable, then $\vc$ must be orthogonal to each of the vectors in a basis for $\Nul M^{\tr}$. Then show that if $\vc$ is a solvable initial Lights Out configuration, $\vc$ must satisfy
+\begin{align*}
+c_2 + c_3 + c_4 + c_6 + c_8 + c_{10} + c_{11} + c_{12} &+ c_{14} + c_{15} + c_{16} + c_{18}  \\
+	&+ c_{20} + c_{22} + c_{23} + c_{24} = 0 
+\end{align*}
+and
+\begin{equation*}
+c_1 + c_3 + c_5 + c_6 + c_8 + c_{10} + c_{16} + c_{18} + c_{20} + c_{21} + c_{23} + c_{25} = 0.
+\end{equation*}
+Be very specific in your explanation.
+
+
+\ea
+\end{pactivity}
+
+
+
+\begin{pactivity} Now that we know which Lights Out games can be solved, let $\vc$ be an initial configuration to a solvable Lights Out game. Explain how to find a solution to this game. Will the solution be unique? Explain.
+\end{pactivity}
+
+
+Now that we have a strategy for solving the Lights Out game, use it to solve random puzzles at \url{https://www.geogebra.org/m/wcmctahp}, or create your own game to solve. 
+
+
+
+
+

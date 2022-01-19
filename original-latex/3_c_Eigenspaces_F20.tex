@@ -1,0 +1,428 @@
+\achapter{14}{Eigenspaces of a Matrix} \label{sec:eigenspaces}
+
+\vspace*{-17 pt}
+\framebox{
+\parbox{\dimexpr\linewidth-3\fboxsep-3\fboxrule}
+{\begin{fqs}
+\item What is an eigenspace of a matrix?
+\item How do we find a basis for an eigenspace of a matrix?
+\item What is true about any set of eigenvectors for a matrix that correspond to different eigenvalues? 
+\end{fqs}}}% \hspace*{3 pt}}
+
+\vspace*{13 pt}
+
+\csection{Application: Population Dynamics}
+
+The study of population dynamics -- how and why people move from one place to another -- is important to economists. The movement of people corresponds to the movement of money, and money makes the economy go. As an example, we might consider a simple model of population migration to and from the state of Michigan.
+
+According to the Michigan Department of Technology, Management, and Budget,\footnote{\url{http://michigan.gov/cgi/0,1607,7-158-54534-140915--,00.html}} from 2011 to 2012, approximately 0.05\% of the U.S. population outside of Michigan moved to the state of Michigan, while approximately 2\% of Michigan's population moved out of Michigan. A reasonable question to ask about this situation is, if these numbers don't change, what is the long-term distribution of the US population inside and outside of Michigan (under the assumption that the total US population doesn't change.). The answer to this question involves eigenvalues and eigenvectors of a matrix. More details can be found later in this section. 
+
+
+\csection{Introduction}
+
+
+
+\begin{pa} \label{pa:3_c_1} Consider the matrix transformation $T$ from $\R^2$ to $\R^2$ defined by $T(\vx) = A \vx$, where
+\[A = \left[ \begin{array}{cc} 3&1\\1&3 \end{array} \right].\]
+We are interested in understanding what this matrix transformation does to vectors in $\R^2$.  The matrix $A$ has eigenvalues $\lambda_1 = 2$ and $\lambda_2 = 4$ with corresponding eigenvectors $\vv_1 = \left[ \begin{array}{r} -1\\1 \end{array} \right]$ and $\vv_2 = \left[ \begin{array}{c} 1\\1 \end{array} \right]$. 
+
+\be
+\item Explain why $\vv_1$ and $\vv_2$ are linearly independent.
+
+
+\item  Explain why any vector $\vb$ in $\R^2$ can be written uniquely as a linear combination of $\vv_1$ and $\vv_2$. 
+
+\item We now consider the action of the matrix transformation $T$ on a linear combination of $\vv_1$ and $\vv_2$. Explain why 
+\begin{equation} \label{eq:3_c_1}
+T(c_1\vv_1 + c_2 \vv_2) = 2c_1\vv_1 + 4c_2 \vv_2. 
+\end{equation} 
+
+
+\ee
+
+\end{pa}
+
+Equation (\ref{eq:3_c_1}) illustrates that it would be convenient to view the action of $T$ in the coordinate system where $\Span\{\vv_1\}$ serves as the $x$-axis and $\Span\{\vv_2\}$ as the $y$-axis. In this case, we can visualize that when we apply the transformation $T$ to a vector $\vb = c_1 \vv_1 + c_2 \vv_2$ in $\R^2$ the result is an output vector is scaled by a factor of $2$ in the $\vv_1$ direction and by a factor of $4$ in the $\vv_2$ direction. For example, consider the box with vertices at $(0,0)$,  $\vv_1$, $\vv_2$, and $\vv_1+\vv_2$ as shown at left in Figure \ref{F:3_c_1}. The transformation $T$ stretches this box by a factor of $2$ in the $\vv_1$ direction and a factor of $4$ in the $\vv_2$ direction as illustrated at right in Figure \ref{F:3_c_1}. In this situation, the eigenvalues and eigenvectors provide the most convenient perspective through which to visualize the action of the transformation $T$. Here, $\Span\{\vv_1\}$ and $\Span\{\vv_2\}$ are the eigenspaces of the matrix $A$. 
+\begin{figure}[ht]
+\begin{center}
+\resizebox{!}{1.5in}{\includegraphics{3_c_Transformation}}
+\end{center}
+\caption{A box and a transformed box.}
+\label{F:3_c_1}
+\end{figure}
+
+This geometric perspective illustrates how each the span of each eigenvalue of $A$ tells us something important about $A$.  In this section we explore the idea of eigenvalues and spaces defined by eigenvectors in more detail.
+
+\csection{Eigenspaces of Matrix}
+
+Recall that the eigenvectors of an $n \times n$ matrix $A$ satisfy the equation 
+\[A \vx = \lambda \vx\]
+for some scalar $\lambda$. Equivalently, the eigenvectors of $A$ with eigenvalue $\lambda$ satisfy the equation 
+\[(A - \lambda I_n) \vx = \vzero.\]
+In other words, the eigenvectors for $A$ with eigenvalue $\lambda$ are the non-zero vectors in $\Nul A-\lambda I_n$. Recall that the null space of an $n \times n$ matrix is a subspace of $\R^n$. In Preview Activity \ref{pa:3_c_1} we say how these subspaces provided a convenient coordinate system through which to view a matrix transformation. These special null spaces are called \emph{eigenspaces}.
+
+
+
+\begin{definition} Let $A$ be an $n \times n$ matrix with eigenvalue $\lambda$. The \textbf{eigenspace}\index{eigenspace} for $A$ corresponding to $\lambda$ is the null space of $A - \lambda I_n$.
+\end{definition}
+
+
+
+\begin{activity} \label{act:3_c_1} The matrix $A = \left[ \begin{array}{rrrr} 2&0&1 \\ 0&2&-1 \\ 0&0&1 \\  \end{array} \right]$ has two distinct eigenvalues. 
+	\ba
+	\item Find a basis for the eigenspace of $A$ corresponding to the eigenvalue $\lambda_1 = 1$. In other words, find a basis for $\Nul A - I_3$. 
+
+
+
+	\item Find a basis for the eigenspace of $A$ corresponding to the eigenvalue $\lambda_2 = 2$. 
+
+
+
+	\item Is it true that if $\vv_1$ and $\vv_2$ are two distinct eigenvectors for $A$, that $\vv_1$ and $\vv_2$ are linearly independent? Explain. 
+
+
+
+	\item Is it possible to have two linearly independent eigenvectors corresponding to the same eigenvalue?
+	
+	
+	
+
+	\item Is it true that if $\vv_1$ and $\vv_2$ are two distinct eigenvectors corresponding to different eigenvalues for $A$, that $\vv_1$ and $\vv_2$ are linearly independent? Explain. 
+	
+	
+	
+	\ea
+	
+\end{activity}
+
+
+
+If we know an eigenvalue $\lambda$ of an $n \times n$ matrix $A$, Activity \ref{act:3_c_1} shows us how to find a basis for the corresponding eigenspace -- just row reduce $A - \lambda I_n$ to find a basis for $\Nul A-\lambda I_n$. To this point we have always been given eigenvalues for our matrices, and have not seen how to find these eigenvalues. That process will come a bit later. For now, we just want to become more familiar with eigenvalues and eigenvectors. The next activity should help connect eigenvalues to ideas we have discussed earlier. 
+
+
+
+\begin{activity} \label{act:3_c_2} Let $A$ be an $n \times n$ matrix with eigenvalue $\lambda$. 
+\ba
+\item How many solutions does the equation $(A-\lambda I_n) \vx = \vzero$ have? Explain.
+
+
+
+\item Can $A - \lambda I_n$ have a pivot in every column? Why or why not?
+
+
+
+\item Can $A - \lambda I_n$ have a pivot in every row? Why or why not?
+
+
+
+\item Can the columns of $A - \lambda I_n$ be linearly independent? Why or why not?
+
+
+
+\ea
+
+\end{activity}
+ 
+
+\csection{Linearly Independent Eigenvectors}
+
+An important question we will want to answer about a matrix is how many linearly independent eigenvectors the matrix has. Activity \ref{act:3_c_1} shows that eigenvectors for the same eigenvalue may be linearly dependent or independent, but all of our examples so far seem to indicate that eigenvectors corresponding to different eigenvalues are linearly independent. This turns out to be universally true as our next theorem demonstrates. The next activity should help prepare us for the proof of this theorem
+
+
+
+\begin{activity} \label{act:3_c_3} Let $\lambda_1$ and $\lambda_2$ be distinct eigenvalues of a matrix $A$ with corresponding eigenvectors $\vv_1$ and $\vv_2$. The goal of this activity is to demonstrate that $\vv_1$ and $\vv_2$ are linearly independent. To prove that $\vv_1$ and $\vv_2$ are linearly independent, suppose that 
+\begin{equation} \label{eq:3_c_2}
+x_1\vv_1 + x_2 \vv_2 = \vzero.
+\end{equation}
+\ba
+\item Multiply both sides of equation (\ref{eq:3_c_2}) on the left by the matrix $A$ and show that 
+\begin{equation} \label{eq:3_c_3}
+x_1\lambda_1\vv_1 + x_2 \lambda_2\vv_2 = \vzero.
+\end{equation}
+
+
+
+\item Now multiply both sides of equation (\ref{eq:3_c_2}) by the scalar $\lambda_1$ and show that 
+\begin{equation} \label{eq:3_c_4}
+x_1\lambda_1\vv_1 + x_2 \lambda_1\vv_2 = \vzero.
+\end{equation}
+
+
+
+\item Combine equations (\ref{eq:3_c_3}) and (\ref{eq:3_c_4}) to obtain the equation
+\begin{equation} \label{eq:3_c_5}
+x_2(\lambda_2-\lambda_1)\vv_2 = \vzero.
+\end{equation}
+
+
+
+\item Explain how we can conclude that $x_2 = 0$. Why does it follow that $x_1 = 0$? What does this tell us about $\vv_1$ and $\vv_2$? 
+
+
+
+\ea
+
+\end{activity}
+
+
+
+Activity \ref{act:3_c_3} contains the basic elements of the proof of the next theorem.
+
+
+
+\begin{theorem} \label{thm:4_b_lin_indep_evects}  Let $\lambda_1$, $\lambda_2$, $\ldots$, $\lambda_k$ be $k$ distinct eigenvalues for a matrix $A$ and for each $i$ between 1 and $k$ let $\vv_i$ be an eigenvector of $A$ with eigenvalue $\lambda_i$. Then the vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ are linearly independent.
+\end{theorem}
+
+
+\begin{proof} Let $A$ be a matrix with $k$ distinct eigenvalues $\lambda_1$, $\lambda_2$, $\ldots$, $\lambda_k$ and corresponding eigenvectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$. To understand why $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ are linearly independent, we will argue by contradiction and suppose that the vectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ are linearly dependent. Note that $\vv_1$ cannot be the zero vector (why?), so the set $S_1=\{\vv_1\}$ is linearly independent. If we include $\vv_2$ into this set, the set $S_2 = \{\vv_1, \vv_2\}$ may be linearly independent or dependent. If $S_2$ is linearly independent, then the set $S_3 = \{\vv_1, \vv_2, \vv_3\}$ may be linearly independent or dependent. We can continue adding additional vectors until we reach the set $S_k = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_k\}$ which we are assuming is linearly dependent. So there must be a smallest integer $m \geq 2$ such that the set $S_m$ is linearly dependent while $S_{m-1}$ is linearly independent. Since $S_m = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_m\}$ is linearly dependent, there is a linear combination of $\vv_1$, $\vv_2$, $\ldots$, $\vv_m$ with weights not all 0 that is the zero vector. Let $c_1$, $c_2$, $\ldots$, $c_m$ be such weights, not all zero, so that
+\begin{equation}
+c_1\vv_1 + c_2\vv_2 + \cdots + c_{m-1} \vv_{m-1} + c_m \vv_m = \vzero \label{eq:distinct_eigenvalues}
+\end{equation}
+
+If we multiply both sides of (\ref{eq:distinct_eigenvalues}) on the left by the matrix $A$ we obtain
+\begin{align}
+A(c_1\vv_1 + c_{2}\vv_{2} + \cdots + c_m \vv_m) &= A\vzero \notag \\
+c_1A\vv_1 + c_{2}A\vv_{2} + \cdots + c_m A\vv_m &= \vzero \notag \\
+c_1 \lambda_1\vv_1 + c_{2}\lambda_{2}\vv_{2} + \cdots + c_m \lambda_m\vv_m &= \vzero. \label{eq:distinct_eigenvalues2}
+\end{align}
+
+If we multiply both sides of (\ref{eq:distinct_eigenvalues}) by $\lambda_m$ we obtain the equation
+\begin{equation}
+c_1\lambda_m\vv_1 + c_{2}\lambda_m\vv_{2} + \cdots + c_m \lambda_m\vv_m = \vzero. \label{eq:distinct_eigenvalues3}
+\end{equation}
+
+Subtracting corresponding sides of equation (\ref{eq:distinct_eigenvalues3}) from (\ref{eq:distinct_eigenvalues2}) gives us
+\begin{equation}
+c_{1}(\lambda_{1}-\lambda_m)\vv_{1} + c_{2}(\lambda_{2}-\lambda_m)\vv_{2} + \cdots + c_{m-1} (\lambda_{m-1}-\lambda_m) \vv_{m-1} = \vzero. \label{eq:distinct_eigenvalues4}
+\end{equation}
+
+Recall that $S_{m-1}$ is a linearly independent set, so the only way a linear combination of vectors in $S_{m-1}$ can be $\vzero$ is if all of the weights are 0. Therefore, we must have
+\[c_{1}(\lambda_{1}-\lambda_m) = 0, \ \ c_{2}(\lambda_{2}-\lambda_m) = 0, \ \ \ldots, \ \ c_{m-1} (\lambda_{m-1}-\lambda_m) = 0.\]
+Since the eigenvalues are all distinct, this can only happen if
+\[c_1 = c_2 = \cdots = c_{m-1} = 0.\]
+But equation (\ref{eq:distinct_eigenvalues}) then implies that $c_m = 0$ and so all of the weights $c_1$, $c_2$, $\ldots$, $c_m$ are 0. However, when we assumed that the eigenvectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ were linearly dependent, this led to having at least one of the weights $c_1$, $c_2$, $\ldots$, $c_m$ be nonzero. This cannot happen, so our assumption that the eigenvectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ were linearly dependent must be false and we conclude that the eigenvectors $\vv_1$, $\vv_2$, $\ldots$, $\vv_k$ are linearly independent.
+\end{proof}
+
+
+
+\csection{Examples}
+
+\ExampleIntro
+
+\begin{example} Let $A = \left[ \begin{array}{rrr} 4&-3&-3\\-3&4&3\\3&-3&-2 \end{array} \right]$ and let $T$ be the matrix transformation defined by $T(\vx) = A\vx$. 
+\ba
+\item Show that $4$ is an eigenvalue for $A$ and find a basis for the corresponding eigenspace of $A$.
+
+\item Geometrically describe the eigenspace of $A$ corresponding to the eigenvalue $4$. Explain what the transformation $T$ does to this eigenspace. 
+
+\item Show that $1$ is an eigenvalue for $A$ and find a basis for the corresponding eigenspace of $A$. 
+
+\item Geometrically describe the eigenspace of $A$ corresponding to the eigenvalue $1$. Explain what the transformation $T$ does to this eigenspace. 
+
+\ea
+
+\ExampleSolution
+\ba
+\item Recall that $\lambda$ is an eigenvalue of $A$ if $A-\lambda I_3$ is not invertible. To show that $4$ is an eigenvalue for $A$ we row reduce the matrix 
+\[A - (4)I_3 = \left[ \begin{array}{rrr} 0&-3&-3\\3&0&-3\\3&-3&-6 \end{array} \right]\]
+ to $\left[ \begin{array}{ccr} 1&0&-1\\0&1&1\\0&0&0\end{array} \right]$. Since the third column of $A-4I_3$ is not a pivot column, the matrix $A-4I_3$ is not invertible. We conclude that $4$ is an eigenvalue of $A$. 
+
+The eigenspace of $A$ for the eigenvalue $4$ is $\Nul (A-4I_3)$. The reduced row echelon form of $A-4I_3$ shows that if $\vx = \left[ \begin{array}{c} x_1\\x_2\\x_3 \end{array} \right]$ and $(A-4I_3) \vx = \vzero$, then $x_3$ is free, $x_2 = -x_3$, and $x_1 = x_3$. Thus, 
+\[\vx = \left[ \begin{array}{c} x_1\\x_2\\x_3 \end{array} \right] = \left[  \begin{array}{r} x_3\\ -x_3\\x_3 \end{array} \right] = x_3 \left[ \begin{array}{r} 1\\-1\\1 \end{array} \right].\]
+Therefore, $\left\{\left[ \begin{array}{r} 1\\-1\\1 \end{array} \right]\right\}$ is a basis for the eigenspace of $A$ corresponding to the eigenvalue $4$. 
+
+\item Since the eigenspace of $A$ corresponding to the eigenvalue $4$ is the span of a single nonzero vector $\vv = \left[ \begin{array}{r} 1\\-1\\1 \end{array} \right]$, this eigenspace is the line in $\R^3$ through the origin and the point $(1,-1,1)$. Any vector in this eigenspace has the form $c \vv$ for some scalar $c$. Notice that 
+\[T(c\vv) = Ac\vv = cA\vv = 4c\vv,\]
+so $T$ expands any vector in this eigenspace by a factor of 4. 
+
+
+\item To show that $1$ is an eigenvalue for $A$ we row reduce the matrix 
+\[A - (1)I_3 = \left[ \begin{array}{crr} 3&-3&-3\\-3&3&3\\3&-3&-3 \end{array} \right]\]
+ to $\left[  \begin{array}{crr} 1&-1&-1\\0&0&0\\0&0&0\end{array} \right]$. Since the third column of $A -I_3$ is not a pivot column, the matrix $A -I_3$ is not invertible. We conclude that $1$ is an eigenvalue of $A$. 
+
+The eigenspace of $A$ for the eigenvalue $1$ is $\Nul (A-I_3)$. The reduced row echelon form of $A-I_3$ shows that if $\vx = \left[ \begin{array}{c} x_1\\x_2\\x_3 \end{array} \right]$ and $(A-I_3) \vx = \vzero$, then $x_2$ and $x_3$ are free, and $x_1 = x_2+x_3$. Thus, 
+\[\vx = \left[ \begin{array}{c} x_1\\x_2\\x_3 \end{array} \right] = \left[ \begin{array}{c} x_2+x_3\\ x_2 \\x_3 \end{array} \right] = x_2 \left[ \begin{array}{c} 1\\1\\0 \end{array} \right] + x_3 \left[ \begin{array}{c} 1\\0\\1 \end{array} \right].\]
+Therefore, $\left\{\left[ \begin{array}{c} 1\\1\\0 \end{array} \right], \left[ \begin{array}{c} 1\\0\\1 \end{array} \right]\right\}$ is a basis for the eigenspace of $A$ corresponding to the eigenvalue $1$. 
+
+\item Since the eigenspace of $A$ corresponding to the eigenvalue $1$ is the span of two linearly independent vectors $\vv_1 = \left[ \begin{array}{r} 1\\1\\0 \end{array} \right]$ and $\vv_2 = \left[ \begin{array}{c} 1\\0\\1 \end{array} \right]$, this eigenspace is the plane in $\R^3$ through the origin and the points $(1,1,0)$ and $(1,0,1)$. Any vector in this eigenspace has the form $a \vv_1 + b\vv_2$ for some scalars $a$ and $b$. Notice that 
+\[T(a\vv_1+b\vv_2) = A(a\vv_1+b\vv_2) = aA\vv_1+bA\vv_2 = a\vv_1+b\vv_2,\]
+so $T$ fixes every vector in this plane. 
+
+\ea
+
+
+\end{example}
+
+\begin{example} ~
+\ba
+\item Let $A = \left[ \begin{array}{cc} 1&2\\2&1 \end{array} \right]$. Note that the vector $\vv = \left[ \begin{array}{c}1\\1 \end{array} \right]$ satisfies $A \vv = 3\vv$. 
+	\begin{enumerate}[i.]
+	\item Show that $\vv$ is an eigenvector of $A^2$. What is the corresponding eigenvalue?
+	\item Show that $\vv$ is an eigenvector of $A^3$. What is the corresponding eigenvalue?
+	\item Show that $\vv$ is an eigenvector of $A^4$. What is the corresponding eigenvalue?
+	\item If $k$ is a positive integer, do you expect that $\vv$ is an eigenvector of $A^k$? If so, what do you think is the corresponding eigenvalue?
+	\end{enumerate}
+
+\item The result of part (a) is true in general. Let $M$ be an $n \times n$ matrix with eigenvalue $\lambda$ and corresponding eigenvector $\vx$.
+	\begin{enumerate}[i.]
+	\item Show that $\lambda^2$ is an eigenvalue of $M^2$ with eigenvector $\vx$. 
+	\item Show that $\lambda^3$ is an eigenvalue of $M^3$ with eigenvector $\vx$. 
+	\item Suppose that $\lambda^k$ is an eigenvalue of $M^k$ with eigenvector $\vx$ for some integer $k \geq 1$. Show then that $\lambda^{k+1}$ is an eigenvalue of $M^{k+1}$ with eigenvector $\vx$. This argument shows that $\lambda^k$ is an eigenvalue of $M^k$ with eigenvector $\vx$ for any positive integer $k$. 
+	\end{enumerate}
+
+\item  We now investigate the eigenvalues of a special type of matrix. 
+	\begin{enumerate}[i.]
+	\item Let $B = \left[ \begin{array}{ccc} 0&1&0 \\ 0&0&1 \\ 0&0&0 \end{array} \right]$. Show that $B^3 = 0$. (A square matrix $M$ is \emph{nilpotent}\index{matrix!nilpotent}) if $M^k = 0$ for some positive integer $k$, so $B$ is an example of a nilpotent matrix.) What are the eigenvalues of $B$? Explain. 
+
+	\item Show that the only eigenvalue of a nilpotent matrix is $0$.
+	\end{enumerate}
+
+\ea
+	
+\ExampleSolution
+\ba
+\item We use the fact that $\vv$ is an eigenvector of the matrix $A$ with eigenvalue $3$.  	\begin{enumerate}[i.]
+	\item We have that 
+	\[A^2 \vv = A(A\vv) = A(3\vv) = 3(A\vv) = 3(3\vv) = 9\vv.\]
+	So $\vv$ is an eigenvector of $A^2$ with eigenvalue $9 = 3^2$. 
+	\item We have that 
+	\[A^3 \vv = A(A^2\vv) = A(9\vv) = 9(A\vv) = 9(3\vv) = 27\vv.\]
+	So $\vv$ is an eigenvector of $A^3$ with eigenvalue $27 = 3^3$. 
+	\item We have that 
+	\[A^4 \vv = A(A^3\vv) = A(27\vv) = 27(A\vv) = 27(3\vv) = 81\vv.\]
+	So $\vv$ is an eigenvector of $A^4$ with eigenvalue $81 = 3^4$. 
+	\item The results of the previous parts of this example indicate that $A^k \vv = 3^k \vv$, or that $\vv$ is an eigenvector of $A^k$ with corresponding eigenvalue $3^k$.
+	\end{enumerate}
+
+\item Let $M$ be an $n \times n$ matrix with eigenvalue $\lambda$ and corresponding eigenvector $\vx$.
+	\begin{enumerate}[i.]
+\item We have that 
+	\[M^2 \vx = M(M\vx) = M(\lambda \vx) = \lambda(M\vx) = \lambda(\lambda \vx) = \lambda^2 \vx.\]
+	So $\vx$ is an eigenvector of $M^2$ with eigenvalue $\lambda^2$. 
+	\item We have that 
+	\[M^3 \vx = M(M^2\vx) = M(\lambda^2 \vx) = \lambda^2(M\vx) = \lambda^2(\lambda \vx) = \lambda^3 \vx.\]
+	So $\vx$ is an eigenvector of $M^3$ with eigenvalue $\lambda^3$. 
+	\item Assume that $M^k \vx = \lambda^k \vx$. Then 
+	\[M^{k+1} \vx = M(M^k\vx) = M(\lambda^k \vx) = \lambda^k(M\vx) = 2\lambda^k(\lambda \vx) = \lambda^{k+1} \vx.\]
+	So $\vx$ is an eigenvector of $M^{k+1}$ with eigenvalue $\lambda^{k+1}$. 
+	\end{enumerate}
+
+	
+\item Now we investigate a special type of matrix.
+	\begin{enumerate}[i.]
+	\item Straightforward calculations show that $B^3 = 0$. Since $B$ is an upper triangular matrix, the eigenvalues of $B$ are the entries on the diagonal. That is, the only eigenvalue of $B$ is $0$.
+	
+	\item Assume that $M$ is a nilpotent matrix. Suppose that $\lambda$ is an eigenvalue of $M$ with corresponding eigenvector $\vv$. Since $M$ is a nilpotent matrix, there is a positive integer $k$ such that $M^k = 0$. But $\lambda^k$ is an eigenvalue of $M^k$ with eigenvector $\vv$. The only eigenvalue of the zero matrix is $0$, so $\lambda^k = 0$. This implies that $\lambda = 0$. We conclude that the only eigenvalue of a nilpotent matrix is $0$. 
+	
+	\end{enumerate}
+
+\ea
+\end{example}
+
+
+\csection{Summary}
+\begin{itemize}
+\item An eigenspace of an $n \times n$ matrix $A$ corresponding to an eigenvalue $\lambda$ of $A$ is the null space of $A - \lambda I_n$. 
+\item To find a basis for an eigenspace of a matrix $A$ corresponding to an eigenvalue $\lambda$, we row reduce $A - \lambda I_n$ and find a basis for $\Nul A - \lambda I_n$. 
+\item Eigenvectors corresponding to different eigenvalues are always linearly independent. 
+\end{itemize}
+
+
+
+\csection{Exercises}
+\be
+\item For each of the following, find a basis for the eigenspace of the indicated matrix corresponding to the given eigenvalue.
+	\ba
+	\item $\left[ \begin{array}{rr} 10&7 \\ -14&-11 \end{array} \right]$ with eigenvalue 3
+	\item  $\left[ \begin{array}{rr} 11&18 \\ -3&-4 \end{array} \right]$ with eigenvalue 2
+	\item $\left[ \begin{array}{rc} 2&1 \\ -1&0 \end{array} \right]$ with eigenvalue 1
+	\item $\left[ \begin{array}{ccc} 1&0&0 \\ 0&0&2 \\ 1&0&2 \end{array} \right]$ with eigenvalue 2
+	\item $\left[ \begin{array}{ccc} 1&0&0 \\ 0&0&2 \\ 1&0&2 \end{array} \right]$ with eigenvalue 1
+	\item $\left[ \begin{array}{ccc} 2&2&4 \\ 1&1&2 \\ 3&3&6 \end{array} \right]$ with eigenvalue 0
+	\ea
+
+\item Suppose $A$ is an invertible matrix. 
+
+	\ba 
+	\item Use the definition of an eigenvalue and an eigenvector to algebraically explain why if $\lambda$ is an eigenvalue of $A$, then $\lambda^{-1}$ is an eigenvalue of $A^{-1}$. 
+
+	\item To provide an alternative explanation to the result in the previous part, let $\vv$ be an eigenvector of $A$ corresponding to $\lambda$. Consider the matrix transformation $T_A$ corresponding to $A$ and $T_{A^{-1}}$ corresponding to $A^{-1}$. Considering what happens to $\vv$ if $T_A$ and then $T_{A^{-1}}$ are applied, describe why this justifies $\vv$ is also an eigenvector of $A^{-1}$.
+	\ea
+
+\item If $A=\left[ \begin{array}{cc} 0&1\\a&b \end{array} \right]$ has two eigenvalues 4 and 6, what are the values of $a$ and $b$?
+
+\item ~
+	\ba
+	\item What are the eigenvalues of the identity matrix $I_2$? Describe each eigenspace.
+	\item Now let $n > 2$ be a positive integer. What are the eigenvalues of the identity matrix $I_n$? Describe each eigenspace.
+	\ea
+
+\item ~
+	\ba
+	\item What are the eigenvalues of the $2 \times 2$ zero matrix (the matrix all of whose entries are 0)? Describe each eigenspace.
+	\item Now let $n > 2$ be a positive integer. What are the eigenvalues of the $n \times n$ zero matrix? Describe each eigenspace.
+	\ea
+	
+	
+
+\item Label each of the following statements as True or False. Provide justification for your response.
+	\ba
+	\item \textbf{True/False} If $A\vv = \lambda \vv$, then $\lambda$ is an eigenvalue of $A$ with eigenvector $\vv$.
+	\item \textbf{True/False} The scalar $\lambda$ is an eigenvalue of a square matrix $A$ if and only if the equation $(A - \lambda I_n) \vx = \vzero$ has a nontrivial solution. 
+	\item \textbf{True/False} If $\lambda$ is an eigenvalue of a matrix $A$, then there is only one nonzero vector $\vv$ with $A \vv = \lambda \vv$.  
+	\item \textbf{True/False} The eigenspace of an eigenvalue of an $n \times n$ matrix $A$ is the same as $\Nul (A - \lambda I_n)$. 
+	\item \textbf{True/False} If $\vv_1$ and $\vv_2$ are eigenvectors of a matrix $A$ corresponding to the same eigenvalue $\lambda$, then $\vv_1 + \vv_2$ is also an eigenvector of $A$.	
+	\item \textbf{True/False} If $\vv_1$ and $\vv_2$ are eigenvectors of a matrix $A$, then $\vv_1 + \vv_2$ is also an eigenvector of $A$. 
+	\item \textbf{True/False} If $\vv$ is an eigenvector of an invertible matrix $A$, then $\vv$ is also an eigenvector of $A^{-1}$.
+	\ea
+	
+\ee
+
+\csection{Project: Modeling Population Migration}
+
+As introduced earlier, data from the Michigan Department of Technology, Management, and Budget shows that from 2011 to 2012, approximately 0.05\% of the U.S. population outside of Michigan moved to the state of Michigan, while approximately 2\% of Michigan's population moved out of Michigan. We are interested in determining the long-term distribution of population in Michigan. 
+
+Let $\vx_n = \left[ \begin{array}{c} m_n \\ u_n  \end{array} \right]$ be the $2 \times 1$ vector where $m_n$ is the population of Michigan and $u_n$ is the U.S. population outside of Michigan in year $n$. Assume that we start our analysis at generation 0 and $\vx_0 = \left[ \begin{array}{c} m_0 \\ u_0 \end{array} \right]$.
+
+\begin{pactivity} \label{act:Mi_pop_1} ~
+\ba
+\item Explain how the data above shows that 
+\begin{align*}
+m_1 &= 0.98m_0 + 0.0005u_0 \\
+u_1 &= 0.02m_0 + 0.9995u_0
+\end{align*}
+
+
+\item Identify the matrix $A$ such that $\vx_1 = A \vx_{0}$. 
+
+
+\ea
+
+\end{pactivity}
+
+One we have the equation $\vx_1 = A\vx_0$, we can extend it to subsequent years:
+\[\vx_2 = A\vx_1, \ \ \ \ \vx_3 = A \vx_2, \ \ \ \ , ..., \ \ \ \ \vx_{n+1} = A \vx_n\]
+for each $n \geq 0$.
+
+This example illustrates the general nature of what is called a \emph{Markov process} (see Definition \ref{def:Markov}). Recall that the matrix $A$ that provides the link from one generation to the next is called the transition matrix.
+
+In situations like these, we are interested in determining if there is a steady-state vector, that is a vector that satisfies 
+\begin{equation} \label{eq:Mi_pop_2}
+\vx = A \vx.
+\end{equation}
+Such a vector would show us the long-term population of Michigan provided the population dynamics do not change.
+
+\begin{pactivity}  ~
+\ba
+\item Explain why a steady-state solution to (\ref{eq:Mi_pop_2}) is an eigenvector of $A$. What is the corresponding eigenvalue? 
+
+
+\item Consider again the transition matrix $A$ from Project Activity \ref{act:Mi_pop_1}. Recall that the solutions to equation (\ref{eq:Mi_pop_2}) are all the vectors in $\Nul (A-I_2)$. In other words, the eigenvectors of $A$ for this eigenvalue are the nonzero vectors in $\Nul (A-I_2)$. Find a basis for the eigenspace of $A$ corresponding to this eigenvalue. Use whatever technology is appropriate. 
+
+\item Once we know a basis for the eigenspace of the transition matrix $A$, we can use it to estimate the steady-state population of Michigan (assuming the stated migration trends are valid long-term). According to the US Census Bureau\footnote{\url{https://www.census.gov/data/tables/time-series/demo/popest/2010s-national-total.html}}, the resident US population on December 1, 2019 was 330,073,471. Assuming no population growth in the U.S., what would the long-term population of Michigan be? How realistic do you think this is? 
+
+ 
+\ea
+
+\end{pactivity}
+

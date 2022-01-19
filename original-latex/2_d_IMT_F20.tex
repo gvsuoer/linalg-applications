@@ -1,0 +1,272 @@
+\achapter{11}{The Invertible Matrix Theorem} \label{sec:IMT}
+
+\vspace*{-17 pt}
+\framebox{
+\parbox{\dimexpr\linewidth-3\fboxsep-3\fboxrule}
+{\begin{fqs}
+\item What does it mean for two statements to be equivalent? 
+\item How can we efficiently prove that a string of statements are all equivalent?  
+\item What is the Invertible Matrix Theorem and why is it important?  
+\item What are the equivalent conditions to a matrix being invertible? 
+\end{fqs}}}% \hspace*{3 pt}}
+
+\vspace*{13 pt}
+
+
+\csection{Introduction}
+
+This section is different than others in this book in that it contains only one long proof of the equivalence of statements that we have already discussed. As such, this is a theoretical section and there is no application connected to it. 
+
+The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to having a matrix be invertible. To understand the Invertible Matrix Theorem, we need to know what it means for two statements to be \emph{equivalent}\index{equivalent statements}. By equivalent, we mean that if one of the statements is true, then so is the other. We examine this idea in this preview activity.
+
+\begin{pa} \label{pa:2_d} Let $A$ be an $n \times n$ matrix. In this activity we endeavor to understand why the two statements
+\begin{description}
+\item[I.] The matrix $A$ is invertible.
+\item[II.] The matrix $A^{\tr}$ is invertible. 
+\end{description}
+are equivalent. To demonstrate that statements I and II are equivalent, we need to argue that if statement I is true, then so is statement II, and if statement II is true then so is statement I. 
+\be
+\item Let's first show that if statement I is true, then so is statement II. So we assume statement I. That is, we assume that $A$ is an invertible matrix. So we know that there is an $n \times n$ matrix $B$ such that $AB = BA = I_n$, where $I_n$ is the $n \times n$ identity matrix. To demonstrate that statement II must also be true, we need to verify that $A^{\tr}$ is an invertible matrix. 
+	\ba
+	\item What is $I_n^{\tr}$? 
+
+
+	\item Take the transpose of both sides of the equation $AB = I_n$ and use the properties of the transpose to write $(AB)^{\tr}$ in terms of $A^{\tr}$ and $B^{\tr}$. 
+	
+
+	\item Take the transpose of both sides of the equation $BA = I_n$ and use the properties of the transpose to write $(BA)^{\tr}$ in terms of $A^{\tr}$ and $B^{\tr}$. 
+	
+	
+	\item Explain how the previous two parts show that $B^{\tr}$ is the inverse of $A^{\tr}$, so that $A^{\tr}$ is invertible. So we have shown that if statement I is true, so is statement II.\footnote{Note that statement I does not have to be true. We are only assuming that IF statement I is true, then statement II must also be true.}
+
+
+	\ea
+	
+\item Now we prove that if statement II is true, then so is statement I. So we assume statement II. That is, we assume that the matrix $A^{\tr}$ is invertible. We could do this in the same manner as part (a), or we could be a bit clever. Let's try to be clever.
+
+	\ba
+	\item What matrix is $\left(A^{\tr}\right)^{\tr}$? 
+
+	
+	\item Why can we use the result of part (a) with $A^{\tr}$ in place of $A$ to conclude that $A$ is invertible? As a consequence, we have demonstrated that $A$ is invertible if $A^{\tr}$ is invertible. This concludes our argument that statements I and II are equivalent. 
+	
+	\ea
+
+\ee
+
+\end{pa}
+
+
+
+\csection{The Invertible Matrix Theorem}
+
+We have been introduced to many statements about existence and uniqueness of solutions to systems of linear equations, linear independence of columns of coefficient matrices, onto linear transformations, and many other items. In this section we will analyze these statements in light of how they are related to invertible matrices, with the main goal to understand the Invertible Matrix Theorem. 
+
+Recall that an $n \times n$ matrix $A$ is invertible if there is an $n \times n$ matrix $B$ such that $AB = BA = I_n$, where $I_n$ is the $n \times n$ identity matrix. The Invertible Matrix Theorem is an important theorem in that it provides us with a wealth of statements that are all equivalent to the statement that an $n \times n$ matrix $A$ is invertible, and connects many of the topics we have been discussing so far this semester into one big picture. 
+
+
+
+\begin{theorem}[The Invertible Matrix Theorem]\index{Invertible Matrix Theorem} Let $A$ be an $n \times n$ matrix. The following statements are equivalent:
+\begin{enumerate}
+\item $A$ is an invertible matrix.
+\item \label{item:trivial_soln} The equation $A \vx = \vzero$ has only the trivial solution.
+\item $A$ has $n$ pivot columns. 
+\item The columns of $A$ span $\R^n$.
+\item $A$ is row equivalent to the identity matrix $I_n$.
+\item The columns of $A$ are linearly independent.
+\item The columns of $A$ form a basis for $\R^n$.
+\item The matrix transformation $T$ from $\R^n$ to $\R^n$ defined by $T(\vx) = A\vx$ is one-to-one.
+\item The matrix equation $A \vx = \vb$ has exactly one solution for each vector $\vb$ in $\R^n$.
+\item The matrix transformation $T$ from $\R^n$ to $\R^n$ defined by $T(\vx) = A\vx$ is onto.
+\item \label{item:AC_I} There is an $n \times n$ matrix $C$ so that $AC = I_n$.
+\item \label{item:DA_I} There is an $n \times n$ matrix $D$ so that $DA = I_n$.
+\item The scalar 0 is not an eigenvalue of $A$.
+%\item $\det(A) \neq 0$.
+\item $A^{\tr}$ is invertible.
+\end{enumerate}
+\end{theorem}
+
+
+
+
+The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to a matrix being invertible. As discussed in Preview Activity \ref{pa:2_d}, two statements are said to be \textbf{equivalent} if, whenever one of the statements is true, then the other is also true. So to demonstrate, say, statements I and II are equivalent, we need to argue that 
+\begin{itemize}
+\item if statement I is true, then so is statement II, and 
+\item if statement II is true then so is statement I. 
+\end{itemize}
+The Invertible Matrix Theorem, however, provides a long list of statements that are equivalent. It would be inefficient to prove, one by one, that each pair of statements is equivalent. (There are $\binom{14}{2} = 91$ such pairs.) Fortunately, there is a shorter method that we can use. 
+
+
+
+\begin{activity} \label{act:2_d_1} In this activity, we will consider certain parts of the Invertible Matrix Theorem and show that one implies another in a specific order. For all parts in this activity, we assume $A$ is an $n\times n$ matrix.
+
+\ba
+\item Consider the following implication: \\
+$(2) \implies (6)$:\footnote{The symbol $\implies$ is the implication symbol, so $(1) \implies (12)$ is read to mean that statement $(1)$ of the theorem implies statement $(12)$.}  If the equation $A \vx = \vzero$ has only the trivial solution, then the columns of $A$ are linearly independent. This shows that part 2 of the IMT implies part 6 of the IMT. Justify this implication as if it is a T/F problem.
+
+\item Justify the following implication:\\
+$(6) \implies (9)$: If the columns of $A$ are linearly independent, then the matrix equation $A\vx =\vb$ has exactly one solution for each vector $\vb$ in $\R^n$.
+
+\item Justify the following implication:\\
+$(9) \implies (4)$: If the equation $A \vx = \vb$ has exactly one solution for every vector $\vb$ in $\R^n$, then the columns of $A$ span $\R^n$. \\
+
+\item Justify the following implication:\\
+$(4) \implies (2)$: If the columns of $A$ span $\R^n$, then the equation $A \vx = \vzero$ has only the trivial solution.\\
+
+\item Using the above implications you proved, explain why we can conclude the following implication must also be true:\\
+$(2) \implies (9)$: If the equation $A \vx = \vzero$ has only the trivial solution, then the matrix equation $A\vx =\vb$ has exactly one solution for each vector $\vb$ in $\R^n$.
+
+\item Using the above implications you proved, explain why any one of the implications $(2)$, $(6)$, $(9)$, and $(4)$ implies any of the others.  
+
+\ea
+
+\end{activity}
+
+
+
+Using a similar ordering of circular implications as in Activity \ref{act:2_d_1}, we can prove the Invertible Matrix Theorem by showing that each statement in the list implies the next statement, and that the last statement implies the first. 
+
+
+
+\noindent \emph{Proof of the Invertible Matrix Theorem}
+
+\begin{description}
+\item[Statement (1) implies Statement (2).] This follows from work done in Activity \ref{act:2_d_1}. 
+\item[Statement (2) implies Statement (3).] This was done in Activity \ref{act:2_d_1}. 
+\item[Statement (3) implies Statement (4).] Suppose that every column of $A$ is a pivot column. The fact that $A$ is square means that every row of $A$ contains a pivot, and hence the columns of $A$ span $\R^n$.
+\item[Statement (4) implies Statement (5).] Since the columns of $A$ span $\R^n$, it must be the case that every row of $A$ contains a pivot. This means that $A$ must be row equivalent to $I_n$. 
+\item[Statement (5) implies Statement (6).] If $A$ is row equivalent to $I_n$, there must be a pivot in every column, which means that the columns of $A$ are linearly independent.
+\item[Statement (6) implies Statement (7).] If the columns of $A$ are linearly independent, then there is a pivot in every column. Since $A$ is a square matrix, there is a pivot in every row as well. So the columns of $A$ span $\R^n$. Since they are also linearly independent, the columns form a minimal spanning set, which is a basis of $\R^n$.
+\item[Statement (7) implies Statement (8).] If the columns form a basis of $\R^n$, then the columns are linearly independent. This means that each column is a pivot column, which also implies $A\vx=\vzero$ has a unique solution and that $T$ is one-to-one.
+\item[Statement (8) implies Statement (9).] If $T$ is one-to-one, then $A$ has a pivot in every column. Since $A$ is square, every row of $A$ contains a pivot. Therefore, the system $A \vx = \vb$ is consistent for every $\vb \in \R^n$ and has a unique solution.
+\item[Statement (9) implies Statement (10).] If $A\vx=\vb$ has a unique solution for every $\vb$, then the transformation $T$ is onto since $T(\vx)=\vb$ has a solution for every $\vb$.
+\item[Statement (10) implies Statement (11).] Assume that $T$ defined by $T(\vx) = A\vx$ is onto. For each $i$, let $\ve_i$ be the $i$th column of the $n \times n$ identity matrix $I_n$. That is, $\ve_i$ is the vector in $\R^n$ with 1 in the $i$th component and 0 everywhere else. Since $T$ is onto, for each $i$ there is a vector $\vc_i$ such that $T(\vc_i) = A \vc_i = \ve_i$. Let $C = [\vc_1  \ \vc_2 \ \cdots \ \vc_n]$. Then
+\[AC = A[\vc_1  \ \vc_2 \ \cdots \ \vc_n] = [A\vc_1 \ A\vc_2 \ \cdots \ A\vc_n] = [\ve_1 \ \ve_2 \ \cdots \ \ve_n] = I_n.\]
+\item[Statement (11) implies Statement (12).] Assume $C$ is an $n \times n$ matrix so that $AC = I_n$. First we show that the matrix equation $C \vx = \vzero$ has only the trivial solution. Suppose $C \vx = \vzero$. Then
+multiplying both sides on the left by $A$ gives us
+\[A(C \vx) = A \vzero.\]
+Simplifying this equation using $AC=I_n$, we find $\vx = \vzero.$
+
+Since $C \vx = \vzero$ has only the trivial solution, every column of $C$ must be a pivot column. Since $C$ is an $n \times n$ matrix, it follows that every row of $C$ contains a pivot position. Thus, the matrix equation $C \vx = \vb$ is consistent and has a unique solution for every $\vb$ in $\R^n$. Let $\vv_i$ be the vector in $\R^n$ satisfying $C \vv_i = \ve_i$ for each $i$ between 1 and $n$ and let $M = [\vv_1 \ \vv_2 \ \cdots \ \vv_n]$. Then $CM = I_n$.
+
+Now we show that $CA = I_n$. Since 
+\[AC = I_n\]
+we can multiply both sides on the left by $C$ to see that 
+\[C(AC) = CI_n.\]
+Now we multiply both sides on the right by $M$ and obtain
+\[(C(AC))M = CM.\]
+Using the associative property of matrix multiplication and the fact that $CM = I_n$ shows that 
+\begin{align*}
+(CA)(CM) &= CM \\
+CA = I_n.
+\end{align*}
+Thus, if $A$ and $C$ are $n \times n$ matrices and $AC = I_n$, then $CA = I_n$. So we have proved our implication with $D = C$
+\item[Statement (12) implies Statement (13).] Assume that there is an $n \times n$ matrix $D$ so that $DA = I_n$. Suppose $A \vx = \vzero$. Then multiplying both sides by $A$ on the left, we find that
+\begin{align*}
+D(A\vx) &= D\vzero \\
+(DA) \vx &= \vzero \\
+\vx &= \vzero.
+\end{align*}
+So the equation $A \vx = \vzero$ has only the trivial solution and $0$ is not an eigenvalue for $A$. 
+\item[Statement (13) implies Statement (14).] If 0 is not an eigenvalue of $A$, then the equation $A \vx = \vzero$ has only the trivial solution. Since statement \ref{item:trivial_soln} implies statement \ref{item:AC_I}, there is an $n \times n$ matrix $C$ such that $AC = I_n$. The proof that statement \ref{item:AC_I} implies statement \ref{item:DA_I} shows that $CA = I_n$ as well. So $A$ is invertible. By taking the transpose of both sides of the equation $AA^{-1}=A^{-1}A=I_n$ (remembering $(AB)^{\tr}= B^{\tr}A^{\tr}$) we find
+\[ (A^{-1})^{\tr} A^{\tr} = A^{\tr} (A^{-1})^{\tr} = I_n^{\tr}=I_n \,.\]
+Therefore, $(A^{-1})^{\tr}$ is the inverse of $A^{\tr}$ by definition of the inverse.
+\item[Statement (14) implies Statement (1).] Since statement (1) implies statement (14), we proved `If $A$ is invertible, then $A^{\tr}$ is invertible." Using this implication with $A^{\tr}$ replaced by $A$, we find that `If $A^{\tr}$ is invertible, then $(A^{\tr})^{\tr}$ is invertible." But $(A^{\tr})^{\tr}=A$, which proves that statement (14) implies statement (1).
+\end{description}
+This concludes our proof of the Invertible Matrix Theorem.
+
+
+\csection{Examples}
+
+\ExampleIntro
+
+\begin{example} Let $M = \left[ \begin{array}{cccc} 1&2&2&1 \\ 0&1&0&1 \\ 1&3&2&3 \\ 0&1&0&0 \end{array} \right]$. 
+\ba
+\item Without doing any calculations, is $M$ invertible? Explain your response.
+
+\item Is the equation $M \vx = \vb$ consistent for every $\vb$ in $\R^4$? Explain.
+
+\item Is the equation $M \vx = \vzero$ consistent? If so, how many solutions does this equation have? Explain. 
+
+\item Is it possible to find a $4 \times 4$ matrix $P$ such that $PM = I_4$? Explain.
+
+\ea
+
+
+\ExampleSolution
+\ba
+\item The third column of $M$ is twice the first, so the columns of $M$ are not linearly independent. We conclude that $M$ is not invertible.
+
+\item The equation $M \vx = \vb$ is not consistent for every $\vb$ in $\R^4$. If it was, then the columns of $M$ would span $\R^4$ and, since there are exactly four columns, the columns of $M$ would be a basis for $\R^4$. Thus, $M$ would have to be invertible, which it is not.
+
+\item The homogeneous system is always consistent. Since the columns of $M$ are linearly dependent, the equation $M \vx = \vzero$ has infinitely many solutions.
+
+\item It is not possible to find a $4 \times 4$ matrix $P$ such that $PM = I_4$. Otherwise $M$ would have to be invertible. 
+
+\ea
+
+\end{example}
+
+
+
+\begin{example} Let $M$ be an $n \times n$ matrix whose eigenvalues are all nonzero.
+\ba
+\item Let $\vb \in \R^n$. Is the equation $M \vx = \vb$ consistent? If yes, explain why and find all solutions in terms of $M$ and $\vb$. If no, explain why.
+
+\item Let $S$ be the matrix transformation defined by $S(\vx) = M\vx$. Suppose $S(\va) = S(\vb)$ for some vectors $\va$ and $\vb$ in $\R^n$. Must there be any relationship between $\va$ and $\vb$? If yes, explain the relationship. If no, explain why.
+
+\item Let $\vm_1$, $\vm_2$, $\ldots$, $\vm_n$ be the columns of $M$. In how many ways can we write the zero vector as a linear combination of $\vm_1$, $\vm_2$, $\ldots$, $\vm_n$? Explain.
+
+\ea
+  
+
+
+\ExampleSolution
+\ba
+\item Since $0$ is not an eigenvalue of $M$, we know that $M$ is invertible. Therefore, the equation $M \vx = \vb$ has the unique solution $\vx = M^{-1} \vb$.
+
+\item The fact that $M$ is invertible implies that $S$ is one-to-one. So if $S(\va) = S(\vb)$, then it must be the case that $\va = \vb$. 
+
+\item Because $M$ is invertible, the columns of $M$ are linearly independent. Therefore, there is only the trivial solution to the equation 
+\[x_1\vm_1 + x_2\vm_2 +  \cdots + x_n\vm_n = \vzero.\] 
+
+\ea
+
+\end{example}
+
+\csection{Summary}
+\begin{itemize}
+\item Two statements are equivalent if, whenever one of the statements is true, then the other must also be true. 
+\item To efficiently prove that a string of statements are all equivalent, we can prove that each statement in the list implies the next statement, and that the last statement implies the first.  
+\item The Invertible Matrix Theorem gives us many conditions that are equivalent to an $n \times n$ matrix being invertible. This theorem is important because it connects many of the concepts we have been studying. 
+\end{itemize}
+
+
+\csection{Exercises}
+
+\be
+\item Consider the matrix $A=\left[ \begin{array}{rcc} 1&2&a \\ -1&1&b \\ 1&1&c \end{array} \right]$. Use the Invertible Matrix Theorem to geometrically describe the vectors $\left[ \begin{array}{c} a \\ b\\ c\end{array} \right]$ which make $A$ invertible without doing any calculations.
+
+\item Suppose $A$ is an invertible $n\times n$ matrix. Let $T$ be the matrix transformation defined by $T(\vx)=A\vx$ for $\vx$ in $\R^n$. Show that the matrix transformation $S$ defined by $S(\vx)=A^{-1}\vx$ is the inverse of the transformation $T$ (i.e., $S$ is the inverse function to $T$ when the transformations are considered as functions).
+
+\item Label each of the following statements as True or False. Provide justification for your response.
+\ba
+\item \textbf{True/False} If $A^2$ is invertible, then $A$ is invertible.
+
+\item \textbf{True/False} If $A$ and $B$ are square matrices with $AB$ invertible, then $A$ and $B$ are invertible.
+
+\item \textbf{True/False} If the columns of an $n \times n$ matrix $A$ span $\R^n$, then the equation $A^{-1}\vx =\vzero$ has a unique solution.
+
+\item \textbf{True/False} If the columns of $A$ and columns of $B$ form a basis of $\R^n$, then so do the columns of $AB$.
+
+\item \textbf{True/False} If the columns of a matrix $A$ form a basis of $\R^n$, then so do the rows of $A$.
+
+\item \textbf{True/False} If the matrix transformation $T$ defined by $T(\vx)=A\vx$ is one-to-one for an $n\times n$ matrix $A$, then the columns of $A^{-1}$ are linearly independent.
+
+\item \textbf{True/False} If the columns of an $n\times n$ matrix $A$ span $\R^n$, then so do the rows of $A$.
+
+\item \textbf{True/False} If there are two $n\times n$ matrices $A$ and $B$ such that $AB=I_n$, then the matrix transformation defined by $T(\vx)=A^T\vx$ is one-to-one.
+
+\ea
+\ee
+

@@ -1,0 +1,436 @@
+\achapter{40}{The Jordan Canonical Form} \label{sec:JCF}
+
+\begin{pa} \label{pa:JCF}  Let $A = \left[ \begin{array}{crc} 3 &-1 & 0  \\ 4 & 7 & 0 \\ 0&0&1 \end{array} \right]$. The characteristic polynomial of $A$ is $(\lambda-1)(\lambda - 5)^2$, so the eigenvalues of $A$ are $5$ and $1$. We can check that if $E_5$ is the eigenspace of $A$ for the eigenvalue 5, then $\dim(E_5) = 1$ (that is, the geometric multiplicity of $5$ is 1). Since the geometric multiplicity of 5 is different from the algebraic multiplicity of 5, the matrix $A$ is not diagonalizable. The vector $\vv = \left[ \begin{array}{r} -1\\2\\0 \end{array}\right]$ is an eigenvector for $A$ corresponding to the eigenvalue $5$ and the vector $\vv_3 = \left[ \begin{array}{c} 0 \\ 0 \\ 1 \end{array}\right]$ is an eigenvector for $A$ with eigenvalue $1$. Although we cannot find a second linearly independent eigenvector for our example matrix $A$ corresponding to the eigenvalue $5$, we know that $(A - 5I_3) \vv_1 = \vzero$. That is, $\vv_1$ is in $\Nul (A - 5I_3)$. That also means that $(A - 5I_3)^k \vv_1 = \vzero$ for all $k \geq 1$. So it might be worth looking at vectors $\vv$ that satisfy $(A-5I_3)^k\vv = \vzero$ for $k$ larger than 1. That is, vectors in $\Nul (A - 5I_3)^k$.  
+\ba
+\item Find a vector $\vv_2$ that is in $\Nul (A-5I_3)^2$ but not in $\Nul (A-5I_3)$. Then calculate $(A-5I_3)\vv_2$. How is $\vv_1 = (A-5I_3)\vv_2$ related to $\vv$? 
+
+\item  Let $C = [\vv_1 \ \vv_2 \ \vv_3]$ and calculate the product $C^{-1}AC$ for our example matrix $A$. Compare this product to a diagonal matrix -- how is it similar and how is it different?
+
+\item You should have noticed the block $\left[ \begin{array}{cc} 5&1 \\ 0&5 \end{array} \right]$ in the upper left of the matrix $C^{-1}AC$. Here we see why this block occurs. 
+	\begin{enumerate}[i.]
+	\item To shed a little more light on this block, we know that $(A - 5 I_3) \vv_2 = \vv_1$. Explain why $A \vv_2 =  5 \vv_2 + \vv_1$. 
+
+	\item Show that $A[\vv_1 \ \vv_2] = [\vv_1 \ \vv_2] \left[ \begin{array}{cc} 5&1 \\ 0&5   \end{array} \right]$.
+	
+	\end{enumerate}
+	
+%\item The vector $\vv_2$ also satisfies one more important property. Show that $(A- 5I_3)^2 \vv_2 = \vzero$.  
+
+\ea
+
+\end{pa}
+
+\ActivitySolution
+\ba
+\item The reduced row echelon forms of $A - 5I_3$ and $(A-5I_3)^2$ are 
+\[\left[\renewcommand{\arraystretch}{1.4} \begin{array}{ccc} 1&\frac{1}{2}&0 \\ 0&0&1 \\ 0&0&0 \end{array} \right] \ \text{ and } \ \left[ \begin{array}{ccc} 0&0&1 \\ 0&0&0 \\ 0&0&0 \end{array} \right].\]
+We can see by inspection that $\vv_2 = [0 \ 1 \ 0]^{\tr}$ is in $\Nul (A-5 I)^2$ but not in $\Nul (A-5I_3)$. A straightforward calculation shows that $\vv_1 = (A-5I_3) \vv_2 = \vv$.  So $(A-5I_3) \vv_2$ is an eigenvector of $A$ with eigenvalue $5$. 
+
+\item In this case we have 
+\[C^{-1}AC = \left[ \begin{array}{rcc} -1&0&0\\2&1&0\\0&0&1 \end{array} \right]^{-1}  \left[ \begin{array}{crc} 3 &-1&0 \\ 4 & 7&0 \\ 0&0&1 \end{array} \right] \left[ \begin{array}{rcc} -1&0&0\\2&1&0\\0&0&1 \end{array} \right]  = \left[ \begin{array}{ccc} 5&1&0\\0&5&0 \\ 0&0&1 \end{array} \right].\]
+So $C^{-1}AC$ is close to diagonal, with only the entry of 1 in the first row second column to keep if from being diagonal. 
+
+\item The matrix $C^{-1}AC$ is close to a diagonal matrix, with the exception of the block $\left[ \begin{array}{cc} 5&1 \\ 0&5 \end{array} \right]$ in the upper left of the matrix. Here we see why this block occurs. 
+	\begin{enumerate}[i.]
+	\item  Expanding $(A - 5 I_3) \vv_2 = \vv_1$ gives us 
+\begin{align*}
+(A - 5 I_3) \vv_2 &= \vv_1 \\
+A\vv_2 - 5 \vv_2 &= \vv_1 \\
+A\vv_2 &= 5\vv_2 + \vv_1.
+\end{align*}
+
+	\item  By definition of the matrix product we have 
+\begin{align*}
+A [\vv_1 \ \vv_2] &= [A\vv_1 \ A\vv_2] \\
+	&= [5 \vv_1 \ 5 \vv_2+\vv_1 ] \\
+	&= [\vv_1  \ \vv_2]  \left[ \begin{array}{ccc} 5 &1 \\ 0 & 5  \end{array} \right].
+\end{align*}
+	
+	\end{enumerate}
+	
+
+\ea
+
+
+\begin{activity} \label{act:JCF_gev_2} Let 
+\[A = \left[ \begin{array}{ccr} 5&1&-4\\4&3&-5\\3&1&-2 \end{array} \right].\]
+The matrix $A$ has $\lambda = 2$ as its only eigenvalue, and the geometric multiplicity of $\lambda$ as an eigenvalue is 1. For this activity you may use the fact that the reduced row echelon forms of $A-2I$, $(A-2I)^2$, and $(A-2I)^3$ are, respectively, 
+\[\left[ \begin{array}{ccr} 1&0&-1\\0&1&-1\\0&0&0 \end{array} \right], \ \left[ \begin{array}{ccr} 1&0&-1\\0&0&0\\0&0&0 \end{array} \right], \ \left[ \begin{array}{ccc} 0&0&0\\0&0&0\\0&0&0 \end{array} \right].\]
+\ba
+\item To begin, we look for a vector $\vv_3$ that is in $\Nul (A-2I_3)^3$ that is not in $\Nul (A-2I_3)^2$. Find such a vector.
+
+\item Let $\vv_2 = (A-2I_3)\vv_3$. Show that $\vv_2$ is in $\Nul (A-2I_3)^2$ but is not in $\Nul (A-2I_3)$. 
+
+\item Let $\vv_1 = (A-2I_3)\vv_2$. Show that $\vv_1$ is an eigenvector of $A$ with eigenvalue $2$. That is, $\vv_1$ is in $\Nul (A-2I_3)$. 
+
+\item Let $C = [\vv_1 \ \vv_2 \ \vv_3]$. Calculate the matrix product $C^{-1}AC$. What do you notice? 
+
+\ea
+
+\end{activity}
+
+\ActivitySolution
+	\ba
+	\item By inspection we can see that $\vv_3 = [0 \ 0 \ 1]^{\tr}$ is in $\Nul (A-2I_3)^3$ that is not in $\Nul (A-2I_3)^2$. (In fact, every vector in $\R^3$ is in $\Nul (A-2I_3)^3$.)
+	
+	\item Let $\vv_2 = (A-2I_3)\vv_1 = [-4 \ -5 \ -4]^{\tr}$. Technology shows that $(A-2I_3)^2 \vv_2 = \vzero$ while $(A-2I_3) \vv_2 = [-1 \ -1 \ -1]^{\tr} \neq \vzero$. 
+	
+	\item Since $(A - 2I_3) \vv_1 = \vzero$, we see that $\vv_1$ is an eigenvector of $A$ with eigenvalue $2$. 
+	
+	\item  Letting $C = [\vv_1 \ \vv_2 \ \vv_3]$ we have 
+\[C^{-1}AC = \left[ \begin{array}{ccc} 2&1&0 \\ 0&2&1 \\ 0&0& \lambda \end{array} \right].\]
+So $C^{-1}AC$ is close to being a diagonal matrix. 
+
+	\ea
+
+\begin{activity} \label{act:JCF_3} Let 
+\[A = \left[ \begin{array}{rrrc} 0&0&0&2 \\ -6&0&-2&10 \\ -1&-1&1&3 \\ -3&-1&-1&7 \end{array} \right].\]
+The only eigenvalue of $A$ is $\lambda = 2$ and $\lambda$ has geometric multiplicity 2. The vectors $[0 \ -1 \ 1 \ 0]$ and $[1 \ 2\ 0 \  1]^{\tr}$ are eigenvectors for $A$. The reduced row echelon forms for $A - \lambda I_4$,  $(A - \lambda I_4)^2$, $(A - \lambda I_4)^3$ are, respectively, 
+\[\left[ \begin{array}{cccr} 1&0&0&-1 \\ 0&1&1&-2 \\ 0&0&0&0 \\ 0&0&0&0 \end{array} \right], \ \left[ \begin{array}{cccr} 1&1&1&-3 \\ 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{array} \right], \ \text{ and } \ \left[ \begin{array}{cccc} 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0 \end{array} \right].\]
+	\ba
+	\item Identify the smallest value of $p$ as in Theorem 40.2.%\ref{thm:JCF_1}.
+	
+	\item Find a vector $\vv_3$ in $\Nul (A - \lambda I_4)^3$ that is not in $\Nul (A - \lambda I_4)^2$.	
+
+	\item Now let $\vv_2 = (A-\lambda I_4) \vv_3$ and $\vv_1 = (A-\lambda I_4) \vv_2$. What special property does $\vv_1$ have?
+	
+	\item Find a fourth vector $\vv_0$ so that $\{\vv_0, \vv_1, \vv_2, \vv_3\}$ is a basis of $\R^4$ consisting of generalized eigenvectors of $A$. Let $C = [\vv_0 \ \vv_1 \ \vv_2 \ \vv_3]$. Calculate the product $C^{-1}AC$. What do you see?  
+
+	\ea
+	
+\end{activity}
+
+\ActivitySolution
+	\ba
+	\item From the reduced row echelon forms we can see that $\dim(\Nul(A-\lambda I_n)) = 2$, $\dim(\Nul(A-\lambda I_n)^2) = 3$, and $\dim(\Nul(A-\lambda I_n)^3) = 4$. So $p = 3$. 
+	
+	\item  Every vector in $\R^4$ is in $\Nul (A - \lambda I_4)^3$, but the vectors in $\Nul (A - \lambda I_4)^2$ have the form 
+\[\vx = \left[ \begin{array}{c} 3x_4-x_2-x_3 \\ x_2\\x_3\\x_4 \end{array} \right]\]
+for some scalars $x_2$, $x_3$, and $x_4$. So we can choose $\vx_3 = [1 \ 0 \ 0 \ 1]^{\tr}$. 
+
+	\item Calculating the matrix-vector products gives us
+\[\vv_2 = (A-\lambda I_4) \vv_3 = \left[ \begin{array}{c} 0\\4\\2\\2 \end{array} \right] \ \text{ and } \  \vv_1 = (A-\lambda I_4) \vv_2 = \left[ \begin{array}{c} 4\\8\\0\\4 \end{array} \right].\]
+Since $A \vv[1] = \vzero$, we have that $\vv_1$ is an eigenvector of $A$ with eigenvalue $2$.  
+	
+	\item Recall that $\vv_0 = [0 \ -1 \ 1 \ 0]^{\tr}$ is an eigenvector for $A$. The reduced row echelon form of  $[\vv_0 \ \vv_1 \ \vv_2 \ \vv_3]$ is $I_4$, so the set $\{\vv_0, \vv_1,\vv_2, \vv_3\}$ is a basis for $\R^4$ consisting of generalized eigenvectors of $A$. Letting $C = [\vv_0 \ \vv_1 \ \vv_2 \ \vv_3]$ we find that 
+\[C^{-1}AC = \left[ \begin{array}{cccc} 2&1&0&0 \\ 0&2&1&0 \\ 0&0&2&1 \\ 0&0&0&2 \end{array} \right].\]
+So $C^{-1}AC$ is close to being a diagonal matrix with the eigenvalues of $A$ down the diagonal.
+	
+	\ea
+	
+\begin{activity} Let $A = \left[ \begin{array}{rrcccc} 4&-1&1&0&0&0 \\ 0&3&1&0&0&0 \\ 0&0&3&1&0&0 \\ 0&0&0&3&1&0 \\ -1&1&0&0&4&1 \\ 0&0&0&0&0&4 \end{array} \right]$. The eigenvalues of $A$ are $3$ and $4$, both with algebraic multiplicity 3. A basis for the eigenspace $E_3$ corresponding to the eigenvalue $3$ is $\{[1 \ 1 \ 0 \ 0 \ 0 \ 0]^{\tr}\}$ and a basis for the eigenspace $E_4$ corresponding to the eigenvalue $4$ is $\{[1 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}, [1 \ 1 \ 1 \ 1 \ 1 \ 0]^{\tr}\}$. In this activity we find a Jordan canonical form of $A$. 
+\ba
+\item Assume that the reduced row echelon forms of $A -3 I_6$, $(A-3I_6)^2$, and $(A-3I_6)^3$ are, respectively, 
+\[ \left[ \begin{array}{crcccc} 1&-1&0&0&0&0\\ 0&0&1&0&0&0 \\ 0&0&0&1&0&0\\ 0&0&0&0&1&0 \\ 0&0&0&0&0&1 \\ 0&0&0&0&0&0\end{array} \right], \ \left[ \begin{array}{crcccc} 1&-1&0&0&0&0\\ 0&0&0&1&0&0\\ 0&0&0&0&1&0\\ 0&0&0&0&0&1 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \end {array} \right],  \ \text{ and} \  \left[ \begin{array}{crcccc} 1&-1&0&0&0&0\\ 0&0&0&0&1&0\\ 0&0&0&0&0&1\\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \end {array} \right].\]
+Find a vector $\vv_3$ that is in $\Nul (A-3I_6)^3$ but not in $\Nul (A-3I_6)^2$. Then let $\vv_2 = (A-3I_6)\vv_3$ and $\vv_1 = (A-6I_3)\vv_2$. Notice that we obtain a string of three generalized eigenvectors. 
+
+\item Assume that the reduced row echelon forms of $A -4 I_5$ and $(A-4I_5)^2$ are, respectively,  
+\[  \left[ \begin{array}{ccccrr} 1&0&0&0&-1&-1\\ 0&1&0&0&-1&0\\ 0&0&1&0&-1&0\\ 0&0&0&1&-1&0 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \end{array} \right] \  \text{ and } \ \left[ \begin{array}{cccrcr} 1&0&0&-4&3&-1\\ 0&1&0&-3&2&0 \\ 0&0&1&-2&1&0\\ 0&0&0&0&0&0\\ 0&0&0&0&0&0\\ 0&0&0&0&0&0 \end{array} \right]. \]
+Find a vector $\vv_5$ that is in $\Nul (A-4I_6)^2$ but not in $\Nul (A-4I_6)$. Then let $\vv_4 = (A-4I_6)\vv_5$. Notice that we obtain a string of two generalized eigenvectors. 
+
+\item Find a generalized eigenvector $\vv_6$ for $A$ such that $\{\vv_1, \vv_2, \vv_3, \vv_4, \vv_5, \vv_6\}$ is a basis for $\R^6$. Let $C = [\vv_1 \ \vv_2 \ \vv_3 \ \vv_4 \ \vv_5 \ \vv_6]$. Calculate $J=C^{-1}AC$. Make sure that $J$ is a matrix in Jordan canonical form. 
+
+\item How does the matrix $J$ tell us about the eigenvalues of $A$ and their algebraic multiplicities? 
+
+\item How many Jordan blocks are there in $J$ for the eigenvalue $3$? How many Jordan blocks are there in $J$ for the eigenvalue $4$? How do these numbers compare to the geometric multiplicities of $3$ and $4$ as eigenvalues of $A$?
+
+\ea
+
+\end{activity}
+
+\ActivitySolution
+\ba
+\item  We first look for a vector $\vv_3$ that is in $\Nul (A-3I_6)^3$ but not in $\Nul (A-3I_6)^2$. If $\vx = [x_1 \ x_2 \ x_3 \ x_4 \ x_5 \ x_6]^{\tr}$ is in $\Nul (A-3I_6)^3$, then 
+\[\vx = \left[ \begin{array}{c} x_3 \\ x_2 \\ x_3 \\ x_4 \\ 0 \\ 0 \end{array} \right],\]
+and if $\vx$ is in $\Nul (A-3I_6)^2$, then 
+\[\vx = \left[ \begin{array}{c} x_3 \\ x_2 \\ x_3 \\ 0 \\ 0 \\ 0 \end{array} \right].\]
+So $\vv_3 = \left[ \begin{array}{c} 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0\end{array} \right]$ (with $x_2 = x_3=0$ and $x_4=1$) is in $\Nul (A-3I_6)^3$ but not in $\Nul (A-3I_6)^2$. Then we let 
+\[\vv_2 = (A-3I_6)\vv_3 = \left[ \begin{array}{c} 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 0 \end{array} \right] \  \text{ and } \ \vv_1 = (A-3I_6)\vv_2 = \left[ \begin{array}{c} 1 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{array} \right].\] 
+
+\item We first look for a vector $\vv_5$ that is in $\Nul (A-4I_6)^2$ but not in $\Nul (A-4I_6)$. If $\vx = [x_1 \ x_2 \ x_3 \ x_4 \ x_5 \ x_6]^{\tr}$ is in $\Nul (A-4I_6)^2$, then 
+\[\vx = \left[ \begin{array}{c} 4x_4-3x_5+x_6 \\ 3x_4-2x_5 \\ 2x_4-x_5 \\ x_4 \\ x_5 \\ x_6 \end{array} \right],\]
+and if $\vx$ is in $\Nul (A-4I_6)$, then 
+\[\vx = \left[ \begin{array}{c} x_5+x_6 \\ x_5 \\ x_5 \\ x_5 \\ x_5 \\ 0 \end{array} \right].\]
+So $\vv_5 = \left[ \begin{array}{c} 4 \\ 3 \\ 2 \\ 1 \\ 0 \\ 0 \end{array} \right]$ (with $x_4=1$ and $x_5=x_6=0$) is in $\Nul (A-4I_5)^2$ but not in $\Nul (A-4I_5)$. Then we let 
+\[\vv_4 = (A-4I_6)\vv_5 = \left[ \begin{array}{r} -1 \\ -1 \\ -1 \\ -1 \\ -1 \\ 0 \end{array} \right].\]
+
+\item A sixth vector is the other basis vector $\vv_6 = [1 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}$ for the eigenspace $E_4$. With $C = [\vv_1 \ \vv_2 \ \vv_3 \ \vv_4 \ \vv_5 \ \vv_6]$ we have 
+\[J=C^{-1}AC = \left[ \begin{array}{cccccc} 3&1&0&0&0&0 \\ 0&3&1&0&0&0 \\ 0&0&3&0&0&0 \\ 0&0&0&4&1&0 \\ 0&0&0&0&4&0 \\ 0&0&0&0&0&4 \end{array} \right].\]
+
+\item The diagonal entries of $J$ tell us the eigenvalues of $A$, and the number of times an eigenvalue appears on the diagonal is the algebraic multiplicity of the eigenvalue.  
+
+\item There is one Jordan block for $3$ and there are two Jordan blocks for $4$. Since $\dim(E_3) = 1$ and $\dim(E_4) = 2$, the number of Jordan blocks is equal to the geometric multiplicities of the eigenvalues. 
+
+\ea
+
+%\begin{activity} Let $A = \left[ \begin{array}{rrrrr} 3&0&1&0&0 \\ -1&3&0&1&-1 \\ 2&0&5&-2&3 \\ -1&-1&0&5&-1 \\ -1&-1&-1&2&2 \end{array} \right]$. The eigenvalues of $A$ are $3$ (with algebraic multiplicity 2 and geometric multiplicity 1) and $4$ (with algebraic multiplicity 3 and geometric multiplicity 1). In this activity we find a Jordan canonical form of $A$.
+%\ba
+%\item Assume that the reduced row echelon forms of $A -3 I_5$ and $(A-3I_5)^2$ are 
+%\[ \left[ \begin{array}{cccrc} 1&0&0&-1&0\\ 0&1&0&-1&0 \\ 0&0&1&0&0\\ 0&0&0&0&1 \\ 0&0&0&0&0\end{array} \right] \ \text{ and} \  \left[ \begin{array}{cccrc} 1&0&1&-1&0\\ 0&1&0&-1&0\\ 0&0&0&0&1\\ 0&0&0&0&0 \\ 0&0&0&0&0\end {array} \right],\]
+%respectively.  Find linearly independent vectors $\vv_1$ and $\vv_2$ such that $(A-3I_5) \vv_2 = \vv_1$ and $(A-3I_5) \vv_1 = \vzero$.
+
+%\item Assume that the reduced row echelon forms of $A -4 I_5$, $(A-4I_5)^2$, and $(A-4I_5)^3$ are 
+%\[  \left[ \begin{array}{ccccc} 1&0&0&0&1\\ 0&1&0&0&0\\ 0&0&1&0&1\\ 0&0&0&1&0
+%\\ 0&0&0&0&0\end{array} \right], \  \left[ \begin{array}{ccccc} 1&0&0&0&1\\ 0&1&0&0&0
+%\\ 0&0&0&1&0\\ 0&0&0&0&0\\ 0&0&0&0&0\end{array} \right] 
+%, \  \text{ and} \  \left[ \begin{array}{cccrc} 1&0&0&-1&1\\ 0&1&0&0&0\\ 0&0&0&0&0\\ 0&0&0&0&0\\ 0&0&0&0&0\end{array} \right] ,\]
+%respectively.  Find linearly independent vectors $\vv_3$, $\vv_4$, and $\vv_5$ such that $(A-4I_5) \vv_5 = \vv_4$, $(A-4I_5) \vv_4 = \vv_3$, and $(A-4I_5) \vv_3 = \vzero$.
+
+%\item Let $C = [\vv_1 \ \vv_2 \ \vv_3 \ \vv_4 \ \vv_5]$. Calculate $C^{-1}AC$. Do you obtain a Jordan canonical form?
+
+%\ea
+
+%\end{activity}
+
+%\ActivitySolution
+%\ba
+%\item  We first look for a vector $\vv_2$ that is in $\Nul (A-3I_5)^2$ but not in $\Nul (A-3I_5)$. If $\vx = [x_1 \ x_2 \ x_3 \ x_4 \ x_5]^{\tr}$ is in $\Nul (A-3I_5)^2$, then 
+%\[\vx = \left[ \begin{array}{c} -x_3+x_4 \\ x_4 \\ x_3 \\ x_4 \\ 0 \end{array} \right],\]
+%and if $\vx$ is in $\Nul (A-3I_5)$, then 
+%\[\vx = \left[ \begin{array}{c} x_4 \\ x_4 \\ 0 \\ x_4 \\ 0 \end{array} \right].\]
+%So $\vv_2 = \left[ \begin{array}{c} 0 \\ 1 \\ 1 \\ 1 \\ 0 \end{array} \right]$ (with $x_3=x_4=1$) is in $\Nul (A-3I_5)^2$ but not in $\Nul (A-3I_5)$. Then we can let 
+%\[\vv_1 = (A-3I_5)\vv_2 = \left[ \begin{array}{c} 1 \\ 1 \\ 0 \\ 1 \\ 0 \end{array} \right].\] 
+
+%\item We first look for a vector $\vv_5$ that is in $\Nul (A-4I_5)^3$ but not in $\Nul (A-4I_5)^2$. If $\vx = [x_1 \ x_2 \ x_3 \ x_4 \ x_5]^{\tr}$ is in $\Nul (A-4I_5)^3$, then 
+%\[\vx = \left[ \begin{array}{c} x_4-x_5 \\ 0 \\ x_3 \\ x_4 \\ x_5 \end{array} \right],\]
+%and if $\vx$ is in $\Nul (A-4I_5)^2$, then 
+%\[\vx = \left[ \begin{array}{c} -x_5 \\ 0 \\ x_3 \\ 0 \\ x_5 \end{array} \right].\]
+%So $\vv_5 = \left[ \begin{array}{c} 1 \\ 0 \\ 0 \\ 1 \\ 0 \end{array} \right]$ (with $x_4=1$ and $x_3=x_5=0$) is in $\Nul (A-4I_5)^3$ but not in $\Nul (A-4I_5)^2$. Then we can let 
+%\[\vv_4 = (A-4I_5)\vv_5 = \left[ \begin{array}{r} -1 \\ 0 \\ 0 \\ 0 \\ 1 \end{array} \right]\]
+%and
+%\[\vv_3 = (A-4I_5)\vv_4 = \left[ \begin{array}{r} 1 \\ 0 \\ 1 \\ 0 \\ -1 \end{array} \right].\]
+
+%\item Technology shows that 
+%\[C^{-1}AC =  \left[ \begin {array}{ccccc} 3&1&0&0&0\\ 0&3&0&0&0\\ 0&0&4&1&0\\ 0&0&0&4&1\\ 0&0&0&0&4\end {array} \right]\]
+%which is a Jordan canonical form of $A$. 
+
+%\ea
+
+\begin{activity} \label{act:JCF_shears} ~
+\ba
+%\ref{F:JCF_shear_1}.
+\item Recall from Section 7 that a matrix transformation $T$ defined by $T(\vx) = A\vx$, where $A$ is of the form $\left[ \begin{array}{cc} 1&a\\0&1 \end{array} \right]$ performs a shear in the $x$ direction, as illustrated at left in Figure 40.2.  That is, while $T(\ve_1) = \ve_1$, it is the case that $T(\ve_2) = \ve_2 + [a \ 0]^{\tr}$. In other words, $T(\ve_2)-\ve_2 = [a \ 0]^{\tr}$ is in $\Span \{\ve_1\}$. But we can say something more. Show that if 
+$\vx = [x_1 \ x_2]^{\tr}$ is not in $\Span \{\ve_1\}$, then 
+\[T(\vx) = \vx + x_2[a \ 0]^{\tr}.\]
+%\ref{sec:matrix_transformations}
+The result is that if $\vx$ is not in $\Span \{\ve_1\}$, then $T(\vx) - \vx$ is in $\Span \{\ve_1\}$. This leads us to a general definition of a shear.
+
+\begin{definition} A matrix transformation $T$ is a \textbf{shear}\index{shear} in the direction of the line $\ell$ (through the origin) in $\R^2$ if
+\begin{enumerate}
+\item $T(\vx) = \vx$ for all $\vx$ in $\ell$ and 
+\item $T(\vx) - \vx$ is in $\ell$ for all $\vx$ not in $\ell$.
+\end{enumerate}
+\end{definition}
+
+\item Let $S(\vx) = M\vx$, where $M = \left[ \begin{array}{cr} 3&-2\\2&-1 \end{array} \right]$. Also let $\vv_1 = [1 \ 1]^{\tr}$ and $\vv_2 = [1 \ 0]^{\tr}$. 
+	\begin{enumerate}[i.]
+	\item Let $\vx = \left[ \begin{array}{c} t\\t \end{array} \right]$ for some scalar $t$. Calculate $S(\vx) = \vx$. How is this related to the eigenvalues of $M$?
+	
+
+	\item Let $\vx$ be any vector not in $\Span\{ [1 \ 1]^{\tr}\}$.  Show that $S(\vx) - \vx$ is in $\Span\{ [1 \ 1]^{\tr}\}$. 
+	
+	
+	\item Explain why $S$ is a shear and how $S$ is related to the image at right in Figure 40.2. %\ref{F:JCF_shear_1}.
+
+
+	\end{enumerate}
+
+\ea
+
+\end{activity}
+
+
+\ActivitySolution
+\ba
+\item Note that 
+\begin{align*}
+T(\vx) &= \left[ \begin{array}{cc} 1&a\\0&1 \end{array} \right] \left[ \begin{array}{c} x_1\\x_2 \end{array} \right] \\
+	&= \left[ \begin{array}{c} x_1-ax_2\\x_2 \end{array} \right] \\
+	&= \left[ \begin{array}{c} x_1\\x_2 \end{array} \right]  - \left[ \begin{array}{c} ax_2\\0 \end{array} \right] \\
+	&=\vx + x_2[a \ 0]^{\tr}.
+\end{align*}
+
+\item Let $S(\vx) = M\vx$, where $M = \left[ \begin{array}{cr} 3&-2\\2&-1 \end{array} \right]$. Also let $\vv_1 = [1 \ 1]^{\tr}$ and $\vv_2 = [1 \ 0]^{\tr}$. 
+	\begin{enumerate}[i.]
+	\item  We notice that 
+\[S(\vx) = \left[ \begin{array}{cr} 3&-2\\2&-1 \end{array} \right]  \left[ \begin{array}{c} t\\t \end{array} \right] = \left[ \begin{array}{c} t\\t \end{array} \right].\]
+This means that any nonzero vector of the form $\left[ \begin{array}{c} t\\t \end{array} \right]$ is an eigenvector of $M$ with eigenvalue 1. 
+
+	\item  Let $\vx = [x_1 \ x_2]^{\tr}$ with $x_1 \neq x_2$. Then
+\begin{align*}
+S(\vx) - \vx &= \left[ \begin{array}{cr} 3&-2\\2&-1 \end{array} \right]  \left[ \begin{array}{c} x_1\\x_2 \end{array} \right] -  \left[ \begin{array}{c} x_1\\x_2 \end{array} \right] \\
+	&=  \left[ \begin{array}{c} 3x_1-2x_2\\2x_1-x_2 \end{array} \right] - \left[ \begin{array}{c} x_1\\x_2 \end{array} \right] \\
+	&=  \left[ \begin{array}{c} 2x_1-2x_2\\2x_2-2x_2 \end{array} \right] \\
+	&= (2x_1-2x_2)\left[ \begin{array}{c} 1\\1 \end{array} \right]
+\end{align*}
+is in $\Span\{ [1 \ 1]^{\tr}$. 
+	
+\item  By the definition of a shear, $S$ is a shear. Since $S$ fixes $\Span\{ \vv_1\}$, $S$ is a shear in the direction of $\Span\{\vv_1\}$ which is the line $y=x$. Thus, $S$ fixes the line $y=x$ but when $\vx$ is not in $\Span\{\vv_1\}$, then $S(\vx) = \vx + t[1 \ 1]^{\tr}$ for some scalar $t$. That is, $S$ sends $\vx$ to some vector in $\Span\{\vv_1\}$ translated by $\vx$. 
+
+	\end{enumerate}
+
+\ea
+
+\begin{activity} \label{act:JCF_geometry} Let $T(\vx) = A\vx$, where $A = \left[ \begin{array}{cr} 3&-1\\1&1 \end{array} \right]$. The only eigenvalue of $A$ is $\lambda = 2$, and this eigenvalue has algebraic multiplicity 2 and geometric multiplicity 1. The vector $\vv_1 = [1 \ 1]^{\tr}$ is an eigenvector for $A$ with eigenvalue $2$, and $\vv_2 = [1 \ 0]^{\tr}$ satisfies $(A - 2I_2)\vv_2 = \vv_1$. Let $C = \left[ \begin{array}{cc} 1&1\\1&0 \end{array} \right]$.
+\ba
+\item Explain why $T(\vx) = CJC^{-1}\vx$, where $J = \left[ \begin{array}{cc} 2&1\\0&2 \end{array} \right]$.  
+
+\item The matrix $C$ is a change of basis matrix $\underset{\CB \leftarrow \CS}{P}$ from some basis $\CS$ to another basis $\CB$. Specifically identify $\CS$ and $\CB$. 
+
+\item If we begin with an arbitrary vector $\vx$, then $[\vx]_{\CS} = \vx$. How is $C \vx$ related to $\CB$? 
+
+\item Describe in detail what $J$ does to a vector in the $\CB$ coordinate system. (Hint: $J =  \left[ \begin{array}{cc} 2&0\\0&2 \end{array} \right]  \left[ \renewcommand{\arraystretch}{1.4}\begin{array}{cc} 1&\frac{1}{2}\\0&1 \end{array} \right]$.)
+
+\item Put this all together to describe the action of $T$ as illustrated in Figure \ref{F:JCF_shear_3}. The word shear should appear in your explanation. 
+
+\ea
+
+\end{activity}
+
+\ActivitySolution
+\ba
+\item Since the sequence $\vv_2$, $\vv_1$ is a sequence of generalized eigenvectors of $A$, we have that $C^{-1}AC$ is a Jordan canonical form of $A$.
+
+\item Recall that $\underset{\CB \leftarrow \CS}{P} = [[\vb_1]_{\CS}  \ [\vb_2]_{\CS} \ \ldots \ [\vb_n]_{\CS}]$, where $\CB = \{\vb_1, \vb_2, \ldots, \vb_n\}$. In this case, $\CS$ is the standard basis and $\CB = \{\vv_1, \vv_2\}$. 
+
+\item We know that $C\vx = \underset{\CB \leftarrow \CS}{P}[\vx]_{\CS} = [\vx]_{\CB}$. 
+
+\item Since $J =  \left[ \begin{array}{cc} 2&0\\0&2 \end{array} \right]  \left[ \renewcommand{\arraystretch}{1.4}\begin{array}{cc} 1&\frac{1}{2}\\0&1 \end{array} \right]$ we see that $J$ performs a shear in the $\vv_1$ direction, then an expansion by a factor of 2 in all directions.
+
+\item  We start with a vector $\vx$ in $\R^2$. Since $\vx = [\vx]_{\CS}$, the action of $T$ first multiplies by $C$ to change to the $\CB$ coordinate system. There, $J$ performs shear in the $\vv_1$ direction, then an expansion by a factor of 2 in all directions. Finally, multiplying by $C^{-1}$ changes back to the standard coordinate system $\CS$. 
+ 
+\ea
+
+\begin{figure}[ht]
+\begin{center}
+\resizebox{!}{2.0in}{\includegraphics{JCF_shear_3}} 
+\end{center}
+\caption{Change of basis, a shear, and scaling.}
+\label{F:JCF_shear_3}
+\end{figure}
+
+ 
+\begin{activity} \label{act:nilpotent_intro} Let $A = \left[ \begin{array}{rr} 1&1\\-1&-1 \end{array} \right]$ and $B = \left[ \begin{array}{rcr} 2&1&-3 \\ -2&1&1 \\ 2&1&-3 \end{array} \right]$.  
+\ba
+\item Calculate the positive integer powers of $A$ and $B$. What do you notice?
+
+\item Compare the eigenvalues of $A$ to the eigenvalues of $B$. What do you notice?
+
+\ea
+\end{activity}
+
+\ActivitySolution
+\ba
+\item We notice that $A^2 = 0$ and $B^3 = 0$. So all powers after these are also 0. 
+
+\item Technology shows that the only eigenvalue of $A$ and $B$ is 0.  
+
+\ea
+ 
+
+ \begin{activity} Let $V$ be a vector space and let $T : V \to V$ be a linear transformation. 
+ \ba
+  \item Let $V = \R^2$ and $T$ the linear transformation defined by $T([x \ y]^{\tr}) = [x-y \ y-x]^{\tr}$. Find two invariant subspaces besides $V$ or $\{\vzero\}$ for $T$.  
+  
+ \item Recall that $\Ker(T) = \{\vv \in V : T(\vv) = \vzero\}$. Is $\Ker(T)$ invariant under $T$? Explain.
+ 
+ \item Recall that $\Range(T) = \{\vw \in V : \vw = T(\vv) \text{ for some } \vv \in V\}$. Is $\Range(T)$ invariant under $T$? Explain.
+ 
+ \ea
+ 
+ \end{activity}
+
+\ActivitySolution
+\ba
+\item Notice that $T([1 \ 1]^{\tr}) = \vzero$, so $\Span\{[1 \ 1]^{\tr}\}$ is an invariant subspace or $\R^2$ under $T$.
+
+Also, $T([1 \ -1]^{\tr}) = [2 \ -2]^{\tr}$, so $\Span\{[1 \ -1]^{\tr}\}$ is also an invariant subspace or $\R^2$ under $T$.
+ 
+ \item Let $\vx \in \Ker(T)$. then $T(T(\vx)) = T(\vzero) = \vzero$ and so $T(\vx) \in \Ker(T)$. Thus, $\Ker(T)$ is invariant under $T$. 
+
+\item Let $\vw \in \Range(T)$. So there exists $\vv \in V$ such that $T(\vv) = \vw$. Then $T(\vw) = T(T(\vv))$ and $T(\vw)$ is in $\Range(T)$. Thus, $\Range(T)$ is invariant under $T$.  
+ 
+ \ea
+
+\begin{activity} \label{act:JCF_Lemma_1} Let $T:\pol_4 \to \pol_4$ be defined by 
+\begin{align*}
+T\left(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4\right) = (2a_0+a_1) &+ (a_1-a_2)t + (a_0+a_1)t^2 \\
+	&\qquad + (-a_0-a_1+a_2+2a_3-a_4)t^3 + (2a_4)t^4.
+\end{align*}
+The matrix of $T$ with respect to the standard basis $\CS = \{1,t,t^2,t^3,t^4\}$ is 
+\[A = [T]_{\CS} = \left[ \begin{array}{rrrcc} 2&1&0&0&0\\0&1&-1&0&0 \\ 1&1&0&0&0 \\ -1&-1&1&2&-1 \\ 0&0&0&0&2 \end{array} \right].\]
+The eigenvalues of $A$ (and $T$) are $2$ and $1$, and the algebraic multiplicity of the eigenvalue $2$ is 2 while its geometric multiplicity is 1, and the algebraic multiplicity of the eigenvalue $1$ is 3 while its geometric multiplicity is also 1. The fact that $\dim(\pol_4) = 5$ means that we are looking for $s_1$ and $s_2$ such that $s_1+s_2 = 5$. 
+
+For every $t$, $\Ker(T-\lambda I)^t$ is found with $\Nul (A- \lambda I)^t$. 
+\ba
+\item Technology shows that $\dim(\Nul A-I) = 1$, $\dim(\Nul A-I)^2 = 2$, and $\dim(\Nul A-I)^3 = 3$. A basis for $\Nul (A-I)^3$ is 
+\[\CC_1 = \left\{ [-1 \ 1 \ 0 \ 0 \ 0]^{\tr}, [1 \ 0 \ 1 \ 0 \ 0]^{\tr},  [1 \ 0 \ 0 \ 1 \ 0]^{\tr}\right\}.\] 
+Find a basis $\CB_1$ for $\Ker\left((T-I)^3\right)$.
+
+\item Technology also shows that $\dim(\Nul A-2I) = 1$ and $\dim(\Nul A-2I)^2 = 2$. A basis for $\Nul (A-2I)^2$ is $\CC_2 = \left\{ [0 \ 0 \ 0 \ 1 \ 0]^{\tr}, [0 \ 0 \ 0 \ 0 \ 1]^{\tr}\right\}$. Find a basis $\CB_2$ for $\Ker\left((T-2I)^2\right)$.
+
+\item Identify the $\lambda_i$ and $s_i$ in Lemma \ref{act:JCF_Lemma_1}. Let $\CB = \CB_1 \cup \CB_2$. Find the matrix $[T]_{\CB}$. 
+
+\ea
+
+\end{activity}
+
+\ActivitySolution
+\ba
+\item The coordinate vectors show that $\{p_1(t), p_2(t), p_3(t)\}$ is a basis for the space $\Ker\left((T-I)^3\right)$, where $p_1(t) = -1+t$, $p_2(t) = 1+t^2$, and $p_3(t)= 1+t^3$.
+
+\item The coordinate vectors show that $\{p_4(t), p_5(t)\}$ is a basis for the space $\Ker\left((T-2I)^2\right)$, where $p_4(t) = t^3$ and $p_5(t) = t^4$.  
+
+\item So if we let $\lambda_1 = 1$ and $\lambda_2 = 2$ with $s_1=3$ and $s_2 = 2$, then 
+\[\pol_4 = \Ker(T-\lambda_1 I)^{s_1} \oplus \Ker(T-\lambda_2 I)^{s_2}.\]
+Moreover, the set $\CB = \CB_1 \cup \CB_2$ is a basis for $\pol_4$. Since 
+\begin{align*}
+T(p_1(t)) &= p_1(t) \\
+T(p_2(t)) &= -p_1(t)+p_2(t) \\
+T(p_3(t)) &= p_2(t)+p_3(t) \\
+T(p_4(t)) &= 2p_4(t) \\
+T(p_5(t)) &= -p_4(t)+2p_5(t),
+\end{align*}
+it follows that the matrix for $T$ with respect to the basis $\CB$ is 
+\[[T]_{\CB} = \left[ \begin{array}{ccccc} 1&-1&0&0&0 \\ 0&1&1&0&0 \\ 0&0&1&0&0 \\ 0&0&0&2&-1 \\ 0&0&0&0&2 \end{array} \right].\]
+
+\ea
+
+
+\begin{activity} \label{act:JCF_Lem_2} Let $T: \pol_5 \to \pol_5$ be defined by 
+\[T(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4+a_5t^5) = (-a_1-a_4+a_5)t + (-a_0-a_1+a_3-a_4+a_5)t^2 + (a_1+a_4)t^4.\]
+Let $\CS = \{1,t,t^2,t^3,t^4,t^5\}$ be the standard basis for $\pol_5$. Then
+\[A = [T]_{\CS} = \left[ \begin{array}{rrccrc} 0&0&0&0&0&0 \\ 0&-1&0&0&-1&1 \\ -1&-1&0&1&-1&1 \\ 0&0&0&0&0&0 \\ 0&1&0&0&1&0 \\ 0&0&0&0&0&0 \end{array}\right].\]
+Technology shows that the only eigenvalue of $A$ is $0$ and that the geometric multiplicity of $0$ is $3$. Since $0$ is the only eigenvalue of $A$, we know that $A$ (and $T$) is nilpotent. Using technology we find that the reduced row echelon forms of $A$ and $A^2$ and respectively, 
+\[\left[ \begin{array}{cccrcc} 1&0&0&-1&0&0 \\ 0&1&0&0&1&0 \\ 0&0&0&0&0&1 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \end{array} \right], \ \left[ \begin{array}{cccrcc} 0&0&0&0&0&1 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \\ 0&0&0&0&0&0 \end{array} \right],\]
+while $A^3 = 0$. We see that $\dim(\Ker(T^3)) \dim(\Nul A^3) = 6$ while $\dim(\Ker(T^2)) = \dim(\Nul A^2) = 5$. 
+\ba
+\item Notice that the vector $\vv_1 = [0 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}$ is in $\Nul A^3$ but not in $\Nul A^2$. Use this vector to construct one chain $u_1$, $T(u_1)$, and $T^2(u_1)$ of generalized eigenvectors starting with a vector $u_1$ that is in $\Ker(T^3)$ but not in $\Ker(T^2)$. What can we say about the vector $T^2(u_1)$ in relation to eigenvectors of $T$? 
+
+\item We know two other eigenvectors of $T$, so we need another chain of generalized eigenvectors to provide a basis of $\pol_5$ of generalized eigenvectors. Use the fact that $\vv_2 = [1 \ 0 \ 0 \ 0 \ 0 \ 0]^{\tr}$ is in $\Nul A^2$ but not in $\Nul A$ to find another generalized eigenvector $u_2$ in $\Ker(T^2)$ that is not in $\Ker(T)$. Then create a chain $u_2$ and $T(u_2)$ of generalized eigenvectors. What is true about $T(u_2)$ in relation to eigenvectors of $T$?
+
+\item Let $u_3 = 1+t^3$ be a third eigenvector of $T$. Explain why $\{u_1, T(u_1), T^2(u_1), u_2, T(u_2), u_3\}$ is a basis of $\pol_5$. Identify the values of $k$ and the $a_i$ in Lemma 40.12.
+
+\ea
+
+\end{activity} 
+
+\ActivitySolution
+\ba
+\item The vector $\vv_1 = [0 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}$ is in $\Nul A^3$ but not in $\Nul A^2$. So $u_1 = t^5$ is in $\Ker(T^3)$ but not in $\Ker(T^2)$. A chain of generalized eigenvectors for $A$ is
+\begin{align*}
+\vv_1&= [0 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}, \\
+A\vv_1 &= [0 \ 1 \ 1 \ 0 \ 0 \ 0 \ 0]^{\tr}, \ \text{ and } \\ 
+A^2\vv_1 &= [0 \ -1 \ -1 \ 0 \ 1 \ 0]^{\tr}.
+ \end{align*}
+ This makes
+ \[u_1 = t^5, \ T(u_1) = t+t^2, \ \text{ and } \ T^2(u_1) = -t-t^2+t^4.\]
+ Note that $T^2(u_1) = 0$. This provides a chain of 3 linearly independent generalized eigenvectors of $T$, with $T^2(u_1)$ as an eigenvector of $T$. 
+
+\item Letting $u_2 = 1$ produces the generalized eigenvector chain 
+\[u_2 = 1 \ T(u_2) = -t^2,\]
+with $T(-t^2) = 0$. So $T(u_2)$ is an eigenvector of $T$. 
+
+\item A quick check shows that the matrix $[u_1]_{\CS} \ [T(u_1)]_{\CS} \ [T^2(u_1)]_{\CS} \ [u_2]_{\CS} \ [T(u_2)]_{\CS} \ [u_3]_{\CS}]$ row reduces to the identity matrix, so the set $\{u_1, T(u_1), T^2(u_1), u_2, T(u_2), u_3\}$ is a basis of $\pol_5$. In the notation of Lemma \ref{lem:JCF_2}, we have $k=3$, $a_1=3$, $a_2 = 2$, and $a_3 = 1$. 
+
+\ea

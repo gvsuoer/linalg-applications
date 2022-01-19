@@ -1,0 +1,560 @@
+\achapter{27}{Orthogonal Diagonalization} \label{sec:orthogonal_diagonalization}
+
+\vspace*{-17 pt}
+\framebox{
+\parbox{\dimexpr\linewidth-3\fboxsep-3\fboxrule}
+{\begin{fqs}
+\item What does it mean for a matrix to be orthogonally diagonalizable and why is this concept important?
+\item What is a symmetric matrix and what important property related to diagonalization does a symmetric matrix have? 
+\item What is the spectrum of a matrix?
+\end{fqs}}}% \hspace*{3 pt}}
+
+\vspace*{13 pt}
+
+\csection{Application: The Multivariable Second Derivative Test} 
+
+In single variable calculus, we learn that the second derivative can be used to classify a critical point of the type where the derivative of a function is 0 as a local maximum or minimum. 
+
+\begin{theorem}[The Second Derivative Test for Single-Variable Functions]  If $a$ is a critical number of a function $f$ so that $f'(a)=0$ and if $f''(a)$ exists, then 
+\begin{itemize}
+\item if $f''(a) < 0$, then $f(a)$ is a local maximum value of $f$,
+\item if $f''(a) > 0$, then $f(a)$ is a local minimum value of $f$, and
+\item if $f''(a) = 0$,  this test yields no information.
+\end{itemize}
+\end{theorem}
+
+In the two-variable case we have an analogous test, which is usually seen in a multivariable calculus course. 
+
+\begin{theorem}[The Second Derivative Test for Functions of Two Variables] Suppose $(a,b)$ is a critical point of the function $f$ for which $f_x(a,b) = 0$ and
+$f_y(a,b) = 0$.  Let $D$ be the quantity defined by
+\[D = f_{xx}(a,b) f_{yy}(a,b) - f_{xy}(a,b)^2.\]
+\begin{itemize}
+\item If $D>0$ and $f_{xx}(a,b) < 0$, then $f$ has a local maximum at $(a,b)$.
+\item If $D>0$ and $f_{xx}(a,b) > 0$, then $f$ has a local minimum at $(a,b)$.
+\item If $D < 0$, then $f$ has a saddle point at $(a,b)$.
+\item If $D = 0$, then this test yields no information about what happens at $(a,b)$.
+\end{itemize}
+\end{theorem}
+
+A proof of this test for two-variable functions is based on Taylor polynomials, and relies on symmetric matrices, eigenvalues, and quadratic forms. The steps for a proof will be found later in this section.
+
+
+\csection{Introduction}
+
+We have seen how to diagonalize a matrix -- if we can find $n$ linearly independent eigenvectors of an $n\times n$ matrix $A$ and let $P$ be the matrix whose columns are those eigenvectors,  then $P^{-1}AP$ is a diagonal matrix with the eigenvalues down the diagonal in the same order corresponding to the eigenvectors placed in $P$. We will see that in certain cases we can take this one step further and create an orthogonal matrix with eigenvectors as columns to diagonalize a matrix. This is called orthogonal diagonalization. Orthogonal diagonalizability is useful in that it allows us to find a ``convenient" coordinate system in which to interpret the results of certain matrix transformations. A set of orthonormal basis vectors for an orthogonally diagonalizable matrix $A$ is called a set of \emph{principal axes} for $A$. Orthogonal diagonalization will also play a crucial role in the singular value decomposition of a matrix, a decomposition that has been described by some as the ``pinnacle" of linear algebra.
+
+
+\begin{definition} \label{def:7_a_orthogonal _diagonalization} An $n \times n$ matrix $A$ is \textbf{orthogonally diagonalizable}\index{orthogonal diagonalization} if there is an orthogonal matrix $P$ such that
+\[P^{\tr}AP\]
+is a diagonal matrix. We say that the matrix $P$ \emph{orthogonally diagonalizes} the matrix $A$.
+\end{definition}
+
+\begin{pa} \label{pa:7_a} ~ 
+ \be
+\item For each matrix $A$ whose eigenvalues and corresponding eigenvectors are given, find a matrix $P$ such that $P^{-1}AP$ is a diagonal matrix. 
+	\ba
+	\item $A = \left[ \begin {array}{cc} 1&2 \\ 2&1 \end {array} \right]$ with eigenvalues $-1$ and 3 and corresponding eigenvectors  $\vv_1 = \left[ \begin {array}{r} -1 \\ 1 \end {array} \right]$ and $\vv_2 = \left[ \begin {array}{c} 1 \\ 1 \end {array} \right]$. 
+
+	\item $A =  \left[ \begin {array}{cc} 1&2 \\ 1&2 \end {array} \right]$ with eigenvalues $0$ and $3$ and corresponding eigenvectors  $\vv_1 = \left[ \begin {array}{r} -2 \\ 1 \end {array} \right]$ and $\vv_2 = \left[ \begin {array}{c} 1 \\ 1 \end {array} \right]$. 
+
+	\item $A = \left[ \begin {array}{ccc} 1&0&1 \\ 0&1&1 \\ 1&1&2 \end {array} \right]$ with eigenvalues $0$, $1$, and $3$ and corresponding eigenvectors  $\vv_1 = \left[ \begin {array}{r} -1 \\ -1 \\ 1 \end {array} \right]$,  $\vv_2 = \left[ \begin {array}{r} -1 \\ 1 \\ 0 \end {array} \right]$, and $\vv_3 = \left[ \begin {array}{c} 1 \\ 1 \\ 2 \end {array} \right]$. 
+
+	\ea
+	
+\item Which matrices in part 1 seem to satisfy the orthogonal diagonalization requirement? Do you notice any common traits among these matrices?  
+
+\ee
+\end{pa}
+
+
+\csection{Symmetric Matrices}
+
+As we saw in Preview Activity \ref{pa:7_a}, matrices that are not symmetric need not be orthogonally diagonalizable, but the symmetric matrix examples are orthogonally diagonalizable. We explore that idea in this section. 
+
+ If $P$ is a matrix that orthogonally diagonalizes the matrix $A$, then $P^{\tr}AP = D$, where $D$ is a diagonal matrix. Since $D^{\tr} = D$ and $A = PDP^{\tr}$, we have
+\begin{align*}
+A &= PDP^{\tr} \\
+    &= PD^{\tr}P^{\tr} \\
+    &= \left(P^{\tr}\right)^{\tr}D^{\tr}P^{\tr} \\
+    &= \left(PDP^{\tr}\right)^{\tr} \\
+    &= A^{\tr}.
+\end{align*}
+Therefore, $A^{\tr} = A$ and matrices with this property are the only matrices that can be orthogonally diagonalized. Recall that any matrix $A$ satisfying $A^{\tr} = A$ is a symmetric matrix. 
+
+While we have just shown that the only matrices that can be orthogonally diagonalized are the symmetric matrices, the amazing thing about symmetric matrices is that \emph{every} symmetric matrix can be orthogonally diagonalized. We will prove this shortly.
+
+Symmetric matrices have useful properties, a few of which are given in the following activity (we will use some of these properties later in this section).
+
+
+\begin{activity} \label{act:7_a_symmetric} Let $A$ be a symmetric $n \times n$ matrix and let $\vx$ and $\vy$ be vectors in $\R^n$.
+	\ba
+	\item Show that $\vx^{\tr} A \vy = (A\vx)^{\tr} \vy$.
+	
+	
+	\item Show that $(A\vx) \cdot \vy = \vx \cdot (A\vy)$.
+	
+
+	\item Show that the eigenvalues of a $2 \times 2$ symmetric matrix $A = \left[ \begin{array}{cc} a&b\\b&c \end{array} \right]$ are real.	
+	
+	\ea
+\end{activity}
+
+Activity \ref{act:7_a_symmetric} (c) shows that a $2 \times 2$ symmetric matrix has real eigenvalues. This is a general result about real symmetric matrices.
+
+\begin{theorem} \label{thm:7_a_symmetric_eigenvalues} Let $A$ be an $n\times n$ symmetric matrix with real entries. Then the eigenvalues of $A$ are real.
+\end{theorem}
+
+\begin{proof} Let $A$ be an $n\times n$ symmetric matrix with real entries and let $\lambda$ be an eigenvalue of $A$ with eigenvector $\vv$. To show that $\lambda$ is real, we will show that $\overline{\lambda} = \lambda$. We know
+\begin{equation}
+A \vv = \lambda \vv. \label{eq:symm1}
+\end{equation}
+Since $A$ has real entries, we also know that $\overline{\lambda}$ is an eigenvalue for $A$ with eigenvector $\overline{\vv}$.  Multiply both sides of (\ref{eq:symm1}) on the left by $\overline{\vv}^{\tr}$ to obtain
+\begin{equation}
+\overline{\vv}^{\tr} A \vv = \overline{\vv}^{\tr} \lambda \vv = \lambda \left(\overline{\vv}^{\tr} \vv \right). \label{eq:symm2}
+\end{equation}
+Now
+\begin{equation*}
+\overline{\vv}^{\tr} A \vv = (A\overline{\vv})^{\tr} \vv = (\overline{\lambda} \ \overline{\vv})^{\tr} \vv = \overline{\lambda} \left(\overline{\vv}^{\tr} \vv \right)
+\end{equation*}
+and equation (\ref{eq:symm2}) becomes
+\[\overline{\lambda} \left(\overline{\vv}^{\tr} \vv \right) = \lambda \left(\overline{\vv}^{\tr} \vv \right).\]
+Since $\vv \neq \vzero$, this implies that $\overline{\lambda} = \lambda$ and $\lambda$ is real.
+\end{proof}
+
+To orthogonally diagonalize a matrix, it must be the case that eigenvectors corresponding to different eigenvalues are orthogonal. This is an important property and it would be useful to know when it happens.
+
+
+\begin{activity} \label{act:7_a_symmetric_eigenvalues} Let $A$ be a real symmetric matrix with eigenvalues $\lambda_1$ and $\lambda_2$ and corresponding eigenvectors $\vv_1$ and $\vv_2$, respectively. 
+	\ba
+	\item Use Activity \ref{act:7_a_symmetric} (b) to show that $\lambda_1 \vv_1\cdot \vv_2 = \lambda_2 \vv_1 \cdot \vv_2$.
+
+	\item Explain why the result of part (a) shows that $\vv_1$ and $\vv_2$ are orthogonal if $\lambda_1\neq \lambda_2$.
+	
+	\ea
+	
+\end{activity}
+
+
+Activity \ref{act:7_a_symmetric_eigenvalues} proves the following theorem. 
+
+
+\begin{theorem} If $A$ is a real symmetric matrix, then eigenvectors corresponding to distinct eigenvalues are orthogonal.
+\end{theorem}
+
+
+Recall that the only matrices that can be orthogonally diagonalized are the symmetric matrices. Now we show that every real symmetric matrix can be orthogonally diagonalized, which completely characterizes the matrices that are orthogonally diagonalizable. The proof of the following theorem proceeds by induction. A reader who has not yet encountered this technique of proof can safely skip the proof of this theorem without loss of continuity.  
+
+
+\begin{theorem} Let $A$ be a real symmetric matrix. Then $A$ is orthogonally diagonalizable.
+\end{theorem}
+
+
+\begin{proof} Let $A$ be a real $n \times n$ symmetric matrix. The proof proceeds by induction on $n$. If $n = 1$, then $A$ is diagonal and orthogonally diagonalizable. So assume that any real $(n-1) \times (n-1)$ symmetric matrix is orthogonally diagonalizable. Assume that $A$ is a real $n \times n$ symmetric matrix. By Theorem 25.4 (find reference), the eigenvalues of $A$ are real. Let $\lambda_1$ be a real eigenvalue of $A$ with corresponding unit eigenvector $\vp_1$. We can use the Gram-Schmidt process to extend $\{\vp_1\}$ to an orthonormal basis $\{\vp_1, \vp_2, \ldots, \vp_n\}$ for $\R^n$. Let $P_1 = [\vp_1 \ \vp_2 \ \ldots \ \vp_n]$. Then $P_1$ is an orthogonal matrix. Also,
+\begin{align*}
+P_1^{-1}AP_1 &= P_1^{\tr}AP_1 \\
+	&= P_1^{\tr} [A\vp_1 \ A\vp_2 \ \ldots \ A\vp_n] \\
+	&= \left[ \begin{array}{c} \vp_1^{\tr} \\ \vp_2^{\tr} \\ \vdots \\ \vp_n^{\tr} \end{array} \right]  [\lambda \vp_1 \ A\vp_2 \ \ldots \ A\vp_n] \\
+	&= \left[ \begin{array}{ccccc} 
+	\vp_1^{\tr} \lambda_1 \vp_1 & \vp_1^{\tr} A\vp_2 & \vp_1 A\vp_3 & \cdots & \vp_1^{\tr} A \vp_n \\
+	 \vp_2^{\tr} \lambda_1 \vp_1 & \vp_2^{\tr} A\vp_2 & \vp_2 A\vp_3 &\cdots & \vp_2^{\tr} A \vp_n \\
+	 					&	& \vdots 	& & \\
+	\vp_n^{\tr} \lambda_1 \vp_1 & \vp_n^{\tr} A\vp_2 & \vp_n A\vp_3 &\cdots & \vp_n^{\tr} A \vp_n 
+	\end{array} \right] \\
+	&= \left[ \begin{array}{ccccc} 
+	\lambda_1& \vp_1^{\tr} A\vp_2 & \vp_1 A\vp_3 & \cdots & \vp_1^{\tr} A \vp_n \\
+	 0 & \vp_2^{\tr} A\vp_2 & \vp_2 A\vp_3 &\cdots & \vp_2^{\tr} A \vp_n \\
+	 					&	& \vdots 	& & \\
+	0 & \vp_n^{\tr} A\vp_2 & \vp_n A\vp_3 &\cdots & \vp_n^{\tr} A \vp_n 
+	\end{array} \right] \\
+	 &= \left[ \begin{array}{cc} \lambda_1&\vx^{\tr} \\ \vzero & A_1 \end{array} \right]
+\end{align*}
+where $\vx$ is a $(n-1)\times 1$ vector, $\vzero$ is the zero vector in $\R^{n-1}$, and $A_1$ is an $(n-1) \times (n-1)$ matrix. Letting $R = P_1^{\tr}AP_1$ we have that 
+\[R^{\tr} = \left(P_1^{\tr}AP_1\right)^{\tr} = P_1^{\tr}A^{\tr}P_1 = P_1^{\tr}AP_1 = R,\]
+so $R$ is a symmetric matrix. Therefore, $\vx = \vzero$ and $A_1$ is a symmetric matrix. By our induction hypothesis, $A_1$ is orthogonally diagonalizable. That is, there exists an $(n-1) \times (n-1)$ orthogonal matrix $Q$ such that $Q^{\tr}A_1Q = D_1$, where $D_1$ is a diagonal matrix. Now define $P_2$ by 
+\[P_2 = \left[ \begin{array}{cc} 1&\vzero^{\tr} \\ \vzero & Q \end{array} \right],\]
+where $\vzero$ is the zero vector in $\R^{n-1}$. By construction, the columns of $P_2$ are orthonormal, so $P_2$ is an orthogonal matrix. Since $P_1$ is also an orthogonal matrix, 
+\[P^{\tr} = (P_1P_2)^{\tr} = P_2^{\tr}P_1^{\tr} = P_2^{-1}P_1^{-1} = (P_1P_2)^{-1}  = P^{-1}\]
+and $P$ is an orthogonal matrix. Finally, 
+\begin{align*}
+P^{\tr}AP &= (P_1P_2)^{\tr}A(P_1P_2) \\
+	&= P_2^{\tr}\left(P_1^{\tr}AP_1\right)P_2 \\
+	&= \left[ \begin{array}{cc} 1&\vzero^{\tr} \\ \vzero & Q \end{array} \right]^{\tr} \left[ \begin{array}{cc} \lambda_1&\vx^{\tr} \\ 0 & A_1 \end{array} \right] \left[ \begin{array}{cc} 1&\vzero^{\tr} \\ \vzero & Q \end{array} \right] \\
+	&= \left[ \begin{array}{cc} 1&\vzero^{\tr} \\ \vzero & Q^{\tr} \end{array} \right] \left[ \begin{array}{cc} \lambda_1&\vx^{\tr} \\ 0 & A_1 \end{array} \right]\left[ \begin{array}{cc} 1&\vzero^{\tr} \\ \vzero & Q \end{array} \right] \\
+	&= \left[ \begin{array}{cc} \lambda_1&\vzero^{\tr} \\ \vzero & Q^{\tr}A_1Q \end{array} \right] \\
+	&= \left[ \begin{array}{cc} \lambda_1&\vzero^{\tr} \\ \vzero & D_1 \end{array} \right].
+\end{align*}
+Therefore, $P^{\tr}AP$ is a diagonal matrix and $P$ orthogonally diagonalizes $A$. This completes our proof.
+\end{proof}
+
+
+
+The set of eigenvalues of a matrix $A$ is called the \emph{spectrum}\index{spectrum of a matrix} of $A$ and we have just proved the following theorem.
+
+
+
+\begin{theorem}[The Spectral Theorem for Real Symmetric Matrices] Let $A$ be an $n \times n$ symmetric matrix with real entries. Then
+\begin{enumerate}
+\item $A$ has $n$ real eigenvalues (counting multiplicities)
+\item the dimension of each eigenspace of $A$ is the multiplicity of the corresponding eigenvalue as a root of the characteristic polynomial
+\item eigenvectors corresponding to different eigenvalues are orthogonal
+\item $A$ is orthogonally diagonalizable.
+\end{enumerate}
+\end{theorem}
+
+
+
+So \emph{any} real symmetric matrix is orthogonally diagonalizable. We have seen examples of the orthogonal diagonalization of $n \times n$  real symmetric matrices with $n$ distinct eigenvalues, but how do we orthogonally diagonalize a symmetric matrix having eigenvalues of multiplicity greater than 1? The next activity shows us the process.
+
+
+
+%\begin{activity} \label{act:7_a_3} Let $A = \left[ \begin{array}{ccc} 4&2&2 \\ 2&4&2 \\ 2&2&4 \end{array} \right]$. The eigenvalues of $A$ are 2 and 8. The eigenspace for $A$ corresponding to the eigenvalue 2 has dimension 2 and the eigenspace corresponding to the eigenvalue 8 has dimension 1.
+%	\ba
+%	\item Explain why $A$ can be orthogonally diagonalized.
+	
+	
+%	\item Two linearly independent eigenvectors for $A$ corresponding to the eigenvalue 2 are $\vv_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 1 \end{array} \right]$ and $\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]$. Let $\vv_3$ be an eigenvector for $A$ corresponding to the eigenvalue 8. What must automatically be true about the relationship between $\vv_1$ and $\vv_3$? What about the relationship between $\vv_2$ and $\vv_3$?
+	
+	
+%	\item To orthogonally diagonalize $A$, we need an orthogonal basis of $\R^3$ of eigenvectors of $A$. Explain how you know that $\vv_1$ and $\vv_2$ are not orthogonal vectors. How can we find a set $\{\vw_1, \vw_2\}$ of orthogonal eigenvectors of $A$ so that $\Span\{\vw_1, \vw_2\} = \Span\{\vv_1, \vv_2\}$? Find such a set.
+	
+	
+%	\item An eigenvector for $A$ corresponding to the eigenvalue 8 is $\vv_3 = \left[ \begin{array}{c} 1 \\ 1 \\ 1 \end{array} \right]$. Find a matrix $P$ that orthogonally diagonalizes $A$. Verify your work.
+	
+	
+	
+%	\ea
+%\end{activity}
+
+%****
+%Another possible version:
+
+\begin{activity} \label{act:7_a_3} Let $A = \left[ \begin{array}{ccc} 4&2&2 \\ 2&4&2 \\ 2&2&4 \end{array} \right]$. The eigenvalues of $A$ are 2 and 8, with eigenspace of dimension 2 and dimension 1, respectively.
+\ba
+\item Explain why $A$ can be orthogonally diagonalized.
+
+	
+\item Two linearly independent eigenvectors for $A$ corresponding to the eigenvalue 2 are $\vv_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 1 \end{array} \right]$ and $\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]$. Note that $\vv_1, \vv_2$ are not orthogonal, so cannot be in an orthogonal basis of $\R^3$ consisting of eigenvectors of $A$. So find a set $\{\vw_1, \vw_2\}$ of orthogonal eigenvectors of $A$ so that $\Span\{\vw_1, \vw_2\} = \Span\{\vv_1, \vv_2\}$.
+
+	
+\item The vector $\vv_3=\left[ \begin{array}{c} 1 \\ 1 \\ 1 \end{array} \right]$ is an eigenvector for $A$ corresponding to the eigenvalue 8. What can you say about the orthogonality relationship between $\vw_i$'s and $\vv_3$? 
+
+
+\item Find a matrix $P$ that orthogonally diagonalizes $A$. Verify your work.	
+	
+\ea
+\end{activity}
+
+
+\csection{The Spectral Decomposition of a Symmetric Matrix $A$}
+
+Let $A$ be an $n \times n$ symmetric matrix with real entries. The Spectral Theorem tells us we can find an orthonormal basis $\{\vu_1, \vu_2, \ldots, \vu_n\}$ of eigenvectors of $A$. Let $A \vu_i = \lambda_i \vu_i$ for each $1 \leq i \leq n$. If $P = [ \vu_1 \  \vu_2 \  \vu_3 \  \cdots \ \vu_n]$, then we know that
+\[P^{\tr}AP = P^{-1}AP = D,\]
+where $D$ is the $n \times n$ diagonal matrix
+\[\left[ \begin{array}{cccccc} \lambda_1&0&0&\cdots&0&0 \\ 0&\lambda_2&0&\cdots&0&0 \\ \vdots&\vdots&\vdots&&\vdots&\vdots \\ 0&0&0&\cdots&0&\lambda_n \end{array} \right].\]
+Since $A = PDP^{\tr}$ we see that
+\begin{align}
+A &= [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_n] \left[ \begin{array}{cccccc} \lambda_1&0&0&\cdots&0&0 \\ 0&\lambda_2&0&\cdots&0&0 \\ \vdots&\vdots&\vdots&&\vdots&\vdots \\ 0&0&0&\cdots&0&\lambda_n \end{array} \right] \left[ \begin{array}{c} \vu_1^{\tr} \\ \vu_2^{\tr} \\ \vu_3^{\tr} \\ \vdots \\ \vu_n^{\tr} \end{array} \right] \notag \\
+	&= [ \lambda_1\vu_1 \ \lambda_2\vu_2 \ \lambda_3\vu_3 \ \cdots \ \lambda_n\vu_n] \left[ \begin{array}{c} \vu_1^{\tr} \\ \vu_2^{\tr} \\ \vu_3^{\tr} \\ \vdots \\ \vu_n^{\tr} \end{array} \right] \notag \\
+	&= \lambda_1 \vu_1\vu_1^{\tr} + \lambda_2 \vu_2\vu_2^{\tr} + \lambda_3 \vu_3\vu_3^{\tr} + \cdots + \lambda_n \vu_n\vu_n^{\tr}, \label{eq:spec_decomp}
+\end{align}
+where the last product follows from Exercise \ref{ex:7_a_product}. The expression in (\ref{eq:spec_decomp}) is called a \emph{spectral decomposition}\index{spectral decomposition} of the matrix $A$. Let $P_i = \vu_i\vu_i^{\tr}$ for each $i$. The matrices $P_i$ satisfy several special conditions given in the next theorem. The proofs are left to the exercises. 
+
+\begin{theorem} \label{thm:7_a_spectral_decomposition} Let $A$ be an $n \times n$ symmetric matrix with real entries, and let $\{\vu_1, \vu_2, \ldots, \vu_n\}$ be an orthonormal basis of eigenvectors of $A$ with $A \vu_i = \lambda_i \vu_i$ for each $i$. For each $i$, let $P_i = \vu_i\vu_i^{\tr}$. Then
+\be
+\item $A = \lambda_1 P_1 + \lambda_2 P_2 + \cdots + \lambda_n P_n$,
+\item $P_i$ is a symmetric matrix for each $i$,
+\item $P_i$ is a rank 1 matrix for each $i$, 
+\item $P_i^2 = P_i$ for each $i$,
+\item $P_i P_j = 0$ if $i \neq j$,
+\item $P_i \vu_i = \vu_i$ for each $i$,
+\item $P_i \vu_j = \vzero$ if $i \neq j$,
+\item For any vector $\vv$ in $\R^n$, $P_i \vv = \text{proj}_{\Span\{\vu_i\}} \vv$. 
+\ee
+\end{theorem}
+
+The consequence of Theorem \ref{thm:7_a_spectral_decomposition} is that any symmetric matrix can be written as the sum of symmetric, rank 1 matrices. As we will see later, this kind of decomposition contains much information about the matrix product $A^{\tr}A$ for any matrix $A$. 
+ 
+
+\begin{activity} \label{act:7_a_4} Let $A = \left[ \begin{array}{ccc} 4&2&2 \\ 2&4&2 \\ 2&2&4 \end{array} \right]$. Let $\lambda_1 = 2$, $\lambda_2 = 2$, and $\lambda_3 = 8$ be the eigenvalues of $A$. A basis for the eigenspace $E_8$ of $A$ corresponding to the eigenvalue 8 is $\{[1 \ 1\ 1]^{\tr}\}$ and a basis for the eigenspace $E_2$ of $A$ corresponding to the eigenvalue 2 is $\{[1 \ -1\ 0]^{\tr}, [1 \ 0 \ -1]^{\tr}\}$. (Compare to Activity \ref{act:7_a_3}.)
+	\ba
+	\item Find orthonormal eigenvectors $\vu_1$, $\vu_2$, and $\vu_3$ of $A$ corresponding to $\lambda_1$, $\lambda_2$, and $\lambda_3$, respectively.
+	
+	\item Compute $\lambda_1 \vu_1\vu_1^{\tr}$
+	
+	
+	\item Compute $\lambda_2 \vu_2\vu_2^{\tr}$
+	
+	
+	\item Compute $\lambda_3 \vu_3\vu_3^{\tr}$
+	
+	
+	\item Verify that $A = \lambda_1 \vu_1\vu_1^{\tr} + \lambda_2 \vu_2\vu_2^{\tr} + \lambda_3 \vu_3\vu_3^{\tr}$.
+	
+	\ea
+\end{activity}
+
+\csection{Examples} 
+
+\ExampleIntro
+
+\begin{example} For each of the following matrices $A$, determine if $A$ is diagonalizable. If $A$ is not diagonalizable, explain why. If $A$ is diagonalizable, find a matrix $P$ so that $P^{-1}AP$ is a diagonal matrix. If the matrix is diagonalizable, is it orthogonally diagonalizable? If orthogonally diagonalizable, find an orthogonal matrix that diagonalizes $A$. Use appropriate technology to find eigenvalues and eigenvectors. 
+	\ba
+	\begin{minipage}{1.75in}
+	\item $A = \left[ \begin{array}{rrc}  2  &  0  &  0 \\  -1  &  3  &  2 \\  1  & -1  &  0  \end{array} \right]$
+	\end{minipage}
+	\begin{minipage}{1.5in}
+	\item $A = \left[ \begin{array}{ccc}   1  &  1  &  0 \\  0  &  1  &  0 \\  0  &  0  &  0 \end{array} \right]$
+	\end{minipage}
+	\begin{minipage}{1.5in}
+	\item $A = \left[ \begin{array}{ccc}   4  &  2  &  1 \\  2  &  7  &  2 \\  1  &  2  &  4 \end{array} \right]$
+	\end{minipage}
+
+	\ea
+
+
+\ExampleSolution
+
+	\ba
+	\item  Recall that an $n \times n$ matrix $A$ is diagonalizable if and only if $A$ has $n$ linearly independent eigenvectors, and $A$ is orthogonally diagonalizable if and only if $A$ is symmetric. Since $A$ is not symmetric, $A$ is not orthogonally diagonalizable. Technology shows that the eigenvalues of $A$ are $2$ and $1$ and bases for the corresponding eigenspaces are  $\{ [1 \ 1\ 0]^{\tr}, [2 \ 0 \ 1]^{\tr} \}$ and $\{[0 \ -1 \ 1]^{\tr}\}$. So $A$ is diagonalizable and if $P = \left[ \begin{array}{rcr} 1&2&0\\1&0&-1\\0&1&1 \end{array} \right]$, then 
+\[P^{-1}AP = \left[ \begin{array}{ccc} 2&0&0\\0&2&0\\0&0&1 \end{array} \right].\]
+
+	\item  Since $A$ is not symmetric, $A$ is not orthogonally diagonalizable. Technology shows that the eigenvalues of $A$ are $0$ and $1$ and bases for the corresponding eigenspaces are $\{[0 \ 0 \ 1]^{\tr}\}$ and $\{ [1 \ 0\ 0]^{\tr} \}$. We cannot create a basis of $\R^3$ consisting of eigenvectors of $A$, so $A$ is not diagonalizable. 
+
+	\item  Since $A$ is symmetric, $A$ is orthogonally diagonalizable. Technology shows that the eigenvalues of $A$ are $3$ and $9$ and bases for the eigenspaces $\{[-1 \ 0 \ 1]^{\tr}, [-2 \ 1 \ 0]^{\tr}\}$ and $\{ [1 \ 2 \ 1]^{\tr} \}$, respectively. To find an orthogonal matrix that diagonalizes $A$, we must find an orthonormal basis of $\R^3$ consisting of eigenvectors of $A$. To do that, we use the Gram-Schmidt process to obtain an orthogonal basis for the eigenspace of $A$ corresponding to the eigenvalue $3$. Doing so gives an orthogonal basis $\{\vv_1, \vv_2\}$, where $\vv_1 = [-1 \ 0 \ 1]^{\tr}$ and 
+\begin{align*}
+\vv_2 &=  [-2 \ 1 \ 0]^{\tr} - \frac{ [-2 \ 1 \ 0]^{\tr} \cdot [-1 \ 0 \ 1]^{\tr}}{[-1 \ 0 \ 1]^{\tr} \cdot [-1 \ 0 \ 1]^{\tr}} [-1 \ 0 \ 1]^{\tr} \\
+	&=  [-2 \ 1 \ 0]^{\tr} - [-1 \ 0 \ 1]^{\tr} \\
+	&= [ -1 \ 1 \ -1]^{\tr}.
+\end{align*}
+So an orthonormal basis for $\R^3$ of eigenvectors of $A$ is 
+\[\left\{\frac{1}{\sqrt{2}} [-1 \ 0 \ 1]^{\tr}, \frac{1}{\sqrt{3}}[ -1 \ 1 \ -1]^{\tr}, \frac{1}{\sqrt{6}}[1 \ 1 \ 1]^{\tr} \right\}.\] 
+Therefore, $A$ is orthogonally diagonalizable and if $P$ is the matrix $\left[{\renewcommand{\arraystretch}{1.2} \begin{array}{rrc} -\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{3}}&\frac{1}{\sqrt{6}}\\0&\frac{1}{\sqrt{3}}&\frac{2}{\sqrt{6}}\\\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{3}}&\frac{1}{\sqrt{6}} \end{array}} \right]$, then 
+\[P^{-1}AP = \left[ \begin{array}{ccc} 3&0&0\\0&3&0\\0&0&9 \end{array} \right].\] 
+
+	\ea
+
+
+\end{example}
+
+\begin{example} Let $A = \left[ \begin{array}{cccc} 0&0&0&1 \\ 0&0&1&0 \\ 0&1&0&0 \\ 1&0&0&0 \end{array} \right]$. Find an orthonormal basis for $\R^4$ consisting of eigenvectors of $A$. 
+
+\ExampleSolution
+
+Since $A$ is symmetric, there is an orthogonal matrix $P$ such that $P^{-1}AP$ is diagonal. The columns of $P$ will form an orthonormal basis for $\R^4$. Using a cofactor expansion along the first row shows that 
+\begin{align*}
+\det(A-\lambda I_4) &= \det\left(\left[ \begin{array}{rrrr} -\lambda&0&0&1 \\ 0&-\lambda&1&0 \\ 0&1&-\lambda&0 \\ 1&0&0&-\lambda \end{array} \right] \right) \\
+	&= \left(\lambda^2-1\right)^2 \\
+	&= (\lambda+1)^2(\lambda-1)^2.
+\end{align*}
+So the eigenvalues of $A$ are $1$ and $-1$. The reduced row echelon forms of $A-I_4$ and $A+I_4$ are, respectively,  
+\[\left[ \begin{array}{ccrr} 1&0&0&-1 \\ 0&1&-1&0 \\0&0&0&0 \\ 0&0&0&0 \end{array} \right] \ \text{ and } \ \left[ \begin{array}{cccc} 1&0&0&1 \\ 0&1&1&0 \\0&0&0&0 \\ 0&0&0&0 \end{array} \right].\]
+Thus, a basis for the eigenspace $E_{1}$ of $A$ is $\{[0 \ 1 \ 1 \ 0]^{\tr}, [1 \ 0 \ 0 \ 1]^{\tr}\}$ and a basis for the eigenspace $E_{-1}$ of $A$ is $\{[0 \ 1 \ -1 \ 0]^{\tr}, [1 \ 0 \ 0 \ -1]^{\tr}\}$. The set $\{[0 \ 1 \ 1 \ 0]^{\tr}, [1 \ 0 \ 0 \ 1]^{\tr}, [0 \ 1 \ -1 \ 0]^{\tr}, [1 \ 0 \ 0 \ -1]^{\tr}\}$ is an orthogonal set, so an orthonormal basis for $\R^4$ consisting of eigenvectors of $A$ is
+\[\left\{\frac{1}{\sqrt{2}} [0 \ 1 \ 1 \ 0]^{\tr}, \frac{1}{\sqrt{2}}[1 \ 0 \ 0 \ 1]^{\tr}, \frac{1}{\sqrt{2}}[0 \ 1 \ -1 \ 0]^{\tr}, \frac{1}{\sqrt{2}}[1 \ 0 \ 0 \ -1]^{\tr}\right\}.\]
+
+\end{example}
+
+\csection{Summary}
+\begin{itemize}
+\item An $n \times n$ matrix $A$ is orthogonally diagonalizable if there is an orthogonal matrix $P$ such that $P^{\tr}AP$ is a diagonal matrix. Orthogonal diagonalizability is useful in that it allows us to find a ``convenient" coordinate system in which to interpret the results of certain matrix transformations. Orthogonal diagonalization also  a plays a crucial role in the singular value decomposition of a matrix.
+\item An $n \times n$ matrix $A$ is symmetric if $A^{\tr} = A$. The symmetric matrices are exactly the matrices that can be orthogonally diagonalized. 
+\item The spectrum of a matrix is the set of eigenvalues of the matrix. 
+\end{itemize}
+
+
+
+\csection{Exercises}
+\be
+\item For each of the following matrices, find an orthogonal matrix $P$ so that $P^{\tr}AP$ is a diagonal matrix, or explain why no such matrix exists.
+	\ba
+\hspace{-0.3in}	\begin{minipage}{1.4in}
+	\item $A = \left[ \begin{array}{rr} 3&-4 \\ -4&-3 \end{array} \right]$
+	\end{minipage}
+	\begin{minipage}{1.4in}
+	\item $A = \left[ \begin{array}{ccc} 4&1&1 \\ 1&1&4 \\ 1&4&1 \end{array} \right]$
+	\end{minipage}
+	\begin{minipage}{1.4in}
+	\item $A = \left[ \begin{array}{cccc} 1&2&0&0 \\ 0&1&2&1 \\ 1&1&1&1 \\ 3&0&5&2 \end{array} \right]$
+	\end{minipage}
+	\ea
+
+\item For each of the following matrices find an orthonormal basis of eigenvectors of $A$. Then find a spectral decomposition of $A$. 
+	\ba
+	\begin{minipage}{2.0in}
+	\item $A = \left[ \begin{array}{rr} 3&-4 \\ -4&-3 \end{array} \right]$
+	\end{minipage}
+	\begin{minipage}{2.0in}
+	\item $A = \left[ \begin{array}{ccc} 4&1&1 \\ 1&1&4 \\ 1&4&1 \end{array} \right]$
+	\end{minipage}
+	
+	\begin{minipage}{2.0in}
+	\item $A = \left[ \begin{array}{rrr} -4&0&-24 \\ 0&-8&0 \\ -24&0&16 \end{array} \right]$
+	\end{minipage}
+	\begin{minipage}{2.0in}
+	\item $A = \left[ \begin{array}{ccr} 1&0&0 \\ 0&0&2 \\ 0&2&-3 \end{array} \right]$
+	\end{minipage}
+	\ea
+
+\item Find a non-diagonal $4 \times 4$ matrix with eigenvalues 2, 3 and 6 which can be orthogonally diagonalized.
+
+\item \label{ex:7_a_product} Let $A = [a_{ij}] = [ \vc_1 \ \vc_2 \ \cdots \ \vc_m]$ be an $k \times m$ matrix with columns $\vc_1$, $\vc_2$, $\ldots$, $\vc_m$, and let $B = [b_{ij}] = \left[ \begin{array}{c} \vr_1 \\ \vr_2 \\ \vdots \\ \vr_m \end{array} \right]$ be an $m \times n$ matrix  with rows $\vr_1$, $\vr_2$, $\ldots$, $\vr_m$. Show that 
+\[AB = [ \vc_1 \ \vc_2 \ \cdots \ \vc_m]\left[\begin{array}{c} \vr_1 \\ \vr_2 \\ \vdots \\ \vr_m \end{array} \right] = \vc_1\vr_1 + \vc_2\vr_2 + \cdots + \vc_m \vr_m.\]
+ 
+\item \label{ex:7_a_spectral_decomposition} Let $A$ be an $n \times n$ symmetric matrix with real entries and let $\{\vu_1, \vu_2, \ldots, \vu_n\}$ be an orthonormal basis of eigenvectors of $A$. For each $i$, let $P_i = \vu_i\vu_i^{\tr}$. Prove Theorem \ref{thm:7_a_spectral_decomposition} -- that is, verify each of the following statements.
+	\ba
+	\item For each $i$, $P_i$ is a symmetric matrix. 
+
+	\item For each $i$, $P_i$ is a rank 1 matrix.
+
+	\item For each $i$, $P_i^2 = P_i$.
+
+	\item If $i \neq j$, then $P_iP_j = 0$. 
+
+	\item For each $i$, $P_i \vu_i = \vu_i$.
+
+	\item If $i \neq j$, then $P_i \vu_j = 0$. 
+
+	\item If $\vv$ is in $\R^n$, show that 
+\[P_i \vv = \proj_{\Span\{\vu_i\} } \vv.\]
+For this reason we call $P_i$ an \emph{orthogonal projection matrix}. 
+	
+		\ea
+
+\item Show that if $M$ is an $n \times n$ matrix and $(M\vx) \cdot \vy = \vx \cdot (M\vy)$ for every $\vx, \vy$ in $\R^n$, then $M$ is a symmetric matrix. (Hint: Try $\vx = {\bf e}_i$ and $\vy = {\bf e}_j$.)
+	
+	
+\item Let $A$ be an $n \times n$ symmetric matrix and assume that $A$ has an orthonormal basis $\{\vu_1$, $\vu_2$, $\ldots$, $\vu_n\}$ of eigenvectors of $A$ so that $A \vu_i = \lambda_i \vu_i$ for each $i$. Let $P_i = \vu_i\vu_i^{\tr}$ for each $i$. It is possible that not all of the eigenvalue of $A$ are distinct. In this case, some of the eigenvalues will be repeated in the spectral decomposition of $A$. If we want only distinct eigenvalues to appear, we might do the following. Let $\mu_1$, $\mu_2$, $\ldots$, $\mu_k$ be the distinct eigenvalues of $A$. For each $j$ between 1 and $k$, let $Q_j$ be the sum of all of the $P_i$ that have $\mu_j$ as eigenvalue. 
+	\ba
+	\item The eigenvalues for the matrix $A = \left[ \begin{array}{cccc} 0&2&0&0 \\ 2&3&0&0 \\ 0&0&0&2 \\ 0&0&2&3 \end{array} \right]$ are $-1$ and $4$. Find a basis for each eigenspace and determine each $P_i$. Then find $k$, $\mu_1$, $\ldots$, $\mu_k$, and each $Q_j$.
+
+	\item Show in general (not just for the specific example in part (a), that the $Q_j$ satisfy the same properties as the $P_i$. That is, verify the following.
+		\begin{enumerate}[i.]
+		\item $A = \mu_1 Q_1 + \mu_2 Q_2 + \cdots \mu_k Q_k$
+		\item $Q_j$ is a symmetric matrix for each $j$
+		\item $Q_j^2 = Q_j$ for each $j$
+		\item $Q_j Q_{\ell} = 0$ when $j \neq \ell$
+		\item if $E_{\mu_j}$ is the eigenspace for $A$ corresponding to the eigenvalue $\mu_j$, and if $\vv$ is in $\R^n$, then $Q_j \vv = \proj_{E_{\mu_j}} \vv$. 
+		\end{enumerate}
+		
+	\item What is the rank of $Q_j$? Verify your answer. 
+	
+	\ea
+
+\item Label each of the following statements as True or False. Provide justification for your response.
+	\ba
+	\item \textbf{True/False} Every real symmetric matrix is diagonalizable.
+	\item \textbf{True/False} If $P$ is a matrix whose columns are eigenvectors of a symmetric matrix, then the columns of $P$ are orthogonal. 
+	\item \textbf{True/False} If $A$ is a symmetric matrix, then eigenvectors of $A$ corresponding to distinct eigenvalues are orthogonal. 
+	\item \textbf{True/False} If $\vv_1$ and $\vv_2$ are distinct eigenvectors of a symmetric matrix $A$, then $\vv_1$ and $\vv_2$ are orthogonal.  
+	\item \textbf{True/False} Any symmetric matrix can be written as a sum of symmetric rank 1 matrices. 
+	\item \textbf{True/False}  If $A$ is a matrix satisfying $A^{\tr} = A$, and $\vu$ and $\vv$ are vectors satisfying $A \vu = 2 \vu$ and $A \vv = -2 \vv$, then $\vu \cdot \vv = 0$. 
+\item \textbf{True/False} If an $n\times n$ matrix $A$ has $n$ orthogonal eigenvectors, then $A$ is a symmetric matrix.
+\item \textbf{True/False} If an $n\times n$ matrix has $n$ real eigenvalues (counted with multiplicity), then $A$ is a symmetric matrix.
+\item \textbf{True/False} For each eigenvalue of a symmetric matrix, the algebraic multiplicity equals the geometric multiplicity.
+\item \textbf{True/False} If $A$ is invertible and orthogonally diagonalizable, then so is $A^{-1}$.
+\item \textbf{True/False} If $A, B$ are orthogonally diagonalizable $n\times n$ matrices, then so is $AB$.
+	\ea
+	
+	
+\ee
+
+\csection{Project: The Second Derivative Test for Functions of Two Variables}
+
+In this project we will verify the Second Derivative Test for functions of two variables.\footnote{Many thanks to Professor Paul Fishback for sharing his activity on this topic. Much of this project comes from his activity.} This test will involve Taylor polynomials and linear algebra. As a quick review, recall that the second order Taylor polynomial for a function $f$ of a single variable $x$ at $x = a$ is 
+\begin{equation} \label{eq:Taylor_2}
+P_2(x) = f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2. 
+\end{equation}
+As with the linearization of a function, the second order Taylor polynomial is a good approximation to $f$ around $a$ -- that is $f(x) \approx P_2(x)$ for $x$ close to $a$. If $a$ is a critical number for $f$ with $f'(a) = 0$, then 
+\[P_2(x) = f(a) + \frac{f''(a)}{2}(x-a)^2.\]
+In this situation, if $f''(a) < 0$, then $\frac{f''(a)}{2}(x-a)^2 \leq 0$ for $x$ close to $a$, which makes $P_2(x) \leq f(a)$. This implies that $f(x) \approx P_2(x) \leq  f(a)$ for $x$ close to $a$, which makes $f(a)$ a relative maximum value for $f$. Similarly, if $f''(a) > 0$, then $f(a)$ is a relative minimum.
+
+We now need a Taylor polynomial for a function of two variables. The complication of the additional independent variable in the two variable case means that the Taylor polynomials will need to contain all of the possible monomials of the indicated degrees. Recall that the linearization (or tangent plane) to a function $f = f(x,y)$ at a point $(a,b)$ is given by 
+\[P_1(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b).\]
+Note that $P_1(a,b) = f(a,b)$, $\frac{\partial P_1}{\partial x}(a,b) = f_x(a,b)$, and $\frac{\partial P_1}{\partial y}(a,b) = f_y(a,b)$. This makes $P_1(x,y)$ the best linear approximation to $f$ near the point $(a,b)$. The polynomial $P_1(x,y)$ is the first order Taylor polynomial for $f$ at $(a,b)$. 
+
+Similarly, the second order Taylor polynomial $P_2(x,y)$ centered at the point $(a,b)$ for the function $f$ is 
+\begin{align*}
+P_2(x,y) = f(a,b) &+ f_x(a,b)(x-a) + f_y(a,b)(y-b) + \frac{f_{xx}(a,b)}{2}(x-a)^2 \\
+		          &+ f_{xy}(a,b)(x-a)(y-b) + \frac{f_{yy}(a,b)}{2}(y-b)^2.
+\end{align*}		       
+
+
+\begin{pactivity} To see that $P_2(x,y)$ is the best approximation for $f$ near $(a,b)$, we need to know that the first and second order partial derivatives of $P_2$ agree with the corresponding partial derivatives of $f$ at the point $(a,b)$.  Verify that this is true.
+
+
+\end{pactivity}
+
+
+
+We can rewrite this second order Taylor polynomial using matrices and vectors so that we can apply techniques from linear algebra to analyze it. Note that 
+\begin{align}
+P_2(x,y) &= f(a,b) + \nabla f(a,b)^{\tr} \left[ \begin{array}{c} x-a\\y-b \end{array} \right] \notag \\
+			&\qquad + \frac{1}{2}\left[ \begin{array}{c} x-a\\y-b \end{array} \right]^{\tr} \left[ \begin{array}{cc} f_{xx}(a,b)&f_{xy}(a,b) \\ f_{xy}(a,b)& f_{yy}(a,b) \end{array} \right] \left[ \begin{array}{c} x-a\\y-b \end{array} \right],  \label{eq:Taylor_2_vector}
+\end{align}
+where $\nabla f(x,y) = \left[ \begin{array}{c} f_x(x,y)\\f_y(x,y) \end{array} \right]$ is the gradient of $f$ and $H$ is the \emph{Hessian} of $f$, where $H(x,y) = \left[ \begin{array}{cc} f_{xx}(x,y)&f_{xy}(x,y) \\ f_{yx}(x,y)& f_{yy}(x,y) \end{array} \right]$.\footnote{Note that under reasonable conditions (e.g., that $f$ has continuous second order mixed partial derivatives in some open neighborhood containing $(x,y)$) we have that $f_{xy}(x,y) = f_{yx}(x,y)$ and $H(x,y) = \left[ \begin{array}{cc} f_{xx}(a,b)&f_{xy}(a,b) \\ f_{xy}(a,b)& f_{yy}(a,b) \end{array} \right]$ is a symmetric matrix. We will only consider functions that satisfy these reasonable conditions.}
+
+
+
+\begin{pactivity} \label{ex:example_1} Use Equation (\ref{eq:Taylor_2_vector}) to compute $P_2(x,y)$ for $f(x,y)=x^4+y^4-4xy+1$ at $(a, b)=(2,3)$. 
+
+\end{pactivity}
+
+The important idea for us is that if $(a, b)$ is a point at which $f_x$ and $f_y$ are zero, then $\nabla f$ is the zero vector and Equation (\ref{eq:Taylor_2_vector}) reduces to 
+\begin{equation} \label{eq:Taylor_2_vector_2}
+P_2(x,y) = f(a,b) +  \frac{1}{2}\left[ \begin{array}{c} x-a\\y-b \end{array} \right]^{\tr} \left[ \begin{array}{cc} f_{xx}(a,b)&f_{xy}(a,b) \\ f_{xy}(a,b)& f_{yy}(a,b) \end{array} \right] \left[ \begin{array}{c} x-a\\y-b \end{array} \right],
+\end{equation}
+
+To make the connection between the multivariable second derivative test and properties of the Hessian, $H(a,b)$, at a critical point of a function $f$ at which $\nabla f = \vzero$, we will need to connect the eigenvalues of a matrix to the determinant and the trace.
+
+Let $A$ be an $n \times n$ matrix with eigenvalues $\lambda_1$, $\lambda_2$, $\ldots$, $\lambda_n$ (not necessarily distinct). 
+Exercise \ref{ex:determinant_eigenvalues} in Section \ref{sec:characteristic_equation} shows that 
+\begin{equation} \label{eq:evals_det}
+\det(A) = \lambda_1 \lambda_2 \cdots \lambda_n.
+\end{equation}
+In other words, the determinant of a matrix is equal to the product of the eigenvalues of the matrix. In addition, Exercise \ref{ex:trace_eigenvalues} in Section \ref{sec:diagonalization} shows that 
+\begin{equation} \label{eq:evals_trace}
+\trace(A) = \lambda_1 +  \lambda_2 + \cdots + \lambda_n.
+\end{equation}
+for a diagonalizable matrix, where $\trace(A)$ is the sum of the diagonal entries of $A$. Equation (\ref{eq:evals_trace}) is true for any square matrix, but we don't need the more general result for this project.  
+
+
+The fact that the Hessian is a symmetric matrix makes it orthogonally diagonalizable. We denote the eigenvalues of $H(a,b)$ as $\lambda_1$ and $\lambda_2$. Thus there exists an orthogonal matrix $P$ and a diagonal matrix $D = \left[ \begin{array}{cc} \lambda_1&0 \\ 0&\lambda_2 \end{array} \right]$ such that $P^{\tr}H(a,b)P=D$, or $H(a,b) = PDP^{\tr}$. Equations \ref{eq:evals_det} and \ref{eq:evals_trace}  show that 
+\[\lambda_1\lambda_2 = f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2 \ \text{ and  } \ \lambda_1 + \lambda_2 = f_{xx}(a,b) + f_{yy}(a,b).\]
+
+Now we have the machinery to verify the Second Derivative Test for Two-Variable Functions. We assume $(a,b)$ is a point in the domain of a function $f$ so that $\nabla f(a,b) = \vzero$. First we consider the case where $f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2<0$.
+
+
+\begin{pactivity} Explain why if $f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2<0$, then 
+\[\left[ \begin{array}{c} x-a \\ y-b \end{array} \right]^{\tr} H(a,b) \left[ \begin{array}{c} x-a \\ y-b \end{array} \right]\]
+ is indefinite. Explain why this implies that $f$ is ``saddle-shaped'' near $(a,b)$. (Hint: Substitute $\vw = \left[ \begin{array}{c} w_1\\w_2 \end{array} \right] = P^{\tr}\left[ \begin{array}{c} x-a \\ y-b \end{array} \right]$. What does the graph of $f$ look like in the $w_1$ and $w_2$ directions?)
+
+ 
+\end{pactivity}
+
+Now we examine the situation when $f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0$. 
+
+
+\begin{pactivity} Assume that $f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0$.
+	\ba
+	\item Explain why either both $f_{xx}(a,b)$ and $f_{yy}(a,b)$ are positive or both are negative.
+
+ 
+	\item If $f_{xx}(a,b)>0$ and $f_{yy}(a,b)>0$, explain why $\lambda_1$ and $\lambda_2$ must be positive. 
+
+	\item Explain why, if $f_{xx}(a,b)>0$ and $f_{yy}(a,b)>0$, then $f(a,b)$ is a local minimum value for $f$. 
+
+	\ea
+\end{pactivity}
+
+
+
+When $f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0$ and either $f_{xx}(a,b)$ or $f_{yy}(a,b)$ is negative, a slight modification of the preceding argument
+leads to the fact that $f$ has a local maximum at $(a,b)$ (the details are left to the reader). Therefore, we have proved the Second Derivative Test for functions of two variables!
+
+
+
+\begin{pactivity} Use the Hessian to classify the local maxima, minima, and saddle points of $f(x,y)=x^4+y^4-4xy+1$. Draw a graph of $f$ to illustrate. 
+
+
+\end{pactivity}
+
+

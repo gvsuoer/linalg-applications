@@ -1,0 +1,493 @@
+ \achapter{34}{Coordinate Vectors and Coordinate Transformations} \label{sec:coordinate_vectors_vector_spaces}
+
+\vspace*{-17 pt}
+\framebox{
+\parbox{\dimexpr\linewidth-3\fboxsep-3\fboxrule}
+{\begin{fqs}
+\item How do we find the coordinate vector of a vector $\vx$ with respect to a basis $\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}$? 
+\item How can we visualize coordinate systems?
+\item How do we identify a vector space of dimension $n$ with $\R^n$?
+\item What properties does the coordinate transformation $\vx \mapsto [\vx]_{\CB}$ have? 
+\item How are the coordinates of a vector with respect to a basis related to its coordinates with respect to the standard basis?
+\end{fqs}}}% \hspace*{3 pt}}
+
+\vspace*{13 pt}
+
+\csection{Application: Calculating Sums}
+
+Consider the problem of calculating sums of powers of integers. For example, 
+\begin{align*}
+\sum_{t=0}^{n-1} t &= \frac{1}{2}\left(n^2-n\right) \\
+\sum_{t=0}^{n-1} t^2 &= \frac{1}{6}\left(2n^3-3n^2+1\right) \\
+\sum_{t=0}^{n-1} t^3 &= \frac{1}{4}\left(n^4-2n^3+n^2\right) 
+\end{align*}
+and so on. It is possible to prove these formulas if we have an idea of what the formula is, but how can one come up with these formulas in the first place? As we will see later in this section, we can make use of coordinate vectors to find and verify such formulas. 
+
+\csection{Introduction}
+
+In Section \ref{sec:coordinate_vectors} we defined the coordinate vector of a vector $\vx$ in $\R^n$ with respect to a basis $\CB = \vv_1, \vv_2, \vv_n\}$ of $\R^n$ to be the vector $[x_1 \ x_2 \ \ldots \ x_n]^{\tr}$ if 
+\[\vx = x_1 \vv_1 + x_2 \vv_2 + \cdots + x_n \vv_n.\]
+We can define coordinate vectors in vector spaces in the same way. As we will see, this is a powerful idea as it allows us to translate problems in finite dimensional vector spaces to problems in $\R^n$ where we have many tools at our disposal. First we define a coordinate vector.
+
+\begin{definition} Let $\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}$ be an ordered basis for a vector space $V$. For any vector $\vx$ in $V$, the \textbf{coordinate vector}\index{coordinate vector with respect to a basis} of $\vx$ with respect to $\CB$ is the vector
+\[[\vx]_{\CB} = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right],\]
+where
+\[\vx = x_1 \vv_1 + x_2 \vv_2 + \cdots + x_n \vv_n.\]
+The scalars $x_1$, $x_2$, $\ldots$, $x_n$ are the \textbf{coordinates of the vector}\index{coordinates with respect to a basis} $\vx$ \textbf{with respect to the basis}.  
+\end{definition}
+
+\begin{pa} \label{pa:5_d} Let $b_1(t) = 4+2t$, $b_2(t) = -6+6t$, $c_1(t) = 1+t$, $c_2(t) = 1-t$, and let $\CB = \{b_1(t), b_2(t)\}$ and $\CC = \{c_1(t), c_2(t)\}$.
+\be
+	\item Show that $\CB$ and $\CC$ are bases for $\pol_1$. 
+
+	\item Let $p(t) = 3 b_1(t) + 2 b_2(t)$. What is $[p(t)]_{\CB}$?
+
+	\item Find the coordinate vector of $f(t) = 2+4t$ with respect to both $\CB$ and $\CC$. 
+
+	\item Find a polynomial $r(t)$ such that $[r(t)]_{\CB} = [1 \ 3]^{\tr}$. Determine exactly how many such polynomials $s(t)$ have the property that $[s(t)]_{\CB} = [1 \ 3]^{\tr}$. Explain your reasoning. 
+	
+	\item Find a polynomial $q(t)$ such that $[q(t)]_{\CC} = [1 \ 3]^{\tr}$. Determine exactly how many such polynomials $s(t)$ have the property that $[s(t)]_{\CC} = [1 \ 3]^{\tr}$. Explain your reasoning. 
+
+\item What specific property does a basis have that ensures the responses to parts (c) and (d) will always be the same?  
+
+\ee
+
+\end{pa}
+
+Recall that there is exactly one way to write a vector as a linear combination of basis vectors, so there is only one  coordinate vector of a given vector with respect to a basis. Therefore, the coordinate vector of any vector is well-defined.
+
+\csection{The Coordinate Transformation}\index{coordinate transformation}
+
+We have seen that both $\R^2$ and $\pol_1$ are vector spaces of dimension 2. Moreover, we can pair the polynomial $a_0+a_1t$ in $\pol_1$ with the vector $[a_0 \ a_1]$ in $\R^2$ as the coordinate vector of $a_0+a_1t$ with respect to the standard basis for $\pol_1$. In this way we can see that the vector space $\pol_1$ ``looks" like the vector space $\R^2$. In fact, using this same idea, we can show that any vector space of dimension $n$ ``looks" like $\R^n$. The key idea to make this work is the coordinate transformation. 
+
+As we saw in Preview Activity \ref{pa:5_d}, the coordinate vector of a vector with respect to a basis depends on the basis we choose. In this activity we found that $[2+4t]_{\CB} = \left[ 1 \ \frac{1}{3} \right]^{\tr}$ and $[2+4t]_{\CC} = [ 3 \ -1]^{\tr}$, where $\CB = \{4+2t, -6+6t\}$ and $\CC = \{1+t, 1-t\}$. These coordinate vectors allow us to identify polynomials in $\pol_1$ with vectors in $\R^2$. In this way, the coordinate vectors provide an identification between the vector space $\pol_1$ and the vector space  $\R^2$ via a \emph{coordinate transformation}. 
+
+\begin{definition} Let $V$ be a vector space of dimension $n$ with basis $\CB$. The \textbf{coordinate transformation}\index{coordinate transformation} $T$ from $V$ to $\R^n$ with respect to the ordered basis $\CB$ is the mapping defined by 
+\[T(\vx) = [\vx]_{\CB}\]
+for any vector $\vx$ in $V$. 
+\end{definition}
+
+Coordinate transformations have several useful properties that allow us to use them to compare the structure of vector spaces. 
+
+\begin{activity} \label{act:5_d_2} Let $a(t) = 8+2t$ and $b(t) = -5+t$ in $\pol_1$. Suppose we know $\CC =  \{1 + t, 2 - t\}$ is a basis of $\pol_1$. Let $T(\vx)=[\vx]_\CC$ for $\vx$ in $\pol_1$.  
+\ba
+\item What are $T(a(t))$ and $T(b(t))$?
+
+	\item Find $T(a(t)) + T(b(t))$.
+
+	\item What is $T(a(t)+b(t))= [a(t)+b(t)]_{\CC}$?
+
+	\item What is the relationship between $T(a(t)) + T(b(t))$ and $T(a(t)+b(t))$?
+
+
+	\item Show that if $c$ is any scalar, then $T(ca(t)) = cT(a(t))$.
+
+	\item Where have we seen functions with these properties before? 
+	
+\ea
+
+\end{activity}
+
+Activity \ref{act:5_d_2} shows that coordinate transformations behave in ways similar to matrix transformations. Recall that if $A$ is an $m \times n$ matrix, then  
+\[A(\vu+\vw) = A\vu + A\vw \ \text{ and } \ A(c\vu) = cA\vu\]
+for any vectors $\vu$ and $\vw$ in $\R^n$ and any scalar $c$. Because of these properties, the transformation $A$ preserves linear combinations. That is, if $\vv_1$, $\vv_2$, $\ldots$, and $\vv_n$ are any vectors in $\R^n$ and $c_1$, $c_2$, $\ldots$, $c_n$ are any scalars, then 
+\[A(c_1 \vv_1 + c_2 \vv_2 + \cdots + c_n \vv_n) = c_1 A\vv_1 + c_2 A\vv_2 + \cdots + c_n A\vv_n.\]
+Activity \ref{act:5_d_2} contains the essential ideas to show that if $T$ is a coordinate transformation from a vector space $V$ with basis $\CB$ to $\R^n$, then 
+\[T(\vu+\vw) = T(\vu) + T(\vw) \ \text{ and } \ T(c\vu) = cT(\vu)\]
+for any vectors $\vu$ and $\vw$ in $V$ and any scalar $c$. The fact that any coordinate transformation satisfies these properties is contained in the following theorem.
+ 
+\begin{theorem} \label{thm:5_d_5} If a vector space $V$ has a basis $\CB$ of $n$ vectors, then the coordinate mapping $T : V \to \R^n$ defined by $T(\vx) = [\vx]_{\CB}$ satisfies
+\begin{enumerate}
+\item $T(\vu + \vw) = T(\vu) + T(\vw)$ and
+\item $T(c\vu) = cT(\vu)$
+\end{enumerate}
+for any vectors $\vu$ and $\vw$ in $V$ and any scalar $c$. 
+\end{theorem}
+
+\begin{proof} Let $\vv_1$, $\vv_2$, $\ldots$, and $\vv_n$ be vectors that form a basis $\CB$ for a vector space $V$. To verify the first property, let $\vu$ and $\vw$ be two arbitrary vectors from $V$. We will show that $T(\vu)+T(\vw) = T(\vu + \vw)$ for these two vectors. Consider $T(\vu)$. If $T(\vu)=[u_1 \ u_2 \ \ldots \ u_n]^{\tr}$, then the fact that $T(\vu)= [\vu]_\CB$ implies that 
+\[\vu = u_1\vv_1 + u_2\vv_2 + \cdots + u_n \vv_n \, . \]
+Similarly, if $T(\vw)=[w_1 \ w_2 \ \ldots \ w_n]^{\tr}$, then $T(\vw)=[\vw]_\CB$ implies that 
+\[ \vw = w_1\vv_1 + w_2\vv_2 + \cdots + w_n \vv_n \, .\]
+We then obtain
+\begin{align*}
+\vu+\vw &= (u_1\vv_1 + u_2\vv_2 + \cdots + u_n \vv_n) + (w_1\vv_1 + w_2\vv_2 + \cdots + w_n \vv_n) \\
+	&= (u_1+w_1)\vv_1 + (u_2+w_2)\vv_2 + \cdots + (u_n+w_n) \vv_n.
+\end{align*}
+Thus, by definition of $T$ again,
+\[T(\vu+\vw)= [\vu+\vw]_{\CB} = [(u_1+w_1) \ (u_2+w_2) \ \ldots \ (u_n+w_n)]^{\tr}.\]
+To show that $T(\vu + \vw) = T(\vu) + T(\vw)$, note that
+\begin{align*}
+T(\vu) + T(\vw) &= [u_1 \ u_2 \ \ldots \ u_n]^{\tr} + [w_1 \ w_2 \ \ldots \ w_n]^{\tr} \\
+	&= [(u_1+w_1) \ (u_2+w_2) \  \ldots \ (u_n+w_n)]^{\tr} \\
+	&= [\vu+\vw]_{\CB} \\
+	&= T(\vu+\vw).
+\end{align*}
+
+The proof of the second property is left for the exercises. 
+
+\end{proof}
+
+Theorem \ref{thm:5_d_5} can be extended to any linear combination of vectors by mathematical induction. That is, if $T : V \to \R^n$ is the coordinate mapping defined by $T(\vx) = [\vx]_{\CB}$ for some basis $\CB$, and if $\vu_1$, $\vu_2$, $\ldots$, $\vu_m$ are vectors in an $n$-dimensional vector space $V$ with basis $\CB$, and $x_1$, $x_2$, $\ldots$, $x_m$ are scalars, then $T(x_1\vu_1+x_2\vu_2+\cdots +x_m\vu_m) = x_1T(\vu_1) + x_2T(\vu_2) + \cdots + x_mT(\vu_m)$.  In other words,
+\[[x_1\vu_1+x_2\vu_2+\cdots + x_m\vu_m]_{\CB}  =  x_1[\vu_1]_{\CB} +  x_2[\vu_2]_{\CB} + \cdots +  x_m[\vu_m]_{\CB}.\]
+In other words, coordinate transformations take linear combinations of vectors in $V$ to linear combinations of vectors in $\R^n$. 
+
+%Coordinate transformations allow us to transfer questions of linear independence and dependence of sets of vectors in finite dimensional vector spaces into $\R^n$ and use what we know of matrices to answer these questions. 
+In essence, a coordinate transformation makes an identification of any vector space of dimension $n$ with $\R^n$. One of the driving forces behind this identification is the fact that, just as in $\R^n$, if a vector space $V$ has a basis of $n$ elements, then any basis for $V$ will have exactly $n$ elements. The fact that any coordinate transformation from a vector space $V$ to $\R^n$ is linear means that elements in $V$ behave the same way with respect to addition and multiplication by scalars in $V$ as do their images in $\R^n$ under the coordinate transformation. To make this identification complete, there are still two questions to address. First, given a coordinate transformation $T$ from a vector space $V$ to $\R^n$, is is possible for two vectors in $V$ to have the same image in $\R^n$ (in other words, is $T$ one-to-one), and is every vector in $\R^n$ the image of some vector in $V$ under $T$ (in other words, does $T$ map $V$ onto $\R^n$)? If the coordinate transformations are one-to-one and onto, then, in essence, any vector space of dimension $n$ is just a copy of $\R^n$. As a result, to understand any vector space with a basis of $n$ vectors, it is enough to understand $\R^n$.
+
+
+\begin{activity} \label{act:5_d_6} Let $V$ be a vector space with an ordered basis $\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}$. Then $T$ maps $V$ into $\R^n$. We want to show that  $T$ maps $V$ onto $\R^n$. Recall that a function $f$ from a set $X$ to a set $Y$ is onto if for any element $y$ in $Y$, there is an element $x$ in $X$ such that $f(x) = y$. Let $\vb = [b_1 \ b_2 \ \ldots \ b_n]^{\tr}$ be a vector in $\R^n$. Must there be a vector $\vv$ in $V$ so that $T(\vv) = \vb$? If so, find such a vector. If not, explain why not.
+	
+\end{activity}
+
+
+Activity \ref{act:5_d_6} shows that a coordinate transformation maps an $n$-dimensional vector space $V$ onto $\R^n$. What's more, any coordinate transformation is also one-to-one (the proof that $T$ is one-to-one is left for the exercises). We summarize these results in the following theorem.
+
+
+
+\begin{theorem} \label{thm:5_d_6} If a vector space $V$ has a basis $\CB$ of $n$ vectors, then the coordinate mapping $T : V \to \R^n$ defined by $T(\vx) = [\vx]_{\CB}$ is both one-to-one and onto.  
+\end{theorem}
+
+%\begin{proof} We prove that $T$ is onto in Activity \ref{act:5_d_6}. Now we demonstrate that $T$ is one-to-one. Recall that $T$ is one-to-one if whenever $\vu$ and $\vv$ are vectors in $V$ with $T(\vu) = T(\vw)$, then $\vu = \vw$. Let $\vv_1$, $\vv_2$, $\ldots$, $\vv_n$ be the vectors that form the basis $\CB$. Now assume that $\vu$ and $\vw$ are any vectors in $V$ such that $T(\vu) = T(\vw)$. This implies that $[\vu]_{\CB} = [\vw]_{\CB}$. Let $[\vu]_{\CB} = [u_1 \ u_2 \ldots \ u_n]^{\tr}$. Then 
+%\[\vu = u_1\vv_1 + u_2 \vv_2 + \cdots + u_n \vv_n \ \text{ and } \ \vw = u_1\vv_1 + u_2 \vv_2 + \cdots + u_n \vv_n .\]
+%It follows that $\vu = \vw$ and so we conclude that $T$ is one-to-one.
+%\end{proof}
+
+
+
+Theorems \ref{thm:5_d_5} and \ref{thm:5_d_6} show that a coordinate transformation from an $n$-dimensional vector space $V$ with basis $\CB$ to $\R^n$ provides an identification of $V$ with $\R^n$, where a vector $\vv$ in $V$ is identified with the vector $[\vv]_{\CB}$. This identification allows us to transfer questions (linear dependence, independence, span) in $V$ to $\R^n$ where we can apply our knowledge of matrices to answer the questions. 
+
+
+
+\begin{activity} \label{act:5_d_7} Let $V = \pol_3$ and let $\CB = \{1,t,t^2,t^3\}$. Let $S = \{1+t+t^2+t^3, t-t^3, 1+2t^2, 1+5t-t^3\}$.
+\ba
+\item Find each of $[1+t+t^2+t^3]_{\CB}$, $[t-t^3]_{\CB}$, $[1+2t^2]_{\CB}$, and $[1+5t-t^3]_{\CB}$.
+
+
+
+\item Are the vectors $[1+t+t^2+t^3]_{\CB}$, $[t-t^3]_{\CB}$, $[1+2t^2]_{\CB}$, and $[1+5t-t^3]_{\CB}$ linearly independent or dependent? Explain. If the vectors are linearly dependent, write one of the vectors as a linear combination of the others.
+
+
+
+\item The coordinate transformation identifies the vectors in $S = \{1+t+t^2+t^3, t-t^3, 1+2t^2, 1+5t-t^3\}$ with their coordinate vectors in $\R^4$. Use that information to determine if $S$ is a linearly independent or dependent set. If dependent, write one of the vectors in $S$ as a linear combination of the others.
+
+
+
+\ea
+\end{activity}
+
+\csection{Examples}
+
+\ExampleIntro
+
+\begin{example} ~
+	\ba
+	\item Find the coordinate vector of $\vv$ with respect to the ordered basis $\CB$ in the indicated vector space.
+		\begin{enumerate}[i.]
+		\item $\CB = \{1+t, 2-t\}$ in $\pol_1$ with $\vv = 4+t$
+	
+		\item $\CB = \left\{ \left[ \begin{array}{cc} 1&0\\0&1 \end{array} \right],  \left[ \begin{array}{rc} 1&0\\-1&1 \end{array} \right], \left[ \begin{array}{cc} 1&1\\0&1 \end{array} \right], \left[ \begin{array}{cc} 0&0\\0&1 \end{array} \right] \right\}$ in $\M_{2 \times 2}$ with $\vv = \left[ \begin{array}{cc} 2&3\\1&0 \end{array} \right]$
+		\end{enumerate}
+	
+	\item Find the vector $\vv$ in the indicated vector space $V$ given the basis $\CB$ of $V$ and $[\vv]_{\CB}$.
+		\begin{enumerate}[i.]
+		\item $V = \pol_2$, $\CB = \{1+t^2, 1+t, t+t^2\}$, $[\vv]_{\CB} = [2 \ 1 \ 3]^{\tr}$
+		
+		\item $\CB = \left\{\cos(x), \frac{1}{1+x^2}\right\}$, $V = \Span \ \CB$ as a subspace of $\F$, $[\vx]_{\CB} = [2 \ -1]^{\tr}$
+		
+		\end{enumerate}
+	
+	\ea
+
+\ExampleSolution
+
+	\ba
+	\item Find the coordinate vector of $\vv$ with respect to the ordered basis $\CB$ in the indicated vector space.
+		\begin{enumerate}[i.]
+		\item We need to write $\vv =4+t$ as a linear combination of $1+t$ and $2-t$. If $4+t = c_1(1+t) + c_2(2-t)$, then equating coefficients of like power terms yields the equations $4 = c_1 +2c_2$ and $1 = c_1-c_2$. The solution to this system is $c_1 = 2$ and $c_2 = 1$, so $[4+t]_{\CB} = [2 \ 1]^{\tr}$.  
+		
+			
+		\item We need to write $\vv$ as a linear combination of the vectors in $\CB$. If 
+\begin{align*}
+\left[ \begin{array}{cc} 2&3\\1&0 \end{array} \right] &= c_1\left[ \begin{array}{cc} 1&0\\0&1 \end{array} \right] + c_2 \left[ \begin{array}{rc} 1&0\\-1&1 \end{array} \right] \\
+	&\qquad + c_3 \left[ \begin{array}{cc} 1&1\\0&1 \end{array} \right] + c_4 \left[ \begin{array}{cc} 0&0\\0&1 \end{array} \right],
+\end{align*}
+		equating corresponding components produces the system 
+\begin{alignat*}{6}
+{}c_1 	&{}+{}	&{}c_2	&{}+{}	&{}c_3	&{}{}		&{}		&{}={}	&\ {}&2&{}\\
+{}		&{}{}		&{}		&{}{}		&{}c_3	&{}{}		&{}		&{}={} 	&\ {}&3&{} \\
+{}		&{}{}		&{-}c_2	&{}{}		&{}		&{}{}		&{}		&{}={} 	&\ {}&1&{} \\
+{}c_1		&{}+{}	&{}c_2	&{}+{}	&{}c_3	&{}+{}	&{}c_4	&{}={}	& \ {}&0&{.}
+\end{alignat*}
+The solution to this system is $c_1 = 0$, $c_2 = -1$, $c_3 = 3$, and $c_4 = -2$, so $[\vv]_{\CB} = [0 \ -1 \ 3 \ -2]^{\tr}$.
+
+		\end{enumerate}
+	
+	\item Find the vector $\vv$ in the indicated vector space $V$ given the basis $\CB$ of $V$ and $[\vv]_{\CB}$.
+		\begin{enumerate}[i.]
+		\item Since $[\vv]_{\CB} = [2 \ 1 \ 3]^{\tr}$, it follows that 
+		\[\vv = 2(1+t^2) + 1(1+t) + 3(t+t^2) = 3+4t+5t^2.\]
+		
+		\item Since $[\vx]_{\CB} = [2 \ -1]^{\tr}$, it follows that 
+		\[\vv = 2\cos(x) - \frac{1}{1+x^2}.\]
+		
+		\end{enumerate}
+	
+	\ea
+	
+\end{example}
+
+
+\begin{example} Let $p_1(t)=1$, $p_2(t)=2-t$, $p_3(t)=3+t-t^2$, $p_4(t)= t+t^3$, and $p_5(t) = 2t+t^2+t^4$ be in $\pol_4$. Also, let $\CB = \{1, t ,t^2, t^3, t^4\}$ be the standard basis for $\pol_4$. 
+	\ba
+	\item Find $[p_1(t)]_{\CB}$, $[p_2(t)]_{\CB}$, $[p_3(t)]_{\CB}$, $[p_4(t)]_{\CB}$, and $[p_5(t)]_{\CB}$. 
+	
+	\item Use the result of part (a) to explain why $\{p_1(t), p_2(t), p_3(t), p_4(t), p_5(t)\}$ is a basis for $\pol_4$. 
+	
+	\item Let $p(t) = 2-t+t^2-3t^3+4t^4$. Find $[p(t)]_{\CB}$. 
+	
+	\item Use the coordinate vectors in parts (a) and (c) to write $p(t)$ as a linear combination of $p_1(t)$, $p_2(t)$, $p_3(t)$, $p_4(t)$, and $p_5(t)$
+	
+	\ea
+
+\ExampleSolution
+
+	\ba
+	\item The coordinate vectors of a polynomial with respect to the standard basis in $\pol_4$ is found by just reading off the coefficients of the polynomial. So
+	\begin{center}
+	\begin{tabular}{ll} 
+	$[p_1(t)]_{\CB} = [1 \ 0 \ 0 \ 0 \ 0 ]^{\tr}$ &$[p_2(t)]_{\CB} = [2 \ -1 \ 0 \ 0 \ 0]^{\tr}$ \\
+	$[p_3(t)]_{\CB} = [3 \ 1 \ -1 \ 0 \ 1]^{\tr}$ &$[p_4(t)]_{\CB} = [0 \ 1 \ 0 \ 1 \ 0]^{\tr}$ \\
+	$[p_5(t)]_{\CB} = [0 \ 2 \ 1 \ 0 \ 1]^{\tr}$. &
+	\end{tabular}
+	\end{center}
+	
+	\item Let 
+	\begin{align*}
+	\CC &= \{p_1(t), p_2(t), p_3(t), p_4(t), p_5(t)\} \text{ and } \\
+	\CS &= \{[p_1(t)]_{\CB}, [p_2(t)]_{\CB}, [p_3(t)]_{\CB}, [p_4(t)]_{\CB},[p_5(t)]_{\CB}\}.
+	\end{align*} 
+	Since the coordinate transformation is one-to-one and onto, the two sets $\CC$ and $\CS$ are either both linearly dependent or linearly independent. Technology shows that the reduced row echelon form of 
+	\[[[p_1(t)]_{\CB} \ [p_2(t)]_{\CB} \ [p_3(t)]_{\CB} \ [p_4(t)]_{\CB} \ [p_5(t)]_{\CB}]\]
+	is $I_5$, so the sets $\CC$ and $\CS$ are both linearly linearly independent. Since $\dim(\pol_4) = 5$, it follows that any linearly independent set of five vectors in $\pol_4$ is a basis for $\pol_4$. Therefore, the set $\CC$ is a basis for $\pol_4$. 
+	
+	\item Similar to part (a), we have $[p(t)]_{\CB} = [2 \ -1 \ 1 \ -3 \ 4]^{\tr}$. 
+	
+	\item Technology shows that the reduced row echelon form of the augmented matrix 
+	\[[[p_1(t)]_{\CB} \ [p_2(t)]_{\CB} \ [p_3(t)]_{\CB} \ [p_4(t)]_{\CB} \ [p_5(t)]_{\CB} \ | \ [p(t)]_{\CB}]\] 
+	is 
+	\[\left[ \begin{array}{ccccc|r} 1&0&0&0&0&-25 \\ 0&1&0&0&0& 9 \\ 0&0&1&0&0&3 \\ 0&0&0&1&0&-3 \\ 0&0&0&0&1&4\end{array} \right].\]
+	So 
+	\[[p(t)]_{\CB} = -25[p_1(t)]_{\CB} +  9[p_2(t)]_{\CB} + 3[p_3(t)]_{\CB} - 3[p_4(t)]_{\CB} +  4[p_5(t)]_{\CB}\]
+	and 
+	\[p(t) = -25p_1(t) + 9p_2(t) + 3p_3(t) - 3p_4(t) + 4p_5(t).\]
+	 
+	\ea
+	
+\end{example}
+
+
+\csection{Summary}
+
+The key idea in this handout is the coordinate vector with respect to a basis.
+
+\begin{itemize}
+\item If $\CB = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_n\}$ is a basis for a vector space $V$, then the coordinate vector of $\vx$ in $V$ with respect to $\CB$ is the vector
+\[[\vx]_{\CB} = [x_1, x_2, \ldots, x_n]^{\tr},\]
+where
+\[\vx = x_1 \vv_1 + x_2 \vv_2 + \cdots + x_n \vv_n.\]
+\item The coordinate transformation $\vx \mapsto [\vx]_{\CB}$ is a one-to-one and onto transformation from an $n$-dimensional vector space $V$ to $\R^n$ which preserves linear combinations.
+\item The coordinate transformation $\vx \mapsto [\vx]_{\CB}$ allows us to translate problems in arbitrary vector spaces to $\R^n$ where we have already developed tools to solve the problems.
+\end{itemize}
+
+
+\csection{Exercises}
+
+\be
+\item Let $\CB=\left\{ \left[ \begin{array}{r} 0\\1\\-1 \end{array} \right], \left[ \begin{array}{c} 1\\2\\0 \end{array} \right] \right\}$ be a basis of the subspace defined by the equation $y-4x+z=0$. Find the coordinates of the vector $\vb=\left[ \begin{array}{c} 3\\4\\2 \end{array} \right]$ with respect to the basis $\CB$. 
+ 
+\item Given basis $\CB=\{1+t, 2+t^2, t+t^2\}$ of $\pol_2$,
+\ba 
+\item For which $p(t)$ in $\pol_2$ is $[p(t)]_{\CB} = [ 1 \ -1 \ 3 ]^\tr$?
+
+\item Determine coordinates of $q(t)=-1+t+2t^2$ in $\pol_2$ with respect to basis $\CB$.
+\ea
+
+\item Find two different bases $\CB_1$ and $\CB_2$ of $\R^2$ so that $[\vb]_{\CB_1} = [\vb]_{\CB_2} = \left[ \begin{array}{c} 2\\1 \end{array}\right]$, where $\vb=\left[ \begin{array}{c} 5\\3 \end{array} \right]$.
+
+\item If  $[\vb_1]_{\CB} = \left[ \begin{array}{c} 1\\2 \end{array} \right]$ and $[\vb_2]_{\CB} = \left[ \begin{array}{c} 2\\1 \end{array} \right]$ with respect to some basis $\CB$, where $\vb_1=\left[ \begin{array}{c} 1\\2\\3 \end{array} \right]$ and $\vb_2=\left[ \begin{array}{c} 2\\1\\3 \end{array} \right]$, what are the coordinates of $\left[ \begin{array}{r} -2\\3\\1 \end{array} \right]$?
+
+\item If $[\vb_1]_{\CB} = \left[ \begin{array}{c} 1\\1 \end{array} \right]$ and $[\vb_2]_{\CB} = \left[ \begin{array}{c} 2\\1 \end{array} \right]$ with respect to some basis $\CB$, where  $\vb_1=\left[ \begin{array}{c} 3\\1\\3 \end{array} \right]$ and $\vb_2=\left[ \begin{array}{c} 4\\1\\5 \end{array} \right]$, what are the vectors in $\CB$?
+
+\item Let $\CB=\{ \vv_1, \vv_2, \ldots, \vv_n\}$ be a basis for a vector space $V$. Describe how the coordinates of a vector with respect to $\CB$ will change if $\vv_1$ is replaced with $\frac{1}{2}\vv_1$.
+
+\item Let $\CB = \{1, t, 1+t^2\}$ in $\pol_2$.
+	\ba
+	\item Show that $\CB$ is a basis for $\pol_2$.
+	\item Let $p_1(t) = 1+2t^2$, $p_2(t)=1+t+2t^2$, and $p_3(t) = 2-t+t^2$ in $\pol_2$. 
+		\begin{enumerate}[i.]
+		\item Find $[p_1(t)]_{\CB}$, $[p_2(t)]_{\CB}$, and $[p_3(t)]_{\CB}$. 
+		\item Use the coordinate vectors in part i. to determine if the set $\{p_1(t), p_2(t), p_3(t)\}$ is linearly independent or dependent.
+		\end{enumerate}
+	\ea
+
+\item Let $W = \Span\{2+4t+6t^3, 3-t^2, 3-t^2+9t^3\}$ in $\pol_3$. Let $\CB = \{1, t, t^2, t^3\}$ be the standard basis for $\pol_3$. 
+	\ba
+	\item Calculate $[2+4t+6t^3]_{\CB}$, $[3-t^2]_{\CB}$ and $[3-t^2+9t^3]_{\CB}$. 
+	\item Use the coordinate vectors from part (a) to determine if the polynomials $2+4t+6t^3$, $3-t^2$, and $3-t^2+9t^3$ are linearly independent or dependent.  
+	\item Let $p(t) = 4+2t-t^2+9t^3$. Find $[p(t)]_{\CB}$. 
+	\item Use the calculations from parts (a) and (c) to determine if $p(t)$ is in $W$. If so, write $p(t)$ as a linear combination of the polynomials  $2+4t+6t^3$, $3-t^2$, and $3-t^2+9t^3$. If not, explain why not.
+	\ea
+	
+\item Let $\CB=\left\{ \left[\begin{array}{cc} 1&0\\0&0\end{array} \right], \left[\begin{array}{cc} 1&1\\0&0\end{array}\right], \left[\begin{array}{cc} 0&0\\1&1\end{array}\right], \left[\begin{array}{cc} 1&2\\2&1\end{array}\right] \right\}$ in $M_{2\times 2}$.
+\ba 
+\item Show that $\CB$ is a basis of $M_{2\times 2}$.
+\item Let 
+\[ A = \left[\begin{array}{cc} 1&2\\2&1\end{array}\right] \, , \, B=\left[\begin{array}{cc} 1&1\\1&1\end{array}\right] \, , \, C= \left[\begin{array}{cc} 2&1\\1&1\end{array} \right]\, , \, D= \left[\begin{array}{cc} 1&1\\1&0\end{array}\right].\]
+Find $[A]_\CB,[B]_\CB, [C]_\CB, [D]_\CB$. 
+\item Determine if the set $\{A, B, C, D\}$ is linearly dependent or independent.
+\ea
+	
+\item Let $V$ be a vector space of dimension $n$ and let $\CB$ be a basis for $V$. Show that the coordinate transformation $T$ from $V$ to $\R^n$ defined by $T(\vx) = [\vx]_{\CB}$ satisfies $T(\vzero_V) = \vzero$, where $\vzero_V$ is the additive identity in $V$. 
+
+
+\item Prove the second property of Theorem \ref{thm:5_d_5}. That is, if a vector space $V$ has a basis of $n$ vectors, then the coordinate mapping $T : V \to \R^n$ defined by $T(\vx) = [\vx]_{\CB}$ satisfies
+\[T(c\vu) = cT(\vu)\]
+for any vector $\vu$ in $V$ and any scalar $c$. 
+
+\item Prove Theorem \ref{thm:5_d_6} by demonstrating that if $V$ is a vector space with ordered basis $\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}$, then the coordinate mapping $T : V \to \R^n$ defined by $T(\vx) = [\vx]_{\CB}$ is one-to-one.  
+
+
+\item The coordinate transformation $T$ is one-to-one, so it has an inverse $T^{-1}$. Let $V$ be an $n$-dimensional vector space that has a basis $\CB$, and let $T : V \to \R^n$ be the coordinate transformation defined by $T(\vx) = [\vx]_{\CB}$. Let $S = \{\vu_1, \vu_2, \ldots, \vu_k\}$ be a subset of $V$ and let $R = \{[\vu_1]_{\CB}, [\vu_2]_{\CB}, \ldots, [\vu_k]_{\CB}\}$ in $\R^n$. 
+	\ba
+	\item Suppose $\vx$ is in $V$ with $\vx = x_1 \vu_1 + x_2\vu_2 + \cdots + x_k \vu_k$. Write the vector $[\vx]_{\CB}$ as a linear combination of the vectors in $R$. Explain your reasoning and explain how your result shows that $T$ preserves linear combinations. 
+	\item Now suppose $\vw$ is in $V$ so that $[\vw]_{\CB} = w_1 [\vu_1]_{\CB} + w_2[\vu_2]_{\CB} + \cdots + w_k [\vu_k]_{\CB}$. Write the vector $\vw$ as a linear combination of the vectors in $S$. Explain your reasoning and explain how your result shows that $T^{-1}$ preserves linear combinations. 
+	\ea
+
+\item Let $S = \{\vu_1, \vu_2, \ldots, \vu_k\}$ be a subset of an $n$-dimensional vector space $V$ with basis $\CB$. Let $R = \{[\vu_1]_{\CB}, [\vu_2]_{\CB}, \ldots, [\vu_k]_{\CB}\}$ in $\R^n$. 
+	\ba
+	\item Show that if $S$ is linearly independent in $V$, then $R$ is linearly independent in $\R^n$. 
+	\item Is the converse of part (a) true? That is, if $R$ is linearly independent in $\R^n$, must $S$ be linearly independent in $V$? Justify your answer. 
+	\item Repeat parts (a) and (b), replacing ``linearly independent" with ``linearly dependent". 
+	\ea
+	
+\item Let $V$ be an $n$-dimensional vector space with basis $\CB$, and let $S=\{\vw_1, \vw_2, \ldots, \vw_k\}$ be a subset of $V$ that spans $V$. Prove that $\{[\vw_1]_\CB, [\vw_2]_\CB, \ldots, [\vw_k]_\CB\}$ spans $\R^n$.
+
+\item \label{ex:5_d_T_VW} Suppose $\CB_1$ is a basis of a vector space $V$ with $n$ elements and $\CB_2$ is a basis of $W$ with $n$ elements. Show that the map $T_{VW}$ which sends every $\vx$ in $V$ to the vector $\vy$ in $W$ such that $[\vx]_{\CB_1} = [\vy]_{\CB_2}$ is one-to-one and onto. 
+
+\item Label each of the following statements as True or False. Provide justification for your response.
+\ba
+\item \textbf{True/False} The coordinates of a non-zero vector cannot be the same in the coordinate systems defined by two different bases.
+
+\item \textbf{True/False} The coordinate vector of the zero vector with respect to any basis is always the zero vector.
+
+\item \textbf{True/False} If $W$ is a $k$ dimensional subset of an $n$ dimensional vector space $V$, and $\CB$ is a basis of $W$, then $[\vw]_{\CB}$ is a vector in $\R^n$ for any $\vw$ in $W$.
+
+\item \textbf{True/False} The order of vectors in a basis do not affect the coordinates of vectors with respect to this basis.
+
+\item \textbf{True/False} If $T$ is a coordinate transformation from a vector space $V$ with basis $\CB$ to $\R^n$, then the vector $[\vx]_{\CB}$ is unique to the vector $\vx$ in $V$. 
+
+\item \textbf{True/False}  If $T$ is a coordinate transformation from a vector space $V$ with basis $\CB$ to $\R^n$, then there is always a vector $\vx$ in $V$ that maps to any vector $\vb$ in $\R^n$. 
+
+\item \textbf{True/False}  A coordinate transformation from a vector space $V$ with basis $\CB$ to $\R^n$ always maps the additive inverse of a vector $\vx$ in $V$ to the additive inverse of the vector $[\vx]_{\CB}$ in $\R^n$. 
+
+\item \textbf{True/False} A coordinate transformation provides a unique identification of vectors in an $n$-dimensional vector space with vectors in $\R^n$ in a way that preserves the algebraic structure of the spaces.  
+
+\item \textbf{True/False} If the coordinate vector of $\vx$ in a vector space $V$ is $\left[ \begin{array}{r} 1\\-1\\2 \end{array} \right]$, then the coordinate vector of $2\vx$ is $\left[ \begin{array}{r} 2\\-2\\4 \end{array} \right]$.
+
+
+\ea
+
+
+\ee
+
+\csection{Project: Finding Formulas for Sums of Powers}
+
+One way to derive formulas for sums of powers of whole numbers is to use different bases and coordinate vectors. One basis that will be useful is a basis of polynomials created by the binomial coefficients. Recall that the binomial coefficient $\binom{n}{k}$ is equal to 
+\[\binom{n}{k} = \frac{n!}{k!(n-k)!},\]
+with $\binom{n}{k} = 0$ if $n < k$. 
+
+The binomial coefficient can be rewritten in a way to make it applicable to polynomials as 
+\[\binom{n}{k} = \frac{n(n-1)(n-2) \cdots (n-k+1)}{k!} = \Pi_{i=1}^k \frac{1}{i}(n-i+1).\]
+With this representation of $\binom{n}{k}$, we can define a new polynomial in $t$ of degree $k$ as 
+\[p_{k}(t) = \frac{1}{k!}(t)(t-1)(t-2) \cdots (t-k+1)\]
+with $p_0(t) = 1$. 
+For example,
+\begin{align*}
+p_1(t) &= \frac{1}{1!}t = t \\
+p_2(t) &= \frac{1}{2}(t)(t-1) = \frac{1}{2}\left(t^2-t\right) \\
+p_3(t) &= \frac{1}{6}(t)(t-1)(t-2) = \frac{1}{6}\left(t^3-3t^2+2t\right).
+\end{align*}
+These ``generalized binomial coefficients" appear in Newton's generalized binomial theorem. 
+
+Two facts will make these polynomials useful for our sums. 
+
+\begin{pactivity} \label{act:hockey_stick} Our polynomials $p_k(t)$ are defined in terms of binomial coefficients. A useful identity will relate sums of binomial coefficients to other binomial coefficients. This identity, called the \emph{hockey-stick identity} after the way it can be visualized on Pascal's triangle, is as follows:
+\[\sum_{k=0}^{n-1} \binom{k}{r} = \binom{n}{r+1}\]
+for positive integers $r$. Use the definition of the binomial coefficients and some algebra to verify the hockey-stick identity.
+
+
+\end{pactivity}
+
+
+The second useful fact about our polynomials $p_k(t)$ is that they form a basis for $\pol_n$. 
+
+\begin{pactivity} \label{act:binomial_basis} 	~
+\ba
+\item Let $k$ be a positive integer. Explain why $p_k(0) = p_k(1) = p_k(2) = \cdots = p_k(k-1) = 0$ and $p_k(k) = 1$.
+
+
+\item Let $\CP_n = \{p_0(t), p_1(t), p_2(t), \ldots, p_n(t)\}$. Show that $\CP_n$ is a basis for $\pol_n$. (Hint: Let $c_1$, $c_2$, $\ldots$, $c_n$ be scalars and consider the equation
+\[c_0p_0(t) + c_1p_1(t) + c_2 p_2(t) + \cdots + c_np_n(t) = 0.\]
+Evaluate this equation at $t=0$, $t=1$, $\ldots$, $t=n$ and use the result of part (a).) 
+
+
+
+\ea
+
+\end{pactivity} 
+
+Now we have the tools we need to derive our formulas. To simplify computations, we will change coordinates to the standard basis $\CS_n = \{1, t, t^2, \ldots, t^n\}$ for $\pol_n$. 
+
+We will illustrate the process of deriving formulas for our sums with the sum $\sum_{t=0}^{n-1} t$. We want to write $t$ as a linear combination of the vectors in $\CP_1$ so that we can utilize the hockey-stick identity. In this case, by definition we have $t = p_1(t)$. It follows by the hockey-stick identity and the fact that $p_1(t) = \binom{t}{1}$ that
+\begin{align*}
+\sum_{t=0}^{n-1} t &= \sum_{t=0}^{n-1}  p_1(t)  \\
+	&= \sum_{t=0}^{n-1}  \binom{t}{1}   \\
+	&= \binom{n}{2} \\
+	&= \frac{1}{2}\left(n^2-n\right).
+\end{align*}
+This is exactly the formula we saw at the beginning of this section. The cases for sums of higher powers work the same way, but we will need to do a little more work to write $t^n$ in terms of the basis vectors in $\CP_n$. 
+
+\begin{pactivity} \label{act:sum_2} Consider the sum $\sum_{t=0}^{n-1} t^2$. We want to write $t^2$ as a linear combination of $p_0(t)$, $p_1(t)$ and $p_2(t)$. To do so, we will use the coordinate vectors with respect to $\CS_2$ and do our work in $\R^3$. 
+\ba
+\item Find $[p_0(t)]_{\CS_2}$, $[p_1(t)]_{\CS_2}$, $[p_2(t)]_{\CS_2}$, and $[t^2]_{\CS_2}$.
+
+
+\item Use the coordinate vectors from part (a) to write $t^2$ as a linear combination of the vectors in $\CP_2$.
+
+
+\item Use the result of part (b) and, the hockey-stick identity, and the fact that $p_k(t) = \binom{t}{k}$ to find a formula for $\sum_{t=0}^{n-1} t^2$.
+
+
+\ea
+
+\end{pactivity}
+
+Deriving formulas for higher powers involves the same process, just with more algebra.
+
+\begin{pactivity} \label{act:sums_higher} Use the process outlined in Project Activity \ref{act:sum_2} to derive formulas for the following sums.
+\ba
+\item $\sum_{t=0}^{n-1} t^3$
+
+
+\item $\sum_{t=0}^{n-1} t^4$
+
+
+\ea
+
+\end{pactivity}
+
+
+
+
+
+
