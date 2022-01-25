@@ -1,4 +1,4 @@
-\achapter{19}{Diagonalization} \label{sec:diagonalization}
+\achapter{19}{Diagonalization} \label{chap:diagonalization}
 
 \vspace*{-17 pt}
 \framebox{
@@ -14,6 +14,7 @@
 \end{fqs}}}% \hspace*{3 pt}}
 
 \csection{Application: The Fibonacci Numbers}
+\label{sec:appl_fib_num}
 
 In 1202 Leonardo of Pisa (better known as Fibonacci) published \emph{Liber Abaci} (roughly translated as \emph{The Book of Calculation}), in which he constructed a mathematical model of the growth of a rabbit population. The problem Fibonacci considered is that of determining the number of pairs of rabbits produced in a given time period beginning with an initial pair of rabbits. Fibonacci made the assumptions that each pair of rabbits more than one month old produces a new pair of rabbits each month, and that no rabbits die. (We ignore any issues about that might arise concerning the gender of the offspring.) If we let $F_n$ represent the number of rabbits in month $n$, Fibonacci produced the model
 \begin{equation}
@@ -27,6 +28,7 @@ By definition, the Fibonacci numbers are calculated by recursion. This is a vey 
 
 
 \csection{Introduction}
+\label{sec:diag_intro}
 
 As we have seen when studying Markov processes, each state is dependent on the previous state. If $\vx_0$ is the initial state and $A$ is the transition matrix, then the $n$th state is found by $A^n \vx_0$. In these situations, and others, it is valuable to be able to quickly and easily calculate powers of a matrix. We explore a way to do that in this section. 
 
@@ -48,6 +50,7 @@ tells us the likelihood of it being sunny or rainy on day 1. Let $A = \left[ \be
 
 
 \csection{Diagonalization}
+\label{sec:diag}
 
 
 In Preview Activity \ref{pa:4_c} we saw how if we can powers of a matrix we can make predictions about the long-term behavior of some systems. In general, calculating powers of a matrix can be a very difficult thing, but there are times when the process is straightforward. 
@@ -97,6 +100,7 @@ As Activity \ref{act:4_c_0.5} illustrates, to calculate the powers of a matrix o
 
  
 \csection{Similar Matrices}
+\label{sec:mtx_similar}
 
 Similar matrices play an important role in certain calculations. For example, Activity  \ref{act:4_c_0.5} showed that if we can write a square matrix $A$ in the form $A = P^{-1}DP$ for some invertible matrix $P$ and diagonal matrix $D$, then finding the powers of $A$ is straightforward. As we will see, the relation $A = P^{-1}DP$ will imply that the matrices $A$ and $D$ share many properties. 
 
@@ -178,6 +182,7 @@ We summarize some properties of similar matrices in the following theorem.
 \end{theorem}
 
 \csection{Similarity and Matrix Transformations}
+\label{sec:sim_mtx_trans}
 
 When a matrix is similar to a diagonal matrix, we can gain insight into the action of the corresponding matrix transformation. As an example,  consider the matrix transformation $T$ from $\R^2$ to $\R^2$ defined by $T(\vx) = A \vx$, where
 \begin{equation} \label{eq:4_c_1}
@@ -226,6 +231,7 @@ So $P^{-1}$ transforms the standard coordinate system into a coordinate system i
 This geometric perspective provides another example of how having a matrix similar to a diagonal matrix informs us about the situation. In what follows we determine the conditions that determine when a matrix is similar to a diagonal matrix. 
 
 \csection{Diagonalization in General}
+\label{sec:diag_general}
 
 In Preview Activity \ref{pa:4_c} and in the matrix transformation example we found that a matrix $A$ was similar to a diagonal matrix whose columns were eigenvectors of $A$. This will work for a general $n \times n$ matrix $A$ as long as we can find an invertible matrix $P$ whose columns are eigenvectors of $A$. More specifically, suppose $A$ is an $n \times n$ matrix with $n$ linearly independent eigenvectors $\vv_1$, $\vv_1$, $\ldots$, $\vv_n$ with corresponding eigenvalues $\lambda_1$, $\lambda_1$, $\ldots$, $\lambda_n$ (not necessarily distinct). Let
 \[P = [ \vv_1 \  \vv_2  \ \vv_3  \ \cdots  \ \vv_n].\]
@@ -281,6 +287,7 @@ At this point we might ask one final question. We argued that if an $n \times n$
 
 
 \csection{Examples}
+\label{sec:diag_exam}
 
 \ExampleIntro
 
@@ -392,6 +399,7 @@ and so $P^{-1}$ diagonalizes $A^{-1}$.
 \end{example}
 
 \csection{Summary}
+\label{sec:diag_summ}
 \begin{itemize}
 \item A matrix $D = [d_{ij}]$ is a diagonal matrix if $d_{ij} = 0$ whenever $i \neq j$.
 \item A matrix $A$ is diagonalizable if there is an invertible matrix $P$ so that $P^{-1}AP$ is a diagonal matrix.
@@ -406,6 +414,7 @@ and so $P^{-1}$ diagonalizes $A^{-1}$.
 
 
 \csection{Exercises}
+\label{sec:diag_exer}
 \be
 \item Determine if each of the following matrices is diagonalizable or not. For diagonalizable matrices, clearly identify a matrix $P$ which diagonalizes the matrix, and what the resulting diagonal matrix is.
 \ba
@@ -542,6 +551,7 @@ Let $A$ be a diagonalizable $n \times n$ matrix with real entries. Let $D = P^{-
 \ee
 
 \csection{Project: Binet's Formula for the Fibonacci Numbers}
+\label{sec:proj_binet_fibo}
 
 We return to the Fibonacci sequence $F_n$ where $F_{n+2} = F_{n+1} + F_{n}$, for $n \geq 0$, $F_0 = 0$, and $F_1=1$. Since $F_{n+2}$ is determined by previous values $F_{n+1}$ and $F_n$, the relation $F_{n+2} = F_{n+1} + F_{n}$ is called a \emph{recurrence relation}. The recurrence relation $F_{n+2} = F_{n+1} + F_{n}$ is very time consuming to use to compute $F_n$ for large values of $n$. It turns out that there is a fascinating formula that gives the $n$th term of the Fibonacci sequence directly, without using the relation $F_{n+2} = F_{n+1} + F_{n}$.
 

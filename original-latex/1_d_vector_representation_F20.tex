@@ -1,4 +1,4 @@
-\achapter{4}{Vector Representation} \label{sec:vector_representation}
+\achapter{4}{Vector Representation} \label{chap:vector_representation}
 
 \vspace*{-17 pt}
 \framebox{
@@ -16,6 +16,7 @@
 \vspace*{13 pt}
 
 \csection{Application: The Knight's Tour}
+\label{sec:appl_knight}
 
 Chess is a game played on an $8 \times 8$ grid which utilizes a variety of different pieces. One piece, the knight, is different from the other pieces in that it can jump over other pieces. However, the knight is limited in how far it can move in a given turn. For these reasons, the knight is a powerful, but often under-utilized, piece. 
 
@@ -32,6 +33,7 @@ A knight can move two units either horizontally or vertically, and one unit perp
 The knight's tour problem is the mathematical problem of finding a knight's tour, that is a sequence of knight moves so the the knight visits each square exactly once. While we won't consider a knight's tour in this text, we will see using linear combinations of vectors that a knight can move from its initial position to any other position on the board, and that it is possible to determine a sequence of moves to make that happen.
 
 \csection{Introduction}
+\label{sec:vec_rep_intro}
 
 So far we learned of a convenient method to represent a linear system using matrices. We now consider another representation of a linear system using \emph{vectors}. Vectors can represent concepts in the physical world like velocity, acceleration, and force -- but we will be interested in vectors as algebraic objects in this class. Vectors will form the foundation for everything we will do in linear algebra. For now, the following definition will suffice.
 
@@ -109,6 +111,7 @@ determine the components of the vector $3\vv + \vu - 2\vw$ using the operations 
 
 
 \csection{Vectors and Vector Operations}
+\label{sec:vec_ops}
 
 As discussed in Preview Activity \ref{pa:1_d}, a vector is simply a list of numbers. We can add vectors of like size and multiply vectors by scalars. These operations define a structure on the set of all vectors with the same number of components that will be our major object of study in linear algebra. Ultimately we will expand our idea of vectors to a more general context and study what we will call \emph{vector spaces}.
 
@@ -162,6 +165,7 @@ Similar arguments can be used to show the following properties of vector additio
 We will later see that the above properties make the set $\R^n$ a \emph{vector space}. These properties just say that, for the most part, we can manipulate vectors just as we do real numbers. Please note, though, that there is no multiplication or division of vectors. 
 
 \csection{Geometric Representation of Vectors and Vector Operations}
+\label{sec:geom_vec_ops}
 
 We can geometrically represent a vector $\vv = \left[ \begin{array}{c} v_1\\ v_2\end{array} \right] $ in $\R^2$ as the point $(v_1, v_2)$ in the plane as we did in Preview Activity \ref{pa:1_d}. We can similarly represent a vector $\vv = \left[ \begin{array}{c} v_1\\ v_2\\ v_3 \end{array} \right]$ in $\R^3$ as the point $(v_1, v_2, v_3)$ in the three-dimensional space. This geometric representation will be handy when we consider collections of infinitely many vectors, as we will do when we consider the span of a collection of vectors later in this section.
 
@@ -209,6 +213,7 @@ In Preview Activity \ref{pa:1_d} we considered scalar multiples of a vector in $
 All of these properties generalize to vectors in $\R^3$. Specifically, the scalar multiple $c\vv$ is a vector in the same or opposite direction as $\vv$ based on the sign of $c$, and is a stretched or shrunken version of $\vv$ based on whether $|c|>1$ or $|c|<1$. Also, the collection of all multiples of a non-zero vector $\vv$ in $\R^3$ form a line through the origin.
 
 \csection{Linear Combinations of Vectors}
+\label{sec:lin_comb_vec}
 
 The concept of linear combinations is one of the fundamental ideas in linear algebra. We will use linear combinations to describe almost every important concept in linear algebra -- the span of a set of vectors, the range of a linear transformation, bases, the dimension of a vector space -- to name just a few. 
 
@@ -302,6 +307,7 @@ In particular, the system has a solution if and only if $\vw$ is a linear combin
 
 
 \csection{The Span of a Set of Vectors}
+\label{sec:vec_span}
 
 As we saw in the previous section, the question of whether a system of linear equations has a solution is equivalent to the question of whether the vector obtained by the non-coefficient constants in the system is a linear combination of the vectors obtained from the columns of the coefficient matrix of the system. So if we were interested in finding for which constants the system has a solution, we would look for the collection of all linear combinations of the columns. We call this collection the \emph{span} of these vectors. In this section we investigate the concept of span both algebraically and geometrically.
 
@@ -368,6 +374,7 @@ where $x_1$ and $x_2$ are any scalars.
 
 
 \csection{Examples}
+\label{sec:vec_rep_exam}
 
 \ExampleIntro
 
@@ -455,6 +462,7 @@ The last row shows that the system with this as augmented matrix is inconsistent
 \end{example}
 
 \csection{Summary}
+\label{sec:vec_rep_summ}
 
 \begin{itemize}
 \item A vector is a list of numbers in a specified order. 
@@ -473,6 +481,7 @@ Geometrically, the span of a single nonzero vector $\vv$ in any dimension is the
 
 
 \csection{Exercises}
+\label{sec:vec_rep_exer}
 
 \be
 \item Given vectors $\vu=\left[ \begin{array}{c} 1 \\ 2 \end{array} \right] $ and $\vv=\left[ \begin{array}{r} -1 \\ 2 \end{array} \right]$ in $\R^2$, determine if $\vw=\left[ \begin{array}{r} -4 \\ -1 \end{array} \right]$ can be written as a linear combination of $\vu$ and $\vv$. If so, determine the weights of $\vu$ and $\vv$ which produce $\vw$.
@@ -576,6 +585,7 @@ $\R^2$, then so is the span of $\vv_1$ and $\vv_1+\vv_2$.
 \ee
 
 \csection{Project: Analyzing Knight Moves}
+\label{sec:proj_knight}
 
 To understand where a knight can move in a chess game, we need to know the initial setup. A chess board is an $8 \times 8$ grid. To be able to refer to the individual positions on the board, we will place the board so that its lower left corner is at the origin, make each square in the grid have side length $1$, and label each square with the point at the lower left corner. This is illustrated at left in Figure \ref{F:knight_2}. 
 

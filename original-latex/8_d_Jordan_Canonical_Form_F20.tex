@@ -1,4 +1,4 @@
-\achapter{40}{The Jordan Canonical Form} \label{sec:JCF}
+\achapter{40}{The Jordan Canonical Form} \label{chap:JCF}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,16 +13,19 @@
 
 \vspace*{13 pt}
 
-\csection{Application: The Bailey Model of an Epidemic}      
+\csection{Application: The Bailey Model of an Epidemic}   
+\label{sec:appl_epidemic}   
 
 The COVID-19 epidemic has generated many mathematical and statistical models to try to understand the spread of the virus. In 1950 Norman Bailey proposed a simple stochastic model of the spread of an epidemic. The solution to the model involves matrix exponentials and the Jordan canonical form is a useful tool for calculating matrix exponentials. 
 
 
 \csection{Introduction}
+\label{sec:jordan_intro}
 
 We have seen several different matrix factorizations so far, eigenvalue decomposition (Section \ref{sec:diagonalization}), singular value decomposition (Section \ref{sec:SVD}), QR factorization (Section \ref{sec:gram_schmidt}), and LU factorization (Section \ref{sec:det_properties}). In this section, we investigate the Jordan canonical form, which in a way generalizes the eigenvalue decomposition. For matrices with an eigenvalue decomposition, the geometric multiplicity of each eigenvalue (the dimension of the corresponding eigenspace) must equal its algebraic multiplicity (the number of times the eigenvalue occurs as a root of the characteristic polynomial of the matrix). We know that not every matrix has an eigenvalue decomposition. However, every square matrix has a Jordan canonical form, in which we use generalized eigenvectors and block diagonal form to approximate the eigenvalue decomposition behavior. At the end of the section we provide a complete proof of the existence of the Jordan canonical form. 
 
 \csection{When an Eigenvalue Decomposition Does Not Exist}
+\label{sec:eigen_dne}
 
 Recall that an eigenvalue decomposition of a matrix exists if and only if the algebraic multiplicity equals the geometric multiplicity for each eigenvalue. In this case, the whole space $\R^n$ decomposes into eigenspaces corresponding to the eigenvalues and the matrix acts as scalar multiplication in each eigenspace. We consider some cases where such a decomposition exists and some where it does not to notice some differences between the two cases and think of ways to improvise the situation. 
 
@@ -58,6 +61,7 @@ Recall that an eigenvalue decomposition of a matrix exists if and only if the al
 \end{pa}
 
 \csection{Generalized Eigenvectors and the Jordan Canonical Form}
+\label{sec:gen_eigen_jordan}
 
 If an $n \times n$ matrix $A$ has $n$ linearly independent eigenvectors, then $A$ is similar to a diagonal matrix with the eigenvalues along the diagonal. You discovered in Preview Activity \ref{pa:JCF} a matrix without enough linearly independent eigenvectors can look close enough to a diagonal matrix. We now investigate whether this generalized representation can be achieved for all matrices.
 
@@ -207,6 +211,7 @@ The proof of the Cayley-Hamilton Theorem follows from Exercise \ref{ex:8_d_upper
 
 
 \csection{Geometry of Matrix Transformations using the Jordan Canonical Form}
+\label{sec:mtx_jordan_geom}
 
 \begin{figure}[ht]
 \begin{center}
@@ -292,6 +297,7 @@ Activity \ref{act:JCF_geometry} provides the essential ideas to understand the g
 The matrix $C$ performs a change of basis from the standard basis to the basis $\{\vv_1, \vv_2\}$, then the matrix $\left[ \begin{array}{cc} 2&1\\0&2 \end{array} \right]$ performs an expansion by a factor of 2 in all directions and a shear in the direction of $\vv_1$. 
 
 \csection{Proof of the Existence of the Jordan Canonical Form}
+\label{sec:jordan_proof}
 
 While we have constructed an algorithm to find a Jordan canonical form of a square matrix, we haven't yet addressed the question of whether every square matrix has a Jordan canonical form. We do that in this section. 
 
@@ -317,6 +323,7 @@ Some useful facts about direct sums are given in the following theorem. The proo
 
 
 \csection{Nilpotent Matrices and Invariant Subspaces}
+\label{sec:mtx_nilpotent}
 
 We will prove the existence of the Jordan canonical form in two steps. In the next subsection Lemma \ref{lem:JCF_1} will show that every linear transformation can be diagonalized in some form, and Lemma \ref{lem:JCF_2} will provide the specific Jordan canonical form. Before we proceed to the lemmas, there are two concepts we need to introduce -- nilpotent matrices and invariant subspaces. We don't need these concepts beyond our proof, so we won't spend a lot of time on them.
  
@@ -363,6 +370,7 @@ We have seen that if $T: V \to V$ is a linear transformation from a vector space
  \end{activity}
  
 \csection{The Jordan Canonical Form} 
+\label{sec:jordan}
 
 We are now ready to prove the existence of the Jordan canonical form.
 
@@ -573,6 +581,7 @@ and we have found a basis for $\pol_4$ for which the matrix $T$ has a Jordan can
 
 
 \csection{Examples}
+\label{sec:jordan_exam}
 
 \ExampleIntro
 
@@ -640,6 +649,7 @@ If we consider the coordinate system in $\R^3$ defined by the basis $\{\vv_1, \v
 
 
 \csection{Summary}
+\label{sec:jordan_summ}
 \begin{itemize}
 
 \item Any square matrix $A$ is similar to a Jordan canonical form 
@@ -663,6 +673,7 @@ with $\vv_i \in V_i$ for each $i$.
 
 
 \csection{Exercises}
+\label{sec:jordan_exer}
 \be
 \item Find a Jordan canonical form for each of the following matrices.
 	\ba
@@ -864,6 +875,7 @@ for scalars $x_1$, $x_2$, $\ldots$, $x_p$.
 \ee
 	
 \csection{Project: Modeling an Epidemic}
+\label{sec:proj_epidemic}
 
 The COVID-19 epidemic has generated many mathematical and statistical models to try to understand the spread of the virus. In this project we examine a simple stochastic model of the spread of an epidemic proposed by Norman Bailey in 1950.\footnote{Bailey, N. T. J. (1950) A simple stochastic epidemic. \emph{Biometrika} 37} This is a model of a relatively mild epidemic in which no one dies from the disease. Of course, mathematicians build on simple models to form more complicated and realistic ones, but this is a good, and accessible, starting point. Bailey writes about the the difficulties in the stochastic\footnote{The word \emph{stochastic} refers to quantities that have a random pattern that can be analyzed statistically, but generally cannot be predicted precisely.} analysis of epidemics. For example, the overall epidemic ``can often be broken down into smaller epidemics occurring in separate regional subdivisions" and that these regional epidemics ``are not necessarily in phase and often interact with each other". This is behavior that has been clearly evident in the COVID-19 epidemic in the US. Even within a single district, ``it is obvious that a given infectious individual has not the same chance of infecting each inhabitant. He will probably be in close contact with a small number of people only, perhaps of the order of 10-50, depending on the nature of his activities." But then the  epidemic for the whole district will ``be built up from epidemics taking place in several relatively small groups of associates and acquaintances."  So we can see in this analysis that an epidemic can spread from small, localized areas. 
 

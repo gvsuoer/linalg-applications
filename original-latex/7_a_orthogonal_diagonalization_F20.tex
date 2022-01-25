@@ -1,4 +1,4 @@
-\achapter{27}{Orthogonal Diagonalization} \label{sec:orthogonal_diagonalization}
+\achapter{27}{Orthogonal Diagonalization} \label{chap:orthogonal_diagonalization}
 
 \vspace*{-17 pt}
 \framebox{
@@ -12,6 +12,7 @@
 \vspace*{13 pt}
 
 \csection{Application: The Multivariable Second Derivative Test} 
+\label{sec:appl_mulit_2nd_deriv}
 
 In single variable calculus, we learn that the second derivative can be used to classify a critical point of the type where the derivative of a function is 0 as a local maximum or minimum. 
 
@@ -40,6 +41,7 @@ A proof of this test for two-variable functions is based on Taylor polynomials, 
 
 
 \csection{Introduction}
+\label{sec:orthog_diag_intro}
 
 We have seen how to diagonalize a matrix -- if we can find $n$ linearly independent eigenvectors of an $n\times n$ matrix $A$ and let $P$ be the matrix whose columns are those eigenvectors,  then $P^{-1}AP$ is a diagonal matrix with the eigenvalues down the diagonal in the same order corresponding to the eigenvectors placed in $P$. We will see that in certain cases we can take this one step further and create an orthogonal matrix with eigenvectors as columns to diagonalize a matrix. This is called orthogonal diagonalization. Orthogonal diagonalizability is useful in that it allows us to find a ``convenient" coordinate system in which to interpret the results of certain matrix transformations. A set of orthonormal basis vectors for an orthogonally diagonalizable matrix $A$ is called a set of \emph{principal axes} for $A$. Orthogonal diagonalization will also play a crucial role in the singular value decomposition of a matrix, a decomposition that has been described by some as the ``pinnacle" of linear algebra.
 
@@ -68,6 +70,7 @@ is a diagonal matrix. We say that the matrix $P$ \emph{orthogonally diagonalizes
 
 
 \csection{Symmetric Matrices}
+\label{sec:mtx_symm}
 
 As we saw in Preview Activity \ref{pa:7_a}, matrices that are not symmetric need not be orthogonally diagonalizable, but the symmetric matrix examples are orthogonally diagonalizable. We explore that idea in this section. 
 
@@ -246,6 +249,7 @@ So \emph{any} real symmetric matrix is orthogonally diagonalizable. We have seen
 
 
 \csection{The Spectral Decomposition of a Symmetric Matrix $A$}
+\label{sec:spec_decomp_symm_mtx}
 
 Let $A$ be an $n \times n$ symmetric matrix with real entries. The Spectral Theorem tells us we can find an orthonormal basis $\{\vu_1, \vu_2, \ldots, \vu_n\}$ of eigenvectors of $A$. Let $A \vu_i = \lambda_i \vu_i$ for each $1 \leq i \leq n$. If $P = [ \vu_1 \  \vu_2 \  \vu_3 \  \cdots \ \vu_n]$, then we know that
 \[P^{\tr}AP = P^{-1}AP = D,\]
@@ -294,6 +298,7 @@ The consequence of Theorem \ref{thm:7_a_spectral_decomposition} is that any symm
 \end{activity}
 
 \csection{Examples} 
+\label{sec:orthog_diag_exam}
 
 \ExampleIntro
 
@@ -354,6 +359,7 @@ Thus, a basis for the eigenspace $E_{1}$ of $A$ is $\{[0 \ 1 \ 1 \ 0]^{\tr}, [1 
 \end{example}
 
 \csection{Summary}
+\label{sec:orthog_diag_summ}
 \begin{itemize}
 \item An $n \times n$ matrix $A$ is orthogonally diagonalizable if there is an orthogonal matrix $P$ such that $P^{\tr}AP$ is a diagonal matrix. Orthogonal diagonalizability is useful in that it allows us to find a ``convenient" coordinate system in which to interpret the results of certain matrix transformations. Orthogonal diagonalization also  a plays a crucial role in the singular value decomposition of a matrix.
 \item An $n \times n$ matrix $A$ is symmetric if $A^{\tr} = A$. The symmetric matrices are exactly the matrices that can be orthogonally diagonalized. 
@@ -363,6 +369,7 @@ Thus, a basis for the eigenspace $E_{1}$ of $A$ is $\{[0 \ 1 \ 1 \ 0]^{\tr}, [1 
 
 
 \csection{Exercises}
+\label{sec:orthog_diag_exer}
 \be
 \item For each of the following matrices, find an orthogonal matrix $P$ so that $P^{\tr}AP$ is a diagonal matrix, or explain why no such matrix exists.
 	\ba
@@ -458,6 +465,7 @@ For this reason we call $P_i$ an \emph{orthogonal projection matrix}.
 \ee
 
 \csection{Project: The Second Derivative Test for Functions of Two Variables}
+\label{sec:proj_two_var_deriv}
 
 In this project we will verify the Second Derivative Test for functions of two variables.\footnote{Many thanks to Professor Paul Fishback for sharing his activity on this topic. Much of this project comes from his activity.} This test will involve Taylor polynomials and linear algebra. As a quick review, recall that the second order Taylor polynomial for a function $f$ of a single variable $x$ at $x = a$ is 
 \begin{equation} \label{eq:Taylor_2}

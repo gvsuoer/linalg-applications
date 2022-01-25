@@ -1,4 +1,4 @@
-\achapter{10}{The Inverse of a Matrix} \label{sec:matrix_inverse}
+\achapter{10}{The Inverse of a Matrix} \label{chap:matrix_inverse}
 
 \vspace*{-17 pt}
 \framebox{
@@ -15,6 +15,7 @@
 
 
 \csection{Application: Modeling an Arms Race}
+\label{sec:appl_arms_race}
 
 Lewis Fry Richardson was a Quaker by conviction who was deeply troubled by the major wars that had been fought in his lifetime. Richardson's training as a physicist led him to believe that the causes of war were phenomena that could be quantified, studied, explained, and thus controlled. He collected considerable data on wars and constructed a model to represent an arms race. The equations in his model caused him concern about the future as indicated by the following statement:  
 \begin{quote} But it worried him that the equations also showed that the unilateral disarmament of Germany after 1918, enforced by the Allied Powers, combined with the persistent level of armaments of the victor countries would lead to the level of Germany's armaments growing again. In other words, the post-1918 situation was not stable. From the model he concluded that great statesmanship would be needed to prevent an unstable situation from developing, which could only be prevented by a change of policies.\footnote{\emph{Nature} \textbf{135}, 830-831 (18 May 1935) ``Mathematical Psychology of War" (3420).}
@@ -23,6 +24,7 @@ Analyzing Richardson's arms race model utilizes matrix operations, including mat
 
 
 \csection{Introduction}
+\label{sec:inverse_intro}
 
 To this point we have solved systems of linear equations with matrix forms $A \vx = \vb$ by row reducing the augmented matrices $[A \ | \ \vb]$. These linear matrix-vector equations should remind us of linear algebraic equations of the form $ax = b$, where $a$ and $b$ are real numbers. Recall that we solved an equation of the form $ax=b$ by dividing both sides by $a$ (provided $a \neq 0$), giving the solution $x = \frac{b}{a}$, or equivalently $x = a^{-1}b$. The important property that the number $a^{-1}$ has that allows us to solve a linear equation in this way is that $a^{-1}a = 1$, so that $a^{-1}$ is the multiplicative inverse of $a$. We can solve certain types of matrix equations $A \vx = \vb$ in the same way, provided we can find a matrix $A^{-1}$ with similar properties. We investigate this situation in this section.
 
@@ -93,6 +95,7 @@ We will consider the $2 \times 2$ case to make the calculations easier. Suppose 
 
 
 \csection{Invertible Matrices} 
+\label{sec:mtx_invertible}
 
 We now have an algebra of matrices in that we can add, subtract, and multiply matrices of the correct sizes. But what about division? In our early mathematics education we learned about \emph{multiplicative inverses} (or reciprocals) of real numbers. The multiplicative inverse of a number $a$ is the real number which when multiplied by $a$ produces 1, the multiplicative identity of real numbers. This inverse is denoted $a^{-1}$. For example, the multiplicative inverse of $2$ is $2^{-1}=\frac{1}{2}$ because 
 \[2\cdot \frac{1}{2} = 1 = \frac{1}{2}\cdot 2.\]
@@ -162,6 +165,7 @@ Even though $\vx=A^{-1}\vb$ is an explicit expression for the solution of the sy
 
 
 \csection{Finding the Inverse of a Matrix}
+\label{sec:mtx_inverse}
 
 The next questions for us to address are how to tell when a matrix is invertible and how to find the inverse of an invertible matrix. Consider a $2 \times 2$ matrix $A$. To find the inverse matrix $B = [\vb_1 \ \vb_2]$ of $A$, we have to solve the two matrix-vector equations $A \vb_1 = \begin{bmatrix}1 \\ 0 \end{bmatrix}$ and $A \vb_2= \begin{bmatrix}0 \\1 \end{bmatrix}$ to find the columns of $B$. Since $A$ is the coefficient matrix for both systems, we apply the same row operations on both systems to reduce $A$ to RREF. Thus, instead of solving the two matrix-vector equations separately, we could simply have found the RREF of 
 \[\left[\, A \ \left| \begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right. \right]\]
@@ -200,6 +204,7 @@ provided that $ad-bc \neq 0$ (see Exercise \ref{ex:2_c_2by2_inverse}). Hence, an
 
 
 \csection{Properties of the Matrix Inverse}
+\label{sec:mtx_inverse_props}
 
 As we have done with every new operation, we ask what properties the inverse of a matrix has. 
 
@@ -259,6 +264,7 @@ Activity \ref{act:2_c_5} gives us one important property of matrix inverses. The
 \end{theorem}
 
 \csection{Examples}
+\label{sec:inverse_exam}
 
 \ExampleIntro
 
@@ -356,6 +362,7 @@ This argument can be generalized to show that if $M$ is a square matrix and $M^n
 \end{example}
 
 \csection{Summary}
+\label{sec:inverse_summ}
 \begin{itemize}
 \item If $A$ is an $n \times n$ matrix, then $A$ is invertible if there is a matrix $B$ so that $AB = BA = I_n$. The matrix $B$ is called the inverse of $A$ and is denoted $A^{-1}$.
 \item An $n \times n$ matrix $A$ is invertible if and only if $A$ the reduced row echelon form of $A$ is the $n \times n$ identity matrix $I_n$. 
@@ -368,6 +375,7 @@ This argument can be generalized to show that if $M$ is a square matrix and $M^n
 
 
 \csection{Exercises}
+\label{sec:inverse_exer}
 
 \be
 
@@ -435,6 +443,7 @@ If you need to use an inverse, assume it exists.
 
 
 \csection{Project: The Richardson Arms Race Model}
+\label{sec:proj_arms_race}
 
 How and why a nation arms itself for defense depends on many factors. Among these factors are the offensive military capabilities a nation deems its enemies have, the resources available for creating military forces and equipment, and many others. To begin to analyze such a situation, we will need some notation and background. In this section we will consider a two nation scenario, but the methods can be extended to any number of nations. In fact, after World War I, Richardson collected data and created a model for the countries Czechoslovakia, China, France, Germany, England, Italy, Japan, Poland, the USA, and the USSR.\footnote{The Union of Soviet Socialist Republics (USSR), headed by Russia, was a confederation of socialist republics in Eurasia. The USSR disbanded in 1991. Czechoslovakia was a sovereign state in central Europe that peacefully split into the Czech Republic and Slovakia in 1993.}
 

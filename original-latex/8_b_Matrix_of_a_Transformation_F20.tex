@@ -1,4 +1,4 @@
-\achapter{38}{The Matrix of a Linear Transformation} \label{sec:transformation_matrix}
+\achapter{38}{The Matrix of a Linear Transformation} \label{chap:transformation_matrix}
 
 \vspace*{-17 pt}
 \framebox{
@@ -12,6 +12,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Secret Sharing Algorithms} 
+\label{sec:appl_secret}
 
 Suppose we have a secret that we want or need to share with several individuals. For example, a bank manager might want to share pieces of the code for the bank vault with several employees so that if the manager is not available, some subset of these employees could open the vault if they work together. This allows for a significant amount of security while still making the code available if needed. As another example, in order to keep passwords secure (as they can be hard to remember), a person could implement a secret sharing scheme. The person would generate a set of shares for a given password and store them in several different places. If the person forgets the password, it can be reconstructed by collecting some set of these shares. Since the shares can be stored in many different places, the password is relatively secure.  
 
@@ -19,6 +20,7 @@ The idea behind secret sharing algorithms is to break a secret into a number ($n
 
 
 \csection{Introduction}
+\label{sec:mtxof_trans_intro}
 
 A matrix transformation $T$ from $\R^n$ to $\R^m$ is a linear transformation defined by $T(\vx) = A\vx$ for some $m \times n$ matrix $A$. We can use the matrix to quickly determine if $T$ is one-to-one or onto -- if every column of $A$ contains a pivot, then $T$ is one-to-one, and if every row of $A$ contains a pivot, then $T$ is onto. As we will see, we can represent any linear transformation between finite dimensional vector spaces as a matrix transformation, which will allow us to use all of the tools we have developed for matrices to study linear transformations. We will begin with linear transformations from $\R^n$ to $\R^m$. 
 
@@ -46,6 +48,7 @@ T\left(\left[ \begin{array}{c} 0 \\ 1 \end{array} \right] \right) = \left[ \begi
 \end{pa}
 
 \csection{Linear Transformations from $\R^n$ to $\R^m$}
+\label{sec:trans_rn_rm}
 
 Preview Activity \ref{pa:8_b} illustrates the method for representing a linear transformation from $\R^n$ to $\R^m$ as a matrix transformation. We now consider the general context. 
 
@@ -68,6 +71,7 @@ with columns $T(\ve_1)$, $T(\ve_2)$, $\ldots$, $T(\ve_n)$, where $\{\ve_1, \ve_2
 
 
 \csection{The Matrix of a Linear Transformation}
+\label{sec:mtx_lin_trans}
 
 We saw in the previous section that any linear transformation $T$ from $\R^n$ to $\R^m$ is in fact a matrix transformation. In this section, we turn to the general question -- can any linear transformation $T: V \to W$ between an $n$-dimensional vector space $V$ and an $m$-dimensional vector space $W$ be represented in some way as a matrix transformation? This will allow us to extend ideas like eigenvalues and eigenvectors to arbitrary linear transformations. We begin by investigating an example.
 
@@ -146,6 +150,7 @@ for any $\vv$ in $V$. Recall that we can find the unique vector in $W$ whose coo
 \end{activity}
 
 \csection{A Connection between $\Ker(T)$ and a Matrix Representation of $T$}
+\label{sec:ker_mtx}
 
 Recall that we defined the kernel of a matrix transformation $T: \R^n \to \R^m$ to be the set of vectors that $T$ maps to the zero vector. If $T$ is the matrix transformation defined by $T(\vx) = A \vx$, we also saw that the kernel of $T$ is the same as the null space of $A$. We can make a similar connection between a linear transformation and  a matrix that defines the transformation. 
 
@@ -165,6 +170,7 @@ Activity \ref{act:8_b_kernel} shows that if $T: V \to W$ is a linear transformat
 A similar argument shows that $T$ is onto if and only if every row of $[T]_{\CB}^{\CC}$ contains a pivot. This is left to the exercises (see Exercise \ref{ex:8_b_range_matrix}).
 
 \csection{Examples}
+\label{sec:mtxof_trans_exam}
 
 \ExampleIntro
 
@@ -267,6 +273,7 @@ So if we let $\vw=T(\vv)$ in $\Range(T)$, then $[\vw]_{\CC} = \vy$ and $\vy$ and
 
  
 \csection{Summary}
+\label{sec:mtxof_trans_summ}
 \begin{itemize}
 \item The standard matrix for a linear transformation $T$ from $\R^n$ to $\R^m$ is the matrix 
 \[A = [T(\ve_1) \ T(\ve_2) \ \cdots \ T(\ve_n)],\]
@@ -280,6 +287,7 @@ for any $\vv$ in $V$.
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:mtxof_trans_exer}
 \be
 \item  \label{ex:8_b_matrix_transformation} Let $T : \pol_2 \to \pol_3$ be defined by $T(a_0+a_1t+a_2t^2) = (a_0+a_1) + (a_1+a_2)t + a_0t^2 + a_2t^3$. You may assume that $T$ is a linear transformation. Let $\CB = \{p_0(t), p_1(t), p_2(t)\}$, where $p_0(t)=1$, $p_1(t)=t$, and $p_2(t) = t^2$, be the standard basis for $\pol_2$ and $\CC=\{q_0(t), q_1(t), q_2(t), q_3(t)\}$, where $q_0(t) = 1$, $q_1(t) = t$, $q_2(t)=t^2$, and $q_3(t)=t^3$, the standard basis for $\pol_3$.
 	\ba
@@ -414,6 +422,7 @@ Let $T: \D^2 \to \D^2$ be defined by $T(f) = f'' + f$.
 \ee
 
 \csection{Project: Shamir's Secret Sharing and Lagrange Polynomials}
+\label{sec:proj_secret}
 
 Shamir's Secret Sharing is a secret sharing algorithm developed by the Israeli cryptographer Adi Shamir, who also contributed to the invention of RSA algorithm. The idea is to develop shares related to a secret code that can be distributed in such a way that the secret code can only be discovered if a fixed number of shareholders combine their information. 
 

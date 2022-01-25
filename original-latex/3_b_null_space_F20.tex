@@ -1,4 +1,4 @@
-\achapter{13}{The Null Space and Column Space of a Matrix } \label{sec:null_space}
+\achapter{13}{The Null Space and Column Space of a Matrix } \label{chap:null_space}
 
 \vspace*{-17 pt}
 \framebox{
@@ -18,10 +18,12 @@
 \vspace*{13 pt}
 
 \csection{Application: The Lights Out Game}
+\label{sec:appl_lights_out}
 
 Lights Out (LO) is a commercial game released by Tiger Toys in 1995 (later bought out by Hasbro). The game consists of a $5 \times 5$ grid in which each square is either lit or unlit. Pressing a square changes the status of the square itself and all the squares to the left, right, up, or down. The player's job is to turn all the lights out. You can play a sample game at \url{https://www.geogebra.org/m/wcmctahp}. There is a method to solve any solvable Lights Out game that can be uncovered through linear algebra that we will uncover later in this section. Column spaces and null spaces play important roles in this method. 
 
 \csection{Introduction}
+\label{sec:null_intro}
 
 Recall that a subspace of $\R^n$ is a subset of $\R^n$ which is a vector space in itself. More specifically, a subset $W$ or $\R^n$ is a subspace of $\R^n$ if 
 \begin{enumerate}
@@ -101,6 +103,7 @@ Let $A =  \left[ \begin{array}{cccc} 2&1&3&0\\ 1&1&4&1 \end{array} \right]$. Fin
 
 
 \csection{The Null Space of a Matrix and the Kernel of a Matrix Transformation}
+\label{sec:null_kernel}
 
 In this section we explore the \emph{null space} and see how the null space of a matrix is related to the matrix transformation defined by the matrix. 
 
@@ -156,6 +159,7 @@ Recall that for a function to be  one-to-one, each output must come from exactly
 
 
 \csection{The Column Space of a Matrix and the Range of a Matrix Transformation}
+\label{sec:column_range}
 
 Given an $m \times n$ matrix $A$, we have seen that the matrix-vector product $A \vx$ is a linear combination of the columns of $A$ with weights from $\vx$. It follows that the equation $A \vx = \vb$ has a solution if and only if $\vb$ is a linear combination of the columns of $A$. So the span of the columns of $A$ tells us for which vectors the equation $A \vx = \vb$ is consistent. We give the span of the columns of a matrix $A$ a special name. 
 
@@ -192,6 +196,7 @@ As you saw in Activity \ref{act:3_b_2}, a matrix transformation $T$ defined by $
 
 
 \csection{The Row Space of a Matrix}
+\label{sec:row_space}
 
 As you might expect, if there is a column space for a matrix then there is also a row space for a matrix. The row space is defined just as the column space as the span of the rows of a matrix. 
 
@@ -201,6 +206,7 @@ As you might expect, if there is a column space for a matrix then there is also 
 There is really nothing new here, though. Since the rows of $A$ are the columns of $A^{\tr}$, it follows that $\Row A = \Col A^{\tr}$. So if we want to learn anything about the row space of $A$, we can just translate all of our questions to the column space of $A^{\tr} $. 
 
 \csection{Bases for $\Nul A$ and $\Col A$}
+\label{sec:null_col_base}
 
 When confronted with a subspace of $\R^n$, we will usually want to find a minimal spanning set -- a smallest spanning set -- for the space. Recall that a minimal spanning set is also called a basis for the space. So a basis for a space must span that space, and to be a minimal spanning set we have seen that a basis must also be linearly independent.  So to prove that a set is a basis for a subspace of $\R^n$ we need to demonstrate two things: that the set is linearly independent, and that the set spans the subspace. 
 
@@ -290,6 +296,7 @@ We can incorporate the ideas of this section to expand the Invertible Matrix The
 
 
 \csection{Examples}
+\label{sec:null_exam}
 
 \ExampleIntro
 
@@ -379,6 +386,7 @@ Since both columns of $A$ are pivot columns, the columns of $A$ are linearly ind
 \end{example}
 
 \csection{Summary}
+\label{sec:null_summ}
 
 \begin{itemize}
 \item The null space of an $m \times n$ matrix $A$ is the set of vectors $\vx$ in $\R^n$ so that $A \vx = \vzero$. In set notation
@@ -405,6 +413,7 @@ Since both columns of $A$ are pivot columns, the columns of $A$ are linearly ind
 
 
 \csection{Exercises}
+\label{sec:null_exer}
 \be
 \item Find a basis for the null space and column space of the matrix 
 \[A=\left[ \begin{array}{cccr} 1 & 2& 3& 4\\ 0 & 0 & 2 & -2 \\ 1 & 2 & 5 & 2 \end{array} \right].\]
@@ -449,6 +458,7 @@ Of which spaces are the null and column spaces of $A$ subspaces?
 \ee
 
 \csection{Project: Solving the Lights Out Game}
+\label{sec:proj_lights_out}
 The Lights Out game starts with a $5 \times 5$ grid on which some of the squares are lit (on) and some are not lit (off). We will call such a state a \emph{configuration}. Pressing a square that is on turns it off and changes the state of all adjacent (vertically and horizontally) squares, and pressing a square that is off turns it on and changes the state of all adjacent (vertically and horizontally) squares. To model this situation, we consider the number system $\Z_2 = \{0,1\}$ consisting only of 0 and 1, where 0 represents the off state and 1 the on state. We can also think of 1 as the act of pressing a square and 0 as the act of not pressing -- that is,
 \begin{itemize}
 \item $0+0 = 0$ (not pressing an off square leaves it off),

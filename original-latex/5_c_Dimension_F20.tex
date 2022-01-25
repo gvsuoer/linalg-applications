@@ -1,4 +1,4 @@
-\achapter{33}{The Dimension of a Vector Space} \label{sec:dimension}
+\achapter{33}{The Dimension of a Vector Space} \label{chap:dimension}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,10 +13,12 @@
 \vspace*{13 pt}
 
 \csection{Application: Principal Component Analysis}
+\label{sec:appl_pca}
 
 The discipline of statistics is based on the idea of analyzing data. In large data sets it is usually the case that one wants to understand the relationships between the different data in the set. This can be difficult to do when the data set is large and it is impossible to visually examine the data for patterns. Principal Component Analysis (PCA) is a tool for identifying and representing underlying patterns in large data sets, and PCA has been called one of the most important and valuable linear algebra tools for statistical analysis. PCA is used to transform a collection of variables into a (usually smaller) number of uncorrelated variables called principal components. The principal components form the most meaningful basis from which to view data by removing extraneous information and revealing underlying relationships in the data. This presents a framework for how to reduce a complex data set to a lower dimension while retaining the important attributes of the data set.  The output helps the experimenter determine which dynamics in the data are important and which can be ignored. 
 
 \csection{Introduction}
+\label{sec:dims_intro}
 
 In Section \ref{sec:bases_dimension} we learned that any two bases for a subspace of $\R^n$ contain the same number of vectors. This allowed us to define the dimension of a subspace of $\R^n$. In this section we extend the arguments we made in Section \ref{sec:bases_dimension} to arbitrary vector spaces and define the dimension of a vector space. 
 
@@ -45,6 +47,7 @@ Suppose $V$ is a vector space with basis $\CB = \{\vv_1, \vv_2\}$. Consider the 
 
 
 \csection{Finite Dimensional Vector Spaces}
+\label{sec:finite_dim_space}
 
 
 Theorem \ref{thm:5_c_1} shows that if sets $\CB_1$ and $\CB_2$ are finite bases for a vector space $V$, which are linearly independent by definition, then each cannot contain more elements than the other, so the number of elements in each basis must be equal. 
@@ -112,6 +115,7 @@ Finding the dimension of a finite-dimensional vector space amounts to finding a 
 \end{activity}
 
 \csection{The Dimension of a Subspace}
+\label{sec:dim_subspace}
 
 Every subspace of a finite-dimensional vector space is a vector space, and since a subspace is contained in a vector space it is natural to think that the dimension of a subspace should be less than or equal to the dimension of the larger vector space. We verify that fact in this section.
 
@@ -122,6 +126,7 @@ Every subspace of a finite-dimensional vector space is a vector space, and since
 
 
 \csection{Conditions for a Basis of a Vector Space}
+\label{sec:cond_basis_vec_space}
 
 There are two items we need to confirm before we can state that a subset $\CB$ of a subspace $W$ of a vector space is a basis for $W$: the set $\CB$ must be linearly independent and span $W$. We can reduce the amount of work it takes to show that a set is a basis if we know the dimension of the vector space in advance. 
 
@@ -164,6 +169,7 @@ The result of Activity \ref{act:5_c_5} is summarized in the following theorem (c
 \end{theorem}
 
 \csection{Examples}
+\label{sec:dims_exam}
 
 \ExampleIntro
 
@@ -257,6 +263,7 @@ In general, for an $n \times n$ matrix, the set of matrices $M_{ij}$, one for ea
 
 
 \csection{Summary}
+\label{sec:dims_summ}
 
 \begin{itemize}
 \item A finite dimensional vector space is a vector space that can be spanned by a finite set of vectors.
@@ -270,6 +277,7 @@ In general, for an $n \times n$ matrix, the set of matrices $M_{ij}$, one for ea
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:dims_exer}
 \be
 
 
@@ -375,6 +383,7 @@ is a magic matrix. Note that the entries of a magic matrix can be any real numbe
 
 
 \csection{Project: Understanding Principal Component Analysis}
+\label{sec:proj_pca}
 
 Suppose we were to film an experiment involving a ball that is bouncing up and down. Naively, we set up several cameras to follow the process of the experiment from different perspectives and collect the data. All of this data tells us something about the bouncing ball, but there may be no perspective that tells us an important piece of information -- the axis along which the ball bounces. The question, then, is how we can extract from the data this important piece of information. Principal Component Analysis (PCA) is a tool for just this type of analysis. 
 

@@ -1,4 +1,4 @@
-\achapter{21}{Complex Eigenvalues} \label{sec:complex_eigenvalues}
+\achapter{21}{Complex Eigenvalues} \label{chap:complex_eigenvalues}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,6 +13,7 @@
 \vspace*{13 pt}
 
 \csection{Application: The Gershgorin Disk Theorem}
+\label{sec:appl_gershgorin}
 
 We have now seen different methods for calculating/approximating eigenvalues of a matrix. The algebraic method using the characteristic polynomial can provide exact values, but only in cases where the size of the matrix is small. Methods like the power method allow us to approximate eigenvalues in many, but not all, cases. These approximation techniques can be made more efficient if we have some idea of where the eigenvalues are. The Gershgorin Disc Theorem is a useful tool that can quickly provide bounds on the location of eigenvalues using elementary calculations. For example, using the Gershsgorin Disk Theorem we can quickly tell that the real parts of the eigenvalues of the matrix 
 \[\left[ \begin{array}{ccr} 3&1&-1 \\ 0&-1+i&i \\ 2&1&-2i \end{array} \right]\]
@@ -27,6 +28,7 @@ lie between $-4$ and 5 and the imaginary parts lie between $-5$ and 2. Even more
 We will learn more details about the Gershgorin Disk Theorem at the end of this section. 
 
 \csection{Introduction}
+\label{sec:comp_eigen_intro}
 
 So far we have worked with real matrices whose eigenvalues are all real. However, the characteristic polynomial of a matrix with real entries can have complex roots. In this section we investigate the properties of these complex roots and their corresponding eigenvectors, how these complex eigenvectors are found, and the geometric interpretation of the transformations defined by matrices with complex eigenvalues. Although we can consider matrices that have complex numbers as entries, we will restrict ourselves to matrices with real entries. 
 
@@ -42,6 +44,7 @@ So far we have worked with real matrices whose eigenvalues are all real. However
 \end{pa}
 
 \csection{Complex Eigenvalues}
+\label{sec:comp_eigen}
 
 As you noticed in Preview Activity \ref{pa:4_e}, the complex roots of the characteristic equation of a real matrix $A$ come in complex conjugate pairs. This should come as no surprise since we know through our use of the quadratic formula that complex roots of (real) quadratic polynomials come in complex conjugate pairs. More generally, if $p(x)=a_0+a_1x+a_2x^2 + \cdots + a_nx^n$ is a polynomial with real coefficients and $z$ is a root of this polynomial, meaning $p(z)=0$, then 
 \[ 0=\overline{p(z)} = \overline{a_0+a_1z+a_2z^2 + \cdots + a_nz^n} = a_0 + a_1 \overline{z} + a_2 \overline{z}^2 + \cdots + a_n \overline{z}^n = p(\overline{z})\, .\]
@@ -68,6 +71,7 @@ In Preview Activity \ref{pa:4_e} and in Activity \ref{act:4e_1}, you found that 
 In the first equality, we used the fact that $A$ is a real matrix, so $\overline{A}=A$. In all the other equalities, we used the properties of the conjugation operation in complex numbers.
 
 \csection{Rotation and Scaling Matrices}
+\label{sec:mtx_rotate_scale}
 
 Recall that a rotation matrix is of the form 
 \[ R_\theta= \left[ \begin{array}{cr} \cos(\theta)&-\sin(\theta) \\ \sin(\theta)&\cos(\theta) \end{array} \right]\]
@@ -105,6 +109,7 @@ More generally, if we have a matrix $A$ of the form $A=\left[ \begin{array}{cr} 
 The first matrix in the decomposition is a scaling matrix with a scaling factor of $s=\sqrt{a^2+b^2}$. So if $s>1$, the transformation stretches vectors, and if $s<1$, the transformation shrinks vectors. The second matrix in the decomposition is a rotation matrix with angle $\theta$ such that $\cos(\theta)=\frac{a}{\sqrt{a^2+b^2}}$ and $\sin(\theta)=\frac{b}{\sqrt{a^2+b^2}}$. This angle is also the angle between the positive $x$-axis and the vector $\vv=\left[ \begin{array}{c} a\\ b\end{array} \right]$. We will refer to the matrices of the form $\left[ \begin{array}{cr} a&-b \\ b&a \end{array} \right]$ as \emph{rotation-scaling matrices}\index{rotation-scaling matrices}. 
 
 \csection{Matrices with Complex Eigenvalues}
+\label{sec:mtx_comp_eigen}
 
 Now we will investigate how a general $2\times 2$ matrix with complex eigenvalues can be seen to be similar (both in a linear algebra and a colloquial meaning) to a rotation-scaling matrix.
 
@@ -212,6 +217,7 @@ a\vu + b\vw &= c(a \vw - b \vu) \\
 Since $\vw \neq \vzero$ we must have $(a+cb)c = ca-b$. A little algebra shows that $(c^2+1)b = 0$. Since $b \neq 0$, we conclude that $c^2+1=0$, which is impossible for a real constant $c$. Therefore, we cannot have $x_1 \neq 0$. A similar argument (left to the reader) shows that $x_2 = 0$. Thus we can conclude that $\vu$ and $\vw$ are linearly independent.
 
 \csection{Examples}
+\label{sec:comp_eigen_exam}
 
 \ExampleIntro
 
@@ -272,6 +278,7 @@ The scaling is determined by the determinant of $R$ which is $5$, and the angle 
 
 
 \csection{Summary}
+\label{sec:comp_eigen_summ}
 
 \begin{itemize}
 \item For a real matrix, complex eigenvalues appear in conjugate pairs. Specifically, if $\lambda=a+ib$ is an eigenvalue of a real matrix $A$, then $\overline{\lambda}=a-ib$ is also an eigenvalue of $A$.
@@ -285,6 +292,7 @@ This decomposition geometrically means that the transformation corresponding to 
 
 
 \csection{Exercises}
+\label{sec:comp_eigen_exer}
 \be
 \item Find eigenvalues and eigenvectors of each of the following matrices.
 \ba \item $\left[ \begin{array}{rc} 2&4 \\ -2&2 \end{array} \right]$
@@ -342,6 +350,7 @@ The matrix $C$ is called the \emph{companion matrix}\index{companion matrix} for
 \ee
 
 \csection{Project: Understanding the Gershgorin Disk Theorem}
+\label{sec:proj_gershgorin}
 
 To understand the Gershgorin Disk Theorem, we need to recall how to visualize a complex number in the plane. Recall that a complex number $z$ is a number of the form $z = a+bi$ where $a$ and $b$ are real numbers and $i^2 = -1$. The number $a$ is the real part of $z$, denoted as $\text{Re}(z)$, and $b$ is the imaginary part of $z$, denoted $\text{Im}(z)$. The set of all complex numbers is denoted $\C$. We define addition and multiplication on $\C$ as follows. For $a+bi, c+di \in \C$, 
 \[(a+bi) + (c+di) = (a+c) + (b+d)i \ \ \ \ \ \text{and} \ \ \ \ \ (a+bi)(c+di) = (ac-bd) + (ad+bc)i.\]

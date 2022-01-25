@@ -1,4 +1,4 @@
-\achapter{5}{The Matrix-Vector Form of a Linear System} \label{sec:matrix_vector}
+\achapter{5}{The Matrix-Vector Form of a Linear System} \label{chap:matrix_vector}
 
 \vspace*{-17 pt}
 \framebox{
@@ -16,6 +16,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Modeling an Economy}
+\label{sec:appl_model_econ}
 
 An economy is a very complex system. An economy is not a well-defined object, there are many factors that influence an economy, and it is often unclear how the factors influence each other. Mathematical modeling plays an important role in attempting to understand an economy.
 
@@ -24,6 +25,7 @@ In 1941 Wassily Leontief developed the first empirical model of a national econo
 With such large models (Leontief's models are called \emph{input-output} models) it is important to find a shorthand way to represent the resulting systems.  In this section we will see how to represent any size system of linear equations in a very convenient way. Later, we will analyze a small economy using input-output models. 
 
 \csection{Introduction}
+\label{sec:mv_form_intro}
 
 There is another useful way to represent a system of linear equations using a matrix-vector product that we investigate in this section. To understand how this product comes about, recall that we can represent the linear system 
 \begin{alignat*}{5}
@@ -119,6 +121,7 @@ and express it in parametric vector form. Then find the general solution to the 
 
 
 \csection{The Matrix-Vector Product}
+\label{sec:mv_prod}
 
 The matrix-vector product we defined in Preview Activity \ref{pa:1_e} for a specific example generalizes in a very straightforward manner, and provides a convenient way to represent a system of linear equations of any size using matrices and vectors. In addition to providing us with an algebraic approach to solving systems via matrices and vectors -- leading to a powerful geometric relationship between solution sets of homogeneous and non-homogeneous systems -- this representation allows us to think of a linear system from a dynamic perspective, as we will see later in the section on matrix transformations. 
 
@@ -150,6 +153,7 @@ In general, the product of a matrix with a vector is defined as follows.
 
 
 \csection{The Matrix-Vector Form of a Linear System}
+\label{sec:mv_form}
 
 As we saw in Preview Activity \ref{pa:1_e}, the matrix-vector product provides us with a short hand way of representing a system of linear equations. In general, every linear system can be written in matrix-vector form as follows.
 
@@ -256,6 +260,7 @@ Similar arguments using the definition of matrix-vector product along with the p
 \end{theorem}
 
 \csection{Homogeneous and Nonhomogeneous Systems}
+\label{sec:homog_sys}
 
 As we saw before, the systems with all the right hand side constants being 0 are special in that they always have a solution. (Why?) So we might consider grouping systems into two types: Those of the form $A \vx = \vb$, where not all of the entries of the vector $\vb$ are $0$, and those of the form $A \vx = \vzero$, where $\vzero$ is the vector of all zeros. Systems like $A \vx = \vb$, where $\vb$ contains at least one non-zero entry, are called \textbf{nonhomogeneous} systems, and systems of the form $A \vx = \vzero$ are called \textbf{homogeneous} systems. For every nonhomogeneous system $A \vx = \vb$ there is a corresponding homogeneous system $A \vx = \vzero$. We now investigate the connection between the solutions to the nonhomogeneous system and the corresponding homogeneous system. 
 
@@ -320,6 +325,7 @@ Our work above proves the following theorem.
 
 
 \csection{The Geometry of Solutions to the Homogeneous System}
+\label{sec:geom_homog_sys}
 
 There is a simple geometric interpretation to the solution set of the homogeneous system $A \vx = \vzero$ based on the number of free variables that imposes a geometry on the solution set of the corresponding nonhomogeneous system $A \vx = \vb$ (when consistent) due to Theorem \ref{thm:1_e_1}.
 
@@ -363,6 +369,7 @@ Our work in the above activity shows the geometric shape of the solution set of 
 
 
 \csection{Examples}
+\label{sec:mv_form_exam}
 
 \ExampleIntro
 
@@ -443,6 +450,7 @@ where $x_3$ can be any real number.
 \end{example}
 
 \csection{Summary}
+\label{sec:mv_form_summ}
 
 \begin{itemize}
 \item If $A = [\vc_1 \ \vc_2 \ \cdots \ \vc_n]$ is an $m \times n$ matrix with columns $\vc_1$, $\vc_2$, $\ldots$, $\vc_n$, and if $\vx = \left[ \begin{array}{c} x_1\\x_2\\ \vdots \\ x_n \end{array} \right]$ is a vector in $\R^n$, then the matrix-vector product $A \vx$ is defined to be the linear combination of the columns of $A$ with corresponding weights from $\vx$ -- that is 
@@ -488,6 +496,7 @@ We will continue to add to this theorem, so it is a good idea for you to begin n
 
 
 \csection{Exercises}
+\label{sec:mv_form_exer}
 
 \be
 \item Write the system 
@@ -597,6 +606,7 @@ Using the parametric vector form of the solutions, determine what the solution s
 \ee
 
 \csection{Project: Input-Output Models}
+\label{sec:proj_io_models}
 
 There are two basic types of input-output models\index{input-output models}: closed and open. The closed model assumes that all goods produced are consumed within the economy -- no trading takes place with outside entities. In the open model, goods produced within the economy can be traded outside the economy.
 

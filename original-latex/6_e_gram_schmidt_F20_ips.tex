@@ -1,4 +1,4 @@
-\achapter{36}{The Gram-Schmidt Process in Inner Product Spaces} \label{sec:gram_schmidt_ips}
+\achapter{36}{The Gram-Schmidt Process in Inner Product Spaces} \label{chap:gram_schmidt_ips}
 
 \vspace*{-17 pt}
 \framebox{
@@ -10,15 +10,18 @@
 \vspace*{13 pt}
 
 \csection{Application: Gaussian Quadrature}
+\label{sec:appl_gaussian_quad}
 
 Since integration of functions is difficult, approximation techniques for definite integrals are very important. In calculus we are introduced to various methods, e.g., the midpoint, trapezoid, and Simpson's rule,  for approximating definite integrals. These methods divide the interval of integration into subintervals and then use values of the integrand at the endpoints to approximate the integral. These are useful methods when approximating integrals from tabulated data, but there are better methods for other types of integrands. If we make judicious choices in the points we use to evaluate the integrand, we can obtain more accurate results with less work. One such method is Gaussian quadrature (which, for example, is widely used in solving problems of radiation heat transfer in direct integration of the equation of transfer of radiation over space), which we explore later in this section. This method utilizes the Gram-Schmidt process to produce orthogonal polynomials.
 
 \csection{Introduction}
+\label{sec:gram_schmidt_intro}
 
 We have seen that orthogonal bases make computations very convenient, and the Gram-Schmidt process allowed us to create orthogonal bases in $\R^n$ using the dot product as inner product. In this section we will see how the Gram-Schmidt process works in any inner product space.  
 
 
 \csection{The Gram-Schmidt Process using Inner Products}
+\label{sec:gram_schmidt_inner_prod}
 
 Our goal is to understand how the Gram-Schmidt process works in any inner product space. 
 
@@ -89,6 +92,7 @@ using the inner product
 
 
 \csection{Examples} 
+\label{sec:gram_schmidt_exam}
 
 \ExampleIntro
 
@@ -166,6 +170,7 @@ A graph of the approximation and $h$ are shown in Figure \ref{F:6_e_example_2j}
 \end{example}
 
 \csection{Summary}
+\label{sec:gram_schmidt_summ}
 \begin{itemize}
 \item The Gram-Schmidt process produces an orthogonal basis from any basis. It works as follows. Let $\{\vv_1, \vv_2, \ldots, \vv_m\}$ be a basis for a subspace $W$ of an inner product space $V$. The set $\{\vw_1$, $\vw_2$, $\vw_3$, $\ldots$, $\vw_{m}\}$ defined by
 \begin{itemize}
@@ -183,6 +188,7 @@ for each $k$ between 1 and $m$.
 
 
 \csection{Exercises}
+\label{sec:gram_schmidt_exer}
 \be
 
 \item Let $V = C[0,1]$ with the inner product $\langle f(t), g(t) \rangle = \int_0^1 f(t) g(t) \, dt$. Let $W = \pol_2$. Note that $W$ is a subspace of $V$. 
@@ -274,6 +280,7 @@ if $\vu = \sum_{i=1}^n u_i \vv_i$ and $\vw = \sum_{i=1}^n w_i \vv_i$ in $V$. Let
 \ee
 
 \csection{Project: Gaussian Quadrature and Legendre Polynomials}
+\label{sec:proj_gaussian_quad}
 
 Simpson's rule is a reasonably accurate method for approximating definite integrals since it  models the integrand on subintervals with quadratics. For that reason, Simpson's rule provides exact values for integrals of all polynomials of degree less than or equal to 2. In Gaussian quadrature, we will use a family of polynomials to determine points at which to evaluate an integral of the form $\int_{-1}^1 f(t) \ dt$. By allowing ourselves to select evaluation points that are not uniformly distributed across the interval of integration, we will be able to approximate our integrals much more efficiently. The method is constructed so as to obtain exact values for as large of degree polynomial integrands as possible. As a result, if we can approximate our integrand well with polynomials, we can obtain very good approximations with Gaussian quadrature with minimal effort.
 

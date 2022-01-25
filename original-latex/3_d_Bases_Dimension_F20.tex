@@ -1,4 +1,4 @@
-\achapter{15}{Bases and Dimension} \label{sec:bases_dimension}
+\achapter{15}{Bases and Dimension} \label{chap:bases_dimension}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,7 +13,8 @@
 
 \vspace*{13 pt}
 
-\csection{Application: Lattice Based Cryptography}      
+\csection{Application: Lattice Based Cryptography}   
+\label{sec:appl_latt_crypt}   
 
 When you use your credit card, you expect that the information that is transmitted is protected so others can't use your card. Similarly, when you create a password for your computer or other devices, you do so with the intention that it will be difficult for others to decipher. 
 
@@ -22,6 +23,7 @@ Cryptology is the study of methods to maintain secure communication in the prese
 Modern cryptology uses mathematical theory that can be implemented with computer hardware and algorithms. The security of public key systems is largely based on mathematical problems that are very difficult to solve. For example, the security of the RSA system relies on the fact that it is computationally difficult to find prime factors of very large numbers, and elliptic curve cryptography relies on the difficulty of the discrete logarithm problem for elliptic curves.  However, the continual increase in the power of computers threatens the security of these systems, and so cryptographic systems have to keep adapting to the newest technology. For example, Shor's Algorithm (which could run on a quantum computer) can solve the public key cryptographic systems that rely on the integer factorization problem or the discrete logarithm problem. So if a working quantum computer was ever developed, it would threaten the existing cryptographic systems. Lattice-based cryptography is a potential source of systems that may be secure even in such an environment. The security of these systems is dependent on the fact that the average case of the difficulty of certain problems in lattice theory is higher than the worst case problems that underpin current cryptosystems.  As we will see later in this section, lattices are built on bases for subspace of $\R^n$.
 
 \csection{Introduction}
+\label{sec:base_dim_intro}
 A basis provides a system in which we can uniquely represent every vector in the space we are considering. More specifically, every vector in the space can be expressed as a linear combination of the vectors in the basis in a unique way. In order to be able to cover every point in the space, the basis has to span the space. In order to be able to provide a unique coordinate for each point, there should not be any extra vectors in the basis, which is achieved by linear independence of the vectors. For practical reasons, a basis simplifies many problems because we only need to solve the problem for each of the basis vectors. Solutions of the other cases usually follow because every vector in the space can be expressed as a unique linear combination of the basis vectors.
 
 Recall that a basis for a subspace $W$ of $\R^n$ is a set of vectors which are linearly independent and which span $W$. 
@@ -79,6 +81,7 @@ for scalars $x_1$, $x_2$, and $x_3$.
 
 
 \csection{The Dimension of a Subspace of $\R^n$}
+\label{sec:dim_sub_rn}
 
 In Preview Activity \ref{pa:3_d} we saw that a subspace of $\R^n$ can have more than one basis. This prompts the question of how, if at all, are any two bases for a given space related. More specifically, is it possible to have two bases for a given subspace of $\R^n$ that contain different numbers of vectors? As we will see the answer is no, which will lead us to the concept of \emph{dimension}. 
 
@@ -178,6 +181,7 @@ We denote the dimension of a subspace $W$ of $\R^n$ by $\dim(W)$. As we will see
 
 
 \csection{Conditions for a Basis of a Subspace of $\R^n$}
+\label{sec:cond_basis_subspace}
 
 There are two items we need to confirm before we can state that a subset $\B$ of a subspace $W$ of $\R^n$ is a basis for $W$: the set $\B$ must be linearly independent and span $W$. However, if we have the right number (namely, the dimension) of vectors in our set $\B$, then either one of these conditions will imply the other. 
 
@@ -224,6 +228,7 @@ The result of Activity \ref{act:3_d_3} is the following important theorem.
 
 
 \csection{Finding a Basis for a Subspace}
+\label{sec:find_basis_subspace}
 
 Since every vector in a subspace of $\R^n$ can be written uniquely as a linear combination of vectors in a basis for the subspace, a basis provides us with the most efficient and convenient way to represent vectors in the subspace. Until now we have been given a set of vectors and have been asked to find a basis from that set, so an important question to address is how we can find a basis for a subspace $W$ of $\R^n$ starting from scratch. Here is one way. If $W = \{\vzero\}$, then the dimension of $W$ is 0 and $W$ has no basis. So suppose $\dim(W) > 0$. Start by choosing any nonzero vector $\vw_1$ in $W$. Let $\B_1 = \{\vw_1\}$. If $\B_1$ spans $W$, then $\B_1$ is a basis for $W$. If not, there is a vector $\vw_2$ in $W$ that is not in $\Span(\B_1)$. Then $\B_2 = \{\vw_1, \vw_2\}$ is a linearly independent set. If $\Span(\B_2) = W$, then $\B_2$ is a basis for $W$ and we are done. If not, repeat the process. Since any basis for $W$ can contain at most $n=\dim(\R^n)$ vectors, we know the process must stop at some point. This process also allows us to construct a basis for a vector space that contains a given nonzero vector. 
 
@@ -236,6 +241,7 @@ Since every vector in a subspace of $\R^n$ can be written uniquely as a linear c
 
 
 \csection{Rank of a Matrix}
+\label{sec:mtx_rank}
 
 In this section, we define the rank of a matrix and review conditions to add to our Invertible Matrix Theorem.
 
@@ -300,6 +306,7 @@ The Rank-Nullity Theorem allows us to add extra conditions to the Invertible Mat
 
 
 \csection{Examples}
+\label{sec:base_dim_exam}
 
 \ExampleIntro
 
@@ -349,6 +356,7 @@ so $\left\{\left[ \renewcommand{\arraystretch}{1.5}  \begin{array}{r}-\frac{1}{4
 \end{example}
 
 \csection{Summary}
+\label{sec:base_dim_summ}
 
 The key idea in this section is the \emph{dimension} of a vector space.
 
@@ -363,6 +371,7 @@ The key idea in this section is the \emph{dimension} of a vector space.
 
 
 \csection{Exercises}
+\label{sec:base_dim_exer}
 
 \be
 \item Let $A =  \left[ \begin{array}{ccccr} 1&3&1&2&0\\ 0&0&0&0&1 \\ 2&6&0&0&1\\ 1&3&2&4&1 \\ 3&9&1&2&-1\\ 3&9&3&6&1 \end{array} \right]$. 
@@ -475,6 +484,7 @@ The key idea in this section is the \emph{dimension} of a vector space.
 \ee
 
 \csection{Project: The GGH Cryptosystem}
+\label{sec:proj_ggh_crypto}
 
 A cryptographic system (or cryptosystem) allows for secure communication between two or more parties. These systems take messages (called \emph{plaintext}) and encrypt them in some way to produce what is called \emph{ciphertext}. This is the scrambled information that is transmitted to the receiver, from which it should not be possible for someone who does not have the proper key to recover the original message. When the message is received by the intended recipient, it must be unscrambled or \emph{decrypted}. Decryption is the process of converting ciphertext back to plaintext. 
 

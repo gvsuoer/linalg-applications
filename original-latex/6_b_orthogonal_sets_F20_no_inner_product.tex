@@ -1,4 +1,4 @@
-\achapter{24}{Orthogonal and Orthonormal Bases in $\R^n$} \label{sec:orthogonal_basis}
+\achapter{24}{Orthogonal and Orthonormal Bases in $\R^n$} \label{chap:orthogonal_basis}
 
 \vspace*{-17 pt}
 \framebox{
@@ -14,10 +14,12 @@
 \vspace*{13 pt}
 
 \csection{Application: Rotations in 3D} 
+\label{sec:appl_3d_rotate}
 
 An aircraft in flight, like a plane or the space shuttle, can perform three independent rotations: \emph{roll}, \emph{pitch}, and \emph{yaw}. Roll is a rotation about the axis through the nose and tail of the aircraft, pitch is rotation moving the nose of the aircraft up or down through the axis from wingtip to wingtip, and yaw is the rotation when the nose of the aircraft turns left or right about the axis though the plane from top to bottom. These rotations take place in $3$-space and the axes of the rotations change as the aircraft travels through space. To understand how aircraft maneuver, it is important to know about general rotations in space. These are more complicated than rotations in $2$-space, and, as we will see later in this section, involve orthogonal sets. 
 
 \csection{Introduction}
+\label{sec:orthog_set_intro}
 
 If $\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}$ is a basis for a subspace $W$ of $\R^n$, we know that any vector $\vw$ in $W$ can be written uniquely as a linear combination of the vectors in $\CB$. In the past, the way we have found the coordinates of $\vx$ with respect to $\CB$, i.e. the weights needed to write a vector $\vx$ as a linear combination of the elements in $\CB$, has been to row reduce the matrix $[\vv_1  \ \vv_2  \ \cdots  \ \vv_m \ | \ \vx]$ to solve the corresponding system. This can be a cumbersome process, especially if we need to do it many times. This process also forces us to determine all of the weights at once. For certain types of bases, namely the \emph{orthogonal} and \emph{orthonormal} bases, there is a much easier way to find individual weights for this linear combination.
 
@@ -55,6 +57,7 @@ Substitute this expression for $\vx$ in $\vx \cdot \vv_1$ and use the orthogonal
 \end{pa}
 
 \csection{Orthogonal Sets}
+\label{sec:orthog_sets}
 
 We defined orthogonal sets in $\R^n$ and bases of subspaces of $\R^n$ in Definitions \ref{def:6_b_orthogonal_set_Rn} and \ref{def:6_b_orthogonal_basis_Rn}. We saw that the standard basis in $\R^3$ is an orthogonal set and an orthogonal basis of $\R^3$ -- there are many other examples as well.
 
@@ -98,6 +101,7 @@ We assumed that $\vv_k \neq \vzero$ and since $\vv_k \cdot \vv_k = || \vv_k ||^2
 
 
 \csection{Properties of Orthogonal Bases}
+\label{sec:orthog_bases_prop}
 
 Orthogonality is a useful and important property for a basis to have. In Preview Activity \ref{pa:6_b} we saw that if a vector $\vx$ in the span of an orthogonal basis $\{\vv_1, \vv_2, \vv_3\}$ could be written as a linear combination of the basis vectors as $\vx = x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3$, then $x_1 = \frac{\vx \cdot \vv_1}{\vv_1 \cdot \vv_1}$. If we continued that same argument we could show that 
 \[\vx = \left(\frac{\vx \cdot \vv_1}{\vv_1 \cdot \vv_1}\right) \vv_1 + \left(\frac{\vx \cdot \vv_2}{\vv_2 \cdot \vv_2}\right) \vv_2 + \left(\frac{\vx \cdot \vv_3}{\vv_3 \cdot \vv_3}\right) \vv_3.\]
@@ -124,6 +128,7 @@ Compare to $\vx$. Does this violate Theorem \ref{thm:6_b_orth_dcomp}? Explain.
 \end{activity}
 
 \csection{Orthonormal Bases}
+\label{sec:orthon_bases}
 
 The decomposition (\ref{eq:6_b_orth_ddecomp}) is even simpler if $\vv_k \cdot \vv_k = 1$ for each $k$, that is, if $\vv_k$ is a unit vector for each $k$. In this case, the denominators are all 1 and we don't even need to consider them. We have a familiar example of such a basis for $\R^n$, namely the standard basis $\CS = \{\ve_1, \ve_2, \ldots, \ve_n\}$.
 
@@ -159,6 +164,7 @@ In general, we can construct an orthonormal basis $\{\vu_1, \vu_2, \ldots, \vu_m
 
 
 \csection{Orthogonal Matrices}
+\label{sec:orthog_mtx}
 
 We have seen in the diagonalization process that we diagonalize a matrix $A$ with a matrix $P$ whose columns are linearly independent eigenvectors of $A$. In general, calculating the inverse of the matrix whose columns are eigenvectors of $A$ in the diagonalization process can be time consuming, but if the columns form an orthonormal set, then the calculation is very straightforward. 
 
@@ -216,6 +222,7 @@ We have discussed orthogonal and orthonormal bases for subspaces of $\R^n$ in th
 We will answer these questions in subsequent sections.
 
 \csection{Examples}
+\label{sec:orthog_set_exam}
 
 \ExampleIntro
 
@@ -295,6 +302,7 @@ Since $\CS$ is an orthonormal basis for $\R^n$, it follows that $\vv_i \cdot \vv
 \end{example}
 
 \csection{Summary}
+\label{sec:orthog_set_summ}
 \begin{itemize}
 \item A subset $S$ of $\R^n$ is an orthogonal set if $\vu \cdot \vv = 0$ for every pair of distinct vector $\vu$ and $\vv$ in $S$.
 \item Any orthogonal set of nonzero vectors is linearly independent. 
@@ -308,6 +316,7 @@ where $c_i = \frac{\vx \cdot \vv_i}{\vv_i \cdot \vv_i}$.
 
 
 \csection{Exercises}
+\label{sec:orthog_set_exer}
 \be
 \item Find an orthogonal basis for the subspace $W = \{ [x \ y \ z] : 4x-3z = 0\}$ of $\R^3$.
 
@@ -392,6 +401,7 @@ The matrix $A$ is the \emph{reflection} matrix across the line $L(\theta)$. (You
 \ee
 
 \csection{Project: Understanding Rotations in 3-Space}
+\label{sec:proj_3d_rotate}
 
 Recall that a counterclockwise rotation of $2$-space around the origin by an angle $\theta$ is accomplished by left multiplication by the matrix $\left[ \begin{array}{cr} \cos(\theta)&-\sin(\theta) \\ \sin(\theta)&\cos(\theta) \end{array} \right]$. Notice that the columns of this rotation matrix are orthonormal, so this rotation matrix is an orthogonal matrix. As the next activity shows, rotation matrices in 3D are also orthogonal matrices.
 

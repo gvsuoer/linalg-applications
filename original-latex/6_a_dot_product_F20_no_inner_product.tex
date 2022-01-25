@@ -1,4 +1,4 @@
-\achapter{23}{The Dot Product in $\R^n$} \label{sec:dot_product}
+\achapter{23}{The Dot Product in $\R^n$} \label{chap:dot_product}
 
 \vspace*{-17 pt}
 \framebox{
@@ -16,6 +16,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Hidden Figures in Computer Graphics}
+\label{sec:appl_figs_computer}
 
  In video games, the speed at which a computer can render changing graphics views is vitally important. To increase a computer's ability to render a scene, programs often try to identify those parts of the images a viewer could see and those parts the viewer could not see. For example, in a scene involving buildings, the viewer could not see any images blocked by a solid building. In the mathematical world, this can be visualized by graphing surfaces. In  Figure \ref{F:House} we see a crude image of a house made up of small polygons (this is how programs generally represent surfaces). On the left in Figure \ref{F:House} we see all of the polygons that are needed to construct the entire surface, even those polygons that lie behind others which we could not see if the surface was solid. On the right in Figure \ref{F:House} we have hidden the parts of the polygons that we cannot see from our view. 
  \begin{figure}[ht] 
@@ -36,6 +37,7 @@ We also see this idea in mathematics when we graph surfaces. Figure \ref{F:Surfa
 By eliminating the parts of the polygons we cannot see from our viewing perspective, the computer program can more quickly render the viewing image. Later in this section we will explore one method for how programs remove the hidden portions of images. This process involves the dot product of vectors.  
 
 \csection{Introduction}
+\label{sec:dot_prod_intro}
 
 Orthogonality, a concept which generalizes the idea of perpendicularity, is an important concept in linear algebra. We use the dot product to define orthogonality and more generally angles between vectors in $\R^n$ for any dimension $n$. The dot product has many applications, e.g., finding components of forces acting in different directions in physics and engineering. The dot product is also an example of a larger concept, \emph{inner products}, that we will discuss later. We introduce and investigate dot products in this section.
 
@@ -124,6 +126,7 @@ We can use unit vectors to find vectors of a given length in the direction of a 
 
 
 \csection{The Distance Between Vectors}
+\label{sec:dist_vec}
 
 Finding optimal solutions to systems is an important problem in applied mathematics. It is often the case that we cannot find an exact solution that satisfies certain constraints, so we look instead for the ``best" solution that satisfies the constraints. An example of this is fitting a least squares line to a set of data. As we will see, the dot product will allow us to find ``best" solutions to certain types of problems, where we measure accuracy using the notion of a distance between vectors. Geometrically, we can represent a vector $\vu$ as a directed line segment from the origin to the point defined by $\vu$. If we have two vectors $\vu$ and $\vv$, we can think of the length of the difference $\vu - \vv$ as a measure of how far apart the two vectors are from each other. It is natural, then to define the distance between vectors as follows.
 
@@ -142,6 +145,7 @@ As Figure \ref{F:6_a_vector_difference} illustrates, if vectors $\vu$ and $\vv$ 
 
 
 \csection{The Angle Between Two Vectors}
+\label{sec:angle_vec}
 
 Determining a ``best" solution to a problem often involves finding a solution that minimizes a distance. We generally accomplish a minimization through orthogonality --  which depends on the angle between vectors. Given two vectors $\vu$ and $\vv$ in $\R^n$, we position the vectors so that they emanate from the same initial point. If the vectors are nonzero, then they determine a plane in $\R^n$. In that plane there are two angles that these vectors create. We will define the angle between the vectors to be the smaller of these two angles. The dot product will tell us how to find the angle between vectors. Let $\vu$ and $\vv$ be vectors in $\R^n$ and $\theta$ the angle between them as illustrated in Figure \ref{F:Angle}.
 \begin{figure}[h]
@@ -231,6 +235,7 @@ Of particular interest to us will be the situation where vectors $\vu$ and $\vv$
 \end{activity}
 
 \csection{Orthogonal Projections}
+\label{sec:orthog_proj}
 
 When running a sprint, the racers may be aided or slowed by the wind. The wind assistance is a measure of the wind speed that is helping push the runners down the track. It is much easier to run a very fast race if the wind is blowing hard in the direction of the race. So that world records aren't dependent on the weather conditions, times are only recorded as record times if the wind aiding the runners is less than or equal to 2 meters per second. Wind speed for a race is recorded by a wind gauge that is set up close to the track. It is important to note, however, that weather is not always as cooperative as we might like. The wind does not always blow exactly in the direction of the track, so the gauge must account for the angle the wind makes with the track. If the wind is blowing in the direction of the vector $\vu$ in Figure \ref{F:Projection} and the track is in the direction of the vector $\vv$ in Figure \ref{F:Projection}, then only part of the total wind vector is actually working to help the runners. This part is called the orthogonal projection of the vector $\vu$ onto the vector $\vv$ and is denoted $\proj_{\vv} \vu$. The next activity shows how to find this projection.
 
@@ -279,6 +284,7 @@ To summarize:
 The orthogonal projection of a vector $\vu$ onto a vector $\vv$ is really a projection of the vector $\vu$ onto the space $\Span\{\vv\}$. The vector $\proj_{\vv} \vu$ is the best approximation to $\vu$ of all the vectors in $\Span\{\vv\}$ in the sense that $\proj_{\vv} \vu$ is the closest to $\vu$ among all vectors in $\Span\{\vv\}$, as we will prove later.
 
 \csection{Orthogonal Complements}
+\label{sec:orthog_comp}
 
 In Activity \ref{act:6_a_orthogonality} we defined two vectors $\vu$ and $\vv$ in $\R^n$ to be orthogonal (or perpendicular) if $\vu \cdot \vv = 0$. A use of orthogonality in geometry is to define a plane. A plane through the origin in $\R^3$ is a two dimensional subspace of $\R^3$, and a plane is defined to be the set of all vectors in $\R^3$ that are orthogonal to a given vector (called a \emph{normal}\index{normal vector} vector).  For example, to find the equation of the plane through the origin in $\R^3$ orthogonal to the normal vector $\vn = [1 \ 2 \ -1]^{\tr}$, we seek all the vectors $\vv = [x \  y \ z]^{\tr}$ such that
 \[\vv \cdot \vn = \vzero.\]
@@ -341,6 +347,7 @@ Thus, $\vv$ is orthogonal to $\vx$ and $\vv$ is orthogonal to every vector in $W
 We will work more closely with projections and orthogonal complements in later sections.
 
 \csection{Examples}
+\label{sec:dot_prod_exam}
 
 \ExampleIntro
 
@@ -436,6 +443,7 @@ So every vector in $W^{\perp}$ is a multiple of $\vn$, and $\{\vn\}$ spans $W^{\
 
 
 \csection{Summary}
+\label{sec:dot_prod_summ}
 \begin{itemize}
 \item The dot product of vectors $\vu = [u_1 \ u_2 \  \cdots  \ u_n ]^{\tr}$ and $\vv = [ v_1 \ v_2 \ \cdots \ v_n ]^{\tr}$ in $\R^n$ is the scalar 
 \[\vu \cdot \vv = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \displaystyle \sum_{i=1}^n u_iv_i.\]
@@ -461,6 +469,7 @@ and $0\leq \theta \leq 180$.
 
 
 \csection{Exercises}
+\label{sec:dot_prod_exer}
 \be
 \item For each of the following pairs of vectors, find $\vu \cdot \vv$, calculate the angle between $\vu$ and $\vv$, determine if $\vu$ and $\vv$ are orthogonal, find $||\vu||$ and $||\vv||$, calculate the distance between $\vu$ and $\vv$, and determine the orthogonal  projection of $\vu$ onto $\vv$. 
 	\ba
@@ -555,6 +564,7 @@ Equation (\ref{eq:6_a_triangle_inequality}) is called the \emph{Triangle Inequal
 \ee
 
 \csection{Project: Back-Face Culling}
+\label{sec:proj_back_face}
 
 To identify hidden polygons in a surface, we will utilize a technique called \emph{back face culling}\index{back-face culling}. This involves identifying which polygons are back facing and which are front facing relative to the viewer's perspective. The first step is to assign a direction to each polygon in a surface. 
 
