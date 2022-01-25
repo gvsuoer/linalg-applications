@@ -1,4 +1,4 @@
-\achapter{35}{Inner Product Spaces} \label{sec:inner_products}
+\achapter{35}{Inner Product Spaces} \label{chap:inner_products}
 
 \vspace*{-17 pt}
 \framebox{
@@ -14,11 +14,13 @@
 \vspace*{13 pt}
 
 \csection{Application: Fourier Series}
+\label{sec:appl_fourier}
 
 In calculus, a Taylor polynomial for a function $f$ is a polynomial approximation that fits $f$ well around the center of the approximation. For this reason, Taylor polynomials are good \emph{local} approximations, but they are not in general good global approximations. In particular, if a function $f$ has periodic behavior it is impossible to model $f$ well globally with polynomials that have infinite limits at infinity. For these kinds of functions, trigonometric polynomials are better choices. Trigonometric polynomials lead us to Fourier series, and we will investigate how inner products allow us to use trigonometric polynomials to model musical tones later in this section. 
 
 
 \csection{Introduction}
+\label{sec:inner_prod_intro}
 
 In Section \ref{sec:dot_product} we were introduced to inner products in $\R^n$. The concept of an inner product can be extended to vector spaces, as we will see in this section. This will allow us to measure lengths and angles between vectors and define orthogonality in certain vector spaces. 
 
@@ -50,6 +52,7 @@ Verify your answer.
 
  
 \csection{Inner Product Spaces}
+\label{sec:inner_prod_spaces}
 
 As we saw in Preview Activity \ref{pa:6_c}, we can define a mapping from $\pol_2 \times \pol_2$ to $\R$ that has the same properties of inner products on $\R^n$. So we can extend the definition of inner product to arbitrary vector spaces.  
 
@@ -90,6 +93,7 @@ One special inner product is indicated in Preview Activity \ref{pa:6_c}. Recall 
 The verification that this mapping is an inner product is left to the exercises. 
 
 \csection{The Length of a Vector}
+\label{sec:vec_length}
 
 We can use inner products to define the length of any vector in an inner product space and the distance between two vectors in an inner product space. The idea comes right from the relationship between lengths of vectors in $\R^n$ and inner products on $\R^n$ (compare to Definition \ref{def:6_a_length_Rn}). 
 
@@ -129,6 +133,7 @@ This mapping is an inner product on the space $\M_{n \times n}$ called the \emph
 
 
 \csection{Orthogonality in Inner Product Spaces}
+\label{sec:inner_prod_orthog}
 
 We defined orthogonality in $\R^n$ using inner products in $\R^n$ (see Definition \ref{def:6_a_orthogonal_dot_product}) and the angle between vectors. We can extend those ideas to any inner product space. 
 
@@ -157,6 +162,7 @@ Note that this defines the zero vector to be orthogonal to every vector.
 Using orthogonality we can generalize the notions of orthogonal sets and bases, orthonormal bases and orthogonal complements we defined in $\R^n$ to all inner product spaces in a natural way.
 
 \csection{Orthogonal and Orthonormal Bases in Inner Product Spaces}
+\label{sec:inner_prog_orthog_bases}
 
 As we did with inner products in $\R^n$, we define an orthogonal set to be one in which all of the vectors in the set are orthogonal to each other  (compare to Definition \ref{def:6_b_orthogonal_set_Rn}).
 
@@ -215,6 +221,7 @@ Recall that we can construct an orthonormal basis from an orthogonal basis by di
 
 
 \csection{Orthogonal Projections onto Subspaces}
+\label{sec:orthog_proj_subspace}
 
 In Section \ref{sec:gram_schmidt} we saw how to project a vector $\vv$ in $\R^n$ onto a subspace $W$ of $\R^n$. The same process works for vectors in any inner product space.
 
@@ -241,6 +248,7 @@ The notation $\proj_{W^{\perp}} \vv$ indicates that we expect this vector to be 
 Activity \ref{act:6_c_orth_projection} shows that the vector $\vv - \vw$ is orthogonal to vector for $W$. So, in fact, $\proj_{W^\perp} \vv$ is the projection of $\vv$ onto the orthogonal complement of $W$, which will be defined shortly. 
  
  \csection{Best Approximations in Inner Product Spaces}
+ \label{sec:inner_prod_approx}
 
 We have seen, e.g., linear regression to fit a line to a set of data, that we often want to find a vector in a subspace that ``best" approximates a given vector in a vector space. As in $\R^n$, the projection of a vector onto a subspace has this important property.  That is, $\proj_W \vv$ is the vector in $W$ closest to $\vv$ and therefore the best approximation of $\vv$ by a vector in $W$. To see that this is true in any inner product space, we first need a generalization of the Pythagorean Theorem that holds in inner product spaces.
 
@@ -288,6 +296,7 @@ So $\proj_W \vv$ minimizes this sum of squares over all vectors in $W$. As a res
 
 
 \csection{Orthogonal Complements}
+\label{sec:orthog_comp}
 
 If we have a set of vectors $S$ in an inner product space $V$, we can define the orthogonal complement of $S$ as we did in $\R^n$ (see \ref{def:6_a_orth_complement}).
 
@@ -335,6 +344,7 @@ We summarize the result of Activity \ref{act:6_c_decompose_ips}.
 Theorem \ref{thm:6_c_decompose_ips} is useful in many applications. For example, to compress an image using wavelets, we store the image as a collection of data, then rewrite the data using a succession of subspaces and their orthogonal complements.  This new representation allows us to visualize the data in a way that compression is possible. 
 
 \csection{Examples}
+\label{sec:inner_prod_exam}
 
 \ExampleIntro
 
@@ -415,6 +425,7 @@ is in $W^{\perp}$, and $\vv = \proj_{W} \vv + \proj_{W^{\perp}} \vv$.
 \end{example}
 
 \csection{Summary}
+\label{sec:inner_prod_summ}
 \begin{itemize}
 \item An inner product $\langle \ , \ \rangle$ on a vector space $V$ is a mapping from $V \times V \to \R$ satisfying
 	\begin{enumerate}
@@ -451,6 +462,7 @@ The norm of $\proj_{W^{\perp}} \vv$ provides a measure of how well $\proj_W \vv$
 
 
 \csection{Exercises}
+\label{sec:inner_prod_exer}
 \be
 
 \item \label{ex:6_c_Cab} Let $C[a,b]$ be the set of all continuous real valued functions on the interval $[a,b]$. If $f$ is in $C[a,b]$, we can extend $f$ to a continuous function from $\R$ to $\R$ by letting $F$ be the function defined by 
@@ -630,6 +642,7 @@ if $\vu = \sum_{i=1}^n u_i \vv_i$ and $\vw = \sum_{i=1}^n w_i \vv_i$ in $V$. (Si
 \ee
 
 \csection{Project: Fourier Series and Musical Tones}
+\label{sec:proj_fourier}
 
 Joseph Fourier first studied trigonometric polynomials to understand the flow of heat in metallic plates and rods. The resulting series, called Fourier series, now have applications in a variety of areas including  electrical engineering, vibration  analysis, acoustics, optics, signal processing, image processing, geology, quantum mechanics, and many more. For our purposes, we will focus on synthesized music.
 

@@ -1,4 +1,4 @@
-\achapter{20}{Approximating Eigenvalues and Eigenvectors} \label{sec:approx_eigenvalues}
+\achapter{20}{Approximating Eigenvalues and Eigenvectors} \label{chap:approx_eigenvalues}
 
 \vspace*{-17 pt}
 \framebox{
@@ -12,6 +12,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Leslie Matrices and Population Modeling}
+\label{sec:appl_leslie_mtx}
 
 The Leslie Matrix (also called the Leslie Model) is a powerful model for describing an age distributed growth of a population that is closed to migration. In a Leslie model, it is usually the case that only one gender (most often female) is considered. As an example, we will later consider a population of sheep that is being grown commercially. A natural question that we will address is how we can harvest the population to build a sustainable environment.
 
@@ -19,6 +20,7 @@ When working with populations, the matrices we use are often large. For large ma
 
 
 \csection{Introduction}
+\label{sec:app_eigen_intro}
 
 We have used the characteristic polynomial to find the eigenvalues of a matrix, and for each eigenvalue row reduced a corresponding matrix to find the eigenvectors This method is only practical for small matrices -- for more realistic applications approximation techniques are used. We investigate one such technique in this section, the \emph{power method}. 
 
@@ -41,6 +43,7 @@ We have used the characteristic polynomial to find the eigenvalues of a matrix, 
 
 
 \csection{The Power Method}
+\label{sec:power_method}
 
 While the examples we present in this text are small in order to highlight the concepts, matrices that appear in real life applications are often enormous. For example, in Google's PageRank algorithm that is used to determine relative rankings of the importance of web pages, matrices of staggering size are used (most entries in the matrices are zero, but the size of the matrices is still huge). Finding eigenvalues of such large matrices through the characteristic polynomial is impractical. In fact, finding the roots of all but the smallest degree characteristic polynomials is a very difficult problem. As a result, using the characteristic polynomial to find eigenvalues and then finding eigenvectors is not very practical in general, and it is often a better option to use a numeric approximation method. We will consider one such method in this section, the \emph{power method}. 
 
@@ -147,6 +150,7 @@ If the sequence $\{\vx_k\}$ converges to a dominant eigenvector of $A$, then the
 The power method can be useful for approximating a dominant eigenvector as long as the successive multiplications by $A$ are fairly simple -- for example, if many entries of $A$ are zero.\footnote{A matrix in which most entries are zero is called a \emph{sparse} matrix.\index{matrix!sparse}} The rate of convergence of the sequence $\{\vx_k\}$ depends on the ratio $\frac{\lambda_2}{\lambda_1}$. If this ratio is close to $1$, then it can take many iterations before the power $\left(\frac{\lambda_2}{\lambda_1}\right)^k$ makes the $\vv_2$ term negligible. There are other methods for approximating eigenvalues and eigenvectors, e.g., the QR factorization, that we will not discuss at this point.   	
 
 \csection{The Inverse Power Method}
+\label{sec:power_method_inv}
 
 The power method only allows us to approximate the dominant eigenvalue and a dominant eigenvector for a matrix $A$. It is possible to modify this method to approximate other eigenvectors and eigenvalues under certain conditions. We consider an example in the next activity to motivate the general situation.
 
@@ -245,6 +249,7 @@ $\frac{\vx_k^{\tr}A\vx_k}{\vx_k^{\tr}\vx_k}$ 	&$-1.0000$	&$-1.0000$	&$-1.0000$		
 \end{activity}
 
 \csection{Examples}
+\label{sec:app_eigen_exam}
 \ExampleIntro
 
 \begin{example} Let $A = \left[ \begin{array}{ccc} 1&2&3\\4&5&6\\7&8&9 \end{array} \right]$.
@@ -307,6 +312,7 @@ Admittedly, this method is very limited. Finding good choices for $\alpha$ often
 
 
 \csection{Summary}
+\label{sec:app_eigen_summ}
 \begin{itemize}
 \item The power method is an iterative method that can be used to approximate the dominant eigenvalue of an $n \times n$ matrix $A$ that has $n$ linearly independent eigenvectors and a dominant eigenvalue. 
 \item To use the power method we start with a seed $\vx_0$ and then calculate the sequence $\{\vx_k\}$ of vectors, where $\vx_k = A \vx_{k-1}$. If $\vx_0$ is chosen well, then the sequence $\{\vx_k\}$ converges to a dominant eigenvector of $A$. 
@@ -314,6 +320,7 @@ Admittedly, this method is very limited. Finding good choices for $\alpha$ often
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:app_eigen_exer}
 
 \be
 \item Let $A = \left[ \begin{array}{cc} 1&2\\2&1 \end{array} \right]$. Let $\vx_0 = [1 \ 0]^{\tr}$. 
@@ -422,6 +429,7 @@ Suppose the polynomial $q(t)$ has a linear factor, say $q(t) = (t-\lambda)Q(t)$ 
 \ee
 
 \csection{Project: Managing a Sheep Herd}
+\label{sec:proj_sheep_herd}
 
 Sheep farming is a significant industry in New Zealand. New Zealand is reported to have the highest density of sheep in the world. Sheep can begin to reproduce after one year, and give birth only once per year. Table \ref{T:Sheep} gives Birth and Survival Rates for Female New Zealand Sheep (from G. Caughley, ``Parameters for Seasonally Breeding Populations," \emph{Ecology}, \textbf{48}, (1967), 834-839). Since sheep hardly ever live past 12 years, we will only consider the population through 12 years.
 %\verb+http://www.math.uri.edu/~bonifant/classes/spring07/mth215/proj2.pdf+

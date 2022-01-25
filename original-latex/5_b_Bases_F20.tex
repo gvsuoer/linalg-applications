@@ -1,4 +1,4 @@
-\achapter{32}{Bases for Vector Spaces} \label{sec:bases}
+\achapter{32}{Bases for Vector Spaces} \label{chap:bases}
 
 \vspace*{-17 pt}
 \framebox{
@@ -16,6 +16,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Image Compression}
+\label{sec:img_compress}
 
 \begin{quote} If you painted a picture with a sky, clouds, trees, and flowers, you would use a different size brush depending on the size of the features. Wavelets are like those brushes.
 \end{quote}
@@ -64,6 +65,7 @@ The averaging and differencing is done with special vectors (wavelets) that form
 
 
 \csection{Introduction}
+\label{sec:bases_intro}
 
 In $\R^n$ we defined a basis for a subspace $W$ of $\R^n$ to be a minimal spanning set for $W$, or a linearly independent spanning set (see Definition \ref{def:1_f_basis}). So to consider the idea of a basis in a vector space, we will need the notion of linear independence in that context. 
 
@@ -133,6 +135,7 @@ for some scalars $x_1$, $x_2$, and $x_3$.  Note that the linear combination on t
 \end{pa}
 
 \csection{Linear Independence}
+\label{sec:lin_indep}
 
 The concept of linear independence, which we formally defined in Preview Activity \ref{pa:5_b}, provides us with a process to determine if there is redundancy in a spanning set to obtain an efficient spanning set. 
 
@@ -161,6 +164,7 @@ One consequence of Theorems \ref{thm:5_b_1} and \ref{thm:5_b_2} is that if a spa
 
 
 \csection{Bases}
+\label{sec:bases}
 
 A basis for a vector space is a spanning set that is as small as it can be. We already saw how to define bases formally in $\R^n$. We will now formally define a basis for a vector space and understand why with this definition a basis is a minimal spanning set. Bases are important because any vector in a vector space can be uniquely represented as a linear combination of basis vectors. We will see in later sections that this representation will allow us to identify any vector space with a basis of $n$ vectors with $\R^n$. 
 
@@ -221,6 +225,7 @@ As an example of a basis of a vector space, we saw in Preview Activity \ref{pa:5
 It should be noted that not every vector space has a finite basis. For example, the space $\pol$ of all polynomials with real coefficients (of any degree) is a vector space, but no finite set of vectors will span $\pol$. In fact, the infinite set $\{1, t, t^2, \ldots\}$ is both linearly independent and spans $\pol$, so $\pol$ has an infinite basis. 
 
 \csection{Finding a Basis for a Vector Space}
+\label{sec:basis_vec_space}
 
 We already know how to find bases for certain vector spaces, namely $\Nul A$ and $\Col A$, where $A$ is any matrix. Finding a basis for a different kind of vector space will require other methods. Since a basis for a vector space is a minimal spanning set, to find a basis for a given vector space we might begin from scratch, starting with a given vector in the space and adding one vector at a time until we have a spanning set. 
 
@@ -272,6 +277,7 @@ We conclude this section with the result mentioned in the introduction -- that e
 \end{theorem}
 
 \csection{Examples}
+\label{sec:bases_exam}
 
 \ExampleIntro 
 
@@ -378,6 +384,7 @@ The reduced row echelon form of $\left[ \begin{array}{rrrc} 1&0&1&0 \\ -1&-1&0&0
 
  
 \csection{Summary}
+\label{sec:bases_summ}
 
 The important idea in this section is that of a basis for a vector space. A basis is a minimal spanning set and another equivalent characterization of the ``minimal" property is linear independence.
 \begin{itemize}
@@ -398,6 +405,7 @@ If a set of vectors is not linearly independent, then the set is linearly depend
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:bases_exer}
 \be
 \item Determine if the given sets are linearly independent or dependent in the indicated vector space. If dependent, write one of the vectors as a linear combination of the others. If independent, determine if the set is a basis for the vector space. 
 	\ba
@@ -479,6 +487,7 @@ If a set of vectors is not linearly independent, then the set is linearly depend
 \ee
 
 \csection{Project: Image Compression with Wavelets}
+\label{sec:proj_img_compress}
 
 We return to the problem of image compression introduced at the beginning of this section. The first step in the wavelet compression process is to digitize an image. There are two important ideas about digitalization to understand here:  intensity levels and resolution.  In grayscale image processing, it is common to think of 256 different intensity levels, or scales, of gray ranging from 0 (black) to 255 (white).  A digital image can be created by taking a small grid of squares (called pixels) and coloring each pixel with some shade of gray.  The resolution of this grid is a measure of how many pixels are used per square inch.  An example of a 16 by 16 pixel picture of a flower was shown in Figure \ref{F:Flower_1}.
 

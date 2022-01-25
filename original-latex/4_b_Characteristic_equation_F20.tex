@@ -1,4 +1,4 @@
-\achapter{18}{The Characteristic Equation} \label{sec:characteristic_equation}
+\achapter{18}{The Characteristic Equation} \label{chap:characteristic_equation}
 
 \vspace*{-17 pt}
 \framebox{
@@ -14,6 +14,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Modeling the Second Law of Thermodynamics}
+\label{sec:appl_thermo}
 
 Pour cream into your cup of coffee and the cream spreads out; straighten up your room and it soon becomes messy again; when gasoline is mixed with air in a car's cylinders, it explodes if a spark is introduced. In each of these cases a transition from a low energy state (your room is straightened up) to a higher energy state (a messy, disorganized room) occurs. This can be described by entropy -- a measure of the energy in a system. Low energy is organized (like ice cubes) and higher energy is not (like water vapor). It is a fundamental property of energy (as described by the second law of thermodynamics) that the entropy of a system cannot decrease. In other words, in the absence of any external intervention, things never become more organized.
 
@@ -21,6 +22,7 @@ The Ehrenfest model\footnote{named after Paul and Tatiana Ehrenfest who introduc
 
 
 \csection{Introduction}
+\label{sec:chareq_intro}
 We have seen that the eigenvalues of an $n \times n$ matrix $A$ are the scalars $\lambda$ so that $A - \lambda I_n$ has a nontrivial null space. Since a matrix has a nontrivial null space if and only if the matrix is not invertible, we can also say that $\lambda$ is an eigenvalue of $A$ if
 \begin{equation}
 \det(A - \lambda I_n) = 0. \label{eq:PA5.2_1}
@@ -70,6 +72,7 @@ In this activity, our goal will be to use the characteristic equation to obtain 
 
 
 \csection{The Characteristic Equation}
+\label{sec:chareq}
 
 Until now, we have been given eigenvalues or eigenvectors of a matrix and determined eigenvectors and eigenvalues from the known information. In this section we use determinants to find (or approximate) the eigenvalues of a matrix. From there we can find (or approximate) the corresponding eigenvectors. The tool we will use is a polynomial equation, the \emph{characteristic equation}, of a square matrix whose roots are the eigenvalues of the matrix. The characteristic equation will then provide us with an \emph{algebraic} way of finding the eigenvalues of a square matrix. 
 
@@ -140,6 +143,7 @@ We now summarize the information we have so far about eigenvalues of an $n\times
 
 
 \csection{Eigenspaces, A Geometric Example}
+\label{sec:egspace_geom}
 
 Recall that for each eigenvalue $\lambda$ of an $n \times n$ matrix $A$, the eigenspace of $A$ corresponding to the eigenvalue $\lambda$ is $\Nul (A - \lambda I_n)$. These eigenspaces can tell us important information about the matrix transformation defined by $A$. For example, consider the matrix transformation $T$ from $\R^3$ to $\R^3$ defined by $T(\vx) = A \vx$, where
 \[A = \left[ \begin{array}{ccc} 1&0&1\\0&1&1\\0&0&2 \end{array} \right].\]
@@ -164,6 +168,7 @@ This geometric perspective illustrates how each eigenvalue and the corresponding
 
 
 \csection{Dimensions of Eigenspaces}
+\label{sec:egspace_dims}
 
 There is a connection between the dimension of the eigenspace of a matrix corresponding to an eigenvalue and the multiplicity of that eigenvalue as a root of the characteristic polynomial. Recall that the dimension of a subspace of $\R^n$ is the number of vectors in a basis for the eigenspace. We investigate the connection between dimension and multiplicity in the next activity.
 
@@ -227,6 +232,7 @@ So the action of a matrix transformation can be more easily visualized if the di
 
  
 \csection{Examples}
+\label{sec:chareq_exam}
 
 \ExampleIntro
 
@@ -288,6 +294,7 @@ A &= \left[\renewcommand{\arraystretch}{1.4} \begin{array}{rrr} \frac{10}{3}&-2&
 \end{example}
 
 \csection{Summary}
+\label{sec:chareq_summ}
 In this section we studied the characteristic polynomial of a matrix and similar matrices.
 \begin{itemize}
 \item If $A$ is an $n \times n$ matrix, the characteristic polynomial of $A$ is the polynomial
@@ -309,6 +316,7 @@ where $I_n$ is the $n \times n$ identity matrix.
 
 
 \csection{Exercises}
+\label{sec:chareq_exer}
 \be
 	
 \item \label{ex:determinant_eigenvalues} There is a useful relationship between the determinant and eigenvalues of a matrix $A$ that we explore in this exercise. 
@@ -367,6 +375,7 @@ where $I_n$ is the $n \times n$ identity matrix.
 \ee
 
 \csection{Project: The Ehrenfest Model}
+\label{sec:proj_ehrenfest}
 
 To realistically model the diffusion of gas molecules we would need to consider a system with a large number of balls as substitutes for the gas molecules. However, the main idea can be seen in a model with a much smaller number of balls, as we will do now. Suppose we have two bins that contain a total of $4$ balls between them. Label the bins as Bin 1 and Bin 2. In this case we can think of entropy as the number of different possible ways the balls can be arranged in the system. For example, there is only $1$ way for all of the balls to be in Bin 1 (low entropy), but there are $4$ ways that we can have one ball in Bin 1 (choose any one of the four different balls, which can be distinguished from each other) and $3$ balls in Bin 2 (higher entropy). The highest entropy state has the balls equally distributed between the bins (with $6$ different ways to do this).
 

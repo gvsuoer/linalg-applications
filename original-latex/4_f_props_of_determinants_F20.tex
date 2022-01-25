@@ -1,4 +1,4 @@
-\achapter{22}{Properties of Determinants} \label{sec:det_properties}
+\achapter{22}{Properties of Determinants} \label{chap:det_properties}
 
 \vspace*{-17 pt}
 \framebox{
@@ -18,6 +18,7 @@
 
 
 \csection{Introduction}
+\label{sec:det_prop_intro}
 
 This section is different than others in that it contains mainly proofs of previously stated results and only a little new material. Consequently, there is no application attached to this section.
 
@@ -85,6 +86,7 @@ We have seen that an important property of the determinant is that it provides a
 
 
 \csection{Elementary Row Operations and Their Effects on the Determinant}
+\label{sec:det_row_ops}
 
 In Preview Activity \ref{pa:4_f}, we conjectured how elementary row operations affect the determinant of a matrix. In the following activity, we prove how the determinant changes when a row is multiplied by a constant using the cofactor expansion definition of the determinant.
 
@@ -128,6 +130,7 @@ Your work in Activity \ref{act:4_f_1} proves the first part of the following the
 In the next section, we will use elementary matrices to prove the last two properties of Theorem \ref{thm:4_f_1}. 
 
 \csection{Elementary Matrices}
+\label{sec:mtx_elem}
 
 As we saw in Preview Activity \ref{pa:4_f}, elementary row operations can be achieved by multiplication by \emph{elementary matrices}.
 
@@ -250,6 +253,7 @@ In other words, if we keep track of how the row operations affect the determinan
 \noindent \textbf{Summary: } Let $A$ be an $n\times n$ matrix. Suppose we swap rows $s$ times and divide rows by constants $k_1, k_2, \ldots, k_r$ while computing a row echelon form $\text{REF}(A)$ of $A$. Then $\det(A)=(-1)^s k_1 k_2\cdots k_r \det(\text{REF}(A))$.
 
 \csection{Geometric Interpretation of the Determinant}
+\label{sec:det_geom}
 
 Determinants have interesting and useful applications from a geometric perspective. To understand the geometric interpretation of the determinant of an $n\times n$ matrix $A$, we consider the image of the unit square under the transformation $T(\vx)=A\vx$ and see how its area changes based on $A$.
 
@@ -324,6 +328,7 @@ The sign of $\det(A)$ can be interpreted in terms of the orientation of the colu
 
 
 \csection{An Explicit Formula for the Inverse and Cramer's Rule}
+\label{sec:inv_cramers}
 
 In Section \ref{sec:matrix_inverse} we found the inverse $A^{-1}$ using row reduction of the matrix obtained by augmenting $A$ with $I_n$. However, in theoretical applications, having an explicit formula for $A^{-1}$ can be handy. Such an explicit formula provides us with an algebraic expression for $A^{-1}$ in terms of the entries of $A$. A consequence of the formula we develop is Cramer's Rule, which can be used to provide formulas that give solutions to certain linear systems.
 
@@ -452,6 +457,7 @@ along the $j$th column, giving us the formula in Cramer's Rule.
 Cramer's Rule is not a computationally efficient method. To find a solution to a linear system of $n$ equations in $n$ unknowns using Cramer's Rule requires calculating $n+1$ determinants of $n \times n$ matrices -- quite inefficient when $n$ is 3 or greater. Our standard method of solving systems using Gaussian elimination is much more efficient. However, Cramer's Rule does provide a formula for the solution to $A \vx = \vb$ as long as $A$ is invertible. 
 
 \csection{The Determinant of the Transpose}
+\label{sec:det_transpose}
 
 In this section we establish the fact that the determinant of a square matrix is the same as the determinant of its transpose.  
 
@@ -499,6 +505,7 @@ Since the quantities in (\ref{eq:det_transpose_1}) and (\ref{eq:det_transpose_2}
 \[\det(A^{\tr}) = \det(A).\]
 
 \csection{Row Swaps and Determinants}
+\label{sec:det_row_swap}
 
 In this section we determine the effect of row swaps to the determinant. Let $E_{rs}$ be the elementary matrix that swaps rows $r$ and $s$ in the $n \times n$ matrix $A=[a_{ij}]$. Applying $E_{12}$ to a $2 \times 2$ matrix $A = \left[ \begin{array}{cc} a & b \\ c & d \end{array} \right]$, we see that 
 \[\det(A) = ad - bc = -(ad-bc) = \det\left(\left[ \begin{array}{cc} c & d \\ a & b \end{array} \right]\right) = \det(E_{12}A).\]
@@ -538,6 +545,7 @@ and interchanging any two rows multiplies the determinant by $-1$.
 
 
 \csection{Cofactor Expansions}
+\label{sec:cofactor_expand}
 
 We have stated that the determinant of a matrix can be calculated by using a cofactor expansion along any row or column. We use the result that swapping rows introduces a factor of $-1$ in the determinant to verify that result in this section. Note that in proving that $\det(A^{\tr}) = \det(A)$, we have already shown that the cofactor expansion along the first column is the same as the cofactor expansion along the first row. If we can prove that the cofactor expansion along any row is the same, then the fact that $\det(A^{\tr}) = \det(A)$ will imply that the cofactor expansion along any column is the same as well.
 
@@ -574,6 +582,7 @@ Notice that for each $j$ we have $B_{1j} = A_{ij}$. So
 
 
 \csection{The LU Factorization of a Matrix}
+\label{sec:mtx_lu_factor}
 
 There are many instances where we have a number of systems to solve of the form $A \vx = \vb$, all with the same coefficient matrix. The system may evolve over time so that we do not know the constant vectors $\vb$ in the system all at once, but only determine them as time progresses. Each time we obtain a new vector $\vb$, we have to apply the same row operations to reduce the coefficient matrix to solve the new system. This is time repetitive and time consuming. Instead, we can keep track of the row operations in one row reduction and save ourselves a significant amount of time. One way of doing this is the $LU$-factorization (or decomposition). 
 
@@ -631,6 +640,7 @@ So in this case we have $U = E_4E_3E_2E_1B$, but
 is not lower triangular. The difference in this latter example is that we needed a row swap to obtain the upper triangular form. 
 
 \csection{Examples}
+\label{sec:det_prop_exam}
 
 \ExampleIntro
 
@@ -727,6 +737,7 @@ This gives us $E_3E_2E_1A = U$, so we can take
 
 
 \csection{Summary}
+\label{sec:det_prop_summ}
 
 \begin{itemize}
 \item The elementary row operations have the following effects on the determinant:
@@ -749,6 +760,7 @@ where the $\text{adj } A$ matrix, the \emph{adjugate of $A$}, is defined as the 
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:det_prop_exer}
 
 \be
 \item \label{ex:4_f_det_multiple} Find a formula for $\det(rA)$ in terms of $r$ and $\det(A)$, where $A$ is an $n\times n$ matrix and $r$ is a scalar. Explain why your formula is valid.

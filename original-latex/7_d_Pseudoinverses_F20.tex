@@ -1,4 +1,4 @@
-\achapter{30}{Using the Singular Value Decomposition} \label{sec:pseudoinverses}
+\achapter{30}{Using the Singular Value Decomposition} \label{chap:pseudoinverses}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,7 +13,8 @@
 
 \vspace*{13 pt}
 
-\csection{Application: Global Positioning System}      
+\csection{Application: Global Positioning System}    
+\label{sec:appl_gps}  
 
 You are probably familiar with the Global Positioning System (GPS). The system allows anyone with the appropriate software to accurately determine their location at any time. The applications are almost endless, including getting real-time driving directions while in your car, guiding missiles, and providing distances on golf courses. 
 
@@ -22,10 +23,13 @@ The GPS is a worldwide radio-navigation system owned by the US government and op
 The system works by triangulation, but there is also error involved in the measurements that go into determining position. Later in this section we will see how the method of least squares can be used to determine the receiver's position.
 
 
-\csection{Introduction} A singular value decomposition has many applications, and in this section we discuss how a singular value decomposition can be used in image compression, to determine how sensitive a matrix can be to rounding errors in the process of row reduction, and to solve least squares problems.  
+\csection{Introduction} 
+\label{sec:pseudo_intro}
+A singular value decomposition has many applications, and in this section we discuss how a singular value decomposition can be used in image compression, to determine how sensitive a matrix can be to rounding errors in the process of row reduction, and to solve least squares problems.  
 
 
 \csection{Image Compression}
+\label{sec:img_conpress}
 
 The digital age has brought many new opportunities for the collection, analysis, and dissemination of information. Along with these opportunities come new difficulties as well. All of this digital information must be stored in some way and be retrievable in an efficient manner. A singular value decomposition of digitally stored information can be used to compress the information or clean up corrupted information. In this section we will see how a singular value decomposition can be used in image compression. While a singular value decomposition is normally used with very large matrices, we will restrict ourselves to small examples so that we can more clearly see how a singular value decomposition is applied.
 
@@ -139,6 +143,7 @@ For example, if we only need 10 of the singular values of a satellite image ($s 
 A similar process can be used to denoise data.\footnote{For example, as stated in \url{http://www2.imm.dtu.dk/~pch/Projekter/tsvd.html}, ``The SVD [singular value decomposition] has also applications in digital signal processing, e.g., as a method for noise reduction. The central idea is to let a matrix $A$ represent the noisy signal, compute the SVD, and then discard small singular values of $A$. It can be shown that the small singular values mainly represent the noise, and thus the rank-$k$ matrix $A_k$ represents a filtered signal with less noise."}
 
 \csection{Calculating the Error in Approximating an Image}
+\label{sec:err_approx_img}
 
 In the context where a matrix represents an image, the operator aspect of the matrix is irrelevant -- we are only interested in the matrix as a holder of information. In this situation, we think of an $m \times n$ matrix as simply a long vector in $\R^{mn}$ where we have folded the data into a rectangular array. If we are interested in determining the error in approximating an image by a compressed image, it makes sense to use the standard norm in $\R^{mn}$ to determine length and distance. This leads to what is called the \emph{Frobenius} norm of a matrix. The Frobenius norm $||M||_F$ of an $m \times n$ matrix $M = [m_{ij}]$ is
 \[||M||_F = \sqrt{ \sum m_{ij}^2 }.\]
@@ -228,6 +233,7 @@ $\frac{||E_k||}{||M||}$ &0.0918 &0.1231 &0.1590 &0.201 &0.2460 \\ \hline
 
 
 \csection{The Condition Number of a Matrix}
+\label{sec:mtx_cond_num}
 
 A singular value decomposition for a matrix $A$ can tell us a lot about how difficult it is to accurately solve a system $A \vx = \vb$. Solutions to systems of linear equations can be very sensitive to rounding as the next exercise demonstrates.
 
@@ -342,6 +348,7 @@ Therefore, the condition number of $A$ is
 
 
 \csection{Pseudoinverses} 
+\label{sec:pseudoinverses}
 
 Not every matrix is invertible, so we cannot always solve a matrix equation $A \vx = \vb$. However, every matrix has a pseudoinverse $A^+$ that acts something like an inverse. Even when we can't solve a matrix equation $A \vx = \vb$ because $\vb$ isn't in $\Col A$, we can use the pseudoinverse of $A$ to ``solve" the equation $A \vx = \vb$ with the ``solution" $A^+ \vb$. While not an exact solution, $A^+ \vb$ turns out to be the best approximation to a solution in the least squares sense. We will use the singular value decomposition to find the pseudoinverse of a matrix.
 
@@ -435,6 +442,7 @@ Also, there is a unique matrix $A^+$ that satisfies these properties. The verifi
 
 
 \csection{Least Squares Approximations}
+\label{sec:ls_approx}
 
 The pseudoinverse of a matrix is also connected to least squares solutions of linear systems as we encountered in Section \ref{sec:orthogonal_basis}. Recall from Section \ref{sec:orthogonal_basis}, that if the columns of $A$ are linearly independent, then the least squares solution to $A\vx = \vb$ is $\vx = \left(A^{\tr}A\right)^{-1}A^{\tr} \vb$. In this section we will see how to use a pseudoinverse to solve a least squares problem, and verify that if the columns of $A$ are linearly dependent, then $ \left(A^{\tr}A\right)^{-1}A^{\tr}$ is in fact the pseudoinverse of $A$.  
 
@@ -493,6 +501,7 @@ Then $(A^{\tr}A)^{-1} = VD^{-1}V^{\tr}$. Recall that $A^{+} = V \Sigma^{+} U^{\t
 Therefore, to calculate $A^{+}$ and solve a least squares problem, Theorem \ref{thm:7_d_SVD_cols_lin_indep} shows that as long as the columns of $A$ are linearly independent, we can avoid using a singular value decomposition of $A$ in finding $A^{+}$. 
 
 \csection{Examples}
+\label{sec:pseudo_exam}
 
 \ExampleIntro
 
@@ -753,6 +762,7 @@ This makes our least squares linear approximation to be (to four decimal places)
 	
 
 \csection{Summary}
+\label{sec:pseudo_summ}
 \begin{itemize}
 \item The condition number of an $m \times n$ matrix $A$ is the number $||A^{-1}|| \ ||A||$. The condition number provides a measure of how well the relative error in a calculated value $\Delta \vb$ predicts the relative error in $\Delta \vx$ when we are trying to solve a system $A \vx = \vb$.  
 \item A pseudoinverse $A^{+}$ of a matrix $A$ can be found through a singular value decomposition. Let $U \Sigma V^{\tr}$ be a singular value decomposition of an $m \times n$ matrix $A$ of rank $r$, with
@@ -766,6 +776,7 @@ then $A^{+} = V\Sigma^{+}U^{\tr}$.
 
 
 \csection{Exercises}
+\label{sec:pseudo_exer}
 \be
 \item Let $A = \left[ \begin{array}{rcc} 20&4&32 \\ -4&4&2 \\ 35&22&26 \end{array} \right]$. Then $A$ has singular value decomposition $U \Sigma V^{\tr}$ , where 
 \begin{align*}
@@ -930,6 +941,7 @@ Distance		&116					&190					&254					&285					&270					&230  \\ \hline
 \ee
 
 \csection{Project: GPS and Least Squares}
+\label{sec:proj_gps}
 
 In this project we discuss some of the details about how the GPS works. The idea is based on intersections of spheres. To build a basic understanding of the system, we begin with a 2-dimensional example. 
 

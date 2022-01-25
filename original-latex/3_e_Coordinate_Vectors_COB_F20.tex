@@ -1,4 +1,4 @@
- \achapter{16}{Coordinate Vectors and Change of Basis} \label{sec:coordinate_vectors}
+ \achapter{16}{Coordinate Vectors and Change of Basis} \label{chap:coordinate_vectors}
 
 \vspace*{-17 pt}
 \framebox{
@@ -12,11 +12,13 @@
 \vspace*{13 pt}
 
 \csection{Application: Describing Orbits of Planets}
+\label{sec:appl_orbits}
 
 Consider a planet orbiting the sun (or an object like a satellite orbiting the Earth). According to Kepler's Laws, we assume an elliptical orbit. There are many different ways to describe this orbit, and which description we use depends on our perspective and the application. One important perspective is to make the description of the orbit as simple as possible for earth-based observations. Two problems arise. One is that the earth's orbit and the orbit of the planet do not lie in the same plane. A second problem is that it is complicated to describe the orbit of a planet using the perspective of the plane of the earth's orbit. A reasonable approach, then, is to establish two different coordinate systems, one for the earth's orbit and one for the planet's orbit. We can then use a change of basis to move back and forth from these two perspectives. 
 
 
 \csection{Introduction}
+\label{sec:cob_intro}
 
 In this section we will investigate how a basis in $\R^n$ provides a coordinate system in which each vector in $\R^n$ has a unique set of coordinates. In this way, each basis will provide us with a new perspective to visualize $\R^n$. Then we will see how coordinate vectors can allow us to find change of basis matrices that we can use to easily switch between coordinate systems. We begin our analysis of coordinate systems by looking at how a basis in $\R^2$ gives us a different view of $\R^2$. 
 
@@ -61,6 +63,7 @@ Let $\CB = \left\{ \left[ \begin{array}{r} -1 \\ 4 \end{array} \right], \left[ \
 
 
 \csection{Bases as Coordinate Systems in $\R^n$}
+\label{sec:coor_base}
 
 Bases are useful for many reasons. A basis provides us with a unique representation of the elements in $\R^n$ as linear combinations of the basis vectors in the coordinate system defined by the vectors. 
 
@@ -121,6 +124,7 @@ Activity \ref{act:3_e_coor_vect_props} suggests that the following theorem is tr
 
 
 \csection{Change of Basis in $\R^n$}
+\label{sec:cob_rn}
 
 In calculus we change coordinates, from rectangular to polar, for example, to make certain calculations easier. In order for us to be able to work effectively in different coordinate systems, and to easily change back and forth as needed, we will want to have a way to effectively transition from one coordinate system to another. In other words, if we have two different bases for $\R^n$, we want a straightforward way to translate between the coordinate vectors of any given vector in $\R^n$ with respect to the two bases. 
 
@@ -167,6 +171,7 @@ for any vectors $\vx$ and $\vy$ in $\R^n$  with basis $\CS$, and any scalars $r$
 
 
 \csection{The Change of Basis Matrix in $\R^n$}\index{change of basis matrix in $\R^n$}
+\label{sec:mtx_cob}
 
 Suppose we have two different finite bases $\CB$ and $\CC$ for $\R^n$. In Preview Activity \ref{pa:3_e_2} we learned how to translate between the two bases in the 2-dimensional case -- if $\CB = \{\vb_1, \vb_2\}$ and $\CC = \{\vc_1, \vc_2\}$, then the change of basis matrix from $\CB$ to $\CC$ is the matrix $[[\vb_1]_{\CC} \ [\vb_2]_{\CC}]$. This result in the 2-dimensional case generalizes to the $n$-dimensional case, and we can determine a straightforward method for calculating a change of basis matrix.  The essential idea was introduced in Preview Activity \ref{pa:3_e_2}. 
 
@@ -228,6 +233,7 @@ In particular, if we use the standard basis for $\R^n$ as our basis $\CS$, then 
 
 
 \csection{Properties of the Change of Basis Matrix}
+\label{sec:prop_mtx_cob}
 
 The are many different bases for $\R^n$, so it is natural to ask how change of bases matrices might be related to one another.
 
@@ -274,6 +280,7 @@ Activity \ref{act:3_e_COB_properties} seems to indicate that the inverse of a ch
 \end{theorem}
 
 \csection{Examples}
+\label{sec:cob_exam}
 
 \ExampleIntro
 
@@ -373,6 +380,7 @@ The solution to this system is $c_1 = 0$, $c_2 = -1$, $c_3 = 3$, and $c_4 = -2$,
 
 
 \csection{Summary}
+\label{sec:cob_summ}
 
 The key ideas in this section are the coordinate vector with respect to a basis and the change of basis matrix.
 
@@ -391,6 +399,7 @@ for any vector $\vx$ in $\R^n$.
 
 
 \csection{Exercises}
+\label{sec:cob_exer}
 
 \be
 \item Let $\CB=\left\{ \left[ \begin{array}{r} 0\\1\\-1 \end{array} \right], \left[ \begin{array}{c} 1\\2\\0 \end{array} \right] \right\}$ be a basis of the subspace defined by the equation $y-2x+z=0$.
@@ -488,6 +497,7 @@ Find the vectors in the basis $\CC$.
 \ee
 
 \csection{Project: Planetary Orbits and Change of Basis}
+\label{sec:proj_orbits_cob}
 
 We are interested in determining the orbit of planet that orbits the sun. Finding the equation of such an orbit is not difficult, but just having an equation is not enough. For many purposes, it is important to know where the planet is fro the perspective or earth observation. This is a more complicated question, one we can address through change of bases matrices.\footnote{This project is based on the paper ``Planetary Orbits: Change of Basis in R$^3$", Donald Teets,  \emph{Teaching Mathematics and its Applications: An International Journal of the IMA}, Volume 17, Issue 2, 1 June 1998, Pages 66-68.}
 % \url{https://doi-org.ezproxy.gvsu.edu/10.1093/teamat/17.2.66.}

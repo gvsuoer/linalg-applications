@@ -1,4 +1,4 @@
-\achapter{9}{Introduction to Eigenvalues and Eigenvectors} \label{sec:intro_eigenvals_eigenvects}
+\achapter{9}{Introduction to Eigenvalues and Eigenvectors} \label{chap:intro_eigenvals_eigenvects}
 
 \vspace*{-17 pt}
 \framebox{
@@ -15,9 +15,11 @@
 \vspace*{13 pt}
 
 \csection{Application: The Google PageRank Algorithm}
+\label{sec:appl_pagerank}
 The World Wide Web is a vast collection of information, searchable via search engines. A search engine looks for pages that are of interest to the user. In order to be effective, a search engine needs to be able to identify those pages that are relevant to the search criteria provided by the user. This involves determining the relative importance of different web pages by ranking the results of thousands or millions of pages fitting the search criteria. For Google, the PageRank algorithm is their method and is ``the heart of our software'' as they say. It is this PageRank algorithm that we will learn about later in this section. Eigenvalues and eigenvectors play an important role in this algorithm.
 
 \csection{Introduction}
+\label{sec:eigen_intro}
 
 Given a matrix $A$, for some special non-zero vectors $\vv$ the action of $A$ on $\vv$ will be same as scalar multiplication, i.e., $A\vv=\lambda \vv$ for some scalar $\lambda$. Geometrically, this means that the transformation $T$ defined by $T(\vx) = A\vx$ simply stretches or contracts the vector $\vv$ but does not change its direction. Such a \underline{nonzero} vector is called an \emph{eigenvector} of $A$, while the scalar $\lambda$ is called the corresponding \emph{eigenvalue} of $A$. The eigenvectors of a matrix tell us quite a bit about the transformation the matrix defines. 
 
@@ -144,6 +146,7 @@ Since an eigenvector of $A$ corresponding to eigenvalue $\lambda$ is a non-trivi
 \end{activity}
 
 \csection{Dynamical Systems}
+\label{sec:dynam_sys}
 
 One real-life application of eigenvalues and eigenvectors is in analyzing the long-term behavior of \emph{discrete dynamical systems}. A \emph{dynamical system}\index{dynamical system} is a system of variables whose values change with time. In discrete systems, the change is described by defining the values of the variables at time $t+1$ in terms of the values at time $t$. For example, the discrete dynamical system 
 \[y_{t+1} = y_t + t\]
@@ -246,6 +249,7 @@ As you discovered in Activity \ref{act:dynamical_system}, we can use linearly in
 
 
 \csection{Examples}
+\label{sec:eigen_exam}
 
 \ExampleIntro
 
@@ -406,6 +410,7 @@ If $\vx_0$ is a vector which represents the initial state of a Markov process, t
 \end{example}
 
 \csection{Summary}
+\label{sec:eigen_summ}
 We learned about eigenvalues and eigenvectors of a matrix in this section.
 \begin{itemize}
 \item A scalar $\lambda$ is an  eigenvalue (or characteristic value) of a square matrix $A$ if there is a non-zero vector $\vx$ so that $A\vx = \lambda \vx$.
@@ -420,6 +425,7 @@ We learned about eigenvalues and eigenvectors of a matrix in this section.
 
 
 \csection{Exercises}
+\label{sec:eigen_exer}
 
 \be
 \item For each of the following matrix-vector pairs, determine whether the given vector is an eigenvector of the matrix.
@@ -526,6 +532,7 @@ Using your answer to the previous part, find a matrix $A$ which describes how th
 \ee
 
 \csection{Project: Understanding the PageRank Algorithm}
+\label{sec:proj_pagerank}
 
 Sergey Brin and Lawrence Page, the founders of Google, decided that the importance of a web page can be judged by the number of links to it as well as the importance of those pages. It is this idea that leads to the PageRank algorithm.\footnote{Information for this project  was taken from the websites \url{http://www.ams.org/samplings/feature-column/fcarc-pagerank} and \url{http://faculty.winthrop.edu/polaskit/spring11/math550/chapter.pdf}.} Google uses this algorithm (and others) to order search engine results. According to Google:\footnote{\url{http://web.archive.org/web/20111104131332/http://www.google.com/competition/howgooglesearchworks.html}}
 \begin{quote}

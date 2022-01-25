@@ -1,4 +1,4 @@
-\achapter{8}{Matrix Operations} \label{sec:matrix_operations}
+\achapter{8}{Matrix Operations} \label{chap:matrix_operations}
 
 \vspace*{-17 pt}
 \framebox{
@@ -16,6 +16,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Algorithms for Matrix Multiplication}
+\label{sec:appl_mtx_mult}
 
 Matrix multiplication is widely used in applications ranging from scientific computing and pattern recognition to counting paths in graphs. As a consequence, much work is being done in developing efficient algorithms for matrix multiplication. 
 
@@ -26,6 +27,7 @@ This product involves eight scalar multiplications and some scalar additions. As
 
 
 \csection{Introduction}
+\label{sec:mtx_ops_intro}
 
 A vector is a list of numbers in a specified order and a matrix is an ordered array of objects. In fact, a vector can be thought of as a matrix of size $n \times 1$. Vectors and matrices are so alike in this way that it would seem natural that we can define operations on matrices just as we did with vectors. 
 
@@ -99,6 +101,7 @@ Let $A = \left[ \begin{array}{rr} 3 & -1 \\ -2 & 3 \end{array} \right]$ and $B =
 
 
 \csection{Properties of Matrix Addition and Multiplication by Scalars}
+\label{sec:mtx_add_smult}
 
 Just as we were able to define an algebra of vectors with addition and multiplication by scalars, we can define an algebra of matrices. We will see that the properties of these operations on matrices are immediate generalizations of the properties of the operations on vectors. We will then see how the matrix product arises through the connection of matrices to linear transformations. Finally, we define the transpose of a matrix. The transpose of a matrix will be useful in applications such as graph theory and least-squares fitting of curves, as well as in advanced topics such as inner product spaces and the dual space of a vector space.
 
@@ -127,6 +130,7 @@ As we have done each time we have introduced a new operation, we ask what proper
 Later on, we will see that these properties define the set of all $m \times n$ matrices as a \emph{vector space}. These properties just say that, regarding addition and multiplication by scalars, we can manipulate matrices just as we do real numbers. Note, however, we have not yet defined an operation of multiplication on matrices. That is the topic for the next section. 
 
 \csection{A Matrix Product}
+\label{sec:mtx_prod}
 
 As we saw in Preview Activity \ref{pa:2_a}, a matrix-matrix product can be found in a way which makes use of and also generalizes the matrix-vector product.
 
@@ -339,6 +343,7 @@ so $I_n$ is a multiplicative identity in the set of all $n \times n$ matrices. M
 \[ AI_n = I_mA = A \,.\]
 
 \csection{The Transpose of a Matrix}
+\label{sec:mtx_transpose}
 
 One additional operation on matrices is the transpose. The transpose of a matrix occurs in many useful formulas in linear algebra and in applications of linear algebra. 
 
@@ -406,6 +411,7 @@ $\!\!\!\!\!\!\! \left[ \begin{array}{cccc}
 We will see later that diagonal matrices are important in that their powers are easy to calculate. Symmetric matrices arise frequently in applications such as in graph theory as adjacency matrices and in quantum mechanics as observables, and have many useful properties including being diagonalizable and having real eigenvalues, as we will also see later. 
 
 \csection{Properties of the Matrix Transpose}
+\label{sec:mtx_transpose_prop}
 
 As with every other operation, we want to understand what properties the matrix transpose has. Properties of transposes are shown in the following theorem.
 
@@ -432,6 +438,7 @@ The one property that might seem strange is the third one. To understand this pr
 Since the two matrices  $(AB)^{\tr}$ and $B^{\tr}A^{\tr}$ have the same size and same corresponding entries, they are the same matrix.
 
 \csection{Examples}
+\label{sec:mtx_ops_exam}
 
 \ExampleIntro
 
@@ -617,6 +624,7 @@ just as in part (a). If instead you obtained the matrix  $\left[ \begin{array}{c
 \end{example}
 
 \csection{Summary}
+\label{sec:mtx_ops_summ}
 
 In this section we defined a matrix sum, scalar multiples of matrices, the matrix product, and the transpose of a matrix.
 \begin{itemize}
@@ -634,6 +642,7 @@ The matrix product is defined in this way so that the matrix of a composite $S \
 
 
 \csection{Exercises}
+\label{sec:mtx_ops_exer}
 
 \be
 \item Calculate $AB$ for each of the following matrix pairs by hand in two ways.
@@ -759,6 +768,7 @@ We explore this idea with an example.  Let $B = \left[ \begin{array}{cr} 2&0\\0&
 \ee
 
 \csection{Project: Strassen's Algorithm and Partitioned Matrices}
+\label{sec:proj_starassen}
 
 Strassen's algorithm\index{Strassen's algorithm} is an algorithm for matrix multiplication that can be more efficient than the standard row-column method. To understand this method, we begin with the $2 \times 2$ case which will highlight the essential ideas.  
 

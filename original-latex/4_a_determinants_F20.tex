@@ -1,4 +1,4 @@
-\achapter{17}{The Determinant} \label{sec:determinants}
+\achapter{17}{The Determinant} \label{chap:determinants}
 
 \vspace*{-17 pt}
 \framebox{
@@ -12,7 +12,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Area and Volume}       % Enter section title between curly braces
-
+\label{sec:appl_area_vol}
 Consider the problem of finding the area of a parallelogram determined by two  vectors $\vu$ and $\vv$, as illustrated at left in Figure \ref{F:det_area}.
 \begin{figure}[ht]
   \begin{center}
@@ -26,6 +26,7 @@ We could calculate this area, for example, by breaking up the parallelogram into
 It is quite a bit more difficult to break this parallelepiped into subregions whose volumes are easy to compute. However, all of these computations can be made quickly by using determinants. The details are later in this section. 
 
 \csection{Introduction}
+\label{sec:det_intro}
 We know that a non-zero vector $\vx$ is an eigenvector of an $n \times n$ matrix $A$ if $A \vx = \lambda \vx$ for some scalar $\lambda$. Note that this equation can be written as $(A-\lambda I_n)\vx=\vzero$. Until now, we were given eigenvalues of matrices and have used the eigenvalues to find the eigenvectors. In this section we will learn an algebraic technique to find the eigenvalues ourselves. We will also be able to justify why an $n\times n$ matrix has at most $n$ eigenvalues. 
 
 A scalar $\lambda$ is an eigenvalue of $A$ if $(A - \lambda I_n)\vx=\vzero$ has a non-trivial solution $\vx$, which happens if and only if $A-\lambda I_n$ is not invertible. In this section we will find a scalar whose value will tell us when a matrix is invertible and when it is not, and use this scalar to find the eigenvalues of a matrix. 
@@ -62,6 +63,7 @@ We now consider how we can use the determinant to find eigenvalues and other inf
 
 
 \csection{The Determinant of a Square Matrix}
+\label{sec:det_square}
 
 Around 1900 or so determinants were deemed much more important than they are today. In fact, determinants were used even before matrices. According to Tucker\footnote{Tucker, Alan. (1993). The Growing Importance of Linear Algebra in Undergraduate Mathematics. \emph{The College Mathematics Journal}, 1, 3-9.} determinants (not matrices) developed out of the study of coefficients of systems of linear equations and were used by Leibniz 150 years before the term matrix was coined by J. J. Sylvester in 1848. Even though determinants are not as important as they once were, the determinant of a matrix is still a useful quantity. We saw in Preview Activity \ref{pa:4_a} that the determinant of a matrix tells us if the matrix is invertible and how it can help us find eigenvalues. In this section, we will see how to find the determinant of any size matrix and how to use this determinant to find the eigenvalues.
 
@@ -107,6 +109,7 @@ Note that in the last calculation, since $a_{13}=0$, we did not have to evaluate
 \end{itemize}
 
 \csection{Cofactors}
+\label{sec:cofactors}
 
 We will now define the determinant of a general $n \times n$ matrix $A$ in terms of a cofactor expansion as we did in the $3 \times 3$ case. To do so, we need some notation and terminology.
 
@@ -195,6 +198,7 @@ Note that if we were to find the determinant of a $4\times 4$ matrix using the c
 
 
 \csection{The Determinant of a $3 \times 3$ Matrix}
+\label{sec:det_3by3}
 
 Earlier we defined the determinant of a $3 \times 3$ matrix. In this section we endeavor to understand the motivation behind that definition.
 
@@ -240,6 +244,7 @@ is the determinant of the $2 \times 2$ matrix $\left[ \begin{array}{cc} a_{21}&a
 Putting this all together gives us formula (\ref{eq:det_3by3}) for the determinant of a $3 \times 3$ matrix as we defined earlier. 
 
 \csection{Two Devices for Remembering Determinants}
+\label{sec:det_remember}
 
 There are useful ways to remember how to calculate the formulas for determinants of $2 \times 2$ and $3 \times 3$ matrices. In the $2 \times 2$ case of $A = \left[ \begin{array}{cc} a_{11}&a_{12} \\ a_{21}&a_{22} \end{array} \right]$, we saw that 
 \[|A| = a_{11}a_{22} - a_{21}a_{22}.\]
@@ -309,6 +314,7 @@ We can do a similar thing for the determinant of a $3 \times 3$ matrix. In this 
   
 
 \csection{Examples}
+\label{sec:det_exam}
 
 \ExampleIntro
 
@@ -420,6 +426,7 @@ We conclude that $\det(AB) = \det(A) \det(B)$ if $A$ and $B$ are $2 \times 2$ ma
 \end{example}
 
 \csection{Summary}
+\label{sec:det_summ}
 
 \begin{itemize}
 \item The determinant of an $n \times n$ matrix $A = [a_{ij}]$ is found by taking the cofactor expansion of $A$ along the first row. That is
@@ -437,6 +444,7 @@ where
 
 
 \csection{Exercises}
+\label{sec:det_exer}
 
 \be
 \item Use the cofactor expansion to explain why multiplying each of the entries of a $3\times 3$ matrix $A$ by 2 multiplies the determinant of $A$ by 8.
@@ -502,6 +510,7 @@ where
 \ee
 
 \csection{Project: Area and Volume Using Determinants}
+\label{sec:proj_det_area_vol}
 
 The approach we will take to connecting area (volume) to the determinant will help shed light on properties of the determinant that we will discuss from an algebraic perspective in a later section. First, we mention some basic properties of area (we focus on area for now, but these same properties are valid for volumes as well). volume).  As a shorthand, we denote the area of a region $R$ by $\Area(R)$. 
 \begin{itemize}

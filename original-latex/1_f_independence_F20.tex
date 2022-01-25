@@ -1,4 +1,4 @@
-\achapter{6}{Linear Dependence and Independence} \label{sec:independence}
+\achapter{6}{Linear Dependence and Independence} \label{chap:independence}
 
 \vspace*{-17 pt}
 \framebox{
@@ -16,6 +16,7 @@
 \vspace*{13 pt}
 
 \csection{Application: B\'{e}zier Curves}
+\label{sec:appl_bezier}
 
 B\'{e}zier curves are simple curves that were first developed in 1959 by French mathematician Paul de Casteljau, who was working at the French automaker Citro\"{e}n. The curves were made public in 1962 by Pierre B\'{e}zier who used them in his work designing automobiles at the French car maker Renault. In addition to automobile design, B\'{e}zier curves have many other uses. Two of the most common applications of B\'{e}zier curves are font design and drawing tools. As an example, the letter ``S" in Palatino font is shown using B\'{e}zier curves in Figure \ref{F:Letter_S}. If you've used Adobe Illustrator, Photoshop, Macromedia Freehand, Fontographer, or any other of a number of drawing programs, then you've used B\'{e}zier curves. At the end of this section we will see how B\'{e}zier curves can be defined using linearly independent vectors and linear combinations of vectors.  
 \begin{figure}[ht] \centering
@@ -26,6 +27,7 @@ B\'{e}zier curves are simple curves that were first developed in 1959 by French 
 
 
 \csection{Introduction}
+\label{sec:indep_intro}
 
 In Section \ref{sec:vector_representation} we saw how to represent water-benzene-acetic acid chemical solutions with vectors, where the components represent the water, benzene and acid percentages.  We then considered a problem of determining if a given chemical solution could be made by mixing other chemical solutions. Suppose we now have three different water-benzene-acetic acid chemical solutions, one with 40\% water, 50\% benzene and 10\% acetic acid, the second with 52\% water, 42\% benzene and 6\% acid, and a third with 46\% water, 46\% benzene and 8\% acid. We represent the first chemical solution with the vector $\vv_1 = \left[ \begin{array}{c} 40\\50\\10\end{array} \right]$, the second with the vector $\vv_2 = \left[ \begin{array}{c} 52\\42\\6\end{array} \right]$, and the third with the vector $\vv_3 = \left[ \begin{array}{c} 46\\46\\8\end{array} \right]$. By combining these three chemical solutions we can make a chemical solution with 43\% water, 48\% benzene and 9\% acid as follows
 \[\frac{7}{12}\vv_1 + \frac{1}{12} \vv_2 + \frac{1}{3}\vv_3 = \left[ \begin{array}{c} 43\\48\\9\end{array} \right].\]
@@ -95,6 +97,7 @@ By reducing this matrix, we find that there are no solutions of the system, whic
 \end{pa}
 
 \csection{Linear Independence}
+\label{sec:lin_indep}
 
 In this section we will investigate the concepts of linear dependence and independence of a set of vectors. Our goal is to be able to efficiently determine when a given set of vectors forms a \emph{minimal spanning set}. This will involve the concepts of span and linear independence. Minimal spanning sets are important in that they provide the most efficient way to represent vectors in a space, and will later allow us to define the dimension of a vector space.  
 
@@ -234,6 +237,7 @@ showing that $x_i=y_i$ for every $i$ between 1 and $k$. We conclude that the rep
 
 
 \csection{Determining Linear Independence}
+\label{sec:determ_lin_ind}
 
 The definition and our previous work give us a straightforward method for determining when a set of vectors in $\R^n$ is linearly independent or dependent.  
 
@@ -262,6 +266,7 @@ If we let $A = [\vv_1 \  \vv_2 \ \vv_3 \ \cdots \ \vv_k]$ and $\vx = \left[ \beg
 \end{activity}
 
 \csection{Minimal Spanning Sets}
+\label{sec:min_span_set}
 
 It is important to note the differences and connections between linear independence, span, and minimal spanning set. 
 \begin{itemize}
@@ -409,6 +414,7 @@ We conclude this section with an important theorem that is similar Theorem \ref{
 
 
 \csection{Examples}
+\label{sec:indep_exam}
 
 \ExampleIntro
 
@@ -478,6 +484,7 @@ The columns of $A$ are all pivot columns (hence linearly independent) as long as
 \end{example}
 
 \csection{Summary}
+\label{sec:indep_summ}
 
 \begin{itemize}
 \item A set $\{\vv_1, \vv_2, \ldots, \vv_k\}$ of vectors in $\R^n$ is linearly independent if the vector equation
@@ -501,6 +508,7 @@ Another way to think about this is that a set of vectors is linearly dependent i
 
 
 \csection{Exercises}
+\label{sec:indep_exer}
 
 \be
 
@@ -562,6 +570,7 @@ $\Span\{\vv_1, \vv_2, \vv_3\}$.
 \ee
 
 \csection{Project: Generating B\'{e}zier Curves}
+\label{sec:proj_bezier}
 
 B\'{e}zier curves can be created as linear combinations of vectors. In this section we will investigate how cubic B\'{e}zier curves (the ones used for fonts) can be realized through linear and quadratic B\'{e}zier curves. We begin with linear B\'{e}zier curves.
 

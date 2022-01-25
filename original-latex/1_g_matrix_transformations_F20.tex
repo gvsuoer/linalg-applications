@@ -1,4 +1,4 @@
-\achapter{7}{Matrix Transformations} \label{sec:matrix_transformations}
+\achapter{7}{Matrix Transformations} \label{chap:matrix_transformations}
 
 \vspace*{-17 pt}
 \framebox{
@@ -15,6 +15,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Computer Graphics}
+\label{sec:appl_graphics}
 
 As we will discuss, left multiplication by an $m \times n$ matrix defines a function from $\R^n$ to $\R^m$. Such a function defined by matrix multiplication is called a matrix transformation. In this section we study some of the properties of matrix transformations and understand how, using the pivots of the matrix, to determine when the output of a matrix transformation covers the whole space $R^m$ or when a transformation maps distinct vectors to distinct outputs. 
 
@@ -30,6 +31,7 @@ Matrix transformations are used extensively in computer graphics to produce anim
 \end{figure}
 
 \csection{Introduction}
+\label{sec:mtx_trans_intro}
 
 In this section we will consider special functions which take vectors as inputs and produce vectors as outputs. We will use matrix multiplication to produce the output vectors.
 
@@ -95,6 +97,7 @@ where
 
 
 \csection{Properties of Matrix Transformations}
+\label{sec:mtx_trans_prop}
 
 A matrix transformation is a function. When dealing with functions in previous mathematics courses we have used the terms domain and range with our functions. Recall that the domain of a function is the set of all allowable inputs into the function and the range of a function is the set of all outputs of the function. We do the same with transformations. If $T$ is the matrix transformation $T(\vx) = A \vx$ for some $m \times n$ matrix $A$, then $T$ maps vectors from $\R^n$ into $\R^m$. So $\R^n$ is the \emph{domain}\index{domain of a matrix transformation} of $T$ -- the set of all input vectors. However, the set $\R^m$ is only the target set for $T$ and not necessarily the range of $T$.  We call $\R^m$ the \emph{codomain}\index{codomain of a matrix transformation}  of $T$, while the \emph{range}\index{range of a matrix transformation} of $T$ is the set of all output vectors. The range of a transformation will come up later, so we make a formal definition.
 
@@ -147,6 +150,7 @@ Note that the two vectors $\vzero$ in the last equation may not be the same vect
 
 
 \csection{Onto and One-to-One Transformations}
+\label{sec:trans_onto_oto}
 
 The problems we have been asking about solutions to systems of linear equations can be rephrased in terms of matrix transformations. The question about whether a system $A \vx = \vb$ is consistent for any vector $\vb$ is also a question about the existence of a vector $\vx$ so that $T(\vx) = \vb$, where $T$ is the matrix transformation defined by $T(\vx) = A \vx$. 
 
@@ -241,6 +245,7 @@ We conclude this section by adding new equivalent conditions to Theorems \ref{th
 We will continue to add to these theorems, which will eventually give us many different but equivalent perspectives to look at a linear algebra problem. Please keep these equivalent criteria in mind when considering the best possible approach to a problem.
 
 \csection{Examples}
+\label{sec:mtx_trans_exam}
 
 \ExampleIntro
 
@@ -320,6 +325,7 @@ From Figure \ref{F:ex:1_g_polygons} we can see that $T$ stretches the figure in 
 \end{example}
 
 \csection{Summary}
+\label{sec:mtx_trans_summ}
 
 In this section we determined how to represent any matrix transformation from $\R^n$ to $\R^m$ as a matrix transformation, and what it means for a matrix transformation to be one-to-one and onto.
 \begin{itemize}
@@ -339,6 +345,7 @@ The domain of this transformation is $\R^n$ because the matrix-vector product $A
 
 
 \csection{Exercises}
+\label{sec:mtx_trans_exer}
 
 \be 
 \item Given matrix $A=\left[ \begin{array}{ccr} 1& 2 & 1 \\ 1 & 0 & -3 \end{array} \right]$, write the coordinate form of the transformation $T$ defined by $T(\vx)=A\vx$. (Note: Writing a transformation in coordinate form refers to writing the transformation in terms of the entries of the input and output vectors.)
@@ -431,6 +438,7 @@ Which part of the above conversation do you agree with? Which parts need fixing?
 \ee
 
 \csection{Project: The Geometry of Matrix Transformations}
+\label{sec:proj_geom_mtx}
 
 In this section we will consider certain types of matrix transformations and analyze their geometry. Much more would be needed for real computer graphics, but the essential ideas are contained in our examples. A GeoGebra applet is available at \url{https://www.geogebra.org/m/rh4bzxee} for you to use to visualize the transformations in this project. 
 

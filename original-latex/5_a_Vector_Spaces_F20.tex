@@ -1,4 +1,4 @@
-\achapter{31}{Vector Spaces} \label{sec:vector_spaces}
+\achapter{31}{Vector Spaces} \label{chap:vector_spaces}
 
 \vspace*{-17 pt}
 \framebox{
@@ -15,6 +15,7 @@
 \vspace*{13 pt}
 
 \csection{Application: The Hat Puzzle}
+\label{sec:appl_hat_puzzle}
 
 In a New York Times article (April 10, 2001) ``Why Mathematicians Now Care About Their Hat Color", the following puzzle is posed.
 %\footnote{\url{https://www.nytimes.com/2001/04/10/science/why-mathematicians-now-care-about-their-hat-color.html}}
@@ -27,6 +28,7 @@ The game can be played with more players, and the problem is to find a strategy 
 
 
 \csection{Introduction}
+\label{sec:vec_space_intro}
 
 We have previously seen that $\R^n$ and the set of fixed size matrices have a nice algebraic structure when endowed with the addition and scalar multiplication operations. In fact, as we will see, there are many other sets of elements that have the same kind of structure with natural addition and scalar multiplication operations. Due to this underlying similar structure, these sets are connected in some way and can all be studied jointly. Mathematicians look for these kinds of connections between seemingly dissimilar objects and, from a mathematical standpoint, it is convenient to study all of these similar structures at once by combining them into a larger collection. This motivates the idea of a \emph{vector space} that we will investigate in this chapter.
 
@@ -106,6 +108,7 @@ If no, explain why. If yes, verify your answer.
 
 
 \csection{Spaces with Similar Structure to $\R^n$}
+\label{sec:space_like_rn}
 
 Mathematicians look for patterns and for similarities between mathematical objects. In doing so, mathematicians often consider larger collections of objects that are sorted according to their similarities and then study these collections rather than just the objects themselves. This perspective can be very powerful -- whatever can be shown to be true about an arbitrary element in a collection will then be true for every specific element in the collection. In this section we study the larger collection of sets that share the algebraic structure of vectors in $\R^n$. These sets are called  \emph{vector spaces}.
 
@@ -130,6 +133,7 @@ By structure we mean how the elements in the set relate to each other under addi
 The properties we saw for polynomials in $\pol_1$ stated above are the same as the properties for vector addition and multiplication by scalars in $\R^n$, as well as matrix addition and multiplication by scalars identified in Section \ref{sec:matrix_operations}. This indicates that polynomials in $\pol_1$, vectors in $\R^n$, and the set of $m \times n$ matrices behave in much the same way as regards their addition and multiplication by scalars. There is an even closer connection between linear polynomials and vectors in $\R^2$. An element $a(t) = a_0 + a_1t$ in $\pol_1$ can be naturally associated with the vector $\left[ \begin{array}{c} a_0 \\ a_1 \end{array} \right]$ in $\R^2$. All the results of polynomial addition and multiplication by scalars then translate to corresponding results of addition and multiplication by scalars of vectors in $\R^2$. So for all intents and purposes, as far as addition and multiplication by scalars is concerned, there is no difference between elements in $\pol_1$ and vectors in $\R^2$ -- the only difference is how we choose to present the elements (as polynomials or as vectors). This sameness of structure of our sets as it relates to addition and multiplication by scalars is the type of similarity mentioned in the introduction. We can study all of the types of objects that exhibit this same structure at one time by studying vector spaces.
 
 \csection{Vector Spaces}
+\label{sec:vec_space}
 
 We defined vector spaces in the context of subspaces of $\R^n$ in Definition \ref{def:3_a_1}. In general, any set that has the same kind of additive and multiplicative structure as our sets of vectors, matrices, and linear polynomials is called a vector space. As we will see, the ideas that we introduced about subspaces of $\R^n$ apply to vector spaces in general, so the material in this chapter should have a familiar feel. 
 
@@ -243,6 +247,7 @@ We should also note that the definition of a vector space only states the existe
 
 
 \csection{Subspaces}
+\label{sec:subspaces}
 
 In Section \ref{sec:R_n} we saw that $\R^n$ contained subsets that we called subspaces that had the same algebraic structure as $\R^n$. The same idea applies to vector spaces in general. 
 
@@ -346,6 +351,7 @@ Given a subspace $H$, the set $S$ such that $H=\Span \ S$ is called a \emph{span
 has a solution. We will see important uses of special spanning sets called bases in the rest of this chapter. 
 
 \csection{Examples}
+\label{sec:vec_space_exam}
 
 \ExampleIntro
 
@@ -487,6 +493,7 @@ But we assumed that $\vv \neq \vzero$, so we can conclude that $a = b$ as desire
 
 
 \csection{Summary}
+\label{sec:vec_space_summ}
 
 \begin{itemize}
 \item  A set $V$ on which an operation of addition and a multiplication by scalars is defined is a vector space if for all $\vu$, $\vv$, and $\vw$ in $V$ and all scalars $a$ and $b$:
@@ -519,6 +526,7 @@ where $x_1$, $x_2$, $\ldots$, $x_k$ are scalars.
 
 
 \csection{Exercises}
+\label{sec:vec_space_exer}
 \be
 \item The definition of a vector space only states the existence of a zero vector and does not say how many zero vectors the space might have. In this exercise we show that the zero vector in a vector space is unique. To show that the zero vector is unique, we assume that two vectors $\vzero_1$ and $\vzero_2$ have the zero vector property.  
 	\ba
@@ -652,6 +660,7 @@ Show that $H_1+H_2$ is a subspace of $V$ containing both $H_1, H_2$ as subspaces
 \ee
 
 \csection{Project: Hamming Codes and the Hat Puzzle}
+\label{sec:proj_hamming_hat_puzzle}
 
 Recall the hat problem from the beginning of this section. Three players are assigned either a red or blue hat and can only see the colors of the hats of the other players. The goal is to devise a high probability strategy for one player to correctly guess the color of their hat. The players have a 50\% chance of winning if one player guesses randomly and all of the others pass. However, the group can do better than 50\% with a reasonably simple strategy. There are 2 possibilities for each hat color for a total of $2^3 = 8$ possible distributions of hat colors. Of these, only red-red-red and blue-blue-blue contain only one hat color, so $6/8$ of $3/4$ of the possible hat distributions have two hats of one color and one of the other color. So if a player sees two hats of the same color, that player guesses the other color and passes otherwise. This gives a 75\% chance of winning. This strategy will only work for three players, though. We want to develop an effective strategy that works for larger groups of players. 
 

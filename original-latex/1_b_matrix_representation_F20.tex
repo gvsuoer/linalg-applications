@@ -1,4 +1,4 @@
-\achapter{2}{The Matrix Representation of a Linear System} \label{sec:matrix_representation}
+\achapter{2}{The Matrix Representation of a Linear System} \label{chap:matrix_representation}
 
 
 \vspace*{-17 pt}
@@ -18,12 +18,14 @@
 \vspace*{13 pt}
 
 \csection{Application: Approximating Area Under a Curve}
+\label{sec:appl_area_curve}
 
 We know from basic geometry how to find areas of circles and triangles. However, it is much more difficult to find areas of other geometric objects. In fact, it is generally an impossible problem to determine the exact area bounded by a complicated curve. For this reason, approximation methods are used. One such method involves approximating curves using quadratic functions.
 
 Unless you have learned some calculus, you have probably never calculated the area under a parabola. In the ancient work \emph{Quadrature of the Parabola} (3rd century BC), Archimedes determined a method for finding the area of a region bounded by a parabola by using mechanics and then by geometric methods. Once we know how to calculate the area of a region bounded by a parabola, Simpson's Rule uses parabolas to approximate a function, and then approximates the area under the graph of the graph of the function by using the areas under the parabolas. In order to use Simpsons Rule, we need to know how to exactly fit a quadratic function to three points. More details about this process can be found at the end of this section. This idea of fitting a polynomial to a set of data points has uses in other areas as well. For example, two common applications of B\'{e}zier curves are font design and drawing tools. When fitting a polynomial to a large set of data points, our systems of equations can become quite large, and can be difficult to solve by hand.  In this section we will see how to use matrices to more conveniently represent systems of equations of any size. We also consider how the elimination process works on the matrix representation of a linear system and how we can determine the existence of solutions and the form of solutions of a linear system.
 
 \csection{Introduction}
+\label{sec:mtx_lin_intro}
 
 When working with a linear system, the labels for the variables are irrelevant to the solution -- the only thing that matters is the coefficients of the variables in the equations and the constants on the other side of the equations. For example, given a linear system of the form
 
@@ -106,6 +108,7 @@ The matrix on the left is the matrix of the coefficients of the system, and is c
 
 
 \csection{Simplifying Linear Systems Represented in Matrix Form} 
+\label{sec:simp_mtx_sys}
 
 Once we have stored the information about a linear system in an augmented matrix, we can perform the elementary operations directly on the augmented matrix. 
 
@@ -248,6 +251,7 @@ We summarize the steps of the (partial) elimination on matrices we used above to
 This elimination method where the variables are eliminated from lower equations is called the \emph{forward elimination phase}\index{forward elimination} as it eliminates variables in the forward direction. Solving for variables using substitution into upper equations is called \emph{back substitution}\index{back substitution}. The matrix representation of a linear system after the forward elimination process is said to be in \emph{row echelon form}. We will define this form and the elimination process on the matrices more precisely in the next section.
 
 \csection{Linear Systems with Infinitely Many Solutions}
+\label{sec:sys_inf_sols}
 
 Each of the systems that we solved so far have had a unique (exactly one) solution. The geometric representation of linear systems with two equations in two variables shows that this does not always have to be the case. We also have linear systems with no solution and systems with infinitely many solutions. We now consider the problem of how to represent the set of solutions of a linear system that has infinitely many solutions. (Systems with infinitely many solutions will also be of special interest to us a bit later when we study eigenspaces of a matrix.)
 
@@ -345,6 +349,7 @@ the basic variables are $x_1$ and $x_2$ for the first and second equations, resp
 
 
 \csection{Linear Systems with No Solutions}
+\label{sec:sys_no_sols}
 
 We saw in the previous section that geometrically two parallel and distinct lines represent a linear system with two equations in two unknowns which has no solution. Similarly, two parallel and distinct planes in three dimensions represent a linear system with two equations in three unknowns which has no solution. We can have at least four different geometric configurations of three planes in three dimensions representing a system with no solution. But how do these geometrical configurations manifest themselves algebraically? 
 
@@ -377,6 +382,7 @@ A linear system is consistent if after the elimination process there is no equat
 
 
 \csection{Examples}
+\label{sec:mtx_sys_exam}
 
 \ExampleIntro
 
@@ -485,6 +491,7 @@ There are no rows that correspond to equations of the form $0 = c$ for a nonzero
 \end{example}
 
 \csection{Summary}
+\label{sec:mtx_sys_summ}
 
 \begin{itemize}
 \item A matrix is just a rectangular array of numbers or objects. 
@@ -506,6 +513,7 @@ There are no rows that correspond to equations of the form $0 = c$ for a nonzero
 
 
 \csection{Exercises}
+\label{sec:mtx_sys_exer}
 
 \be
 \item Consider the system of linear equations whose augmented matrix is

@@ -1,4 +1,4 @@
-\achapter{37}{Linear Transformations} \label{sec:linear_transformation}
+\achapter{37}{Linear Transformations} \label{chap:linear_transformation}
 
 \vspace*{-17 pt}
 \framebox{
@@ -14,7 +14,8 @@
 
 \vspace*{13 pt}
 
-\csection{Application: Fractals}       
+\csection{Application: Fractals}    
+\label{sec:appl_fractals}   
 
 Sierpinski triangles and Koch's curves have become common phrases in many mathematics departments across the country. These objects are examples of what are called \emph{fractals}, beautiful geometric constructions that exhibit self-similarity.  Fractals are applied in a variety of ways: they help make smaller antennas (e.g., for cell phones) and are used in fiberoptic cables, among other things. In addition, fractals can be used to model realistic objects, such as the Black Spleenwort fern depicted as a fractal image in Figure \ref{F:Fern}. As we will see later in this section, one way to construct a fractal is with an \emph{Iterated Function System} (IFS). 
 \begin{figure}[h]
@@ -26,6 +27,7 @@ Sierpinski triangles and Koch's curves have become common phrases in many mathem
 \end{figure}
 
 \csection{Introduction}
+\label{sec:lin_trans_intro}
 
 We have encountered functions throughout our study of mathematics -- we explore graphs of functions in algebra and differentiate and integrate functions in calculus. In linear algebra we have investigated special types of functions, e.g., matrix and coordinate transformations, that preserve the vector space structure. Any function that has the same properties as matrix and coordinate transformations is a \emph{linear transformation}. Linear transformations are important in linear algebra in that we can study similarities and connections between vector spaces by examining transformations between them. Linear transformations model or approximately model certain real-life processes (like discrete dynamical systems, geometrical transformations, Google PageRank, etc.). Also, we can determine the behavior of an entire linear transformation  by knowing how it acts on just a basis.
 
@@ -63,6 +65,7 @@ Check that $T$ is a linear transformation.
 \end{pa}
 
 \csection{Onto and One-to-One Transformations}
+\label{sec:onto_oneone}
 
 Recall that in Section \ref{sec:matrix_transformations} we expressed existence and uniqueness questions for matrix equations in terms of one-to-one and onto properties of matrix transformations. The question about the existence of a solution to the matrix equation $A \vx = \vb$ for any vector $\vb$, where $A$ is an $m \times n$ matrix, is also a question about the existence of a vector $\vx$ so that $T(\vx) = \vb$, where $T(\vx) = A \vx$. If, for each $\vb$ in $\R^m$ there is at least one $\vx$ with $T(\vx) = \vb$, then $T$ is an onto transformation. We can make a similar definition for any linear transformation. 
 
@@ -87,6 +90,7 @@ For each of the following transformations, determine if $T$ is one-to-one and/or
 
 
 \csection{The Kernel and Range of Linear Transformation}
+\label{sec:kernel_range}
 
 As we saw in Preview Activity \ref{pa:8_a}, any linear transformation sends the additive identity to the additive identity. If $T$ is a matrix transformation defined by $T(\vx) = A \vx$ for some $m \times n$ matrix $A$, then we have seen that the set of vectors that $T$ maps to the zero vector is $\Nul A = \{\vx : A \vx = \vzero\}$, which is also $\Ker(T) = \{\vx : T(\vx) = \vzero\}$. We can extend this idea of the kernel of a matrix transformation to any linear transformation $T$. 
 
@@ -150,6 +154,7 @@ The subspace $\Range(T)$ provides us with a convenient criterion for the transfo
 \end{activity}
 
 \csection{Isomorphisms}
+\label{sec:isomorph}
 
 If $V$ is a vector space with a basis $\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}$, we have seen that the coordinate transformation $T : V \to \R^n$ defined by $T(\vx) = [\vx]_{\CB}$ is a linear transformation that is both one-to-one and onto. This allows us to uniquely identify any vector in $V$ with a vector in $\R^n$ so that the vector space structure is preserved. In other words, the vector space $V$ is for all intents and purposes the same as the vector space $\R^n$, except for the way we represent the vectors. This is a very powerful idea in that it shows that any vector space of dimension $n$ is essentially the same as $\R^n$. 
  When this happens we say that the vectors spaces are \emph{isomorphic} and call the coordinate transformation an \emph{isomorphism}.
@@ -176,6 +181,7 @@ It is left for the exercises to show that if $T: V \to W$ is an isomorphism, the
 
 
 \csection{Examples} 
+\label{sec:lin_trans_exam}
 
 \ExampleIntro
 
@@ -274,6 +280,7 @@ Finally, we show that $\Range(T) = \pol_3$. If $q(t) = a+bt+ct^2+dt^3 \in \pol_3
 
 
 \csection{Summary}
+\label{sec:lin_trans_summ}
 Let $T$ be a linear transformation from a vector space $V$ to a vector space $W$. 
 \begin{itemize}
 \item A function $T$  from a vector space $V$ to a vector space $W$ is a linear transformation if 
@@ -293,6 +300,7 @@ The range of $T$ is a subspace of $W$.
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:lin_trans_exer}
 \be
 
 \item We have seen that $C[a,b]$, the set of all continuous functions on the interval $[a,b]$ is a vector space. Let $T : C[a,b] \to \R$ be defined by $T(f) = \int_a^b f(x) \, dx$. 
@@ -448,6 +456,7 @@ for every vector $\vv$ in $V$. That is, every linear functional on an inner prod
 \ee
 
 \csection{Project: Fractals via Iterated Function Systems}
+\label{sec:proj_fractals}
 
 In this project we will see how to use linear transformations to create iterated functions systems to generate fractals. We illustrate the idea with the Sierpinski triangle, an approximate picture of which is shown at left in Figure \ref{F:Striangle}.
 \begin{figure}[h]

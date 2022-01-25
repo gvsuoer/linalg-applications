@@ -1,4 +1,4 @@
-\achapter{29}{The Singular Value Decomposition} \label{sec:SVD}
+\achapter{29}{The Singular Value Decomposition} \label{chap:SVD}
 
 \vspace*{-17 pt}
 \framebox{
@@ -12,11 +12,13 @@
 
 \vspace*{13 pt}
 
-\csection{Application: Search Engines and Semantics}     
+\csection{Application: Search Engines and Semantics}    
+\label{sec:appl_search_engn} 
 
 Effective search engines search for more than just words. Language is complex and search engines must deal with the fact that there are often many ways to express a given concept (this is called \emph{synonymy}, that multiple words can have the same meaning), and that a single word can have multiple meanings (\emph{polysemy}). As a consequence, a search on a word may provide irrelevant matches (e.g., searching for \emph{derivative} could provide pages on mathematics or financial securities) or you might search for articles on \emph{cats} but the paper you really want uses the word \emph{felines}.  A better search engine will not necessarily try to match terms, but instead retrieve information based on concept or intent. Latent Semantic Indexing (LSI)\index{Latent Semantic Indexing} (or \emph{Latent Semantic Analysis}), developed in the late 1980s, helps search engines determine concept and intent in order to provide more accurate and relevant results. LSI essentially works by providing underlying (latent) relationships between words (semantics) that search engines need to provide context and understanding (indexing). LSI provides a mapping of both words and documents into a lower dimensional  ``concept" space, and makes the search in this new space. The mapping is provided by the  singular value decomposition. 
 
 \csection{Introduction}
+\label{sec:svd_intro}
 
 The singular value decomposition (SVD) of a matrix is an important and useful matrix decomposition. Unlike other matrix decompositions, \emph{every} matrix has a singular value decomposition. The SVD is used in a variety of applications including scientific computing, digital signal processing, image compression, principal component analysis, web searching through latent semantic indexing, and seismology. 
 %http://www.math.pitt.edu/~sussmanm/2071/lab09/
@@ -24,6 +26,7 @@ Recall that the eigenvector decomposition of an $n \times n$ diagonalizable matr
 
 
 \csection{The Operator Norm of a Matrix}
+\label{sec:mtx_op_norm}
 
 Before we introduce the Singular Value Decomposition, let us work through some preliminaries to motivate the idea. The first is to provide an answer to the question ``How `big' is a matrix?" There are many ways to interpret and answer this question, but a substantial (and useful) answer should involve more than just the dimensions of the matrix. A good measure of the size of a matrix, which we will refer to as the norm of the matrix, should take into account the action of the linear transformation defined by the matrix on vectors. This then will lead to questions about how difficult or easy is it to solve a matrix equation $A \vx = \vb$.
 
@@ -135,6 +138,7 @@ As with the previous example, the norm of $A$ is the square root of the maximum 
 
 
 \csection{The SVD}
+\label{sec:svd}
 
 The Singular Value Decomposition (SVD) is essentially a concise statement of what we saw in the previous section that works for \emph{any} matrix. We will uncover the SVD in this section.
 
@@ -287,6 +291,7 @@ A &= [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_m] \left[ \begin{array}{ccccc|c} \si
 This is called an \emph{outer product decomposition}\index{outer product decomposition} of $A$ and tells us everything we learned above about the action of the matrix $A$ as a linear transformation. Each of the products $\vu_i\vv_i^{\tr}$ is a rank 1 matrix (see Exercise \ref{ex:7_c_rank1}), and $||A\vv_1|| = \sigma_1$ is the largest value $A$ takes on the unit $n$-sphere, $||A\vv_2|| = \sigma_2$ is the next largest dilation of the unit $n$-sphere, and so on. An outer product decomposition allows us to approximate $A$ with smaller rank matrices. For example, the matrix $\sigma_1 \vu_1\vv_1^{\tr}$ is the best rank 1 approximation to $A$, $\sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} $ is the best rank 2 approximation, and so on. This will be very useful in applications, as we will see in the next section. 
 
 \csection{SVD and the Null, Column, and Row Spaces of a Matrix}
+\label{sec:svd_mtx_spaces}
 
 We conclude this section with a short discussion of how a singular value decomposition relates fundamental subspaces of a matrix. We have seen that the vectors $\vu_1$, $\vu_2$, $\ldots$, $\vu_r$ in an SVD for an $m \times n$ matrix $A$ form a basis for $\Col A$. Recall also that $A \vv_j = \vzero$ for $r+1 \leq j \leq n$. Since $\dim(\Nul A) + \dim(\Col A) = n$, it follows that the vectors $\vv_{r+1}$, $\vv_{r+2}$, $\ldots$, $\vv_n$ form a basis for $\Nul A$.  As you will show in the exercises, the set $\{\vv_1, \vv_2, \ldots, \vv_r\}$ is a basis for $\Row A$.  Thus, an SVD for a matrix $A$ tells us about three fundamental vector spaces related to $A$.
 
@@ -314,6 +319,7 @@ We conclude this section with a short discussion of how a singular value decompo
 %\end{figure}
 
 \csection{Examples}
+\label{sec:svd_exam}
 
 \ExampleIntro
 
@@ -413,6 +419,7 @@ Note that the rows in this rank one approximation are the averages of the two di
 
 
 \csection{Summary}
+\label{sec:svd_summ}
 
 We learned about the singular value decomposition of a matrix. 
 \begin{itemize}
@@ -434,6 +441,7 @@ is an outer product decomposition of $A$. An outer product decomposition allows 
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:svd_exer}
 \be
 \item Find a singular value decomposition of the following matrices.
 	\ba
@@ -552,6 +560,7 @@ is an outer product decomposition of $A$. An outer product decomposition allows 
 \ee
 
 \csection{Project: Latent Semantic Indexing}
+\label{sec:proj_indexing}
     
 As an elementary example to illustrate the idea behind Latent Semantic Indexing (LSI), consider the problem of creating a program to search a collection of documents for words, or words related to a given word. Document collections are usually very large, but we use a small example for illustrative purposes. A standard example that is given in several publications\footnote{ e.g., Deerwester, S., Dumais, S. T., Fumas, G. W., Landauer, T. K. and Harshman, R. Indexing by latent semantic analysis. \emph{Journal of the American Society for Information Science}, 1990, 41: 391?407, and Landauer, T. and  Dutnais, S. A Solution to Plato's Problem: The Latent Semantic Analysis Theory of Acquisition, Induction, and Representation of Knowledge. \emph{Psychological Review}, 1997. Vol. 1M. No. 2, 211-240.} is the following. Suppose we have nine documents $c_1$ through $c_5$ (titles of documents about human-computer interaction) and $m_1$ through $m_4$ (titles of graph theory papers) that make up our library: 
 \begin{itemize}

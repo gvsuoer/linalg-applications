@@ -1,4 +1,4 @@
-\achapter{39}{Eigenvalues of Linear Transformations} \label{sec:transformations_eigenvalues}
+\achapter{39}{Eigenvalues of Linear Transformations} \label{chap:transformations_eigenvalues}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,6 +13,7 @@
 \vspace*{13 pt}
 
 \csection{Application: Linear Differential Equations}      
+\label{sec:appl_diff_eq}
 
 A body in motion obeys Newton's second law that force equals mass times acceleration, or $F = ma$. Here $F$ is the force acting on the object, $m$ the mass of the object, and $a$ the acceleration of the object. For example, if a mass is hanging from a spring, gravity acts to pull the mass downward and the spring acts to pull the mass up. Hooke?s law says that the force of the spring acting on mass is proportional to the displacement $y$ of the spring from equilibrium. There is also a damping force that weakens the action of the spring that might be due to air resistance or the medium in which the system is enclosed. If this mass is not too large, then the resistance can be taken to be proportional to the velocity $v$ of the mass. This produces forces $F = ma$ acting to pull the mass down and forces $-ky$ and  $- bv$ acting in the opposite direction, where $k$ and $b$ are constant. A similar type of analysis would apply to an object falling through the air, where the resistant to falling could be proportional to the velocity of the object. Since $v = y'$ and $a = y''$, equating the forces produces the equation'
 \begin{equation} \label{eq:de_1}
@@ -22,6 +23,7 @@ Any equation that involves one or more derivatives of a function is called a \em
 
 
 \csection{Introduction}
+\label{sec:eigen_trans_intro}
 
 
 Recall that a scalar $\lambda$ is an eigenvalue of an $n \times n$ matrix $A$ if $A \vx = \lambda \vx$ for some nonzero vector $\vx$ in $\R^n$. Now that we have seen how to represent a linear transformation $T$ from a finite dimensional vector space $V$ to itself with a matrix transformation, we can exploit this idea to define and find eigenvalues and eigenvectors for $T$ just as we did for matrices.
@@ -53,6 +55,7 @@ We can exploit the fact that we can represent linear transformations as matrix t
 \end{pa}
 
 \csection{Finding Eigenvalues and Eigenvectors of Linear Transformations}
+\label{sec:find_eigen_trans}
 
 Preview Activity \ref{pa:8_c} presents a method for finding eigenvalues and eigenvectors of linear transformations. That is, if $T: V \to V$ is a linear transformation and $\CB$ is a basis for $V$, and if $\vx$ is an eigenvector of $[T]_{\CB}$ with eigenvalue $\lambda$, then the vector $\vv$ in $V$ satisfying $[\vv]_{\CB}=\vx$ has the property that 
 \[[T(\vv)]_{\CB} = [T]_{\CB}[\vv]_{\CB} = [T]_{\CB} \vx = \lambda \vx = [\lambda \vv]_{\CB}.\]
@@ -86,6 +89,7 @@ Thus, once we find an eigenvector $[\vv]_{\CB}$ for $[T]_{\CB}$, the vector $\vv
 
 
 \csection{Diagonalization}
+\label{sec:diagonal}
 
 If $T : V \to V$ is a linear transformation, one important question is that of finding a basis for $V$ in which the matrix of $T$ has as simple a form as possible. In other words, can we find a basis $\CB$ for $V$ for which the matrix $[T]_{\CB}$ is a diagonal matrix? Since any matrices for $T$ with respect to different bases are similar, this will happen if we can diagonalize any matrix for $T$. 
 
@@ -125,6 +129,7 @@ Recall that an $n \times n$ matrix $A$ is diagonalizable if and only if $A$ has 
 \end{theorem}
 
 \csection{Examples}
+\label{sec:eigen_trans_exam}
 
 \ExampleIntro
 
@@ -203,6 +208,7 @@ This means that  $f(x) = 0e^{x/\lambda} = 0$. But $0$ can never be an eigenvecto
 
 
 \csection{Summary}
+\label{sec:eigen_trans_summ}
 
 \begin{itemize}
 \item We can define eigenvalues and eigenvectors of a linear transformation $T : V \to V$, where $V$ is a finite dimensional vector space. In this case, a scalar $\lambda$ is an eigenvalue for $T$ if there exists a non-zero vector $\vv$ in $V$ so that $T(\vv) = \lambda \vv$.   
@@ -212,6 +218,7 @@ This means that  $f(x) = 0e^{x/\lambda} = 0$. But $0$ can never be an eigenvecto
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:eigen_trans_exer}
 \be
 \item Let $V = \pol_2$ and define $T: V \to V$ by $T(p(t)) = \frac{d}{dt} \left((1-t)p(t)\right)$. 
 	\ba
@@ -264,6 +271,7 @@ This means that  $f(x) = 0e^{x/\lambda} = 0$. But $0$ can never be an eigenvecto
 \ee
 
 \csection{Project: Linear Transformations and Differential Equations}
+\label{sec:proj_diff_eq}
 
 There are many different types of differential equations, but we will focus on differential equations of the form $my'' = -ky-by'$ presented in the introduction, a second order (the highest derivative in the equation is a second order derivative) linear (the coefficients are constants) differential equation (also called damped harmonic oscillators).
 

@@ -1,4 +1,4 @@
-\achapter{26}{Least Squares Approximations} \label{sec:least_squares}
+\achapter{26}{Least Squares Approximations} \label{chap:least_squares}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,10 +13,13 @@
 
 \csection{Application: Fitting Functions to Data}
 
+\label{sec:appl_fit_func}
+
 Data is all around us. Data is collected on almost everything and it is important to be able to use data to make predictions. However, data is rarely well-behaved and so we generally need to use approximation techniques to estimate from the data. One technique for this is least squares approximations. As we will see, we can use linear algebra to fit a variety of different types of curves to data. 
 
 
 \csection{Introduction}
+\label{sec:ls_intro}
 
 In this section our focus is on fitting linear and polynomial functions to data sets. 
 
@@ -86,6 +89,7 @@ Rephrasing this in terms of projections, we are looking for the vector in $W = \
 \end{pa}
 
  \csection{Least Squares Approximations}
+ \label{sec:ls_approx}
  
 In Section \ref{sec:gram_schmidt} we saw that the projection of a vector $\vv$ in $\R^n$ onto a subspace $W$ of $\R^n$ is the best approximation to $\vv$ of all the vectors in $W$. In fact, if $\vv = [v_1 \ v_2 \ \ldots \ v_n]^{\tr}$ and $\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}$, then the error in approximating $\vv$ by $\vw$ is given by 
 \[|| \vv - \proj_W \vv ||^2 = \sum_{i=1}^m (v_i - w_i)^2.\]
@@ -189,6 +193,7 @@ We summarize the result of Activity \ref{act:LS_invertible} in the following the
 If the columns of $A$ are linearly dependent, we can still solve the normal equations, but will obtain more than one solution. In a later section we will see that we can also use a pseudoinverse in these situations. 
 
 \csection{Examples}
+\label{sec:ls_exam}
 
 \ExampleIntro
 
@@ -344,6 +349,7 @@ just as in part i.
 \ea
 
 \csection{Summary}
+\label{sec:ls_summ}
 \begin{itemize}
 \item A least squares approximation to $A \vx = \vb$ is found by orthogonally projecting $\vb$ onto $\Col A$. 
 \item If the columns of $A$ are linearly independent, then the least squares approximation to $A \vx = \vb$ is $\left(A^{\tr}A\right)^{-1}A^{\tr} \vb$. 
@@ -357,6 +363,7 @@ So the least squares solution minimizes a sum of squares.
 
 
 \csection{Exercises}
+\label{sec:ls_exer}
 
 \be
 \item The University of Denver Infant Study Center investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. The study sought a relationship between babies' first crawling age and the average temperature during the month they first try to crawl (about 6 months after birth). Some of the data from the study is in Table \ref{T:7_d_infants}. Let $x$ represent the temperature in degrees Fahrenheit and $C(x)$ the average crawling age in months. 
@@ -522,6 +529,7 @@ Show that $E = \left[ \renewcommand{\arraystretch}{1.4} \begin{array}{cc} \frac{
 
 
 \csection{Project: Other Least Squares Approximations}
+\label{sec:proj_ls_approx}
 
 In this section we learned how to fit a polynomial function to a set of data in the least squares sense. But data takes on many forms, so it is important to be able to fit other types of functions to data sets. We investigate three different types of regression problems in this project.
 
