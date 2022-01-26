@@ -1,0 +1,131 @@
+<section xml:id="sec_null_kernel">
+  <title>The Null Space of a Matrix and the Kernel of a Matrix Transformation</title>
+  <p>
+    In this section we explore the <em>null space</em>
+    and see how the null space of a matrix is related to the matrix transformation defined by the matrix.
+  </p>
+  <p>
+    Let <m>A</m> be an <m>m \times n</m> matrix.
+    In Preview <xref ref="pa_3_b">Activity</xref>
+    we defined the null space of a matrix <m>A</m>
+    (see <xref ref="def_null_space">Definition</xref>)
+    as the set of solutions to the matrix equation <m>A \vx = \vzero</m>.
+    Note that the null space of an
+    <m>m \times n</m> matrix is a subset of <m>\R^n</m>.
+    We saw that the null space of <m>A</m> is closed under addition and scalar multiplication <mdash/> that is,
+    if <m>\vu</m> and <m>\vv</m> are in <m>\Nul A</m> and <m>a</m> and <m>b</m> are any scalars,
+    then <m>\vu + \vv</m> and <m>a \vu</m> are also in <m>\Nul A</m>.
+    Since the zero vector is always in <m>\Nul A</m>,
+    we can conclude that the null space of <m>A</m> is a subspace of <m>\R^n</m>.
+  </p>
+  <p>
+    There is a connection between the null space of a matrix and the matrix transformation it defines.
+    Recall that any <m>m \times n</m> matrix <m>A</m> defines a matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> by <m>T(\vx) = A \vx</m>.
+    The null space of <m>A</m> is then the collection of vectors <m>\vx</m> in <m>\R^n</m> so that <m>T(\vx) = \vzero</m>.
+    So if <m>T</m> is a matrix transformation from <m>\R^n</m> to <m>\R^m</m>,
+    then the set
+    <me>
+      \{\vx \text{ in }  \R^n : T(\vx) = \vzero\}
+    </me>
+    is a subspace of <m>\R^n</m> equal to the null space of <m>A</m>.
+    This set is is given a special name.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>T : \R^n \to \R^n</m> be a matrix transformation.
+        The <term>kernel</term>
+            <idx><h>kernel</h></idx>
+        of <m>T</m> is the set
+        <me>
+          \Ker(T) = \{\vx \in \R^n : T(\vx) = \vzero\}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <activity xml:id="act_3_b_1">
+    <p>
+      If <m>T</m> is a matrix transformation defined by a matrix <m>A</m>,
+      then there is a convenient way to determine if <m>T</m> is one-to-one.
+      <ul>
+        <li>
+          <p>
+            Let <m>T</m> be the matrix transformation defined by <m>T(\vx) = A\vx</m>, where
+            <me>
+              A = \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 0\amp 1\amp 4 \end{array}  \right]
+            </me>.
+            Find all of the vectors in <m>\Nul A</m>.
+            If <m>\Nul A</m> contains more than one vector,
+            can <m>T</m> be one-to-one?
+            Why?
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>T</m> be the matrix transformation defined by <m>T(\vx) = A\vx</m>, where
+            <me>
+              A = \left[ \begin{array}{rc} 1\amp 0 \\ 2\amp 1 \\ -1\amp 4 \end{array}  \right]
+            </me>.
+            Find all of the vectors in <m>\Nul A</m>.
+            Is <m>T</m> one-to-one?
+            Why?
+          </p>
+        </li>
+        <li>
+          <p>
+            To find the vectors in the null space of a matrix <m>A</m> we solve the system <m>A \vx = \vzero</m>.
+            Since a homogeneous system is always consistent,
+            there are two possibilities for <m>\Nul A</m>:
+            either <m>\Nul A = \{\vzero\}</m> or <m>\Nul A</m> contains infinitely many vectors.
+            <ol label="i">
+              <li>
+                <p>
+                  Under what conditions on <m>A</m> is <m>\Nul A = \{\vzero\}</m>?
+                  What does that mean about <m>T</m> being one-to-one or not?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Under what conditions is <m>\Nul A</m> infinite?
+                  What does that mean about <m>T</m> being one-to-one or not?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is is possible for <m>\Nul A</m> to be the whole space <m>\R^n</m>?
+                  If so, give an example.
+                  If not, explain why not.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Recall that for a function to be one-to-one,
+    each output must come from exactly one input.
+    Since a matrix transformation <m>T</m> defined by
+    <m>T(\vx) = A \vx</m> always maps the zero vector to the zero vector,
+    for <m>T</m> to be one-to-one it must be the case that the zero vector is the only vector that <m>T</m> maps to the zero vector.
+    This means that the null space of <m>A</m> must be <m>\{\vzero\}</m>.
+    <xref ref="act_3_b_1">Activity</xref>
+    demonstrates that if the matrix <m>A</m> that defines the transformation <m>T</m> has a pivot in every column,
+    then <m>T(\vx) = \vb</m> will have exactly one solution for each <m>\vb</m> in the range of <m>T</m>.
+    So a trivial null space is enough to characterize a one-to-one matrix transformation.
+  </p>
+  <theorem xml:id="thm_3_b_one_to_one_kernel">
+    <statement>
+      <p>
+        A matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> defined by
+        <m>T(\vx) = A\vx</m> is one-to-one if and only if
+        <me>
+          \Nul A = \Ker(T) = \{\vzero\}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+</section>

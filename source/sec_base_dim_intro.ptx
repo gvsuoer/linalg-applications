@@ -1,0 +1,123 @@
+<section xml:id="sec_base_dim_intro">
+  <title>Introduction</title>
+  <p>
+    A basis provides a system in which we can uniquely represent every vector in the space we are considering.
+    More specifically,
+    every vector in the space can be expressed as a linear combination of the vectors in the basis in a unique way.
+    In order to be able to cover every point in the space,
+    the basis has to span the space.
+    In order to be able to provide a unique coordinate for each point,
+    there should not be any extra vectors in the basis,
+    which is achieved by linear independence of the vectors.
+    For practical reasons,
+    a basis simplifies many problems because we only need to solve the problem for each of the basis vectors.
+    Solutions of the other cases usually follow because every vector in the space can be expressed as a unique linear combination of the basis vectors.
+  </p>
+  <p>
+    Recall that a basis for a subspace <m>W</m> of <m>\R^n</m> is a set of vectors which are linearly independent and which span <m>W</m>.
+  </p>
+  <activity xml:id="pa_3_d">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            For each of the following sets of vectors,
+            determine whether the vectors form a basis of <m>\R^3</m>.
+            Use any appropriate technology for your computations.
+            <ul>
+              <li>
+                <p>
+                  <m>\left\{\left[ \begin{array}{c} 1\\0\\0 \end{array} \right],\left[ \begin{array}{c} 1\\1\\ 0 \end{array} \right], \left[ \begin{array}{c} 1\\1\\1 \end{array} \right]\right\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\left\{\left[ \begin{array}{c} 1\\0\\1 \end{array} \right],\left[ \begin{array}{c} 1\\1\\ 0 \end{array} \right], \left[ \begin{array}{c} 2\\3\\1 \end{array} \right]\right\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\left\{\left[ \begin{array}{c} 1\\0\\1 \end{array} \right],\left[ \begin{array}{c} 1\\1\\ 1 \end{array} \right], \left[ \begin{array}{c} 0\\3\\3 \end{array} \right], \left[ \begin{array}{r} -1\\2\\1 \end{array} \right]\right\}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\left\{\left[ \begin{array}{c} 1\\0\\0 \end{array} \right],\left[ \begin{array}{c} 0\\1\\ 0 \end{array} \right]\right\}</m>
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            In problem (1) we should have noticed that a space can have more than one basis,
+            but that any two bases contain the same number of elements.
+            This is a critically important idea that we investigate in more detail in this problem in one specific case.
+            Assume that <m>W</m> is a subspace of <m>\R^n</m> that has a basis
+            <m>\B = \{\vv_1, \vv_2\}</m> with two basis vectors.
+            We want to see if any other basis for <m>W</m> can have a different number of elements.
+            Let us now consider a set <m>U = \{\vu_1, \vu_2, \vu_3\}</m> of three vectors in <m>W</m>.
+            Our goal is to determine if <m>U</m> can be a basis for <m>W</m>.
+            Since <m>\B</m> is a basis for <m>W</m>,
+            any vector in <m>W</m> can be written as a linear combination of the vectors in <m>\B</m>.
+            So we can write
+            <md>
+              <mrow xml:id="eq_PA2_9_1" number="yes">\vu_1 \amp = a_{11}\vv_1 + a_{21}\vv_2</mrow>
+              <mrow xml:id="eq_PA2_9_2" number="yes">\vu_2 \amp = a_{12}\vv_1 + a_{22}\vv_2</mrow>
+              <mrow xml:id="eq_PA2_9_3" number="yes">\vu_3 \amp = a_{13}\vv_1 + a_{23}\vv_2</mrow>
+            </md>
+            for some scalars <m>a_{ij}</m>.
+            If <m>U</m> were to be a basis for <m>W</m>,
+            then <m>U</m> would have to be a linearly independent set.
+            To determine the independence or dependence of <m>U</m> we consider the vector equation
+            <men xml:id="eq_PA2_9_4">
+              x_1 \vu_1 + x_2 \vu_2 + x_3 \vu_3 = \vzero
+            </men>
+            for scalars <m>x_1</m>, <m>x_2</m>, and <m>x_3</m>.
+            <ul>
+              <li>
+                <p>
+                  Substitute for <m>\vu_1</m>, <m>\vu_2</m>,
+                  and <m>\vu_3</m> from <xref ref="eq_PA2_9_1"/>, <xref ref="eq_PA2_9_2"/>,
+                  and <xref ref="eq_PA2_9_3"/> into <xref ref="eq_PA2_9_4"/> and perform some vector algebra to show that
+                  <men xml:id="eq_PA2_9_5">
+                    \vzero = \left(a_{11}x_1+a_{12}x_2 + a_{13}x_3\right) \vv_1 + \left(a_{21}x_1+a_{22}x_2 + a_{23}x_3\right) \vv_2
+                  </men>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Recall that <m>\B = \{\vv_1, \vv_2\}</m> is a basis.
+                  What does that tell us about the weights in the linear combination <xref ref="eq_PA2_9_5"/>?
+                  Explain why <m>A \vx = \vzero</m>,
+                  where <m>A = [a_{ij}]</m> and <m>\vx = [x_1 \ x_2 \ x_3]^{\tr}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  With <m>A</m> as in part (b),
+                  how many solutions does the system <m>A \vx = \vzero</m> have?
+                  Explain.
+                  <hint>
+                    <p>
+                      Consider the number of rows and columns of <m>A</m>.
+                    </p>
+                  </hint>
+                  What does this tell us about the independence or dependence of the set <m>U</m>?
+                  Why?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Can <m>U</m> be a basis for <m>W</m>?
+                  Explain.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

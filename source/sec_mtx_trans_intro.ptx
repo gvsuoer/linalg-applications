@@ -1,0 +1,143 @@
+<section xml:id="sec_mtx_trans_intro">
+  <title>Introduction</title>
+  <p>
+    In this section we will consider special functions which take vectors as inputs and produce vectors as outputs.
+    We will use matrix multiplication to produce the output vectors.
+  </p>
+  <p>
+    If <m>A</m> is an <m>m \times n</m> matrix and <m>\vx</m> is a vector in <m>\R^n</m>,
+    then the matrix-vector product <m>A \vx</m> is a vector in <m>\R^m</m>.
+    (Pick some specific <m>n, m</m> values to understand this statement better.)
+    Therefore, left multiplication by the matrix <m>A</m> takes an input vector <m>\vx</m> in <m>\R^n</m> and produces an output vector <m>A\vx</m> in <m>\R^m</m>,
+    which we will refer to as the <em>image</em>
+    of <m>\vx</m> under the transformation.
+    This defines a function <m>T</m> from <m>\R^n</m> to <m>\R^m</m> where
+    <me>
+      T(\vx) = A \vx \,
+    </me>.
+  </p>
+  <p>
+    These functions are the matrix transformations.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>matrix transformation</term>
+            <idx><h>matrix transformation</h></idx>
+            <idx><h>transformation</h><h>matrix</h></idx>
+        is a function <m>T: \R^n \to \R^m</m> defined by
+        <me>
+          T(\vx) = A\vx
+        </me>
+        for some <m>m \times n</m> matrix <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Many of the transformations we consider in this section are from <m>\R^2</m> to <m>\R^2</m> so that we can visualize the transformations.
+    As an example,
+    let us consider the transformation <m>T</m> defined by
+    <me>
+      T\left(\left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right] \right) = \left[ \begin{array}{cr} 1\amp 0 \\ 0\amp -1 \end{array}  \right]\left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    If we plot the input vectors <m>\vu_1 = \left[ \begin{array}{c}  1 \\ 0 \end{array}  \right]</m>,
+    <m>\vu_2 = \left[ \begin{array}{c}  0\\1 \end{array}  \right]</m>,
+    <m>\vu_3 = \left[ \begin{array}{c} 1  \\ 2 \end{array}  \right]</m>,
+    and <m>\vu_4 = \left[ \begin{array}{r} -1  \\ 1 \end{array}  \right]</m> (as (blue) circles) and their images <m>T(\vu_1) = \left[ \begin{array}{cr} 1\amp 0 \\ 0\amp -1 \end{array}  \right]\left[ \begin{array}{c} 1 \\ 0 \end{array}  \right] = \left[ \begin{array}{c} 1 \\ 0 \end{array}  \right]</m>,
+    <m>T(\vu_2) = \left[ \begin{array}{r} 0 \\ -1 \end{array}  \right]</m>,
+    <m>T(\vu_3) = \left[ \begin{array}{r} 1 \\ -2 \end{array}  \right]</m>,
+    and <m>T(\vu_4) = \left[ \begin{array}{r} -1 \\ -1 \end{array}  \right]</m> (as (red) <times/>'s) on the same set of axes as shown in <xref ref="F_PA_1g_1">Figure</xref>,
+    we see that this transformation reflects the input vectors across the <m>x</m>-axis.
+    We can also see this algebraically since the reflection of the point
+    <m>(x_1,x_2)</m> around the <m>x</m>-axis is the point <m>(x_1,-x_2)</m>, and
+    <me>
+      T\left( \left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right] \right) = \left[ \begin{array}{r} x_1 \\ -x_2 \end{array}  \right]
+    </me>.
+  </p>
+  <figure xml:id="F_PA_1g_1">
+    <caption>Inputs and outputs of the transformation <m>T</m>.</caption>
+    <image width="73%" source="1g_pa1_b"/>
+  </figure>
+  <activity xml:id="pa_1_g">
+    <p>
+      We now consider other transformations from <m>\R^2</m> to <m>\R^2</m>.
+      <ol>
+        <li>
+          <p>
+            Suppose a transformation <m>T</m> is defined by
+            <me>
+              T\left( \left[ \begin{array}{c}  x_1\\x_2 \end{array}  \right] \right) = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 2 \end{array}  \right] \left[ \begin{array}{c}  x_1 \\ x_2 \end{array}  \right]
+            </me>.
+            <ul>
+              <li>
+                <p>
+                  Find <m>T(\vu_i)</m> for each of <m>\vu_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]</m>,
+                  <m>\vu_2 = \left[ \begin{array}{c} 0\\1 \end{array} \right]</m>,
+                  <m>\vu_3 = \left[ \begin{array}{c} 1 \\ 2 \end{array} \right]</m>,
+                  and <m>\vu_4 = \left[ \begin{array}{r} -1 \\ 1 \end{array} \right]</m>.
+                  (In other words, substitute
+                  <m>\vu_1, \vu_2, \vu_3, \vu_4</m> into the formula above to see what output is obtained.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Plot all input vectors and their images on the same axes in <m>\R^2</m>.
+                  Clearly identify which image corresponds to which input vector.
+                  Then give a geometric description of what this transformation does.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            The transformation in the introduction performs a reflection across the <m>x</m>-axis.
+            Find a matrix transformation that performs a reflection across the <m>y</m>-axis.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose a transformation <m>T</m> is defined by
+            <me>
+              T(\vx) = A\vx
+            </me>,
+            where
+            <me>
+              A = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \end{array}  \right]
+            </me>.
+            <ul>
+              <li>
+                <p>
+                  Find <m>T(\vu_i)</m> for each of <m>\vu_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]</m>,
+                  <m>\vu_2 = \left[ \begin{array}{c} 0\\1 \end{array} \right]</m>,
+                  <m>\vu_3 = \left[ \begin{array}{c} 1 \\ 2 \end{array} \right]</m>,
+                  and <m>\vu_4 = \left[ \begin{array}{r} -1 \\ 1 \end{array} \right]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Plot all input vectors and their images on the same axes in <m>\R^2</m>.
+                  Give a geometric description of this transformation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is there an input vector which produces <m>\vb = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]</m> as an output vector?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find all input vectors that produce the output vector <m>\vb = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]</m>.
+                  Is there a unique input vector,
+                  or multiple input vectors?
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

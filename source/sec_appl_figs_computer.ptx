@@ -1,0 +1,41 @@
+<section xml:id="sec_appl_figs_computer">
+  <title>Application: Hidden Figures in Computer Graphics</title>
+  <p>
+    In video games,
+    the speed at which a computer can render changing graphics views is vitally important.
+    To increase a computer's ability to render a scene,
+    programs often try to identify those parts of the images a viewer could see and those parts the viewer could not see.
+    For example, in a scene involving buildings,
+    the viewer could not see any images blocked by a solid building.
+    In the mathematical world, this can be visualized by graphing surfaces.
+    In <xref ref="F_House">Figure</xref>
+    we see a crude image of a house made up of small polygons
+    (this is how programs generally represent surfaces).
+    On the left in <xref ref="F_House">Figure</xref>
+    we see all of the polygons that are needed to construct the entire surface,
+    even those polygons that lie behind others which we could not see if the surface was solid.
+    On the right in <xref ref="F_House">Figure</xref>
+    we have hidden the parts of the polygons that we cannot see from our view.
+  </p>
+  <figure xml:id="F_House">
+    <caption>Images of a house.</caption>
+    <image width="73%" source="6_a_House"/>
+  </figure>
+  <p>
+    We also see this idea in mathematics when we graph surfaces.
+    <xref ref="F_Surface">Figure</xref>
+    shows the graph of the surface defined by
+    <m>f(x,y) = \sqrt{4-x^2}</m> that is made up of polygons.
+    At left we see all of the polygons and at right only those parts that would be visible from our viewing perspective.
+  </p>
+  <figure xml:id="F_Surface">
+    <caption>Graphs of <m>f(x,y) = \sqrt{4-x^2}</m>.</caption>
+    <image width="73%" source="6_a_Surface_1.eps"/>   <image width="73%" source="6_a_Surface_2.eps"/>
+  </figure>
+  <p>
+    By eliminating the parts of the polygons we cannot see from our viewing perspective,
+    the computer program can more quickly render the viewing image.
+    Later in this section we will explore one method for how programs remove the hidden portions of images.
+    This process involves the dot product of vectors.
+  </p>
+</section>

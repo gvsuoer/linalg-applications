@@ -1,0 +1,95 @@
+<section xml:id="sec_intro_le_intro">
+  <title>Introduction</title>
+  <p>
+    Systems of linear equations arise in almost every field of study:
+    mathematics, statistics, physics,
+    chemistry, biology, economics, sociology,
+    computer science, engineering, and many, many others.
+    We will study the theory behind solving systems of linear equations,
+    implications of this theory,
+    and applications of linear algebra as we proceed throughout this text.
+  </p>
+  <activity xml:id="pa_1_a">
+    <p>
+      <nbsp/>
+      <ol>
+        <li xml:id="ex_system_1">
+          <p>
+            Consider the following system of two linear equations in two unknowns,
+            <m>x_1, x_2</m>:
+            <md>
+              <mrow>{4} 2x_1  \amp {}-{}  \amp 3x_2   \amp = 0</mrow>
+              <mrow>x_1   \amp {}-{}   \amp x_2    \amp = 1</mrow>
+            </md>.
+            One way to solve such a system of linear equations is the method of substitution
+            (where one equation is solved for one variable and then the resulting expression is substituted into the remaining equations).
+            This method works well for simple systems of two equations in two unknowns,
+            but becomes complicated if the number or complexity of the equations is increased.
+            Another method is elimination <mdash/> the method that we will adopt in this book.
+            Recall that the elimination method works by multiplying each equation by a suitable constant so that the coefficients of one of the variables in each equation is the same.
+            Then we subtract corresponding sides of these equations to eliminate that variable.
+            Use the method of elimination to show that this system has the unique solution <m>x_1=3</m> and <m>x_2=2</m>.
+            Explain the specific steps you perform when using elimination.
+          </p>
+        </li>
+        <li>
+          <p>
+            Recall that a linear equation in two variables can be represented as a line in <m>\R^2</m>,
+            the Cartesian plane,
+            where one variable corresponds to the horizontal axis and the other to the vertical axis.
+            Represent the two equations <m>2x_1 -3x_2 = 0</m> and
+            <m>x_1 - x_2= 1</m> in <m>\R^2</m> and illustrate the solution to the system in your picture.
+          </p>
+        </li>
+        <li>
+          <p>
+            The previous example should be familiar to you as a system of two equations in two unknowns.
+            Now we consider a system of three equations in three unknowns
+            <md>
+              <mrow xml:id="eq_PAcircuit_a" number="yes">{4} {}I_1   \amp {}-{}   \amp {}I_2  \amp {}+{}  \amp {}I_3   \amp {}={}   \amp 0\amp {}</mrow>
+              <mrow xml:id="eq_PAcircuit_b" number="yes">{5}I_1   \amp {}+{}  \amp {2}I_2   \amp {}     \amp {}     \amp {}={}  \amp 8\amp {}</mrow>
+              <mrow xml:id="eq_PAcircuit_c" number="yes">{}    \amp {}      \amp {2}I_2   \amp {}+{}  \amp  {4}I_3  \amp {}={}  \amp 5\amp {}</mrow>
+            </md>
+            that arises from our electrical circuit in <xref ref="F_circuit1">Figure</xref>,
+            with currents <m>I_1</m>,
+            <m>I_2</m>, and <m>I_3</m> as indicated in the circuit.
+            <figure xml:id="F_circuit1">
+              <caption>A circuit.</caption>
+              <image width="73%" source="1_a_pa_circuit1.eps"/>
+            </figure>
+            In the remainder of this preview activity we will apply the method of elimination to solve the system of linear equations <xref ref="eq_PAcircuit_a"/>,
+            <xref ref="eq_PAcircuit_b"/>, and <xref ref="eq_PAcircuit_c"/>.
+            <ul>
+              <li>
+                <p>
+                  Replace equation <xref ref="eq_PAcircuit_b"/> with the new equation obtained by multiplying both sides of equation <xref ref="eq_PAcircuit_a"/> by 5 and then subtracting corresponding sides of this equation from the appropriate sides of equation <xref ref="eq_PAcircuit_b"/>.
+                  Show that the resulting system is
+                  <md>
+                    <mrow>{4} {}I_1 \  \amp - \  \amp {}I_2 \  \amp + \  \amp {}I_3 \  \amp = 0</mrow>
+                    <mrow xml:id="eq_PAcircuit_d" number="yes">\  \amp   \  \amp 7I_2  \    \amp {-} \   \amp {5}I_3  \    \amp = 8</mrow>
+                    <mrow>\  \amp {} \   \amp 2I_2 \    \amp + \  \amp 4I_3 \    \amp = 5</mrow>
+                  </md>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now eliminate the variable <m>I_2</m> from the last two equations in the system in part (a) by using equations <xref ref="eq_PAcircuit_c"/> and <xref ref="eq_PAcircuit_d"/> to show that <m>I_3=0.5</m>.
+                  Explain your process.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Once you know the value for <m>I_3</m>,
+                  how can you find <m>I_2</m>?
+                  Then how do you find <m>I_1</m>?
+                  Use your method to show that the solution to this system is the ordered triple (1,1.5,0.5).
+                  Interpret the result in terms of currents.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

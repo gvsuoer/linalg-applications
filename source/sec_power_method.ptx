@@ -1,0 +1,281 @@
+<section xml:id="sec_power_method">
+  <title>The Power Method</title>
+  <p>
+    While the examples we present in this text are small in order to highlight the concepts,
+    matrices that appear in real life applications are often enormous.
+    For example,
+    in Google's PageRank algorithm that is used to determine relative rankings of the importance of web pages,
+    matrices of staggering size are used
+    (most entries in the matrices are zero,
+    but the size of the matrices is still huge).
+    Finding eigenvalues of such large matrices through the characteristic polynomial is impractical.
+    In fact, finding the roots of all but the smallest degree characteristic polynomials is a very difficult problem.
+    As a result,
+    using the characteristic polynomial to find eigenvalues and then finding eigenvectors is not very practical in general,
+    and it is often a better option to use a numeric approximation method.
+    We will consider one such method in this section,
+    the <em>power method</em>.
+  </p>
+  <p>
+    In Preview <xref ref="pa_4_d">Activity</xref>,
+    we saw an example of a matrix
+    <m>A = \left[ \begin{array}{cc} 2\amp 6 \\ 5\amp 3 \end{array} \right]</m> so that the sequence <m>\{\vx_k\}</m>,
+    where <m>\vx_k = A \vx_{k-1}</m>,
+    converged to a dominant eigenvector of <m>A</m> for an initial guess vector <m>\vx_0 = [1 \ 0]^{\tr}</m>.
+    The vectors <m>\vx_i</m> for <m>i</m> from <m>1</m> to <m>6</m>
+    (with scaling)
+    are approximately
+  </p>
+  <tabular>
+    <row>
+      <cell><m>\vx_1 = \left[ \begin{array}{c} 0.4 \\ 1
+        \end{array}  \right]</m></cell>
+      <cell><m>\vx_2 = \left[ \begin{array}{c} 1 \\ 0.7353
+        \end{array}  \right]</m></cell>
+      <cell><m>\vx_3 = \left[ \begin{array}{c} 0.8898 \\ 1
+        \end{array}  \right]</m></cell>
+    </row>
+    <row>
+      <cell><m>\vx_4 = \left[ \begin{array}{c} 1 \\ 0.9575
+        \end{array}  \right]</m></cell>
+      <cell><m>\vx_5 = \left[ \begin{array}{c} 0.9838 \\ 1
+        \end{array}  \right]</m></cell>
+      <cell><m>\vx_6 = \left[ \begin{array}{c} 1 \\ 0.9939
+        \end{array}  \right]</m>.</cell>
+    </row>
+  </tabular>
+  <p>
+    Numerically we can see that the sequence
+    <m>\{\vx_k\}</m> approaches the vector <m>[1 \ 1]^{\tr}</m>,
+    and <xref ref="F_4_e_1">Figure</xref>
+    illustrates this geometrically as well.
+  </p>
+  <figure xml:id="F_4_e_1">
+    <caption>The power method.</caption>
+    <image width="73%" source="4_e_Power_Method_1"/>
+  </figure>
+  <p>
+    This method of successive approximations
+    <m>\vx_k = A \vx_{k-1}</m> is called the <em>power method</em>
+        <idx><h>power method</h></idx>
+    (since we could write <m>\vx_k</m> as <m>A^k \vx_0</m>).
+    Our task now is to show that this method works in general.
+    In the next activity we restrict our argument to the <m>2 \times 2</m> case,
+    and then discuss the general case afterwards.
+  </p>
+  <p>
+    Let <m>A</m> be an arbitrary
+    <m>2 \times 2</m> matrix with two linearly independent eigenvectors <m>\vv_1</m> and <m>\vv_2</m> and corresponding eigenvalues
+    <m>\lambda_1</m> and <m>\lambda_2</m>, respectively.
+    We will also assume <m>|\lambda_1| > |\lambda_2|</m>.
+    An eigenvalue whose absolute value is larger than that of any other eigenvalue is called a
+    <em>dominant eigenvalue</em>.
+        <idx><h>dominant eigenvalue</h></idx>
+    Any eigenvector for a dominant eigenvalue is called a
+    <em>dominant eigenvector</em>.
+        <idx><h>dominant eigenvector</h></idx>
+    Before we show that our method can be used to approximate a dominant eigenvector,
+    we recall that since <m>\vv_1</m> and <m>\vv_2</m> are eigenvectors corresponding to distinct eigenvalues,
+    then <m>\vv_1</m> and <m>\vv_2</m> are linearly independent.
+    So there exist scalars <m>a_1</m> and <m>a_2</m> such that
+    <me>
+      \vx_0 = a_1 \vv_1 + a_2 \vv_2
+    </me>.
+  </p>
+  <p>
+    We have seen that for each positive integer <m>k</m> we can write <m>\vx_n</m> as
+    <men xml:id="eq_4_e_1">
+      \vx_k = a_1 \lambda_1^k \vv_1 + a_2 \lambda_2^k \vv_2
+    </men>.
+  </p>
+  <p>
+    With this representation of <m>\vx_0</m> we can now see why the power method approximates a dominant eigenvector of <m>A</m>.
+  </p>
+  <activity xml:id="act_4_e_1">
+    <p>
+      Assume as above that <m>A</m> is an arbitrary
+      <m>2 \times 2</m> matrix with two linearly independent eigenvectors <m>\vv_1</m> and <m>\vv_2</m> and corresponding eigenvalues
+      <m>\lambda_1</m> and <m>\lambda_2</m>, respectively.
+      (We are assuming that we don't know these eigenvectors,
+      but we can assume that they exist.)
+      Assume that <m>\lambda_1</m> is the dominant eigenvalue for <m>A</m>,
+      <m>\vx_0</m> is some initial guess to an eigenvector for <m>A</m>,
+      that <m>\vx_0 = a_1 \vv_1 + a_2 \vv_2</m>,
+      and that <m>\vx_k = A\vx_{k-1}</m> for <m>k \geq 1</m>.
+      <ul>
+        <li>
+          <p>
+            We divide both sides of equation <xref ref="eq_4_e_1"/> by <m>\lambda_1^k</m>
+            (since <m>\lambda_1</m> is the dominant eigenvalue,
+            we know that <m>\lambda_1</m> is not <m>0</m>)
+            to obtain
+            <men xml:id="eq_4_e_2">
+              \frac{1}{\lambda_1^k}\vx_k = a_1 \vv_1 + a_2 \left(\frac{\lambda_2}{\lambda_1}\right)^k \vv_2
+            </men>.
+            Recall that <m>\lambda_1</m> is the dominant eigenvalue for <m>A</m>.
+            What happens to <m>\left( \frac{\lambda_2}{\lambda_1} \right)^k</m> as <m>k \to \infty</m>?
+            Explain what happens to the right hand side of equation <xref ref="eq_4_e_2"/> as <m>k \to \infty</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why the previous result tells us that the vectors <m>\vx_k</m> are approaching a vector in the <em>direction</em>
+            of <m>\vv_1</m> or <m>-\vv_1</m> as <m>k \to \infty</m>,
+            assuming <m>a_1 \neq 0</m>. (Why do we need <m>a_1 \neq 0</m>?
+            What happens if <m>a_1=0</m>?)
+          </p>
+        </li>
+        <li>
+          <p>
+            What does all of this tell us about the sequence
+            <m>\{\vx_k\}</m> as <m>k \to \infty</m>?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The power method is straightforward to implement,
+    but it is not without its drawbacks.
+    We began by assuming that we had a basis of eigenvectors of a matrix <m>A</m>.
+    So we are also assuming that <m>A</m> is diagonalizable.
+    We also assumed that <m>A</m> had a dominant eigenvalue <m>\lambda_1</m>.
+    That is, if <m>A</m> is <m>n \times n</m> we assume that <m>A</m> has eigenvalues <m>\lambda_1</m>,
+    <m>\lambda_2</m>,
+    <m>\ldots</m>, <m>\lambda_n</m>,
+    not necessarily distinct, with
+    <me>
+      |\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq \cdots \geq |\lambda_n|
+    </me>
+    and with <m>\vv_i</m> an eigenvector of <m>A</m> with eigenvalue <m>\lambda_i</m>.
+    We could then write any initial guess <m>\vx_0</m> in the form
+    <me>
+      \vx_0 = a_1 \vv_1 +  a_2\vv_2 + \cdots + a_n \vv_n
+    </me>.
+  </p>
+  <p>
+    The initial guess is also called a <em>seed</em>.
+  </p>
+  <p>
+    Then
+    <me>
+      \vx_k = a_1 \lambda_1^k \vv_1 + a_2 \lambda_2^k \vv_2 + \cdots + a_n \lambda_n^k \vv_n
+    </me>
+    and
+    <men xml:id="eq_4_e_3">
+      \frac{1}{\lambda_1^k} \vx_k = a_1 \vv_1 + a_2 \left(\frac{\lambda_2}{\lambda_1}\right)^k \vv_2 + \cdots + a_n \left(\frac{\lambda_n}{\lambda_1}\right)^k \vv_n
+    </men>.
+  </p>
+  <p>
+    Notice that we are not actually calculating the vectors <m>\vx_k</m> here <mdash/> this is a theoretical argument and we don't know
+    <m>\lambda_1</m> and are not performing any scaling like we did in Preview <xref ref="pa_4_d">Activity</xref>.
+    We are assuming that <m>\lambda_1</m> is the dominant eigenvalue of <m>A</m>, though,
+    so for each <m>i</m> the terms
+    <m>\left(\frac{\lambda_i}{\lambda_1}\right)^k</m> converge to <m>0</m> as <m>k</m> goes to infinity.
+    Thus,
+    <me>
+      \vx_k \approx \lambda_1^k a_1 \vv_1
+    </me>
+    for large values of <m>k</m>,
+    which makes the sequence <m>\{\vx_k\}</m> converge to a vector in the direction of a dominant eigenvector <m>\vv_1</m> provided <m>a_1 \neq 0</m>.
+    So we need to be careful enough to choose a seed that has a nonzero component in the direction of <m>\vv_1</m>.
+    Of course, we generally don't know that our matrix is diagonalizable before we make these calculations,
+    but for many matrices the sequence
+    <m>\{\vx_k\}</m> will approach a dominant eigenvector.
+  </p>
+  <p>
+    The power method approximates a dominant eigenvector,
+    and there are ways that we can approximate the dominant eigenvalue.
+    <xref ref="ex_4_d_dominant_eigenvalue">Exercise</xref>
+    presents one way <mdash/> by keeping track of the components of the <m>\vx_k</m> that have the largest absolute values,
+    and the next activity shows another.
+  </p>
+  <activity xml:id="act_4_d_Rayleigh">
+    <p>
+      Let <m>A</m> be an <m>n \times n</m> matrix with eigenvalue <m>\lambda</m> and corresponding eigenvector <m>\vv</m>.
+      <ul>
+        <li>
+          <p>
+            Explain why <m>\lambda = \frac{\lambda (\vv \cdot \vv)}{\vv \cdot \vv}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the result of part (a) to explain why <m>\lambda = \frac{(A\vv) \cdot \vv}{\vv \cdot \vv}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The result of <xref ref="act_4_d_Rayleigh">Activity</xref> is that,
+    when the vectors in the sequence
+    <m>\{\vx_k\}</m> approximate a dominant eigenvector of a matrix <m>A</m>,
+    the quotients
+    <men xml:id="eq_Rayleigh">
+      \frac{(A\vx_k) \cdot \vx_k}{\vx_k \cdot \vx_k} = \frac{\vx_k^{\tr}A\vx_k}{\vx_k^{\tr}\vx_k}
+    </men>
+    approximate the dominant eigenvalue of <m>A</m>.
+    The quotients in <xref ref="eq_Rayleigh"/> are called
+    <em>Rayleigh quotients</em>.
+        <idx><h>Rayleigh quotients</h></idx>
+  </p>
+  <p>
+    To summarize,
+    the procedure for applying the power method for approximating a dominant eigenvector and dominant eigenvalue of a matrix <m>A</m> is as follows.
+    <ul>
+      <li>
+        <title>Step 1:</title>
+        <p>
+          Select an arbitrary nonzero vector <m>\vx_0</m> as an initial guess to a dominant eigenvector.
+        </p>
+      </li>
+      <li>
+        <title>Step 2:</title>
+        <p>
+          Let <m>\vx_1 = A\vx_0</m>.
+          Let <m>k = 1</m>.
+        </p>
+      </li>
+      <li>
+        <title>Step 3:</title>
+        <p>
+          To avoid having the magnitudes of successive approximations become excessively large,
+          scale this approximation <m>\vx_k</m>.
+          That is, find the entry <m>\alpha_k</m> of <m>\vx_k</m> that is largest in absolute value.
+          Then replace <m>\vx_k</m> by <m>\frac{1}{\alpha_k} \vx_k</m>.
+        </p>
+      </li>
+      <li>
+        <title>Step 4:</title>
+        <p>
+          Calculate the Rayleigh quotient <m>r_k = \frac{(A\vx_{k}) \cdot \vx_k}{\vx_k \cdot \vx_k}</m>.
+        </p>
+      </li>
+      <li>
+        <title>Step 5:</title>
+        <p>
+          Let let <m>\vx_{k+1} = A \vx_k</m>.
+          Increase <m>k</m> by <m>1</m> and repeat Steps 3 through 5.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    If the sequence <m>\{\vx_k\}</m> converges to a dominant eigenvector of <m>A</m>,
+    then the sequence <m>\{r_k\}</m> converges to the dominant eigenvalue of <m>A</m>.
+  </p>
+  <p>
+    The power method can be useful for approximating a dominant eigenvector as long as the successive multiplications by <m>A</m> are fairly simple <mdash/> for example,
+    if many entries of <m>A</m> are zero.<fn>
+    A matrix in which most entries are zero is called a <em>sparse</em> matrix.
+        <idx><h>matrix</h><h>sparse</h></idx>
+    </fn> The rate of convergence of the sequence
+    <m>\{\vx_k\}</m> depends on the ratio <m>\frac{\lambda_2}{\lambda_1}</m>.
+    If this ratio is close to <m>1</m>,
+    then it can take many iterations before the power
+    <m>\left(\frac{\lambda_2}{\lambda_1}\right)^k</m> makes the <m>\vv_2</m> term negligible.
+    There are other methods for approximating eigenvalues and eigenvectors,
+    e.g., the QR factorization, that we will not discuss at this point.
+  </p>
+</section>

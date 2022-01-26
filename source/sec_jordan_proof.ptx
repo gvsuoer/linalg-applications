@@ -1,0 +1,75 @@
+<section xml:id="sec_jordan_proof">
+  <title>Proof of the Existence of the Jordan Canonical Form</title>
+  <p>
+    While we have constructed an algorithm to find a Jordan canonical form of a square matrix,
+    we haven't yet addressed the question of whether every square matrix has a Jordan canonical form.
+    We do that in this section.
+  </p>
+  <p>
+    Consider that any vector <m>[a \ b]^{\tr}</m> in <m>\R^2</m> can be written as the sum <m>[a \ 0]^{\tr} + [0 \ b]^{\tr}</m>.
+    The vector <m>[a \ 0]^{\tr}</m> is a vector in the subspace <m>W_1 = \{ [x \ 0]^{\tr} | x \in \R\} = \Span \{[1 \ 0]^{\tr}\}</m> and the vector
+    <m>[0 \ b]^{\tr}</m> is in the subspace <m>W_2 = \{[0 \ y]^{\tr} | y \in \R\} = \Span\{[0 \ 1]^{\tr}</m>.
+    Also notice that <m>W_1 \cap W_2 = \{\vzero\}</m>.
+    We can extend this idea to <m>\R^3</m>,
+    where any vector <m>[a \ b \ c]^{\tr}</m> can be written as <m>[a \ 0 \ 0]^{\tr} + [0 \ b \ 0]^{\tr} + [0 \ 0 \ c]^{\tr}</m>,
+    with <m>[a \ 0 \ 0]^{\tr}</m> in <m>W_1 = \Span\{[1 \ 0 \ 0]^{\tr}</m>,
+    <m>[0 \ b \ 0]^{\tr}</m> in <m>W_2 = \Span\{[0 \ 1 \ 0]^{\tr}</m>,
+    and <m>[0 \ 0 \ c]^{\tr}</m> in <m>W_3 = \Span\{[0 \ 0 \ 1]^{\tr}</m>.
+    In this situation we write <m>\R^2 = W_1 \oplus W_2</m> and
+    <m>\R^3 = W_1 \oplus W_2 \oplus W_3</m> and say that <m>\R^2</m> is the direct sum of <m>W_1</m> and <m>W_2</m>,
+    while <m>\R^3</m> is the direct sum of <m>W_1</m>,
+    <m>W_2</m>, and <m>W_3</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A vector space <m>V</m> is a <term>direct sum</term>
+            <idx><h>direct sum of subspaces</h></idx>
+        of subspaces <m>V_1</m>, <m>V_2</m>, <m>\ldots</m>,
+        <m>V_m</m> if every vector <m>\vv</m> in <m>V</m> can be written uniquely as a sum
+        <me>
+          \vv = \vv_1+\vv_2+\vv_3+\cdots + \vv_m
+        </me>,
+        with <m>\vv_i \in V_i</m> for each <m>i</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    If <m>V</m> is a direct sum of subspaces <m>V_1</m>,
+    <m>V_2</m>, <m>\ldots</m>, <m>V_m</m>, then we write
+    <me>
+      V = V_1 \oplus V_2 \oplus \cdots \oplus V_m
+    </me>.
+  </p>
+  <p>
+    Some useful facts about direct sums are given in the following theorem.
+    The proofs are left for the exercises.
+  </p>
+  <theorem xml:id="thm_Direct_sum_properties">
+    <statement>
+      <p>
+        Let <m>V</m> be a vector space that is a direct sum
+        <m>V = V_1 \oplus V_2 \oplus \cdots \oplus V_m</m> for some positive integer <m>m</m>.
+        <ol>
+          <li>
+            <p>
+              <m>V_i \cap V_j = \{\vzero\}</m> whenever <m>i \neq j</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>V</m> is finite dimensional,
+              and if <m>\CB_i</m> is a basis for <m>V_i</m>,
+              then the set <m>\CB = \cup_{i=1}^m \CB_i</m> is a basis for <m>V</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\dim(V) = \dim(V_1) + \dim(V_2) + \cdots + \dim(V_m)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

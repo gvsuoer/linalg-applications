@@ -1,0 +1,131 @@
+<section xml:id="sec_mtx_trans_prop">
+  <title>Properties of Matrix Transformations</title>
+  <p>
+    A matrix transformation is a function.
+    When dealing with functions in previous mathematics courses we have used the terms domain and range with our functions.
+    Recall that the domain of a function is the set of all allowable inputs into the function and the range of a function is the set of all outputs of the function.
+    We do the same with transformations.
+    If <m>T</m> is the matrix transformation
+    <m>T(\vx) = A \vx</m> for some <m>m \times n</m> matrix <m>A</m>,
+    then <m>T</m> maps vectors from <m>\R^n</m> into <m>\R^m</m>.
+    So <m>\R^n</m> is the <em>domain</em><idx><h>domain of a matrix transformation</h></idx> of <m>T</m> <mdash/> the set of all input vectors.
+    However, the set <m>\R^m</m> is only the target set for <m>T</m> and not necessarily the range of <m>T</m>.
+    We call <m>\R^m</m> the <em>codomain</em><idx><h>codomain of a matrix transformation</h></idx> of <m>T</m>,
+    while the <em>range</em><idx><h>range of a matrix transformation</h></idx> of <m>T</m> is the set of all output vectors.
+    The range of a transformation will come up later,
+    so we make a formal definition.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <term>range</term><idx><h>range of a matrix transformation</h></idx> of a matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> is the set
+        <me>
+          \Range{T} = \{T(\vx) : \vx \in \R^n\}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The range is always a subset of the codomain,
+    but the two sets do not have to be equal.
+    In addition, if a vector <m>\vb</m> in <m>\R^m</m> satisfies
+    <m>\vb = T(\vx)</m> for some <m>\vx</m> in <m>\R^n</m>,
+    then we say that <m>\vb</m> is the
+    <em>image</em><idx><h>image of an element under a transformation</h></idx> of <m>\vx</m> under the transformation <m>T</m>.
+    For this reason we also use the term
+    <em>image</em><idx><h>image of a matrix transformation</h></idx> to also mean the range of a transformation,
+    with the corresponding notation <m>\Image(T)</m>.
+  </p>
+  <p>
+    Because of the properties of the matrix-vector product,
+    if the matrix transformation <m>T</m> is defined by <m>T(\vx) = A\vx</m> for some
+    <m>m \times n</m> matrix <m>A</m>, then
+    <me>
+      T(\vu + \vv) =  A(\vu + \vv) = A\vu + A\vv
+    </me>
+    and
+    <me>
+      T(c\vu) = A(c\vu) = cA\vu = cT(\vu)
+    </me>
+    for any vectors <m>\vu</m> and <m>\vv</m> in <m>\R^n</m> and any scalar <m>c</m>.
+    So every matrix transformation <m>T</m> satisfies the following two important properties:
+    <ol>
+      <li>
+        <p>
+          <m>T(\vu + \vv) = T(\vu) + T(\vv)</m> and
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>T(c\vu) = c T(\vv)</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    The first property says that a matrix transformation <m>T</m> preserves sums of vectors and the second that <m>T</m> preserves scalar multiples of vectors.
+  </p>
+  <activity xml:id="act_1_g_2">
+    <p>
+      Let <m>T</m> be a matrix transformation,
+      and let <m>\vu</m> and <m>\vv</m> be vectors in the domain of <m>T</m> so that
+      <m>T(\vu) = \left[ \begin{array}{c} 1 \\ 2 \\ 0 \end{array} \right]</m> and <m>T(\vv) = \left[ \begin{array}{r} -3 \\ 1 \\ 4 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Exactly which vector is <m>T(2\vu - 3\vv)</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>a</m> and <m>b</m> are any scalars,
+            what is the vector <m>T(a\vu + b\vv)</m>?
+            Why?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As we saw in <xref ref="act_1_g_2">Activity</xref>,
+    we can combine the two properties of a matrix transformation <m>T</m> into one:
+    for any scalars <m>a</m> and <m>b</m> and any vectors <m>\vu</m> and <m>\vv</m> in the domain of <m>T</m> we have
+    <men xml:id="eq_1_g_1">
+      T(a\vu+b\vv) = aT(\vu) + bT(\vv)
+    </men>.
+  </p>
+  <p>
+    We can then extend equation <xref ref="eq_1_g_1"/>
+    (by mathematical induction)
+    to any finite linear combination of vectors.
+    That is, if <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
+    <m>\vv_k</m> are any vectors in the domain of a matrix transformation <m>T</m> and if <m>x_1</m>,
+    <m>x_2</m>, <m>\ldots</m>, <m>x_k</m> are any scalars, then
+    <men xml:id="eq_1_g_2">
+      T(x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k) = x_1 T(\vv_1) + x_2 T(\vv_2) + \cdots + x_k T(\vv_k)
+    </men>.
+  </p>
+  <p>
+    In other words,
+    a matrix transformation preserves linear combinations.
+    For this reason matrix transformations are examples of a larger set of transformation that are called
+    <em>linear</em> transformations.
+    We will discuss general linear transformations in a later section.
+  </p>
+  <p>
+    There is one other important property of a matrix transformation for us to consider.
+    The functions we encountered in earlier mathematics courses,
+    e.g., <m>f(x) = 2x+1</m>, could send the input 0 to any output.
+    However, as a consequence of the definition,
+    any matrix transformation <m>T</m> maps the zero vector to the zero vector because
+    <me>
+      T(\vzero) = A\vzero = \vzero \,
+    </me>.
+  </p>
+  <p>
+    Note that the two vectors <m>\vzero</m> in the last equation may not be the same vector <mdash/> if <m>T : \R^n \to \R^m</m>,
+    then the first <m>\vzero</m> is in <m>\R^n</m> and the second in <m>\R^m</m>.
+    It should be clear from the context which vector <m>\vzero</m> is meant.
+  </p>
+</section>

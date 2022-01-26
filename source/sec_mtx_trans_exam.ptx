@@ -1,0 +1,172 @@
+<section xml:id="sec_mtx_trans_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \left[ \begin{array}{crrr} 1\amp 1\amp -1\amp -1 \\ 3\amp 6\amp 0\amp 3 \\ 2\amp -1\amp -5\amp -8 \end{array} \right]</m> and let <m>T(\vx) = A\vx</m>.
+        <ul>
+          <li>
+            <p>
+              Identify the domain of <m>T</m>.
+              Explain your reasoning.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>T</m> one-to-one.
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>T</m> onto?
+              If yes, explain why.
+              If no, describe the range of <m>T</m> as best you can,
+              both algebraically and graphically.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Since <m>A</m> is a <m>3 \times 4</m> matrix,
+              <m>A</m> has four columns.
+              Now <m>A \vx</m> is a linear combination of the columns of <m>A</m> with weights from <m>\vx</m>,
+              so <m>\vx</m> must have four entries to correspond to the columns of <m>A</m>.
+              We conclude that the domain of <m>T</m> is <m>\R^4</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Technology shows that the reduced row echelon form of <m>A</m> is
+              <me>
+                \left[ \begin{array}{ccrr} 1\amp 0\amp -2\amp -3 \\ 0\amp 1\amp 1\amp 2 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+              </me>.
+              Since <m>A</m> contains non-pivot columns,
+              the homogeneous system <m>A \vx = \vzero</m> has infinitely many solutions.
+              So <m>T</m> is not one-to-one.
+              In other words,
+              if there is a column of <m>A</m> that is a non-pivot column,
+              then <m>A</m> is not one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since the reduced row echelon form of <m>A</m> has rows of zeros,
+              there will be vectors <m>\vb</m> in <m>\R^3</m> such that the reduced row echelon form of
+              <m>[A \ \vb]</m> will have a row of the form
+              <m>[0 \ 0 \ 0 \ 0 \ c]</m> for some nonzero scalar <m>c</m>.
+              This means that <m>T(\vx) = A\vx = \vb</m> will have no solution and <m>T</m> is not onto.
+              In other words,
+              if there is a row of <m>A</m> that does not contain a pivot,
+              then <m>T</m> is not onto.
+            </p>
+          </li>
+          <li>
+            <p>
+              To determine the vectors <m>\vb = \left[ \begin{array}{c} r\\s\\t \end{array}  \right]</m> so that <m>T(\vx) = A\vx = \vb</m> is consistent,
+              we row reduce the augmented matrix <m>[A \ | \  \vb]</m>.
+              Technology shows that an echelon form of <m>[A \ \vb]</m> is
+              <me>
+                \left[ \begin{array}{ccrr|c} 1\amp 1\amp -1\amp -1\amp r \\ 0\amp 3\amp 3\amp 6\amp s-3r \\ 0\amp 0\amp 0\amp 0\amp t-5r+s \end{array}  \right]
+              </me>.
+              Thus, the system <m>A \vx = \vb</m> is consistent if and only if <m>- 5r+s+t = 0</m>.
+              We can then write the general output vector to this system as
+              <me>
+                \vb = \left[ \begin{array}{c} r\\s\\5r-s \end{array}  \right] = r\left[ \begin{array}{c} 1\\0\\5 \end{array}  \right] + s\left[ \begin{array}{r} 0\\1\\-1 \end{array}  \right]
+              </me>,
+              with <m>r</m> and <m>s</m> any scalars.
+              Since there are two free variables,
+              the vectors <m>\vb</m> in <m>\R^3</m> define a plane through the origin.
+              Letting <m>r=0</m> and <m>s=1</m> and <m>r=1</m> and <m>s=0</m>,
+              we see that two points that lie on this plane are <m>(0,1,-1)</m> and <m>(1,0,5)</m>.
+              So the range of <m>T</m> is the plane through the origin and the points <m>(0,1,-1)</m> and <m>(1,0,5)</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        A matrix transformation <m>T: \R^2 \to \R^2</m> defined by
+        <me>
+          T\left(\left[ \begin{array}{c} x\\y \end{array}  \right] \right) = \left[ \begin{array}{c} cx\\y \end{array}  \right]
+        </me>
+        is a contraction in the <m>x</m> direction if
+        <m>0 \lt  c \lt  1</m> and a dilation in the <m>x</m> direction if <m>c>1</m>.
+        <ul>
+          <li>
+            <p>
+              Find a matrix <m>A</m> such that <m>T(\vx) = A\vx</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sketch the square <m>S</m> with vertices <m>\vu_1 = \left[ \begin{array}{c} 0\\0 \end{array} \right]</m>,
+              <m>\vu_2 = \left[ \begin{array}{c} 1\\0 \end{array} \right]</m>,
+              <m>\vu_3 = \left[ \begin{array}{c} 1\\1 \end{array} \right]</m>,
+              and <m>\vu_4 = \left[ \begin{array}{c} 0\\1 \end{array} \right]</m>.
+              Determine and sketch the image of <m>S</m> under <m>T</m> if <m>c = 2</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Since
+              <me>
+                \left[ \begin{array}{cc} c\amp 0\\0\amp 1 \end{array} \right] \left[ \begin{array}{c} x\\y \end{array}  \right] = \left[ \begin{array}{c} cx\\y \end{array}  \right]
+              </me>,
+              the matrix <m>A = \left[ \begin{array}{cc} c\amp 0\\0\amp 1 \end{array} \right]</m> has the property that <m>T(\vx) = A\vx</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We can determine the image of <m>S</m> under <m>T</m> by calculating what <m>T</m> does to the vertices of <m>S</m>.
+              Notice that
+              <md>
+                <mrow>T(\vu_1) \amp = \left[ \begin{array}{cc} 2\amp 0</mrow>
+                <mrow>0\amp 1 \end{array}\right] \left[ \begin{array}{c} 0</mrow>
+                <mrow>0 \end{array} \right] = \left[ \begin{array}{c} 0</mrow>
+                <mrow>0 \end{array} \right]</mrow>
+                <mrow>T(\vu_2) \amp = \left[ \begin{array}{cc} 2\amp 0</mrow>
+                <mrow>0\amp 1 \end{array}\right] \left[ \begin{array}{c} 1</mrow>
+                <mrow>0 \end{array} \right] = \left[ \begin{array}{c} 2</mrow>
+                <mrow>0 \end{array} \right]</mrow>
+                <mrow>T(\vu_3) \amp = \left[ \begin{array}{cc} 2\amp 0</mrow>
+                <mrow>0\amp 1 \end{array}\right] \left[ \begin{array}{c} 1</mrow>
+                <mrow>1 \end{array} \right] = \left[ \begin{array}{c} 2</mrow>
+                <mrow>1 \end{array} \right]</mrow>
+                <mrow>T(\vu_4) \amp = \left[ \begin{array}{cc} 2\amp 0</mrow>
+                <mrow>0\amp 1 \end{array}\right] \left[ \begin{array}{c} 0</mrow>
+                <mrow>1 \end{array} \right] = \left[ \begin{array}{c} 0</mrow>
+                <mrow>1 \end{array} \right]</mrow>
+              </md>
+              Since <m>T</m> is a linear map,
+              the image of <m>S</m> under <m>T</m> is the polygon with vertices <m>(0,0)</m>,
+              <m>(1,0)</m>, <m>(2,1)</m>,
+              and <m>(0,1)</m> as shown in <xref ref="F_ex_1_g_polygons">Figure</xref>.
+              From <xref ref="F_ex_1_g_polygons">Figure</xref>
+              we can see that <m>T</m> stretches the figure in the <m>x</m> direction only by a factor of 2.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <figure xml:id="F_ex_1_g_polygons">
+        <caption>The input square <m>S</m> and the output <m>T(S)</m>.</caption>
+        <image width="73%" source="1_g_polygons"/>
+      </figure>
+    </statement>
+  </example>
+</section>

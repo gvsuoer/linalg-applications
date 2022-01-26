@@ -1,0 +1,341 @@
+<section xml:id="sec_vec_spaces">
+  <title>Vector Spaces</title>
+  <p>
+    The set of <m>n</m>-dimensional vectors with the vector addition and scalar multiplication satisfy many properties,
+    such as addition being commutative and associative,
+    existence of an additive identity, and others.
+    The set <m>\R^n</m> with these properties is an example of a <em>vector space</em>,
+    a general structure examples of which include many other algebraic structures as we will see later.
+  </p>
+  <definition xml:id="def_3_a_1">
+    <statement>
+      <p>
+        A set <m>V</m> on which an operation of addition and a multiplication by scalars is defined is a <term>vector space</term>
+            <idx><h>vector space</h></idx>
+        if for all <m>\vu</m>, <m>\vv</m>,
+        and <m>\vw</m> in <m>V</m> and all scalars <m>a</m> and <m>b</m>:
+        <ol>
+          <li>
+            <p>
+              <m>\vu + \vv</m> is an element of <m>V</m> (we say that <m>V</m> is <em>closed</em>
+              under the addition in <m>V</m>),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vu + \vv = \vv + \vu</m> (we say that the addition in <m>V</m> is <em>commutative</em>),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(\vu + \vv) + \vw = \vu + (\vv + \vw)</m> (we say that the addition in <m>V</m> is <em>associative</em>),
+            </p>
+          </li>
+          <li>
+            <p>
+              there is a vector <m>\vzero</m> in <m>V</m> so that
+              <m>\vu + \vzero = \vu</m> (we say that <m>V</m> contains an
+              <em>additive identity</em>
+              or <em>zero vector</em> <m>\vzero</m>),
+            </p>
+          </li>
+          <li>
+            <p>
+              for each <m>\vx</m> in <m>V</m> there is an element <m>\vy</m> in <m>V</m> so that
+              <m>\vx + \vy = \vzero</m> (we say that <m>V</m> contains an
+              <em>additive inverse</em>
+              <m>\vy</m> for each element <m>\vx</m> in <m>V</m>),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>a \vu</m> is an element of <m>V</m> (we say that <m>V</m> is <em>closed</em>
+              under multiplication by scalars),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(a+b) \vu = a\vu + b\vu</m> (we say that
+              <em>multiplication by scalars distributes over scalar addition</em>),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>a(\vu + \vv) = a\vu + a\vv</m> (we say that
+              <em>multiplication by scalars distributes over addition in <m>V</m></em>),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(ab) \vu = a(b\vu)</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>1 \vu = \vu</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    <xref ref="thm_vector_properties">Theorem</xref>
+    in <xref ref="sec_vector_representation">Section</xref>
+    shows that <m>\R^n</m> is itself a vector space.
+    As we will see,
+    there are many other sets that have the same algebraic structure.
+    By focusing on this structure and the properties of these operations,
+    we can extend the theory of vectors we developed so far to a broad range of objects,
+    making it easier to work with them.
+    For example,
+    we can consider linear combinations of functions or matrices,
+    or define a basis for different types of sets of objects.
+    Such algebraic tools provide us with new ways of looking at these sets of objects,
+    including a geometric intuition when working with these sets.
+    In this section,
+    we will analyze subsets of <m>\R^n</m> which behave similar to <m>\R^n</m> algebraically.
+    We will call such sets <em>subspaces</em>.
+    In a later chapter we will encounter different kinds of sets that are also vector spaces.
+  </p>
+  <definition xml:id="def_3_a_subspaces">
+    <statement>
+      <p>
+        A subset <m>W</m> of <m>\R^n</m> is a
+        <term>subspace</term><idx><h>subspace</h><h>of <m>\R^n</m></h></idx> of <m>\R^n</m> if <m>W</m> itself is a vector space using the same operations as in <m>\R^n</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The following example illustrates the process for demonstrating that a subset of <m>\R^n</m> is a subspace of <m>\R^n</m>.
+  </p>
+  <example xml:id="ex_3_a_1">
+    <statement>
+      <p>
+        There are many subsets of <m>\R^n</m> that are themselves vector spaces.
+        Consider as an example the set <m>W</m> of vectors in <m>\R^2</m> defined by
+        <me>
+          W = \left\{ \left[ \begin{array}{c} x \\ 0 \end{array}  \right] \middle| x \text{ is a real number } \right\}
+        </me>.
+      </p>
+      <p>
+        In other words,
+        <m>W</m> is the set of vectors in <m>\R^2</m> whose second component is 0.
+        To see that <m>W</m> is itself a vector space,
+        we need to demonstrate that <m>W</m> satisfies all of the properties listed in <xref ref="def_3_a_1">Definition</xref>.
+      </p>
+      <p>
+        To prove the first property,
+        we need to show that the sum of <em>any</em>
+        two vectors in <m>W</m> is again in <m>W</m>.
+        So we need to choose two <em>arbitrary</em> vectors in <m>W</m>.
+        Let <m>\vu = \left[ \begin{array}{c} x \\ 0 \end{array}  \right]</m> and
+        <m>\vv = \left[ \begin{array}{c} y \\ 0 \end{array}  \right]</m> be vectors in <m>W</m>.
+        Note that
+        <me>
+          \vu + \vv = \left[ \begin{array}{c} x \\ 0 \end{array}  \right] + \left[ \begin{array}{c} y \\ 0 \end{array}  \right] = \left[ \begin{array}{c} x+y \\ 0 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        Since the second component of
+        <m>\vu + \vv</m> is 0, it follows that <m>\vu + \vv</m> is in <m>W</m>.
+        Thus, the set <m>W</m> is closed under addition.
+      </p>
+      <p>
+        For the second property, that addition is commutative in <m>W</m>,
+        we can just use the fact that if <m>\vu</m> and <m>\vv</m> are in <m>W</m>,
+        they are also vectors in <m>\R^2</m> and
+        <m>\vu+\vv=\vv+\vu</m> is satisfied in <m>\R^2</m>.
+        So the property also holds in <m>W</m>.
+      </p>
+      <p>
+        A similar argument can be made for property (3).
+      </p>
+      <p>
+        Property (4) states the existence of the additive identity in <m>W</m>.
+        Note that <m>\vzero</m> is an additive identity in <m>\R^2</m> and if it is also an element in <m>W</m>,
+        then it will automatically be the additive identity of <m>W</m>.
+        Since the zero vector can be written as <m>\vzero=\left[ \begin{array}{c} x \\ 0 \end{array} \right]</m> with <m>x=0</m>,
+        <m>\vzero</m> is in <m>W</m>.
+        Thus, <m>W</m> satisfies property 4.
+      </p>
+      <p>
+        We will postpone property (5) for a bit since we can show that other properties imply property (5).
+      </p>
+      <p>
+        Property (6) is a closure property, just like property (1).
+        We need to verify that <em>any</em>
+        scalar multiple of <em>any</em>
+        vector in <m>W</m> is again in <m>W</m>.
+        Consider an arbitrary vector <m>\vu</m> and an arbitrary scalar <m>a</m>.
+        Now
+        <me>
+          a \vu = a\left[ \begin{array}{c} x \\ 0 \end{array}  \right] = \left[ \begin{array}{c} ax \\ 0 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        Since the vector <m>a \vu</m> has a 0 as its second component,
+        we see that <m>a \vu</m> is in <m>W</m>.
+        Thus, <m>W</m> is closed under scalar multiplication.
+      </p>
+      <p>
+        Properties (7), (8), (9) and (10) only depend on the operations of addition and multiplication by scalars in <m>\R^2</m>.
+        Since these properties depend on the operations and not the vectors,
+        these properties will transfer to <m>W</m>.
+      </p>
+      <p>
+        We still have to justify property (5) though.
+        Note that since <m>1-1=0</m> in real numbers,
+        by applying property (7) with <m>a=1</m>, <m>b=-1</m>,
+        we find that
+        <me>
+          \vzero=0\vu=(a+b)\vu=a\vu+b\vu= \vu + (-1)\vu \,
+        </me>.
+      </p>
+      <p>
+        Therefore, <m>(-1)\vu</m> is an additive inverse for <m>\vu</m>.
+        Therefore, to show that the additive inverse of any <m>\vu</m> in <m>W</m> is also in <m>W</m>,
+        we simply note that any multiple of <m>\vu</m> is also in <m>W</m> and hence <m>(-1)\vu</m> must also be in <m>W</m>.
+      </p>
+      <p>
+        Since <m>W</m> satisfies all of the properties of a vector space,
+        <m>W</m> is a vector space.
+        Any subset of <m>\R^n</m> that is itself a vector space using the same operations as in <m>\R^n</m> is called a
+        <em>subspace</em> of <m>\R^n</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    <xref ref="ex_3_a_1">Example</xref>
+    and our work Preview <xref ref="pa_3_a">Activity</xref>
+    bring out some important ideas.
+    When checking that a subset <m>W</m> of a vector space <m>\R^n</m> is also a vector space,
+    we can use the fact that all of the properties of the operations in <m>\R^n</m> are transferred to any closed subset <m>W</m>.
+    This implies that properties (2), (3), (7)-(10) are all automatically satisfied for <m>W</m> as well.
+    Property (5) follows from the others.
+    So we only need to check properties (1), (4) and (6).
+    In fact, as we argued in the above example,
+    property (4) also needs to be checked by simply checking that <m>\vzero</m> of <m>\R^n</m> is in <m>W</m>.
+    We summarize this result in the following theorem.
+  </p>
+  <theorem xml:id="thm_3_a_subspace_Rn">
+    <statement>
+      <p>
+        A subset <m>W</m> of <m>\R^n</m> is a subspace of <m>\R^n</m> if
+        <ol>
+          <li>
+            <p>
+              whenever <m>\vu</m> and <m>\vv</m> are in <m>W</m> it is also true that
+              <m>\vu + \vv</m> is in <m>W</m> (that is,
+              <m>W</m> is <em>closed</em> under addition),
+            </p>
+          </li>
+          <li>
+            <p>
+              whenever <m>\vu</m> is in <m>W</m> and <m>a</m> is a scalar it is also true that <m>a\vu</m> is in <m>W</m> (that is,
+              <m>W</m> is <em>closed</em> under scalar multiplication),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vzero</m> is in <m>W</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The next activity provides some practice using <xref ref="thm_3_a_subspace_Rn">Theorem</xref>.
+  </p>
+  <activity xml:id="act_3_a_1">
+    <p>
+      Use <xref ref="thm_3_a_subspace_Rn">Theorem</xref>
+      to answer the following questions.
+      Justify your responses.
+      For sets which lie inside <m>\R^2</m>,
+      sketch a pictorial representation of the set and explain why your picture confirms your answer.
+      <ul>
+        <li>
+          <p>
+            Is the set <m>W = \left\{ \left[ \begin{array}{c} x \\ y \end{array} \right] \middle| y = 2x\right\}</m> a subspace of <m>\R^2</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set <m>W = \left\{ \left[ \begin{array}{c} x \\ 0 \\ 1 \end{array} \right] \middle| x \text{ is a scalar } \right\}</m> a subspace of <m>\R^3</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set <m>W = \left\{ \left[ \begin{array}{c} x \\ x+y \end{array} \right] \middle| x, y \text{ are scalars } \right\}</m> a subspace of <m>\R^2</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set <m>W = \left\{ \left[ \begin{array}{c} x \\ y \end{array} \right] \middle| y = 2x+1\right\}</m> a subspace of <m>\R^2</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set <m>W = \left\{ \left[ \begin{array}{c} x \\ y \end{array} \right] \middle| y=x^2\right\}</m> a subspace of <m>\R^2</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set <m>W = \left\{ \left[ \begin{array}{c} 0 \\ 0 \\ 0 \\ 0 \end{array} \right]\right\}</m> a subspace of <m>\R^4</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set <m>W = \left\{ \left[ \begin{array}{c} x \\ y \\ z \end{array} \right] \middle| x^2+y^2+z^2 \leq 1\right\}</m> a subspace of <m>\R^3</m>?
+            Note that <m>W</m> is the unit sphere (a.k.a. unit ball) in <m>\R^3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Is the set <m>W = \R^2</m> a subspace of <m>\R^3</m>?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    There are several important points that we can glean from <xref ref="act_3_a_1">Activity</xref>.
+    <ul>
+      <li>
+        <p>
+          A subspace is a vector space within a larger vector space,
+          similar to a subset being a set within a larger set.
+        </p>
+      </li>
+      <li>
+        <p>
+          The set containing the zero vector in <m>\R^n</m> is a subspace of <m>\R^n</m>,
+          and it is the only finite subspace of <m>\R^n</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Every subspace of <m>\R^n</m> must contain the zero vector.
+        </p>
+      </li>
+      <li>
+        <p>
+          No nonzero subspace is bounded <mdash/> since a subspace must include all scalar multiples of its vectors,
+          a subspace cannot be contained in a finite sphere or box.
+        </p>
+      </li>
+      <li>
+        <p>
+          Since vectors in <m>\R^k</m> have <m>k</m> components,
+          vectors in <m>\R^k</m> are not contained in <m>\R^n</m> when <m>n \neq k</m>.
+          However, if <m>n > k</m>,
+          then we can think of <m>\R^n</m> as containing a <em>copy</em>
+          (what we call an isomorphic image)
+          of <m>\R^k</m> as the set of vectors with zeros as the last <m>n-k</m> components.
+        </p>
+      </li>
+    </ul>
+  </p>
+</section>

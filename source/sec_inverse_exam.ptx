@@ -1,0 +1,206 @@
+<section xml:id="sec_inverse_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        For each of the following matrices <m>A</m>,
+        <ul>
+          <li>
+            <p>
+              Use appropriate technology to find the reduced row echelon form of <m>[A \ | \ I_3]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Based on the result of part (a), is <m>A</m> invertible?
+              If yes, what is <m>A^{-1}</m>?
+              If no, explain why.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vx = \left[ \begin{array}{c} x_1\\x_2\\x_3 \end{array} \right]</m> and <m>\vb = \left[ \begin{array}{c} 5\\4\\1 \end{array} \right]</m>.
+              If <m>A</m> is invertible,
+              solve the matrix equation <m>A \vx = \vb</m> using the inverse of <m>A</m>.
+              If <m>A</m> is not invertible,
+              find all solutions, if any,
+              to the equation <m>A \vx = \vb</m> using whatever method you choose.
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+              <m>A = \left[ \begin{array}{crr} 1\amp 2\amp 3 \\ 1\amp -1\amp -1 \\ 1\amp 0\amp 1 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A = \left[ \begin{array}{crr} 1\amp 2\amp 5 \\ 1\amp -1\amp -1 \\ 1\amp 0\amp 1 \end{array} \right]</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+      </p>
+      <ul>
+        <li>
+          <p>
+            With <m>A = \left[ \begin{array}{crr} 1\amp 2\amp 3 \\ 1\amp -1\amp -1 \\ 1\amp 0\amp 1 \end{array} \right]</m>,
+            we have the following.
+          </p>
+          <ul>
+            <li>
+              <p>
+                The reduced row echelon form of <m>[A \ | \ I_3]</m> is
+                <me>
+                  \left[   \begin{array}{ccc|rrr} 1\amp 0\amp 0\amp \frac{1}{2}\amp 1\amp -\frac{1}{2} \\ 0\amp 1\amp 0\amp 1\amp 1\amp -2  \\ 0\amp 0\amp 1\amp -\frac{1}{2}\amp -1\amp \frac{3}{2} \end{array}  \right]
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Since <m>A</m> is row equivalent to <m>I_3</m>,
+                we conclude that <m>A</m> is invertible.
+                The reduced row echelon form of <m>[A \ | \ I_3]</m> tells us that
+                <me>
+                  A^{-1} = \frac{1}{2} \left[ \begin{array}{rrr} 1\amp 2\amp -1 \\ 2\amp 2\amp -4 \\ -1\amp -2\amp 3 \end{array}  \right]
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The solution to <m>A \vx = \vb</m> is given by
+                <me>
+                  vx = A^{-1} \vb = \frac{1}{2} \left[ \begin{array}{rrr} 1\amp 2\amp -1 \\ 2\amp 2\amp -4 \\ -1\amp -2\amp 3 \end{array}  \right] \left[ \begin{array}{c} 5\\4\\1 \end{array}  \right] = \left[ \begin{array}{r} 6\\7\\-5 \end{array}  \right]
+                </me>.
+              </p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>
+            With <m>A = \left[ \begin{array}{crr} 1\amp 2\amp 5 \\ 1\amp -1\amp -1 \\ 1\amp 0\amp 1 \end{array}  \right]</m>,
+            we have the following.
+            <ul>
+              <li>
+                <p>
+                  The reduced row echelon form of <m>[A \ | \ I_3]</m> is
+                  <me>
+                    \left[ \begin{array}{ccc|crr} 1\amp 0\amp 1\amp 0\amp 0\amp 1 \\ 0\amp 1\amp 2\amp 0\amp -1\amp 1  \\ 0\amp 0\amp 0\amp 1\amp 2\amp -3 \end{array}  \right]
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since <m>A</m> is not row equivalent to <m>I_3</m>,
+                  we conclude that <m>A</m> is not invertible.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The reduced row echelon form of <m>[A \ | \ \vb]</m> is
+                  <me>
+                    \left[ \begin{array}{ccc|c} 1\amp 0\amp 1\amp 0 \\ 0\amp 1\amp 2\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array}  \right]
+                  </me>.
+                  The fact that the augmented column is a pivot column means that the equation <m>A \vx = \vb</m> has no solutions.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ul>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        <nbsp/>
+        <ul>
+          <li>
+            <p>
+              Let <m>A = \left[ \begin{array}{ccc} 0\amp 1\amp 0\\0\amp 0\amp 1\\0\amp 0\amp 0 \end{array} \right]</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Show that <m>A^2 \neq 0</m> but <m>A^3 = 0</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Show that <m>I - A</m> is invertible and find its inverse.
+                    Compare the inverse of <m>I-A</m> to <m>I+A+A^2</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>M</m> be an arbitrary square matrix such that <m>M^3 = 0</m>.
+              Show that <m>M</m> is invertible and find an inverse for <m>M</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Let <m>A = \left[ \begin{array}{ccc} 0\amp 1\amp 0\\0\amp 0\amp 1\\0\amp 0\amp 0 \end{array}  \right]</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Using technology to calculate <m>A^2</m> and <m>A^3</m> we find that <m>A^3=0</m> while <m>A^2 = \left[ \begin{array}{ccc} 0\amp 0\amp 1\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array} \right]</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    For this matrix <m>A</m> we have <m>I - A = \left[ \begin{array}{crr} 1\amp -1\amp 0\\0\amp 1\amp -1\\0\amp 0\amp 1 \end{array}  \right]</m>.
+                    The reduced row echelon form of <m>I-A</m> is
+                    <me>
+                      \left[ \begin{array}{ccc|ccc} 1\amp -0\amp 0\amp 1\amp 1\amp 1\\0\amp 1\amp 0\amp 0\amp 1\amp 1\\0\amp 0\amp 1\amp 0\amp 0\amp 1 \end{array}  \right]
+                    </me>,
+                    so <m>I-A</m> is invertible and <m>(I-A)^{-1} = \left[ \begin{array}{ccc} 1\amp 1\amp 1\\0\amp 1\amp 1\\0\amp 0\amp 1 \end{array}  \right]</m>.
+                    A straightforward matrix calculation also shows that
+                    <me>
+                      (I-A)^{-1} = I+A+A^2
+                    </me>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              We can try to emulate the result of part (a) here.
+              Expanding using matrix operations gives us
+              <md>
+                <mrow>(I-M)(I+M+M^2) \amp = (I+M+M^2) - (M+M^2+M^3)</mrow>
+                <mrow>\amp = (I+M+M^2) - (M+M^2+0)</mrow>
+                <mrow>\amp = I</mrow>
+              </md>
+              and
+              <md>
+                <mrow>(I+M+M^2)(I-M) \amp = (I+M+M^2) - (M+M^2+M^3)</mrow>
+                <mrow>\amp = (I+M+M^2) - (M+M^2+0)</mrow>
+                <mrow>\amp = I</mrow>
+              </md>.
+              So <m>I-M</m> is invertible and <m>(I-M)^{-1} = I+M+M^2</m>.
+              This argument can be generalized to show that if <m>M</m> is a square matrix and <m>M^n = 0</m> for some positive integer <m>n</m>,
+              then <m>I-M</m> is invertible and
+              <me>
+                (I-M)^{-1} = I+M+M^2+ \cdots + M^{n-1}
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

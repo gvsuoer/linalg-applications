@@ -1,0 +1,90 @@
+<section xml:id="sec_img_compress">
+  <title>Application: Image Compression</title>
+  <blockquote>
+    If you painted a picture with a sky, clouds, trees, and flowers, you would use a different size brush depending on the size of the features. Wavelets are like those brushes.
+  </blockquote>
+  <p>
+    <m>-</m> Ingrid Daubechies
+  </p>
+  <p>
+    The advent of the digital age has presented many new opportunities for the collection,
+    analysis,
+    and dissemination of information.
+    Along with these opportunities come new difficulties as well.
+    All of this digital information must be stored in some way and be retrievable in an efficient manner.
+    One collection of tools that is used to deal with these problems is wavelets.
+    For example,
+    the FBI fingerprint files contain millions of cards,
+    each of which contains 10 rolled fingerprint impressions.
+    Each card produces about 10 megabytes of data.
+    To store all of these cards would require an enormous amount of space,
+    and transmitting one full card over existing data lines is slow and inefficient.
+    Without some sort of image compression,
+    a sortable and searchable electronic fingerprint database would be next to impossible.
+    To deal with this problem,
+    the FBI adopted standards for fingerprint digitization using a wavelet compression standard.
+  </p>
+  <p>
+    Another problem with electronics is noise.
+    Noise can be a big problem when collecting and transmitting data.
+    Wavelet decomposition filters data by averaging and detailing.
+    The detailing coefficients indicate where the details are in the original data set.
+    If some details are very small in relation to others,
+    eliminating them may not substantially alter the original data set.
+    Similar ideas may be used to restore damaged audio,<fn>
+    see \url{https://ccrma.stanford.edu/groups/edison/brahms/brahms.html} for a discussion of the denoising of a Brahms recording
+    </fn> video, photographs,
+    and medical information.<fn>
+    A review of wavelets in biomedical applications.
+    M. Unser, A. Aldroubi.
+    <em>Proceedings of the IEEE</em>, Volume: 84, Issue: 4 , Apr 1996
+    </fn>
+  </p>
+  <p>
+    We will consider wavelets as a tool for image compression.
+    The basic idea behind using wavelets to compress images is that we start with a digital image,
+    made up of pixels.
+    Each pixel can be assigned a number or a vector
+    (depending on the makeup of the image).
+    The image can then be represented as a matrix
+    (or a set of matrices)
+    <m>M</m>, where each entry in <m>M</m> represents a pixel in the image.
+    As a simple example, consider the
+    <m>16 \times 16</m> image of a flower as shown at left in <xref ref="F_Flower_1">Figure</xref>.
+    (We will work with small images like this to make the calculations more manageable,
+    but the ideas work for any size image.
+    We could also extend our methods to consider color images,
+    but for the sake of simplicity we focus on grayscale.)
+  </p>
+  <figure xml:id="F_Flower_1">
+    <caption>Left: A 16 by 16 pixel image. Right: The image compressed.</caption>
+    <image width="73%" source="flower"/>   <image width="73%" source="flower_2"/>
+  </figure>
+  <p>
+    This flower image is a gray-scale image,
+    so each pixel has a numeric representation between 0 and 255,
+    where 0 is black, 255 is white,
+    and numbers between 0 and 255 represent shades of gray.
+    The matrix for this flower image is
+    <men xml:id="eq_flower_image_matrix">
+      \left[ {\scriptsize \begin{array}{cccccccccccccccc} 240\amp 240\amp 240\amp 240\amp 130\amp 130\amp 240\amp 130\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\\240\amp 240\amp 240\amp 130 \amp 175\amp 175\amp 130\amp 175\amp 175\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\\ 240\amp 240\amp 130\amp 130\amp 175\amp 175\amp 130\amp 175\amp 175\amp 130\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240 \\240\amp 130\amp 175\amp 175\amp 130\amp 175\amp 175\amp 175\amp 130\amp 175\amp 175\amp 130\amp 240\amp 240\amp 240\amp 240\\240\amp 240\amp 130\amp 175\amp 175\amp 130\amp 175\amp 130\amp 175 \amp 175\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240\\255\amp 240\amp 240\amp 130\amp 130\amp 175\amp 175\amp 175\amp 130\amp 130\amp 240\amp 240\amp 225\amp 240\amp 240\amp 240\\240\amp 240 \amp 130\amp 175\amp 175\amp 130\amp 130\amp 130\amp 175\amp 175\amp 130\amp 240\amp 225\amp 255\amp 240\amp 240 \\240\amp 240\amp 130\amp 175\amp 130\amp 240\amp 130\amp 240\amp 130\amp 175\amp 130\amp 240\amp 255\amp 255\amp 255\amp 240\\240\amp 240\amp 240\amp 130\amp 240\amp 240\amp 75\amp 240\amp 240\amp 130\amp 240\amp 255\amp 255\amp 255\amp 255\amp 255\\240\amp 240\amp 240\amp 240\amp 240\amp 240 \amp 75\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\\240\amp 240\amp 240 \amp 75\amp 75\amp 240\amp 75\amp 240\amp 75\amp 75\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\\50\amp 240\amp 240\amp 240\amp 75\amp 240\amp 75\amp 240\amp 75\amp 240\amp 240\amp 240\amp 240\amp 50\amp 240\amp 240 \\240\amp 75\amp 240\amp 240\amp 240\amp 75\amp 75\amp 75\amp 240\amp 240\amp 50\amp 240\amp 50\amp 240\amp 240\amp 50\\240\amp 240\amp 75\amp 240\amp 240\amp 240\amp 75\amp 240\amp 240\amp 50\amp 240\amp 50\amp 240\amp 240\amp 50\amp 240\\75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\\75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75 \end{array}  }\right]
+    </men>.
+  </p>
+  <p>
+    Now we can apply wavelets to the image and compress it.
+    Essentially, wavelets act by averaging and differencing.
+    The averaging creates smaller versions of the image and the differencing keeps track of how far the smaller version is from a previous copy.
+    The differencing often produces many small
+    (close to 0)
+    entries, and so replacing these entries with 0 doesn't have much effect on the image
+    (this is called <em>thresholding</em>).
+    By introducing long strings of zeros into our data,
+    we are able to store a (compressed) copy of the image in a smaller amount of space.
+    For example,
+    using a threshold value of 10 produces the flower image shown at right in <xref ref="F_Flower_1">Figure</xref>.
+  </p>
+  <p>
+    The averaging and differencing is done with special vectors (wavelets) that form a basis for a suitable function space.
+    More details of this process can be found at the end of this section.
+  </p>
+</section>

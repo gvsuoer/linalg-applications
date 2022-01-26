@@ -1,0 +1,196 @@
+<section xml:id="sec_mtx_comp_eigen">
+  <title>Matrices with Complex Eigenvalues</title>
+  <p>
+    Now we will investigate how a general
+    <m>2\times 2</m> matrix with complex eigenvalues can be seen to be similar
+    (both in a linear algebra and a colloquial meaning)
+    to a rotation-scaling matrix.
+  </p>
+  <activity xml:id="act_4e_3">
+    <p>
+      Let <m>B=\left[ \begin{array}{cr} 1\amp -5\\2\amp 3 \end{array} \right]</m>.
+      The eigenvalues of <m>B</m> are <m>2\pm 3i</m>.
+      An eigenvector for the eigenvalue <m>2-3i</m> is <m>\vv=\left[ \begin{array}{c} -5 \\ 1-3i \end{array} \right]</m>.
+      We will use this eigenvector to show that <m>B</m> is similar to a rotation-scaling matrix.
+      <ul>
+        <li>
+          <p>
+            Any complex vector <m>\vv</m> can be written as
+            <m>\vv=\vu+i\vw</m> where both <m>\vu</m> and <m>\vw</m> are real vectors.
+            What are these real vectors <m>\vu</m> and <m>\vw</m> for the eigenvector <m>\vv</m> above?
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>P=[ \vu \ \vw ]</m> be the matrix whose first column is the real part of <m>\vv</m> and whose second column is the imaginary part of <m>\vv</m>
+            (without the <m>i</m>).
+            Find <m>R=P^{-1}BP</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Express <m>R</m> as a product of a rotation and a scaling matrix.
+            What is the factor of scaling?
+            What is the rotation angle?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    In <xref ref="act_4e_3">Activity</xref>,
+    we saw that the matrix <m>B</m> with complex eigenvalues <m>2\pm 3i</m> is similar to a rotation-scaling matrix.
+    Specifically <m>R=P^{-1}BP</m>,
+    where the columns of <m>P</m> are the real and imaginary parts of an eigenvector of <m>B</m>,
+    is the rotation-scaling matrix with a factor of scaling by
+    <m>\sqrt{2^2+3^2}</m> and a rotation by angle <m>\theta=\arccos(\frac{2}{\sqrt{2^2+3^2}})</m>.
+  </p>
+  <p>
+    Does a similar decomposition result hold for a general
+    <m>2\times 2</m> matrix with complex eigenvalues?
+    We investigate this question in the next activity.
+  </p>
+  <activity xml:id="act_4e_4">
+    <p>
+      Let <m>A</m> be a <m>2\times 2</m> matrix with complex eigenvalue <m>\lambda=a-bi</m>,
+      <m>b\neq 0</m>,
+      and corresponding complex eigenvector <m>\vv=\vu+i\vw</m>.
+    </p>
+    <ul>
+      <li>
+        <p>
+          Explain why <m>A\vv = A\vu+iA\vw</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Explain why <m>\lambda\vv = (a\vu+b\vw)+i (a\vw-b\vu)</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use the previous two results to explain why
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>A\vu=a\vu+b\vw</m> and
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A\vw = a\vw - b\vu</m>.
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          Let <m>P=[ \vu \ \vw ]</m>.
+          We will now show that <m>AP=PR</m> where <m>R=\left[ \begin{array}{cr} a\amp -b \\ b\amp a \end{array}  \right]</m>.
+          <ol label="i">
+            <li>
+              <p>
+                Without any calculation, explain why
+                <me>
+                  AP = [ A\vu \  A\vw ]
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Recall that if <m>M</m> is an
+                <m>m \times n</m> matrix and <m>\vx</m> is an <m>n \times 1</m> vector,
+                then the matrix product <m>M\vx</m> is a linear combination of the columns of <m>M</m> with weights the corresponding entries of the vector <m>\vx</m>.
+                Use this idea to show that
+                <me>
+                  PR = [ a\vu + b\vw \  -b\vu + a\vw ]
+                </me>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now explain why <m>AP = PR</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Assume for the moment that <m>P</m> is an invertible matrix.
+                Show that <m>A = PRP^{-1}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ul>
+  </activity>
+  <p>
+    Your work in <xref ref="act_4e_4">Activity</xref>
+    shows that any <m>2\times 2</m> matrix is similar to a rotation-scaling matrix with a factor of scaling by
+    <m>\sqrt{a^2+b^2}</m> and a rotation by angle <m>\theta=\arccos(\frac{a}{\sqrt{a^2+b^2}})</m> if <m>b\geq 0</m>,
+    and <m>\theta=-\arccos(\frac{a}{\sqrt{a^2+b^2}})</m> if <m>b\lt 0</m>.
+    Geometrically, this means that every
+    <m>2 \times 2</m> real matrix with complex eigenvalues is just a scaled rotation (<m>R</m>) with respect to the basis <m>\B</m> formed by <m>\vu</m> and <m>\vw</m> from the complex eigenvector <m>\vv</m>.
+    Multiplying by <m>P^{-1}</m> and <m>P</m> simply provides the change of basis from the standard basis to the basis <m>\B</m>,
+    as we will see in detail when we learn about linear transformations.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> be a real <m>2\times 2</m> matrix with complex eigenvalue <m>a-bi</m> and corresponding eigenvector <m>\vv=\vu+i\vw</m>.
+        Then
+        <me>
+          A=PRP^{-1} \; , \text{ where }  P=[ \vu \ \vw ] \; \text{ and }  R= \left[ \begin{array}{cr} a\amp -b \\ b\amp a \end{array}  \right] \,
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The one fact that we have not yet addressed is why the matrix <m>P = [ \vu \ \vw ]</m> is invertible.
+    We do that now to complete the argument.
+  </p>
+  <p>
+    Let <m>A</m> be a real <m>2 \times 2</m> matrix with <m>A \vv = \lambda \vv</m>,
+    where <m>\lambda = a-bi</m>,
+    <m>b \neq 0</m> and <m>\vv=\vu+i\vw</m>
+    (where <m>\vu</m> and <m>\vv</m> are in <m>\R^2</m>)
+    with <m>\vw \neq \vzero</m>.
+    From <xref ref="act_4e_4">Activity</xref> we know that
+    <me>
+      A\vu = a\vu + b\vw \ \text{ and }  \ A\vw = a\vw - b \vu
+    </me>.
+  </p>
+  <p>
+    To show that <m>\vu</m> and <m>\vw</m> are linearly independent,
+    we need to show that no nontrivial linear combination of <m>\vu</m> and <m>\vw</m> can be the zero vector.
+    Suppose
+    <me>
+      x_1\vu + x_2\vw = \vzero
+    </me>
+    for some scalars <m>x_1</m> and <m>x_2</m>.
+    We will show that <m>x_1 = x_2 = 0</m>.
+    Assume to the contrary that one of <m>x_1, x_2</m> is not zero.
+    First, assume <m>x_1 \neq 0</m>.
+    Then <m>\vu = -\frac{x_2}{x_1} \vw</m>.
+    Let <m>c = -\frac{x_2}{x_1}</m>.
+    From this we have
+    <md>
+      <mrow>A \vu \amp = A(c\vw)</mrow>
+      <mrow>A \vu \amp = cA \vw</mrow>
+      <mrow>a\vu + b\vw \amp = c(a \vw - b \vu)</mrow>
+      <mrow>(a+cb)\vu \amp = (ca-b)\vw</mrow>
+      <mrow>(a+cb)(c\vw) \amp = (ca-b)\vw</mrow>
+    </md>.
+  </p>
+  <p>
+    Since <m>\vw \neq \vzero</m> we must have <m>(a+cb)c = ca-b</m>.
+    A little algebra shows that <m>(c^2+1)b = 0</m>.
+    Since <m>b \neq 0</m>, we conclude that <m>c^2+1=0</m>,
+    which is impossible for a real constant <m>c</m>.
+    Therefore, we cannot have <m>x_1 \neq 0</m>.
+    A similar argument
+    (left to the reader)
+    shows that <m>x_2 = 0</m>.
+    Thus we can conclude that <m>\vu</m> and <m>\vw</m> are linearly independent.
+  </p>
+</section>

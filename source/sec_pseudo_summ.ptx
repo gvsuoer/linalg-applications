@@ -1,0 +1,43 @@
+<section xml:id="sec_pseudo_summ">
+  <title>Summary</title>
+  <ul>
+    <li>
+      <p>
+        The condition number of an
+        <m>m \times n</m> matrix <m>A</m> is the number <m>||A^{-1}|| \ ||A||</m>.
+        The condition number provides a measure of how well the relative error in a calculated value
+        <m>\Delta \vb</m> predicts the relative error in
+        <m>\Delta \vx</m> when we are trying to solve a system <m>A \vx = \vb</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        A pseudoinverse <m>A^{+}</m> of a matrix <m>A</m> can be found through a singular value decomposition.
+        Let <m>U \Sigma V^{\tr}</m> be a singular value decomposition of an
+        <m>m \times n</m> matrix <m>A</m> of rank <m>r</m>, with
+        <me>
+          \Sigma = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp \amp  \\ \amp  \sigma_2\amp \amp 0\amp \amp  \\ \amp \amp  \sigma_3\amp \amp \amp 0 \\ \amp  0 \amp  \amp  \ddots \amp  \amp  \\ \amp \amp \amp \amp  \sigma_r \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]
+        </me>
+        If <m>\Sigma^+</m> is the <m>n \times m</m> matrix defined by
+        <me>
+          \Sigma^{+} = \left[ \begin{array}{ccccc|c} \frac{1}{\sigma_1}\amp \amp \amp \amp \amp  \\ \amp  \frac{1}{\sigma_2}\amp \amp 0\amp \amp  \\ \amp \amp  \frac{1}{\sigma_3}\amp \amp \amp 0 \\ \amp  0 \amp  \amp  \ddots \amp  \amp  \\ \amp \amp \amp \amp  \frac{1}{\sigma_r} \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]
+        </me>,
+        then <m>A^{+} = V\Sigma^{+}U^{\tr}</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        A pseudoinverse <m>A^{+}</m> of a matrix <m>A</m> acts like an inverse for <m>A</m>.
+        So if we can't solve a matrix equation
+        <m>A \vx = \vb</m> because <m>\vb</m> isn't in <m>\Col A</m>,
+        we can use the pseudoinverse of <m>A</m> to
+        <q>solve</q>
+        the equation <m>A \vx = \vb</m> with the
+        <q>solution</q>
+        <m>A^+ \vb</m>.
+        While not an exact solution,
+        <m>A^+ \vb</m> turns out to be the best approximation to a solution in the least squares sense.
+      </p>
+    </li>
+  </ul>
+</section>

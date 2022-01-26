@@ -1,0 +1,158 @@
+<section xml:id="sec_indep_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>\vv_1 = \left[ \begin{array}{c} 1\\2\\0\\1 \end{array} \right]</m>,
+        <m>\vv_2 = \left[ \begin{array}{r} 0\\6\\-1\\5 \end{array} \right]</m>,
+        <m>\vv_3 = \left[ \begin{array}{r} 3\\-6\\2\\-7 \end{array} \right]</m>,
+        and <m>\vv_4 = \left[ \begin{array}{r} 5\\-2\\2\\-5 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Is the set <m>S = \{\vv_1, \vv_2, \vv_3, \vv_4\}</m> linearly independent or dependent.
+              If independent, explain why.
+              If dependent,
+              write one of the vectors in <m>S</m> as a linear combination of the other vectors in <m>S</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a subset <m>B</m> of <m>S</m> that is a basis for <m>\Span \ S</m>.
+              Explain how you know you have a basis.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We need to know the solutions to the vector equation
+              <me>
+                x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3 + x_4 \vv_4 = \vzero
+              </me>.
+              If the equation has as its only solution <m>x_1 = x_2 = x_3 = x_4 = 0</m>
+              (the trivial solution),
+              then the set <m>S</m> is linearly independent.
+              Otherwise the set <m>S</m> is linearly dependent.
+              To find the solutions to this system,
+              we row reduce the augmented matrix
+              <me>
+                \left[ \begin{array}{crrr|c} 1\amp 0\amp 3\amp 5\amp 0 \\ 2\amp 6\amp -6\amp -2\amp 0 \\ 0\amp -1\amp 2\amp 2\amp 0 \\ 1\amp 5\amp -7\amp -5\amp 0 \end{array}  \right]
+              </me>.
+              (Note that we really don't need the augmented column of zeros <mdash/> row operations won't change that column at all.
+              We just need to know that the column of zeros is there.) Technology shows that the reduced row echelon form of this augmented matrix is
+              <me>
+                \left[ \begin{array}{cccr|c} 1\amp 0\amp 3\amp 5\amp 0 \\ 0\amp 1\amp -2\amp -2\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]
+              </me>.
+              The reduced row echelon form tells us that the vector equation is consistent,
+              and the fact that there is no pivot in the fourth column shows that the system has a free variable and more than just the trivial solution.
+              We conclude that <m>S</m> is linearly dependent.
+              Moreover, the general solution to our vector equation is
+              <md>
+                <mrow>x_1 \amp = -3x_3 - 5x_4</mrow>
+                <mrow>x_2 \amp = 2x_3 + 2x_4</mrow>
+                <mrow>x_3 \amp \text{ is free }</mrow>
+                <mrow>x_4 \amp \text{ is free } </mrow>
+              </md>.
+              Letting <m>x_4 = 0</m> and <m>x_3 = 1</m> shows that one non-trivial solution to our vector equation is
+              <me>
+                x_1 = -3, \ x_2 = 2, \ x_3 = 1, \ \text{ and }  \ x_4 = 0
+              </me>.
+              Thus,
+              <me>
+                -3\vv_1 + 2\vv_2 + \vv_3 = \vzero
+              </me>,
+              or
+              <me>
+                \vv_3 = 3\vv_1 - 2\vv_2
+              </me>
+              and we have written one vector in <m>S</m> as a linear combination of the other vectors in <m>S</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We have seen that the pivot columns in a matrix <m>A</m> form a minimal spanning set
+              (or basis)
+              for the span of the columns of <m>A</m>.
+              From part (a) we see that the pivot columns in the reduced row echelon form of
+              <m>A = [\vv_1 \ \vv_2 \ \vv_3 \ \vv_4]</m> are the first and second columns.
+              So a basis for the span of the columns of <m>A</m> is <m>\{\vv_1, \vv_2\}</m>.
+              Since the elements of <m>S</m> are the columns of <m>A</m>,
+              we conclude that the set <m>B = \{\vv_1, \vv_2\}</m> is a subset of <m>S</m> that is a basis for <m>\Span \ S</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>\vv_1 = \left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array} \right]</m>,
+        <m>\vv_2 = \left[ \begin{array}{r} 3 \\ -7 \\ 2 \end{array} \right]</m>,
+        and <m>\vv_3 = \left[ \begin{array}{r} -5 \\ 6 \\ 10 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Is the set <m>S = \left\{\vv_1, \vv_2, \vv_3\right\}</m> a basis for <m>\R^3</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vv_4 = \left[ \begin{array}{r} -5 \\ 6 \\ h \end{array} \right]</m>,
+              where <m>h</m> is a scalar.
+              Are there any values of <m>h</m> for which the set
+              <m>S' = \{\vv_1, \vv_2, \vv_4\}</m> is not a basis for <m>\R^3</m>?
+              If so, find all such values of <m>h</m> and explain why <m>S'</m> is not a basis for <m>\R^3</m> for those values of <m>h</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We need to know if the vectors in <m>S</m> are linearly independent and span <m>\R^3</m>.
+              Technology shows that the reduced row echelon form of
+              <me>
+                A=\left[ \begin{array}{crr} 1\amp 3\amp -5 \\ 1\amp -7\amp 6 \\ 0\amp 2\amp 10 \end{array}  \right]
+              </me>
+              is
+              <me>
+                \left[ \begin{array}{ccc} 1\amp 0\amp 0 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{array}  \right]
+              </me>.
+              Since every column of <m>[\vv_1 \ \vv_2 \ \vv_3]</m> is a pivot column,
+              the set <m>\{\vv_1, \vv_2, \vv_3\}</m> is linearly independent.
+              The fact that there is a pivot in every row of the matrix <m>A</m> means that the equation
+              <m>A \vx = \vb</m> is consistent for every <m>\vb</m> in <m>\R^3</m>.
+              Since <m>A \vx</m> is a linear combination of the columns of <m>A</m> with weights from <m>\vx</m>,
+              tt follows that the columns of <m>A</m> span <m>\R^3</m>.
+              We conclude that the set <m>S</m> is a basis for <m>\R^3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Technology shows that a row echelon form of <m>A = [\vv_1 \ \vv_2 \ \vv_4]</m> is
+              <me>
+                \left[  \begin{array}{crc} 1\amp 0\amp 0 \\ 0\amp -10\amp 11 \\ 0\amp 0\amp h+\frac{11}{5} \end{array}  \right]
+              </me>.
+              The columns of <m>A</m> are all pivot columns
+              (hence linearly independent)
+              as long as <m>h \neq -\frac{11}{5}</m>,
+              and are linearly dependent when <m>h = -\frac{11}{5}</m>.
+              So the only value of <m>h</m> for which <m>S'</m> is not a basis for <m>\R^3</m> is <m>h = -\frac{11}{5}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

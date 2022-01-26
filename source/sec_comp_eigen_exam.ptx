@@ -1,0 +1,109 @@
+<section xml:id="sec_comp_eigen_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \left[ \begin{array}{rcr} 0\amp 1\amp 0 \\ -1\amp 0\amp -1 \\ 1\amp 1\amp 1 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Without doing any computations,
+              explain why not all of the eigenvalues of <m>A</m> can be complex.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find all of the eigenvalues of <m>A</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Since complex eigenvalues occur in conjugate pairs,
+              the complex eigenvalues with nonzero imaginary parts occur in pairs.
+              Since <m>A</m> can have at most 3 different eigenvalues,
+              at most two of them can have nonzero imaginary parts.
+              So at least one eigenvalue of <m>A</m> is real.
+            </p>
+          </li>
+          <li>
+            <p>
+              For this matrix <m>A</m> we have <m>A - \lambda I_3 = \left[ \begin{array}{rrc} -\lambda\amp 1\amp 0 \\ -1\amp -\lambda\amp -1 \\ 1\amp 1\amp -\lambda+1 \end{array}  \right]</m>.
+              Using a cofactor expansion along the first row gives us
+              <md>
+                <mrow>\det(A - \lambda I_3) \amp = (-\lambda)\left((-\lambda)(1-\lambda)+1\right) - \left((-1)(1-\lambda)+1\right)</mrow>
+                <mrow>\amp = -\lambda^3 + \lambda^2 - \lambda +1 - \lambda -1</mrow>
+                <mrow>\amp = \lambda^3 + \lambda^2 - 2\lambda</mrow>
+                <mrow>\amp = -\lambda(\lambda^2 -\lambda + 2)</mrow>
+              </md>.
+              The roots of the characteristic polynomial are <m>\lambda = 0</m> and
+              <me>
+                \lambda = \frac{1 \pm \sqrt{1-4(2)}}{2} = \frac{1}{2}(1 \pm \sqrt{7}i)
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \left[ \begin{array}{rc} 1\amp 2\\-1\amp 3 \end{array} \right]</m>.
+        Find a rotation scaling matrix <m>R</m> that is similar to <m>A</m>.
+        Identify the rotation and scaling factor.
+      </p>
+      <p>
+        <em>Example Solution. </em> The eigenvalues of <m>A</m> are the roots of the characteristic polynomial
+        <md>
+          <mrow>p(\lambda) \amp = \det(A - \lambda I_2)</mrow>
+          <mrow>\amp = \det\left(\left[ \begin{array}{rc} 1-\lambda\amp 2</mrow>
+          <mrow>-1\amp 3-\lambda \end{array} \right]\right)</mrow>
+          <mrow>\amp = (1-\lambda)(3-\lambda) + 2</mrow>
+          <mrow>\amp = \lambda^2 -4\lambda + 5</mrow>
+        </md>.
+      </p>
+      <p>
+        The quadratic formula shows that the roots of <m>p(\lambda)</m> are
+        <me>
+          \frac{4 \pm \sqrt{-4}}{2} = 2 \pm i
+        </me>.
+      </p>
+      <p>
+        To find an eigenvector for <m>A</m> with eigenvalue <m>2-i</m>,
+        we row reduce
+        <me>
+          A - (2-i) I_3 =   \left[ \begin{array}{cc} -1+i\amp 2\\-1\amp 1+i \end{array}  \right]
+        </me>
+        to
+        <me>
+          \left[ \begin{array}{cc} 1\amp -i-1\\0\amp 0 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        An eigenvector for <m>A</m> with eigenvalue <m>2-i</m> is then
+        <me>
+          [ 1+i \  \ 1]^{\tr} = [1 \ 1]^{\tr} + i[1 \ 0]^{\tr}
+        </me>.
+      </p>
+      <p>
+        Letting <m>P = \left[  \begin{array}{cc} 1\amp 1\\1\amp 0 \end{array}  \right]</m>, we have
+        <me>
+          R = P^{-1}AP = \left[ \begin{array}{cr} 2\amp -1\\1\amp 2 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        The scaling is determined by the determinant of <m>R</m> which is <m>5</m>,
+        and the angle <m>\theta</m> of rotation satisfies <m>\sin(\theta) = \frac{1}{5}</m>.
+        This makes <m>\theta \approx 0.2014</m> radians or approximately <m>11.5370^{\circ}</m> counterclockwise.
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,138 @@
+<section xml:id="sec_proj_binet_fibo">
+  <title>Project: Binet's Formula for the Fibonacci Numbers</title>
+  <p>
+    We return to the Fibonacci sequence <m>F_n</m> where <m>F_{n+2} = F_{n+1} + F_{n}</m>,
+    for <m>n \geq 0</m>, <m>F_0 = 0</m>, and <m>F_1=1</m>.
+    Since <m>F_{n+2}</m> is determined by previous values <m>F_{n+1}</m> and <m>F_n</m>,
+    the relation <m>F_{n+2} = F_{n+1} + F_{n}</m> is called a
+    <em>recurrence relation</em>.
+    The recurrence relation <m>F_{n+2} = F_{n+1} + F_{n}</m> is very time consuming to use to compute <m>F_n</m> for large values of <m>n</m>.
+    It turns out that there is a fascinating formula that gives the <m>n</m>th term of the Fibonacci sequence directly,
+    without using the relation <m>F_{n+2} = F_{n+1} + F_{n}</m>.
+  </p>
+  <activity>
+    <p>
+      The recurrence relation<m>F_{n+2} = F_{n+1} + F_{n}</m> gives the equations
+      <md>
+        <mrow xml:id="eq_Fib_1" number="yes">F_{n+1} \amp = F_{n} + F_{n-1}</mrow>
+        <mrow xml:id="eq_Fib_2" number="yes">F_{n} \amp = F_{n}</mrow>
+      </md>.
+    </p>
+    <p>
+      Let <m>\vx_{n} = \left[ \begin{array}{c} F_{n+1} \\ F_{n} \end{array}  \right]</m> for <m>n \geq 0</m>.
+      Explain how the equations <xref ref="eq_Fib_1"/> and <xref ref="eq_Fib_1"/> can be described with the matrix equation
+      <men xml:id="eq_Fib_matrix">
+        \vx_n = A \vx_{n-1}
+      </men>,
+      where <m>A = \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array}  \right]</m>.
+    </p>
+  </activity>
+  <p>
+    The matrix equation <xref ref="eq_Fib_matrix"/> shows us how to find the vectors <m>\vx_n</m> using powers of the matrix <m>A</m>:
+    <md>
+      <mrow>\vx_1 \amp = A\vx_0</mrow>
+      <mrow>\vx_2 \amp = A\vx_1 = A(A\vx_0) = A^2\vx_0</mrow>
+      <mrow>\vx_3 \amp = A\vx_2 = A(A^2\vx_0) = A^3\vx_0</mrow>
+      <mrow>\ \vdots \amp  \qquad \vdots</mrow>
+      <mrow>\vx_n \amp = A^n\vx_0</mrow>
+    </md>.
+  </p>
+  <p>
+    So if we can somehow easily find the powers of the matrix <m>A</m>,
+    then we can find a convenient formula for <m>F_n</m>.
+    As we have seen,
+    we know how to do this if <m>A</m> is diagonalizable
+  </p>
+  <activity>
+    <p>
+      Let <m>A = \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Show that the eigenvalues of <m>A</m> are
+            <m>\gr = \frac{1 + \sqrt{5}}{2}</m> and <m>\grc = \frac{1 - \sqrt{5}}{2}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find bases for each eigenspace of <m>A</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Now that we have the eigenvalues and know corresponding eigenvectors for <m>A</m>,
+    we can return to the problem of diagonalizing <m>A</m>.
+  </p>
+  <activity>
+    <ul>
+      <li>
+        <p>
+          Why do we know that <m>A</m> is diagonalizable?
+        </p>
+      </li>
+      <li>
+        <p>
+          Find a matrix <m>P</m> such that
+          <m>P^{-1}AP</m> is a diagonal matrix.
+          What is the diagonal matrix?
+        </p>
+      </li>
+    </ul>
+  </activity>
+  <p>
+    Now we can find a formula for the <m>n</m>th Fibonacci number.
+  </p>
+  <activity>
+    <p>
+      Since <m>P^{-1}AP = D</m>,
+      where <m>D</m> is a diagonal matrix,
+      we also have <m>A = PDP^{-1}</m>.
+      Recall that when <m>A = PDP^{-1}</m>,
+      it follows that <m>A^n = PD^nP^{-1}</m>.
+      Use the equation <m>A^n = PD^nP^{-1}</m> to show that
+      <men xml:id="eq_Binet">
+        F_n = \frac{\gr^n - \grc^n}{\sqrt{5}}
+      </men>.
+    </p>
+    <hint>
+      <p>
+        We just need to calculate the second component of <m>A^n \vx_0</m>.
+      </p>
+    </hint>
+  </activity>
+  <p>
+    Formula <xref ref="eq_Binet"/> is called
+    <em>Binet's formula</em>.
+        <idx><h>Binet's formula</h></idx>
+    It is a very surprising formula in the fact that the expression on the right hand side of <xref ref="eq_Binet"/> is an integer for each positive integer <m>n</m>.
+    Note that with Binet's formula we can quickly compute <m>F_n</m> for very large values of <m>n</m>.
+    For example,
+    <me>
+      F_{150} = 9969216677189303386214405760200
+    </me>.
+  </p>
+  <p>
+    The number <m>\gr = \frac{1+\sqrt{5}}{2}</m>,
+    called the <em>golden mean</em> or <em>golden ratio</em>
+    is intimately related to the Fibonacci sequence.
+    Binet's formula provides a fascinating relationship between the Fibonacci numbers and the golden ratio.
+    The golden ratio also occurs often in other areas of mathematics.
+    It was an important number to the ancient Greek mathematicians who felt that the most aesthetically pleasing rectangles had sides in the ratio of <m>\gr:1</m>.
+  </p>
+  <activity>
+    <p>
+      You might wonder what happens if we use negative integer exponents in Binet's formula.
+      In other words, are there negatively indexed Fibonacci numbers?
+      For any integer <m>n</m>, including negative integers, let
+      <me>
+        F_n = \frac{\gr^n - \grc^n}{\sqrt{5}}
+      </me>
+    </p>
+    <p>
+      There is a specific relationship between <m>F_{-n}</m> and <m>F_n</m>.
+      Find it and verify it.
+    </p>
+  </activity>
+</section>

@@ -1,0 +1,110 @@
+<section xml:id="sec_det_row_swap">
+  <title>Row Swaps and Determinants</title>
+  <p>
+    In this section we determine the effect of row swaps to the determinant.
+    Let <m>E_{rs}</m> be the elementary matrix that swaps rows <m>r</m> and <m>s</m> in the
+    <m>n \times n</m> matrix <m>A=[a_{ij}]</m>.
+    Applying <m>E_{12}</m> to a
+    <m>2 \times 2</m> matrix <m>A = \left[ \begin{array}{cc} a \amp  b \\ c \amp  d \end{array}  \right]</m>,
+    we see that
+    <me>
+      \det(A) = ad - bc = -(ad-bc) = \det\left(\left[ \begin{array}{cc} c \amp  d \\ a \amp  b \end{array}  \right]\right) = \det(E_{12}A)
+    </me>.
+  </p>
+  <p>
+    So swapping rows in a <m>2 \times 2</m> matrix multiplies the determinant by <m>-1</m>.
+    Suppose that row swapping on any
+    <m>(n-1) \times (n-1)</m> matrix multiplies the determinant by <m>-1</m>
+    (in other words,
+    we are proving our statement by mathematical induction).
+    Now suppose <m>A</m> is an
+    <m>n \times n</m> matrix and let <m>B = [b_{ij}] = E_{rs}A</m>.
+    We first consider the case that <m>s = r+1</m> <mdash/> that we swap adjacent rows.
+    We consider two cases, <m>r > 1</m> and <m>r = 1</m>.
+    First let us suppose that <m>r > 1</m>.
+    Let <m>C_{ij}</m> be the <m>(i,j)</m> cofactor of <m>A</m> and <m>C'_{ij}</m> the <m>(i,j)</m> cofactor of <m>B</m>.
+    We have
+    <me>
+      \det(A) = a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n}C_{1n}
+    </me>
+    and
+    <me>
+      \det(B) = b_{11}C'_{11} + b_{12}C'_{12} + \cdots + b_{1n}C'_{1n}
+    </me>.
+  </p>
+  <p>
+    Since <m>r > 1</m>,it follows that <m>a_{1j} = b_{1j}</m> for every <m>j</m>.
+    For each <m>j</m> the sub-matrix <m>B_{1j}</m> obtained from <m>B</m> by deleting the <m>i</m>th row and <m>j</m>th column is the same matrix as obtained from <m>A_{ij}</m> by swapping rows <m>r</m> and <m>s</m>.
+    So by our induction hypothesis,
+    we have <m>C'_{1j} = -C_{1j}</m> for each <m>j</m>.
+    Then
+    <md>
+      <mrow>\det(B) \amp = b_{11}C'_{11} + b_{12}C'_{12} + \cdots + b_{1n}C'_{1n}</mrow>
+      <mrow>\amp = a_{11}(-C_{11}) + a_{12}(-C_{12}) + \cdots + a_{1n}(-C_{1n})</mrow>
+      <mrow>\amp = -(a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n}C_{1n})</mrow>
+      <mrow>\amp = -\det(A)</mrow>
+    </md>.
+  </p>
+  <p>
+    Now we consider the case where <m>r=1</m>,
+    where <m>B</m> is the matrix obtained from <m>A</m> by swapping the first and second rows.
+    Here we will use the fact that
+    <m>\det(A) = \det(A^{\tr})</m> which allows us to calculate <m>\det(A)</m> and <m>\det(B)</m> with the cofactor expansions down the first column.
+    In this case we have
+    <me>
+      \det(A) = a_{11}C_{11} + a_{21}C_{21} + \cdots + a_{n1}C_{n1}
+    </me>
+    and
+    <md>
+      <mrow>\det(B) \amp = b_{11}C'_{11} + b_{21}C'_{21} + \cdots + b_{n1}C'_{n1}</mrow>
+      <mrow>\amp = a_{21}C'_{11} + a_{11}C'_{21} + a_{31}C'_{31} + \cdots + a_{n1}C'_{n1}</mrow>
+    </md>.
+  </p>
+  <p>
+    For each <m>i \geq 3</m>,
+    the sub-matrix <m>B_{i1}</m> is just <m>A_{i1}</m> with rows 1 and 2 swapped.
+    So we have <m>C'_{i1} = -C_{i1}</m> by our induction hypothesis.
+    Since we swapped rows 1 and 2, we have
+    <m>B_{21} = A_{11}</m> and <m>B_{11} = A_{21}</m>.
+    Thus,
+    <me>
+      b_{11}C'_{11} = (-1)^{1+1}b_{11}\det(A_{21}) = a_{21}\det(A_{21}) = -a_{21}C_{21}
+    </me>
+    and
+    <me>
+      b_{21}C'_{21} = (-1)^{2+1}a_{11}\det(A_{11}) = -a_{11}\det(A_{11}) = -a_{11}C_{11}
+    </me>.
+  </p>
+  <p>
+    Putting this all together gives us
+    <md>
+      <mrow>\det(B) \amp = b_{11}C'_{11} + b_{21}C'_{21} + \cdots + b_{n1}C'_{n1}</mrow>
+      <mrow>\amp = -a_{21}C_{21} - a_{11}C_{11} + a_{31}(-C_{31}) + \cdots + a_{n1}(-C_{n1})</mrow>
+      <mrow>\amp = -\left(a_{11}C_{11} + a_{21}C_{21} + \cdots + a_{n1}C_{n1}\right)</mrow>
+      <mrow>\amp = - \det(A)</mrow>
+    </md>.
+  </p>
+  <p>
+    So we have shown that if <m>B</m> is obtained from <m>A</m> by interchanging two adjacent rows,
+    then <m>\det(B) = -\det(A)</m>.
+    Now we consider the general case.
+    Suppose <m>B</m> is obtained from <m>A</m> by interchanging rows <m>r</m> and <m>s</m>,
+    with <m>r \lt  s</m>.
+    We can perform this single row interchange through a sequence of adjacent row interchanges.
+    First we swap rows <m>r</m> and <m>r+1</m>,
+    then rows <m>r+1</m> and <m>r+2</m>,
+    and continue until we swap rows <m>s-1</m> and <m>s</m>.
+    This places the original row <m>r</m> into the row <m>s</m> position,
+    and the process involved <m>s-r</m> adjacent row interchanges.
+    Each of these interchanges multiplies the determinant by a factor of <m>-1</m>.
+    At the end of this sequence of row swaps,
+    the original row <m>s</m> is now row <m>s-1</m>.
+    So it will take one fewer adjacent row interchanges to move this row to be row <m>r</m>.
+    This sequence of <m>(s-r)+(s-r-1) = 2(s-r-1)-1</m> row interchanges produces the matrix <m>B</m>.
+    Thus,
+    <me>
+      \det(B) = (-1)^{2(s-r)-1}\det(A) = -\det(A)
+    </me>,
+    and interchanging any two rows multiplies the determinant by <m>-1</m>.
+  </p>
+</section>

@@ -1,0 +1,349 @@
+<section xml:id="sec_proj_ggh_crypto">
+  <title>Project: The GGH Cryptosystem</title>
+  <p>
+    A cryptographic system
+    (or cryptosystem)
+    allows for secure communication between two or more parties.
+    These systems take messages
+    (called <em>plaintext</em>)
+    and encrypt them in some way to produce what is called <em>ciphertext</em>.
+    This is the scrambled information that is transmitted to the receiver,
+    from which it should not be possible for someone who does not have the proper key to recover the original message.
+    When the message is received by the intended recipient,
+    it must be unscrambled or <em>decrypted</em>.
+    Decryption is the process of converting ciphertext back to plaintext.
+  </p>
+  <p>
+    The Goldreich-Goldwasser-Halevi (GGH) public key cryptosystem<fn>
+    Published in 1997 by Oded Goldreich, Shafi Goldwasser,
+    and Shai Halevi.
+    </fn> uses lattices to encrypt plaintext.
+    The security of the system depends on the fact that the Closest Vector Problem (CVP) is,
+    in general, a very hard problem.
+    To begin to understand these cryptosystems, we begin with lattices.
+  </p>
+  <p>
+    Lattices are closely related to spans of sets of vectors in <m>\R^n</m>.
+    If we start with a linearly independent set <m>S = \{\vb_1, \vb_2, \ldots, \vb_m\}</m> in <m>\R^n</m>,
+    we can create the span of <m>S</m> <mdash/> the set of all linear combinations
+    <me>
+      c_1 \vb_1 + c_2 \vb_2 + \cdots + c_m \vb_m
+    </me>,
+    where <m>c_1</m>, <m>c_2</m>,
+    <m>\ldots</m>, <m>c_m</m> are real numbers.
+    This span creates a subspace of <m>\R^n</m>.
+    If we restrict the set from which we choose the coefficients,
+    we can create different types of structures.
+    An important one is a lattice.
+    The <em>lattice</em> <m>\mathcal{L}(S)</m> defined by the linearly independent set
+    <m>S = \{\vb_1, \vb_2, \ldots, \vb_m\}</m> is the set of linear combinations
+    <me>
+      c_1 \vb_1 + c_2 \vb_2 + \cdots + c_m \vb_m
+    </me>,
+    where <m>c_1</m>, <m>c_2</m>,
+    <m>\ldots</m>, <m>c_m</m> are integers.
+    If the vectors in <m>S</m> have integer components,
+    then every point in <m>\mathcal{L}(S)</m> will have integer entries.
+    In these cases, <m>\mathcal{L}(S)</m> is a subset of <m>\Z^n</m>,
+    as illustrated in <xref ref="F_Lattice_2">Figure</xref>.
+    Also, if <m>m = n</m> we say that the lattice
+    <m>\mathcal{L}(S)</m> is <em>full-rank</em>.
+    We will restrict ourselves to full-rank lattices in this project.
+    A <em>basis</em> for a lattice is any set of linearly independent vectors that generates the lattice.
+    There is a little special notation that is often used with lattices.
+    If <m>\CB =  \{\vb_1, \vb_2, \ldots, \vb_n\}</m> is a basis for <m>\R^n</m>,
+    we associate to <m>\CB</m> the matrix <m>B = [\vb_1 \ \vb_2 \ \vb_3 \ \cdots \ \vb_n]</m>.
+    We then use the notation <m>\mathcal{L}(B)</m> to also refer to the lattice defined by <m>\CB</m>.
+  </p>
+  <activity xml:id="act_lattices_1">
+    <p>
+      We explore lattices in more detail in this activity.
+      <ul>
+        <li>
+          <p>
+            Let <m>S_1 = \{[1 \ 1]^{\tr}, [-1 \ 1]^{\tr}\}</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Find five distinct vectors in <m>\mathcal{L}(S_1)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is the vector <m>[1 \ 0]^{\tr}</m> in <m>\mathcal{L}(S_1)</m>?
+                  Justify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  We can draw pictures of lattices by plotting the terminal points of the lattice vectors.
+                  Draw all of the lattice points in
+                  <m>\mathcal{L}(S_1)</m> on the square with vertices <m>(-4,-4)</m>,
+                  <m>(4,-4)</m>,
+                  <m>(4,4)</m>, and <m>(-4,4)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Now let <m>S_2 = \{[3 \ 5]^{\tr}, [1 \ 2]^{\tr}\}</m>.
+            A picture of <m>\mathcal{L}(S_2)</m> is shown in <xref ref="F_Lattice_2">Figure</xref>
+            with the basis vectors highlighted.
+            As we have seen,
+            <m>\mathcal{L}(S_1)</m> is not the entire space <m>\Z^2</m>.
+            Is <m>\mathcal{L}(S_2) = \Z^2</m>?
+            Justify your answer.
+            <figure xml:id="F_Lattice_2">
+              <caption>The lattice <m>\mathcal{L}(S_2)</m>.</caption>
+              <image width="73%" source="Lattice_2"/>
+            </figure>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Project <xref ref="act_lattices_1">Activity</xref>
+    shows that even if <m>\CB</m> is a basis for <m>\R^n</m>,
+    it does not follow that <m>\mathcal{L}(\CB)</m> is all of <m>\Z^n</m>.
+    So latices can be complicated,
+    and problems in lattice theory can be very difficult.
+  </p>
+  <p>
+    The GGH cryptosystem relies on the fact that we can convert
+    <q>good</q>
+    bases for lattices into
+    <q>bad</q>
+    bases.
+    We will not delve into the details of what separates a
+    <q>good</q>
+    basis from a
+    <q>bad</q>
+    one, but suffice it to say that a good basis is one in which the basis vectors are close to being perpendicular<fn>
+    This is also a good property in vector spaces.
+    We will see in a later section that perpendicular basis vectors make calculations in vector spaces relatively easy.
+    A similar thing is true in lattices,
+    where we are able to solve certain variants of closest vector problem very efficiently.
+    </fn> and are all short
+    (that is, they have small norms),
+    while any other basis is a bad basis.
+    An example of a good basis is the basis <m>S_1</m> for <m>\R^2</m> in Project <xref ref="act_lattices_1">Activity</xref>,
+    and we will see later that
+    <m>\{[-2 \ 8]^{\tr}, [-1 \ 3]^{\tr}\}</m> is a bad basis for the same lattice.
+    You should draw a picture of the vectors <m>[-2 \ 8]^{\tr}</m> and
+    <m>[-1 \ 3]^{\tr}</m> to convince yourself that this is a bad basis for its lattice.
+  </p>
+  <p>
+    The GGH cryptosystem works with two <em>keys</em>
+    <mdash/> a public key and a private key.
+    The keys are based on lattices.
+    The general process of the GGH cryptosystem is as follows.
+    Begin with a good basis <m>\CB = \{\vb_1 \ \vb_2 \ \ldots \ \vb_n\}</m> of <m>\R^n</m> of vectors with integer components.
+    Let <m>B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]</m> be the matrix associated with <m>\CB</m>.
+    Let <m>\CB' = \{\vb'_1, \vb'_2, \ldots, \vb'_n\}</m> be a bad basis for which <m>\mathcal{L}(\CB') = \mathcal{L}(\CB)</m>.
+    Let <m>B' = [\vb'_1 \ \vb'_2 \ \cdots \ \vb'_n]</m> be the matrix associated to the basis <m>\CB'</m>.
+    The bad basis can be shared with anyone
+    (the public key),
+    but the good basis is kept secret
+    (the private key).
+    Start with a message <m>\vm = [m_1 \ m_2 \ \cdots \ m_n]^{\tr}</m> with integer entries to send.
+  </p>
+  <p>
+    First we encrypt the message,
+    which can be done by anyone who has the public key <m>\CB'</m>.
+    <ul>
+      <li>
+        <p>
+          Create the message vector
+          <me>
+            \vm' = m_1 \vb'_1 +  m_2 \vb'_2 + \cdots +  m_n \vb'_n = B' \vm
+          </me>
+          that is in the lattice using the bad basis <m>\CB'</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Choose a small error <m>\ve</m> to add to <m>\vm'</m> to move <m>\vm'</m> off the lattice
+          (small enough so that <m>\vm'</m> does not pass by another lattice point).
+          This is an important step that will make the message difficult to decrypt without the key.
+          Let <m>\vc = \vm' + \ve = B'\vm + \ve</m>.
+          The vector <m>\vc</m> is the ciphertext that is to be transmitted to the receiver.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Only someone who knows the basis <m>\CB</m> can decode the ciphertext.
+    This is done as follows.
+    <ul>
+      <li>
+        <p>
+          Find the vector <m>\va = a_1 \vb_1 + a_2 \vb_2 + \cdots + a_n \vb_n</m> in the good basis <m>\CB</m> that is closest to <m>\vc</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          We interpret the vector <m>[a_1 \ a_2 \ \ldots \ a_n]^{\tr}</m> as being the encoded vector without the error.
+          So to recreate the original message vector we need to undo the encrypting using the bad basis <m>\CB'</m>.
+          That is, we need to find the weights <m>y_1</m>, <m>y_2</m>,
+          <m>\ldots</m>, <m>y_n</m> such that
+          <me>
+            [a_1 \ a_2 \ \ldots \ a_n]^{\tr} = y_1 \vb'_1 + y_2 \vb'_2 + \cdots + y_n \vb'_n = B' [y_1 \ y_2 \ \cdots \ y_n]^{\tr}
+          </me>.
+          We can do this by as <m>[y_1 \ y_2 \ \cdots \ y_n]^{\tr} = B'^{-1} [a_1 \ a_2 \ \ldots \ a_n]^{\tr}</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    There are several items to address before we can implement this algorithm.
+    One is how we create a bad basis <m>\CB'</m> from <m>\CB</m> that produces the same lattice.
+    Another is how we find the vector in
+    <m>\mathcal{\CB}</m> closest to a given vector.
+    The latter problem is called the Closest Vector Problem (CVP) and is,
+    in general, a very difficult problem.
+    This is what makes lattice-based cryptosystems secure.
+    We address the first of these items in the next activity,
+    and the second a bit later.
+  </p>
+  <activity xml:id="act_lattices_2">
+    <p>
+      Consider again the basis <m>S_1 = \{[1 \ 1]^{\tr}, [-1 \ 1]^{\tr}\}</m> from Project <xref ref="act_lattices_1">Activity</xref>,
+      and let <m>B = \left[ \begin{array}{cr} 1\amp -1\\1\amp 1 \end{array} \right]</m> be the matrix whose columns are the vectors in <m>S_1</m>.
+      <ul>
+        <li>
+          <p>
+            Let <m>T</m> be the triangle with vertices <m>(0,0)</m>,
+            <m>(1,1)</m>, and <m>(-1,1)</m>.
+            Show that this triangle is a right triangle,
+            and conclude that the vectors <m>\vv_1 = [1 \ 1]^{\tr}</m>,
+            and <m>\vv_2 = [-1 \ 1]^{\tr}</m> are perpendicular.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>U = \left[ \begin{array}{cc} 3\amp 1\\5\amp 2 \end{array} \right]</m>.
+            Let <m>S_3</m> be the set whose vectors are the columns of the matrix <m>B_1U</m>.
+            Show that <m>\mathcal{L}(S_1) = \mathcal{L}(S_3)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The two bases <m>S_1 = \{[1 \ 1]^{\tr}, [-1 \ 1]^{\tr}\}</m> and
+    <m>S_3 =\{[-2 \ 8]^{\tr}, [-1 \ 3]^{\tr}\}</m> from Project <xref ref="act_lattices_2">Activity</xref>
+    are shown in <xref ref="F_Lattice_3">Figure</xref>.
+    This figure illustrates how the matrix <m>U</m> transforms the basis <m>S_1</m>,
+    in which the vectors are perpendicular and short,
+    to one in which the vectors are nearly parallel and significantly longer.
+    So the matrix <m>U</m> converts the
+    <q>good</q>
+    basis <m>S_1</m> into a
+    <q>bad</q>
+    basis <m>S_2</m>, keeping the lattice intact.
+    This is a key idea in the GGH cryptosystem.
+    What makes this work is the fact that both <m>U</m> and <m>U^{-1}</m> have integer entries.
+    The reason for this is that,
+    for a <m>2 \times 2</m> matrix <m>U = \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array} \right]</m>,
+    we know that <m>U^{-1} = \frac{1}{ad-bc} \left[ \begin{array}{rr} d\amp -b\\-c\amp a \end{array} \right]</m>.
+    If <m>U</m> has integer entries and <m>ad-bc = \pm 1</m>,
+    then <m>U^{-1}</m> will also have integer entries.
+    The number <m>ad-bc</m> is called the
+    <em>determinant</em> of <m>U</m>,
+    and matrices with determinant of <m>1</m> or <m>-1</m> are called <em>unimodular</em>.
+    That what happened in Project <xref ref="act_lattices_2">Activity</xref>
+    happens in the general case is the focus of the next activity.
+  </p>
+  <figure xml:id="F_Lattice_3">
+    <caption>The lattices <m>\mathcal{L}(S_1)</m> and <m>\mathcal{L}(S_3)</m>.</caption>
+    <image width="73%" source="Lattice_3"/>
+  </figure>
+  <activity xml:id="act_lattices_3">
+    <p>
+      We will restrict ourselves to
+      <m>2 \times 2</m> matrices in this activity,
+      but the results generalize to <m>n \times n</m> matrices.
+      Let <m>\CB = \{\vb_1, \vb_2\}</m> and
+      <m>\CB' = \{\vb'_1, \vb'_2\}</m> be bases for <m>\R^2</m> with integer entries,
+      and let <m>B = [\vb_1 \ \vb_2]</m> and
+      <m>B' = [\vb'_1 \ \vb'_2]</m> be the matrices associated to these bases.
+      Show that if <m>B' = BU</m> for some unimodular matrix <m>U</m> with integer entries,
+      then <m>\mathcal{L}(B) = \mathcal{L}(B')</m>.
+    </p>
+  </activity>
+  <p>
+    Project <xref ref="act_lattices_3">Activity</xref>
+    is the part we need for our lattice-based cryptosysystem.
+    Although we won't show it here,
+    the converse of the statement in Project <xref ref="act_lattices_3">Activity</xref> is also true.
+    That is, if <m>\CB</m> and <m>\CB'</m> generate the same lattice,
+    then <m>B' = BU</m> for some unimodular matrix <m>U</m> with integer entries.
+  </p>
+  <p>
+    There is one more item to address before we implement the GGH cryptosystem.
+    That item is how to solve the Closest Vector Problem.
+    There are some algorithms for approximating the closest vector in a basis.
+    One is Babai's Closest Vector algorithm.
+    This algorithm works in the following way.
+    Consider a lattice with basis <m>\{\vb_1, \vb_2, \ldots, \vb_n\}</m>.
+    To approximate the closest vector in the lattice to a vector <m>\vw</m>,
+    find the weights <m>c_1</m>, <m>c_2</m>, <m>\ldots</m>,
+    <m>c_n</m> in <m>\R</m> such that <m>\vw = c_1\vb_1 + c_2 \vb_2 + \cdots + c_n \vb_n</m>.
+    Then round the coefficients to the nearest integer.
+    This algorithm works well for a good basis,
+    but is unlikely to return a lattice point that is close to <m>\vw</m> if the basis is a bad one.
+  </p>
+  <p>
+    Now we put this all together to illustrate the GGH algorithm.
+  </p>
+  <figure xml:id="F_lattices_GGH_ex">
+    <caption>Decrypting an encrypted message.</caption>
+    <image width="73%" source="GGH_example"/>
+  </figure>
+  <activity xml:id="act_lattices_GGH">
+    <p>
+      Let <m>\CB = \{[5 \ 0]^{\tr}, [0 \ 3]^{\tr}\}</m> be the private key,
+      and let <m>B = \left[ \begin{array}{cc}5\amp 0\\0\amp 3 \end{array} \right]</m> be the matrix whose columns are the vectors in <m>\CB</m>.
+      Let <m>U</m> be the unimodular matrix <m>U = \left[ \begin{array}{cc} 2\amp 3\\3\amp 5 \end{array} \right]</m>.
+      Let <m>\vm = [3 \ -2]^{\tr}</m> be our message and let <m>\ve = [1 \ -1]^{\tr}</m> be our error vector.
+      <ul>
+        <li>
+          <p>
+            Use the unimodular matrix <m>U</m> to create the bad basis <m>\CB'</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the ciphertext message <m>\vc</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            A picture of the message vector <m>\vm</m> and the ciphertext vector <m>\vc</m> are shown in <xref ref="F_lattices_GGH_ex">Figure</xref>.
+            Although the closest vector in the lattice to <m>\vc</m> can be determined by the figure,
+            actual messages are constructed in high dimensional spaces where a visual approach is not practical.
+            Use Babai's algorithm to find the vector in
+            <m>\mathcal{L}(\CB)</m> that is closest to <m>\vc</m> and compare to <xref ref="F_lattices_GGH_ex">Figure</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The final step in the GGH scheme is to recover the original message.
+            Complete the GGH algorithm to find this message.
+          </p>
+        </li>
+        <li>
+          <p>
+            The GGH cryptosystem works because the CVP can be reasonable solved using a good basis.
+            That is, Babai's algorithm works if our basis is a good basis.
+            To illustrate that a bad basis will not allow us to reproduce the original message vector,
+            show that Babai's algorithm does not return the closest vector to <m>\vc</m> using the bad basis <m>\CB'</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

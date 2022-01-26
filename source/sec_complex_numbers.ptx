@@ -1,0 +1,154 @@
+<section xml:id="sec_complex_numbers">
+  <title>Complex Numbers</title>
+  <p>
+    Complex numbers are usually introduced as a tool to solve the quadratic equation <m>x^2+1 = 0</m>.
+    However, that is not how complex numbers first came to light.
+    The story actually involves solutions to the general cubic equation.
+    The interested reader could consult Chapter 6 of William Dunham's excellent book
+    <em>Journey Through Genius</em>.
+    In this appendix we touch on the basics of complex numbers to provide enough context for the section on complex eigenvalues.
+  </p>
+  <p>
+    A complex number is defined by a pair of real numbers - the <em>real part</em>
+    of the complex number and the <em>imaginary part</em> of the complex number.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>complex number</term>
+            <idx><h>complex number</h></idx>
+        is a number of the form
+        <me>
+          a+bi
+        </me>
+        where <m>a</m> and <m>b</m> are real numbers and <m>i^2 = -1</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The number <m>a</m> is the real part<idx><h>complex number</h><h>real part</h></idx> of the complex number and the number <m>b</m> is the imaginary part.
+        <idx><h>complex number</h><h>imaginary part</h></idx>
+    We often write
+    <me>
+      z = a+bi
+    </me>
+    for a complex number <m>z</m>,
+    <m>\text{ Re } (z)</m> for the real part of <m>z</m> and
+    <m>\text{ Im } (z)</m> for the imaginary part of <m>z</m>.
+    That is, if <m>z = a+bi</m> with <m>a</m> and <m>b</m> real numbers,
+    then <m>\text{ Re } (z) = a</m> and <m>\text{ Im } (z) = b</m>.
+    We say that two complex numbers <m>a+bi</m> and <m>c+di</m> are equal if <m>a=c</m> and <m>b=d</m>.
+  </p>
+  <p>
+    There is an arithmetic of complex numbers that is determined by an addition and multiplication of complex numbers.
+    Adding complex numbers is natural:
+    <me>
+      (a+bi) + (c+di) = (a+c) + (b+d)i
+    </me>.
+  </p>
+  <p>
+    That is, to add two complex numbers we add their real parts together and their imaginary parts together.
+  </p>
+  <activity>
+    <p>
+      Multiplication of complex numbers is is also done in a natural way.
+      <ul>
+        <li>
+          <p>
+            By expanding the product as usual,
+            treating <m>i</m> as we would any real number,
+            and exploiting the fact that <m>i^2 = -1</m>,
+            explain why we define the product of complex numbers <m>a+bi</m> and <m>c+di</m> as
+            <me>
+              (a+bi)(c+di) = (ac-bd) + (bc+ad)i
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the definitions of addition and multiplication to write each of the sums or products as a complex number in the form <m>a+bi</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  <m>(2+3i) + (7-4i)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(4-2i)(3+i)</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>(2+i)i - (3+4i)</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    It isn't difficult to show that the set of complex numbers,
+    which we denote by <m>\C</m>,
+    satisfies many useful and familiar properties.
+  </p>
+  <activity xml:id="act_complex_field">
+    <p>
+      Show that <m>\C</m> has the same structure as <m>\R</m>.
+      That is, show that for all <m>u</m>, <m>w</m>,
+      and <m>z</m> in <m>\C</m>, the following properties are satisfied.
+      <ul>
+        <li>
+          <p>
+            <m>w+z \in \C</m> and <m>wz \in \C</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>w+z=z+w</m> and <m>wz=zw</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(w+z) + u = w + (z + u)</m> and <m>(wz)u = w(zu)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            There is an element <m>0</m> in <m>\C</m> such that <m>z+ 0 = z</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            There is an element <m>1</m> in <m>\C</m> such that <m>(1)z = z</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            There is an element <m>-z</m> in <m>\C</m> such that <m>z+(-z) = 0</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>z \neq 0</m>, there is an element
+            <m>\frac{1}{z}</m> in <m>\C</m> such that <m>z\left(\frac{1}{z}\right) = 1</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>u (w + z) = (u w) + (u z)</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The result of <xref ref="act_complex_field">Activity</xref> is that,
+    just like <m>\R</m>, the set <m>\C</m> is a field.
+    If we wanted to,
+    we could define vector spaces over <m>\C</m> just like we did over <m>\R</m>.
+    The same results hold.
+  </p>
+</section>

@@ -1,0 +1,69 @@
+<section xml:id="sec_orthog_bases_prop">
+  <title>Properties of Orthogonal Bases</title>
+  <p>
+    Orthogonality is a useful and important property for a basis to have.
+    In Preview <xref ref="pa_6_b">Activity</xref>
+    we saw that if a vector <m>\vx</m> in the span of an orthogonal basis
+    <m>\{\vv_1, \vv_2, \vv_3\}</m> could be written as a linear combination of the basis vectors as <m>\vx = x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3</m>,
+    then <m>x_1 = \frac{\vx \cdot \vv_1}{\vv_1 \cdot \vv_1}</m>.
+    If we continued that same argument we could show that
+    <me>
+      \vx = \left(\frac{\vx \cdot \vv_1}{\vv_1 \cdot \vv_1}\right) \vv_1 + \left(\frac{\vx \cdot \vv_2}{\vv_2 \cdot \vv_2}\right) \vv_2 + \left(\frac{\vx \cdot \vv_3}{\vv_3 \cdot \vv_3}\right) \vv_3
+    </me>.
+  </p>
+  <p>
+    We can apply this idea in general to see how the orthogonality of an orthogonal basis allows us to quickly and easily determine the weights to write a given vector as a linear combination of orthogonal basis vectors.
+    To see why, let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> be an orthogonal basis for a subspace <m>W</m> of <m>\R^n</m> and let <m>\vx</m> be any vector in <m>W</m>.
+    We know that
+    <me>
+      \vx = x_1\vv_1 + x_2\vv_2 + \cdots + x_m \vv_m
+    </me>
+    for some scalars <m>x_1</m>, <m>x_2</m>,
+    <m>\ldots</m>, <m>x_m</m>.
+    Let <m>1\leq k\leq m</m>.
+    Then, using orthogonality of vectors <m>\vv_1, \vv_2, \ldots, \vv_m</m>, we have
+    <me>
+      \vv_k \cdot \vx = x_1(\vv_k \cdot \vv_1) + x_2(\vv_k \cdot \vv_2) + \cdots + x_m(\vv_k \cdot \vv_m) = x_k \vv_k \cdot \vv_k
+    </me>.
+  </p>
+  <p>
+    So
+    <me>
+      x_k = \ds \frac{\vx \cdot \vv_k}{\vv_k \cdot \vv_k}
+    </me>.
+  </p>
+  <p>
+    Thus, we can calculate each weight individually with two simple dot products.
+    We summarize this discussion in the next theorem.
+  </p>
+  <theorem xml:id="thm_6_b_orth_dcomp">
+    <statement>
+      <p>
+        Let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> be an orthogonal basis for a subspace of <m>\R^n</m>.
+        Let <m>\vx</m> be a vector in <m>W</m>.
+        Then
+        <men xml:id="eq_6_b_orth_ddecomp">
+          \vx = \ds \frac{\vx \cdot \vv_1}{\vv_1 \cdot \vv_1} \vv_1 +  \frac{\vx \cdot \vv_2}{\vv_2 \cdot \vv_2} \vv_2 + \cdots + \frac{\vx \cdot \vv_m}{\vv_m \cdot \vv_m} \vv_m
+        </men>.
+      </p>
+    </statement>
+  </theorem>
+  <activity>
+    <p>
+      Let <m>\vv_1 = [1 \ 0 \ 1]^{\tr}</m>,
+      <m>\vv_2 = [0 \ 1 \ 0]^{\tr}</m>,
+      and <m>\vv_3 = [0 \ 0 \ 1]^{\tr}</m>.
+      The set <m>\CB = \{\vv_1, \vv_2, \vv_3\}</m> is a basis for <m>\R^3</m>.
+      Let <m>\vx = [1 \ 0 \ 0]^{\tr}</m>.
+      Calculate
+      <me>
+        \frac{\vx \cdot \vv_1}{\vv_1 \cdot \vv_1}\vv_1 + \frac{\vx \cdot \vv_2}{\vv_2 \cdot \vv_2}\vv_2 + \frac{\vx \cdot \vv_3}{\vv_3 \cdot \vv_3}\vv_3
+      </me>.
+    </p>
+    <p>
+      Compare to <m>\vx</m>.
+      Does this violate <xref ref="thm_6_b_orth_dcomp">Theorem</xref>?
+      Explain.
+    </p>
+  </activity>
+</section>

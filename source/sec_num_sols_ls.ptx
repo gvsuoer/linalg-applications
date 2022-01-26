@@ -1,0 +1,101 @@
+<section xml:id="sec_num_sols_ls">
+  <title>Determining the Number of Solutions of a Linear System</title>
+  <p>
+    Consider the system
+    <md>
+      <mrow>{5} {}x_1   \amp {+}    \amp {2}x_2    \amp {}-{}  \amp {}x_3  \amp {}    \amp {}       \amp {}={}  \amp  \ 0\amp {}</mrow>
+      <mrow>{}    \amp {}     \amp {}x_2     \amp {}    \amp {}    \amp {}-{}  \amp {}x_4   \amp {}={}   \amp  \ 2\amp {}</mrow>
+      <mrow>{}      \amp {}    \amp {}  \amp {}{}       \amp {}x_3  \amp {}-{}  \amp {2}x_4    \amp {}={}   \amp  \ 4\amp {.}</mrow>
+    </md>
+  </p>
+  <p>
+    The augmented matrix for this system is
+    <me>
+      \left[ \begin{array}{ccrr|c} 1 \amp  2 \amp  -1 \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \amp  -1 \amp  2 \\ 0 \amp  0 \amp  1 \amp  -2 \amp  4 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Note that this matrix is already in row echelon form.
+    The reduced row echelon form of this augmented matrix is
+    <men xml:id="eq_Ex_rref">
+      \left[ \begin{array}{cccr|c} 1 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \amp  -1 \amp  2 \\ 0 \amp  0 \amp  1 \amp  -2 \amp  4 \end{array}  \right]
+    </men>.
+  </p>
+  <p>
+    Since there are leading 1s in the first three columns,
+    we can use those entries to write <m>x_1</m>, <m>x_2</m>,
+    and <m>x_3</m> in terms of <m>x_4</m>.
+    We then choose <m>x_4</m> to be arbitrary and write the remaining variables in terms of <m>x_4</m>.
+    Let <m>x_4 = t</m>.
+    Solving the third equation for <m>x_3</m> gives us <m>x_3 = 4+2t</m>.
+    The second equation shows that <m>x_2 = 2+t</m>,
+    and the first that <m>x_1 = 0</m>.
+    Each value of <m>t</m> provides a solution to the system,
+    so our system has infinitely many solutions.
+    These solutions are
+    <me>
+      x_1 = 0, \ x_2 = 2+t, \ x_3 = 4+2t, \ \text{ and }  \ x_4 = t
+    </me>,
+    where <m>t</m> can have any value.
+  </p>
+  <activity xml:id="act_1_c_2">
+    <p>
+      We have seen examples of systems with no solutions,
+      one solution, and infinitely many solutions.
+      As we will see in this activity,
+      we can recognize the number of solutions to a system by analyzing the pivot positions in the augmented matrix of the system.
+      <ul>
+        <li>
+          <p>
+            Write an example of an augmented matrix in row echelon form so that the last column of the (whole) matrix is a pivot column.
+            What is the system of equations corresponding to your augmented matrix?
+            How many solutions does your system have?
+            Why?
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the reduced row echelon form <xref ref="eq_Ex_rref"/>.
+            Based on the columns of this matrix,
+            explain how we know that the system it represents is consistent.
+          </p>
+        </li>
+        <li>
+          <p>
+            The system with reduced row echelon form <xref ref="eq_Ex_rref"/> is consistent.
+            What is it about the columns of the coefficient matrix that tells us that this system has infinitely many solutions?
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose that a linear system is consistent and that the coefficient matrix has <m>m</m> rows and <m>n</m> columns.
+            <ol label="i">
+              <li>
+                <p>
+                  If every column of the coefficient matrix is a pivot column,
+                  how many solutions must the system have?
+                  Why?
+                  What relationship must exist between <m>m</m> and <m>n</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the coefficient matrix has at least one non-pivot column,
+                  how many solutions must the system have?
+                  Why?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    When solving a linear system of equations,
+    the free variables can be chosen arbitrarily and we can write the basic variables in terms of the free variables.
+    Therefore, the existence of a free variable leads to infinitely many solutions for consistent systems.
+    However, it is possible to have a system with free variables which is inconsistent. (Can you think of an example?)
+  </p>
+</section>

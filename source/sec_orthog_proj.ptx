@@ -1,0 +1,105 @@
+<section xml:id="sec_orthog_proj">
+  <title>Orthogonal Projections</title>
+  <p>
+    When running a sprint, the racers may be aided or slowed by the wind.
+    The wind assistance is a measure of the wind speed that is helping push the runners down the track.
+    It is much easier to run a very fast race if the wind is blowing hard in the direction of the race.
+    So that world records aren't dependent on the weather conditions,
+    times are only recorded as record times if the wind aiding the runners is less than or equal to 2 meters per second.
+    Wind speed for a race is recorded by a wind gauge that is set up close to the track.
+    It is important to note, however,
+    that weather is not always as cooperative as we might like.
+    The wind does not always blow exactly in the direction of the track,
+    so the gauge must account for the angle the wind makes with the track.
+    If the wind is blowing in the direction of the vector <m>\vu</m> in <xref ref="F_Projection">Figure</xref>
+    and the track is in the direction of the vector <m>\vv</m> in <xref ref="F_Projection">Figure</xref>,
+    then only part of the total wind vector is actually working to help the runners.
+    This part is called the orthogonal projection of the vector <m>\vu</m> onto the vector <m>\vv</m> and is denoted <m>\proj_{\vv} \vu</m>.
+    The next activity shows how to find this projection.
+  </p>
+  <figure xml:id="F_Projection">
+    <caption>The orthogonal projection of <m>\vu</m> onto <m>\vv</m>.</caption>
+    <image width="73%" source="6_a_Projection.eps"/>
+  </figure>
+  <activity>
+    <p>
+      Since the orthogonal projection
+      <m>\proj_{\vv} \vu</m> is in the direction of <m>\vv</m>,
+      there exists a constant <m>c</m> such that <m>\proj_{\vv} \vu = c \vv</m>.
+      If we determine the value of <m>c</m>,
+      we can find <m>\proj_{\vv} \vu</m>.
+      <ul>
+        <li>
+          <p>
+            The wind component that acts perpendicular to the direction of <m>\vv</m> is called the projection of <m>\vu</m> orthogonal to <m>\vv</m> and is denoted
+            <m>\proj_{\perp \vv} \vu</m> as shown in <xref ref="F_Projection">Figure</xref>.
+            Write an equation that involves <m>\proj_{\vv} \vu</m>,
+            <m>\proj_{\perp \vv} \vu</m>, and <m>\vu</m>.
+            Then solve that equation for <m>\proj_{\perp \vv} \vu</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Given that <m>\vv</m> and <m>\proj_{\perp \vv} \vu</m> are orthogonal,
+            what does that tell us about <m>\vv \cdot \proj_{\perp \vv} \vu</m>?
+            Combine this fact with the result of part (a) and that
+            <m>\proj_{\vv} \vu = c \vv</m> to obtain an equation involving <m>\vv</m>,
+            <m>\vu</m>,
+            and <m>c</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Solve for <m>c</m> using the equation you found in the previous step.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use your value of <m>c</m> to identify <m>\proj_{\vv} \vu</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    To summarize:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\vu</m> and <m>\vv</m> be vectors in <m>\R^n</m> with <m>\vv \neq \vzero</m>.
+        <ol>
+          <li>
+            <p>
+              The <em>orthogonal projection</em><idx><h>orthogonal projection</h><h>in the direction of a vector</h></idx> of <m>\vu</m> onto <m>\vv</m> is the vector
+              <men xml:id="eq_6_a_projection">
+                \proj_{\vv} \vu = \frac{\vu \cdot \vv}{||\vv||^2} \vv
+              </men>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The <em>projection</em><idx><h>projection</h><h>orthogonal to a vector</h></idx> of <m>\vu</m> orthogonal to <m>\vv</m> is the vector
+              <me>
+                \proj_{\perp \vv} \vu = \vu - \proj_{\vv} \vu
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <activity>
+    <p>
+      Let <m>\vu = \left[ \begin{array}{c} 5\\8 \end{array} \right]</m> and <m>\vv = \left[ \begin{array}{r} 6\\-10 \end{array} \right]</m>.
+      Find <m>\proj_{\vv} \vu</m> and
+      <m>\proj_{\perp \vv} \vu</m> and draw a picture to illustrate.
+    </p>
+  </activity>
+  <p>
+    The orthogonal projection of a vector <m>\vu</m> onto a vector <m>\vv</m> is really a projection of the vector <m>\vu</m> onto the space <m>\Span\{\vv\}</m>.
+    The vector <m>\proj_{\vv} \vu</m> is the best approximation to <m>\vu</m> of all the vectors in <m>\Span\{\vv\}</m> in the sense that
+    <m>\proj_{\vv} \vu</m> is the closest to <m>\vu</m> among all vectors in
+    <m>\Span\{\vv\}</m>, as we will prove later.
+  </p>
+</section>

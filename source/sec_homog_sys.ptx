@@ -1,0 +1,141 @@
+<section xml:id="sec_homog_sys">
+  <title>Homogeneous and Nonhomogeneous Systems</title>
+  <p>
+    As we saw before,
+    the systems with all the right hand side constants being 0 are special in that they always have a solution. (Why?) So we might consider grouping systems into two types: Those of the form <m>A \vx = \vb</m>,
+    where not all of the entries of the vector <m>\vb</m> are <m>0</m>,
+    and those of the form <m>A \vx = \vzero</m>,
+    where <m>\vzero</m> is the vector of all zeros.
+    Systems like <m>A \vx = \vb</m>,
+    where <m>\vb</m> contains at least one non-zero entry,
+    are called <em>nonhomogeneous</em> systems,
+    and systems of the form <m>A \vx = \vzero</m> are called
+    <em>homogeneous</em> systems.
+    For every nonhomogeneous system
+    <m>A \vx = \vb</m> there is a corresponding homogeneous system <m>A \vx = \vzero</m>.
+    We now investigate the connection between the solutions to the nonhomogeneous system and the corresponding homogeneous system.
+  </p>
+  <activity>
+    <p>
+      In this activity we will consider the relationship between the solution sets of nonhomogeneous systems and those of the corresponding homogeneous systems.
+      <ul>
+        <li>
+          <p>
+            Find the solution sets of the system
+            <me>
+              A \vx = \vb
+            </me>
+            where
+            <me>
+              A = \left[ \begin{array}{ccc} 1 \amp  1 \amp  2  \\ 1 \amp  2 \amp  1 \end{array}  \right], \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} 0 \\ -2 \end{array}  \right]
+            </me>
+            and the corresponding homogeneous system (i.e. where we replace <m>\vb</m> with <m>\vzero</m>.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the solution sets of the system
+            <me>
+              A \vx = \vb
+            </me>
+            where
+            <me>
+              A = \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 4\amp -2 \end{array}  \right], \ \vx =  \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} -1 \\ 1 \end{array}  \right]
+            </me>
+            and the corresponding homogeneous system.
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the similarities/differences between solutions of the nonhomogeneous system and its homogeneous counterpart?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As we saw in the above activity,
+    there is a relationship between solutions of a nonhomogeneous and the corresponding homogeneous system.
+    Let us formalize this relationship.
+    If the general solution of a system involves free variables,
+    we can represent the solutions in
+    <em>parametric vector form</em>
+    to have a better idea about the geometric representation of the solution set.
+    Suppose the solution is that <m>x_3</m> is free,
+    <m>x_2 = -2+x_3</m>, and <m>x_1 = 2-3x_3</m>.
+    In vector form, we can represent this general solution as
+    <men>
+      \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2-3x_3 \\ x_3-2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{r} 2 \\ -2 \\ 0 \end{array}  \right] + x_3\left[ \begin{array}{r} -3 \\ 1 \\ 1 \end{array}  \right]
+    </men>.
+  </p>
+  <p>
+    From this representation,
+    we see that the solution set is a line through the origin
+    (formed by multiples of <m>\left[ \begin{array}{r} -3 \\ 1 \\ 1 \end{array} \right]</m>)
+    shifted by the added vector <m>\left[ \begin{array}{r} 2 \\ -2 \\ 0 \end{array} \right]</m>.
+    The solution to the homogeneous system on the other does not have the shift.
+  </p>
+  <p>
+    Algebraically,
+    we see that every solution to the nonhomogeneous system
+    <m>A\vx = \vb</m> can be written in the form <m>\vp + \vv_h</m>,
+    where <m>\vp</m> is a particular solution to
+    <m>A\vx = \vb</m> and <m>\vv_h</m> is a solution to the corresponding homogeneous system <m>A\vx = \vzero</m>.
+  </p>
+  <p>
+    To understand why this <em>always</em> happens,
+    we will verify the result algebraically for an arbitrary <m>A</m> and <m>\vb</m>.
+    Assuming that <m>\vp</m> is a particular solution to the nonhomogeneous system
+    <m>A\vx=\vb</m>, we need to show that:
+    <ul>
+      <li>
+        <p>
+          if <m>\vv</m> is an arbitrary solution to the nonhomogeneous system,
+          then <m>\vv = \vp + \vv_h</m>,
+          where <m>\vv_h</m> is some solution to the homogeneous system <m>A\vx = \vzero</m>, and
+        </p>
+      </li>
+      <li>
+        <p>
+          if <m>\vv_h</m> is an arbitrary solution to the homogeneous system,
+          then <m>\vp + \vv_h</m> is a solution to the nonhomogeneous system.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    To verify the first condition,
+    suppose that <m>\vv</m> is a solution to the nonhomogeneous system <m>A \vx = \vb</m>.
+    Since we want <m>\vv=\vp+\vv_h</m>,
+    we need to verify that <m>\vv-\vp</m> is a solution for the homogeneous system so that we can assign <m>\vv_h=\vv-\vp</m>.
+    Note that
+    <me>
+      A(\vv - \vp) = A\vv - A\vp = \vb - \vb = \vzero \,
+    </me>,
+    using the distributive property of matrix-vector product over vector addition.
+    Hence <m>\vv</m> is of the form
+    <m>\vp + \vv_h</m> with <m>\vv_h = \vzero</m>.
+  </p>
+  <p>
+    To verify the second condition,
+    consider a vector of the form <m>\vp + \vv_h</m>,
+    where <m>\vv_h</m> is a homogeneous solution.
+    We have
+    <me>
+      A(\vp + \vv_h) = A\vp + A\vv_h = \vb + \vzero = \vb
+    </me>,
+    and so <m>\vp + \vv_h</m> is a solution to <m>A \vx = \vb</m>.
+  </p>
+  <p>
+    Our work above proves the following theorem.
+  </p>
+  <theorem xml:id="thm_1_e_1">
+    <statement>
+      <p>
+        Suppose the equation <m>A\vx=\vb</m> is consistent for some <m>\vb</m> and <m>\vp</m> is a solution.
+        Then the solution set of <m>A\vx=\vb</m> consists of all vectors of the form
+        <m>\vv=\vp+\vv_h</m> where <m>\vv_h</m> is a solution to <m>A\vx=\vzero</m>.
+      </p>
+    </statement>
+  </theorem>
+</section>

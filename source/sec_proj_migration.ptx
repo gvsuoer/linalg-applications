@@ -1,0 +1,97 @@
+<section xml:id="sec_proj_migration">
+  <title>Project: Modeling Population Migration</title>
+  <p>
+    As introduced earlier,
+    data from the Michigan Department of Technology, Management,
+    and Budget shows that from 2011 to 2012,
+    approximately 0.05% of the U.S. population outside of Michigan moved to the state of Michigan,
+    while approximately 2% of Michigan's population moved out of Michigan.
+    We are interested in determining the long-term distribution of population in Michigan.
+  </p>
+  <p>
+    Let <m>\vx_n = \left[ \begin{array}{c} m_n \\ u_n \end{array} \right]</m> be the
+    <m>2 \times 1</m> vector where <m>m_n</m> is the population of Michigan and <m>u_n</m> is the U.S. population outside of Michigan in year <m>n</m>.
+    Assume that we start our analysis at generation 0 and <m>\vx_0 = \left[ \begin{array}{c} m_0 \\ u_0 \end{array} \right]</m>.
+  </p>
+  <activity xml:id="act_Mi_pop_1">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Explain how the data above shows that
+            <md>
+              <mrow>m_1 \amp = 0.98m_0 + 0.0005u_0</mrow>
+              <mrow>u_1 \amp = 0.02m_0 + 0.9995u_0</mrow>
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            Identify the matrix <m>A</m> such that <m>\vx_1 = A \vx_{0}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    One we have the equation <m>\vx_1 = A\vx_0</m>,
+    we can extend it to subsequent years:
+    <me>
+      \vx_2 = A\vx_1, \ \ \ \ \vx_3 = A \vx_2, \ \ \ \ , ..., \ \ \ \ \vx_{n+1} = A \vx_n
+    </me>
+    for each <m>n \geq 0</m>.
+  </p>
+  <p>
+    This example illustrates the general nature of what is called a <em>Markov process</em>
+    (see <xref ref="def_Markov">Definition</xref>).
+    Recall that the matrix <m>A</m> that provides the link from one generation to the next is called the transition matrix.
+  </p>
+  <p>
+    In situations like these,
+    we are interested in determining if there is a steady-state vector,
+    that is a vector that satisfies
+    <men xml:id="eq_Mi_pop_2">
+      \vx = A \vx
+    </men>.
+  </p>
+  <p>
+    Such a vector would show us the long-term population of Michigan provided the population dynamics do not change.
+  </p>
+  <activity>
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Explain why a steady-state solution to <xref ref="eq_Mi_pop_2"/> is an eigenvector of <m>A</m>.
+            What is the corresponding eigenvalue?
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider again the transition matrix <m>A</m> from Project <xref ref="act_Mi_pop_1">Activity</xref>.
+            Recall that the solutions to equation <xref ref="eq_Mi_pop_2"/> are all the vectors in <m>\Nul (A-I_2)</m>.
+            In other words,
+            the eigenvectors of <m>A</m> for this eigenvalue are the nonzero vectors in <m>\Nul (A-I_2)</m>.
+            Find a basis for the eigenspace of <m>A</m> corresponding to this eigenvalue.
+            Use whatever technology is appropriate.
+          </p>
+        </li>
+        <li>
+          <p>
+            Once we know a basis for the eigenspace of the transition matrix <m>A</m>,
+            we can use it to estimate the steady-state population of Michigan
+            (assuming the stated migration trends are valid long-term).
+            According to the US Census Bureau<fn>
+            \url{https://www.census.gov/data/tables/time-series/demo/popest/2010s-national-total.html}
+            </fn>,
+            the resident US population on December 1, 2019 was 330,073,471.
+            Assuming no population growth in the U.S., what would the long-term population of Michigan be?
+            How realistic do you think this is?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

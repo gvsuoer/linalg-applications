@@ -1,0 +1,179 @@
+<section xml:id="sec_mtx_rank">
+  <title>Rank of a Matrix</title>
+  <p>
+    In this section,
+    we define the rank of a matrix and review conditions to add to our Invertible Matrix Theorem.
+  </p>
+  <activity xml:id="act_3_d_5">
+    <p>
+      Let <m>A = \left[ \begin{array}{rrrrr} 1\amp 2\amp -1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp -1 \\ 0\amp 0\amp 0\amp 1\amp 1 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Without performing any calculations, find <m>\dim(\Nul A)</m>.
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Without performing any calculations, find <m>\dim(\Col A)</m>.
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            There is a connection between <m>\dim(\Nul A)</m>,
+            <m>\dim(\Col A)</m> and the size of <m>A</m>.
+            Find this connection and explain it.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As <xref ref="act_3_d_5">Activity</xref> illustrates,
+    the number of vectors in a basis for <m>\Nul A</m> is the number of non-pivot columns in <m>A</m> and the number of vectors in a basis for <m>\Col A</m> is the number of pivot columns of <m>A</m>.
+    We define the <em>rank</em>
+        <idx><h>rank of a matrix</h></idx>
+    of a matrix <m>A</m> (denoted rank(<m>A</m>)) to be the dimension of <m>\Col A</m> and the <em>nullity</em>
+    of <m>A</m> to be dimension of <m>\Nul A</m>.
+    The dimension of the null space of <m>A</m> is also called the <em>nullity</em>
+        <idx><h>nullity of a matrix</h></idx>
+    of <m>A</m> (denoted nullity(<m>A</m>)) Using this terminology we have the Rank-Nullity Theorem.
+  </p>
+  <theorem xml:id="thm_3_d_rank_nullity">
+    <title>The Rank-Nullity Theorem</title>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix.
+        Then
+        <me>
+          \rank(A) + \nullity(A) = n
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    There is also a row space of a matrix <m>A</m>,
+    which we define to be the span of the rows of <m>A</m>.
+    We can find the row space of <m>A</m> by finding the column space of <m>A^{\tr}</m>,
+    so the row space is really nothing new.
+    As it turns out,
+    the dimension of the row space of <m>A</m> is always equal to the dimension of the column space of <m>A</m>,
+    and justification for this statement is in the exercises.
+  </p>
+  <p>
+    The Rank-Nullity Theorem allows us to add extra conditions to the Invertible Matrix Theorem.
+  </p>
+  <theorem xml:id="thm_3_d_IMT">
+    <title>The Invertible Matrix Theorem</title>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> matrix.
+        The following statements are equivalent.
+        <ul>
+          <li>
+            <p>
+              The matrix <m>A</m> is an invertible matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix equation <m>A \vx = \vzero</m> has only the trivial solution.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A</m> has <m>n</m> pivot columns.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every row of <m>A</m> contains a pivot.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> span <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A</m> is row equivalent to the identity matrix <m>I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> are linearly independent.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> form a basis for <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^n</m> defined by <m>T(\vx) = A\vx</m> is one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix equation <m>A \vx = \vb</m> has exactly one solution for each vector <m>\vb</m> in <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^n</m> defined by <m>T(\vx) = A\vx</m> is onto.
+            </p>
+          </li>
+          <li>
+            <p>
+              There is an <m>n \times n</m> matrix <m>C</m> so that <m>AC = I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              There is an <m>n \times n</m> matrix <m>D</m> so that <m>DA = I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The scalar 0 is not an eigenvalue of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A^{\tr}</m> is invertible.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\Nul A = \{\vzero\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\Col A = \R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\dim(\Col A) = n</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\dim(\Nul A) = 0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\rank(A) = n</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+</section>

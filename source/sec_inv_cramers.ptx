@@ -1,0 +1,185 @@
+<section xml:id="sec_inv_cramers">
+  <title>An Explicit Formula for the Inverse and Cramer's Rule</title>
+  <p>
+    In <xref ref="sec_matrix_inverse">Section</xref>
+    we found the inverse <m>A^{-1}</m> using row reduction of the matrix obtained by augmenting <m>A</m> with <m>I_n</m>.
+    However, in theoretical applications,
+    having an explicit formula for <m>A^{-1}</m> can be handy.
+    Such an explicit formula provides us with an algebraic expression for <m>A^{-1}</m> in terms of the entries of <m>A</m>.
+    A consequence of the formula we develop is Cramer's Rule,
+    which can be used to provide formulas that give solutions to certain linear systems.
+  </p>
+  <p>
+    We begin with an interesting connection between a square matrix and the matrix of its cofactors that we explore in the next activity.
+  </p>
+  <activity xml:id="act_4_f_4">
+    <p>
+      Let <m>A = \left[ \begin{array}{crc} 2\amp 1\amp 3 \\ 1\amp 4\amp 5 \\ 2\amp -1\amp 2 \end{array}  \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Calculate the <m>(1,1)</m>,
+            <m>(1,2)</m>, and <m>(1,3)</m> cofactors of <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>C_{ij}</m> represents the <m>(i,j)</m> cofactor of <m>A</m>,
+            then the cofactor matrix <m>C</m> is the matrix <m>C = [C_{ij}]</m>.
+            The <em>adjugate</em>
+              <idx><h>matrix</h><h>adjugate</h></idx>
+            matrix of <m>A</m> is the transpose of the cofactor matrix.
+            In our example, the adjugate matrix of <m>A</m> is
+            <me>
+              \adj(A) = \left[ \begin{array}{rrr} 13\amp -5\amp -7 \\ 8\amp -2\amp -7 \\ -9\amp 4\amp 7 \end{array}  \right]
+            </me>.
+            Check the entries of this adjugate matrix with your calculations from part (a).
+            Then calculate the matrix product
+            <me>
+              A \ \adj(A)
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            What do you notice about the product <m>A \ \adj(A)</m>?
+            How is this product related to <m>\det(A)</m>?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The result of <xref ref="act_4_f_4">Activity</xref> is rather surprising,
+    but it is valid in general.
+    That is, if <m>A = [a_{ij}]</m> is an invertible
+    <m>n \times n</m> matrix and <m>C_{ij}</m> is the <m>(i,j)</m> cofactor of <m>A</m>,
+    then <m>A \ \adj(A)=\det(A) I_n</m>.
+    In other words,
+    <m>A \left(\frac{\adj(A)}{\det(A)}\right) = I_n</m> and so
+    <me>
+      A^{-1} = \frac{1}{\det(A)} \adj(A)
+    </me>.
+  </p>
+  <p>
+    This gives us another formulation of the inverse of a matrix.
+    To see why <m>A \ \adj(A) = \det(A) I_n</m>,
+    we use the row-column version of the matrix product to find the <m>ij</m>th entry of
+    <m>A \ \adj(A)</m> as indicated by the shaded row and column
+    <me>
+      \left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ \rowcolor{Gray} a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right] \left[ \begin{array}{ccc>{\columncolor{Gray}}ccc} C_{11}   \amp  C_{21} \amp  \cdots    \amp C_{j1} \amp \cdots \amp  C_{n1} \\ C_{12}   \amp  C_{22} \amp  \cdots    \amp C_{j2} \amp \cdots \amp  C_{n2} \\ \vdots   \amp   \vdots  \amp          \amp            \amp        \amp  \vdots \\ C_{1n}   \amp  C_{2n} \amp  \cdots    \amp C_{jn} \amp \cdots \amp  C_{nn} \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Thus the <m>ij</m>th entry of <m>A \ \adj(A)</m> is
+    <men xml:id="eq_4_f_4">
+      a_{i1}C_{j1} + a_{i2}C_{j2} + \cdots + a_{in}C_{jn}
+    </men>.
+  </p>
+  <p>
+    Notice that if <m>i=j</m>,
+    then expression <xref ref="eq_4_f_4"/> is the cofactor expansion of <m>A</m> along the <m>i</m>th row.
+    So the <m>ii</m>th entry of <m>A \ \adj(A)</m> is <m>\det(A)</m>.
+    It remains to show that the <m>ij</m>th entry of
+    <m>A \ \adj(A)</m> is 0 when <m>i \neq j</m>.
+  </p>
+  <p>
+    When <m>i \neq j</m>,
+    the expression <xref ref="eq_4_f_4"/> is the cofactor expansion of the matrix
+    <me>
+      \left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{j-11}      \amp a_{j-12}     \amp  \cdots   \amp  a_{j-1n} \\ \rowcolor{Gray} a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ a_{j+11}      \amp a_{i+12}     \amp  \cdots   \amp  a_{j+1n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right]
+    </me>
+    along the <m>j</m>th row.
+    This matrix is the one obtained by replacing the <m>j</m>th row of <m>A</m> with the <m>i</m>th row of <m>A</m>.
+    Since this matrix has two identical rows,
+    it is not row equivalent to the identity matrix and is therefore not invertible.
+    Thus, when <m>i \neq j</m> expression <xref ref="eq_4_f_4"/> is 0.
+    This makes <m>A \ \adj(A) = \det(A) I_n</m>.
+  </p>
+  <p>
+    One consequence of the formula <m>A^{-1} = \frac{1}{\det(A)} \adj(A)</m> is Cramer's rule,
+    which describes the solution to the equation <m>A \vx = \vb</m>.
+  </p>
+  <activity xml:id="act_4_f_5">
+    <p>
+      Let <m>A = \left[ \begin{array}{cc} 3\amp 1 \\ 4\amp 2 \end{array} \right]</m>,
+      and let <m>\vb = \left[ \begin{array}{c}2\\6 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Solve the equation <m>A \vx = \vb</m> using the inverse of <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>A_1 = \left[ \begin{array}{cc} 2\amp 1 \\ 6\amp 2 \end{array} \right]</m>,
+            the matrix obtained by replacing the first column of <m>A</m> with <m>\vb</m>.
+            Calculate <m>\frac{\det(A_1)}{\det(A)}</m> and compare to your solution from part (a).
+            What do you notice?
+          </p>
+        </li>
+        <li>
+          <p>
+            Now let <m>A_2 = \left[ \begin{array}{cc} 3\amp 2 \\ 4\amp 6 \end{array} \right]</m>,
+            the matrix obtained by replacing the second column of <m>A</m> with <m>\vb</m>.
+            Calculate <m>\frac{\det(A_2)}{\det(A)}</m> and compare to your solution from part (a).
+            What do you notice?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The result from <xref ref="act_4_f_5">Activity</xref> may seem a bit strange,
+    but turns out to be true in general.
+    The result is called <em>Cramer's Rule</em>.
+  </p>
+  <theorem>
+    <title>Cramer's Rule</title>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> invertible matrix.
+        For any <m>\vb</m> in <m>\R^n</m>,
+        the solution <m>\vx</m> of <m>A\vx=\vb</m> has entries
+        <me>
+          x_i =\frac{\det(A_i)}{\det(A)}
+        </me>
+        where <m>A_i</m> represents the matrix formed by replacing <m>i</m>th column of <m>A</m> with <m>\vb</m>.
+            <idx><h>Cramer's Rule</h></idx>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    To see why Cramer's Rule works in general,
+    let <m>A</m> be an <m>n \times n</m> invertible matrix and <m>\vb = [b_1 \ b_2 \ \cdots \ b_n]^{\tr}</m>.
+    The solution to <m>A \vx = \vb</m> is
+    <me>
+      \vx = A^{-1} \vb = \frac{1}{\det(A)} \adj(A) \vb = \frac{1}{\det(A)}\left[ \begin{array}{cccc} C_{11}   \amp  C_{21} \amp \cdots \amp  C_{n1} \\ C_{12}   \amp  C_{22} \amp \cdots \amp  C_{n2} \\ \vdots   \amp   \vdots  \amp        \amp  \vdots \\ C_{1n}   \amp  C_{2n} \amp \cdots \amp  C_{nn} \end{array}  \right] \left[ \begin{array}{c} b_1 \\ b_2 \\ \vdots \\ b_n \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Expanding the product gives us
+    <me>
+      \vx = \frac{1}{\det(A)}\left[ \begin{array}{c} b_1C_{11} + b_2C_{21} + \cdots + b_nC_{n1}  \\ b_1C_{12} + b_2C_{22} + \cdots + b_nC_{n2}   \\ \vdots \\ b_1C_{1n} + b_2C_{2n} + \cdots + b_nC_{nn} \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    The expression
+    <me>
+      b_1C_{1j} + b_2C_{2j} + \cdots + b_nC_{nj}
+    </me>
+    is the cofactor expansion of the matrix
+    <me>
+      A_j = \left[ \begin{array}{cccc>{\columncolor{Gray}}cccc} a_{11}   \amp  a_{12} \amp  \cdots    \amp a_{1j-1} \amp b_1   \amp a_{1j+1}    \amp \cdots   \amp  a_{1n} \\ a_{21}   \amp  a_{22} \amp  \cdots    \amp a_{2j-1} \amp b_2   \amp a_{2j+1}  \amp \cdots  \amp  a_{2n} \\ \vdots   \amp   \vdots  \amp          \amp              \amp     \amp         \amp        \amp  \vdots \\ a_{n1}   \amp  a_{n2} \amp  \cdots    \amp a_{nj-1} \amp b_n   \amp a_{nj+1}  \amp \cdots  \amp  a_{nn} \end{array}  \right]
+    </me>
+    along the <m>j</m>th column, giving us the formula in Cramer's Rule.
+  </p>
+  <p>
+    Cramer's Rule is not a computationally efficient method.
+    To find a solution to a linear system of <m>n</m> equations in <m>n</m> unknowns using Cramer's Rule requires calculating <m>n+1</m> determinants of
+    <m>n \times n</m> matrices <mdash/> quite inefficient when <m>n</m> is 3 or greater.
+    Our standard method of solving systems using Gaussian elimination is much more efficient.
+    However, Cramer's Rule does provide a formula for the solution to
+    <m>A \vx = \vb</m> as long as <m>A</m> is invertible.
+  </p>
+</section>

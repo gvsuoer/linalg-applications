@@ -1,0 +1,574 @@
+<section xml:id="sec_jordan">
+  <title>The Jordan Canonical Form</title>
+  <p>
+    We are now ready to prove the existence of the Jordan canonical form.
+  </p>
+  <lemma xml:id="lem_JCF_1">
+    <statement>
+      <p>
+        Let <m>V</m> be an <m>n</m>-dimensional vector space and let
+        <m>T: V \to V</m> be a linear transformation.
+        Let <m>\lambda_1</m>, <m>\lambda_2</m>, <m>\ldots</m>,
+        <m>\lambda_r</m> be the distinct eigenvalues for <m>T</m>.
+        Then there are integers <m>s_1</m>, <m>s_2</m>,
+        <m>\ldots</m>, <m>s_r</m> such that
+        <me>
+          V = \Ker(T-\lambda_1 I)^{s_1} \oplus \Ker(T-\lambda_2 I)^{s_2} \oplus \Ker(T-\lambda_3 I)^{s_3} \oplus \cdots \oplus \Ker(T-\lambda_r I)^{s_r}
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    An example might help illustrate the lemma.
+  </p>
+  <activity xml:id="act_JCF_Lemma_1">
+    <p>
+      Let <m>T:\pol_4 \to \pol_4</m> be defined by
+      <md>
+        <mrow>T\left(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4\right) = (2a_0+a_1) \amp + (a_1-a_2)t + (a_0+a_1)t^2</mrow>
+        <mrow>\amp \qquad + (-a_0-a_1+a_2+2a_3-a_4)t^3 + (2a_4)t^4</mrow>
+      </md>.
+    </p>
+    <p>
+      The matrix of <m>T</m> with respect to the standard basis <m>\CS = \{1,t,t^2,t^3,t^4\}</m> is
+      <me>
+        A = [T]_{\CS} = \left[ \begin{array}{rrrcc} 2\amp 1\amp 0\amp 0\amp 0\\0\amp 1\amp -1\amp 0\amp 0 \\ 1\amp 1\amp 0\amp 0\amp 0 \\ -1\amp -1\amp 1\amp 2\amp -1 \\ 0\amp 0\amp 0\amp 0\amp 2 \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      The eigenvalues of <m>A</m>
+      (and <m>T</m>)
+      are <m>2</m> and <m>1</m>,
+      and the algebraic multiplicity of the eigenvalue <m>2</m> is 2 while its geometric multiplicity is 1, and the algebraic multiplicity of the eigenvalue <m>1</m> is 3 while its geometric multiplicity is also 1.
+    </p>
+    <p>
+      For every <m>t</m>, we can find
+      <m>\Ker(T-\lambda I)^t</m> using <m>\Nul (A- \lambda I)^t</m>.
+      <ul>
+        <li>
+          <p>
+            Technology shows that <m>\dim(\Nul A-I) = 1</m>,
+            <m>\dim(\Nul A-I)^2 = 2</m>, and <m>\dim(\Nul A-I)^3 = 3</m>.
+            A basis for <m>\Nul (A-I)^3</m> is <m>\CC_1 = \left\{ [-1 \ 1 \ 0 \ 0 \ 0]^{\tr}, [1 \ 0 \ 1 \ 0 \ 0]^{\tr}, [1 \ 0 \ 0 \ 1 \ 0]^{\tr}\right\}</m>.
+            Find a basis <m>\CB_1</m> for <m>\Ker\left((T-I)^3\right)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Technology also shows that
+            <m>\dim(\Nul A-2I) = 1</m> and <m>\dim(\Nul A-2I)^2 = 2</m>.
+            A basis for <m>\Nul (A-2I)^2</m> is <m>\CC_2 = \left\{ [0 \ 0 \ 0 \ 1 \ 0]^{\tr}, [0 \ 0 \ 0 \ 0 \ 1]^{\tr}\right\}</m>.
+            Find a basis <m>\CC_2</m> for <m>\Ker\left((T-2I)^2\right)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Identify the <m>\lambda_i</m> and <m>s_i</m> in <xref ref="act_JCF_Lemma_1">Lemma</xref>.
+            Let <m>\CB = \CB_1 \cup \CB_2</m>.
+            Find the matrix <m>[T]_{\CB}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Since each <m>\Ker(T-\lambda_i I)^{s_i}</m> in <xref ref="act_JCF_Lemma_1">Lemma</xref> is <m>T</m> invariant,
+    <m>T</m> maps vectors in <m>\Ker(T-\lambda_i I)^{s_i}</m> back into <m>\Ker(T-\lambda_i I)^{s_i}</m>.
+    So <m>T</m> applied to each
+    <m>\Ker(T-\lambda_i I)^{s_i}</m> provides a matrix <m>B_i</m>.
+    Applying <m>T</m> to each <m>\Ker(T-\lambda_i I)^{s_i}</m> produces the matrix
+    <me>
+      \left[ \begin{array}{cccc} B_1  \amp  \amp \cdots \amp    \\  \amp B_2 \amp \cdots \amp  0  \\ 0  \amp  \amp  \ddots \amp    \\   \amp  \amp \cdots \amp   B_r \end{array}  \right]
+    </me>,
+    where the <m>B_i</m> are square matrices corresponding to the eigenvalues of <m>T</m>.
+    These blocks are determined by the restriction of <m>T</m> to the spaces
+    <m>\Ker(T-\lambda_i I)^{s_i}</m> with respect to the found basis.
+    To obtain the Jordan canonical form,
+    we need to know that we can always choose these basis to create the correct block matrices.
+    <xref ref="lem_JCF_2">Lemma</xref> will provide those details.
+  </p>
+  <proof>
+    <p>
+      Choose a <m>\lambda_i</m> and,
+      for convenience, label it <m>\lambda</m>.
+      For each positive integer <m>j</m>,
+      let <m>W_j = \Ker(T - \lambda I)^j</m>.
+      If <m>(T-\lambda I)^j\vx = \vzero</m>, then
+      <me>
+        (T-\lambda I)^{j+1}(\vx) = (T-\lambda I) (T-\lambda I)^j(\vx) = (T-\lambda I)(\vzero) = \vzero
+      </me>,
+      so <m>W_j \subseteq W_{j+1}</m>.
+      Thus we have the containments
+      <me>
+        W_1 \subseteq W_2 \subseteq W_3 \subseteq \cdots W_k \subseteq \cdots
+      </me>.
+    </p>
+    <p>
+      Now <m>V</m> is finite dimensional,
+      so this sequence must reach equality at some integer <m>t</m>.
+      That is, <m>W_t = W_{t+1} = \cdots</m>.
+      Let <m>s</m> be the smallest positive integer for which this happens.
+    </p>
+    <p>
+      We plan to show that <m>V = \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s</m>.
+      We begin by demonstrating that <m>\Ker(T - \lambda I)^s\cap \Range(T - \lambda I)^s = \{0\}</m>.
+      Let <m>\vv \in \Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s</m>.
+      Then <m>(T - \lambda I)^s(\vv) = \vzero</m> and there exists
+      <m>\vu \in V</m> such that <m>(T-\lambda I)^s(\vu) = \vv</m>.
+      It follows that
+      <me>
+        (T-\lambda I)^{2s}(\vu) = (T-\lambda I)^s(T-\lambda I)^{s}(\vu) = (T-\lambda I)^s(\vv) = \vzero
+      </me>.
+    </p>
+    <p>
+      But <m>\Ker(T - \lambda I)^{2s} = \Ker(T- \lambda I)^s</m>, so
+      <me>
+        \vzero = (T-\lambda I)^{2s}(\vu) = (T-\lambda I)^{s}(\vu) = \vv
+      </me>.
+    </p>
+    <p>
+      We conclude that <m>\Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s = \{\vzero\}</m>.
+    </p>
+    <p>
+      Now we will show that <m>V =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s</m>.
+      Let <m>\vz = \vz_1 + \vz_2</m> with
+      <m>\vz_1 \in  \Ker(T - \lambda I)^s</m> and <m>\vz_2 \in  \Range(T - \lambda I)^s</m>.
+      First we will show that <m>\vz</m> is uniquely represented in this way.
+      Suppose <m>\vz = \vz'_1+\vz'_2</m> with
+      <m>\vz'_1 \in  \Ker(T - \lambda I)^s</m> and <m>\vz'_2 \in  \Range(T - \lambda I)^s</m>.
+      Then
+      <me>
+        \vz_1+\vz_2 = \vz'_1+\vz'_2
+      </me>
+      and
+      <me>
+        \vz_1-\vz'_1 = \vz'_2-\vz_2
+      </me>.
+    </p>
+    <p>
+      But <m>\Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s = \{\vzero\}</m>,
+      so <m>\vz_1-\vz'_1 = \vzero</m> and <m>\vz'_2-\vz_2=\vzero</m> which means
+      <m>\vz_1=\vz'_1</m> and <m>\vz_2 = \vz'_2</m>.
+      Now let <m>Z =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s</m>.
+      We then know that
+      <me>
+        \dim(Z) = \dim\left(\Ker(T - \lambda I)^s\right) + \dim\left(\Range(T - \lambda I)^s\right)
+      </me>.
+    </p>
+    <p>
+      Also, the Rank-Nullity Theorem shows that
+      <me>
+        \dim(V) =  \dim\left(\Ker(T - \lambda I)^s\right) + \dim\left(\Range(T - \lambda I)^s\right)
+      </me>.
+    </p>
+    <p>
+      So <m>Z</m> is a subspace of <m>V</m> with <m>\dim(Z) = \dim(V)</m>.
+      We conclude that <m>Z = V</m> and that
+      <me>
+        V =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s
+      </me>.
+    </p>
+    <p>
+      Next we demonstrate that <m>\Ker(T - \lambda I)^s</m> and
+      <m>\Range(T - \lambda I)^s</m> are invariant under <m>T</m>.
+      Note that
+      <me>
+        T(T - \lambda I) = T^2 - \lambda T = (T-\lambda I)T
+      </me>,
+      and <m>T</m> commutes with <m>(T - \lambda I)</m>.
+      By induction, <m>T</m> commutes with <m>(T - \lambda I)^s</m>.
+      Suppose that <m>\vv \in \Ker(T - \lambda I)^s</m>.
+      Then
+      <me>
+        (T - \lambda I)^sT(\vv) = T(T - \lambda I)^s(\vv) = T(\vzero) = \vzero
+      </me>.
+    </p>
+    <p>
+      So <m>T(\vv) \in \Ker(T - \lambda I)^s</m>.
+      Similarly, suppose that <m>\vv \in \Range(T - \lambda I)^s</m>.
+      Then there is a <m>\vu \in V</m> such that <m>(T - \lambda I)^s(\vu) = \vv</m>.
+      Then
+      <me>
+        T(\vv) = T\left((T - \lambda I)^s(\vu)\right) = \left(T(T - \lambda I)^s\right)(\vu) = \left((T - \lambda I)^sT\right)(\vu) = (T - \lambda I)^s(T(\vu))
+      </me>,
+      and <m>T(\vv) \in \Range(T - \lambda I)^s</m>.
+    </p>
+    <p>
+      We conclude our proof by induction on the number <m>r</m> of eigenvalues of <m>T</m>.
+      Suppose that <m>r=1</m> and so <m>T</m> has exactly one eigenvalue <m>\lambda</m>.
+      Then <m>T-\lambda I</m> has only zero as an eigenvalue (otherwise,
+      there is <m>\mu \neq 0</m> such that
+      <m>(T - \lambda I) - \mu I = T - (\lambda+\mu)I</m> has a nontrivial kernel.
+      This makes <m>\lambda+\mu</m> an eigenvalue of <m>T</m>.) In this situation,
+      <m>T - \lambda I</m> is nilpotent and so
+      <m>(T - \lambda I)^t = 0</m> for some positive integer <m>t</m>.
+      If <m>s</m> is the smallest such power,
+      then <m>V =  \Ker(T - \lambda I)^s</m> and <m>\Range(T - \lambda I)^s = \{\vzero\}</m>.
+      So every vector in <m>V</m> is in <m>\Ker(T - ]lambda I)^s</m> and
+      <me>
+        V = \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s = \Ker(T - \lambda I)^s
+      </me>.
+    </p>
+    <p>
+      Thus, the statement is true when <m>r=1</m>.
+      Assume that the statement is true for linear transformations with fewer than <m>r</m> eigenvalues.
+      Now assume that <m>T</m> has distinct eigenvalues <m>\lambda_1</m>,
+      <m>\lambda_2</m>,
+      <m>\ldots</m>, <m>\lambda_r</m>.
+      By our previous work, we know that
+      <me>
+        V = \Ker(T - \lambda_1 I)^{s_1} \oplus \Range(T - \lambda_1 I)^{s_1}
+      </me>
+      for some positive integer <m>s_1</m>.
+      Let <m>V_1 = \Range(T - \lambda_1 I)^{s_1}</m>.
+      Since <m>\Range(T - \lambda_1 I)^{s_1}</m> is <m>T</m> invariant,
+      we know that <m>T</m> maps <m>V_1</m> to <m>V_1</m>.
+      The eigenvalues of <m>T</m> on <m>V_1</m> are <m>\lambda_2</m>,
+      <m>\lambda_3</m>,
+      <m>\ldots</m>, <m>\lambda_r</m>.
+      By our induction hypothesis, we have
+      <me>
+        V_1 = \Ker(T-\lambda_2 I)^{s_2} \oplus \Ker(T-\lambda_3 I)^{s_3} \oplus \cdots \oplus \Ker(T-\lambda_r I)^{s_r}
+      </me>,
+      for some positive integers <m>s_2</m>, <m>s_3</m>,
+      <m>\ldots</m>, <m>s_r</m>, which makes
+      <me>
+        V = \Ker(T-\lambda_1 I)^{s_1} \oplus \Ker(T-\lambda_2 I)^{s_2} \oplus \Ker(T-\lambda_3 I)^{s_3} \oplus \cdots \oplus \Ker(T-\lambda_r I)^{s_r}
+      </me>.
+    </p>
+  </proof>
+  <p>
+    <xref ref="lem_JCF_1">Lemma</xref>
+    tells us that <m>T</m> has a diagonal form with block matrices down the diagonal.
+    To obtain a Jordan canonical form,
+    we need to identify the correct bases for the summands of <m>V</m>.
+    (Lemma is due to Mark Wildon from
+    <em>A SHORT PROOF OF THE EXISTENCE OF JORDAN NORMAL FORM</em>.)
+  </p>
+  <lemma xml:id="lem_JCF_2">
+    <statement>
+      <p>
+        Let <m>V</m> be an <m>n</m>-dimensional vector space and let
+        <m>T : V \to V</m> be a linear transformation such that <m>T^s = 0</m> for some positive integer <m>s</m>.
+        Then there exist vectors <m>\vu_1</m>,
+        <m>\vu_2</m>, <m>\ldots</m>,
+        <m>\vu_k</m> and natural numbers <m>a_1</m>,
+        <m>a_2</m>, <m>\ldots</m>,
+        <m>a_k</m> such that <m>T^{a_i}(\vu_i) = 0</m> for <m>i</m> from <m>1</m> to <m>k</m> and the vectors
+        <me>
+          \vu_1, T(\vu_1), \ldots,T^{a_1-1}(\vu_1), \vu_2, T(\vu_2), \ldots,T^{a_2-1}(\vu_2), \ldots, \vu_k, T(\vu_k), \ldots,T^{a_k-1}(\vu_k)
+        </me>
+        are non-zero vectors that form a basis of <m>V</m>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    Notice the similarity of <xref ref="lem_JCF_2">Lemma</xref>
+    to chains of generalized eigenvectors.
+    An example might help illustrate <xref ref="lem_JCF_2">Lemma</xref>.
+  </p>
+  <activity xml:id="act_JCF_Lem_2">
+    <p>
+      Let <m>T: \pol_5 \to \pol_5</m> be defined by
+      <me>
+        T(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4+a_5t^5) = (-a_1-a_4+a_5)t + (-a_0-a_1+a_3-a_4+a_5)t^2 + (a_1+a_4)t^4
+      </me>.
+    </p>
+    <p>
+      Let <m>\CS = \{1,t,t^2,t^3,t^4,t^5\}</m> be the standard basis for <m>\pol_5</m>.
+      Then
+      <me>
+        A = [T]_{\CS} = \left[ \begin{array}{rrccrc} 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp -1\amp 0\amp 0\amp -1\amp 1 \\ -1\amp -1\amp 0\amp 1\amp -1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]
+      </me>.
+    </p>
+    <p>
+      Technology shows that the only eigenvalue of <m>A</m> is <m>0</m> and that the geometric multiplicity of <m>0</m> is <m>3</m>.
+      Since <m>0</m> is the only eigenvalue of <m>A</m>, we know that <m>A</m>
+      (and <m>T</m>)
+      is nilpotent.
+      Using technology we find that the reduced row echelon forms of <m>A</m> and <m>A^2</m> and respectively,
+      <me>
+        \left[ \begin{array}{cccrcc} 1\amp 0\amp 0\amp -1\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right], \ \left[ \begin{array}{cccrcc} 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]
+      </me>,
+      while <m>A^3 = 0</m>.
+      We see that <m>\dim(\Ker(T^3)) \dim(\Nul A^3) = 6</m> while <m>\dim(\Ker(T^2)) = \dim(\Nul A^2) = 5</m>.
+      <ul>
+        <li>
+          <p>
+            Notice that the vector <m>\vv_1 = [0 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}</m> is in
+            <m>\Nul A^3</m> but not in <m>\Nul A^2</m>.
+            Use this vector to construct one chain <m>u_1</m>, <m>T(u_1)</m>,
+            and <m>T^2(u_1)</m> of generalized eigenvectors starting with a vector <m>u_1</m> that is in
+            <m>\Ker(T^3)</m> but not in <m>\Ker(T^2)</m>.
+            What can we say about the vector
+            <m>T^2(u_1)</m> in relation to eigenvectors of <m>T</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            We know two other eigenvectors of <m>T</m>,
+            so we need another chain of generalized eigenvectors to provide a basis of <m>\pol_5</m> of generalized eigenvectors.
+            Use the fact that <m>\vv_2 = [1 \ 0 \ 0 \ 0 \ 0 \ 0]^{\tr}</m> is in
+            <m>\Nul A^2</m> but not in <m>\Nul A</m> to find another generalized eigenvector <m>u_2</m> in
+            <m>\Ker(T^2)</m> that is not in <m>\Ker(T)</m>.
+            Then create a chain <m>u_2</m> and <m>T(u_2)</m> of generalized eigenvectors.
+            What is true about <m>T(u_2)</m> in relation to eigenvectors of <m>T</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>u_3 = 1+t^3</m> be a third eigenvector of <m>T</m>.
+            Explain why <m>\{u_1, T(u_1), T^2(u_1),
+            u_2, T(u_2), u_3\}</m> is a basis of <m>\pol_5</m>.
+            Identify the values of <m>k</m> and the <m>a_i</m> in Lemma 40.12.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Notice that if we let <m>C = [[T^2(\vu_1)]_{\CS} \ [T(\vu_1)]_{\CS} \ [\vu_1]_{\CS} \  [T(\vu_4)]_{|CS} \ [\vu_4]_{|CS} \ [\vu_6]_{\CS}]</m> using the vectors from <xref ref="act_JCF_Lem_2">Activity</xref> we should find that
+    <me>
+      C^{-1}AC = \left[ \begin{array}{cccccc} 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]
+    </me>,
+    and this basis provides a matrix that produces a Jordan canonical form of <m>A</m>.
+  </p>
+  <p>
+    <xref ref="lem_JCF_2">Lemma</xref>
+    provides the sequences of generalized eigenvectors that we need to make the block matrices in Jordan canonical form.
+    This works as follows.
+    Start, for example, with <m>\vu_1</m>,
+    <m>T(\vu_1)</m>, <m>\ldots</m>,<m>T^{a_1-1}(\vu_1)</m>.
+    Since <m>T^s = 0</m>,
+    we know that <m>T</m> is nilpotent and so has only <m>0</m> as an eigenvalue.
+    If <m>T</m> has a nonzero eigenvalue <m>\lambda</m>,
+    we replace <m>T</m> with <m>T - \lambda I</m>.
+  </p>
+  <p>
+    Let <m>\CB = \{T^{a_1-1}(\vu_1), T^{a_1-2}(\vu_1), \ldots, T^2(\vu_1), T(\vu_1), \vu_1\}</m>.
+    Then
+    <md>
+      <mrow>_{\CB} \amp = [T^{a_1}(\vu_1)]_{\CB} = [0 \ 0 \ 0 \  \  \ldots \ 0 \ 0]^{\tr}</mrow>
+      <mrow>[T(T^{a_1-2}(\vu_1))]_{\CB} \amp = [T^{a_1-1}(\vu_1)]_{\CB} = [1 \ 0 \ 0 \ \  \ldots \ 0 \ 0]^{\tr}</mrow>
+      <mrow>[T(T^{a_1-3}(\vu_1))]_{\CB} \amp = [T^{a_1-3}(\vu_1)]_{\CB} = [0 \ 1 \ 0 \ \  \ldots \ 0 \ 0]^{\tr}</mrow>
+      <mrow>\amp \vdots</mrow>
+      <mrow>[T(T^2(\vu_1))]_{\CB} \amp = [T^3(\vu_1)]_{\CB} = [0 \ 0 \ 0 \  \ \ldots \ 0 \ 1 \ 0 \ 0 \ 0]^{\tr}</mrow>
+      <mrow>[T(T(\vu_1))]_{\CB} \amp = [T^2(\vu_1)]_{\CB} = [0 \ 0 \ 0 \  \ \ldots \ 0 \ 0 \ 1 \ 0 \ 0]^{\tr}</mrow>
+      <mrow>[T(\vu_1)]_{\CB} \amp = [T(\vu_1)]_{\CB} = [0 \ 0 \ 0 \  \ \ldots \ 0 \ 0 \ 0 \ 1 \ 0]^{\tr}</mrow>
+    </md>.
+  </p>
+  <p>
+    This makes
+    <me>
+      [T]_{\CB} =  \left[ \begin{array}{cccccccc} 0\amp 1\amp 0\amp 0\amp \cdots \amp  0 \amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp \cdots \amp  0\amp 0\amp 0 \\ \amp \amp \ddots\amp \ddots \amp \amp   \amp \amp \\ \amp \amp \amp \amp \vdots \amp \amp \amp   \\ 0\amp 0\amp 0\amp 0\amp \cdots \amp  0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp \cdots \amp  0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp \cdots \amp  0\amp 0\amp 0 \end{array}  \right]
+    </me>,
+    which gives one Jordan block.
+  </p>
+  <proof>
+    <p>
+      If <m>T(\vx) = \vzero</m> for all <m>\vx \in V</m>,
+      then we can choose <m>\vu_1</m>,
+      <m>\vu_2</m>, <m>\ldots</m>,
+      <m>\vu_{\dim(V)}</m> to form any basis of <m>V</m> and all <m>a_i = 1</m>.
+      So we can assume that <m>T</m> is a nonzero transformation.
+      Also, we claim that <m>T(V)</m> is a proper subset of <m>V</m> (recall that <m>T(V)</m> is the same as <m>\Range(T)</m>).
+      If not, <m>V = T(V) = T^2(V) = \cdots = T^m(V)</m> for any positive integer <m>m</m>.
+      But this contradicts the fact that <m>T^s = 0</m>.
+    </p>
+    <p>
+      We proceed by induction on <m>\dim(V)</m>.
+      If <m>\dim(V) = 1</m>,
+      since<m>T(V)</m> is a proper subset of <m>V</m> the only possibility is that <m>T(V) = \{\vzero\}</m>.
+      We have already discussed this case.
+      For the inductive step assume that the lemma is true for any vector space of positive integer dimension less than <m>\dim(V)</m>.
+      Our assumption that <m>T</m> is a nonzero transformation allows us to conclude that <m>0 \subset T(V) \subset V</m>.
+      Thus, <m>1 \leq \dim(T(V)) \lt  \dim(V)</m>.
+      We apply the inductive hypothesis to the transformation
+      <m>T: T(V) \to T(V)</m> to find integers <m>b_1</m>,
+      <m>b_2</m>, <m>\ldots</m>,
+      <m>b_{\ell}</m> and vectors <m>\vv_1</m>,
+      <m>\vv_2</m>, <m>\ldots</m>,
+      <m>\vv_{\ell}</m> in <m>T(V)</m> such that the vectors
+      <men xml:id="eq_JCF_TV_basis">
+        \vv_1, T(\vv_1), \ldots, T^{b_1-1}(\vv_1), \ldots, \vv_{\ell}, T(\vv_{\ell}), \ldots, T^{b_{\ell}-1}(\vv_{\ell})
+      </men>
+      form a basis for <m>T(V)</m> and
+      <m>T^{b_i}(\vv_i) = \vzero</m> for <m>1 \leq i \leq \ell</m>.
+    </p>
+    <p>
+      Now <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
+      <m>\vv_{\ell}</m> are in <m>T(V)</m>,
+      so there exist <m>\vu_1</m>, <m>\vu_2</m>, <m>\ldots</m>,
+      <m>\vu_{\ell}</m> in <m>V</m> such that
+      <m>T(\vu_i) = \vv_i</m> for each <m>1 \leq i \leq \ell</m>.
+      This implies that <m>T^j(\vu_i) = T^{j-1}(T(\vu_i)) = T^{j-1}(\vv_i)</m> for all <m>i</m> and all positive integers <m>j</m>.
+      The vectors <m>T^{b_1-1}(\vv_1)</m>,
+      <m>T^{b_2-1}(\vv_2)</m>, <m>\ldots</m>,
+      <m>T^{b_{\ell}-1}(\vv_{\ell})</m> are linearly independent and
+      <m>T\left(T^{b_i-1}(\vv_i)\right) = T^{b_i}(\vv_i) = 0</m> for <m>1 \leq i \leq \ell</m>,
+      so the vectors <m>T^{b_1-1}(\vv_1)</m>,
+      <m>T^{b_2-1}(\vv_2)</m>, <m>\ldots</m>,
+      <m>T^{b_{\ell}-1}(\vv_{\ell})</m> are all in <m>\Ker(T)</m>.
+      Extend the set <m>\left\{T^{b_1-1}(\vv_1), T^{b_2-1}(\vv_2), \ldots, T^{b_{\ell}-1}(\vv_{\ell})\right\}</m> to a basis of <m>\Ker(T)</m> with the vectors <m>\vw_1</m>,
+      <m>\vw_2</m>,
+      <m>\ldots</m>, <m>\vw_m</m> for <m>m = \dim(\Ker(T)) - \ell</m>.
+      That is, the set
+      <men xml:id="eq_JCF_Ker_basis">
+        \left\{T^{b_1-1}(\vv_1), T^{b_2-1}(\vv_2), \ldots, T^{b_{\ell}-1}(\vv_{\ell}), \vw_1, \vw_2, \ldots, \vw_m\right\}
+      </men>
+      is a basis for <m>\Ker(T)</m>.
+      We will now show that the vectors
+      <men xml:id="eq_JCF_V_basis">
+        \vu_1, T(\vu_1), \ldots, T^{b_1}(\vu_1), \ldots, \vu_{\ell}, T(\vu_{\ell}), \ldots, T^{b_{\ell}}(\vu_{\ell}), \vw_1, \ldots, \vw_m
+      </men>
+      form a basis for <m>V</m>.
+      To demonstrate linear independence, suppose that
+      <md>
+        <mrow>c_{1,0}\vu_1\amp +c_{1,1}T(\vu_1)+ \cdots + c_{1,b_1}T^{b_1}(\vu_1) +  \cdots</mrow>
+        <mrow xml:id="eq_JCF_Lemma_2" number="yes">\amp + c_{\ell,0}\vu_{\ell} +  c_{\ell,1}T(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vu_{\ell}) +  d_1\vw_1+  \cdots +  d_m\vw_m = \vzero</mrow>
+      </md>
+      for some scalars <m>c_{i,j}</m> and <m>d_k</m>.
+      Apply <m>T</m> to this linear combination to obtain the vector equation
+      <md>
+        <mrow>c_{1,0}T(\vu_1)\amp +c_{1,1}T^2(\vu_1)+ \cdots + c_{1,b_1}T^{b_1+1}(\vu_1) +  \cdots</mrow>
+        <mrow>\amp + c_{\ell,0}T(\vu_{\ell}) +  c_{\ell,1}T^2(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}+1}(\vu_{\ell}) +  d_1T(\vw_1)+  \cdots +  d_mT(\vw_m) = \vzero</mrow>
+      </md>.
+    </p>
+    <p>
+      Using the relationship <m>T^j(\vu_i) = T^{j-1}(\vv_i)</m> gives us the equation
+      <md>
+        <mrow>c_{1,0}\vv_1\amp +c_{1,1}T(\vv_1)+ \cdots + c_{1,b_1}T^{b_1}(\vv_1) +  \cdots</mrow>
+        <mrow>\amp + c_{\ell,0}\vv_{\ell} +  c_{\ell,1}T(\vv_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vv_{\ell}) +  d_1T(\vw_1)+  \cdots +  d_mT(\vw_m) = \vzero</mrow>
+      </md>.
+    </p>
+    <p>
+      Recall that <m>T^{b_i}(\vv_i) = 0</m> and that <m>\vw_1</m>,
+      <m>\vw_2</m>, <m>\ldots</m>,
+      <m>\vw_m</m> are in <m>\Ker(T)</m> to obtain the equation
+      <me>
+        c_{1,0}\vv_1+c_{1,1}T(\vv_1)+ \cdots + c_{1,b_1-1}T^{b_1-1}(\vv_1) +  \cdots + c_{\ell,0}\vv_{\ell} +  c_{\ell,1}T(\vv_{\ell})+ \cdots + c_{\ell,b_{\ell}-1}T^{b_{\ell}-1}(\vv_{\ell}) = \vzero
+      </me>.
+    </p>
+    <p>
+      But this final equation is a linear combination of the basis elements in <xref ref="eq_JCF_TV_basis"/> of <m>T(V)</m>,
+      and so the scalars are all <m>0</m>.
+      Replacing these scalars with <m>0</m> in <xref ref="eq_JCF_Lemma_2"/> results in
+      <me>
+        c_{1,b_1}T^{b_1}(\vu_1) +  \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vu_{\ell}) +  d_1\vw_1+  \cdots +  d_m\vw_m = 0
+      </me>.
+    </p>
+    <p>
+      But this is a linear combination of vectors in a basis for <m>\Ker(T)</m> and so all of the scalars are also <m>0</m>.
+      Hence, the vectors <m>\vu_1</m>,
+      <m>T(\vu_1)</m>, <m>\ldots</m>, <m>T^{b_1}(\vu_1)</m>,
+      <m>\ldots</m>, <m>\vu_{\ell}</m>, <m>T(\vu_{\ell})</m>,
+      <m>\ldots</m>, <m>T^{b_{\ell}}(\vu_{\ell})</m>, <m>\vw_1</m>,
+      <ellipsis/>, <m>\vw_m</m> are linearly independent.
+    </p>
+    <p>
+      The Rank-Nullity Theorem shows tells us that <m>\dim(V) = \dim(T(V)) + \dim(\Ker(T))</m>.
+      The vectors in <xref ref="eq_JCF_Ker_basis"/> form a basis for <m>\Ker(T)</m>,
+      and so <m>\dim(\Ker(T)) = \ell + m</m>.
+      The vectors in <xref ref="eq_JCF_TV_basis"/> form a basis for <m>T(V)</m>,
+      so <m>\dim(T(V)) = b_1+b_2+ \cdots + b_{\ell}</m>.
+      Thus,
+      <me>
+        \dim(V) = \ell+m + b_1+b_2+ \cdots + b_{\ell} = m + (b_1-1) + (b_2-1) + \cdots + (b_{\ell}-1)
+      </me>.
+    </p>
+    <p>
+      But this is exactly the number of vectors in our claimed basis <xref ref="eq_JCF_V_basis"/>.
+      This verifies <xref ref="lem_JCF_2">Lemma</xref> with <m>k=\ell+m</m>,
+      <m>a_i=b_i+1</m> for <m>1 \leq i \leq \ell</m>,
+      <m>u_{j+\ell} = w_j</m> and <m>a_{j+\ell} = 1</m> for <m>1 \leq m</m>.
+    </p>
+  </proof>
+  <p>
+    We return to <xref ref="act_JCF_Lemma_1">Activity</xref>
+    to illustrate the use of <xref ref="lem_JCF_2">Lemma</xref>.
+  </p>
+  <example xml:id="ex_JCF_Lemma_2_2">
+    <statement>
+      <p>
+        We work with the transformation <m>T:\pol_4 \to \pol_4</m> defined by
+        <md>
+          <mrow>T\left(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4\right) = (2a_0+a_1) \amp + (a_1-a_2)t + (a_0+a_1)t^2</mrow>
+          <mrow>\amp \qquad + (-a_0-a_1+a_2+2a_3-a_4)t^3 + (2a_4)t^4</mrow>
+        </md>.
+      </p>
+      <p>
+        Recall from <xref ref="act_JCF_Lemma_1">Activity</xref> that
+        <me>
+          \pol_4 = \Ker(T-I)^{3} \oplus \Ker(T-2 I)^{2}
+        </me>.
+        and a basis for <m>\Ker(T-I)^3</m> is
+        <m>\CB_1 = \{p_1(t), p_2(t),
+        p_3(t)\}</m> with <m>p_1(t) = -1+t</m>,
+        <m>p_2(t) = 1+t^2</m>, and <m>p_3(t)= 1+t^3</m>.
+        Since
+        <me>
+          (T-I)(p_1(t)) = 0, \ (T-I)(p_2(t)) = -p_1(t), \ \text{ and }  \ (T-I)(p_3(t)) = p_2(t)
+        </me>
+        we see that <m>T-I</m> maps
+        <m>\Ker(T-I)^3</m> to <m>\Ker(T-I)^3</m>.
+        The matrix of <m>T-I</m> with respect to <m>\CB_1</m> is
+        <me>
+          [T-I]_{\CB_1} = \left[ \begin{array}{crc} 0\amp -1\amp 0 \\ 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        The reduced row echelon form of
+        <m>[T-I]_{\CB_1}</m> and <m>[T-I]_{\CB_1}^2</m> are
+        <me>
+          \left[ \begin{array}{ccc} 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \end{array}  \right] \ \text{ and }  \ \left[ \begin{array}{ccr} 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{array}  \right]
+        </me>,
+        while <m>[T-I]_{\CB_1}^3 = 0</m>.
+        This makes <m>(T-I)^3 = 0</m>.
+        We apply <xref ref="lem_JCF_2">Lemma</xref>
+        to <m>T-I : \Ker(T-I)^3 \to \Ker(T-I)^3</m>.
+        We choose <m>u_1</m> to be a vector in
+        <m>\Ker(T-I)^3</m> that is not in <m>\Ker(T-I)^2</m>.
+        Once such vector has <m>[u_1]_{\CB_1} = [0 \ 0 \ 1]^{\tr}</m>,
+        or <m>u_1=1+t^3</m>.
+        We then let <m>u_2 = (T-I)(u_1) = 1+t^2</m> and <m>u_1 = (T-I)(u_2) = 1-t</m>.
+        This gives us the basis <m>\{1-t, 1+t^2, 1+t^3\}</m> for <m>\Ker(T-I)^3</m>.
+      </p>
+      <p>
+        We can also apply <xref ref="lem_JCF_2">Lemma</xref>
+        to <m>T-2I : \Ker(T-I)^2 \to \Ker(T-I)^2</m>.
+        Since
+        <me>
+          (T-2I)(p_4(t)) = 0 \ \text{ and }  \ (T-2I)(p_5(t)) = -p_4(t)
+        </me>,
+        we have that
+        <me>
+          [T-2I]_{\CB_2} = \left[ \begin{array}{cr} 0\amp -1 \\ 0\amp 0 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        It follows that <m>(T-2I)^2 = 0</m>.
+        Selecting <m>u_4 = t^4</m> and letting <m>u_5 = (T-2I)(u_4) = -p_4(t)</m>,
+        we obtain the basis <m>\{-t^3, t^4\}</m> for <m>\Ker(T-I)^2</m>.
+      </p>
+      <p>
+        Let <m>q_1(t) = 1+t^3</m>, <m>q_2(t) = 1+t^2</m>,
+        <m>q_3(t) = 1-t</m>, <m>q_4(t) = t^4</m>, and <m>q_5(t) = -t^3</m>,
+        and let <m>\CC = \{q_1(t), q_2(t),
+        q_3(t), q_4(t), q_5(t)\}</m>.
+        Since
+        <md>
+          <mrow>T(q_1(t)) \amp = q_1(t)+q_2(t)</mrow>
+          <mrow>T(q_2(t)) \amp = q_2(t)+q_3(t)</mrow>
+          <mrow>T(q_3(t)) \amp = q_3(t)</mrow>
+          <mrow>T(q_4(t)) \amp = 2q_4(t)+q_5(t)</mrow>
+          <mrow>T(q_5(t)) \amp = 2q_5(t)</mrow>
+        </md>
+        it follows that
+        <me>
+          [T]_{\CC} = \left[ \begin{array}{ccccc} 1\amp 1\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 2 \end{array}  \right]
+        </me>,
+        and we have found a basis for <m>\pol_4</m> for which the matrix <m>T</m> has a Jordan canonical form.
+      </p>
+    </statement>
+  </example>
+</section>

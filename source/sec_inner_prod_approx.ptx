@@ -1,0 +1,116 @@
+<section xml:id="sec_inner_prod_approx">
+  <title>Best Approximations in Inner Product Spaces</title>
+  <p>
+    We have seen,
+    e.g., linear regression to fit a line to a set of data,
+    that we often want to find a vector in a subspace that
+    <q>best</q>
+    approximates a given vector in a vector space.
+    As in <m>\R^n</m>,
+    the projection of a vector onto a subspace has this important property.
+    That is, <m>\proj_W \vv</m> is the vector in <m>W</m> closest to <m>\vv</m> and therefore the best approximation of <m>\vv</m> by a vector in <m>W</m>.
+    To see that this is true in any inner product space,
+    we first need a generalization of the Pythagorean Theorem that holds in inner product spaces.
+  </p>
+  <theorem xml:id="thm_6_c_PT">
+    <title>Generalized Pythagorean Theorem</title>
+    <statement>
+      <p>
+        Let <m>\vu</m> and <m>\vv</m> be orthogonal vectors in an inner product space <m>V</m>.
+        Then
+        <me>
+          ||\vu - \vv||^2 = ||\vu||^2 + ||\vv||^2
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\vu</m> and <m>\vv</m> be orthogonal vectors in an inner product space <m>V</m>.
+      Then
+      <md>
+        <mrow>|| \vu - \vv ||^2 \amp = \langle \vu-\vv, \vu-\vv \rangle</mrow>
+        <mrow>\amp = \langle \vu,\vu \rangle - 2 \langle \vu,\vv \rangle + \langle \vv, \vv \rangle</mrow>
+        <mrow>\amp = \langle \vu,\vu \rangle - 2 (0) + \langle \vv, \vv \rangle</mrow>
+        <mrow>\amp = ||\vu||^2 + ||\vv||^2</mrow>
+      </md>.
+    </p>
+  </proof>
+  <p>
+    Note that replacing <m>\vv</m> with <m>-\vv</m> in the theorem also shows that
+    <m>||\vu + \vv||^2 = ||\vu||^2 + ||\vv||^2</m> if <m>\vu</m> and <m>\vv</m> are orthogonal.
+  </p>
+  <p>
+    Now we will prove that the projection of a vector <m>\vu</m> onto a subspace <m>W</m> of an inner product space <m>V</m> is the best approximation in <m>W</m> to the vector <m>\vu</m>.
+  </p>
+  <theorem xml:id="thm_6_c_best_approx">
+    <statement>
+      <p>
+        Let <m>W</m> be a subspace of an inner product space <m>V</m> and let <m>\vu</m> be a vector in <m>V</m>.
+        Then
+        <me>
+          ||\vu - \proj_W \vu || \lt  || \vu - \vx ||
+        </me>
+        for every vector <m>\vx</m> in <m>W</m> different from <m>\proj_W \vu</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>W</m> be a subspace of an inner product space <m>V</m> and let <m>\vu</m> be a vector in <m>V</m>.
+      Let <m>\vx</m> be a vector in <m>W</m>.
+      Now
+      <me>
+        \vu - \vx = (\vu-\proj_W \vu) + (\proj_W \vu - \vx)
+      </me>.
+    </p>
+    <p>
+      Since both <m>\proj_W \vu</m> and <m>\vx</m> are in <m>W</m>,
+      we know that <m>\proj_W \vu - \vx</m> is in <m>W</m>.
+      Since <m>\proj_{W^{\perp}} \vu = \vu-\proj_W \vu</m> is orthogonal to every vector in <m>W</m>,
+      we have that <m>\vu-\proj_W \vu</m> is orthogonal to <m>\proj_W \vu - \vx</m>.
+      We can now use the Generalized Pythagorean Theorem to conclude that
+      <me>
+        ||\vu - \vx||^2 = ||\vu-\proj_W \vu||^2 + ||\proj_W \vu - \vx||^2
+      </me>.
+    </p>
+    <p>
+      Since <m>\vx \neq \proj_W \vu</m>,
+      it follows that <m>||\proj_W \vu - \vx||^2 > 0</m> and
+      <me>
+        || \vu - \vx ||^2 > ||\vu - \proj_W \vu ||^2
+      </me>.
+    </p>
+    <p>
+      Since norms are nonnegative,
+      we can conclude that <m>||\vu - \proj_W \vu || \lt || \vu - \vx ||</m> as desired.
+    </p>
+  </proof>
+  <p>
+    <xref ref="thm_6_c_best_approx">Theorem</xref>
+    shows that the distance from
+    <m>\proj_W \vv</m> to <m>\vv</m> is less than the distance from any other vector in <m>W</m> to <m>\vv</m>.
+    So <m>\proj_W \vv</m> is the best approximation to <m>\vv</m> of all the vectors in <m>W</m>.
+  </p>
+  <p>
+    In <m>\R^n</m> using the dot product as inner product,
+    if <m>\vv = [v_1 \ v_2 \ v_3 \ \ldots \ v_n]^{\tr}</m> and <m>\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_n]^{\tr}</m>,
+    then the square of the error in approximating <m>\vv</m> by <m>\proj_W \vv</m> is given by
+    <me>
+      || \vv - \proj_W \vv ||^2 = \sum_{i=1}^n (v_i - w_i)^2
+    </me>.
+  </p>
+  <p>
+    So <m>\proj_W \vv</m> minimizes this sum of squares over all vectors in <m>W</m>.
+    As a result, we call <m>\proj_W \vv</m> the
+    <em>least squares approximation</em> to <m>\vv</m>.
+  </p>
+  <activity>
+    <p>
+      The set <m>\CB = \{1, t-\frac{1}{2}, t^3-\frac{9}{10}t+\frac{1}{5}\}</m> is an orthogonal basis for a subspace <m>W</m> of the inner product space <m>\pol_3</m> using the inner product <m>\langle p(t),
+      q(t) \rangle = \int_0^1 p(t)q(t) \ dt</m>.
+      Find the polynomial in <m>W</m> that is closest to the polynomial
+      <m>r(t) = t^2</m> and give a numeric estimate of how good this approximation is.
+    </p>
+  </activity>
+</section>

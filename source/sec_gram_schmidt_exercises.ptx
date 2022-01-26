@@ -1,0 +1,302 @@
+<section xml:id="sec_gram_schmidt_exercises">
+  <title>Exercises</title>
+  <ol>
+    <li>
+      <p>
+        Let <m>W = \Span \{\vw_1, \vw_2\}</m> in <m>\R^3</m>,
+        with <m>\vw_1=[1 \ 2 \ 1]^{\tr}</m> and <m>\vw_2= [1 \ -1 \ 1]^{\tr}</m>,
+        and <m>\vv = [1 \ 0 \ 0]^{\tr}</m>.
+        <ul>
+          <li>
+            <p>
+              Find <m>\proj_W \vv</m> and <m>\proj_{\perp W} \vv</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the vector in <m>W</m> that is closest to <m>\vv</m>.
+              How close is this vector to <m>\vv</m>?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\CB = \left\{\left[ \begin{array}{r} 1 \\ 0 \\ -1 \\ 0 \end{array} \right], \left[ \begin{array}{r} 0 \\ 1 \\ 0 \\ -1 \end{array} \right], \left[ \begin{array}{r} -1 \\ 1 \\ -1 \\ 1 \end{array} \right]\right\}</m> and let <m>W = \Span(\CB)</m> in <m>\R^4</m>.
+        Find the best approximation in <m>W</m> to the vector
+        <m>\vv = \left[ \begin{array}{r} 2 \\ 3 \\ 1 \\ -1 \end{array} \right]</m> in <m>W</m> and give a numeric estimate of how good this approximation is.
+      </p>
+    </li>
+    <li>
+      <p>
+        In this exercise we determine the least-squares line
+        (the line of best fit in the least squares sense)
+        to a set of <m>k</m> data points <m>(x_1,y_1)</m>,
+        <m>(x_2,y_2)</m>, <m>\ldots</m>,
+        <m>(x_k,y_k)</m> in the plane.
+        In this case,
+        we want to fit a line of the form <m>f(x) = mx+b</m> to the data.
+        If the data were to lie on a line,
+        then we would have a solution to the system
+        <md>
+          <mrow>mx_1 + b \amp = y_1</mrow>
+          <mrow>mx_2 + b \amp = y_2</mrow>
+          <mrow>\vdots  \amp  \vdots</mrow>
+          <mrow>mx_k + b \amp = y_k</mrow>
+        </md>
+        This system can be written as
+        <me>
+          m \vw_1 + b\vw_2 = \vy
+        </me>,
+        where <m>\vw_1 = [x_1 \ x_2 \ \cdots \ x_k]^{\tr}</m>,
+        <m>\vw_2 = [1 \ 1 \ \cdots \ 1]^{\tr}</m>,
+        and <m>\vy = [y_1 \ y_2 \ \cdots \ y_k]^{\tr}</m>.
+        If the data does not lie on a line,
+        then the system won't have a solution.
+        Instead, we want to minimize the square of the distance between <m>\vy</m> and a vector of the form <m>m\vw_1 + b \vw_2</m>.
+        That is, minimize
+        <men xml:id="eq_6_d_LS_line_1">
+          ||\vy - (m \vw_1 + b\vw_2)||^2
+        </men>.
+        Rephrasing this in terms of projections,
+        we are looking for the vector in
+        <m>W = \Span\{\vw_1, \vw_2\}</m> that is closest to <m>\vy</m>.
+        In other words,
+        the values of <m>m</m> and <m>b</m> will occur as the weights when we write
+        <m>\proj_{W} \vy</m> as a linear combination of <m>\vw_1</m> and <m>\vw_2</m>.
+        The one wrinkle in this problem is that we need an orthogonal basis for <m>W</m> to find this projection.
+        Find the least squares line for the data points <m>(1,2)</m>,
+        <m>(2,4)</m> and <m>(3,5)</m> in <m>\R^2</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Each set <m>S</m> is linearly independent.
+        Use the Gram-Schmidt process to create an orthogonal set of vectors with the same span as <m>S</m>.
+        Then find an orthonormal basis for the same span.
+        <ul>
+          <li>
+            <p>
+              <m>S = \left\{[1 \ 1 \ 1]^{\tr}, [5 \ -1 \ 2]^{\tr}\right\}</m> in <m>\R^3</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S = \left\{[1 \ 0 \ 2]^{\tr}, [-1 \ 1 \ 1]^{\tr}, [1 \ 1 \ 19]^{\tr} \right\}</m> in <m>\R^3</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S = \left\{[1 \ 0 \ 1 \ 0 \ 1 \ 0 \ 1]^{\tr}, [-1 \ 2 \ 3 \ 0 \ 1 \ 0 \ 1]^{\tr}, [1 \ 0 \ 4 \ -1 \ 2 \ 0 \ 1]^{\tr}, [1 \ 1 \ 1 \ 1 \ 1 \ 1 \ 1]^{\tr} \right\}</m> in <m>\R^7</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>S = \{\vv_1, \vv_2, \vv_3\}</m> be a set of linearly dependent vectors in <m>\R^n</m> for some integer <m>n \geq 3</m>.
+        What is the result if the Gram-Schmidt process is applied to the set <m>S</m>?
+        Explain.
+      </p>
+    </li>
+    <li>
+      <p>
+        A fellow student wants to find a QR factorization for a <m>3 \times 4</m> matrix.
+        What would you tell this student and why?
+      </p>
+    </li>
+    <li>
+      <p>
+        Find the QR factorizations of the given matrices.
+        <ul>
+          <li>
+            <p>
+              <m>\left[ \begin{array}{ccc} 1\amp 2\amp 3 \\ 0\amp 4\amp 5 \\ 0\amp 0\amp 6 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\left[ \begin{array}{cc} 1\amp 2 \\ 1\amp 3 \\ 1\amp 2 \\ 1\amp 3 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\left[ \begin{array}{ccc} 0\amp 1\amp 0\\0\amp 0\amp 0\\3\amp 0\amp 4 \\ 0\amp 0\amp 5 \end{array} \right]</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Find an orthonormal basis <m>\{\vu_1, \vu_2, \vu_3\}</m> of <m>\R^3</m> such that <m>\Span\{\vu_1,\vu_2\} = \Span\{[1 \ 2 \ 3]^{\tr}, [1 \ 1 \ 0]^{\tr}\}</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        <nbsp/>
+        <ul>
+          <li>
+            <p>
+              Let <m>A = \left[ \begin{array}{cc} 2\amp 1\\2\amp 6\\2\amp 6\\2\amp 1 \end{array} \right] = [\va_1 \ \va_2]</m>.
+              A QR factorization of <m>A</m> has <m>Q = [\vu_1 \ \vu_2]</m> with
+              <m>\vu_1 = \frac{1}{2}[1 \ 1 \ 1 \ 1]^{\tr}</m> and <m>\vu_2 = \frac{1}{2}[-1 \ 1 \ 1 \ -1]^{\tr}</m>,
+              and <m>\vu_3 = \frac{1}{\sqrt{12}}[1 \ -1 \ -1 \ 3]^{\tr}</m> and <m>R = [r_{ij}] = \left[ \begin{array}{cc} 4\amp 7 \\ 0\amp 5 \end{array} \right]</m>.
+              Calculate the dot products
+              <m>\va_i \cdot \vu_j</m> for <m>i</m> and <m>j</m> between <m>1</m> and <m>2</m>.
+              How are these dot products connected to the entries of <m>R</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the result of part (a) is true in general.
+              That is, if <m>A = [\va_1 \ \ \va_2 \ \ldots \ \va_n]</m> has QR factorization with
+              <m>Q = [\vu_1 \ \vu_2 \ \ldots \ \vu_n]</m> and <m>R = [r_{ij}]</m>,
+              then <m>r_{ij} = \va_j \cdot \vu_i</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_6_e_upper_triangular_props">
+      <p>
+        Upper triangular matrices play an important role in the QR decomposition.
+        In this exercise we examine two properties of upper triangular matrices.
+        <ul>
+          <li>
+            <p>
+              Show that if <m>R</m> and <m>S</m> are upper triangular
+              <m>n \times n</m> matrices with positive diagonal entries,
+              then <m>RS</m> is also an upper triangular
+              <m>n \times n</m> matrices with positive diagonal entries.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that if <m>R</m> is an invertible upper triangular matrix with positive diagonal entries,
+              then <m>R^{-1}</m> is also an upper triangular matrix with positive diagonal entries.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        In this exercise we demonstrate that the QR decomposition of an
+        <m>m \times n</m> matrix with linearly independent columns is unique.
+        <ul>
+          <li>
+            <p>
+              Suppose that <m>A = QR</m>,
+              where <m>Q</m> is an <m>m \times n</m> matrix with orthogonal columns and <m>R</m> is an
+              <m>n \times n</m> upper triangular matrix.
+              Show that <m>R</m> is invertible.
+              <hint>
+                <p>
+                  What can we say about <m>\vx</m> if <m>R \vx = \vzero</m>?
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that the only <m>n \times n</m> orthogonal upper triangular matrix with positive diagonal entries is the identity matrix <m>I_n</m>.
+              <hint>
+                <p>
+                  Let <m>A = [\va_1 \ \va_2 \ \ldots \ \va_n] = [a_{ij}]</m> be an
+                  <m>n \times n</m> orthogonal upper triangular matrices with positive diagonal entries.
+                  What does that tell us about <m>\va_i \cdot \va_j</m>?
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that if <m>Q_1</m> and <m>Q_2</m> are
+              <m>m \times n</m> matrices with orthogonal columns,
+              and <m>S</m> is a matrix such that <m>Q_1 = Q_2S</m>,
+              then <m>S</m> is an orthogonal matrix.
+              <hint>
+                <p>
+                  Write <m>Q_1^{\tr}Q_1</m> in terms of <m>Q_2</m> and <m>S</m>.
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose that <m>Q_1</m> and <m>Q_2</m> are
+              <m>m \times n</m> matrices with orthogonal columns and <m>R_1</m> and <m>R_2</m> are
+              <m>n \times n</m> upper triangular matrices such that
+              <me>
+                A = Q_1R_1 = Q_2R_2
+              </me>.
+              Show that <m>Q_1 = Q_2</m> and <m>R_1 = R_2</m>.
+              Conclude that the QR factorization of a matrix is unique.
+              <hint>
+                <p>
+                  Use the previous parts of this problem along with the results of <xref ref="ex_6_e_upper_triangular_props">Exercise</xref>.
+                </p>
+              </hint>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        Throughout, let <m>V</m> be a vector space.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\{\vw_1, \vw_2\}</m> is a basis for a subspace <m>W</m> of <m>\R^3</m>,
+              then the vector <m>\frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2} \vw_2</m> is the vector in <m>W</m> closest to <m>\vv</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>W</m> is a subspace of <m>\R^n</m>,
+              then the vector <m>\vv - \proj_{W} \vv</m> is orthogonal to every vector in <m>W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\vu_1</m>,
+              <m>\vu_2</m>, <m>\vu_3</m> are vectors in <m>\R^n</m>,
+              then the Gram-Schmidt process constructs an orthogonal set of vectors
+              <m>\{\vv_1, \vv_2, \vv_3\}</m> with the same span as <m>\{\vu_1, \vu_2, \vu_3\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Any set
+              <m>\{\vu_1, \vu_2, \ldots, \vu_k\}</m> of orthogonal vectors in <m>\R^n</m> can be extended to an orthogonal basis of <m>V</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>A</m> is an
+              <m>n \times n</m> matrix with <m>AA^{\tr} = I_n</m>,
+              then the rows of <m>A</m> form an orthogonal set.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Every nontrivial subspace of <m>\R^n</m> has an orthogonal basis.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>W</m> is a subspace of <m>\R^n</m> satisfying <m>W^\perp=\{\vzero\}</m>,
+              then <m>W=\R^n</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

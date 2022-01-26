@@ -1,0 +1,272 @@
+<section xml:id="sec_proj_starassen">
+  <title>Project: Strassen's Algorithm and Partitioned Matrices</title>
+  <p>
+    Strassen's algorithm
+        <idx><h>Strassen's algorithm</h></idx>
+    is an algorithm for matrix multiplication that can be more efficient than the standard row-column method.
+    To understand this method,
+    we begin with the <m>2 \times 2</m> case which will highlight the essential ideas.
+  </p>
+  <activity xml:id="x_pact_Strassen_1">
+    <p>
+      We first work with the <m>2 \times 2</m> case.
+      <ul>
+        <li>
+          <p>
+            Let <m>A = [a_{ij}] = \left[ \begin{array}{cc} 1\amp 2\\3\amp 4 \end{array}  \right]</m> and <m>B =  [b_{ij}] = \left[ \begin{array}{cc} 5\amp 6\\7\amp 8 \end{array}  \right]</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Calculate the matrix product <m>AB</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Rather than using eight multiplications to calculate <m>AB</m>, Strassen came up with the idea of using the following seven products:
+                  <md>
+                    <mrow>h_1 \amp = (a_{11}+a_{22})(b_{11}+b_{22})</mrow>
+                    <mrow>h_2 \amp = (a_{21}+a_{22})b_{11}</mrow>
+                    <mrow>h_3 \amp = a_{11}(b_{12}-b_{22})</mrow>
+                    <mrow>h_4 \amp = a_{22}(b_{21}-b_{11})</mrow>
+                    <mrow>h_5 \amp = (a_{11}+a_{12})b_{22}</mrow>
+                    <mrow>h_6 \amp =(a_{21}-a_{11})(b_{11}+b_{12})</mrow>
+                    <mrow>h_7 \amp = (a_{12}-a_{22})(b_{21}+b_{22})</mrow>
+                  </md>.
+                  Calculate <m>h_1</m> through <m>h_7</m> for the given matrices <m>A</m> and <m>B</m>.
+                  Then calculate the quantities
+                  <me>
+                    h_1+h_4-h_5+h_7,  \  h_3+h_5, \  h_2+h_4, \ \text{ and }   h_1+h_3-h_2+h_6
+                  </me>.
+                  What do you notice?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Now we repeat part (a) in general.
+            Suppose we want to calculate the matrix product <m>AB</m> for arbitrary <m>2 \times 2</m> matrices
+            <m>A = \left[ \begin{array}{cc} a_{11}\amp a_{12}\\a_{21}\amp a_{22} \end{array}  \right]</m> and <m>B = \left[ \begin{array}{cc} b_{11}\amp b_{12}\\b_{21}\amp b_{22} \end{array}  \right]</m>.
+            Let
+            <md>
+              <mrow>h_1 \amp = (a_{11}+a_{22})(b_{11}+b_{22})</mrow>
+              <mrow>h_2 \amp = (a_{21}+a_{22})b_{11}</mrow>
+              <mrow>h_3 \amp = a_{11}(b_{12}-b_{22})</mrow>
+              <mrow>h_4 \amp = a_{22}(b_{21}-b_{11})</mrow>
+              <mrow>h_5 \amp = (a_{11}+a_{12})b_{22}</mrow>
+              <mrow>h_6 \amp =(a_{21}-a_{11})(b_{11}+b_{12})</mrow>
+              <mrow>h_7 \amp = (a_{12}-a_{22})(b_{21}+b_{22})</mrow>
+            </md>.
+            Show that
+            <me>
+              AB = \left[ \begin{array}{cc} h_1+h_4-h_5+h_7 \amp  h_3+h_5 \\ h_2+h_4 \amp  h_1+h_3-h_2+h_6 \end{array}  \right]
+            </me>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The next step is to understand how Strassen's algorithm can be applied to larger matrices.
+    This involves the idea of partitioned
+    (or block)
+    matrices.
+        <idx><h>partitioned matrices</h></idx>
+    Recall that the matrix-matrix product of the
+    <m>k \times m</m> matrix <m>A</m> and the
+    <m>m \times n</m> matrix <m>B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]</m> is defined as
+    <me>
+      AB = [A\vb_1 \ A\vb_2 \ \cdots \ A\vb_n]
+    </me>.
+  </p>
+  <p>
+    In this process,
+    we think of <m>B</m> as being partitioned into <m>n</m> columns.
+    We can expand on this idea to partition both <m>A</m> and <m>B</m> when calculating a matrix-matrix product.
+  </p>
+  <activity>
+    <p>
+      We illustrate the idea of partitioned matrices with an example.
+      Let <m>A = \left[ \begin{array}{crcrc} 1\amp -2\amp 3\amp -6\amp 4 \\ 7\amp 5\amp 2\amp -1\amp 0 \\ 3\amp -8\amp 1\amp 0\amp 9 \end{array}  \right]</m>.We can partition <m>A</m> into smaller matrices
+      <me>
+        A = \left[ \begin{array}{crc|rc} 1\amp -2\amp 3\amp -6\amp 4 \\ 7\amp 5\amp 2\amp -1\amp 0  \\ \hline 3\amp -8\amp 1\amp 0\amp 9 \end{array}  \right]
+      </me>,
+      which are indicated by the vertical and horizontal lines.
+      As a shorthand, we can describe this partition of <m>A</m> as
+      <me>
+        A = \left[ \begin{array}{cc} A_{11}\amp A_{12} \\ A_{21}\amp A_{22} \end{array}  \right]
+      </me>,
+      where <m>A_{11} = \left[ \begin{array}{crc} 1\amp -2\amp 3\\ 7\amp 5\amp 2 \end{array}  \right]</m>,
+      <m>A_{12} = \left[ \begin{array}{rc} -6\amp 4 \\ -1\amp 0 \end{array}  \right]</m>,
+      <m>A_{21} = \left[ \begin{array}{crc} 3\amp -8\amp 1 \end{array}  \right]</m>,
+      and <m>A_{22} =  [0 \ 9 ]</m>.
+      The submatrices <m>A_{ij}</m> are called <em>blocks</em>.
+      If <m>B</m> is a matrix such that <m>AB</m> is defined,
+      then <m>B</m> must have five rows.
+      As an example,
+      <m>AB</m> is defined if <m>B = \left[ \begin{array}{cc} 1\amp 3\\2\amp 0 \\ 4\amp 1\\6\amp 5\\4\amp 2 \end{array}  \right]</m>.
+      The partition of <m>A</m> breaks <m>A</m> up into blocks with three and two columns,
+      respectively.
+      So if we partition <m>B</m> into blocks with three and two rows,
+      then we can use the blocks to calculate the matrix product <m>AB</m>.
+      For example, partition <m>B</m> as
+      <me>
+        B = \left[ \begin{array}{cc} 1\amp 3\\2\amp 0 \\ 4\amp 1\\ \hline 6\amp 5\\4\amp 2 \end{array}  \right] = \left[ \begin{array}{c} B_{11}\\B_{21} \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      Show that
+      <me>
+        AB = \left[ \begin{array}{cc} A_{11}\amp A_{12} \\ A_{21}\amp A_{22} \end{array}  \right] \left[ \begin{array}{c} B_{11}\\B_{21} \end{array}  \right] = \left[ \begin{array}{cc} A_{11}B_{11}+A_{12}B_{21} \\ A_{21}B_{11}+A_{22}B_{21} \end{array}  \right]
+      </me>.
+    </p>
+  </activity>
+  <p>
+    An advantage to using partitioned matrices is that computations with them can be done in parallel,
+    which lessens the time it takes to do the work.
+    In general, we can multiply partitioned matrices as though the submatrices are scalars.
+    That is,
+    <me>
+      \left[ \begin{array}{cccc} A_{11}\amp A_{12}\amp \cdots\amp A_{1m} \\ A_{21}\amp A_{22}\amp \cdots\amp A_{2m}\\ \vdots \amp  \vdots \amp \ddots \amp  \vdots \\ A_{i1}\amp A_{i2}\amp \cdots\amp A_{im}  \\ \vdots \amp  \vdots \amp \ddots \amp  \vdots \\ A_{k1}\amp A_{k2}\amp \cdots\amp A_{km} \end{array}  \right] \left[ \begin{array}{cccccc} B_{11}\amp B_{12}\amp \cdots\amp B_{1j} \amp  \cdots \amp B_{1n} \\ B_{21}\amp B_{22}\amp \cdots\amp B_{2j}\amp \cdots \amp B_{2n}\\ \vdots \amp  \vdots \amp \ddots \amp  \vdots\amp \ddots\amp \vdots \\ B_{m1}\amp B_{m2}\amp \cdots\amp B_{mj} \amp \cdots \amp B_{mn} \end{array}  \right] = [P_{ij}]
+    </me>,
+    where
+    <me>
+      P_{ij} = A_{i1}B_{1j} + A_{i2}B_{2j} + \cdots + A_{im}B_{mj} = \sum_{t=1}^{m} A_{it}B_{tj}
+    </me>,
+    provided that all the submatrix products are defined.
+  </p>
+  <p>
+    Now we can apply Strassen's algorithm to larger matrices using partitions.
+    This method is sometimes referred to as divide and conquer.
+  </p>
+  <activity>
+    <p>
+      Let <m>A</m> and <m>B</m> be two <m>r \times r</m> matrices.
+      If <m>r</m> is not a power of <m>2</m>,
+      then pad the rows and columns of <m>A</m> and <m>B</m> with zeros to make them of size
+      <m>2^m \times 2^m</m> for some integer <m>m</m>.
+      (From a practical perspective,
+      we might instead just use unequal block sizes.)
+      Let <m>n = 2^m</m>.
+      Partition <m>A</m> and <m>B</m> as
+      <me>
+        A = \left[ \begin{array}{cc} A_{11}\amp A_{12}\\A_{21}\amp A_{22} \end{array}  \right] \ \text{ and }  \  B = \left[ \begin{array}{cc} B_{11}\amp B_{12}\\B_{21}\amp B_{22} \end{array}  \right]
+      </me>,
+      where each submatrix is of size <m>\frac{n}{2} \times \frac{n}{2}</m>.
+      Now we use the Strassen algorithm just as in the <m>2 \times 2</m> case,
+      treating the submatrices as if they were scalars
+      (with the additional constraints of making sure that the dimensions match up so that products are defined,
+      and ensuring we multiply in the correct order).
+      Letting
+      <md>
+        <mrow>M_1 \amp = (A_{11}+A_{22})(B_{11}+B_{22})</mrow>
+        <mrow>M_2 \amp = (A_{21}+A_{22})B_{11}</mrow>
+        <mrow>M_3 \amp = A_{11}(B_{12}-B_{22})</mrow>
+        <mrow>M_4 \amp = A_{22}(B_{21}-B_{11})</mrow>
+        <mrow>M_5 \amp = (A_{11}+A_{12})B_{22}</mrow>
+        <mrow>M_6 \amp =(A_{21}-A_{11})(B_{11}+B_{12})</mrow>
+        <mrow>M_7 \amp = (A_{12}-A_{22})(B_{21}+B_{22})</mrow>
+      </md>,
+      then the same algebra as in Project <xref ref="x_pact_Strassen_1">Activity</xref> shows that
+      <me>
+        AB = \left[ \begin{array}{cc} M_1+M_4-M_5+M_7 \amp  M_3+M_5 \\ M_2+M_4 \amp  M_1+M_3-M_2+M_6 \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      Apply Strassen's algorithm to calculate the matrix product <m>AB</m>, where
+      <me>
+        A = \left[ \begin{array}{crr} 1\amp 3\amp -1\\2\amp 4\amp 6\\7\amp -2\amp 5 \end{array}  \right] \text{ and }  B = \left[ \begin{array}{crc} 2\amp 5\amp 3\\2\amp -4\amp 1\\1\amp 6\amp 4 \end{array}  \right]
+      </me>.
+    </p>
+  </activity>
+  <p>
+    While Strassen's algorithm can be more efficient,
+    it does not always speed up the process.
+    We investigate this in the next activity.
+  </p>
+  <activity>
+    <p>
+      We introduce a little notation to help us describe the efficiency of our calculations.
+      We won't be formal with this notation,
+      rather work with it in an informal way.
+      Big O (the letter
+      <q>O</q>
+      ) notation is used to describe the complexity of an algorithm.
+      Generally speaking,
+      in computer science big O notation can be used to describe the run time of an algorithm,
+      the space used by the algorithm,
+      or the number of computations required.
+      The letter
+      <q>O</q>
+      is used because the behavior described is also called the order.
+      Big O measures the asymptotic time of an algorithm, not its exact time.
+      For example,
+      if it takes <m>6n^2-n+8</m> steps to complete an algorithm,
+      then we say that the algorithm grows at the order of <m>n^2</m>
+      (we ignore the constants and the smaller power terms,
+      since they become insignificant as <m>n</m> increases)
+      and we describe its growth as <m>O{\left(n^2\right)}</m>.
+      To measure the efficiency of an algorithm to determine a matrix product,
+      we will measure the number of operations it takes to calculate the product.
+      <ul>
+        <li>
+          <p>
+            Suppose <m>A</m> and <m>B</m> are <m>n \times n</m> matrices.
+            Explain why the operation of addition
+            (that is, calculating <m>A+B</m>)
+            is <m>O{\left(n^2\right)}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose <m>A</m> and <m>B</m> are <m>n \times n</m> matrices.
+            How many multiplications are required to calculate the matrix product <m>AB</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            The standard algorithm for calculating a matrix product of two
+            <m>n \times n</m> matrices requires <m>n^3</m> multiplications and a number of additions.
+            Since additions are much less costly in terms of operations,
+            the standard matrix product is <m>O{\left(n^3\right)}</m>.
+            We won't show it here,
+            but using Strassen's algorithm on a product of <m>2^m \times 2^m</m> matrices is
+            <m>O{\left(n^{\log_2(7)}\right)}</m>, where <m>n = 2^m</m>.
+            That means that Strassen's algorithm applied to an <m>n \times n</m> matrix
+            (where <m>n</m> is a power of <m>2</m>)
+            requires approximately <m>n^{\log_2(7)}</m> multiplications.
+            We use this to analyze situations to determine when Strassen's algorithm is computationally more efficient than the standard algorithm.
+            <ol label="i">
+              <li>
+                <p>
+                  Suppose <m>A</m> and <m>B</m> are <m>5 \times 5</m> matrices.
+                  Determine the number of multiplications required to calculate the matrix product <m>AB</m> using the standard matrix product.
+                  Then determine the approximate number of multiplications required to calculate the matrix product <m>AB</m> using Strassen's algorithm.
+                  Which is more efficient? (Remember,
+                  we can only apply Strassen's algorithm to square matrices whose sizes are powers of <m>2</m>.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Repeat part i. with <m>125 \times 125</m> matrices.
+                  Which method is more efficient?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As a final note, Strassen's algorithm is approximately <m>O{\left(n^{2.81}\right)}</m>.
+    As of 2018, the best algorithm for matrix multiplication,
+    developed by Virginia Williams at Stanford University,
+    is approximately <m>O{\left(n^{2.373}\right)}</m>.<fn>
+    V. V. Williams, Multiplying matrices in
+    <m>O{\left(n^{2.373}\right)}</m> time, Stanford University, (2014).
+    </fn>
+  </p>
+</section>

@@ -1,0 +1,192 @@
+<section xml:id="sec_mv_form">
+  <title>The Matrix-Vector Form of a Linear System</title>
+  <introduction>
+    <p>
+      As we saw in Preview <xref ref="pa_1_e">Activity</xref>,
+      the matrix-vector product provides us with a short hand way of representing a system of linear equations.
+      In general, every linear system can be written in matrix-vector form as follows.
+    </p>
+    <p>
+      The linear system
+      <md>
+        <mrow>{5} {a_{11}}x_1   \amp {}+{}   \amp {a_{12}}x_2   \amp {}+{}  \amp \cdots       \amp {}+{}  \amp {a_{1n}}x_n    \amp {}={}  \amp b_1</mrow>
+        <mrow>{a_{21}}x_1   \amp {}+{}   \amp {a_{22}}x_2    \amp {}+{}  \amp \cdots      \amp {}+{}  \amp {a_{2n}}x_n    \amp {}={}  \amp b_2</mrow>
+        <mrow>{}         \amp {}     \amp {}          \amp {}    \amp \vdots \ \    \amp {}    \amp {}          \amp {}    \amp {}</mrow>
+        <mrow>{a_{m1}}x_1   \amp {}+{}   \amp {a_{2m}}x_2  \amp {}+{}  \amp \cdots      \amp {}+{}  \amp {a_{mn}}x_n  \amp {}={}  \amp b_m</mrow>
+      </md>
+      of <m>m</m> equations in <m>n</m> unknowns can be written in matrix-vector form as <m>A\vx = \vb</m>, where
+      <me>
+        A = \left[ \begin{array}{cccc} a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \\ a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \\ \vdots \amp         \amp  \ddots    \amp  \vdots \\ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn} \end{array}  \right],  \ \ \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right],  \ \ \ \text{ and }  \ \ \ \vb = \left[ \begin{array}{c} b_1 \\ b_2 \\ \vdots \\ b_m \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      This general system can also be written in the vector form
+      <me>
+        x_1  \left[ \begin{array}{c} a_{11}  \\ a_{21} \\ \vdots \\ a_{m1} \end{array}  \right] + x_2 \left[ \begin{array}{c} a_{12}  \\ a_{22} \\ \vdots \\ a_{m2} \end{array}  \right]  + \cdots + x_n \left[ \begin{array}{c} a_{1n}  \\ a_{2n}  \\ \vdots \\ a_{mn} \end{array}  \right] = \left[ \begin{array}{c} b_1 \\ b_2 \\ \vdots \\ b_m \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      With this last representation,
+      we now have four different ways to represent a system of linear equations
+      (as a system of linear equations, as an augmented matrix,
+      in vector equation form, and in matrix-vector equation form),
+      and it is important to be able to translate between them.
+      As an example, the system
+      <md>
+        <mrow>{5} x_1     \amp {}+{}   \amp {4}x_2   \amp {}+{}  \amp {2}x_3   \amp {}+{}  \amp {4}x_4  \amp {}={}  \amp 1</mrow>
+        <mrow>{2}x_1   \amp {}-{}   \amp {}x_2     \amp {}-{}  \amp {5}x_3   \amp {}-{}  \amp {}x_4  \amp {}={}  \amp 2</mrow>
+        <mrow>{3}x_1   \amp {}+{}   \amp {7}x_2   \amp {}+{}  \amp {}x_3     \amp {}+{}  \amp {7}x_4  \amp {}={}  \amp 3</mrow>
+      </md>
+      from the introduction to this section has corresponding augmented matrix
+      <me>
+        \left[ \begin{array}{crrr|c} 1\amp 4\amp 2\amp 4\amp 1 \\ 2\amp -1\amp -5\amp -1\amp 2 \\ 3\amp 7\amp 1\amp 7\amp 3 \end{array}  \right]
+      </me>,
+      is expressed in vector form as
+      <me>
+        x_1\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] + x_2\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right] + x_3\left[ \begin{array}{r} 2\\-5\\1 \end{array}  \right] + x_4\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right]= \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right]
+      </me>,
+      and has matrix-vector form
+      <me>
+        \left[ \begin{array}{crrr} 1\amp 4\amp 2\amp 4 \\ 2\amp -1\amp -5\amp -1 \\ 3\amp 7\amp 1\amp 7 \end{array}  \right] \left[ \begin{array}{c} x_1 \\x_2 \\ x_3 \\ x_4 \end{array}  \right] = \left[ \begin{array}{c} 1 \\ 2 \\ 3 \end{array}  \right]
+      </me>.
+    </p>
+    <activity>
+      <p>
+        In this activity,
+        we will use the equivalence of the different representations of a system to make useful observations about when a system represented as <m>A\vx=\vb</m> has a solution.
+        <ul>
+          <li>
+            <p>
+              Consider the system
+              <me>
+                \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 1\amp 3 \end{array}  \right] \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2 \\ 6 \end{array}  \right]
+              </me>.
+              Write the matrix-vector product on the left side of this equation as a linear combination of the columns of the coefficient matrix.
+              Find weights that make the vector
+              <m>\left[ \begin{array}{c} 2 \\ 6 \end{array}  \right]</m> a linear combination of the columns of the coefficient matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              From this point on we consider the general case where <m>A</m> is an <m>m \times n</m> matrix.
+              Use the vector equation representation to explain why the system
+              <m>A \vx = \vb</m> has a solution if and only if <m>\vb</m> is a linear combination of the columns of <m>A</m>.
+              (Note that <sq>if and only if</sq> is an expression to mean that if one side of the expression is true,
+              then the other side must also be true.)
+              (Hint: Compare to what you did in part (a).)
+            </p>
+          </li>
+          <li>
+            <p>
+              Use part (b) and the definition of span to explain why the system
+              <m>A \vx = \vb</m> has a solution if and only if the vector <m>\vb</m> is in the span of the columns of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use part (c) to explain why the system
+              <m>A \vx = \vb</m> always has a solution for any vector <m>\vb</m> in <m>\R^m</m> if and only if the span of the columns of <m>A</m> is all of <m>\R^m</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the augmented matrix representation and the criterion for a consistent system to explain why the system
+              <m>A \vx = \vb</m> is consistent for all vectors <m>\vb</m> if and only if <m>A</m> has a pivot position in every row.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </activity>
+    <p>
+      We summarize our observations from the above activity in the following theorem.
+    </p>
+    <theorem>
+      <statement>
+        <p>
+          Let <m>A</m> be an <m>m \times n</m> matrix.
+          The following statements are equivalent:
+          <ol>
+            <li>
+              <p>
+                The matrix equation <m>A \vx = \vb</m> has a solution for every vector <m>\vb</m> in <m>\R^m</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Every vector <m>\vb</m> in <m>\R^m</m> can be written as a linear combination of the columns of <m>A</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The span of the columns of <m>A</m> is <m>\R^m</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The matrix <m>A</m> has a pivot position in each row.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      In the future,
+      if we need to determine whether a system has a solution for every <m>\vb</m>,
+      we can refer to this theorem without having to argue our reasoning from scratch.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Properties of the Matrix-Vector Product</title>
+    <p>
+      As we have done before, we have a new operation
+      (the matrix-vector product),
+      so we should wonder what properties it has.
+    </p>
+    <activity xml:id="act_A1_4_8">
+      <p>
+        In this activity,
+        we consider whether the matrix-vector product distributes vector addition.
+        In other words: Is <m>A(\vu + \vv)</m> equal to <m>A\vu + A\vv</m>?
+      </p>
+      <p>
+        We work with arbitrary vectors
+        <m>\vu, \vv</m> in <m>\R^3</m> and an arbitrary matrix <m>A</m> with 3 columns
+        (so that <m>A\vu</m> and <m>A\vv</m> are defined)
+        to simplify notation.
+        Let <m>A = [\vc_1 \ \vc_2 \ \vc_3]</m>
+        (note that each <m>\vc_i</m> represents a column of <m>A</m>),
+        <m>\vu = \left[ \begin{array}{c} u_1 \\ u_2 \\ u_3 \end{array}  \right]</m>,
+        and <m>\vv = \left[ \begin{array}{c} v_1 \\ v_2 \\ v_3 \end{array}  \right]</m>.
+        Use the definition of the matrix-vector product along with the properties of vector operations to show that
+        <me>
+          A(\vu + \vv)= A\vu + A\vv
+        </me>.
+      </p>
+    </activity>
+    <p>
+      Similar arguments using the definition of matrix-vector product along with the properties of vector operations can be used to show the following theorem:
+    </p>
+    <theorem xml:id="thm_IMT_1_e">
+      <statement>
+        <p>
+          Let <m>A</m> be an <m>m \times n</m> matrix,
+          <m>\vu</m> and <m>\vv</m> <m>n \times 1</m> vectors, and <m>c</m> a scalar.
+          Then
+          <ol>
+            <li>
+              <p>
+                <m>A(\vu + \vv) = A\vu + A\vv</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>c(A\vv) = A(c\vv)</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+  </subsection>
+</section>

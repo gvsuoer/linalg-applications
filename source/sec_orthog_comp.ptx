@@ -1,0 +1,163 @@
+<section xml:id="sec_orthog_comp">
+  <title>Orthogonal Complements</title>
+  <p>
+    In <xref ref="act_6_a_orthogonality">Activity</xref>
+    we defined two vectors <m>\vu</m> and <m>\vv</m> in <m>\R^n</m> to be orthogonal
+    (or perpendicular)
+    if <m>\vu \cdot \vv = 0</m>.
+    A use of orthogonality in geometry is to define a plane.
+    A plane through the origin in <m>\R^3</m> is a two dimensional subspace of <m>\R^3</m>,
+    and a plane is defined to be the set of all vectors in <m>\R^3</m> that are orthogonal to a given vector
+    (called a <em>normal</em>
+        <idx><h>normal vector</h></idx>
+    vector).
+    For example,
+    to find the equation of the plane through the origin in <m>\R^3</m> orthogonal to the normal vector <m>\vn = [1 \ 2 \ -1]^{\tr}</m>,
+    we seek all the vectors <m>\vv = [x \  y \ z]^{\tr}</m> such that
+    <me>
+      \vv \cdot \vn = \vzero
+    </me>.
+  </p>
+  <p>
+    This gives us the equation
+    <me>
+      x+2y-z = 0
+    </me>
+    as the equation of this plane.
+    The collection of all vectors that are orthogonal to a given subspace of vectors is called the
+    <em>orthogonal complement</em>
+    of that subspace in <m>\R^n</m>.
+  </p>
+  <definition xml:id="def_6_a_orth_complement">
+    <statement>
+      <p>
+        Let <m>W</m> be a subspace of <m>\R^n</m> for some <m>n \geq 1</m>.
+        The <term>orthogonal complement</term>
+            <idx><h>orthogonal complement</h></idx>
+        of <m>W</m> is the set
+        <me>
+          W^{\perp} = \{\vx \in \R^n : \vx \cdot \vw = 0 \text{ for all }  \vw \in W\}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <activity xml:id="pa_6_a_2">
+    <p>
+      Let <m>W = \Span\{[1 \ -1]^{\tr}\}</m> in <m>\R^2</m>.
+      Completely describe all vectors in
+      <m>W^{\perp}</m> both algebraically and geometrically.
+    </p>
+  </activity>
+  <p>
+    There is a more general idea here as defined in Preview <xref ref="pa_6_a_2">Activity</xref>.
+    If we have a set <m>S</m> of vectors in <m>\R^n</m>, we let <m>S^{\perp}</m>
+    (read as
+    <q><m>S</m> perp</q>, called the <em>orthogonal complement</em> of <m>S</m>)
+    be the set of all vectors in <m>\R^n</m> that are orthogonal to every vector in <m>S</m>.
+    In our plane example, the set <m>S</m> is <m>\{\vn\}</m> and
+    <m>S^{\perp}</m> is the plane with equation <m>x+2y-z=0</m>.
+  </p>
+  <activity>
+    <p>
+      We have seen another example of orthogonal complements.
+      Let <m>A</m> be an <m>m \times n</m> matrix with rows <m>\vr_1</m>,
+      <m>\vr_2</m> , <m>\ldots</m>, <m>\vr_m</m> in order.
+      Consider the three spaces <m>\Nul A</m>, <m>\Row A</m>,
+      and <m>\Col A</m> related to <m>A</m>,
+      where <m>\Row A = \Span\{\vr_1, \vr_2, \ldots, \vr_m\}</m>
+      (that is, <m>\Row A</m> is the span of the rows of <m>A</m>).
+      Let <m>\vx</m> be a vector in <m>\Row A</m>.
+      <ul>
+        <li>
+          <p>
+            What does it mean for <m>\vx</m> to be in <m>\Row A</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Now let <m>\vy</m> be a vector in <m>\Nul A</m>.
+            Use the result of part (a) and the fact that
+            <m>A \vy = \vzero</m> to explain why <m>\vx \cdot \vy = 0</m>.
+            <hint>
+              <p>
+                Calculate <m>A \vy</m> using scalar products of rows of <m>A</m> with <m>\vy</m>.
+              </p>
+            </hint>
+            Explain how this verifies <m>(\Row A)^{\perp} = \Nul A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use <m>A^\tr</m> in place of <m>A</m> in the result of the previous part to show <m>(\Col A)^{\perp} = \Nul A^{\tr}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The activity proves the following theorem:
+  </p>
+  <theorem xml:id="thm_6_a_orthogonal_subspaces">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix.
+        Then
+        <me>
+          (\Row A)^{\perp} = \Nul A \text{ and }  (\Col A)^{\perp} = \Nul A^{\tr}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    To show that a vector is in the orthogonal complement of a subspace,
+    it is not necessary to demonstrate that the vector is orthogonal to every vector in the subspace.
+    If we have a basis for the subspace,
+    it suffices to show that the vector is orthogonal to every vector in that basis for the subspace,
+    as the next theorem demonstrates.
+  </p>
+  <theorem xml:id="thm_6_a_dot_pd_orth_complement_basis">
+    <statement>
+      <p>
+        Let <m>\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> be a basis for a subspace <m>W</m> of <m>\R^n</m>.
+        A vector <m>\vv</m> in <m>\R^n</m> is orthogonal to every vector in <m>W</m> if and only if <m>\vv</m> is orthogonal to every vector in <m>\CB</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> be a basis for a subspace <m>W</m> of <m>\R^n</m> and let <m>\vv</m> be a vector in <m>\R^n</m>.
+      Our theorem is a biconditional,
+      so we need to prove both implications.
+      Since <m>\CB \subset W</m>,
+      it follows that if <m>\vv</m> is orthogonal to every vector in <m>W</m>,
+      then <m>\vv</m> is orthogonal to every vector in <m>\CB</m>.
+      This proves the forward implication.
+      Now we assume that <m>\vv</m> is orthogonal to every vector in <m>\CB</m> and show that <m>\vv</m> is orthogonal to every vector in <m>W</m>.
+      Let <m>\vx</m> be a vector in <m>W</m>.
+      Then
+      <me>
+        \vx = x_1\vw_1 + x_2\vw_2 + \cdots + x_m\vw_m
+      </me>
+      for some scalars <m>x_1</m>, <m>x_2</m>,
+      <m>\ldots</m>, <m>x_m</m>.
+      Then
+      <md>
+        <mrow>\vv \cdot \vx \amp = \vv \cdot (x_1\vw_1 + x_2\vw_2 + \cdots + x_m\vw_m)</mrow>
+        <mrow>\amp = x_1(\vv \cdot \vw_1) + x_2(\vv \cdot \vw_2) + \cdots + x_m(\vv \cdot \vw_m)</mrow>
+        <mrow>\amp = 0</mrow>
+      </md>.
+    </p>
+    <p>
+      Thus, <m>\vv</m> is orthogonal to <m>\vx</m> and <m>\vv</m> is orthogonal to every vector in <m>W</m>.
+    </p>
+  </proof>
+  <activity>
+    <p>
+      Let <m>W = \Span\left\{ \left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array} \right], \left[ \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right] \right\}</m>.
+      Find all vectors in <m>W^{\perp}</m>.
+    </p>
+  </activity>
+  <p>
+    We will work more closely with projections and orthogonal complements in later sections.
+  </p>
+</section>

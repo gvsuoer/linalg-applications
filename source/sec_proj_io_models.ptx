@@ -1,0 +1,359 @@
+<section xml:id="sec_proj_io_models">
+  <title>Project: Input-Output Models</title>
+  <p>
+    There are two basic types of input-output models:
+        <idx><h>input-output models</h></idx>
+    closed and open.
+    The closed model assumes that all goods produced are consumed within the economy <mdash/> no trading takes place with outside entities.
+    In the open model,
+    goods produced within the economy can be traded outside the economy.
+  </p>
+  <p>
+    To work with a closed model, we use an example
+    (from <em>Input-Output Economics</em> by Wassily Leontief).
+    Assume a simple three-sector economy consisting of agriculture
+    (growing wheat),
+    manufacturing
+    (producing cloth),
+    and households
+    (supplying labor).
+    Each sector of the economy relies on goods from the other sectors to operate (e.g., people must eat to work and need to be clothed).
+    To model the interactions between the sectors,
+    we consider how many units of product is needed as input from one sector to another to produce one unit of product in the second sector.
+    For example, assume the following:
+    <ul>
+      <li>
+        <p>
+          to produce one unit
+          (say dollars worth)
+          of agricultural goods requires 25% of a unit of agricultural output, 28% of a unit of manufacturing output,
+          and 27% of a unit of household output;
+        </p>
+      </li>
+      <li>
+        <p>
+          to produce one unit of manufactured goods requires 20% of a unit of agricultural output, 60% of a unit of manufacturing output,
+          and 60% of a unit of household output;
+        </p>
+      </li>
+      <li>
+        <p>
+          to produce one unit of household goods requires 55% of a unit of agricultural output, 12% of a unit of manufacturing output,
+          and 13% of a unit of household output.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    These assumptions are summarized in <xref ref="T_ThreeSectorTable">Table</xref>.
+  </p>
+  <table xml:id="T_ThreeSectorTable">
+    <title>Summary of simple three sector economy</title>
+    <tabular>
+      <row>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>into<c>\</c> from</cell>
+        <cell>Agriculture</cell>
+        <cell>Manufacture</cell>
+        <cell>Households</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>Agriculture</cell>
+        <cell>0.25</cell>
+        <cell>0.28</cell>
+        <cell>0.27</cell>
+      </row>
+      <row>
+        <cell>Manufacture</cell>
+        <cell>0.20</cell>
+        <cell>0.60</cell>
+        <cell>0.60</cell>
+      </row>
+      <row>
+        <cell>Households</cell>
+        <cell>0.55</cell>
+        <cell>0.12</cell>
+        <cell>0.13</cell>
+      </row>
+    </tabular>
+  </table>
+  <p>
+    This model is said to be <em>closed</em>
+    because all good produced are used up within the economy.
+    If there are goods that are not used within the economy the model is said to be <em>open</em>.
+    Open models will be examined later.
+  </p>
+  <p>
+    The economist's goal is to determine what level of production in each section meets the following requirements:
+    <ul>
+      <li>
+        <p>
+          the production from each sector meets the needs of all of the sectors and
+        </p>
+      </li>
+      <li>
+        <p>
+          there is no overproduction.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <activity xml:id="act_Closed_model">
+    <p>
+      We can use techniques from linear algebra to determine the levels of production that precisely meet the two goals of the economist.
+      <ul>
+        <li>
+          <p>
+            Suppose that the agricultural output is <m>x_1</m> units,
+            the manufacturing output is <m>x_2</m> units,
+            and the household output is <m>x_3</m> units.
+            We represent this data as a <em>production vector</em>
+            <m>\left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right]</m>.
+            To produce a unit of agriculture requires 0.25 units of agriculture,
+            <m>0.28</m> units of manufacturing,
+            and <m>0.27</m> units of household.
+            If <m>x_1</m> units of agriculture,
+            <m>x_2</m> units of manufacturing,
+            and <m>x_3</m> units of household products are are produced,
+            then agriculture can produce
+            <me>
+              0.25x_1 + 0.28x_2 + 0.27x_3
+            </me>
+            units.
+            In order to meet the needs of agriculture and for there to be no overproduction,
+            we must then have
+            <me>
+              0.25x_1 + 0.28x_2 + 0.27x_3 = x_1
+            </me>.
+            Write similar equations for the manufacturing and household sectors of the economy.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the augmented matrix for the system of linear equations that represent production of the three sectors from part (a),
+            and then solve the system to find the production levels that meet the economist's two goals.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose the production level of the household sector is 200 million units
+            (dollars).
+            Find the production levels of the agricultural and manufacturing sectors that meet the economist's two goals.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    In general, a matrix derived from a table like <xref ref="T_ThreeSectorTable">Table</xref>
+    is called a <em>consumption</em> matrix,
+    which we will denote as <m>C</m>.
+    (In the example discussed here <m>C = \left[\begin{array}{ccc} 0.25 \amp 0.28 \amp 0.27 \\ 0.20 \amp 0.60 \amp 0.60 \\ 0.55 \amp 0.12 \amp 0.13 \end{array} \right]</m>.)
+    A consumption matrix <m>C = [c_{ij}]</m>,
+    where <m>c_{ij}</m> represents the proportion of the output of sector <m>j</m> that is consumed by sector <m>i</m>,
+    satisfies two important properties.
+    <ul>
+      <li>
+        <p>
+          Since no sector can consume a negative amount or an amount that exceeds the output of another sector,
+          we must have <m>0 \leq c_{ij} \leq 1</m> for all <m>i</m> and <m>j</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If there are <m>n</m> sectors in the economy,
+          the fact that all output is consumed within the economy implies that <m>c_{1j}+c_{2j}+ \cdots + c_{nj} = 1</m>.
+          In other words, the column sums of <m>C</m> are all 1.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    In our example,
+    if we let <m>x = \left[\begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array} \right]</m>,
+    then we can write the equations that guarantee that the production levels satisfy the two economists' goal in matrix form as
+    <men xml:id="eq_closed">
+      \vx = C\vx
+    </men>.
+  </p>
+  <p>
+    Now we can rephrase the question to be answered as which production vectors <m>\vx</m> satisfy equation <xref ref="eq_closed"/>.
+    When <m>C\vx = \vx</m>, then the system is in equilibrium,
+    that is output exactly meets needs.
+    Any solution <m>\vx</m> that satisfies <xref ref="eq_closed"/> is called a
+    <em>steady state</em> solution.
+  </p>
+  <activity>
+    <p>
+      Is there a steady state solution for the closed system of Agriculture, Manufacturing,
+      and Households?
+      If so, find the general steady state solution.
+      If no, explain why.
+    </p>
+  </activity>
+  <p>
+    So far, we considered the case where the economic system was <em>closed</em>.
+    This means that the industries that were part of the system sold products only to each other.
+    However, if we want to represent the demand from other countries,
+    from households,
+    capital building, etc., we need an <em>open model</em>.
+    In an article in the <em>Scientific American</em>
+    Leontief organized the 1958 American economy into 81 sectors.
+    The production of each of these sectors relied on production from the all of the sectors.
+    Here we present a small sample from Leontief's 81 sectors,
+    using Petroleum, Textiles, Transportation,
+    and Chemicals as our sectors of the economy.
+    Leontief's model assumed that the production of 1 unit of output of
+    <ul>
+      <li>
+        <p>
+          petroleum requires 0.1 unit of petroleum, 0.2 units of transportation,
+          and 0.4 units of chemicals;
+        </p>
+      </li>
+      <li>
+        <p>
+          textiles requires 0.4 units of petroleum, 0.1 unit of textiles, 0.15 units of transportation,
+          and 0.3 units of chemicals;
+        </p>
+      </li>
+      <li>
+        <p>
+          transportation requires 0.6 units of petroleum, 0.1 unit of transportation,
+          and 0.25 units of chemicals;
+        </p>
+      </li>
+      <li>
+        <p>
+          chemicals requires 0.2 units of petroleum, 0.1 unit of textiles, 0.3 units of transportation,
+          and 0.2 units of chemicals.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    A summary of this information is in <xref ref="T_FourSectors">Table</xref>.
+    Assume the units are measured in dollars.
+  </p>
+  <table xml:id="T_FourSectors">
+    <title>Summary of four sector economy</title>
+    <tabular>
+      <row>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>into<c>\</c> from</cell>
+        <cell>Petroleum</cell>
+        <cell>Textiles</cell>
+        <cell>Transportation</cell>
+        <cell>Chemicals</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell>Petroleum</cell>
+        <cell>0.10</cell>
+        <cell>0.00</cell>
+        <cell>0.20</cell>
+        <cell>0.40</cell>
+      </row>
+      <row>
+        <cell>Textiles</cell>
+        <cell>0.40</cell>
+        <cell>0.10</cell>
+        <cell>0.15</cell>
+        <cell>0.30</cell>
+      </row>
+      <row>
+        <cell>Transportation</cell>
+        <cell>0.60</cell>
+        <cell>0.00</cell>
+        <cell>0.10</cell>
+        <cell>0.25</cell>
+      </row>
+      <row>
+        <cell>Chemicals</cell>
+        <cell>0.20</cell>
+        <cell>0.10</cell>
+        <cell>0.30</cell>
+        <cell>0.20</cell>
+      </row>
+    </tabular>
+  </table>
+  <p>
+    In the open model, there is another part of the economy,
+    called the <em>open sector</em>,
+    that does not produce goods or services but only consumes them.
+    If this sector
+    (think end consumers, for example)
+    demands/consumes <m>d_1</m> units of Petroleum,
+    <m>d_2</m> units of Textiles,
+    <m>d_3</m> units of Transportation,
+    and <m>d_4</m> units of Chemicals,
+    we put this into a <em>final demand vector</em>
+    <m>\vd = \left[ \begin{array}{c} d_1 \\d_2 \\ d_3 \\ d_4 \end{array} \right]</m>.
+  </p>
+  <p>
+    An economist would want to find the production level where the demand from the good/service producing sectors of the economy plus the final demand from the open sector exactly matches the output in each of the sectors.
+    Let <m>x_1</m> represent the number of units of petroleum output,
+    <m>x_2</m> the number of units of textiles output,
+    <m>x_3</m> the number of units of transportation output,
+    and <m>x_4</m> the number of units of chemical output during any time period.
+    Then the production vector is <m>\vx = \left[\begin{array}{c} x_1 \\ x_2 \\ x_3 \\x_4 \end{array} \right]</m>.
+    So an economist wants to find the production vectors <m>\vx</m> such that
+    <md>
+      <mrow>{6} {0.10}x_1    \amp {}{}  \amp {}        \amp {}+{}  \amp {0.20}x_3 \amp {}+{}  \amp {0.40}x_4 \amp {}+{}  \amp {}d_1  \amp = x_1\amp {}</mrow>
+      <mrow>{0.40}x_1    \amp {}+{}  \amp {0.10}x_2    \amp {}+{}  \amp {0.15}x_3 \amp {}+{}  \amp {0.30}x_4 \amp {}+{}  \amp {}d_2  \amp = x_2\amp {}</mrow>
+      <mrow>{0.60}x_1    \amp {}{}  \amp {}        \amp {}+{}  \amp {0.10}x_3 \amp {}+{}  \amp {0.25}x_4 \amp {}+{}  \amp {}d_3  \amp = x_3\amp {}</mrow>
+      <mrow>{0.20}x_1    \amp {}+{}  \amp {0.10}x_2    \amp {}+{}  \amp {0.30}x_3 \amp {}+{}  \amp {0.20}x_4 \amp {}+{}  \amp {}d_4  \amp = x_4\amp {,}</mrow>
+    </md>
+    where <m>\vd = \left[ \begin{array}{c} d_1 \\d_2 \\ d_3 \\ d_4 \end{array} \right]</m> is the demand vector from the open market.
+    The matrix
+    <me>
+      E = \left[ \begin{array}{cccc} 0.10 \amp 0.00 \amp 0.20 \amp 0.40    \\ 0.40  \amp 0.10 \amp 0.15 \amp  0.30    \\ 0.60 \amp 0.00 \amp 0.10 \amp 0.25 \\  0.20 \amp 0.10 \amp 0.30 \amp 0.20 \end{array}  \right]
+    </me>
+    derived from <xref ref="T_FourSectors">Table</xref>,
+    is called the <em>exchange</em> matrix.
+  </p>
+  <activity>
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Suppose the final demand vector in our four sector economy is <m>\left[ \begin{array}{c} 500 \\200 \\ 400 \\ 100 \end{array} \right]</m>.
+            Find the production levels that satisfy our system.
+          </p>
+        </li>
+        <li>
+          <p>
+            Does this economy defined by the exchange matrix <m>E</m> have production levels that exactly meet internal and external demands regardless of the external demands?
+            That is, does the system of equations
+            <md>
+              <mrow>{6} {0.10}x_1    \amp {}{}  \amp {}        \amp {}+{}  \amp {0.20}x_3 \amp {}+{}  \amp {0.40}x_4 \amp {}+{}  \amp {}d_1  \amp = x_1\amp {}</mrow>
+              <mrow>{0.40}x_1    \amp {}+{}  \amp {0.10}x_2    \amp {}+{}  \amp {0.15}x_3 \amp {}+{}  \amp {0.30}x_4 \amp {}+{}  \amp {}d_2  \amp = x_2\amp {}</mrow>
+              <mrow>{0.60}x_1    \amp {}{}  \amp {}        \amp {}+{}  \amp {0.10}x_3 \amp {}+{}  \amp {0.25}x_4 \amp {}+{}  \amp {}d_3  \amp = x_3\amp {}</mrow>
+              <mrow>{0.20}x_1    \amp {}+{}  \amp {0.10}x_2    \amp {}+{}  \amp {0.30}x_3 \amp {}+{}  \amp {0.20}x_4 \amp {}+{}  \amp {}d_4  \amp = x_4\amp {}</mrow>
+            </md>
+            have a solution regardless of the values of <m>d_1</m>,
+            <m>d_2</m>, <m>d_3</m>, and <m>d_4</m>?
+            Explain.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

@@ -1,0 +1,169 @@
+<section xml:id="sec_bases_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>S = \{1, 1+t, 2-t^2, 1+t+t^2, t-t^2\}</m>.
+        <ul>
+          <li>
+            <p>
+              Does <m>S</m> span <m>\pol_2</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why <m>S</m> is not a basis for <m>\pol_2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a subset of <m>S</m> that is a basis for <m>\pol_2</m>.
+              Explain your reasoning.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Let <m>p(t) = a_0+a_1t+a_2t^2</m> be an arbitrary vector in <m>\pol_2</m>.
+              If <m>p(t)</m> is in <m>\Span \ S</m>,
+              then there are weights <m>c_1</m>,
+              <m>c_2</m>, <m>c_3</m>, <m>c_4</m>, and <m>c_5</m> such that
+              <me>
+                a_0+a_1t+a_2t^2 = c_1(1) + c_2(1+t) + c_3(2-t^2) + c_4(1+t+t^2) + c_5(t-t^2)
+              </me>.
+              Equating coefficients of like powers gives us the system
+              <md>
+                <mrow>{6} {}c_1   \amp {}+{}   \amp {}c_2   \amp {}+{}  \amp {2}c_3  \amp {}+{}  \amp {}c_4  \amp {}{}  \amp {}     \amp = a_0\amp {}</mrow>
+                <mrow>{}     \amp {}{}     \amp {}c_2   \amp {}{}    \amp {}    \amp {}+{}  \amp {}c_4  \amp {}+{}  \amp {}c_5     \amp = a_1\amp {}</mrow>
+                <mrow>{}     \amp {}{}     \amp {}     \amp {}{}    \amp {-}c_3  \amp {}+{}  \amp {}c_4  \amp {}-{}  \amp {}c_5     \amp = a_2\amp {.}</mrow>
+              </md>
+              The reduced row echelon form of the coefficient matrix <m>A</m> is
+              <me>
+                \left[ \begin{array}{cccrr} 1\amp 0\amp 0\amp 2\amp -3 \\ 0\amp 1\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 1\amp -1\amp 1 \end{array}  \right]
+              </me>.
+              Since there is a pivot in every row of <m>A</m>,
+              the system <m>A \vx = \vb</m> is always consistent.
+              We conclude that <m>S</m> does span <m>\pol_2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The fact that the coefficient matrix <m>A</m> of our system has non-pivot columns means that each vector in <m>\pol_2</m> can be written in more than one way as a linear combination of vectors in <m>S</m>.
+              This means that <m>S</m> is not linearly independent and so cannot be a basis for <m>\pol_2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              That the first three columns of <m>A</m> are pivot columns implies that the polynomials <m>1</m>,
+              <m>1+t</m>, and <m>2-t^2</m> are linearly independent.
+              Since there is a pivot in every row of <m>A</m>,
+              the three polynomials <m>1</m>,
+              <m>1+t</m>, and <m>2-t^2</m> also span <m>\pol_2</m>.
+              So <m>\{1, 1+t, 2-t^2\}</m> is a subset of <m>S</m> that is a basis for <m>\pol_2</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>U</m> be the set of all matrices of real numbers of the form
+        <m>\left[ \begin{array}{cc} u \amp -u-x \\ 0 \amp x \end{array} \right]</m> and <m>W</m> be the set of all real matrices of the form <m>\left[ \begin{array}{cc} v \amp 0 \\ w \amp -v \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Find a basis for <m>U</m> and a basis for <m>W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>U + W = \{A+B : A \text{ is in } U \text{ and } B \text{ is in } W\}</m>.
+              Show that <m>U+W</m> is a subspace of
+              <m>\M_{2 \times 2}</m> and find a basis for <m>U + W</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Every matrix in <m>U</m> has the form
+              <me>
+                \left[ \begin{array}{cc} u \amp  -u-x \\  0 \amp    x \end{array}  \right] = u\left[ \begin{array}{cr} 1 \amp  -1 \\  0 \amp  0 \end{array}  \right] + x\left[ \begin{array}{cr} 0 \amp  -1 \\  0 \amp  1 \end{array}  \right]
+              </me>.
+              Let <m>S_U = \left\{ \left[ \begin{array}{cr} 1 \amp  -1 \\  0 \amp  0 \end{array}  \right], \left[ \begin{array}{cr} 0 \amp  -1 \\  0 \amp  1 \end{array}  \right] \right\}</m>.
+              Then <m>U = \Span \ S_U</m> and <m>U</m> is a subspace of <m>\M_{2 \times 2}</m>.
+              If
+              <me>
+                c_1\left[ \begin{array}{cr} 1 \amp  -1 \\  0 \amp  0 \end{array}  \right] + c_2\left[ \begin{array}{cr} 0 \amp  -1 \\  0 \amp  1 \end{array}  \right] = 0
+              </me>,
+              then <m>c_1=c_2=0</m> and <m>S_U</m> is also linearly independent.
+              This makes <m>S_U</m> a basis for <m>U</m>.
+              Similarly, every matrix in <m>W</m> has the form
+              <me>
+                \left[ \begin{array}{cc}   v \amp   0 \\ w \amp  -v \end{array}  \right] = v \left[ \begin{array}{cr} 1 \amp  0 \\  0 \amp  -1 \end{array}  \right] + w\left[ \begin{array}{cc} 0 \amp  0 \\  1 \amp  0 \end{array}  \right]
+              </me>.
+              Let <m>S_W = \left\{ \left[ \begin{array}{cr} 1 \amp  0 \\  0 \amp  -1 \end{array}  \right] , \left[ \begin{array}{cc} 0 \amp  0 \\  1 \amp  0 \end{array}  \right] \right\}</m>.
+              Then <m>W = \Span \ S_W</m> and <m>W</m> is a subspace of <m>\M_{2 \times 2}</m>.
+              If
+              <me>
+                c_1\left[ \begin{array}{cr} 1 \amp  0 \\  0 \amp  -1 \end{array}  \right] + c_2\left[ \begin{array}{cc} 0 \amp  0 \\  1 \amp  0 \end{array}  \right]  = 0
+              </me>,
+              then <m>c_1=c_2=0</m> and <m>S_W</m> is also linearly independent.
+              This makes <m>S_W</m> a basis for <m>W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every matrix in <m>U+W</m> has the form
+              <md>
+                <mrow>\left[ \begin{array}{cc} u \amp  -u-x</mrow>
+                <mrow>0 \amp    x \end{array} \right] \amp + \left[ \begin{array}{cc}   v \amp   0</mrow>
+                <mrow>w \amp  -v \end{array} \right] = \left[ \begin{array}{cc}   u+v \amp   -u-x</mrow>
+                <mrow>w \amp  x-v \end{array} \right]</mrow>
+                <mrow>\amp = u\left[ \begin{array}{cr}   1 \amp   -1</mrow>
+                <mrow>0 \amp  0 \end{array} \right] + x\left[ \begin{array}{cr}   0 \amp   -1</mrow>
+                <mrow>0 \amp  1 \end{array} \right]</mrow>
+                <mrow>\amp \qquad + v\left[ \begin{array}{cr}   1 \amp   0</mrow>
+                <mrow>0 \amp  -1 \end{array} \right] + w\left[ \begin{array}{cc}   0 \amp   0</mrow>
+                <mrow>1 \amp  0 \end{array} \right]</mrow>
+              </md>.
+              Let <m>S = \left\{ \left[ \begin{array}{cr}   1 \amp   -1 \\ 0 \amp  0 \end{array}  \right], \left[ \begin{array}{cr}   0 \amp   -1 \\ 0 \amp  1 \end{array}  \right], \left[ \begin{array}{cr}   1 \amp   0 \\ 0 \amp  -1 \end{array}  \right], \left[ \begin{array}{cc}   0 \amp   0 \\ 1 \amp  0 \end{array}  \right] \right\}</m>.
+              Then <m>U+W = \Span \ S</m> and <m>U+W</m> is a subspace of <m>\M_{2 \times 2}</m>.
+              If
+              <me>
+                c_1\left[ \begin{array}{cr}   1 \amp   -1 \\ 0 \amp  0 \end{array}  \right] + c_2\left[ \begin{array}{cr}   0 \amp   -1 \\ 0 \amp  1 \end{array}  \right] + c_3\left[ \begin{array}{cr}   1 \amp   0 \\ 0 \amp  -1 \end{array}  \right] + c_4\left[ \begin{array}{cc}   0 \amp   0 \\ 1 \amp  0 \end{array}  \right] = 0
+              </me>,
+              then
+              <md>
+                <mrow>{5} {}c_1   \amp {}     \amp {}    \amp {}+{}  \amp {}c_3  \amp {}  \amp {}    \amp = \amp 0\amp {}</mrow>
+                <mrow>{-}c_1   \amp {}-{}   \amp {}c_2  \amp {}    \amp {}    \amp {}  \amp {}    \amp = \amp 0\amp {}</mrow>
+                <mrow>{}     \amp {}     \amp {}    \amp {}    \amp {}    \amp {}  \amp {}c_4  \amp = \amp 0\amp {}</mrow>
+                <mrow>{}       \amp {}     \amp {}c_2  \amp {}-{}  \amp {}c_3  \amp {}  \amp {}    \amp = \amp 0\amp {.}</mrow>
+              </md>
+              The reduced row echelon form of
+              <m>\left[ \begin{array}{rrrc} 1\amp 0\amp 1\amp 0 \\ -1\amp -1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 1 \\ 0\amp 1\amp -1\amp 0 \end{array}  \right]</m> is <m>\left[ \begin{array}{ccrc} 1\amp 0\amp 1\amp 0 \\ 0\amp 1\amp -1\amp 0 \\ 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]</m>.
+              The vectors that correspond to the pivot columns are linearly independent and span <m>U+W</m>,
+              so a basis for <m>U+W</m> is
+              <me>
+                \left\{ \left[ \begin{array}{cr}   1 \amp   -1 \\ 0 \amp  0 \end{array}  \right], \left[ \begin{array}{cr}   0 \amp   -1 \\ 0 \amp  1 \end{array}  \right], \left[ \begin{array}{cc}   0 \amp   0 \\ 1 \amp  0 \end{array}  \right] \right\}
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

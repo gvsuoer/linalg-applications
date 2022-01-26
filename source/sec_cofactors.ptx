@@ -1,0 +1,212 @@
+<section xml:id="sec_cofactors">
+  <title>Cofactors</title>
+  <p>
+    We will now define the determinant of a general
+    <m>n \times n</m> matrix <m>A</m> in terms of a cofactor expansion as we did in the <m>3 \times 3</m> case.
+    To do so, we need some notation and terminology.
+    <ul>
+      <li>
+        <p>
+          We let <m>A_{ij}</m> be the submatrix of
+          <m>A = [a_{ij}]</m> found by deleting the <m>i</m>th row and <m>j</m>th column of <m>A</m>.
+          The determinant of <m>A_{ij}</m> is called the <m>ij</m>th <em>minor</em>
+            <idx><h>matrix</h><h>minor</h></idx>
+          of <m>A</m> or the minor corresponding to the entry <m>a_{ij}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Notice that in the <m>3 \times 3</m> case,
+          we used the opposite of the 1,2 minor in the sum.
+          It will be the case that the terms in the cofactor expansion will alternate in sign.
+          We can make the signs in the sum alternate by taking <m>-1</m> to an appropriate power.
+          As a result, we define the <m>ij</m>th <em>cofactor</em>
+            <idx><h>cofactor</h></idx>
+          <m>C_{ij}</m> of <m>A</m> as
+          <me>
+            C_{ij} = (-1)^{i+j} \det\left(A_{ij}\right)
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Finally, we define the determinant of <m>A</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <definition>
+    <statement>
+      <p>
+        If <m>A=[a_{ij}]</m> is an <m>n \times n</m> matrix,
+        the <term>determinant</term>
+            <idx><h>determinant</h></idx>
+        of <m>A</m> is the scalar
+        <me>
+          \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} + \cdots + a_{1n}C_{1n}
+        </me>
+        where <m>C_{ij}= (-1)^{i+j} \det(A_{ij})</m> is the <m>ij</m>-cofactor of <m>A</m> and <m>A_{ij}</m> is the matrix obtained by removing row <m>i</m> and column <m>j</m> of matrix <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    This method for computing determinants is called the
+    <em>cofactor expansion</em> or
+    <em>Laplace expansion</em>
+    of <m>A</m> along the 1st row.
+    The cofactor expansion reduces the computation of the determinant of an
+    <m>n \times n</m> matrix to <m>n</m> computations of determinants of <m>(n-1) \times (n-1)</m> matrices.
+    These smaller matrices can be reduced again using cofactor expansions,
+    so it can be a long and grueling process for large matrices.
+    It turns out that we can actually take this expansion along any row or column of the matrix (a proof of this fact is given in <xref ref="sec_det_properties">Section</xref>).
+    For example, the cofactor expansion along the 2nd row is
+    <me>
+      \det(A) = a_{21}C_{21} + a_{22}C_{22} + \cdots + a_{2n}C_{2n}
+    </me>
+    and along the 3rd column the formula is
+    <me>
+      \det(A) = a_{13}C_{13} + a_{23}C_{23} + \cdots + a_{n3}C_{n3}
+    </me>.
+  </p>
+  <p>
+    Note that when finding a cofactor expansion,
+    choosing a row or column with many zeros makes calculations easier.
+  </p>
+  <activity xml:id="act_4_a_1">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Let <m>A = \left[ \begin{array}{rcr} 1\amp 2\amp -1 \\ -2\amp 0\amp 4 \\ 6\amp 3\amp 0 \end{array} \right]</m>.
+            Use the cofactor expansion along the first row to calculate the determinant of <m>A</m> by hand.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate <m>\det(A)</m> by using a cofactor expansion along the second row where <m>A = \left[ \begin{array}{ccc} 1 \amp 4 \amp 2 \\ 0 \amp 2 \amp 0 \\ 2 \amp 5 \amp 3 \end{array} \right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate the determinant of <m>\left[ \begin{array}{crr} 1\amp -2\amp 3 \\ 0\amp 4\amp -3 \\ 0\amp 0\amp 8 \end{array} \right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Which determinant property can be used to calculate the determinant in part (c)?
+            Explain how.
+            (Determinant properties are included below for easy reference.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the matrix <m>A=\left[ \begin{array}{ccc} 1 \amp 1 \amp 2 \\ 0 \amp 2 \amp 1 \\ 1 \amp 2 \amp 2 \end{array} \right]</m>.
+            Let <m>B</m> be the matrix which results when <m>c</m> times row 1 is added to row 2 of <m>A</m>.
+            Evaluate the determinant of <m>B</m> by hand to check that it is equal to the determinant of <m>A</m>,
+            which verifies one other determinant property
+            (in a specific case).
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As with any new idea, like the determinant,
+    we must ask what properties are satisfied.
+    We state the following theorem without proof for the time being.
+    For the interested reader,
+    the proof of many of these properties is given in <xref ref="sec_det_properties">Section</xref> and others in the exercises.
+  </p>
+  <theorem xml:id="thm_determinant_properties">
+    <statement>
+      <p>
+        Given <m>n\times n</m> matrices <m>A, B</m>, the following hold:
+        <ol>
+          <li>
+            <p>
+              <m>\det (AB) = \det (A) \cdot \det (B)</m>,
+              and in particular <m>\det (A^k) = (\det A)^k</m> for any positive integer <m>k</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\det (A^{\tr}) = \det (A)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A</m> is invertible if and only if <m>\det (A) \neq 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> is invertible, then <m>\det (A^{-1}) = (\det A)^{-1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For a <m>2\times 2</m> matrix
+              <m>A=\begin{bmatrix}a \amp b \\ c \amp d \end{bmatrix}</m>,
+              <m>\det (A) = ad-bc</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> is upper/lower triangular,
+              then <m>\det (A)</m> is the product of the entries on the diagonal.
+            </p>
+          </li>
+          <li>
+            <p>
+              The determinant of a matrix is the product of the eigenvalues,
+              with each eigenvalue repeated as many times as its multiplicity.
+            </p>
+          </li>
+          <li>
+            <p>
+              Effect of row operations:
+              <ul>
+                <li>
+                  <p>
+                    Adding a multiple of a row to another does NOT change the determinant of the matrix.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Multiplying a row by a constant multiplies the determinant by the same constant.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Row swapping multiplies the determinant by <m>(-1)</m>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <p>
+              If the row echelon form <m>U</m> of <m>A</m> is obtained by adding multiples of one row to another,
+              and row swapping,
+              then <m>\det (A)</m> is equal to
+              <m>\det (U)</m> multiplied by <m>(-1)^r</m> where <m>r</m> is the number of row swappings done during the row reduction.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Note that if we were to find the determinant of a
+    <m>4\times 4</m> matrix using the cofactor method,
+    we will calculate determinants of 4 matrices of size <m>3\times 3</m>,
+    each of which will require 3 determinant calculations again.
+    So, we will need a total of 12 calculations of determinants of <m>2\times 2</m> matrices.
+    That is a lot of calculations.
+    There are other, more efficient,
+    methods for calculating determinants.
+    For example, we can row reduce the matrix,
+    keeping track of the effect that each row operation has on the determinant.
+  </p>
+</section>

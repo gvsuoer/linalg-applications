@@ -1,0 +1,156 @@
+<section xml:id="sec_ls_intro">
+  <title>Introduction</title>
+  <p>
+    In this section our focus is on fitting linear and polynomial functions to data sets.
+  </p>
+  <activity xml:id="pa_LS_1">
+    <p>
+      NBC was awarded the U.S. television broadcast rights to the 2016 and 2020 summer Olympic games.
+      <xref ref="T_LS_Olympics">Table</xref> lists the amounts paid
+      (in millions of dollars)
+      by NBC sports for the 2008 through 2012 summer Olympics plus the recently concluded bidding for the 2016 and 2020 Olympics,
+      where year 0 is the year 2008. (We will assume a simple model here,
+      ignoring variations such as value of money due to inflation,
+      viewership data which might affect NBC's expected revenue,
+      etc.) <xref ref="F_LS_Olympics">Figure</xref> shows a plot of the data.
+      Our goal in this activity is to find a linear function <m>f</m> defined by
+      <m>f(x) = a_0 + a_1x</m> that fits the data well.
+    </p>
+    <sidebyside>
+<!--
+<caption>Olympics television broadcast rights.</caption>
+-->
+      <sidebyside>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Year</cell>
+            <cell>Amount</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>0</cell>
+            <cell>894</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>4</cell>
+            <cell>1180</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>8</cell>
+            <cell>1226</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>12</cell>
+            <cell>1418</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </sidebyside>
+<!--
+<caption>A plot of the data.</caption>
+-->
+      <sidebyside>
+        <image width="73%" source="7_d_pa_3"/>
+      </sidebyside>
+    </sidebyside>
+    <p>
+      If the data were actually linear,
+      then the data would satisfy the system
+      <md>
+        <mrow>{4} {}a_0 \amp {}+{}  \amp {0}a_1 \amp = \amp 894\amp {}</mrow>
+        <mrow>{}a_0 \amp {}+{}  \amp {4}a_1 \amp = \amp 1180\amp {}</mrow>
+        <mrow>{}a_0 \amp {}+{}  \amp {8}a_1 \amp = \amp 1226\amp {}</mrow>
+        <mrow>{}a_0 \amp {}+{}  \amp {12}a_1 \amp = \amp 1418\amp {.}</mrow>
+      </md>
+    </p>
+    <p>
+      The vector form of this equation is
+      <me>
+        a_0 [1 \ 1 \ 1 \ 1]^{\tr} + a_1[0 \ 4 \ 8 \ 12]^{\tr} = [894 \ 1180 \ 1226 \ 1418]^{\tr}
+      </me>.
+    </p>
+    <p>
+      This equation does not have a solution,
+      so we seek the best approximation to a solution we can find.
+      That is, we want to find <m>a_0</m> and <m>a_1</m> so that the line
+      <m>f(x) = a_0+a_1x</m> provides a best fit to the data.
+    </p>
+    <p>
+      Letting <m>\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}</m> and <m>\vv_2 = [0 \ 4 \ 8 \ 12]^{\tr}</m>,
+      and <m>\vb = [894 \ 1180 \ 1226 \ 1418]^{\tr}</m>,
+      our vector equation becomes
+      <me>
+        a_0 \vv_1 + a_1\vv_2 = \vb
+      </me>.
+    </p>
+    <p>
+      To make a best fit,
+      we will minimize the square of the distance between <m>\vb</m> and a vector of the form <m>a_0\vv_1 + a_1 \vv_2</m>.
+      That is, minimize
+      <men xml:id="eq_LS_line_1">
+        ||\vb - (a_0 \vv_1 + a_1\vv_2)||^2
+      </men>.
+    </p>
+    <p>
+      Rephrasing this in terms of projections,
+      we are looking for the vector in
+      <m>W = \Span\{\vv_1, \vv_2\}</m> that is closest to <m>\vb</m>.
+      In other words,
+      the values of <m>a_0</m> and <m>a_1</m> will occur as the weights when we write
+      <m>\proj_{W} \vb</m> as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>.
+      The one wrinkle in this problem is that we need an orthogonal basis for <m>W</m> to find this projection.
+      Use appropriate technology throughout this activity.
+      <ol>
+        <li>
+          <p>
+            Find an orthogonal basis <m>\CB = \{\vw_1, \vw_2\}</m> for <m>W</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the basis <m>\CB</m> to find
+            <m>\vy = \proj_{W} \vb</m> as illustrated in <xref ref="F_6_f_proj">Figure</xref>.
+            <figure xml:id="F_6_f_proj">
+              <caption>Projecting <m>\vb</m> onto <m>W</m>.</caption>
+              <image width="73%" source="6_f_O_proj"/>
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the values of <m>a_0</m> and <m>a_1</m> that give our best fit line by writing <m>\vy</m> as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw a picture of your line from the previous part on the axes with the data set.
+            How well do you think your line approximates the data?
+            Explain.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

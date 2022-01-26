@@ -1,0 +1,133 @@
+<section xml:id="sec_eigen_intro">
+  <title>Introduction</title>
+  <p>
+    Given a matrix <m>A</m>,
+    for some special non-zero vectors <m>\vv</m> the action of <m>A</m> on <m>\vv</m> will be same as scalar multiplication,
+    i.e., <m>A\vv=\lambda \vv</m> for some scalar <m>\lambda</m>.
+    Geometrically,
+    this means that the transformation <m>T</m> defined by
+    <m>T(\vx) = A\vx</m> simply stretches or contracts the vector <m>\vv</m> but does not change its direction.
+    Such a <em>nonzero</em> vector is called an
+    <em>eigenvector</em> of <m>A</m>,
+    while the scalar <m>\lambda</m> is called the corresponding
+    <em>eigenvalue</em> of <m>A</m>.
+    The eigenvectors of a matrix tell us quite a bit about the transformation the matrix defines.
+  </p>
+  <p>
+    Eigenvalues and eigenvectors are used in many applications.
+    Social media like Facebook and Google use eigenvalues to determine the influence of individual members on the network
+    (which can affect advertising)
+    or to rank the importance of web pages.
+    Eigenvalues and eigenvectors appear in quantum physics,
+    where atomic and molecular orbitals can be defined by the eigenvectors of a certain operator.
+    They appear in principal component analysis,
+    used to study large data sets,
+    to diagonalize certain matrices and determine the long term behavior of systems as a result,
+    and in the important singular value decomposition of a matrix.
+    Matrices with real entries can have real or complex eigenvalues,
+    and complex eigenvalues reveal a rotation that is encoded in every real matrix with complex eigenvalues which allows us to better understand certain matrix transformations.
+  </p>
+  <definition xml:id="def_eigenvector">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> matrix.
+        A non-zero vector <m>\vx</m> is an <term>eigenvector</term>
+            <idx><h>eigenvector</h></idx>
+        (or <term>characteristic vector</term>
+            <idx><h>characteristic vector</h></idx>
+        ) of <m>A</m> if there is a scalar <m>\lambda</m> such that <m>A\vx = \lambda \vx</m>.
+        The scalar <m>\lambda</m> is an <term>eigenvalue</term>
+            <idx><h>eigenvalue</h></idx>
+        (or <term>characteristic value</term>
+            <idx><h>characteristic value</h></idx>
+        ) of <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    For example,
+    <m>\vv= \left[ \begin{array}{c} 1\\1 \end{array} \right]</m> is an eigenvector of
+    <m>A=\left[ \begin{array}{cc} 2 \amp 1 \\ 3 \amp 0 \end{array} \right]</m> corresponding to the eigenvalue
+    <m>\lambda=3</m> because <m>A\vv = \left[ \begin{array}{c} 3\\3 \end{array} \right]</m>,
+    which is equal to <m>3\vv</m>.
+    On the other hand,
+    <m>\vw= \left[ \begin{array}{c} 1\\2 \end{array} \right]</m> is not an eigenvector of
+    <m>A=\left[ \begin{array}{cc} 2 \amp 1 \\ 3 \amp 0 \end{array} \right]</m> because <m>A\vw = \left[ \begin{array}{c} 4\\3 \end{array} \right]</m>,
+    which is not a multiple of <m>\vw</m>.
+  </p>
+  <activity xml:id="pa_2_b_1">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            For each of the following parts,
+            use the definition of an eigenvector to determine whether the given vector <m>\vv</m> is an eigenvector for the given matrix <m>A</m>.
+            If it is, determine the corresponding eigenvalue.
+            <ul>
+              <li>
+                <p>
+                  <m>A=\left[ \begin{array}{cc} 3 \amp 2 \\ 3 \amp 8 \end{array} \right]</m>,
+                  <m>\vv=\left[ \begin{array}{r} -2\\1 \end{array} \right]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A=\left[ \begin{array}{cr} 2 \amp 0 \\ 0 \amp -3 \end{array} \right]</m>,
+                  <m>\vv=\left[ \begin{array}{c} 0\\1 \end{array} \right]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A=\left[ \begin{array}{cc} 3 \amp 2 \\ 3 \amp 8 \end{array} \right]</m>,
+                  <m>\vv=\left[ \begin{array}{c} 1\\1 \end{array} \right]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A=\left[ \begin{array}{cc} 1 \amp 2 \\ 2 \amp 4 \end{array} \right]</m>,
+                  <m>\vv=\left[ \begin{array}{r} -2\\1 \end{array} \right]</m>
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            We now consider how we can find the eigenvectors corresponding to an eigenvalue using the definition.
+            Suppose <m>A=\left[ \begin{array}{cr} 6 \amp -2\\2 \amp 1 \end{array} \right]</m>.
+            We consider whether we can find eigenvectors corresponding to eigenvalues 3, and 5.
+            Effectively,
+            this will help us determine whether 3 and/or 5 are eigenvalues of <m>A</m>.
+            <ul>
+              <li>
+                <p>
+                  Rewrite the vector equation <m>A\vv=5\vv</m> where
+                  <m>\vv = \left[ \begin{array}{c} x \\y \end{array} \right]</m> as a vector equation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  After writing <m>5\vv</m> as <m>5I\vv</m> where <m>I</m> is the identity matrix,
+                  rearrange the variables to turn this vector equation into the homogeneous matrix equation
+                  <m>B\vv=\vzero</m> where <m>B=\left[ \begin{array}{cr} 1 \amp -2\\2 \amp -4 \end{array} \right]</m>.
+                  If possible,
+                  find a non-zero (i.e. a non-trivial) solution to <m>B\vv=\vzero</m>.
+                  Explain what this means about 5 being an eigenvalue of <m>A</m> or not.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Similarly, determine whether the vector equation
+                  <m>A\vv=3\vv</m> has non-zero solutions.
+                  Using your result,
+                  determine whether 3 is an eigenvalue of <m>A</m> or not.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

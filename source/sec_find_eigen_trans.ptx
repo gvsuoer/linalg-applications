@@ -1,0 +1,87 @@
+<section xml:id="sec_find_eigen_trans">
+  <title>Finding Eigenvalues and Eigenvectors of Linear Transformations</title>
+  <p>
+    Preview <xref ref="pa_8_c">Activity</xref>
+    presents a method for finding eigenvalues and eigenvectors of linear transformations.
+    That is, if <m>T: V \to V</m> is a linear transformation and <m>\CB</m> is a basis for <m>V</m>,
+    and if <m>\vx</m> is an eigenvector of
+    <m>[T]_{\CB}</m> with eigenvalue <m>\lambda</m>,
+    then the vector <m>\vv</m> in <m>V</m> satisfying
+    <m>[\vv]_{\CB}=\vx</m> has the property that
+    <me>
+      [T(\vv)]_{\CB} = [T]_{\CB}[\vv]_{\CB} = [T]_{\CB} \vx = \lambda \vx = [\lambda \vv]_{\CB}
+    </me>.
+  </p>
+  <p>
+    Since the coordinate transformation is one-to-one,
+    it follows that <m>T(\vv) = \lambda \vv</m> and <m>\vv</m> is an eigenvector of <m>T</m> with eigenvalue <m>\lambda</m>.
+    So every eigenvector of <m>[T]_{\CB}</m> corresponds to an eigenvector of <m>T</m>.
+    The fact that every eigenvector and eigenvalue of <m>T</m> can be obtained from the eigenvectors and eigenvalues of
+    <m>[T]_{\CB}</m> is left as <xref ref="ex_8_c_evals_linear_Transformations">Exercise</xref>.
+    Now we address the question of how eigenvalues of matrices of <m>T</m> with respect to different bases are related.
+  </p>
+  <activity xml:id="act_8_c_ltev2">
+    <p>
+      Let <m>T: \pol_1 \to \pol_1</m> be defined by <m>T(a_0+a_1t) = (a_0+2a_1) + (2a_1+3a_0)t</m>.
+      Assume <m>T</m> is a linear transformation.
+      <ul>
+        <li>
+          <p>
+            Let <m>\CB = \{1+t,1-t\}</m> be a basis for <m>\pol_1</m>.
+            Find the matrix <m>[T]_{\CB}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Check that <m>\lambda_1 = 4</m> and
+            <m>\lambda_2 = -1</m> are the eigenvalues of <m>[T]_{\CB}</m>.
+            Find an eigenvector <m>\vw_1</m> for
+            <m>[T]_{\CB}</m> corresponding to the eigenvalue <m>4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the matrix <m>[T]_{\CB}</m> to find an eigenvector for <m>T</m> corresponding to the eigenvalue <m>\lambda_1 = 4</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    You should notice that the matrices <m>[T]_{\CS}</m> and
+    <m>[T]_{\CB}</m> in Preview <xref ref="pa_8_c">Activity</xref>
+    and <xref ref="act_8_c_ltev2">Activity</xref> are similar matrices.
+    In fact, if <m>P = \underset{\CB \leftarrow \CS}{P}</m> is the change of basis matrix from <m>\CS</m> to <m>\CB</m>,
+    then <m>P^{-1}[T]_{\CB}P = [T]_{\CS}</m>.
+    So it must be the case that <m>[T]_{\CS}</m> and
+    <m>[T]_{\CB}</m> have the same eigenvalues.
+    What Preview <xref ref="pa_8_c">Activity</xref>,
+    <xref ref="ex_8_c_evals_linear_Transformations">Exercise</xref>,
+    and <xref ref="act_8_c_ltev2">Activity</xref>
+    demonstrate is that the eigenvalues of a linear transformation
+    <m>T : V \to V</m> for any <m>n</m> dimensional vector space <m>V</m> are the eigenvalues of the matrix for <m>T</m> relative to any basis for <m>V</m>.
+    We can then find corresponding eigenvectors for <m>T</m> using the methods demonstrated in Preview <xref ref="pa_8_c">Activity</xref>
+    and <xref ref="act_8_c_ltev2">Activity</xref>.
+    That is, if <m>\vv</m> is an eigenvector of <m>T</m> with eigenvalue <m>\lambda</m>,
+    and <m>\CB</m> is any basis for <m>V</m>, then
+    <me>
+      [T]_{\CB}[\vv]_{\CB} = [T(\vv)]_{\CB} = [\lambda \vv]_{\CB} = \lambda [\vv]_{\CB}
+    </me>.
+  </p>
+  <p>
+    Thus, once we find an eigenvector
+    <m>[\vv]_{\CB}</m> for <m>[T]_{\CB}</m>,
+    the vector <m>\vv</m> is an eigenvector for <m>T</m>.
+    This is summarized in the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>V</m> be a finite dimensional vector space with basis <m>\CB</m> and let
+        <m>T : V \to V</m> be a linear transformation.
+        A vector <m>\vv</m> in <m>V</m> is an eigenvector of <m>T</m> with eigenvalue <m>\lambda</m> if and only if the vector <m>[\vv]_{\CB}</m> is an eigenvector of
+        <m>[T]_{\CB}</m> with eigenvalue <m>\lambda</m>.
+      </p>
+    </statement>
+  </theorem>
+</section>

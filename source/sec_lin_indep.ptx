@@ -1,0 +1,74 @@
+<section xml:id="sec_lin_indep">
+  <title>Linear Independence</title>
+  <p>
+    The concept of linear independence,
+    which we formally defined in Preview <xref ref="pa_5_b">Activity</xref>,
+    provides us with a process to determine if there is redundancy in a spanning set to obtain an efficient spanning set.
+  </p>
+  <p>
+    The definition tells us that a set
+    <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> of vectors in a vector space <m>V</m> is linearly dependent if there are scalars <m>x_1</m>,
+    <m>x_2</m>,
+    <m>\ldots</m>, <m>x_n</m>, not all of which are 0 so that
+    <me>
+      x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k = \vzero
+    </me>.
+  </p>
+  <p>
+    As examples,
+    we saw in Preview <xref ref="pa_5_b">Activity</xref>
+    that the set <m>\{1+t, 1-t\}</m> is linearly independent in <m>\pol_1</m>.
+    The set <m>\{1+t, -1+2t+t^2, 1-8t-3t^2\}</m>, on the other hand,
+    is linearly dependent in <m>\pol_2</m> since <m>2(1+t) + 3(-1+2t+t^2) + (1-8t-3t^2) = 0</m>.
+  </p>
+  <p>
+    In addition to the definition,
+    there are other ways to characterize linearly independent and dependent sets in vector spaces as the next theorems illustrate.
+    These characterizations are the same as those we saw in <m>\R^n</m>,
+    and the proofs are essentially the same as well.
+    The proof of <xref ref="thm_5_b_1">Theorem</xref>
+    is similar to that of <xref ref="thm_Dependence">Theorem</xref>
+    and is left for the exercises.
+  </p>
+  <theorem xml:id="thm_5_b_1">
+    <statement>
+      <p>
+        A set <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> of vectors in a vector space <m>V</m> is linearly dependent if and only if at least one of the vectors in the set can be written as a linear combination of the remaining vectors in the set.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    <xref ref="thm_5_b_1">Theorem</xref>
+    is equivalent to the following theorem that provides the corresponding result for linearly independent sets.
+  </p>
+  <theorem xml:id="thm_5_b_2">
+    <statement>
+      <p>
+        A set <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> of vectors in a vector space <m>V</m> is linearly independent if and only if no vector in the set can be written as a linear combination of the remaining vectors in the set.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    One consequence of <xref ref="thm_5_b_1">Theorems</xref>
+    and <xref ref="thm_5_b_2"></xref>
+    is that if a spanning set is linearly dependent,
+    then one of the vectors in the set can be written as a linear combination of the others.
+    In other words, at least one of the vectors is redundant.
+    In that case,
+    we can find a smaller spanning set as the next theorem states.
+    The proof of this theorem is similar to that of <xref ref="thm_minimal_spanning_set">Theorem</xref>
+    and is left for the exercises.
+  </p>
+  <theorem xml:id="thm_5_b_3">
+    <statement>
+      <p>
+        Let <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> be a set of vectors in a vector space <m>V</m>.
+        If for some <m>i</m> between 1 and <m>k</m>,
+        <m>\vv_i</m> is in <m>\Span \{\vv_1, \vv_2, \ldots, \vv_{i-1}, \vv_{i+1}, \ldots, \vv_k\}</m>, then
+        <me>
+          \Span\{\vv_1, \vv_2, \ldots, \vv_k\} = \Span\{\vv_1, \vv_2, \ldots, \vv_{i-1}, \vv_{i+1}, \ldots, \vv_k\}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+</section>

@@ -1,0 +1,206 @@
+<section xml:id="sec_det_prop_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        <nbsp/>
+        <ul>
+          <li>
+            <p>
+              If <m>A</m>, <m>B</m> are <m>n\times n</m> matrices with
+              <m>\det(A)=3</m> and <m>\det(B)=2</m>,
+              evaluate the following determinant values.
+              Briefly justify.
+              <ol label="i">
+                <li>
+                  <p>
+                    <m>\det(A^{-1})</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\det(ABA^{\mathsf{T}})</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\det(A^3(BA)^{-1}(AB)^2)</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              If the determinant of <m>\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array} \right]</m> is <m>m</m>,
+              find the determinant of each of the following matrices.
+              <ol label="i">
+                <li>
+                  <p>
+                    <m>\left[ \begin{array}{ccc} a\amp b\amp c\\2d\amp 2e\amp 2f\\g\amp h\amp i \end{array} \right]</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\left[ \begin{array}{ccc} d\amp e\amp f\\g\amp h\amp i\\a\amp b\amp c \end{array} \right]</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\left[ \begin{array}{ccc} a\amp b\amp c\\g-2d\amp h-2e\amp i-2f\\a+d\amp b+e\amp c+f \end{array} \right]</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Assume that <m>\det(A)=3</m> and <m>\det(B)=2</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Since <m>\det(A) \neq 0</m>, we know that <m>A</m> is invertible.
+                    Since <m>1 = \det(I_n) = \det(AA^{-1}) = \det(A) \det(A^{-1})</m>,
+                    it follows that <m>\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{3}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    We know that <m>\det(A^{\tr}) = \det(A)</m>, so
+                    <md>
+                      <mrow>\det(ABA^\tr) \amp = \det(A) \det(B) \det(A^{\tr})</mrow>
+                      <mrow>\amp = \det(A) \det(B) \det(A)</mrow>
+                      <mrow>\amp = (3)(2)(3)</mrow>
+                      <mrow>\amp = 18</mrow>
+                    </md>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Using properties of determinants gives us
+                    <md>
+                      <mrow>\det(A^3(BA)^{-1}(AB)^2) \amp = \det(A^3)\det((BA)^{-1}) \det((AB)^2)</mrow>
+                      <mrow>\amp = (\det(A))^3 \left(\frac{1}{\det(AB)}\right) (\det(AB))^2</mrow>
+                      <mrow>\amp = 27 \left(\frac{1}{\det(A) \det(B)} \right) (\det(A)\det(B))^2</mrow>
+                      <mrow>\amp = \frac{(27)(6^2)}{6}</mrow>
+                      <mrow>\amp = 162</mrow>
+                    </md>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Assume that <m>\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Multiplying a row by a scalar multiples the determinant by that scalar, so
+                    <me>
+                      \det\left( \left[ \begin{array}{ccc} a\amp b\amp c\\2d\amp 2e\amp 2f\\g\amp h\amp i \end{array}  \right] \right) = 2m
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Interchanging two rows multiples the determinant by <m>-1</m>.
+                    It takes two row swaps in the original matrix to obtain this one, so
+                    <me>
+                      \det\left( \left[ \begin{array}{ccc} d\amp e\amp f\\g\amp h\amp i\\a\amp b\amp c \end{array}  \right] \right) = (-1)^2m = m
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Adding a multiple of a row to another does not change the determinant of the matrix.
+                    Since there is a row swap needed to get this matrix from the original we have
+                    <me>
+                      \det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\g-2d\amp h-2e\amp i-2f\\a+d\amp b+e\amp c+f \end{array}  \right]\right) = -m
+                    </me>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \left[ \begin{array}{ccr} 2\amp 8\amp 0\\2\amp 2\amp -3\\1\amp 2\amp 7 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Find an LU factorization for <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the LU factorization with forward substitution and back substitution to solve the system <m>A \vx = [18 \ 3 \ 12]^{\tr}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We row reduce <m>A</m> to an upper triangular matrix by applying elementary matrices.
+              First notice that if <m>E_1 = \left[ \begin{array}{rcc} 1\amp 0\amp 0 \\-1\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{array}  \right]</m>, then
+              <me>
+                E_1 A = \left[ \begin{array}{crr} 2\amp 8\amp 0 \\ 0\amp -6\amp -3 \\ 1\amp 2\amp 7 \end{array}  \right]
+              </me>.
+              Letting <m>E_2 =  \left[ \begin{array}{rcc} 1\amp 0\amp 0 \\0\amp 1\amp 0 \\ -\frac{1}{2}\amp 0\amp 1 \end{array}  \right]</m> gives us
+              <me>
+                E_2E_1A = \left[ \begin{array}{crr} 2\amp 8\amp 0 \\ 0\amp -6\amp -3 \\ 0\amp -2\amp 7 \end{array}  \right]
+              </me>.
+              Finally, when <m>E_3 = \left[ \begin{array}{crc} 1\amp 0\amp 0 \\0\amp 1\amp 0 \\ 0\amp -\frac{1}{3}\amp 1 \end{array}  \right]</m> we have
+              <me>
+                U=E_3E_2E_1A = \left[ \begin{array}{crr} 2\amp 8\amp 0 \\ 0\amp -6\amp -3 \\ 0\amp 0\amp 8 \end{array}  \right]
+              </me>.
+              This gives us <m>E_3E_2E_1A = U</m>, so we can take
+              <me>
+                L = E_1^{-1}E_2^{-1}E_3^{-1} =  \left[ \begin{array}{ccc} 1\amp 0\amp 0 \\1\amp 1\amp 0 \\ \frac{1}{2}\amp \frac{1}{3}\amp 1 \end{array}  \right]
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              To solve the system <m>A \vx = \vb</m>,
+              where <m>\vb = [18 \ 3 \ 12]^{\tr}</m>,
+              we use the LU factorization of <m>A</m> and solve <m>LU \vx = \vb</m>.
+              Let <m>\vx = [x_1 \ x_2 \ x_3]^{\tr}</m> and let <m>\vz = [z_1 \ z_2 \ z_3]^{\tr}</m> with
+              <m>U \vx = \vz</m> so that <m>L \vz = L(U\vx) = A\vx = \vb</m>.
+              First we solve <m>L \vz = [18 \ 3 \ 12]^{\tr}</m> to find <m>\vz</m> using forward substitution.
+              The first row of <m>L</m> shows that
+              <m>z_1 = 18</m> and the second row that <m>z_1 + z_2 = 3</m>.
+              So <m>z_2 = -15</m>.
+              The third row of <m>L</m> gives us <m>\frac{1}{2}z_1 + \frac{1}{3}z_2 + z_3 = 12</m>,
+              so <m>z_3 = 12 - 9 + 5 = 8</m>.
+              Now to find <m>\vx</m> we solve
+              <m>U \vx = \vz</m> using back substitution.
+              The third row of <m>U</m> tells us that
+              <m>8x_3 = 8</m> or that <m>x_3 = 1</m>.
+              The second row of <m>U</m> shows that <m>-6x_2-3x_3 = -15</m> or <m>x_2 =2</m>.
+              Finally, the first row of <m>U</m> gives us <m>2x_1+8x_2 = 18</m>,
+              or <m>x_1 = 1</m>.
+              So the solution to <m>A \vx = \vb</m> is <m>\vx = [1 \ 2 \ 1]^{\tr}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

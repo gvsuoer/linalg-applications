@@ -1,0 +1,234 @@
+<section xml:id="sec_proj_gps">
+  <title>Project: GPS and Least Squares</title>
+  <p>
+    In this project we discuss some of the details about how the GPS works.
+    The idea is based on intersections of spheres.
+    To build a basic understanding of the system,
+    we begin with a 2-dimensional example.
+  </p>
+  <activity xml:id="act_GPS_plane_ex">
+    <p>
+      Suppose that there are three base stations <m>A</m>, <m>B</m>,
+      and <m>C</m> in <m>\R^2</m> that can send and receive signals from your mobile phone.
+      Assume that <m>A</m> is located at point <m>(-1,-2)</m>,
+      <m>B</m> at point <m>(36,5)</m>,
+      and <m>C</m> at point <m>(16,35)</m>.
+      Also assume that your mobile phone location is point <m>(x,y)</m>.
+      Based on the time that it takes to receive the signals from the three base stations,
+      it can be determined that your distance to base station <m>A</m> is <m>28</m> km,
+      your distance to base station <m>B</m> is <m>26</m> km,
+      and your distance to base station <m>C</m> is <m>14</m> km using a coordinate system with measurements in kilometers based on a reference point chosen to be <m>(0,0)</m>.
+      Due to limitations on the measurement equipment,
+      these measurements all contain some unknown error which we will denote as <m>z</m>.
+      The goal is to determine your location in <m>\R^2</m> based on this information.
+    </p>
+    <p>
+      If the distance readings were accurate,
+      then the point <m>(x,y)</m> would lie on the circle centered at <m>A</m> of radius <m>29</m>.
+      The distance from <m>(x,y)</m> to base station <m>A</m> can be represented in two different ways:
+      <m>28</m> km and <m>\sqrt{(x+1)^2 + (y+2)^2}</m>.
+      However, there is some error in the measurements
+      (due to the receiver clock and satellite clocks not being snychronized),
+      so we really have
+      <me>
+        \sqrt{(x+1)^2 + (y+2)^2} + z = 28
+      </me>,
+      where <m>z</m> is the error.
+      Similarly, <m>(x,y)</m> must also satisfy
+      <me>
+        \sqrt{(x-36)^2 + (y-5)^2} + z = 26
+      </me>
+      and
+      <me>
+        \sqrt{(x-16)^2 + (y-35)^2} + z = 14
+      </me>.
+      <ul>
+        <li>
+          <p>
+            Explain how these three equations can be written in the equivalent form
+            <md>
+              <mrow xml:id="eq_GPS_2D_1" number="yes">(x+1)^2+(y+2)^2\amp =(28-z)^2</mrow>
+              <mrow xml:id="eq_GPS_2D_2" number="yes">(x-36)^2 + (y-5)^2 \amp = (26-z)^2</mrow>
+              <mrow xml:id="eq_GPS_2D_3" number="yes">(x-16)^2 + (y-35)^2 \amp = (14-z)^2</mrow>
+            </md>.
+            <figure xml:id="F_GPS_circles">
+              <caption>Intersections of circles.</caption>
+              <image width="73%" source="7_d_Ex2_D_circles"/>
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            If all measurements were accurate,
+            your position would be at the intersection of the circles centered at <m>A</m> with radius <m>28</m> km,
+            centered at <m>B</m> with radius <m>26</m> km,
+            and centered at <m>C</m> with radius <m>14</m> km as shown in <xref ref="F_GPS_circles">Figure</xref>.
+            Even though the figure might seem to imply it,
+            because of the error in the measurements the three circles do not intersect in one point.
+            So instead, we want to find the best estimate of a point of intersection that we can.
+            The system of <xref ref="eq_GPS_2D_1">equations</xref>,
+            <xref ref="eq_GPS_2D_2"></xref>,
+            and <xref ref="eq_GPS_2D_3"></xref>
+            is non-linear and can be difficult to solve,
+            if it even has a solution.
+            To approximate a solution, we can linearize the system.
+            To do this, show that if we subtract corresponding sides of equation  <xref ref="eq_GPS_2D_1"/> from <xref ref="eq_GPS_2D_2"/> and expand both sides,
+            we can obtain the linear equation
+            <me>
+              37x + 7y + 2z = 712
+            </me>
+            in the unknowns <m>x</m>, <m>y</m>, and <m>z</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Repeat the process in part (b),
+            subtracting <xref ref="eq_GPS_2D_1"/> from <xref ref="eq_GPS_2D_3"/> and show that we can obtain the linear equation
+            <me>
+              17x + 37y + 14z = 1032
+            </me>
+            in <m>x</m>, <m>y</m>, and <m>z</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            We have reduced our system of three non-linear equations to the system
+            <md>
+              <mrow>{4} {37}x   \amp {}+{}   \amp {7}y   \amp {}+{}  \amp {2}z   \amp = \amp {}   \amp 712</mrow>
+              <mrow>{17}x    \amp {}+{}   \amp {37}y   \amp {}+{}   \amp {14}z  \amp = \amp {}  \amp 1032</mrow>
+            </md>
+            of two linear equations in the unknowns <m>x</m>, <m>y</m>,
+            and <m>z</m>.
+            Use technology to find a pseudoinverse of the coefficient matrix of this system.
+            Use the pseudoinverse to find the least squares solution to this system.
+            Does your solution correspond to an approximate point of intersection of the three circles?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Project <xref ref="act_GPS_plane_ex">Activity</xref>
+    provides the basic idea behind GPS. Suppose you receive a signal from a GPS satellite.
+    The transmission from satellite <m>i</m> provides four pieces of information <mdash/> a location
+    <m>(x_i,y_i,z_i)</m> and a time stamp <m>t_i</m> according to the satellite's atomic clock.
+    The time stamp allows the calculation of the distance between you and the <m>i</m>th satellite.
+    The transmission travel time is calculated by subtracting the current time on the GPS receiver from the satellite's time stamp.
+    Distance is then found by multiplying the transmission travel time by the rate,
+    which is the speed of light <m>c=299792.458</m> km/s.<fn>
+    The signals travel in radio waves,
+    which are electromagnetic waves,
+    and travel at the speed of light.
+    Also, <m>c</m> is the speed of light in a vacuum,
+    but atmosphere is not too dense so we assume this value of <m>c</m>
+    </fn> So distance is found as <m>c(t_i-d)</m>,
+    where <m>d</m> is the time at the receiver.
+    This signal places your location within in a sphere of that radius from the center of the satellite.
+    If you receive a signal at the same time from two satellites,
+    then your position is at the intersection of two spheres.
+    As can be seen at left in <xref ref="F_Spheres">Figure</xref>,
+    that intersection is a circle.
+    So your position has been narrowed quite a bit.
+    Now if you receive simultaneous signals from three spheres,
+    your position is narrowed to the intersection of three spheres,
+    or two points as shown at right in <xref ref="F_Spheres">Figure</xref>.
+    So if we could receive perfect information from three satellites,
+    then your location would be exactly determined.
+  </p>
+  <figure xml:id="F_Spheres">
+    <caption>Intersections of spheres.</caption>
+    <image width="73%" source="7_d_two_spheres.jpg"/>   <image width="73%" source="7_d_three_spheres.jpg"/>
+  </figure>
+  <p>
+    There is a problem with the above analysis <mdash/> calculating the distances.
+    These distances are determined by the time it takes for the signal to travel from the satellite to the GPS receiver.
+    The times are measured by the clocks in the satellites and the clocks in the receivers.
+    Since the GPS receiver clock is unlikely to be perfectly synchronized with the satellite clock,
+    the distance calculations are not perfect.
+    In addition,
+    the rate at which the signal travels can change as the signal moves through the ionosphere and the troposphere.
+    As a result,
+    the calculated distance measurements are not exact,
+    and are referred to as <em>pseudoranges</em>.
+    In our calculations we need to factor in the error related to the time discrepancy and other factors.
+    We will incorporate these errors into our measure of <m>d</m> and treat <m>d</m> as an unknown.
+    (Of course, this is all more complicated that is presented here,
+    but this provides the general idea.)
+  </p>
+  <p>
+    To ensure accuracy, the GPS uses signals from four satellites.
+    Assume a satellite is positioned at point
+    <m>(x_1,y_1,z_1)</m> at a distance <m>d_1</m> from the GPS receiver located at point <m>(x,y,z)</m>.
+    The distance can also be measured in two ways: as
+    <me>
+      \sqrt{(x-x_1)^2+(y-y_1)^2+(z-z_1)^2}
+    </me>.
+    and as <m>c(t_1-d)</m>.
+    So
+    <me>
+      c(t_1-d) = \sqrt{(x-x_1)^2 + (y-y_1)^2 + (z-z_1)^2}
+    </me>.
+  </p>
+  <p>
+    Again, we are treating <m>d</m> as an unknown,
+    so this equation has the four unknowns <m>x</m>,
+    <m>y</m>, <m>z</m>, and <m>d</m>.
+    Using signals from four satellites produces the system of equations
+    <md>
+      <mrow xml:id="eq_GPS_1_sqrt" number="yes">\sqrt{(x-x_1)^2 + (y-y_1)^2 + (z-z_1)^2} \amp =  c(t_1-d)</mrow>
+      <mrow xml:id="eq_GPS_2_sqrt" number="yes">\sqrt{(x-x_2)^2 + (y-y_2)^2 + (z-z_2)^2}  \amp =  c(t_2-d)</mrow>
+      <mrow xml:id="eq_GPS_3_sqrt" number="yes">\sqrt{(x-x_3)^2 + (y-y_3)^2 + (z-z_3)^2} \amp =  c(t_3-d)</mrow>
+      <mrow xml:id="eq_GPS_4_sqrt" number="yes">\sqrt{(x-x_4)^2 + (y-y_4)^2 + (z-z_4)^2} \amp =  c(t_4-d)</mrow>
+    </md>.
+  </p>
+  <activity xml:id="act_GPS_3D">
+    <p>
+      The system of equations <xref ref="eq_GPS_1_sqrt"/>,
+      <xref ref="eq_GPS_2_sqrt"/>, <xref ref="eq_GPS_3_sqrt"/>,
+      and <xref ref="eq_GPS_4_sqrt"/> is a non-linear system and is difficult to solve,
+      if it even has a solution.
+      We want a method that will provide at least an approximate solution as well as apply if we use more than four satellites.
+      We choose a reference node (say
+      <m>(x_1, y_1, z_1)</m>) and make calculations relative to that node as we did in Project <xref ref="act_GPS_plane_ex">Activity</xref>.
+      <ul>
+        <li>
+          <p>
+            First square both sides of the equations <xref ref="eq_GPS_1_sqrt"/>,
+            <xref ref="eq_GPS_2_sqrt"/>, <xref ref="eq_GPS_3_sqrt"/>,
+            and <xref ref="eq_GPS_4_sqrt"/> to remove the roots.
+            Then subtract corresponding sides of the new first equation (involving
+            <m>(x_1,y_1,z_1)</m>) from the new second equation  (involving
+            <m>(x_2,y_2,z_2)</m>) to show that we can obtain the linear equation
+            <me>
+              2(x_2-x_1)x + 2(y_2-y_1)y + 2(z_2-z_1)z + 2c^2(t_1-t_2)d = c^2(t_1^2-t_2^2)  - h_1 +h_2
+            </me>,
+            where <m>h_i = x_i^2 + y_i^2 + z_i^2</m>.
+            (Note that the unknowns are <m>x</m>, <m>y</m>, <m>z</m>,
+            and <m>d</m> <mdash/> all other quantities are known.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the result of part (a) to write a linear system that can be obtained by subtracting the first equation from the third and fourth equations as well.
+          </p>
+        </li>
+        <li>
+          <p>
+            The linearizations from part (b) determine a system <m>A \vx = \vb</m> of linear equations.
+            Identify <m>A</m>, <m>\vx</m>, and <m>\vb</m>.
+            Then explain how we can approximate a best solution to this system in the least squares sense.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    We conclude this project with a final note.
+    At times a GPS receiver may only be able to receive signals from three satellites.
+    In these situations,
+    the receiver can substitute the surface of the Earth as a fourth sphere and continue the computation.
+  </p>
+  <p>
+    \part{Vector Spaces}
+  </p>
+</section>

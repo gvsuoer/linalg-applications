@@ -1,0 +1,173 @@
+<section xml:id="sec_sys_inf_sols">
+  <title>Linear Systems with Infinitely Many Solutions</title>
+  <p>
+    Each of the systems that we solved so far have had a unique
+    (exactly one)
+    solution.
+    The geometric representation of linear systems with two equations in two variables shows that this does not always have to be the case.
+    We also have linear systems with no solution and systems with infinitely many solutions.
+    We now consider the problem of how to represent the set of solutions of a linear system that has infinitely many solutions.
+    (Systems with infinitely many solutions will also be of special interest to us a bit later when we study eigenspaces of a matrix.)
+  </p>
+  <activity xml:id="act_A1_2_3">
+    <p>
+      Consider the system
+      <md>
+        <mrow>{4} {}x_1  \amp {}+{}   \amp {2}x_2    \amp {}-{}  \amp {}x_3   \amp {}= \amp  \ 1\amp {}</mrow>
+        <mrow>{}x_1  \amp {}+{}  \amp {}x_2     \amp {}-{}  \amp {3}x_3  \amp {}= \amp  \ 0\amp {}</mrow>
+        <mrow>{2}x_1  \amp {}+{}  \amp {3}x_2    \amp {}-{}  \amp {4}x_3 \amp {}= \amp  \ 1\amp {.}</mrow>
+      </md>
+      <ul>
+        <li>
+          <p>
+            Without explicitly solving the system,
+            check that <m>(-1,1,0)</m> and
+            <m>(4,-1,1)</m> are solutions to this system.
+          </p>
+        </li>
+        <li>
+          <p>
+            Without explicitly solving the system,
+            show that <m>x_1 = -1+5t</m>, <m>x_2 = 1-2t</m>,
+            and <m>x_3 = t</m> is a solution to this system for any value of <m>t</m>.
+            What values of <m>t</m> yield the solutions
+            <m>(-1,1,0)</m> and <m>(4,-1,1)</m> from part (a)?
+            The equations <m>x_1 = -1+5t</m>, <m>x_2 = 1-2t</m>,
+            and <m>x_3 = t</m> form what is called a
+            <em>parametric solution</em>
+            to the system with <em>parameter</em> <m>t</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Part (b) shows that our system has infinitely many solutions.
+            We were given solutions in part (b) <mdash/> but how do we find these solutions and how do we know that these are all of the solutions?
+            We address those questions now.
+            If we apply row operations to the augmented matrix
+            <me>
+              \left[ \begin{array}{ccr|c} 1\amp 2\amp -1\amp 1 \\ 1\amp 1\amp -3\amp 0 \\ 2\amp 3\amp -4\amp 1 \end{array}  \right]
+            </me>
+            of this system,
+            we can reduce this system to one with augmented matrix
+            <me>
+              \left[ \begin{array}{ccr|c} 1\amp 2\amp -1\amp 1 \\ 0\amp 1\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+            </me>.
+            <ol label="i">
+              <li>
+                <p>
+                  What is it about this reduced form of the augmented matrix that indicates that the system has infinitely many solutions?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since the system has infinitely many solutions,
+                  we will not be able to explicitly determine values for each of the variables.
+                  Instead, at least one of the variables can be chosen arbitrarily.
+                  What is it about the reduced form of the augmented matrix that indicates that <m>x_3</m> is convenient to choose as the arbitrary variable?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Letting <m>x_3</m> be arbitrary
+                  (we call <m>x_3</m> a <em>free</em> variable),
+                  use the second row to show that <m>x_2 = 1-2x_3</m>
+                  (so that we can write <m>x_2</m> in terms of the arbitrary variable <m>x_3</m>).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the first row to show that <m>x_1 = 5x_3-1</m>
+                  (and we can write <m>x_1</m> in terms of the arbitrary variable <m>x_3</m>).
+                  Compare this to the solutions from part (b).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    After using the elimination method,
+    the first non-zero coefficient
+    (from the left)
+    of each equation in the linear system is in a different position.
+    We call each such coefficient a <em>pivot</em>
+    and a variable corresponding to a pivot a
+    <em>basic variable</em>.
+    In the system
+    <md>
+      <mrow>{5} {}a_2  \amp {}-{}   \amp {}a_1     \amp {}+{}  \amp {}a_0   \amp {}= \amp  \ {}\amp \amp {}2</mrow>
+      <mrow>{}       \amp {}    \amp {2}a_1    \amp {}    \amp {}     \amp {}= \amp  \ {}\amp \amp {}4</mrow>
+      <mrow>{}     \amp {}     \amp {}       \amp {}-{}  \amp {3}a_0  \amp {}= \amp  \ {-}\amp \amp {15}</mrow>
+    </md>
+    the basic variables are <m>a_2, a_1, a_0</m> for the first, second,
+    and third equations, respectively.
+    In the system,
+    <md>
+      <mrow>{5} {}x_1  \amp {}+{}   \amp {2}x_2   \amp {}-{}  \amp {}x_3   \amp {}= \amp  \ 1</mrow>
+      <mrow>{}       \amp {}    \amp {}x_2     \amp {}+{}  \amp {2}x_3  \amp {}= \amp  \ 1</mrow>
+      <mrow>{}     \amp {}     \amp {}       \amp {}    \amp {}0   \amp {}= \amp  0</mrow>
+    </md>
+    the basic variables are <m>x_1</m> and <m>x_2</m> for the first and second equations,
+    respectively,
+    while the third equation does not have a basic variable.
+    Through back-substitution,
+    we can solve for each variable in a unique way if each appears as the basic variable in an equation.
+    If, however, a variable is <em>free</em>,
+    meaning that it is not the basic variable of an equation,
+    we cannot solve for that variable explicitly.
+    We instead assign a distinct parameter to each such free variable and solve for the basic variables in terms of these parameters.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The first non-zero coefficient
+        (from the left)
+        in an equation in a linear system after elimination is called a <term>pivot</term>.
+            <idx><h>pivot</h></idx>
+        A variable corresponding to a pivot is a
+        <term>basic variable</term>
+            <idx><h>basic variable</h></idx>
+        and while a variable not corresponding to a pivot is a
+        <term>free variable</term>.
+            <idx><h>free variable</h></idx>
+      </p>
+    </statement>
+  </definition>
+  <activity xml:id="act_A1_2_4">
+    <p>
+      Each matrix is an augmented matrix for a linear system after elimination.
+      Identify the basic variables
+      (if any)
+      and free variables
+      (if any).
+      Then write the general solution
+      (if there is a solution)
+      expressing all variables in terms of the free variables.
+      Use any symbols you like for the variables.
+      <ul>
+        <li>
+          <p>
+            <m>\left[ \begin{array}{ccc|c} 1\amp 0\amp 2\amp 1 \\ 0\amp 3\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left[ \begin{array}{ccr|c} 1\amp 0\amp -1\amp 1 \\ 0\amp 0\amp 1\amp 2 \\ 0\amp 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left[ \begin{array}{ccrc|c} 1\amp 2\amp -1\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    \begin{reflect} Does the existence of a row of 0's always mean a free variable?
+    Can you think of an example where there is a row of 0's but none of the variables is free?
+    How do the numbers of equations and the variables compare in that case? \end{reflect}
+  </p>
+</section>

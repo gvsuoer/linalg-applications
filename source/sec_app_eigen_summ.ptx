@@ -1,0 +1,30 @@
+<section xml:id="sec_app_eigen_summ">
+  <title>Summary</title>
+  <ul>
+    <li>
+      <p>
+        The power method is an iterative method that can be used to approximate the dominant eigenvalue of an
+        <m>n \times n</m> matrix <m>A</m> that has <m>n</m> linearly independent eigenvectors and a dominant eigenvalue.
+      </p>
+    </li>
+    <li>
+      <p>
+        To use the power method we start with a seed <m>\vx_0</m> and then calculate the sequence <m>\{\vx_k\}</m> of vectors,
+        where <m>\vx_k = A \vx_{k-1}</m>.
+        If <m>\vx_0</m> is chosen well,
+        then the sequence <m>\{\vx_k\}</m> converges to a dominant eigenvector of <m>A</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        If <m>A</m> is an <m>n \times n</m> matrix with eigenvalues <m>\lambda_1</m>,
+        <m>\lambda_2</m>,
+        <m>\ldots</m>, <m>\lambda_n</m>,
+        to approximate an eigenvector of <m>A</m> corresponding to the eigenvalue <m>\lambda_i</m>,
+        we apply the power method to the matrix <m>B = (A - \alpha I_n)^{-1}</m>,
+        where <m>\alpha</m> is not a eigenvalue of <m>A</m> and
+        <m>\left| \frac{1}{\lambda_i - \alpha} \right| > \left| \frac{1}{\lambda_j - \alpha} \right|</m> for any <m>j \neq i</m>.
+      </p>
+    </li>
+  </ul>
+</section>

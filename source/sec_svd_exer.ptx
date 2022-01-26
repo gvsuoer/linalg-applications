@@ -1,0 +1,302 @@
+<section xml:id="sec_svd_exer">
+  <title>Exercises</title>
+  <ol>
+    <li>
+      <p>
+        Find a singular value decomposition of the following matrices.
+        <ul>
+          \begin{minipage}{2.0in}
+          <li>
+            <p>
+              <m>\left[ \begin{array}{cc} 1\amp 1\\0\amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\left[ \begin{array}{c} 1\\0\\1 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\left[ \begin{array}{ccc} 1\amp 1\amp 0\\1\amp 0\amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\left[ \begin{array}{cc} 1\amp 2\\2\amp 1\\3\amp 1\\1\amp 3 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\left[ \begin{array}{cccc} 2\amp 0\amp 0\amp 0\\0\amp 2\amp 1\amp 0\\0\amp 1\amp 2\amp 0 \end{array} \right]</m> \end{minipage}
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix of rank <m>r</m> with singular value decomposition <m>U \Sigma V^{\tr}</m>,
+        where <m>U = [ \vu_1 \ \vu_2 \ \cdots \ \vu_m ]</m> and <m>V = [\vv_1 \ \vv_2 \ \cdots \ \vv_n]</m>.
+        We have seen that the set <m>\{ \vu_1, \vu_2, \ldots, \vu_r\}</m> is a basis for <m>\Col A</m>,
+        and the vectors <m>\vv_{r+1}</m>,
+        <m>\vv_{r+2}</m>, <m>\ldots</m>,
+        <m>\vv_n</m> form a basis for <m>\Nul A</m>.
+        In this exercise we examine the set
+        <m>\{\vv_1, \vv_2, \ldots, \vv_r\}</m> and determine what this set tells us about <m>\Row A</m>.
+        <ul>
+          <li>
+            <p>
+              Find a singular value decomposition for <m>A^{\tr}</m>.
+              <hint>
+                <p>
+                  Use the singular value decomposition <m>U \Sigma V^{\tr}</m> for <m>A</m>.
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the result of (a) shows that the set
+              <m>\{\vv_1, \vv_2, \ldots, \vv_r\}</m> is a basis for <m>\Row A</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A = \left[ \begin{array}{cc} 1\amp 1 \\ 2\amp 2 \\ 3\amp 3 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Find the singular values of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a singular value decomposition of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use a singular value decomposition to find orthonormal bases for the following:
+              <ol label="i">
+                <li>
+                  <p>
+                    <m>\Nul A</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\Col A</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\Row A</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A</m> have the singular value decomposition as in <xref ref="eq_7_c_SVD"/>.
+        <ul>
+          <li>
+            <p>
+              Show, using <xref ref="eq_7_c_SVD"/>, that <m>||A\vv_j|| = \sigma_j</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why <m>||A|| = \sigma_1</m>.
+              <hint>
+                <p>
+                  The set <m>\{\vv_1, \vv_2, \ldots, \vv_n\}</m> is an orthonormal basis of <m>\R^n</m>.
+                  Use this to show that <m>||A \vx||^2 \leq \sigma_1^2</m> for any unit vector <m>\vx</m> in <m>\R^n</m>.
+                </p>
+              </hint>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Show that <m>A</m> and <m>A^{\tr}</m> have the same nonzero singular values.
+        How are their singular value decompositions related?
+      </p>
+    </li>
+    <li xml:id="ex_7_c_AAT">
+      <p>
+        The vectors <m>\vv_i</m> that form the columns of the matrix <m>V</m> in a singular value decomposition of a matrix <m>A</m> are eigenvectors of <m>A^{\tr}A</m>.
+        In this exercise we investigate the vectors <m>\vu_i</m> that make up the columns of the matrix <m>U</m> in a singular value decomposition of a matrix <m>A</m> for each <m>i</m> between 1 and the rank of <m>A</m>,
+        and their connection to the matrix <m>AA^{\tr}</m>.
+        <ul>
+          <li>
+            <p>
+              Let <m>A = \left[ \begin{array}{ccr} 1\amp 1\amp 0 \\ 0\amp 1\amp -1 \end{array}  \right]</m>.
+              A singular value decomposition of <m>A</m> is <m>U \Sigma V^{\tr}</m>, where
+              <md>
+                <mrow>U \amp = \frac{1}{\sqrt{2}}\left[ \begin{array}{rr} -1\amp 1</mrow>
+                <mrow>-1\amp -1 \end{array} \right],</mrow>
+                <mrow>\Sigma \amp = \left[ \begin{array}{ccc} \sqrt{3}\amp 0\amp 0</mrow>
+                <mrow>0\amp 1\amp 0 \end{array} \right],</mrow>
+                <mrow>V \amp = \left[ \begin{array}{rcc} -\frac{1}{\sqrt{6}}\amp -\frac{1}{3\sqrt{6}}\amp \frac{1}{\sqrt{6}}</mrow>
+                <mrow>\frac{1}{\sqrt{2}}\amp 0\amp \frac{1}{\sqrt{2}}</mrow>
+                <mrow>-\frac{1}{\sqrt{3}} \amp  \frac{1}{\sqrt{3}} \amp  \frac{1}{\sqrt{3}}\end{array} \right]</mrow>
+              </md>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Determine the rank <m>r</m> of
+                    <m>A^{\tr}A</m> and identify the vectors <m>\vu_1</m>,
+                    <m>\vu_2</m>, <m>\ldots</m>, <m>\vu_r</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Calculate <m>AA^{\tr} \vu_i</m> for each <m>i</m> between 1 and <m>r</m>.
+                    How is <m>AA^{\tr} \vu_i</m> related to <m>\vu_i</m>?
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Now we examine the result of part (a) in general.
+              Let <m>A</m> be an arbitrary matrix.
+              Calculate <m>AA^{\tr} \vu_i</m> for
+              <m>1 \leq i \leq \rank(A)</m> and determine specifically how
+              <m>AA^{\tr} \vu_i</m> is related to <m>\vu_i</m>.
+              What does this tell us about the vectors <m>\vu_i</m> and the matrix <m>AA^{\tr}</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Now show in general that the columns of <m>U</m> are orthonormal eigenvectors for <m>AA^{\tr}</m>. (That is,
+              what can we say about the vectors <m>\vu_i</m> if <m>i > \rank(A)</m>?)
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        If <m>A</m> is a symmetric matrix with eigenvalues
+        <m>\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n \geq 0</m>,
+        what is <m>||A||</m>?
+        Justify your answer.
+      </p>
+    </li>
+    <li xml:id="ex_7_c_Symmetric_SVD">
+      <p>
+        Let <m>A</m> be a <m>n \times n</m> symmetric matrix.
+        <ul>
+          <li>
+            <p>
+              Show that if <m>\vv</m> is an eigenvector of <m>A</m> with eigenvalue <m>\lambda</m>,
+              then <m>\vv</m> is an eigenvector for <m>A^{\tr}A</m>.
+              What is the corresponding eigenvalue?
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that if <m>\vv</m> is an eigenvector of
+              <m>A^{\tr}A</m> with non-negative eigenvalue <m>\lambda</m>,
+              then <m>A\vv</m> is an eigenvector of <m>A^{\tr}A</m>.
+              What is the corresponding eigenvalue?
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>U \Sigma V^{\tr}</m> is a singular value decomposition of <m>A</m>.
+              Explain why <m>V \Sigma V^{\tr}</m> is also a singular value decomposition of <m>A</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_c_rank1">
+      <p>
+        Let <m>\vu_1</m>, <m>\vu_2</m>,
+        <m>\ldots</m>, <m>\vu_r</m> and <m>\vv_1</m>,
+        <m>\vv_2</m>, <m>\ldots</m>,
+        <m>\vv_r</m> be the vectors found in a singular value decomposition of a matrix <m>A</m>,
+        where <m>r</m> is the rank of <m>A</m>.
+        Show that <m>\vu_i\vv_i^{\tr}</m> is a rank 1 matrix for each <m>i</m>.
+        <hint>
+          <p>
+            Compare to <xref ref="ex_7_a_spectral_decomposition">Exercise</xref>
+            in <xref ref="sec_orthogonal_diagonalization">Section</xref>.
+          </p>
+        </hint>
+      </p>
+    </li>
+    <li>
+      <p>
+        Is it possible for a matrix <m>A</m> to have a singular value decomposition
+        <m>U \Sigma V^{\tr}</m> in which <m>U = V</m>?
+        If no, explain why.
+        If yes, determine for which matrices we can have <m>U = V</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\sigma</m> is a singular value of a matrix <m>A</m>,
+              then <m>\sigma</m> is an eigenvalue of <m>A^{\tr}A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> A set of right singular vectors of a matrix <m>A</m> is also a set of left singular vectors of <m>A^{\tr}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The transpose of a singular value decomposition of a matrix <m>A</m> is a singular value decomposition for <m>A^{\tr}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Similar matrices have the same singular values.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>A</m> is an <m>n \times n</m> matrix,
+              then the singular values of <m>A^2</m> are the squares of the singular values of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The <m>\Sigma</m> matrix in an SVD of <m>A</m> is unique.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The matrices <m>U, V</m> in an SVD of <m>A</m> are unique.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>A</m> is a positive definite matrix,
+              then an orthogonal diagonalization of <m>A</m> is an SVD of <m>A</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

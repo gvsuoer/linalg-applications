@@ -1,0 +1,201 @@
+<section xml:id="sec_mtx_jordan_geom">
+  <title>Geometry of Matrix Transformations using the Jordan Canonical Form</title>
+  <figure xml:id="F_JCF_geometry_1">
+    <caption>The image of the matrix transformation  <m>T(\vx) =  \frac{1}{3} { \left[ \begin{array}{rr} 8\amp -1
+    -2\amp 7
+    \end{array}  \right] }\vx</m>.</caption>
+    <image width="73%" source="JCF_geometry_1"/>
+  </figure>
+  <p>
+    Recall that we can visualize the action of a matrix transformation defined by a diagonalizable matrix by using a change of basis.
+    For example, let <m>T(\vx) = A\vx</m>,
+    where <m>A = \frac{1}{3}\left[ \begin{array}{rr} 8\amp -1\\-2\amp 7 \end{array} \right]</m>.
+    The eigenvalues of <m>A</m> are <m>\lambda_1 = 3</m> and
+    <m>\lambda_2 = 2</m> with corresponding eigenvectors
+    <m>\vv_1 = [-1 \ 1]^{\tr}</m> and <m>[1 \ 2]^{\tr}</m>.
+    So <m>A</m> is diagonalizable by the matrix <m>P = \left[ \begin{array}{rc} -1\amp 1\\1\amp 2 \end{array} \right]</m>,
+    with <m>P^{-1}AP = D = \left[ \begin{array}{cc} 3\amp 0\\0\amp 2 \end{array} \right]</m>.
+    Note that <m>T(\vx) = PDP^{-1} \vx</m>.
+    Now <m>P^{-1}</m> is a change of basis matrix from the standard basis to the basis <m>\CB = \{\vv_1, \vv_2\}</m>,
+    and <m>D</m> stretches space in the direction of <m>\vv_1</m> by a factor of 3 and stretches space in the direction of <m>\vv_2</m> by a factor of 2, and then <m>P</m> changes basis back to the standard basis.
+    This is illustrated in <xref ref="F_JCF_geometry_1">Figure</xref>.
+  </p>
+  <p>
+    In general, if an <m>n \times n</m> matrix <m>A</m> is diagonalizable,
+    then there is a basis <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}</m> of <m>\R^n</m> consisting of eigenvectors of <m>A</m>.
+    Assume that <m>A \vv_i = \lambda_i \vv_i</m> for each <m>i</m>.
+    Letting <m>P = [\vv_1 \ \vv_2 \ \ldots \ \vv_n]</m> we know that
+    <me>
+      P^{-1}AP = D
+    </me>,
+    where <m>D</m> is the diagonal matrix with <m>\lambda_1</m>,
+    <m>\lambda_2</m>, <m>\ldots</m>,
+    <m>\lambda_n</m> down the diagonal.
+    If <m>T</m> is the matrix transformation defined by <m>T(\vx) = A\vx</m>, then
+    <me>
+      T(\vx) = PDP^{-1} \vx
+    </me>.
+  </p>
+  <p>
+    Now <m>P^{-1}</m> is a change of basis matrix from the standard basis to the basis <m>\CB</m>,
+    and <m>D</m> stretches or contracts space in the direction of <m>\vv_i</m> by the factor <m>\lambda_i</m>,
+    and then <m>P</m> changes basis back to the standard basis.
+    In this way we can visualize the action of the matrix transformation using the basis <m>\CB</m>.
+    If <m>A</m> is not a diagonalizable matrix,
+    we can use the Jordan canonical form to understand the action of the transformation defined by <m>A</m>.
+    We start by analyzing shears.
+  </p>
+  <figure xml:id="F_JCF_shear_1">
+    <caption>Left: A shear in the <m>x</m>-direction. Right: A shear in the direction of the line <m>y=x</m>.</caption>
+    <image width="73%" source="JCF_shear_1"/>   <image width="73%" source="JCF_shear_2"/>
+  </figure>
+  <activity xml:id="act_JCF_shears">
+    <p>
+      Recall from <xref ref="sec_matrix_transformations">Section</xref>
+      that a matrix transformation <m>T</m> defined by <m>T(\vx) = A\vx</m>,
+      where <m>A</m> is of the form
+      <m>\left[ \begin{array}{cc} 1\amp a\\0\amp 1 \end{array}  \right]</m> performs a shear in the <m>x</m> direction,
+      as illustrated at left in <xref ref="F_JCF_shear_1">Figure</xref>.
+      That is, while <m>T(\ve_1) = \ve_1</m>,
+      it is the case that <m>T(\ve_2) = \ve_2 + [a \ 0]^{\tr}</m>.
+      In other words,
+      <m>T(\ve_2)-\ve_2 = [a \ 0]^{\tr}</m> is in <m>\Span \{\ve_1\}</m>.
+      But we can say something more.
+      Show that if <m>\vx = [x_1 \ x_2]^{\tr}</m> is not in <m>\Span \{\ve_1\}</m>, then
+      <me>
+        T(\vx) = \vx + x_2[a \ 0]^{\tr}
+      </me>.
+    </p>
+    <p>
+      The result is that if <m>\vx</m> is not in <m>\Span \{\ve_1\}</m>,
+      then <m>T(\vx) - \vx</m> is in <m>\Span \{\ve_1\}</m>.
+      This leads us to a general definition of a shear.
+    </p>
+    <definition>
+      <statement>
+        <p>
+          A matrix transformation <m>T</m> is a <term>shear</term>
+              <idx><h>shear</h></idx>
+          in the direction of the line <m>\ell</m>
+          (through the origin)
+          in <m>\R^2</m> if
+          <ol>
+            <li>
+              <p>
+                <m>T(\vx) = \vx</m> for all <m>\vx</m> in <m>\ell</m> and
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>T(\vx) - \vx</m> is in <m>\ell</m> for all <m>\vx</m> not in <m>\ell</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <ul>
+      <li>
+        <p>
+          Let <m>S(\vx) = M\vx</m>,
+          where <m>M = \left[ \begin{array}{cr} 3\amp -2\\2\amp -1 \end{array} \right]</m>.
+          Also let <m>\vv_1 = [1 \ 1]^{\tr}</m> and <m>\vv_2 = [1 \ 0]^{\tr}</m>.
+          <ol label="i">
+            <li>
+              <p>
+                Let <m>\vx = \left[ \begin{array}{c} t\\t \end{array} \right]</m> for some scalar <m>t</m>.
+                Calculate <m>S(\vx) = \vx</m>.
+                How is this related to the eigenvalues of <m>M</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Let <m>\vx</m> be any vector not in <m>\Span\{ [1 \ 1]^{\tr}\}</m>.
+                Show that <m>S(\vx) - \vx</m> is in <m>\Span\{ [1 \ 1]^{\tr}\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Explain why <m>S</m> is a shear and how <m>S</m> is related to the image at right in <xref ref="F_JCF_shear_1">Figure</xref>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ul>
+  </activity>
+  <p>
+    As we did with diagonalizable matrices,
+    we can understand a general matrix transformation of the form
+    <m>T(\vx) = A\vx</m> by using a Jordan canonical form of <m>A</m>.
+    In this context, we will encounter matrices of the form
+    <m>B = \left[ \begin{array}{cc} c\amp a\\0\amp c \end{array} \right] = \left[ \begin{array}{cc} c\amp 0 \\ 0\amp c \end{array} \right] \left[ \begin{array}{cc} 1\amp \frac{a}{c} \\ 0\amp 1 \end{array} \right]</m> for some positive constant <m>c</m>.
+    If <m>S(\vx) = B\vx</m>,
+    then <m>S</m> performs a shear in the direction of <m>\ve_1</m> and then an expansion or contraction in all directions by a factor of <m>c</m>.
+    We illustrate with an example.
+  </p>
+  <activity xml:id="act_JCF_geometry">
+    <p>
+      Let <m>T(\vx) = A\vx</m>,
+      where <m>A = \left[ \begin{array}{cr} 3\amp -1\\1\amp 1 \end{array} \right]</m>.
+      The only eigenvalue of <m>A</m> is <m>\lambda = 2</m>,
+      and this eigenvalue has algebraic multiplicity 2 and geometric multiplicity 1.
+      The vector <m>\vv_1 = [1 \ 1]^{\tr}</m> is an eigenvector for <m>A</m> with eigenvalue <m>2</m>,
+      and <m>\vv_2 = [1 \ 0]^{\tr}</m> satisfies <m>(A - 2I_2)\vv_2 = \vv_1</m>.
+      Let <m>C = \left[ \begin{array}{cc} 1\amp 1\\1\amp 0 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Explain why <m>T(\vx) = CJC^{-1}\vx</m>,
+            where <m>J = \left[ \begin{array}{cc} 2\amp 1\\0\amp 2 \end{array} \right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The matrix <m>C</m> is a change of basis matrix
+            <m>\underset{\CB \leftarrow \CS}{P}</m> from some basis <m>\CS</m> to another basis <m>\CB</m>.
+            Specifically identify <m>\CS</m> and <m>\CB</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If we begin with an arbitrary vector <m>\vx</m>,
+            then <m>[\vx]_{\CS} = \vx</m>.
+            How is <m>C \vx</m> related to <m>\CB</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Describe in detail what <m>J</m> does to a vector in the <m>\CB</m> coordinate system.
+            <hint>
+              <p>
+                <m>J = \left[ \begin{array}{cc} 2\amp 0\\0\amp 2 \end{array} \right] \left[ \begin{array}{cc} 1\amp \frac{1}{2}\\0\amp 1 \end{array} \right]</m>.
+              </p>
+            </hint>
+          </p>
+        </li>
+        <li>
+          <p>
+            Put this all together to describe the action of <m>T</m> as illustrated in <xref ref="F_JCF_shear_3">Figure</xref>.
+            The word shear should appear in your explanation.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <figure xml:id="F_JCF_shear_3">
+    <caption>Change of basis, a shear, and scaling.</caption>
+    <image width="73%" source="JCF_shear_3"/>
+  </figure>
+  <p>
+    <xref ref="act_JCF_geometry">Activity</xref>
+    provides the essential ideas to understand the geometry of a general linear transformation using the Jordan canonical form.
+    Let <m>T(\vx) = A\vx</m> with
+    <m>A \vv_1 = \lambda \vv_1</m> and <m>A \vv_2 = \lambda \vv_2 + \vv_1</m>.
+    Then <m>T</m> maps <m>\Span \{\vv_1\}</m> to
+    <m>\Span \{\vv_1\}</m> by a factor of <m>\lambda</m>,
+    and <m>T</m> maps <m>\Span\{\vv_2\}</m> to the line containing the terminal point of <m>\vv_1</m> in the direction of <m>\vv_2</m>.
+    The matrix <m>C</m> performs a change of basis from the standard basis to the basis <m>\{\vv_1, \vv_2\}</m>,
+    then the matrix <m>\left[ \begin{array}{cc} 2\amp 1\\0\amp 2 \end{array} \right]</m> performs an expansion by a factor of 2 in all directions and a shear in the direction of <m>\vv_1</m>.
+  </p>
+</section>

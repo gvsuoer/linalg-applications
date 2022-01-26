@@ -1,0 +1,81 @@
+<section xml:id="sec_det_transpose">
+  <title>The Determinant of the Transpose</title>
+  <p>
+    In this section we establish the fact that the determinant of a square matrix is the same as the determinant of its transpose.
+  </p>
+  <p>
+    The result is easily verified for <m>2 \times 2</m> matrices,
+    so we will proceed by induction and assume that the determinant of the transpose of any
+    <m>(n-1) \times (n-1)</m> matrix is the same as the determinant of its transpose.
+    Suppose <m>A = [a_{ij}]</m> is an <m>n \times n</m> matrix.
+    By definition,
+    <me>
+      \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} + \cdots + a_{1n}C_{1n}
+    </me>
+    and
+    <me>
+      \det(A^{\tr}) = a_{11}C_{11} + a_{21}C_{21} + a_{31}C_{31} + \cdots + a_{n1}C_{n1}
+    </me>.
+  </p>
+  <p>
+    Note that the only terms in either determinant that contains <m>a_{11}</m> is <m>a_{11}C_{11}</m>.
+    This term is the same in both determinants,
+    so we proceed to examine other elements.
+    Let us consider all terms in the cofactor expansion for
+    <m>\det(A^{\tr})</m> that contain <m>a_{i1}a_{1j}</m>.
+    The only summand that contains <m>a_{i1}</m> is <m>a_{i1}C_{i1}</m>.
+    Letting <m>A_{ij}</m> be the sub-matrix of <m>A</m> obtained by deleting the <m>i</m>th row and <m>j</m>th column,
+    we see that <m>a_{i1}C_{i1} = (-1)^{i+1}a_{i1}\det(A_{i1})</m>.
+    Now let's examine the sub-matrix <m>A_{i1}</m>:
+    <me>
+      \left[ \begin{array}{ccc>{\columncolor{Gray}}cccc} \rowcolor{Gray} a_{12} \amp  a_{13} \amp  \cdots    \amp a_{1j} \amp \cdots \amp  a_{1n-1} \amp  a_{1n} \\ a_{22} \amp  a_{23} \amp  \cdots    \amp a_{2j} \amp \cdots \amp  a_{2n-1} \amp  a_{2n} \\ \vdots \amp        \amp  \ddots    \amp  \vdots          \amp \ddots \amp  \amp  \\ a_{i-12} \amp  a_{i-13} \amp  \cdots    \amp a_{i-1j} \amp \cdots \amp  a_{i-1n-1} \amp  a_{i-1n} \\ a_{i+12} \amp  a_{i+13} \amp  \cdots    \amp a_{i+1j} \amp \cdots \amp  a_{i+1n-1} \amp  a_{i+1n} \\ a_{n2} \amp  a_{n3} \amp  \cdots    \amp a_{nj} \amp \cdots \amp  a_{nn-1} \amp  a_{nn} \end{array}  \right]
+    </me>
+  </p>
+  <p>
+    When we expand along the first row to calculate <m>\det(A_{i1})</m>,
+    the only term that will involve <m>a_{1j}</m> is
+    <me>
+      (-1)^{j-1+1}a_{1j}\det(A_{i1, 1j})
+    </me>,
+    where <m>A_{ik,jm}</m> denotes the sub-matrix of <m>A</m> obtained by deleting rows <m>i</m> and <m>k</m> and columns <m>j</m> and <m>m</m> from <m>A</m>.
+    So the term that contains <m>a_{i1}a_{1j}</m> in the cofactor expansion for <m>\det(A^{\tr})</m> is
+    <men xml:id="eq_det_transpose_1">
+      (-1){i+1}a_{i1}(-1)^{j}a_{1j}\det(A_{i1_{1j}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{i1, 1j})
+    </men>.
+  </p>
+  <p>
+    Now we examine the cofactor expansion for <m>\det(A)</m> to find the terms that contain <m>a_{i1}a_{1j}</m>.
+    The quantity <m>a_{1j}</m> only appears in the cofactor expansion as
+    <me>
+      a_{1j}C_{1j} = (-1)^{1+j}a_{1j}\det(A_{1j})
+    </me>.
+  </p>
+  <p>
+    Now let's examine the sub-matrix <m>A_{1j}</m>:
+    <me>
+      \left[ \begin{array}{>{\columncolor{Gray}}ccccccc} a_{21}   \amp  a_{22}   \amp  \cdots    \amp a_{2j-1} \amp a_{2j+1} \amp \cdots \amp  a_{2n} \\ a_{31}   \amp  a_{32}   \amp  \cdots    \amp a_{3j-1} \amp a_{3j+1} \amp \cdots \amp  a_{3n} \\ \vdots   \amp            \amp  \ddots    \amp  \vdots   \amp \ddots    \amp       \amp  \\ \rowcolor{Gray} a_{i1}   \amp  a_{i2}   \amp  \cdots     \amp a_{ij-1} \amp a_{ij+1}   \amp \cdots \amp  a_{in} \\ \vdots   \amp            \amp             \amp  \vdots   \amp          \amp \vdots \amp \\ a_{n1}   \amp  a_{n2}   \amp  \cdots    \amp a_{nj-1} \amp a_{nj+1}  \amp \cdots \amp  a_{nn} \end{array}  \right]
+    </me>
+  </p>
+  <p>
+    Here is where we use the induction hypothesis.
+    Since <m>A_{1j}</m> is an <m>(n-1) \times (n-1)</m> matrix,
+    its determinant can be found with a cofactor expansion down the first column.
+    The only term in this cofactor expansion that will involve <m>a_{i1}</m> is
+    <me>
+      (-1)^{i-1+1}a_{i1} \det(A_{1i, j1})
+    </me>.
+  </p>
+  <p>
+    So the term that contains <m>a_{i1}a_{1j}</m> in the cofactor expansion for <m>\det(A)</m> is
+    <men xml:id="eq_det_transpose_2">
+      (-1)^{1+j}a_{1j}(-1)^{i-1+1}a_{i1} \det(A_{1j_{i1}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{1i, j1})
+    </men>.
+  </p>
+  <p>
+    Since the quantities in <xref ref="eq_det_transpose_1"/> and <xref ref="eq_det_transpose_2"/> are equal,
+    we conclude that the terms in the two cofactor expansions are the same and
+    <me>
+      \det(A^{\tr}) = \det(A)
+    </me>.
+  </p>
+</section>

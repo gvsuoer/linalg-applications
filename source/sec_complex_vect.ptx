@@ -1,0 +1,69 @@
+<section xml:id="sec_complex_vect">
+  <title>Complex Vectors</title>
+  <p>
+    A vector can have real and imaginary parts, too.
+    For example,
+    the vector <m>\vv = \left[ \begin{array}{c} 1+i \\ 2-i \end{array}  \right]</m> can be written as
+    <me>
+      \vv = \left[ \begin{array}{c} 1+i \\ 2-i \end{array}  \right] = \left[ \begin{array}{c} 1 \\ 2 \end{array}  \right] + \left[ \begin{array}{r} i \\ -i \end{array}  \right] = \left[ \begin{array}{c} 1 \\ 2 \end{array}  \right] + i\left[ \begin{array}{r} 1 \\ -1 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    The vector <m>\text{ Re } (\vv) = \left[ \begin{array}{c} 1 \\ 2 \end{array}  \right]</m> is the real part of <m>\vv</m> and the vector
+    <m>\text{ Im } (z) = \left[ \begin{array}{r} 1 \\ -1 \end{array}  \right]</m> is the imaginary part of <m>\vv</m>.
+    In this way any vector <m>\vv</m> with complex entries can be written in the form
+    <me>
+      \vv = \vx + i \vy
+    </me>,
+    where <m>\vx = \text{ Re } (z)</m> and
+    <m>\vy = \text{ Im } (z)</m> are vectors with real entries.
+    The conjugate of the vector
+    <m>\vv = \vx + i \vy</m> is the vector <m>\overline{\vv} = \vx - i \vy</m>.
+    We can do the same with matrices with complex entries.
+  </p>
+  <p>
+    There are several properties of complex conjugates that can be useful.
+    Suppose <m>r</m> is a complex number,
+    <m>\vv</m> is a vector with possibly complex entries,
+    and <m>A</m> and <m>B</m> are matrices with possibly complex entries.
+    Assume all products that are listed are defined.
+    Then
+    <ol>
+      <li>
+        <p>
+          <m>\overline{r\vv} = \overline{r} \ \overline{\vv}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\overline{rA} = \overline{r} \ \overline{A}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\overline{A\vv} = \overline{A} \ \overline{\vv}</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\overline{AB} = \overline{A} \ \overline{B}</m>
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    These properties can be verified using complex arithmetic.
+    For example, to verify the first property,
+    let <m>r = a+ib</m> be a complex number and let <m>\vv = \vx + i \vy</m> be a complex vector.
+    The operations on complex numbers give us
+    <md>
+      <mrow>\overline{r\vv} \amp = \overline{(a\vx-b\vy) + i(a\vy + b\vx)}</mrow>
+      <mrow>\amp = (a\vx-b\vy) - i(a\vy + b\vx)</mrow>
+      <mrow>\amp = (a-ib)(\vx - i\vy)</mrow>
+      <mrow>\amp = \overline{r} \overline{\vv}</mrow>
+    </md>.
+  </p>
+  <p>
+    Verification of the remaining properties is left to the reader.
+  </p>
+</section>

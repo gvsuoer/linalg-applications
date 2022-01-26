@@ -1,0 +1,221 @@
+<section xml:id="sec_vec_space_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Determine if each of the following sets is a vector space.
+        <ul>
+          <li>
+            <p>
+              <m>V = \{(x,y,z) : x,y,z \in \R\}</m> with addition and multiplication by scalars defined by
+              <me>
+                (a,b,c) \oplus (x,y,z) = (a+x, c+z, b+y) \ \text{ and }  \ k(x,y,z) = (kx,kz,ky)
+              </me>,
+              where <m>(a,b,c)</m> and <m>(x,y,z)</m> are in <m>V</m> and <m>k \in \R</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>V = \{x \in \R : x > 0\}</m> with addition <m>\oplus</m> and multiplication by scalars defined by
+              <me>
+                x \oplus y = xy  \ \text{ and }  \ kx = x^k
+              </me>,
+              where <m>x</m> and <m>y</m> are in <m>V</m>, <m>k \in \R</m>,
+              and <m>xy</m> is the standard product of <m>x</m> and <m>y</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              The set <m>W</m> of all <m>2 \times 2</m> matrices of the form
+              <m>\left[ \begin{array}{cc} a\amp 0\\b\amp 0 \end{array} \right]</m> where <m>a</m> and <m>b</m> are real numbers using the standard addition and multiplication by scalars on matrices.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set <m>W</m> of all functions <m>f</m> from <m>\R</m> to <m>\R</m> such that
+              <m>f(0) \geq 0</m> using the standard addition and multiplication by scalars on functions.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We consider the vector space properties in <xref ref="def_vector_space">Definition</xref>.
+              Let <m>(a,b,c)</m>, <m>(u,v,w)</m>,
+              and <m>(x,y,z)</m> be in <m>V</m> and let <m>k,m  \in \R</m>.
+              By the definition of addition and multiplication by scalars,
+              both <m>(a,b,c) + (x,y,z)</m> and <m>k (x,y,z)</m> are in <m>V</m>.
+              Note also that
+              <md>
+                <mrow>(a,b,c) \oplus (x,y,z) \amp = (a+x, c+z, b+y)</mrow>
+                <mrow>\amp = (x+a, z+c, y+b)</mrow>
+                <mrow>\amp = (x,y,z) \oplus (a,b,c)</mrow>
+              </md>,
+              and so addition is commutative in <m>V</m>.
+              Since
+              <me>
+                ((1,1,0)\oplus(0,1,1)) \oplus (0,0,1) = (1,1,2) \oplus (0,0,1) = (1,3,1)
+              </me>
+              and
+              <me>
+                (1,1,0)\oplus ((0,1,1) \oplus (0,0,1)) = (1,1,0) \oplus (0,2,1) = (1,1,3)
+              </me>,
+              we see that addition is not associative and conclude that <m>V</m> is not a vector space.
+              At this point we can stop since we have shown that <m>V</m> is not a vector space.
+            </p>
+          </li>
+          <li>
+            <p>
+              We consider the vector space properties in <xref ref="def_vector_space">Definition</xref>.
+              Let <m>x</m>, <m>y</m>,
+              and <m>z</m> be in <m>V</m> and let <m>k,m  \in \R</m>.
+              Since <m>x</m> and <m>y</m> are both positive real numbers,
+              we know that <m>xy</m> is a positive real number.
+              Thus, <m>x \oplus y \in V</m> and <m>V</m> is closed under its addition.
+              Also, <m>x^k</m> is a positive real number,
+              so <m>x^k \in V</m> as well.
+              Now
+              <me>
+                x \oplus y = xy = yx = y \oplus x
+              </me>
+              and addition is commutative in <m>V</m>.
+              Also,
+              <me>
+                (x \oplus y) \oplus z = (xy) \oplus z = (xy)z = x(yz) = x \oplus (yz) = x \oplus (y \oplus z)
+              </me>
+              and addition is associative in <m>V</m>.
+              Since
+              <me>
+                1 \oplus x = 1x = x
+              </me>,
+              <m>V</m> contains an additive identity, which is <m>1</m>.
+              The fact that <m>x</m> is a positive real number implies that
+              <m>\frac{1}{x}</m> is a positive real number.
+              Thus, <m>\frac{1}{x} \in V</m> and
+              <me>
+                x \oplus \frac{1}{x} = x\left(\frac{1}{x}\right) = 1
+              </me>
+              and <m>V</m> contains an additive inverse for each of its elements.
+              We have that
+              <md>
+                <mrow>(k+m)x \amp = x^{k+m} = x^kx^m = x^k \oplus x^m = k(x) \oplus m(x),</mrow>
+                <mrow>k(x \oplus +y) \amp = k(xy) = x^ky^k = x^k \oplus y^k = k(x) \oplus k(y),</mrow>
+                <mrow>(km)x \amp = x^{km} = \left(x^m\right)^k = (m(x))^k = k(m(x))</mrow>
+                <mrow>1x \amp = x^1 = x</mrow>
+              </md>.
+              So <m>V</m> satisfies all of the properties of a vector space.
+            </p>
+          </li>
+          <li>
+            <p>
+              Recall that <m>\M_{2 \times 2}</m> is a vector space using the standard addition and multiplication by scalars on matrices.
+              Any matrix of the form <m>\left[ \begin{array}{cc} a\amp 0\\b\amp 0 \end{array}  \right]</m>  can be written as
+              <me>
+                \left[ \begin{array}{cc} a\amp 0\\b\amp 0 \end{array}  \right] = a\left[ \begin{array}{cc} 1\amp 0\\0\amp 0 \end{array}  \right]  + b \left[ \begin{array}{cc} 0\amp 0\\1\amp 0 \end{array}  \right]
+              </me>.
+              So <m>W = \Span\left\{\left[ \begin{array}{cc} 1\amp 0\\0\amp 0 \end{array}  \right],  \left[ \begin{array}{cc} 0\amp 0\\1\amp 0 \end{array}  \right]\right\}</m> and <m>W</m> is a subspace of <m>\M_{2 \times 2}</m>.
+              Thus, <m>W</m> is a vector space.
+            </p>
+          </li>
+          <li>
+            <p>
+              We will show that <m>W</m> is not a vector space.
+              Let <m>f: \R \to \R</m> be defined by <m>f(x) = 1</m>.
+              Then <m>f(0) \geq 0</m> and <m>f \in W</m>.
+              However, if <m>h = (-1)f</m>,
+              then <m>h(0) = (-1)f(0) = -1</m> and <m>h \notin W</m>.
+              It follows that <m>W</m> is not closed under multiplication by scalars and <m>W</m> is not a vector space.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>V</m> be a vector space and <m>\vu</m> and <m>\vv</m> vectors in <m>V</m>.
+        Also, let <m>a</m> and <m>b</m> be scalars.
+        You may use the result of <xref ref="ex_5_a_scalar_times_0">Exercise</xref>
+        that <m>c \vzero = \vzero</m> for any scalar <m>c</m> in any vector space.
+        <ul>
+          <li>
+            <p>
+              If <m>a \vv = b \vv</m> and <m>\vv \neq \vzero</m>, must <m>a = b</m>?
+              Use the properties of a vector space or provide a counterexample to justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>a \vu = a \vv</m> and
+              <m>a \neq 0</m>, must <m>\vu = \vv</m>?
+              Use the properties of a vector space or provide a counterexample to justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>a\vu = b\vv</m>, must <m>a = b</m> and <m>\vu = \vv</m>?
+              Use the properties of a vector space or provide a counterexample to justify your answer.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We will show that this statement is true.
+              Suppose <m>a \vv = b \vv</m> and <m>\vv \neq \vzero</m>.
+              Then <m>\vzero = a \vv - b \vv = (a-b)\vv</m>.
+              If <m>a = b</m>, then we are done.
+              So suppose <m>a \neq b</m>.
+              Then <m>a-b \neq 0</m> and <m>\frac{1}{a-b}</m> is a real number.
+              Then
+              <md>
+                <mrow>\frac{1}{a-b} \vzero \amp = \frac{1}{a-b}((a-b)\vv)</mrow>
+                <mrow>\vzero \amp = \left(\frac{1}{a-b}(a-b)\right) \vv</mrow>
+                <mrow>\vzero \amp = \vv</mrow>
+              </md>.
+              But we assumed that <m>\vv \neq \vzero</m>,
+              so we can conclude that <m>a = b</m> as desired.
+            </p>
+          </li>
+          <li>
+            <p>
+              We will show that this statement is true.
+              Suppose <m>a \vu = a \vv</m> and <m>a \neq 0</m>.
+              Then <m>\vzero = a \vu - a \vv = a(\vu - \vv)</m>.
+              Since <m>a \neq 0</m>, we know that <m>\frac{1}{a}</m> is a real number.
+              Thus,
+              <md>
+                <mrow>\frac{1}{a} \vzero \amp = \frac{1}{a} \left(a (\vu - \vv)\right)</mrow>
+                <mrow>\vzero \amp = \left( \frac{1}{a}a\right) (\vu - \vv)</mrow>
+                <mrow>\vzero \amp = \vu - \vv</mrow>
+                <mrow>\vu \amp = \vv</mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We will demonstrate that this statement is false with a counterexample.
+              Let <m>a = 1</m>, <m>b = 2</m>,
+              <m>\vu = [2 \ 0]^{\tr}</m> and <m>\vv = [1 \ 0]^{\tr}</m> in <m>\R^2</m>.
+              Then
+              <me>
+                a \vu = 1[2 \ 0]^{\tr} = [2 \ 0]^{\tr} = 2[1 \ 0]^{\tr} = b \vv
+              </me>,
+              but <m>a \neq b</m> and <m>\vu \neq \vv</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

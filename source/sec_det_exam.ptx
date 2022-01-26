@@ -1,0 +1,183 @@
+<section xml:id="sec_det_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        For each of the following
+        <ul>
+          <li>
+            <p>
+              Identify the sub-matrices <m>A_{1,j}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Determine the cofactors <m>C_{1,j}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the cofactor expansion to calculate the determinant.
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+              <m>A = \left[ \begin{array}{ccr} 3\amp 6\amp 2 \\ 0\amp 4\amp -1 \\ 5\amp 0\amp 1 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A = \left[ \begin{array}{rrcr} 3\amp 0\amp 1\amp 1 \\ 2\amp 1\amp 2\amp 1 \\ 1\amp -2\amp 2\amp -1 \\ -3\amp 2\amp 3\amp 1 \end{array} \right]</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              With a <m>3 \times 3</m> matrix,
+              we will find the sub-matrices <m>A_{11}</m>,
+              <m>A_{12}</m>, and <m>A_{13}</m>.
+              Recall that <m>A_{ij}</m> is the sub-matrix of <m>A</m> obtained by deleting the <m>i</m>th row and <m>j</m>th column of <m>A</m>.
+              Thus,
+              <me>
+                A_{11} =  \left[ \begin{array}{cr} 4\amp -1 \\ 0\amp 1 \end{array}  \right] \ A_{12} =  \left[ \begin{array}{cr} 0\amp -1 \\ 5\amp 1 \end{array}  \right] \ \text{ and } A_{13} =  \left[ \begin{array}{cc} 0\amp 4 \\ 5\amp 0 \end{array}  \right]
+              </me>.
+              The <m>ij</m>th cofactor is <m>C_{ij} = (-1)^{i+j}\det(A_{ij})</m>, so
+              <md>
+                <mrow>C_{11} \amp = (-1)^2 \left[ \begin{array}{cr} 4\amp -1</mrow>
+                <mrow>0\amp 1  \end{array} \right] = 4</mrow>
+                <mrow>C_{12} \amp = (-1)^3 \left[ \begin{array}{cr} 0\amp -1</mrow>
+                <mrow>5\amp 1  \end{array} \right] = -5</mrow>
+                <mrow>C_{13} \amp = (-1)^4 \left[ \begin{array}{cc} 0\amp 4</mrow>
+                <mrow>5\amp 0  \end{array} \right] = -20</mrow>
+              </md>.
+              Then
+              <me>
+                \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} = (3)(4) +(6)(-5) +(2)(-20) = -58
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              With a <m>4 \times 4</m> matrix,
+              we will find the sub-matrices <m>A_{11}</m>, <m>A_{12}</m>,
+              <m>A_{13}</m>, and <m>A_{14}</m>.
+              We see that
+              <md>
+                <mrow>A_{11} \amp = \left[ \begin{array}{rcr}  1\amp 2\amp 1</mrow>
+                <mrow>-2\amp 2\amp -1</mrow>
+                <mrow>2\amp 3\amp 1  \end{array} \right]</mrow>
+                <mrow>A_{12} \amp = \left[ \begin{array}{rcr}  2\amp 2\amp 1</mrow>
+                <mrow>1\amp 2\amp -1</mrow>
+                <mrow>-3\amp 3\amp 1  \end{array} \right]</mrow>
+                <mrow>A_{13} \amp = \left[ \begin{array}{rrr}  2\amp 1\amp 1</mrow>
+                <mrow>1\amp -2\amp -1</mrow>
+                <mrow>-3\amp 2\amp 1  \end{array} \right]</mrow>
+                <mrow>A_{14} \amp = \left[ \begin{array}{rrc}  2\amp 1\amp 2</mrow>
+                <mrow>1\amp -2\amp 2</mrow>
+                <mrow>-3\amp 2\amp 3  \end{array} \right]</mrow>
+              </md>.
+              To calculate the <m>ij</m>th cofactor <m>C_{ij} = (-1)^{i+j}\det(A_{ij})</m>,
+              we need to calculate the determinants of the <m>A_{1j}</m>.
+              Using the device for calculating the determinant of a <m>3 \times 3</m> matrix we have that
+              <md>
+                <mrow>\det(A_{11}) \amp =\det\left( \left[ \begin{array}{rrr}  1\amp 2\amp 1</mrow>
+                <mrow>-2\amp 2\amp -1</mrow>
+                <mrow>2\amp 3\amp 1  \end{array} \right] \right)</mrow>
+                <mrow>\amp = (1)(2)(1)+(2)(-1)(2)+(1)(-2)(3)</mrow>
+                <mrow>\amp \qquad - (1)(2)(2)-(1)(-1)(3)-(2)(-2)(1)</mrow>
+                <mrow>\amp = -5</mrow>
+              </md>,
+              <md>
+                <mrow>\det(A_{12}) \amp = \det\left(\left[ \begin{array}{rcr}  2\amp 2\amp 1</mrow>
+                <mrow>1\amp 2\amp -1</mrow>
+                <mrow>-3\amp 3\amp 1  \end{array} \right] \right)</mrow>
+                <mrow>\amp = (2)(2)(1)+(2)(-1)(-3)+(1)(1)(3)</mrow>
+                <mrow>\amp \qquad - (1)(2)(-3)-(2)(-1)(3)-(2)(1)(1)</mrow>
+                <mrow>\amp = 23</mrow>
+              </md>,
+              <md>
+                <mrow>\det(A_{13}) \amp =  \det\left(\left[ \begin{array}{rrr}  2\amp 1\amp 1</mrow>
+                <mrow>1\amp -2\amp -1</mrow>
+                <mrow>-3\amp 2\amp 1  \end{array} \right] \right)</mrow>
+                <mrow>\amp = (2)(-2)(1)+(1)(-1)(-3)+(1)(1)(2)</mrow>
+                <mrow>\amp \qquad - (1)(-2)(-3)-(2)(-1)(2)-(1)(1)(1)</mrow>
+                <mrow>\amp = -2</mrow>
+              </md>,
+              and
+              <md>
+                <mrow>\det(A_{14}) \amp =  \det\left(\left[ \begin{array}{rrc}  2\amp 1\amp 2</mrow>
+                <mrow>1\amp -2\amp 2</mrow>
+                <mrow>-3\amp 2\amp 3  \end{array} \right] \right)</mrow>
+                <mrow>\amp = (2)(-2)(3)+(1)(2)(-3)+(2)(1)(2)</mrow>
+                <mrow>\amp \qquad - (2)(-2)(-3)-(2)(2)(2)-(1)(1)(3)</mrow>
+                <mrow>\amp = -37</mrow>
+              </md>.
+              Then
+              <md>
+                <mrow>C_{11} \amp = (-1)^2 \det(A_{11}) = -5</mrow>
+                <mrow>C_{12} \amp = (-1)^3 \det(A_{12})= -23</mrow>
+                <mrow>C_{13} \amp = (-1)^4 \det(A_{13}) = -2</mrow>
+                <mrow>C_{14} \amp = (-1)^5 \det(A_{13}) = 37</mrow>
+              </md>
+              and so
+              <md>
+                <mrow>\det(B) \amp = b_{11}C_{11} + b_{12}C_{12} + b_{13}C_{13} + b_{14}C_{14}</mrow>
+                <mrow>\amp = (3)(-5) +(0)(-23) +(1)(-2)+ (1)(37)</mrow>
+                <mrow>\amp = 20</mrow>
+              </md>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Show that for any <m>2 \times 2</m> matrices <m>A</m> and <m>B</m>,
+        <me>
+          \det(AB) = \det(A) \det(B)
+        </me>.
+      </p>
+      <p>
+        <em>Example Solution. </em>
+      </p>
+      <p>
+        Let <m>A = \left[ \begin{array}{cc} a_{11}\amp a_{12} \\ a_{21}\amp a_{22} \end{array}  \right]</m> and <m>B = \left[ \begin{array}{cc} b_{11}\amp b_{12} \\ b_{21}\amp b_{22} \end{array}  \right]</m>.
+        Then
+        <me>
+          AB = \left[ \begin{array}{cc} a_{11}b_{11}+a_{12}b_{21}\amp a_{11}b_{12}+a_{12}b_{22} \\ a_{21}b_{11}+a_{22}b_{21}\amp a_{21}b_{12}+a_{22}b_{22} \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        So
+        <md>
+          <mrow>\det(AB) \amp = (a_{11}b_{11}+a_{12}b_{21})(a_{21}b_{12}+a_{22}b_{22})</mrow>
+          <mrow>\amp  \qquad   - (a_{11}b_{12}+a_{12}b_{22})(a_{21}b_{11}+a_{22}b_{21})</mrow>
+          <mrow>\amp = (a_{11}b_{11}a_{21}b_{12} + a_{11}b_{11}a_{22}b_{22} + a_{12}b_{21}a_{21}b_{12} + a_{12}b_{21}a_{22}b_{22})</mrow>
+          <mrow>\amp  \qquad - (a_{11}b_{12}a_{21}b_{11} + a_{11}b_{12}a_{22}b_{21} +  a_{12}b_{22}a_{21}b_{11} + a_{12}b_{22}a_{22}b_{21})</mrow>
+          <mrow>\amp = a_{11}b_{11}a_{22}b_{22} + a_{12}b_{21}a_{21}b_{12} - a_{11}b_{12}a_{22}b_{21} - a_{12}b_{22}a_{21}b_{11}</mrow>
+        </md>.
+      </p>
+      <p>
+        Also,
+        <md>
+          <mrow>\det(A) \det(B) \amp = (a_{11}a_{22}-a_{12}a_{21})(b_{11}b_{22}-b_{12}b_{21})</mrow>
+          <mrow>\amp = a_{11}a_{22}b_{11}b_{22} - a_{11}a_{22}b_{12}b_{21} - a_{12}a_{21}b_{11}b_{22} + a_{12}a_{21}b_{12}b_{21}</mrow>
+        </md>.
+      </p>
+      <p>
+        We conclude that <m>\det(AB) = \det(A) \det(B)</m> if <m>A</m> and <m>B</m> are <m>2 \times 2</m> matrices.
+      </p>
+    </statement>
+  </example>
+</section>

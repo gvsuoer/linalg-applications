@@ -1,0 +1,128 @@
+<section xml:id="sec_diag_general">
+  <title>Diagonalization in General</title>
+  <p>
+    In Preview <xref ref="pa_4_c">Activity</xref>
+    and in the matrix transformation example we found that a matrix <m>A</m> was similar to a diagonal matrix whose columns were eigenvectors of <m>A</m>.
+    This will work for a general
+    <m>n \times n</m> matrix <m>A</m> as long as we can find an invertible matrix <m>P</m> whose columns are eigenvectors of <m>A</m>.
+    More specifically, suppose <m>A</m> is an
+    <m>n \times n</m> matrix with <m>n</m> linearly independent eigenvectors <m>\vv_1</m>,
+    <m>\vv_1</m>, <m>\ldots</m>,
+    <m>\vv_n</m> with corresponding eigenvalues <m>\lambda_1</m>,
+    <m>\lambda_1</m>,
+    <m>\ldots</m>, <m>\lambda_n</m>
+    (not necessarily distinct).
+    Let
+    <me>
+      P = [ \vv_1 \  \vv_2  \ \vv_3  \ \cdots  \ \vv_n]
+    </me>.
+  </p>
+  <p>
+    Then
+    <md>
+      <mrow>AP \amp = [ A\vv_1  \ A\vv_2  \ A\vv_3  \ \cdots  \ A\vv_n]</mrow>
+      <mrow>\amp = [ \lambda_1\vv_1  \ \lambda_2\vv_2  \ \lambda_3\vv_3  \ \cdots  \ \lambda_n\vv_n]</mrow>
+      <mrow>\amp = [ \vv_1 \  \vv_2  \ \vv_3  \ \cdots  \ \vv_n]\left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0</mrow>
+      <mrow>0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0</mrow>
+      <mrow>\vdots\amp \vdots\amp \amp  \cdots\amp \vdots\amp \vdots</mrow>
+      <mrow>0\amp 0\amp 0\amp \cdots\amp \lambda_{n-1}\amp 0</mrow>
+      <mrow>0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_{n} \end{array} \right]</mrow>
+      <mrow>\amp = P D</mrow>
+    </md>.
+    where
+    <me>
+      D = \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\ 0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0 \\ \vdots\amp \vdots\amp \amp  \cdots\amp \vdots\amp \vdots \\ 0\amp 0\amp 0\amp \cdots\amp \lambda_{n-1}\amp 0 \\  0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_{n} \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Since the columns of <m>P</m> are linearly independent,
+    we know <m>P</m> is invertible, and so
+    <me>
+      P^{-1}AP = D
+    </me>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        An <m>n \times n</m> matrix <m>A</m> is
+        <term>diagonalizable</term><idx><h>matrix</h><h>diagonalizable</h></idx> if there is an invertible
+        <m>n \times n</m> matrix <m>P</m> so that
+        <m>P^{-1}AP</m> is a diagonal matrix.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    In other words,
+    a matrix <m>A</m> is diagonalizable if <m>A</m> is similar to a diagonal matrix.
+  </p>
+  <p>
+    <em>IMPORTANT NOTE:</em> The key notion to the process described above is that in order to diagonalize an <m>n\times n</m> matrix <m>A</m>,
+    we have to find <m>n</m> linearly independent eigenvectors for <m>A</m>.
+    When <m>A</m> is diagonalizable,
+    a matrix <m>P</m> so that <m>P^{-1}AP</m> is diagonal is said to
+    <em>diagonalize</em> <m>A</m>.
+  </p>
+  <activity xml:id="act_4_c_3">
+    <p>
+      Find an invertible matrix <m>P</m> that diagonalizes <m>A</m>.
+      <ul>
+        <li>
+          <p>
+            <m>A = \left[ \begin{array}{cc} 1\amp 1 \\ 0\amp 2 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A = \left[ \begin{array}{ccc} 3\amp 2\amp 4 \\ 2\amp 0\amp 2 \\ 4\amp 2\amp 3 \end{array} \right]</m>.
+            <hint>
+              <p>
+                The eigenvalues of <m>A</m> are 8 and <m>-1</m>.
+              </p>
+            </hint>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    It should be noted that there are square matrices that are not diagonalizable.
+    For example,
+    the matrix <m>A = \left[ \begin{array}{cc} 1\amp 1 \\ 0\amp 1 \end{array} \right]</m> has 1 as its only eigenvalue and the dimension of the eigenspace of <m>A</m> corresponding to the eigenvalue is one.
+    Therefore, it will be impossible to find two linearly independent eigenvectors for <m>A</m>.
+  </p>
+  <p>
+    We showed previously that eigenvectors corresponding to distinct eigenvalue are always linearly independent,
+    so if an <m>n \times n</m> matrix <m>A</m> has <m>n</m> distinct eigenvalues then <m>A</m> is diagonalizable.
+    <xref ref="act_4_c_3">Activity</xref>
+    (b) shows that it is possible to diagonalize an
+    <m>n \times n</m> matrix even if the matrix does not have <m>n</m> distinct eigenvalues.
+    In general, we can diagonalize a matrix as long as the dimension of each eigenspace is equal to the multiplicity of the corresponding eigenvalue.
+    In other words,
+    a matrix is diagonalizable if the geometric multiplicity is the same is the algebraic multiplicity for each eigenvalue.
+  </p>
+  <p>
+    At this point we might ask one final question.
+    We argued that if an <m>n \times n</m> matrix <m>A</m> has <m>n</m> linearly independent eigenvectors,
+    then <m>A</m> is diagonalizable.
+    It is reasonable to wonder if the converse is true <mdash/> that is,
+    if <m>A</m> is diagonalizable,
+    must <m>A</m> have <m>n</m> linearly independent eigenvectors?
+    The answer is yes,
+    and you are asked to show this in <xref ref="ex_4_c_diagonal_converse">Exercise</xref>.
+    We summarize the result in the following theorem.
+  </p>
+  <theorem>
+    <title>The Diagonalization Theorem</title>
+    <statement>
+      <p>
+        An <m>n \times n</m> matrix <m>A</m> is diagonalizable if and only if <m>A</m> has <m>n</m> linearly independent eigenvectors.
+        If <m>A</m> is diagonalizable and has linearly independent eigenvectors <m>\vv_1</m>,
+        <m>\vv_2</m>, <m>\ldots</m>,
+        <m>\vv_n</m> with <m>A\vv_i = \lambda_i \vv_i</m> for each <m>i</m>,
+        then <m>n \times n</m> matrix
+        <m>P [ \vv_1 \ \vv_2 \ \cdots \ \vv_n]</m> whose columns are linearly independent eigenvectors of <m>A</m> satisfies <m>P^{-1}AP = D</m>,
+        where <m>D = [d_{ij}]</m> is the diagonal matrix with diagonal entries <m>d_{ii} = \lambda_i</m> for each <m>i</m>.
+      </p>
+    </statement>
+  </theorem>
+</section>

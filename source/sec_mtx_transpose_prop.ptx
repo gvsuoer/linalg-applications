@@ -1,0 +1,69 @@
+<section xml:id="sec_mtx_transpose_prop">
+  <title>Properties of the Matrix Transpose</title>
+  <p>
+    As with every other operation,
+    we want to understand what properties the matrix transpose has.
+    Properties of transposes are shown in the following theorem.
+  </p>
+  <theorem xml:id="thm_transpose_props">
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be matrices of the appropriate sizes and let <m>a</m> be a scalar.
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>\left(A^{\tr}\right)^{\tr} = A</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(A+B)^{\tr} = A^{\tr} + B^{\tr}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(AB)^{\tr} = B^{\tr}A^{\tr}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(aA)^{\tr} = aA^{\tr}</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The one property that might seem strange is the third one.
+    To understand this property,
+    suppose <m>A</m> is an <m>m \times n</m> matrix and <m>B</m> an
+    <m>n \times k</m> matrix so that the product <m>AB</m> is defined.
+    We will argue that <m>(AB)^{\tr} = B^{\tr}A^{\tr}</m> by comparing the <m>i,j</m>th entry of each side.
+    <ul>
+      <li>
+        <p>
+          First notice that the <m>i,j</m>th entry of
+          <m>(AB)^{\tr}</m> is the <m>j,i</m>th entry of <m>AB</m>.
+          The <m>j,i</m>th entry of <m>AB</m> is found by taking the scalar product of the <m>j</m>th row of <m>A</m> with the <m>i</m>th column of <m>B</m>.
+          Thus, the <m>i,j</m>th entry of
+          <m>(AB)^{\tr}</m> is the scalar product of the <m>j</m>th row of <m>A</m> with the <m>i</m>th column of <m>B</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <m>i,j</m>th entry of <m>B^{\tr}A^{\tr}</m> is the scalar product of the <m>i</m>th row of <m>B^{\tr}</m> with the <m>j</m>th column of <m>A^{\tr}</m>.
+          But the <m>i</m>th row of <m>B^{\tr}</m> is the <m>i</m>th column of <m>B</m> and the <m>j</m>th column of <m>A^{\tr}</m> is the <m>j</m>th row of <m>A</m>.
+          So the <m>i,j</m>th entry of
+          <m>B^{\tr}A^{\tr}</m> is the scalar product of the <m>j</m>th row of <m>A</m> with the <m>i</m>th column of <m>B</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Since the two matrices <m>(AB)^{\tr}</m> and
+    <m>B^{\tr}A^{\tr}</m> have the same size and same corresponding entries,
+    they are the same matrix.
+  </p>
+</section>

@@ -1,0 +1,118 @@
+<section xml:id="sec_inner_prod_spaces">
+  <title>Inner Product Spaces</title>
+  <p>
+    As we saw in Preview <xref ref="pa_6_c">Activity</xref>,
+    we can define a mapping from
+    <m>\pol_2 \times \pol_2</m> to <m>\R</m> that has the same properties of inner products on <m>\R^n</m>.
+    So we can extend the definition of inner product to arbitrary vector spaces.
+  </p>
+  <definition xml:id="def_6_c_inner_product">
+    <statement>
+      <p>
+        An <term>inner product</term>
+            <idx><h>inner product</h></idx>
+        <m>\langle \ , \ \rangle</m> on a vector space <m>V</m> is a mapping from <m>V \times V \to \R</m> satisfying
+        <ol>
+          <li>
+            <p>
+              <m>\langle \vu , \vv \rangle = \langle \vv , \vu \rangle</m> for all <m>\vu</m> and <m>\vv</m> in <m>V</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu + \vv , \vw \rangle = \langle \vu , \vw \rangle + \langle \vv , \vw \rangle</m> for all <m>\vu</m>,
+              <m>\vv</m>, and <m>\vw</m> in <m>V</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle c\vu , \vv \rangle = c\langle \vu , \vv \rangle</m> for all <m>\vu</m>,
+              <m>\vv</m> in <m>V</m> and all scalars <m>c</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu , \vu \rangle \geq 0</m> for all <m>\vu</m> in <m>V</m> and
+              <m>\langle \vu , \vu \rangle = 0</m> if and only if <m>\vu = \vzero</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        An <term>inner product space</term>
+            <idx><h>inner product space</h></idx>
+        is a vector space on which an inner product is defined.
+      </p>
+    </statement>
+  </definition>
+  <activity>
+    <p>
+      Consider the mapping <m>\langle \ , \ \rangle</m> from
+      <m>\pol_1 \times \pol_1</m> to <m>\R</m> defined by
+      <me>
+        \langle p(t), q(t) \rangle = p'(0)q'(0)
+      </me>.
+      <ul>
+        <li>
+          <p>
+            Show that this mapping satisfies the second property of an inner product.
+          </p>
+        </li>
+        <li>
+          <p>
+            Although this mapping satisfies the first three properties of an inner product,
+            show that this mapping does not satisfy the fourth property and so is not an inner product.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Since inner products in vector spaces are defined in the same way as inner products in <m>\R^n</m>,
+    they will satisfy the same properties.
+    Some of these properties are summarized in the following theorem.
+  </p>
+  <theorem xml:id="thm_6_c_inner_product_properties">
+    <statement>
+      <p>
+        Let <m>\langle \ , \ \rangle</m> be an inner product on <m>\R^n</m> and let <m>\vu, \vv</m>,
+        and <m>\vw</m> be vectors in <m>\R^n</m> and <m>c</m> a scalar.
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>\langle \vzero , \vv \rangle = \langle \vv , \vzero \rangle = 0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu , c\vv \rangle = c\langle \vu , \vv \rangle</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu , \vv+\vw \rangle = \langle \vu , \vv \rangle + \langle \vu , \vw \rangle</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu - \vv, \vw \rangle = \langle \vu , \vw \rangle - \langle \vv , \vw \rangle</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    One special inner product is indicated in Preview <xref ref="pa_6_c">Activity</xref>.
+    Recall that <m>C[a,b]</m> is the vector space of continuous functions on the closed interval <m>[a,b]</m>.
+    Let <m>\langle \ ,  \ \rangle</m> map from
+    <m>C[a,b] \times C[a,b]</m> to <m>\R</m> be defined by
+    <me>
+      \langle f(x), g(x) \rangle = \int_a^b f(x)g(x) \, dx
+    </me>.
+  </p>
+  <p>
+    The verification that this mapping is an inner product is left to the exercises.
+  </p>
+</section>

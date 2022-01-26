@@ -1,0 +1,197 @@
+<section xml:id="sec_mv_form_intro">
+  <title>Introduction</title>
+  <p>
+    There is another useful way to represent a system of linear equations using a matrix-vector product that we investigate in this section.
+    To understand how this product comes about,
+    recall that we can represent the linear system
+    <md>
+      <mrow>{5} x_1     \amp {}+{}   \amp {4}x_2   \amp {}+{}  \amp {2}x_3   \amp {}+{}  \amp {4}x_4  \amp {}={}  \amp 1</mrow>
+      <mrow>{2}x_1   \amp {}-{}   \amp {}x_2     \amp {}-{}  \amp {5}x_3   \amp {}-{}  \amp {}x_4  \amp {}={}  \amp 2</mrow>
+      <mrow>{3}x_1   \amp {}+{}   \amp {7}x_2   \amp {}+{}  \amp {}x_3     \amp {}+{}  \amp {7}x_4  \amp {}={}  \amp 3</mrow>
+    </md>
+    as a vector equation as
+    <men xml:id="eq_PA1e_1">
+      x_1\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] + x_2\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right] + x_3\left[ \begin{array}{r} 2\\-5\\1 \end{array}  \right] + x_4\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right]= \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right]
+    </men>.
+  </p>
+  <p>
+    We can view the left hand side of Equation ( <xref ref="eq_PA1e_1"></xref>) as a
+    <em>matrix-vector product</em>.
+    Specifically,
+    if <m>A = \left[ \begin{array}{crrr} 1\amp 4\amp 2\amp 4 \\ 2\amp -1\amp -5\amp -1 \\ 3\amp 7\amp 1\amp 7 \end{array} \right]</m> and <m>\vx = \left[ \begin{array}{c} x_1 \\x_2 \\x_3 \\x_4 \end{array} \right]</m>,
+    then we define the <em>matrix-vector product</em>
+    <m>A\vx</m> as the left hand side Equation <xref ref="eq_PA1e_1"/>.
+    So the matrix-vector product <m>A\vx</m> is the linear combination of the columns of <m>A</m> with weights from the vector <m>\vx</m> in order.
+  </p>
+  <p>
+    With this definition,
+    the vector equation in <xref ref="eq_PA1e_1"/> can be expressed as a matrix-vector equation as
+    <me>
+      \left[ \begin{array}{crrr} 1\amp 4\amp 2\amp 4 \\ 2\amp -1\amp -5\amp -1 \\ 3\amp 7\amp 1\amp 7 \end{array}  \right] \left[ \begin{array}{c} x_1 \\x_2 \\x_3\\x_4 \end{array}  \right] = \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] \,
+    </me>.
+  </p>
+  <p>
+    We call this representation the
+    <em>matrix-vector form</em> of the system.
+    Note that the matrix <m>A</m> in this expression is the same as the coefficient matrix that appears in the augmented matrix representation of the system.
+  </p>
+  <p>
+    We can use the above definition of the matrix-vector product as a linear combination with any matrix and any vector,
+    as long as it is meaningful to use the entries in the vector as weights for the columns of the matrix.
+    For example,
+    for <m>A=\left[ \begin{array}{cc} 1\amp 2\\3\amp 1\\1\amp 1 \end{array}  \right]</m> and <m>\vv = \left[ \begin{array}{c} 3\\4 \end{array}  \right]</m>,
+    then we can define <m>A\vv</m> to be the linear combination of the columns of <m>A</m> with weights 3 and 4:
+    <me>
+      A\vv= 3 \left[ \begin{array}{c} 1\\3\\1 \end{array}  \right] + 4 \left[ \begin{array}{c} 2\\1\\1 \end{array}  \right] = \left[ \begin{array}{c} 11\\13\\7 \end{array}  \right] \,
+    </me>.
+  </p>
+  <p>
+    However, note that if <m>\vv</m> had three entries,
+    this definition would not make sense since we do not have three columns in <m>A</m>.
+    In those cases, we say <m>A\vv</m> is not defined.
+    We will later see that this definition can be generalized to matrix-matrix products,
+    by treating the vector as a special case of a matrix with one column.
+  </p>
+  <activity xml:id="pa_1_e">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Write the vector equation
+            <me>
+              x_1 \left[ \begin{array}{c} 1 \\ 1 \\ 2 \end{array}  \right] +x_2 \left[ \begin{array}{c}  1\\ 2\\ 3 \end{array}  \right] + x_3 \left[ \begin{array}{r} -1 \\ 2 \\ -3 \end{array}  \right] = \left[ \begin{array}{c} 4 \\ 3\\ 11 \end{array}  \right]
+            </me>
+            in matrix-vector form.
+            Note that this is the vector equation whose augmented matrix representation was given in Problem 2 in Preview <xref ref="pa_1_b">Activity</xref>.
+            Compare your matrix <m>A</m> and the right hand side vector to the augmented matrix.
+            Do not solve the system.
+          </p>
+        </li>
+        <li>
+          <p>
+            Given the matrix-vector equation
+            <me>
+              \left[ \begin{array}{crr} 1 \amp  2 \amp  -1 \\ 0\amp 1\amp 2\\1\amp -2\amp -3 \end{array}  \right] \vx = \left[\begin{array}{r} -3\\3\\-7 \end{array} \right]
+            </me>
+            represent the system corresponding to this equation.
+            Note that this should correspond to the system (or an equivalent system where an equation might be multiplied by <m>(-1)</m>) in Problem 1 of Preview <xref ref="pa_1_b">Activity</xref>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the indicated matrix-vector products, if possible.
+            Express as one vector.
+            <ul>
+              <li>
+                <p>
+                  <m>\left[ \begin{array}{cr} 2\amp -2 \\ 1\amp 2 \end{array} \right] \left[ \begin{array}{r} 1 \\ -1 \end{array} \right]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\left[ \begin{array}{rrr} 1 \amp 0 \amp 2\\ 2 \amp -2 \amp 3 \end{array} \right] \left[ \begin{array}{r} 2\\1 \end{array} \right]</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\left[ \begin{array}{rrc} -6 \amp -2 \amp 1\\ 2 \amp -2 \amp 1 \end{array} \right] \left[ \begin{array}{r} 1\\-3 \\1 \end{array} \right]</m>
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            As you might have noticed,
+            systems with all the constants being 0 are special in that they always have a solution. (Why?) So we might consider grouping systems into two types: Those of the form <m>A \vx = \vb</m>,
+            where not all of the entries of the vector <m>\vb</m> are <m>0</m>,
+            and those of the form <m>A \vx = \vzero</m>,
+            where <m>\vzero</m> is the vector of all zeros.
+            Systems like <m>A \vx = \vb</m>,
+            where <m>\vb</m> contains at least one non-zero entry,
+            are called <em>nonhomogeneous</em>
+              <idx><h>nonhomogeneous system</h></idx>
+            systems, and systems of the form
+            <m>A \vx = \vzero</m> are called <em>homogeneous</em>
+              <idx><h>homogeneous system</h></idx>
+            systems.
+            For every nonhomogeneous system
+            <m>A \vx = \vb</m> there is a corresponding homogeneous system <m>A \vx = \vzero</m>,
+            and there is a useful connection between the solutions to the nonhomogeneous system and the corresponding homogeneous system.
+            For example, consider the nonhomogeneous system
+            <me>
+              A \vx = \vb
+            </me>
+            with
+            <men xml:id="eq_PA1e_2">
+              A = \left[ \begin{array}{ccc} 1 \amp  1 \amp  2  \\ 1 \amp  2 \amp  1 \end{array}  \right], \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} 0 \\ -2 \end{array}  \right]
+            </men>.
+            The augmented matrix representation of this system is <m>[A \ | \ \vb]</m>.
+            If we reduce this augmented matrix, we find
+            <me>
+              \left[ \begin{array}{ccr|r} 1 \amp  0 \amp  3 \amp  2 \\ 0 \amp  1 \amp  -1 \amp  -2 \end{array}  \right]
+            </me>.
+            From this RREF, we immediately see that the general solution is that <m>x_3</m> is free,
+            <m>x_2 = x_3-2</m>, and <m>x_1 = 2-3x_3</m>.
+            In vector form, we can represent this general solution as
+            <men xml:id="eq_PA1e_3">
+              \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2-3x_3 \\ x_3-2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{r} 2 \\ -2 \\ 0 \end{array}  \right] + x_3\left[ \begin{array}{r} -3 \\ 1 \\ 1 \end{array}  \right]
+            </men>.
+            The rightmost expression above is called the
+            <em>parametric vector form</em>
+              <idx><h>parametric vector form</h></idx>
+            of the solution.
+            If we had a system where the general solution involved more than one free variable,
+            then we would write the parametric vector form to include one vector multiplying each free variable.
+            For example,
+            if the general solution of a system were that <m>x_2</m> and <m>x_3</m> are free and <m>x_1=2+x_2+3x_3</m>,
+            then the parametric vector form would be
+            <me>
+              \vx = \left[ \begin{array}{c} 2+ x_2+3x_3 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2 \\ 0 \\ 0 \end{array}  \right] + x_2 \left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array}  \right] + x_3 \left[ \begin{array}{c} 3 \\ 0 \\ 1 \end{array}  \right] \,
+            </me>.
+            Note that the parametric vector form expresses the solutions as a linear combination of a number of vectors,
+            depending on the number of free variables,
+            with an added constant vector.
+            This expression helps us in interpreting the solution set geometrically,
+            as we will see in this section.
+            <ul>
+              <li>
+                <p>
+                  Find the general solution to the homogeneous system
+                  <me>
+                    A \vx = \vzero
+                  </me>
+                  with <m>A</m> and <m>\vx</m> as in <xref ref="eq_PA1e_2"/> and compare it to the solution to the nonhomogeneous system in <xref ref="eq_PA1e_3"/>.
+                  What do you notice?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the general solution to the nonhomogeneous system
+                  <me>
+                    A \vx = \vb
+                  </me>
+                  with
+                  <me>
+                    A = \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 4\amp -2 \end{array}  \right], \ \vx =  \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} -1 \\ 1 \end{array}  \right]
+                  </me>.
+                  and express it in parametric vector form.
+                  Then find the general solution to the corresponding homogeneous system and express it in parametric vector form.
+                  How are the two solution sets related?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Make a conjecture about the relationship between the solutions to a consistent nonhomogeneous system
+                  <m>A \vx = \vb</m> and the corresponding homogeneous system <m>A \vx = \vzero</m>.
+                  Be as specific as possible.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

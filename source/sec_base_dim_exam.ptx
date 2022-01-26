@@ -1,0 +1,92 @@
+<section xml:id="sec_base_dim_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>W = \left\{ \left[ \begin{array}{c} r+s+u \\ r+3s+2t-u\\ -s-t+u \\ s+t-u \end{array} \right] : r,s,t,u \in \R \right\}</m>.
+        <ul>
+          <li>
+            <p>
+              Explain why <m>W</m> is a subspace of <m>\R^4</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a basis for <m>W</m> and determine the dimension of <m>W</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We can write any vector in <m>W</m> in the form
+              <me>
+                \left[ \begin{array}{c} r+s+u \\ r+3s+2t-u\\ -s-t+u \\ s+t-u \end{array}  \right] = r\left[ \begin{array}{c} 1 \\ 1 \\ 0 \\ 0 \end{array}  \right] + s\left[ \begin{array}{r} 1 \\ 3\\ -1 \\ 1 \end{array}  \right] + t\left[ \begin{array}{r} 0 \\ 2 \\ -1 \\ 1 \end{array}  \right] + u\left[ \begin{array}{r} 1 \\ -1 \\ 1 \\ -1 \end{array}  \right]
+              </me>,
+              so
+              <me>
+                W = \Span\left\{ \left[ \begin{array}{c} 1 \\ 1 \\ 0 \\ 0 \end{array}  \right], \left[ \begin{array}{r} 1 \\ 3\\ -1 \\ 1 \end{array}  \right] , \left[ \begin{array}{r} 0 \\ 2 \\ -1 \\ 1 \end{array}  \right], \left[ \begin{array}{r} 1 \\ -1 \\ 1 \\ -1 \end{array}  \right]\right\}
+              </me>.
+              As a span of a set of vectors in <m>\R^4</m>,
+              <m>W</m> is a subspace of <m>\R^4</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>A = \left[ \begin{array}{crrr} 1\amp 1\amp 0\amp 1\\1\amp 3\amp 2\amp -1\\0\amp -1\amp -1\amp 1\\0\amp 1\amp 1\amp -1 \end{array} \right]</m>.
+              To find a basis for <m>W</m>,
+              we note that the reduced row echelon form of <m>A</m> is <m>\left[ \begin{array}{ccrr} 1\amp 0\amp -1\amp 2\\0\amp 1\amp 1\amp -1\\0\amp 0\amp 0\amp 0\\0\amp 0\amp 0\amp 0 \end{array} \right]</m>.
+              Since the pivot columns of <m>A</m> form a basis for <m>\Col A = W</m>,
+              we conclude that
+              <me>
+                \left\{ \left[ \begin{array}{c} 1\\1\\0\\0 \end{array} \right], \left[ \begin{array}{r} 1\\3\\-1\\1 \end{array} \right] \right\}
+              </me>
+              is a basis for <m>W</m>.
+              Therefore, <m>\dim(W) = 2</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Find a basis and the dimension of the solution set to the system
+        <md>
+          <mrow>{5} {}r  \amp {}+{}   \amp {}s     \amp {}-{}  \amp {}t  \amp {}+{}  \amp {2}u \amp = 0\amp {}</mrow>
+          <mrow>{3}r  \amp {}-{}   \amp {}s     \amp {}+{}  \amp {2}t  \amp {}-{}  \amp {}u \amp = 0\amp {}</mrow>
+          <mrow>{}r  \amp {}-{}   \amp {3}s   \amp {}+{}  \amp {4}t  \amp {}-{}  \amp {5}u \amp = 0\amp {}</mrow>
+          <mrow>{5}r  \amp {}-{}   \amp {3}s   \amp {}+{}  \amp {5}t  \amp {}-{}  \amp {4}u \amp = 0\amp {.}</mrow>
+        </md>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+      </p>
+      <p>
+        The coefficient matrix of this system is
+        <me>
+          A = \left[ \begin{array}{crrr} 1\amp 1\amp -1\amp 2\\3\amp -1\amp 2\amp -1\\1\amp -3\amp 4\amp -5\\5\amp -3\amp 5\amp -4 \end{array}  \right]
+        </me>,
+        and the solution set to the system is <m>\Nul A</m>.
+        To find a basis for <m>\Nul A</m> we row reduce <m>A</m> to
+        <me>
+          \left[  \begin{array}{ccrc} 1\amp 0\amp \frac{1}{4}\amp \frac{1}{4} \\0\amp 1\amp -\frac{5}{4}\amp \frac{7}{4} \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        The general solution to the system has the form
+        <me>
+          \left[ \begin{array}{c}r\\s\\t\\u \end{array}  \right] = \left[   \begin{array}{c}-\frac{1}{4}t-\frac{1}{4}u\\\frac{5}{4}t-\frac{7}{4}u\\t\\u \end{array}  \right] =  t\left[   \begin{array}{r}-\frac{1}{4}\\\frac{5}{4}\\1\\0 \end{array}  \right] + u \left[   \begin{array}{r}-\frac{1}{4}\\-\frac{7}{4}\\0\\1 \end{array}  \right]
+        </me>,
+        so <m>\left\{\left[   \begin{array}{r}-\frac{1}{4}\\\frac{5}{4}\\1\\0 \end{array}  \right], \left[   \begin{array}{r}-\frac{1}{4}\\-\frac{7}{4}\\0\\1 \end{array}  \right] \right\}</m> is a basis for <m>\Nul A</m> and <m>\dim(\Nul A) = 2</m>.
+      </p>
+    </statement>
+  </example>
+</section>

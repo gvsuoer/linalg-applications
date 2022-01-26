@@ -1,0 +1,97 @@
+<section xml:id="sec_det_3by3">
+  <title>The Determinant of a <m>3 \times 3</m> Matrix</title>
+  <p>
+    Earlier we defined the determinant of a <m>3 \times 3</m> matrix.
+    In this section we endeavor to understand the motivation behind that definition.
+  </p>
+  <p>
+    We will repeat the process we went through in the
+    <m>2 \times 2</m> case to see how to define the determinant of a <m>3 \times 3</m> matrix.
+    Let
+    <me>
+      A =  \left[ \begin{array}{ccc} a_{11}\amp a_{12}\amp a_{13} \\ a_{21}\amp a_{22}\amp a_{23}\\ a_{31}\amp a_{32}\amp a_{33} \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    To find the inverse of <m>A</m> we augment <m>A</m> by the <m>3 \times 3</m> identity matrix
+    <me>
+      [A \ | \ I_3] = \left[ \begin{array}{cccccc} a_{11}\amp a_{12}\amp a_{13}\amp 1\amp 0\amp 0 \\ a_{21}\amp a_{22}\amp a_{23}\amp 0\amp 1\amp 0 \\ a_{31}\amp a_{32}\amp a_{33}\amp 0\amp 0\amp 1 \end{array}  \right]
+    </me>
+    and row reduce the matrix
+    (using appropriate technology)
+    to obtain
+    <me>
+      \left[ \begin{array}{rrrrrr} 1\amp 0\amp 0\amp \ds \frac{a_{33}a_{22}-a_{32}a_{23}}{d}\amp  \ds -\frac{a_{33}a_{12}-a_{32}a_{13}}{d}\amp  \ds \frac{-a_{13}a_{22}+a_{12}a_{23}}{d} \\ 0\amp 1\amp 0\amp  \ds -\frac{a_{33}a_{21}-a_{31}a_{23}}{d}\amp  \ds \frac{a_{33}a_{11}-a_{31}a_{13}}{d}\amp  \ds -\frac{a_{23}a_{11}-a_{21}a_{13}}{d} \\ 0\amp 0\amp 1\amp  \ds \frac{-a_{31}a_{22}+a_{32}a_{21}}{d}\amp  \ds -\frac{a_{32}a_{11}-a_{31}a_{12}}{d}\amp  \ds \frac{a_{22}a_{11}-a_{21}a_{12}}{d} \end{array}  \right]
+    </me>,
+    where
+    <men xml:id="eq_4_a_3by3_det">
+      \begin{aligned}d = a_{33}a_{11}a_{22}\amp -a_{33}a_{21}a_{12}-a_{31}a_{13}a_{22} \\ \amp -a_{32}a_{11}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}. \end{aligned}
+    </men>
+  </p>
+  <p>
+    In this case, we can see that the inverse of the
+    <m>3 \times 3</m> matrix <m>A</m> will be defined if and only if <m>d \neq 0</m>.
+    So, in the <m>3 \times 3</m> case the determinant of <m>A</m> will be given by the value of <m>d</m> in Equation <xref ref="eq_4_a_3by3_det"/>.
+    What remains is for us to see how this is related to determinants of
+    <m>2 \times 2</m> sub-matrices of <m>A</m>.
+  </p>
+  <p>
+    To start, we collect all terms involving <m>a_{11}</m> in <m>d</m>.
+    A little algebra shows that
+    <me>
+      \det(A) = a_{11} \left( a_{33} a_{22} - a_{32} a_{23} \right) - a_{33} a_{21} a_{12} - a_{31} a_{13} a_{22} + a_{32}a_{21}a_{13} + a_{31} a_{12} a_{23}
+    </me>.
+  </p>
+  <p>
+    Now let's collect the remaining terms involving <m>a_{12}</m>:
+    <me>
+      \det(A) = a_{11} \left( a_{33} a_{22} - a_{32} a_{23} \right) - a_{12} \left(a_{33} a_{21} - a_{31} a_{23} \right)  - a_{31} a_{13} a_{22} + a_{32}a_{21}a_{13}
+    </me>.
+  </p>
+  <p>
+    Finally, we collect the terms involving <m>a_{13}</m>:
+    <me>
+      \det(A) = a_{11} \left( a_{33} a_{22} - a_{32} a_{23} \right) - a_{12} \left(a_{33} a_{21} - a_{31} a_{23} \right) + a_{13} \left(a_{32} a_{21} - a_{31} a_{22} \right)
+    </me>.
+  </p>
+  <p>
+    Now we can connect the determinant of <m>A</m> to determinants of
+    <m>2 \times 2</m> sub-matrices of <m>A</m>.
+    <ul>
+      <li>
+        <p>
+          Notice that
+          <me>
+            a_{33} a_{22} - a_{32} a_{23}
+          </me>
+          is the determinant of the <m>2 \times 2</m> matrix
+          <m>\left[ \begin{array}{cc} a_{22}\amp a_{23} \\ a_{32}\amp a_{33} \end{array}  \right]</m> obtained from <m>A</m> by deleting the first row and first column.
+        </p>
+      </li>
+      <li>
+        <p>
+          Similarly, the expression
+          <me>
+            a_{33} a_{21} - a_{31} a_{23}
+          </me>
+          is the determinant of the <m>2 \times 2</m> matrix
+          <m>\left[ \begin{array}{cc} a_{21}\amp a_{23} \\ a_{31}\amp a_{33} \end{array}  \right]</m> obtained from <m>A</m> by deleting the first row and second column.
+        </p>
+      </li>
+      <li>
+        <p>
+          Finally, the expression
+          <me>
+            a_{32} a_{21} - a_{31} a_{22}
+          </me>
+          is the determinant of the <m>2 \times 2</m> matrix
+          <m>\left[ \begin{array}{cc} a_{21}\amp a_{22} \\ a_{31}\amp a_{32} \end{array}  \right]</m> obtained from <m>A</m> by deleting the first row and third column.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Putting this all together gives us formula <xref ref="eq_det_3by3"/> for the determinant of a
+    <m>3 \times 3</m> matrix as we defined earlier.
+  </p>
+</section>

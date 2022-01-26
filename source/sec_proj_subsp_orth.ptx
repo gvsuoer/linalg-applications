@@ -1,0 +1,88 @@
+<section xml:id="sec_proj_subsp_orth">
+  <title>Projections onto Subspaces and Orthogonal Projections</title>
+  <p>
+    Preview <xref ref="pa_6_e_1">Activity</xref>
+    gives an indication of how we can project a vector <m>\vv</m> in <m>\R^n</m> onto a subspace <m>W</m> of <m>\R^n</m>.
+    If we have an orthogonal basis for <m>W</m>,
+    we can just add the projections of <m>\vv</m> onto each basis vector.
+    The resulting vector is called the projection of <m>\vv</m> onto the subspace <m>W</m>.
+    As we did with projections onto vectors,
+    we can also define the projection of <m>\vv</m> orthogonal to <m>W</m>.
+    Note that to make this all work out properly,
+    we will see that we need an orthogonal basis for <m>W</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>W</m> be a subspace of <m>\R^n</m> and let
+        <m>\{\vw_1, \vw_2, \ldots, \vw_m\}</m> be an orthogonal basis for <m>W</m>.
+        The <term>projection of the vector <m>\vv</m> in <m>V</m> onto <m>W</m></term><idx><h>projection onto a subspace</h><h>in <m>\R^n</m></h></idx> is the vector
+        <me>
+          \proj_W \vv = \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m
+        </me>.
+      </p>
+      <p>
+        The <term>projection of <m>\vv</m> orthogonal to <m>W</m></term><idx><h>projection orthogonal to a subspace</h></idx> is the vector
+        <me>
+          \proj_{\perp W} \vv = \vv - \proj_W \vv
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The notation <m>\proj_{\perp W} \vv</m> indicates that we expect this vector to be orthogonal to every vector in <m>W</m>.
+    We address this in the following activity.
+  </p>
+  <activity xml:id="act_6_e_orth_projection">
+    <p>
+      Let <m>W = \Span \{\vw_1, \vw_2\}</m> in <m>\R^3</m>,
+      with <m>\vw_1=[1 \ 0 \ 0]^{\tr}</m> and <m>\vw_2= [0 \ 1 \ 0]^{\tr}</m>,
+      and <m>\vv = [1 \ 2 \ 1]^{\tr}</m> as in Preview <xref ref="pa_6_e_1">Activity</xref>.
+      Recall that <m>\proj_W \vv = [1 \ 2 \ 0]^{\tr}</m>.
+      Find the projection of <m>\vv</m> orthogonal to <m>W</m> and show directly that
+      <m>\proj_{\perp W} \vv</m> is orthogonal to the basis vectors for <m>W</m>
+      (and hence to every vector in <m>W</m>).
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_6_e_orth_projection">Activity</xref>
+    indicates that the vector <m>\proj_{\perp W} \vv</m> is in fact orthogonal to every vector in <m>W</m>.
+    To see that this is true in general,
+    let <m>\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> be an orthogonal basis for a subspace <m>W</m> of <m>\R^n</m> and let <m>\vv</m> be a vector in <m>\R^n</m>.
+    Let
+    <me>
+      \vw =  \proj_W \vv = \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m
+    </me>.
+  </p>
+  <p>
+    Then <m>\vv - \vw</m> is the projection of <m>\vv</m> orthogonal to <m>W</m>.
+    We will show that <m>\vv - \vw</m> is orthogonal to every basis vector for <m>W</m>.
+    Since <m>\CB</m> is an orthogonal basis for <m>W</m>,
+    we know that <m>\vw_i \cdot \vw_j = 0</m> for <m>i \neq j</m>.
+    So if <m>k</m> is between 1 and <m>m</m> then
+    <md>
+      <mrow>\vw_k \cdot (\vv - \vw) \amp = (\vw_k \cdot \vv) - (\vw_k \cdot \vw)</mrow>
+      <mrow>\amp = (\vw_k \cdot \vv) - \left[\vw_k \cdot \left(\ds \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m \right)\right]</mrow>
+      <mrow>\amp = (\vw_k \cdot \vv) - \left(\frac{\vv \cdot \vw_k}{\vw_k \cdot \vw_k}\right) (\vw_k \cdot \vw_k)</mrow>
+      <mrow>\amp = (\vw_k \cdot \vv) - (\vv \cdot \vw_k)</mrow>
+      <mrow>\amp = 0</mrow>
+    </md>.
+  </p>
+  <p>
+    So the vector <m>\vv - \vw</m> is orthogonal to every basis vector for <m>W</m>,
+    and therefore to every vector in <m>W</m>
+    (<xref ref="thm_6_a_dot_pd_orth_complement_basis">Theorem</xref>).
+    Because <m>\CB</m> is a basis for <m>W</m>,
+    if <m>\vx</m> is in <m>W</m>, then
+    <me>
+      \vx = c_1 \vw_1 + c_2 \vw_2 + \cdots + c_m \vw_m
+    </me>
+    for some scalars <m>c_1</m>, <m>c_2</m>,
+    <m>\ldots</m>, <m>c_m</m>.
+    So
+    <me>
+      (\vv - \vw) \cdot \vx = \sum_{k=1}^m c_k (\vv - \vw) \cdot \vw_k = 0
+    </me>,
+    and so <m>\vv - \vw</m> is orthogonal to every vector in <m>W</m>.
+  </p>
+</section>

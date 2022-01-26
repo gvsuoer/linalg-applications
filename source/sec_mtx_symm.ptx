@@ -1,0 +1,317 @@
+<section xml:id="sec_mtx_symm">
+  <title>Symmetric Matrices</title>
+  <p>
+    As we saw in Preview <xref ref="pa_7_a">Activity</xref>,
+    matrices that are not symmetric need not be orthogonally diagonalizable,
+    but the symmetric matrix examples are orthogonally diagonalizable.
+    We explore that idea in this section.
+  </p>
+  <p>
+    If <m>P</m> is a matrix that orthogonally diagonalizes the matrix <m>A</m>,
+    then <m>P^{\tr}AP = D</m>, where <m>D</m> is a diagonal matrix.
+    Since <m>D^{\tr} = D</m> and <m>A = PDP^{\tr}</m>, we have
+    <md>
+      <mrow>A \amp = PDP^{\tr}</mrow>
+      <mrow>\amp = PD^{\tr}P^{\tr}</mrow>
+      <mrow>\amp = \left(P^{\tr}\right)^{\tr}D^{\tr}P^{\tr}</mrow>
+      <mrow>\amp = \left(PDP^{\tr}\right)^{\tr}</mrow>
+      <mrow>\amp = A^{\tr}</mrow>
+    </md>.
+  </p>
+  <p>
+    Therefore, <m>A^{\tr} = A</m> and matrices with this property are the only matrices that can be orthogonally diagonalized.
+    Recall that any matrix <m>A</m> satisfying
+    <m>A^{\tr} = A</m> is a symmetric matrix.
+  </p>
+  <p>
+    While we have just shown that the only matrices that can be orthogonally diagonalized are the symmetric matrices,
+    the amazing thing about symmetric matrices is that <em>every</em>
+    symmetric matrix can be orthogonally diagonalized.
+    We will prove this shortly.
+  </p>
+  <p>
+    Symmetric matrices have useful properties,
+    a few of which are given in the following activity
+    (we will use some of these properties later in this section).
+  </p>
+  <activity xml:id="act_7_a_symmetric">
+    <p>
+      Let <m>A</m> be a symmetric
+      <m>n \times n</m> matrix and let <m>\vx</m> and <m>\vy</m> be vectors in <m>\R^n</m>.
+      <ul>
+        <li>
+          <p>
+            Show that <m>\vx^{\tr} A \vy = (A\vx)^{\tr} \vy</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that <m>(A\vx) \cdot \vy = \vx \cdot (A\vy)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that the eigenvalues of a
+            <m>2 \times 2</m> symmetric matrix <m>A = \left[ \begin{array}{cc} a\amp b\\b\amp c \end{array} \right]</m> are real.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_7_a_symmetric">Activity</xref>
+    (c) shows that a <m>2 \times 2</m> symmetric matrix has real eigenvalues.
+    This is a general result about real symmetric matrices.
+  </p>
+  <theorem xml:id="thm_7_a_symmetric_eigenvalues">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> symmetric matrix with real entries.
+        Then the eigenvalues of <m>A</m> are real.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>A</m> be an <m>n\times n</m> symmetric matrix with real entries and let <m>\lambda</m> be an eigenvalue of <m>A</m> with eigenvector <m>\vv</m>.
+      To show that <m>\lambda</m> is real,
+      we will show that <m>\overline{\lambda} = \lambda</m>.
+      We know
+      <men xml:id="eq_symm1">
+        A \vv = \lambda \vv
+      </men>.
+    </p>
+    <p>
+      Since <m>A</m> has real entries,
+      we also know that <m>\overline{\lambda}</m> is an eigenvalue for <m>A</m> with eigenvector <m>\overline{\vv}</m>.
+      Multiply both sides of <xref ref="eq_symm1"/> on the left by <m>\overline{\vv}^{\tr}</m> to obtain
+      <men xml:id="eq_symm2">
+        \overline{\vv}^{\tr} A \vv = \overline{\vv}^{\tr} \lambda \vv = \lambda \left(\overline{\vv}^{\tr} \vv \right)
+      </men>.
+    </p>
+    <p>
+      Now
+      <me>
+        \overline{\vv}^{\tr} A \vv = (A\overline{\vv})^{\tr} \vv = (\overline{\lambda} \ \overline{\vv})^{\tr} \vv = \overline{\lambda} \left(\overline{\vv}^{\tr} \vv \right)
+      </me>
+      and equation <xref ref="eq_symm2"/> becomes
+      <me>
+        \overline{\lambda} \left(\overline{\vv}^{\tr} \vv \right) = \lambda \left(\overline{\vv}^{\tr} \vv \right)
+      </me>.
+    </p>
+    <p>
+      Since <m>\vv \neq \vzero</m>,
+      this implies that <m>\overline{\lambda} = \lambda</m> and <m>\lambda</m> is real.
+    </p>
+  </proof>
+  <p>
+    To orthogonally diagonalize a matrix,
+    it must be the case that eigenvectors corresponding to different eigenvalues are orthogonal.
+    This is an important property and it would be useful to know when it happens.
+  </p>
+  <activity xml:id="act_7_a_symmetric_eigenvalues">
+    <p>
+      Let <m>A</m> be a real symmetric matrix with eigenvalues <m>\lambda_1</m> and
+      <m>\lambda_2</m> and corresponding eigenvectors <m>\vv_1</m> and <m>\vv_2</m>,
+      respectively.
+      <ul>
+        <li>
+          <p>
+            Use <xref ref="act_7_a_symmetric">Activity</xref>
+            (b) to show that <m>\lambda_1 \vv_1\cdot \vv_2 = \lambda_2 \vv_1 \cdot \vv_2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why the result of part (a) shows that <m>\vv_1</m> and <m>\vv_2</m> are orthogonal if <m>\lambda_1\neq \lambda_2</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_7_a_symmetric_eigenvalues">Activity</xref> proves the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        If <m>A</m> is a real symmetric matrix,
+        then eigenvectors corresponding to distinct eigenvalues are orthogonal.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Recall that the only matrices that can be orthogonally diagonalized are the symmetric matrices.
+    Now we show that every real symmetric matrix can be orthogonally diagonalized,
+    which completely characterizes the matrices that are orthogonally diagonalizable.
+    The proof of the following theorem proceeds by induction.
+    A reader who has not yet encountered this technique of proof can safely skip the proof of this theorem without loss of continuity.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> be a real symmetric matrix.
+        Then <m>A</m> is orthogonally diagonalizable.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>A</m> be a real <m>n \times n</m> symmetric matrix.
+      The proof proceeds by induction on <m>n</m>.
+      If <m>n = 1</m>,
+      then <m>A</m> is diagonal and orthogonally diagonalizable.
+      So assume that any real <m>(n-1) \times (n-1)</m> symmetric matrix is orthogonally diagonalizable.
+      Assume that <m>A</m> is a real <m>n \times n</m> symmetric matrix.
+      By Theorem 25.4
+      (find reference),
+      the eigenvalues of <m>A</m> are real.
+      Let <m>\lambda_1</m> be a real eigenvalue of <m>A</m> with corresponding unit eigenvector <m>\vp_1</m>.
+      We can use the Gram-Schmidt process to extend
+      <m>\{\vp_1\}</m> to an orthonormal basis <m>\{\vp_1, \vp_2, \ldots, \vp_n\}</m> for <m>\R^n</m>.
+      Let <m>P_1 = [\vp_1 \ \vp_2 \ \ldots \ \vp_n]</m>.
+      Then <m>P_1</m> is an orthogonal matrix.
+      Also,
+      <md>
+        <mrow>P_1^{-1}AP_1 \amp = P_1^{\tr}AP_1</mrow>
+        <mrow>\amp = P_1^{\tr} [A\vp_1 \ A\vp_2 \ \ldots \ A\vp_n]</mrow>
+        <mrow>\amp = \left[ \begin{array}{c} \vp_1^{\tr}</mrow>
+        <mrow>\vp_2^{\tr}</mrow>
+        <mrow>\vdots</mrow>
+        <mrow>\vp_n^{\tr} \end{array} \right]  [\lambda \vp_1 \ A\vp_2 \ \ldots \ A\vp_n]</mrow>
+        <mrow>\amp = \left[ \begin{array}{ccccc} \vp_1^{\tr} \lambda_1 \vp_1 \amp  \vp_1^{\tr} A\vp_2 \amp  \vp_1 A\vp_3 \amp  \cdots \amp  \vp_1^{\tr} A \vp_n</mrow>
+        <mrow>\vp_2^{\tr} \lambda_1 \vp_1 \amp  \vp_2^{\tr} A\vp_2 \amp  \vp_2 A\vp_3 \amp \cdots \amp  \vp_2^{\tr} A \vp_n</mrow>
+        <mrow>\amp   \amp  \vdots   \amp  \amp</mrow>
+        <mrow>\vp_n^{\tr} \lambda_1 \vp_1 \amp  \vp_n^{\tr} A\vp_2 \amp  \vp_n A\vp_3 \amp \cdots \amp  \vp_n^{\tr} A \vp_n \end{array} \right]</mrow>
+        <mrow>\amp = \left[ \begin{array}{ccccc} \lambda_1\amp  \vp_1^{\tr} A\vp_2 \amp  \vp_1 A\vp_3 \amp  \cdots \amp  \vp_1^{\tr} A \vp_n</mrow>
+        <mrow>0 \amp  \vp_2^{\tr} A\vp_2 \amp  \vp_2 A\vp_3 \amp \cdots \amp  \vp_2^{\tr} A \vp_n</mrow>
+        <mrow>\amp   \amp  \vdots   \amp  \amp</mrow>
+        <mrow>0 \amp  \vp_n^{\tr} A\vp_2 \amp  \vp_n A\vp_3 \amp \cdots \amp  \vp_n^{\tr} A \vp_n \end{array} \right]</mrow>
+        <mrow>\amp = \left[ \begin{array}{cc} \lambda_1\amp \vx^{\tr}</mrow>
+        <mrow>\vzero \amp  A_1 \end{array} \right]</mrow>
+      </md>
+      where <m>\vx</m> is a <m>(n-1)\times 1</m> vector,
+      <m>\vzero</m> is the zero vector in <m>\R^{n-1}</m>,
+      and <m>A_1</m> is an <m>(n-1) \times (n-1)</m> matrix.
+      Letting <m>R = P_1^{\tr}AP_1</m> we have that
+      <me>
+        R^{\tr} = \left(P_1^{\tr}AP_1\right)^{\tr} = P_1^{\tr}A^{\tr}P_1 = P_1^{\tr}AP_1 = R
+      </me>,
+      so <m>R</m> is a symmetric matrix.
+      Therefore, <m>\vx = \vzero</m> and <m>A_1</m> is a symmetric matrix.
+      By our induction hypothesis, <m>A_1</m> is orthogonally diagonalizable.
+      That is, there exists an <m>(n-1) \times (n-1)</m> orthogonal matrix <m>Q</m> such that <m>Q^{\tr}A_1Q = D_1</m>,
+      where <m>D_1</m> is a diagonal matrix.
+      Now define <m>P_2</m> by
+      <me>
+        P_2 = \left[ \begin{array}{cc} 1\amp \vzero^{\tr} \\ \vzero \amp  Q \end{array}  \right]
+      </me>,
+      where <m>\vzero</m> is the zero vector in <m>\R^{n-1}</m>.
+      By construction, the columns of <m>P_2</m> are orthonormal,
+      so <m>P_2</m> is an orthogonal matrix.
+      Since <m>P_1</m> is also an orthogonal matrix,
+      <me>
+        P^{\tr} = (P_1P_2)^{\tr} = P_2^{\tr}P_1^{\tr} = P_2^{-1}P_1^{-1} = (P_1P_2)^{-1}  = P^{-1}
+      </me>
+      and <m>P</m> is an orthogonal matrix.
+      Finally,
+      <md>
+        <mrow>P^{\tr}AP \amp = (P_1P_2)^{\tr}A(P_1P_2)</mrow>
+        <mrow>\amp = P_2^{\tr}\left(P_1^{\tr}AP_1\right)P_2</mrow>
+        <mrow>\amp = \left[ \begin{array}{cc} 1\amp \vzero^{\tr}</mrow>
+        <mrow>\vzero \amp  Q \end{array} \right]^{\tr} \left[ \begin{array}{cc} \lambda_1\amp \vx^{\tr}</mrow>
+        <mrow>0 \amp  A_1 \end{array} \right] \left[ \begin{array}{cc} 1\amp \vzero^{\tr}</mrow>
+        <mrow>\vzero \amp  Q \end{array} \right]</mrow>
+        <mrow>\amp = \left[ \begin{array}{cc} 1\amp \vzero^{\tr}</mrow>
+        <mrow>\vzero \amp  Q^{\tr} \end{array} \right] \left[ \begin{array}{cc} \lambda_1\amp \vx^{\tr}</mrow>
+        <mrow>0 \amp  A_1 \end{array} \right]\left[ \begin{array}{cc} 1\amp \vzero^{\tr}</mrow>
+        <mrow>\vzero \amp  Q \end{array} \right]</mrow>
+        <mrow>\amp = \left[ \begin{array}{cc} \lambda_1\amp \vzero^{\tr}</mrow>
+        <mrow>\vzero \amp  Q^{\tr}A_1Q \end{array} \right]</mrow>
+        <mrow>\amp = \left[ \begin{array}{cc} \lambda_1\amp \vzero^{\tr}</mrow>
+        <mrow>\vzero \amp  D_1 \end{array} \right]</mrow>
+      </md>.
+    </p>
+    <p>
+      Therefore, <m>P^{\tr}AP</m> is a diagonal matrix and <m>P</m> orthogonally diagonalizes <m>A</m>.
+      This completes our proof.
+    </p>
+  </proof>
+  <p>
+    The set of eigenvalues of a matrix <m>A</m> is called the <em>spectrum</em>
+        <idx><h>spectrum of a matrix</h></idx>
+    of <m>A</m> and we have just proved the following theorem.
+  </p>
+  <theorem>
+    <title>The Spectral Theorem for Real Symmetric Matrices</title>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> symmetric matrix with real entries.
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>A</m> has <m>n</m> real eigenvalues (counting multiplicities)
+            </p>
+          </li>
+          <li>
+            <p>
+              the dimension of each eigenspace of <m>A</m> is the multiplicity of the corresponding eigenvalue as a root of the characteristic polynomial
+            </p>
+          </li>
+          <li>
+            <p>
+              eigenvectors corresponding to different eigenvalues are orthogonal
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A</m> is orthogonally diagonalizable.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    So <em>any</em> real symmetric matrix is orthogonally diagonalizable.
+    We have seen examples of the orthogonal diagonalization of
+    <m>n \times n</m> real symmetric matrices with <m>n</m> distinct eigenvalues,
+    but how do we orthogonally diagonalize a symmetric matrix having eigenvalues of multiplicity greater than 1?
+    The next activity shows us the process.
+  </p>
+  <activity xml:id="act_7_a_3">
+    <p>
+      Let <m>A = \left[ \begin{array}{ccc} 4\amp 2\amp 2 \\ 2\amp 4\amp 2 \\ 2\amp 2\amp 4 \end{array} \right]</m>.
+      The eigenvalues of <m>A</m> are 2 and 8, with eigenspace of dimension 2 and dimension 1, respectively.
+      <ul>
+        <li>
+          <p>
+            Explain why <m>A</m> can be orthogonally diagonalized.
+          </p>
+        </li>
+        <li>
+          <p>
+            Two linearly independent eigenvectors for <m>A</m> corresponding to the eigenvalue 2 are
+            <m>\vv_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 1 \end{array} \right]</m> and <m>\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]</m>.
+            Note that <m>\vv_1, \vv_2</m> are not orthogonal,
+            so cannot be in an orthogonal basis of <m>\R^3</m> consisting of eigenvectors of <m>A</m>.
+            So find a set <m>\{\vw_1, \vw_2\}</m> of orthogonal eigenvectors of <m>A</m> so that <m>\Span\{\vw_1, \vw_2\} = \Span\{\vv_1, \vv_2\}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The vector <m>\vv_3=\left[ \begin{array}{c} 1 \\ 1 \\ 1 \end{array} \right]</m> is an eigenvector for <m>A</m> corresponding to the eigenvalue 8.
+            What can you say about the orthogonality relationship between <m>\vw_i</m>'s and <m>\vv_3</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Find a matrix <m>P</m> that orthogonally diagonalizes <m>A</m>.
+            Verify your work.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

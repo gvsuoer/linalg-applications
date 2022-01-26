@@ -1,0 +1,87 @@
+<section xml:id="sec_diag">
+  <title>Diagonalization</title>
+  <p>
+    In Preview <xref ref="pa_4_c">Activity</xref>
+    we saw how if we can powers of a matrix we can make predictions about the long-term behavior of some systems.
+    In general, calculating powers of a matrix can be a very difficult thing,
+    but there are times when the process is straightforward.
+  </p>
+  <activity xml:id="act_4_c_0">
+    <p>
+      Let <m>D = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 3 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Show that <m>D^2 = \left[ \begin{array}{cc} 2^2\amp 0 \\ 0\amp 3^2 \end{array} \right]</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that <m>D^3 = \left[ \begin{array}{cc} 2^3\amp 0 \\ 0\amp 3^3 \end{array} \right]</m>.
+            <hint>
+              <p>
+                <m>D^3 = DD^2</m>.
+              </p>
+            </hint>
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain in general why <m>D^n = \left[ \begin{array}{cc} 2^n\amp 0 \\ 0\amp 3^n \end{array} \right]</m> for any positive integer <m>n</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_4_c_0">Activity</xref>
+    illustrates that calculating powers of square matrices whose only nonzero entries are along the diagonal is rather simple.
+    In general, if
+    <me>
+      D = \left[ \begin{array}{cccccc} d_{11}   \amp 0       \amp 0        \amp \cdots      \amp 0    \amp 0 \\ 0       \amp  d_{22}   \amp 0        \amp \cdots      \amp 0    \amp 0 \\ \vdots  \amp  0          \amp 0        \amp \ddots      \amp       \amp \vdots \\ 0       \amp  0       \amp 0          \amp  \cdots    \amp 0    \amp d_{nn} \end{array}  \right]
+    </me>,
+    then
+    <me>
+      D^k = \left[ \begin{array}{cccccc} d_{11}^k   \amp 0       \amp 0        \amp \cdots      \amp 0    \amp 0 \\ 0       \amp  d_{22}^k   \amp 0        \amp \cdots      \amp 0    \amp 0 \\ \vdots  \amp  0            \amp 0        \amp \ddots      \amp       \amp \vdots \\ 0       \amp  0         \amp 0          \amp  \cdots    \amp 0    \amp d_{nn}^k \end{array}  \right]
+    </me>
+    for any positive integer <m>k</m>.
+    Recall that a diagonal matrix is a matrix whose only nonzero elements are along the diagonal
+    (see <xref ref="def_special_matrices">Definition</xref>).
+    In this section we will see that matrices that are similar to diagonal matrices have some very nice properties,
+    and that diagonal matrices are useful in calculations of powers of matrices.
+  </p>
+  <p>
+    We can utilize the method of calculating powers of diagonal matrices to also easily calculate powers of other types of matrices.
+  </p>
+  <activity xml:id="act_4_c_0_5">
+    <p>
+      Let <m>D</m> be any matrix,
+      <m>P</m> an invertible matrix,
+      and let <m>A = P^{-1}DP</m>.
+      <ul>
+        <li>
+          <p>
+            Show that <m>A^2 = P^{-1}D^2P</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that <m>A^3 = P^{-1}D^3P</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain in general why <m>A^n = P^{-1}D^nP</m> for positive integers <m>n</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As <xref ref="act_4_c_0_5">Activity</xref> illustrates,
+    to calculate the powers of a matrix of the form
+    <m>P^{-1}DP</m> we only need determine the powers of the matrix <m>D</m>.
+    If <m>D</m> is a diagonal matrix,
+    this is especially straightforward.
+  </p>
+</section>

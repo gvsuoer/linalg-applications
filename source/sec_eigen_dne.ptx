@@ -1,0 +1,101 @@
+<section xml:id="sec_eigen_dne">
+  <title>When an Eigenvalue Decomposition Does Not Exist</title>
+  <p>
+    Recall that an eigenvalue decomposition of a matrix exists if and only if the algebraic multiplicity equals the geometric multiplicity for each eigenvalue.
+    In this case,
+    the whole space <m>\R^n</m> decomposes into eigenspaces corresponding to the eigenvalues and the matrix acts as scalar multiplication in each eigenspace.
+    We consider some cases where such a decomposition exists and some where it does not to notice some differences between the two cases and think of ways to improvise the situation.
+  </p>
+  <activity xml:id="pa_JCF">
+    <ol>
+      <li>
+        <p>
+          All of the matrices below have only one eigenvalue,
+          <m>\lambda = 2</m> and characteristic polynomial
+          <m>(\lambda-2)^n</m> where <m>n</m> is the matrix size.
+          Therefore, for each case,
+          the algebraic multiplicity of this eigenvalue is the size of the matrix.
+          Find the geometric multiplicity of this eigenvalue (i.e. the dimension of
+          <m>\Nul(A-\lambda I)</m>) in each case below to see how the behavior is different in each case.
+          <ul>
+            <li>
+              <p>
+                <m>A = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>B = \left[ \begin{array}{cc} 2\amp 1 \\ 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>C = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 0\amp 2\amp 1 \\ 0\amp 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>D = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 0\amp 2\amp 0 \\ 0\amp 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>E = \left[ \begin{array}{ccc} 2\amp 0\amp 0 \\ 0\amp 2\amp 0 \\ 0\amp 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>F = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 2\amp 1\\ 0\amp 0\amp 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>G = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 1\amp 0 \\ 0\amp 0\amp 2\amp 1\\ 0\amp 0\amp 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>H = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 2\amp 0\\ 0\amp 0\amp 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>J = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 1\amp 0 \\ 0\amp 0\amp 2\amp 0\\ 0\amp 0\amp 0\amp 2 \end{array} \right]</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          In the examples above,
+          the only matrices where the algebraic and geometric multiplicities of the eigenvalue 2 are equal are the diagonal matrices,
+          which obviously have eigenvalue decompositions.
+          The existence of ones above the diagonal destroys this property.
+          However, the positioning of the ones is also strategical.
+          By letting ones above the diagonal determine how to split the matrix into diagonal blocks,
+          we can categorize the matrices.
+          For example, the matrix in part (c) has one big
+          <m>3\times 3</m> block with twos on the diagonal and ones above,
+          while the matrix in part (d) as a
+          <m>2\times 2</m> block at the top left and another
+          <m>1\times 1</m> block at the bottom right.
+          Determine the blocks for all matrices above,
+          and identify the relationship between the number of blocks and the geometric multiplicity.
+        </p>
+      </li>
+      <li>
+        <p>
+          For this last problem, we will focus on the matrix <m>B</m> above.
+          We know that <m>\vv_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]</m> is an eigenvector.
+          We do not have a second linearly independent eigenvector,
+          i.e. a solution to <m>(B-2I_2)\vx=\vzero</m>.
+          However, since <m>(B-2I_2)^2=0</m>,
+          we know that <m>(B-2I_2)(B-2I_2)\vx = \vzero</m> for any <m>\vx</m>,
+          which implies that <m>(B-2I_2)\vx</m> always lies inside the eigenspace corresponding to <m>\lambda=2</m>.
+          Find <m>(B-2I_2)\left[ \begin{array}{c} 0 \\ 1 \end{array} \right]</m> to verify this works in this particular case.
+        </p>
+      </li>
+    </ol>
+  </activity>
+</section>

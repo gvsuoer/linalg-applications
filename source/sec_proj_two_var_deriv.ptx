@@ -1,0 +1,204 @@
+<section xml:id="sec_proj_two_var_deriv">
+  <title>Project: The Second Derivative Test for Functions of Two Variables</title>
+  <p>
+    In this project we will verify the Second Derivative Test for functions of two variables.<fn>
+    Many thanks to Professor Paul Fishback for sharing his activity on this topic.
+    Much of this project comes from his activity.
+    </fn> This test will involve Taylor polynomials and linear algebra.
+    As a quick review,
+    recall that the second order Taylor polynomial for a function <m>f</m> of a single variable <m>x</m> at <m>x = a</m> is
+    <men xml:id="eq_Taylor_2">
+      P_2(x) = f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2
+    </men>.
+  </p>
+  <p>
+    As with the linearization of a function,
+    the second order Taylor polynomial is a good approximation to <m>f</m> around <m>a</m> <mdash/> that is
+    <m>f(x) \approx P_2(x)</m> for <m>x</m> close to <m>a</m>.
+    If <m>a</m> is a critical number for <m>f</m> with <m>f'(a) = 0</m>, then
+    <me>
+      P_2(x) = f(a) + \frac{f''(a)}{2}(x-a)^2
+    </me>.
+  </p>
+  <p>
+    In this situation, if <m>f''(a) \lt 0</m>,
+    then <m>\frac{f''(a)}{2}(x-a)^2 \leq 0</m> for <m>x</m> close to <m>a</m>,
+    which makes <m>P_2(x) \leq f(a)</m>.
+    This implies that <m>f(x) \approx P_2(x) \leq f(a)</m> for <m>x</m> close to <m>a</m>,
+    which makes <m>f(a)</m> a relative maximum value for <m>f</m>.
+    Similarly, if <m>f''(a) > 0</m>,
+    then <m>f(a)</m> is a relative minimum.
+  </p>
+  <p>
+    We now need a Taylor polynomial for a function of two variables.
+    The complication of the additional independent variable in the two variable case means that the Taylor polynomials will need to contain all of the possible monomials of the indicated degrees.
+    Recall that the linearization
+    (or tangent plane)
+    to a function <m>f = f(x,y)</m> at a point <m>(a,b)</m> is given by
+    <me>
+      P_1(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)
+    </me>.
+  </p>
+  <p>
+    Note that <m>P_1(a,b) = f(a,b)</m>,
+    <m>\frac{\partial P_1}{\partial x}(a,b) = f_x(a,b)</m>,
+    and <m>\frac{\partial P_1}{\partial y}(a,b) = f_y(a,b)</m>.
+    This makes <m>P_1(x,y)</m> the best linear approximation to <m>f</m> near the point <m>(a,b)</m>.
+    The polynomial <m>P_1(x,y)</m> is the first order Taylor polynomial for <m>f</m> at <m>(a,b)</m>.
+  </p>
+  <p>
+    Similarly, the second order Taylor polynomial
+    <m>P_2(x,y)</m> centered at the point <m>(a,b)</m> for the function <m>f</m> is
+    <md>
+      <mrow>P_2(x,y) = f(a,b) \amp + f_x(a,b)(x-a) + f_y(a,b)(y-b) + \frac{f_{xx}(a,b)}{2}(x-a)^2</mrow>
+      <mrow>\amp + f_{xy}(a,b)(x-a)(y-b) + \frac{f_{yy}(a,b)}{2}(y-b)^2</mrow>
+    </md>.
+  </p>
+  <activity>
+    <p>
+      To see that <m>P_2(x,y)</m> is the best approximation for <m>f</m> near <m>(a,b)</m>,
+      we need to know that the first and second order partial derivatives of <m>P_2</m> agree with the corresponding partial derivatives of <m>f</m> at the point <m>(a,b)</m>.
+      Verify that this is true.
+    </p>
+  </activity>
+  <p>
+    We can rewrite this second order Taylor polynomial using matrices and vectors so that we can apply techniques from linear algebra to analyze it.
+    Note that
+    <md>
+      <mrow>P_2(x,y) \amp = f(a,b) + \nabla f(a,b)^{\tr} \left[ \begin{array}{c} x-a</mrow>
+      <mrow>y-b \end{array} \right]</mrow>
+      <mrow>\amp \qquad + \frac{1}{2}\left[ \begin{array}{c} x-a</mrow>
+      <mrow>y-b \end{array} \right]^{\tr} \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b)</mrow>
+      <mrow>f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array} \right] \left[ \begin{array}{c} x-a</mrow>
+      <mrow xml:id="eq_Taylor_2_vector" number="yes">y-b \end{array} \right]</mrow>
+    </md>,
+    where <m>\nabla f(x,y) = \left[ \begin{array}{c} f_x(x,y)\\f_y(x,y) \end{array}  \right]</m> is the gradient of <m>f</m> and <m>H</m> is the
+    <em>Hessian</em> of <m>f</m>,
+    where <m>H(x,y) = \left[ \begin{array}{cc} f_{xx}(x,y)\amp f_{xy}(x,y) \\ f_{yx}(x,y)\amp  f_{yy}(x,y) \end{array}  \right]</m>.<fn>
+    Note that under reasonable conditions (e.g., that <m>f</m> has continuous second order mixed partial derivatives in some open neighborhood containing <m>(x,y)</m>) we have that <m>f_{xy}(x,y) = f_{yx}(x,y)</m> and
+    <m>H(x,y) = \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b) \\ f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array}  \right]</m> is a symmetric matrix.
+    We will only consider functions that satisfy these reasonable conditions.
+    </fn>
+  </p>
+  <activity xml:id="ex_example_1">
+    <p>
+      Use Equation <xref ref="eq_Taylor_2_vector"/> to compute <m>P_2(x,y)</m> for
+      <m>f(x,y)=x^4+y^4-4xy+1</m> at <m>(a, b)=(2,3)</m>.
+    </p>
+  </activity>
+  <p>
+    The important idea for us is that if <m>(a, b)</m> is a point at which <m>f_x</m> and <m>f_y</m> are zero,
+    then <m>\nabla f</m> is the zero vector and Equation <xref ref="eq_Taylor_2_vector"/> reduces to
+    <men xml:id="eq_Taylor_2_vector_2">
+      P_2(x,y) = f(a,b) +  \frac{1}{2}\left[ \begin{array}{c} x-a\\y-b \end{array}  \right]^{\tr} \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b) \\ f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array}  \right] \left[ \begin{array}{c} x-a\\y-b \end{array}  \right]
+    </men>,
+  </p>
+  <p>
+    To make the connection between the multivariable second derivative test and properties of the Hessian,
+    <m>H(a,b)</m>,
+    at a critical point of a function <m>f</m> at which <m>\nabla f = \vzero</m>,
+    we will need to connect the eigenvalues of a matrix to the determinant and the trace.
+  </p>
+  <p>
+    Let <m>A</m> be an <m>n \times n</m> matrix with eigenvalues <m>\lambda_1</m>,
+    <m>\lambda_2</m>,
+    <m>\ldots</m>, <m>\lambda_n</m>
+    (not necessarily distinct).
+    <xref ref="ex_determinant_eigenvalues">Exercise</xref>
+    in <xref ref="sec_characteristic_equation">Section</xref> shows that
+    <men xml:id="eq_evals_det">
+      \det(A) = \lambda_1 \lambda_2 \cdots \lambda_n
+    </men>.
+  </p>
+  <p>
+    In other words,
+    the determinant of a matrix is equal to the product of the eigenvalues of the matrix.
+    In addition, <xref ref="ex_trace_eigenvalues">Exercise</xref>
+    in <xref ref="sec_diagonalization">Section</xref> shows that
+    <men xml:id="eq_evals_trace">
+      \trace(A) = \lambda_1 +  \lambda_2 + \cdots + \lambda_n
+    </men>.
+    for a diagonalizable matrix,
+    where <m>\trace(A)</m> is the sum of the diagonal entries of <m>A</m>.
+    Equation <xref ref="eq_evals_trace"/> is true for any square matrix,
+    but we don't need the more general result for this project.
+  </p>
+  <p>
+    The fact that the Hessian is a symmetric matrix makes it orthogonally diagonalizable.
+    We denote the eigenvalues of <m>H(a,b)</m> as
+    <m>\lambda_1</m> and <m>\lambda_2</m>.
+    Thus there exists an orthogonal matrix <m>P</m> and a diagonal matrix
+    <m>D = \left[ \begin{array}{cc} \lambda_1\amp 0 \\ 0\amp \lambda_2 \end{array}  \right]</m> such that <m>P^{\tr}H(a,b)P=D</m>,
+    or <m>H(a,b) = PDP^{\tr}</m>.
+    <xref ref="eq_evals_det">Equations</xref>
+    and <xref ref="eq_evals_trace"></xref> show that
+    <me>
+      \lambda_1\lambda_2 = f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2 \ \text{ and  }  \ \lambda_1 + \lambda_2 = f_{xx}(a,b) + f_{yy}(a,b)
+    </me>.
+  </p>
+  <p>
+    Now we have the machinery to verify the Second Derivative Test for Two-Variable Functions.
+    We assume <m>(a,b)</m> is a point in the domain of a function <m>f</m> so that <m>\nabla f(a,b) = \vzero</m>.
+    First we consider the case where <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0</m>.
+  </p>
+  <activity>
+    <p>
+      Explain why if <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0</m>, then
+      <me>
+        \left[ \begin{array}{c} x-a \\ y-b \end{array}  \right]^{\tr} H(a,b) \left[ \begin{array}{c} x-a \\ y-b \end{array}  \right]
+      </me>
+      is indefinite.
+      Explain why this implies that <m>f</m> is
+      <q>saddle-shaped</q>
+      near <m>(a,b)</m>.
+    </p>
+    <hint>
+      <p>
+        Substitute <m>\vw = \left[ \begin{array}{c} w_1\\w_2 \end{array} \right] = P^{\tr}\left[ \begin{array}{c} x-a \\ y-b \end{array} \right]</m>.
+        What does the graph of <m>f</m> look like in the <m>w_1</m> and <m>w_2</m> directions?
+      </p>
+    </hint>
+  </activity>
+  <p>
+    Now we examine the situation when <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0</m>.
+  </p>
+  <activity>
+    <p>
+      Assume that <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0</m>.
+      <ul>
+        <li>
+          <p>
+            Explain why either both <m>f_{xx}(a,b)</m> and
+            <m>f_{yy}(a,b)</m> are positive or both are negative.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>f_{xx}(a,b)>0</m> and <m>f_{yy}(a,b)>0</m>,
+            explain why <m>\lambda_1</m> and <m>\lambda_2</m> must be positive.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why, if <m>f_{xx}(a,b)>0</m> and <m>f_{yy}(a,b)>0</m>,
+            then <m>f(a,b)</m> is a local minimum value for <m>f</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    When <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0</m> and either
+    <m>f_{xx}(a,b)</m> or <m>f_{yy}(a,b)</m> is negative,
+    a slight modification of the preceding argument leads to the fact that <m>f</m> has a local maximum at <m>(a,b)</m>
+    (the details are left to the reader).
+    Therefore, we have proved the Second Derivative Test for functions of two variables!
+  </p>
+  <activity>
+    <p>
+      Use the Hessian to classify the local maxima,
+      minima, and saddle points of <m>f(x,y)=x^4+y^4-4xy+1</m>.
+      Draw a graph of <m>f</m> to illustrate.
+    </p>
+  </activity>
+</section>

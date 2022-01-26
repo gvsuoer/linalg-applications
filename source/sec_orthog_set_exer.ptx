@@ -1,0 +1,252 @@
+<section xml:id="sec_orthog_set_exer">
+  <title>Exercises</title>
+  <ol>
+    <li>
+      <p>
+        Find an orthogonal basis for the subspace <m>W = \{ [x \ y \ z] : 4x-3z = 0\}</m> of <m>\R^3</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\{\vv_1, \vv_2, \ldots, \vv_n\}</m> be an orthogonal basis for <m>\R^n</m> and,
+        for some <m>k</m> between 1 and <m>n</m>,
+        let <m>W = \Span\{\vv_1,\vv_2, \ldots, \vv_k\}</m>.
+        Show that <m>\{\vv_{k+1}, \vv_{k+2}, \ldots, \vv_n\}</m> is a basis for <m>W^{\perp}</m>.
+      </p>
+    </li>
+    <li xml:id="problem_orthog_decomp">
+      <p>
+        Let <m>W</m> be a subspace of <m>\R^n</m> for some <m>n</m>,
+        and let <m>\{\vw_1, \vw_2, \ldots, \vw_k\}</m> be an orthogonal basis for <m>W</m>.
+        Let <m>\vx</m> be a vector in <m>\R^n</m>. and define <m>\vw</m> as
+        <me>
+          \vw = \frac{\vx \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vx \cdot \vw_2}{\vw_2 \cdot \vw_2} \vw_2 + \cdots + \frac{\vx \cdot \vw_k}{\vw_k \cdot \vw_k} \vw_k
+        </me>.
+        <ul>
+          <li>
+            <p>
+              Explain why <m>\vw</m> is in <m>W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vz = \vx - \vw</m>.
+              Show that <m>\vz</m> is in <m>W^{\perp}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why <m>\vx</m> can be written as a sum of vectors,
+              one in <m>W</m> and one in <m>W^{\perp}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose <m>\vx = \vw+\vw_1</m> and <m>\vx = \vu+\vu_1</m>,
+              where <m>\vw</m> and <m>\vu</m> are in <m>W</m> and <m>\vw_1</m> and <m>\vu_1</m> are in <m>W^{\perp}</m>.
+              Show that <m>\vw=\vu</m> and <m>\vw_1 = \vu_1</m>,
+              so that the representation of <m>\vx</m> as a sum of a vector in <m>W</m> and a vector in <m>W^{\perp}</m> is unique.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Use the result of problem <xref ref="problem_orthog_decomp"/> above and that <m>W\cap W^\perp=\{\vzero\}</m> to show that
+        <m>\dim(W)+\dim(W^\perp)=n</m> for a subspace <m>W</m> of <m>\R^n</m>.
+        (See <xref ref="ex_3_a_sum">Exercise</xref>
+        in <xref ref="sec_R_n">Section</xref>
+        for the definition of the sum of subspaces.)
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>P</m> be an <m>n \times n</m> matrix.
+        We showed that if <m>P</m> is an orthogonal matrix,
+        then <m>(P\vx) \cdot (P\vy) = \vx \cdot \vy</m> for any vectors <m>\vx</m> and <m>\vy</m> in <m>\R^n</m>.
+        Now we ask if the converse of this statement is true.
+        That is, determine the validity of the following statement:
+        if <m>(P\vx) \cdot (P\vy) = \vx \cdot \vy</m> for any vectors <m>\vx</m> and <m>\vy</m> in <m>\R^n</m>,
+        then <m>P</m> is an orthogonal matrix?
+        Verify your answer. (Hint: Consider
+        <m>(P \ve_i) \cdot (P \ve_j)</m> where <m>\ve_t</m> is the <m>t</m>th standard basis vector for <m>\R^n</m>.)
+      </p>
+    </li>
+    <li xml:id="ex_Reflection_matrices">
+      <p>
+        In this exercise we examine reflection matrices.
+        In the following exercise we will show that the reflection and rotation matrices are the only <m>2 \times 2</m> orthogonal matrices.
+        We will determine how to represent the reflection across a line through the origin in <m>\R^2</m> as a matrix transformation.
+        The setup is as follows.
+        Let <m>L(\theta)</m> be the line through the origin in <m>\R^2</m> that makes an angle <m>\theta</m> with the positive <m>x</m>-axis as illustrated in <xref ref="F_Reflection">Figure</xref>.
+        <figure xml:id="F_Reflection">
+          <caption>Reflecting across a line <m>L(\theta)</m>.</caption>
+          <image width="73%" source="Reflection.eps"/>
+        </figure>
+        <ul>
+          <li>
+            <p>
+              Find a unit vector <m>\vu</m> in the direction of the line <m>L(\theta)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vv = \left[ \begin{array}{c} a\\b \end{array} \right]</m> be an arbitrary vector in <m>\R^2</m> as represented in <xref ref="F_Reflection">Figure</xref>.
+              Determine the components of the vectors
+              <m>\proj_{\vu} \vv</m> and <m>\proj_{\perp \vu} \vv</m>.
+              Reproduce <xref ref="F_Reflection">Figure</xref>
+              and draw the vectors <m>\proj_{\vu} \vv</m> and <m>\proj_{\perp \vu} \vv</m> in your figure.
+            </p>
+          </li>
+          <li>
+            <p>
+              The vector labeled <m>\vw</m> is the reflection of the vector <m>\vv</m> across the line <m>L(\theta)</m>.
+              Write <m>\vw</m> in terms of <m>\vv</m> and <m>\proj_{\vu} \vv</m>.
+              Clearly explain your method.
+            </p>
+          </li>
+          <li>
+            <p>
+              Finally, show that the matrix <m>A</m> such that <m>A \vv = \vw</m> is given by
+              <me>
+                A = \left[ \begin{array}{cr} \cos(2\theta)\amp \sin(2\theta) \\ \sin(2\theta)\amp  -\cos(2\theta) \end{array}  \right]
+              </me>.
+              The matrix <m>A</m> is the <em>reflection</em>
+              matrix across the line <m>L(\theta)</m>.
+              (You will want to look up some appropriate trigonometric identities.)
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        In this exercise we will show that the only orthogonal
+        <m>2 \times 2</m> matrices are the rotation matrices
+        <m>\left[ \begin{array}{cr} \cos(\theta)\amp -\sin(\theta) \\ \sin(\theta)\amp \cos(\theta) \end{array} \right]</m> and the reflection matrices <m>\left[ \begin{array}{cr} \cos(\theta)\amp \sin(\theta) \\ \sin(\theta) \amp -\cos(\theta) \end{array} \right]</m>
+        (see <xref ref="ex_Reflection_matrices">Exercise</xref>).
+        Throughout this exercise let <m>a</m>, <m>b</m>, <m>c</m>,
+        and <m>d</m> be real numbers such that
+        <m>M = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]</m> is an orthogonal <m>2 \times 2</m> matrix.
+        Let <m>\vv_1= \left[ \begin{array}{c} a \\ c \end{array} \right]</m> and
+        <m>\vv_2= \left[ \begin{array}{c} b \\ d \end{array} \right]</m> be the columns of <m>M</m>.
+        <ul>
+          <li>
+            <p>
+              Explain why the terminal point of <m>\vv_1</m> in standard position lies on the unit circle.
+              Then explain why there is an angle <m>\theta</m> such that
+              <m>a = \cos(\theta)</m> and <m>c = \sin(\theta)</m>.
+              What angle, specifically, is <m>\theta</m>?
+              Draw a picture to illustrate.
+            </p>
+          </li>
+          <li>
+            <p>
+              A similar argument to (b) shows that there is an angle <m>\alpha</m> such that <m>\vv_2 = \left[ \begin{array}{c} b\\d \end{array} \right] = \left[ \begin{array}{c} \cos(\alpha)\\\sin(\alpha) \end{array} \right]</m>.
+              Given that <m>M</m> is an orthogonal matrix,
+              how must <m>\alpha</m> be related to <m>\theta</m>?
+              Use this result to find the two possibilities for <m>\vv_2</m> as a vector in terms of
+              <m>\cos(\theta)</m> and <m>\sin(\theta)</m>.
+              (You will likely want to look up some trigonometric identities for this part of the problem.)
+            </p>
+          </li>
+          <li>
+            <p>
+              By considering the two possibilities from part (c),
+              show that <m>M</m> is either a rotation matrix or a reflection matrix.
+              Conclude that the only <m>2 \times 2</m> orthogonal matrices are the reflection and rotation matrices.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Suppose <m>A, B</m> are orthogonal matrices of the same size.
+        <ul>
+          <li>
+            <p>
+              Show that <m>AB</m> is also an orthogonal matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>A^\tr</m> is also an orthogonal matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>A^{-1}</m> is also an orthogonal matrix.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> Any orthogonal subset of <m>\R^n</m> is linearly independent.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Every single vector set is an orthogonal set.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>S</m> is an orthogonal set in <m>\R^n</m> with exactly <m>n</m> nonzero vectors,
+              then <m>S</m> is a basis for <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Every set of three linearly independent vectors in <m>\R^3</m> is an orthogonal set.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>A</m> and <m>B</m> are <m>n \times n</m> orthogonal matrices,
+              then <m>A+B</m> must also be an orthogonal matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If the set
+              <m>S=\{\vv_1, \vv_2, \ldots, \vv_n\}</m> is an orthogonal set in <m>\R^n</m>,
+              then so is the set <m>\{c_1\vv_1, c_2\vv_2, \ldots,
+              c_n\vv_n\}</m> for any scalars <m>c_1</m>,
+              <m>c_2</m>, <m>\ldots</m>, <m>c_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\CB=\{\vv_1, \vv_2, \ldots, \vv_n\}</m> is an orthogonal basis of <m>\R^n</m>,
+              then so is <m>\{c_1\vv_1</m>,
+              <m>c_2\vv_2</m>, <m>\ldots</m>,
+              <m>c_n\vv_n\}</m> for any nonzero scalars <m>c_1</m>, <m>c_2</m>,
+              <m>\ldots</m>, <m>c_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>A</m> is an <m>n\times n</m> orthogonal matrix,
+              the rows of <m>A</m> form an orthonormal basis of <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>A</m> is an orthogonal matrix,
+              any matrix obtained by interchanging columns of <m>A</m> is also an orthogonal matrix.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

@@ -1,0 +1,378 @@
+<section xml:id="sec_svd">
+  <title>The SVD</title>
+  <p>
+    The Singular Value Decomposition (SVD) is essentially a concise statement of what we saw in the previous section that works for <em>any</em> matrix.
+    We will uncover the SVD in this section.
+  </p>
+  <activity xml:id="pa_7_c_2">
+    <p>
+      Let <m>A = \left[ \begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array}  \right]</m>.
+      Since <m>A</m> is not square,
+      we cannot diagonalize <m>A</m>.
+      However, the matrix
+      <me>
+        A^{\tr}A = \left[ \begin{array}{ccc} 1\amp 1\amp 0 \\ 1\amp 2\amp 1 \\ 0\amp 1\amp 1 \end{array}  \right]
+      </me>
+      is a symmetric matrix and can be orthogonally diagonalized.
+      The eigenvalues of <m>A^{\tr}A</m> are 3, 1, and 0 with corresponding eigenvectors
+      <me>
+        \left[ \begin{array}{c} 1\\2\\1 \end{array}  \right], \ \left[ \begin{array}{r} -1\\0\\1 \end{array}  \right], \ \text{ and }  \ \left[ \begin{array}{r} 1\\-1\\1 \end{array}  \right]
+      </me>,
+      respectively.
+      Use appropriate technology to do the following.
+      <ol>
+        <li>
+          <p>
+            Find an orthogonal matrix <m>V = [\vv_1 \ \vv_2 \ \vv_3]</m> that orthogonally diagonalizes <m>A^{\tr}A</m>, where
+            <me>
+              V^{\tr}\left(A^{\tr}A\right)V = \left[ \begin{array}{ccc} 3\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 0 \end{array}  \right]
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>i=1,2</m>, let <m>\vu_i = \frac{A \vv_i}{||A \vv_i||}</m>.
+            Find each <m>\vu_i</m>.
+            Why don't we define <m>\vu_3</m> in this way?
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>U = [\vu_1 \ \vu_2]</m>.
+            What kind of matrix is <m>U</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate the matrix product <m>U^{\tr}AV</m>.
+            What do you notice?
+            How is this similar to the eigenvector decomposition of a matrix?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+  <p>
+    Preview <xref ref="pa_7_c_2">Activity</xref>
+    contains the basic ideas behind the Singular Value Decomposition.
+    Let <m>A</m> be an <m>m \times n</m> matrix with real entries.
+    Note that <m>A^{\tr}A</m> is a symmetric <m>n \times n</m> matrix and, hence,
+    it can be orthogonally diagonalized.
+    Let <m>V = [\vv_1 \ \vv_2 \ \vv_3 \  \cdots \  \vv_n ]</m> be an
+    <m>n \times n</m> orthogonal matrix whose columns form an orthonormal set of eigenvectors for <m>A^{\tr}A</m>.
+    For each <m>i</m>, let <m>(A^{\tr}A)\vv_i = \lambda_i \vv_i</m>.
+    We know
+    <me>
+      V^{\tr} (A^{\tr}A) V = \left[ \begin{array}{ccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0 \\ 0\amp  \lambda_2\amp 0\amp \cdots\amp 0 \\ \vdots \amp  \vdots \amp  \vdots \amp  \amp  \vdots  \\ 0\amp 0\amp 0\amp \cdots\amp  \lambda_n \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Now notice that for each <m>i</m> we have
+    <men xml:id="eq_7_c_sing_vals1">
+      || A \vv_i ||^2 = (A\vv_i)^{\tr}(A\vv_i) = \vv_i^{\tr}(A^{\tr}A) \vv_i = \vv_i^{\tr} \lambda_i \vv_i = \lambda_i ||\vv_i||^2 = \lambda_i
+    </men>,
+    so <m>\lambda_i \geq 0</m>.
+    Thus, the matrix <m>A^{\tr}A</m> has no negative eigenvalues.
+    We can always arrange the eigenvectors and eigenvalues of <m>A^{\tr}A</m> so that
+    <me>
+      \lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n \geq 0
+    </me>.
+  </p>
+  <p>
+    Also note that
+    <me>
+      (A\vv_i) \cdot (A\vv_j) = (A\vv_i)^{\tr} (A\vv_j) = \vv_i^{\tr} (A^{\tr}A) \vv_j = \vv_i^{\tr} \lambda_j\ \vv_j = \lambda_j \vv_i \cdot \vv_j = 0
+    </me>
+    if <m>i \neq j</m>.
+    So the set <m>\{A\vv_1, A\vv_2, \ldots, A\vv_n\}</m> is an orthogonal set in <m>\R^m</m>.
+    Each of the vectors <m>A\vv_i</m> is in <m>\Col A</m>,
+    and so <m>\{A\vv_1, A\vv_2, \ldots, A\vv_n\}</m> is an orthogonal subset of <m>\Col A</m>.
+    It is possible that <m>A\vv_i = \vzero</m> for some of the <m>\vv_i</m>
+    (if <m>A^{\tr}A</m> has 0 as an eigenvalue).
+    Let <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
+    <m>\vv_r</m> be the eigenvectors corresponding to the nonzero eigenvalues.
+    Then the set
+    <me>
+      \CB=\{A\vv_1, A\vv_2, \ldots, A\vv_r\}
+    </me>
+    is a linearly independent set of nonzero orthogonal vectors in <m>\Col A</m>.
+    Now we will show that <m>\CB</m> is a basis for <m>\Col A</m>.
+    Let <m>\vy</m> be a vector in <m>\Col A</m>.
+    Then <m>\vy = A\vx</m> for some vector <m>\vx</m> in <m>\R^n</m>.
+    Recall that the vectors <m>\vv_1</m>,
+    <m>\vv_2</m>, <m>\ldots</m>,
+    <m>\vv_n</m> form an orthonormal basis of <m>\R^n</m>, so
+    <me>
+      \vx = x_1 \vv_1 + x_2 \vv_2 + \cdots + x_n \vv_n
+    </me>
+    for some scalars <m>x_1</m>, <m>x_2</m>,
+    <m>\ldots</m>, <m>x_n</m>.
+    Since <m>A\vv_j = \vzero</m> for <m>r+1 \leq j \leq n</m> we have
+    <md>
+      <mrow>\vy \amp = A\vx</mrow>
+      <mrow>\amp = A(x_1 \vv_1 + x_2 \vv_2 + \cdots + x_n \vv_n)</mrow>
+      <mrow>\amp = x_1 A\vv_1 + x_2 A\vv_2 + \cdots + x_r A\vv_r + x_{r+1} A \vv_{r+1} + \cdots + x_n A\vv_n</mrow>
+      <mrow>\amp = x_1 A\vv_1 + x_2 A\vv_2 + \cdots + x_r A\vv_r</mrow>
+    </md>.
+  </p>
+  <p>
+    So <m>\Span \ \CB = \Col A</m> and <m>\CB</m> is an orthogonal basis for <m>\Col A</m>.
+  </p>
+  <p>
+    Now we are ready to find the Singular Value Decomposition of <m>A</m>.
+    First we create an orthonormal basis
+    <m>\{\vu_1, \vu_2, \ldots, \vu_r\}</m> for <m>\Col A</m> by normalizing the vectors <m>A\vv_i</m>.
+    So we let
+    <me>
+      \vu_i = \frac{A\vv_i}{||A\vv_i||}
+    </me>
+    for <m>i</m> from 1 to <m>r</m>.
+  </p>
+  <p>
+    Remember from <xref ref="eq_7_c_sing_vals1"/> that <m>||A\vv_i||^2 = \lambda_i</m>,
+    so if we let <m>\sigma_i = \sqrt{\lambda_i}</m>, then we have
+    <me>
+      \vu_i = \frac{A\vv_i}{\sigma_i} \text{ and }  A \vv_i = \sigma_i \vu_i
+    </me>.
+  </p>
+  <p>
+    We ordered the <m>\lambda_i</m> so that <m>\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n</m>,
+    so we also have
+    <me>
+      \sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0
+    </me>.
+  </p>
+  <p>
+    The scalars <m>\sigma_1</m>, <m>\sigma_2</m>, <m>\ldots</m>,
+    <m>\sigma_n</m> are called the <em>singular values</em> of <m>A</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix.
+        The <term>singular values</term>
+            <idx><h>singular values</h></idx>
+        of <m>A</m> are the square roots of the eigenvalues of <m>A^{\tr}A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The vectors <m>\vu_1</m>, <m>\vu_2</m>, <m>\ldots</m>,
+    <m>\vu_r</m> are <m>r</m> orthonormal vectors in <m>\R^m</m>.
+    We can extend the set <m>\{\vu_1</m>,
+    <m>\vu_2</m>, <m>\ldots</m>,
+    <m>\vu_r\}</m> to an orthonormal basis <m>\CC = \{\vu_1, \vu_2, \ldots, \vu_r, \vu_{r+1} \vu_{r+2}, \ldots, \vu_m\}</m> of <m>\R^m</m>.
+    Recall that <m>A \vv_i = \sigma_i \vu_i</m> for <m>1 \leq i \leq r</m> and
+    <m>A \vv_j = \vzero</m> for <m>r+1 \leq j \leq n</m>, so
+    <md>
+      <mrow>AV \amp = A [\vv_1 \  \vv_2  \ \cdots  \ \vv_n]</mrow>
+      <mrow>\amp = [A\vv_1  \ A\vv_2  \ \cdots  \ A\vv_n]</mrow>
+      <mrow>\amp = [\sigma_1 \vu_1  \ \sigma_2 \vu_2  \ \cdots  \ \sigma_r \vu_r  \ \vzero  \ \vzero  \ \cdots  \ \vzero]</mrow>
+    </md>.
+  </p>
+  <p>
+    We can write the matrix <m>[\sigma_1 \vv_1  \ \sigma_2 \vv_2  \ \cdots  \ \sigma_r \vv_r  \ \vzero  \ \vzero  \ \cdots  \ \vzero]</m> in another way.
+    Let <m>\Sigma</m> be the <m>m\times n</m> matrix defined as
+    <me>
+      \Sigma = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp 0\amp  \\ \amp  \sigma_2\amp \amp \amp \amp 0 \\ \amp \amp  \sigma_3\amp \amp \amp  \\ \amp   \amp  \amp  \ddots \amp  \amp  \\ 0\amp \amp \amp \amp  \sigma_r \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Now
+    <me>
+      [\vu_1  \ \vu_2  \ \cdots  \ \vu_m] \Sigma = [\sigma_1\vu_1  \ \sigma_1\vu_2  \ \cdots  \ \sigma_r\vu_r \ \vzero \ \vzero \ \cdots \ \vzero] = AV
+    </me>.
+  </p>
+  <p>
+    So if <m>U = [\vu_1 \ \vu_2 \ \cdots \ \vu_m]</m>, then
+    <me>
+      U\Sigma = AV
+    </me>.
+  </p>
+  <p>
+    Since <m>V</m> is an orthogonal matrix, we have that
+    <me>
+      U \Sigma V^{\tr} = AV V^{\tr} = A
+    </me>.
+  </p>
+  <p>
+    This is the Singular Value Decomposition of <m>A</m>.
+  </p>
+  <theorem>
+    <title>The Singular Value Decomposition</title>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix of rank <m>r</m>.
+        There exist an <m>m \times m</m> orthogonal matrix <m>U</m>,
+        an <m>n \times n</m> orthogonal matrix <m>V</m>,
+        and an <m>m \times n</m> matrix <m>\Sigma</m> whose first <m>r</m> diagonal entries are the singular values <m>\sigma_1</m>,
+        <m>\sigma_2</m>, <m>\ldots</m>,
+        <m>\sigma_r</m> and whose other entries are 0, such that
+        <me>
+          A = U \Sigma V^{\tr}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    <em>SVD Summary: </em> A Singular Value Decomposition of an
+    <m>m \times n</m> matrix <m>A</m> of rank <m>r</m> can be found as follows.
+    <ol>
+      <li>
+        <p>
+          Find an orthonormal basis <m>\{\vv_1, \vv_2, \vv_3, \ldots, \vv_n\}</m> of eigenvectors of <m>A^{\tr}A</m> such that
+          <m>(A^{\tr}A) \vv_i = \lambda_i \vv_i</m> for <m>i</m> from 1 to <m>n</m> with
+          <m>\lambda_1 \geq \lambda_{2} \geq \cdots \geq \lambda_n \geq 0</m> with the first <m>r</m> eigenvalues being positive.
+          The vectors <m>\vv_1</m>, <m>\vv_2</m>,
+          <m>\vv_3</m>, <m>\ldots</m>,
+          <m>\vv_n</m> are the <em>right singular vectors</em><idx><h>singular vectors</h><h>right</h></idx> of <m>A</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Let
+          <me>
+            V= [\vv_1 \  \vv_2 \  \vv_3 \  \cdots \  \vv_n ]
+          </me>.
+          Then <m>V</m> orthogonally diagonalizes <m>A^{\tr}A</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The singular values of <m>A</m> are the numbers <m>\sigma_i</m>,
+          where <m>\sigma_i = \sqrt{\lambda_i} > 0</m> for <m>i</m> from 1 to <m>r</m>.
+          Let <m>\Sigma</m> be the <m>m \times n</m> matrix
+          <me>
+            \Sigma = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp 0\amp  \\ \amp  \sigma_2\amp \amp \amp \amp 0 \\ \amp \amp  \sigma_3\amp \amp \amp  \\ \amp   \amp  \amp  \ddots \amp  \amp  \\ 0\amp \amp \amp \amp  \sigma_r \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]
+          </me>
+        </p>
+      </li>
+      <li>
+        <p>
+          For <m>i</m> from 1 to <m>r</m>,
+          let <m>\vu_i = \frac{A\vv_i}{||A\vv_i||}</m>.
+          Then the set <m>\{\vu_1, \vu_2, \ldots, \vu_r\}</m> forms an orthonormal basis of <m>\Col A</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Extend the set <m>\{\vu_1, \vu_2, \ldots, \vu_r\}</m> to an orthonormal basis
+          <me>
+            \{\vu_1, \vu_2, \ldots, \vu_r, \vu_{r+1} \vu_{r+2}, \ldots, \vu_m\}
+          </me>
+          of <m>\R^m</m>.
+          Let
+          <me>
+            U = [\vu_1 \ \vu_2 \ \cdots \ \vu_m]
+          </me>.
+          The vectors <m>\vu_1</m>, <m>\vu_2</m>, <m>\ldots</m>,
+          <m>\vu_m</m> are the <em>left singular vectors</em><idx><h>singular vectors</h><h>left</h></idx> of <m>A</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Then <m>A = U \Sigma V^{\tr}</m> is a singular value decomposition of <m>A</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <activity xml:id="ex_7_c_SVD">
+    <p>
+      Let <m>A = \left[ \begin{array}{rc} 0\amp 5\\ \noalign{}4\amp 3 \\ \noalign{}-2\amp 1 \end{array}  \right]</m>.
+      Then <m>A^{\tr}A = \left[ \begin{array}{cc} 20\amp 10\\ \noalign{}10\amp 35 \end{array} \right]</m>.
+      The eigenvalues of <m>A^{\tr}A</m> are <m>\lambda_1 = 40</m> and
+      <m>\lambda_2 = 15</m> with respective eigenvectors
+      <m>\vw_1 = \left[ \begin{array}{c} 1 \\ 2 \end{array}  \right]</m> and <m>\vw_2 = \left[ \begin{array}{r} -2 \\ 1 \end{array}  \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Find an orthonormal basis <m>\{\vv_1, \vv_2, \vv_3, \ldots, \vv_n\}</m> of eigenvectors of <m>A^{\tr}A</m>.
+            What is <m>n</m>?
+            Find the matrix <m>V</m> in a SVD for <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the singular values of <m>A</m>.
+            What is the rank <m>r</m> of <m>A</m>?
+            Why?
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the dimensions of the matrix <m>\Sigma</m> in a SVD of <m>A</m>?
+            Find <m>\Sigma</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the vectors <m>\vu_1</m>,
+            <m>\vu_2</m>, <m>\ldots</m>, <m>\vu_r</m>.
+            If necessary, extend this set to an orthonormal basis
+            <me>
+              \{\vu_1, \vu_2, \ldots, \vu_r, \vu_{r+1} \vu_{r+2}, \ldots, \vu_m\}
+            </me>
+            of <m>\R^m</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the matrix <m>U</m> so that
+            <m>A = U \Sigma V^{\tr}</m> is a SVD for <m>A</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    There is another way we can write this SVD of <m>A</m>.
+    Let the <m>m \times n</m> matrix <m>A</m> have a singular value decomposition <m>U \Sigma V^{\tr}</m>, where
+    <md>
+      <mrow>U \amp = [\vu_1 \ \vu_2 \ \cdots \ \vu_m],</mrow>
+      <mrow>\Sigma \amp = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp 0\amp</mrow>
+      <mrow>\amp  \sigma_2\amp \amp \amp \amp 0</mrow>
+      <mrow>\amp \amp  \sigma_3\amp \amp \amp</mrow>
+      <mrow>\amp   \amp  \amp  \ddots \amp  \amp</mrow>
+      <mrow>0\amp \amp \amp \amp  \sigma_r</mrow>
+      <mrow>\hline \amp \amp 0\amp \amp \amp 0 \end{array} \right],  \text{ and }</mrow>
+      <mrow>V \amp = [\vv_1 \ \vv_2 \ \vv_3 \   \cdots \  \vv_n ]</mrow>
+    </md>.
+  </p>
+  <p>
+    Since <m>A = U \Sigma V^{\tr}</m> we see that
+    <md>
+      <mrow>A \amp = [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_m] \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp 0\amp</mrow>
+      <mrow>\amp  \sigma_2\amp \amp \amp \amp 0</mrow>
+      <mrow>\amp \amp  \sigma_3\amp \amp \amp</mrow>
+      <mrow>\amp   \amp  \amp  \ddots \amp  \amp</mrow>
+      <mrow>0\amp \amp \amp \amp  \sigma_r</mrow>
+      <mrow>\hline \amp \amp 0\amp \amp \amp 0 \end{array} \right] \left[  \begin{array}{c} \vv_1^{\tr}</mrow>
+      <mrow>\vv_2^{\tr}</mrow>
+      <mrow>\vv_3^{\tr}</mrow>
+      <mrow>\vdots</mrow>
+      <mrow>\vv_n^{\tr} \end{array} \right]</mrow>
+      <mrow>\amp = [ \sigma_1\vu_1 \ \sigma_2\vu_2 \ \sigma_3\vu_3 \ \cdots \ \sigma_r\vu_r \ \vzero \ \cdots \ \vzero] \left[  \begin{array}{c} \vv_1^{\tr}</mrow>
+      <mrow>\vv_2^{\tr}</mrow>
+      <mrow>\vv_3^{\tr}</mrow>
+      <mrow>\vdots</mrow>
+      <mrow>\vv_n^{\tr} \end{array} \right]</mrow>
+      <mrow xml:id="eq_7_c_SVD" number="yes">\amp = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_r \vu_r\vv_r^{\tr}</mrow>
+    </md>.
+  </p>
+  <p>
+    This is called an <em>outer product decomposition</em><idx><h>outer product decomposition</h></idx> of <m>A</m> and tells us everything we learned above about the action of the matrix <m>A</m> as a linear transformation.
+    Each of the products <m>\vu_i\vv_i^{\tr}</m> is a rank 1 matrix
+    (see <xref ref="ex_7_c_rank1">Exercise</xref>),
+    and <m>||A\vv_1|| = \sigma_1</m> is the largest value <m>A</m> takes on the unit <m>n</m>-sphere,
+    <m>||A\vv_2|| = \sigma_2</m> is the next largest dilation of the unit <m>n</m>-sphere,
+    and so on.
+    An outer product decomposition allows us to approximate <m>A</m> with smaller rank matrices.
+    For example,
+    the matrix <m>\sigma_1 \vu_1\vv_1^{\tr}</m> is the best rank 1 approximation to <m>A</m>,
+    <m>\sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr}</m> is the best rank 2 approximation,
+    and so on.
+    This will be very useful in applications,
+    as we will see in the next section.
+  </p>
+</section>

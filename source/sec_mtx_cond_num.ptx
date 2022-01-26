@@ -1,0 +1,238 @@
+<section xml:id="sec_mtx_cond_num">
+  <title>The Condition Number of a Matrix</title>
+  <p>
+    A singular value decomposition for a matrix <m>A</m> can tell us a lot about how difficult it is to accurately solve a system <m>A \vx = \vb</m>.
+    Solutions to systems of linear equations can be very sensitive to rounding as the next exercise demonstrates.
+  </p>
+  <activity xml:id="act_7_c_cond_num">
+    <p>
+      Find the solution to each of the systems.
+      <ul>
+        <li>
+          <p>
+            <m>\left[ \begin{array}{cc} 1.0000\amp 1.0000 \\ 1.0000\amp 1.0005 \end{array} \right] \left[ \begin{array}{c} x \\ y \end{array} \right] = \left[ \begin{array}{c} 2.0000 \\ 2.0050 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left[ \begin{array}{cc} 1.000\amp 1.000 \\ 1.000\amp 1.001 \end{array} \right] \left[ \begin{array}{c} x \\ y \end{array} \right] = \left[ \begin{array}{c} 2.000 \\ 2.005 \end{array} \right]</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Notice that a simple rounding in the <m>(2,2)</m> entry of the coefficient matrix led to a significantly different solution.
+    If there are rounding errors at any stage of the Gaussian elimination process,
+    they can be compounded by further row operations.
+    This is an important problem since computers can only approximate irrational numbers with rational numbers and so rounding can be critical.
+    Finding ways of dealing with these kinds of errors is an area of on-going research in numerical linear algebra.
+    This problem is given a name.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A matrix <m>A</m> is <term>ill-conditioned</term>
+        if relatively small changes in any entries of <m>A</m> can produce significant changes in solutions to the system <m>A\vx = \vb</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    A matrix that is not ill-conditioned is said to be
+    <em>well-conditioned</em>.
+    Since small changes in entries of ill-conditioned matrices can lead to large errors in computations,
+    it is an important problem in linear algebra to have a way to measure how ill-conditioned a matrix is.
+    This idea will ultimately lead us to the condition number of a matrix.
+  </p>
+  <p>
+    Suppose we want to solve the system <m>A \vx = \vb</m>,
+    where <m>A</m> is an invertible matrix.
+    <xref ref="act_7_c_cond_num">Activity</xref>
+    illustrates that if <m>A</m> is really close to being singular,
+    then small changes in the entries of <m>A</m> can have significant effects on the solution to the system.
+    So the system can be very hard to solve accurately if <m>A</m> is close to singular.
+    It is important to have a sense of how
+    <q>good</q>
+    we can expect any calculated solution to be.
+    Suppose we think we solve the system <m>A \vx = \vb</m> but,
+    through rounding error in our calculation of <m>A</m>,
+    get a solution <m>\vx'</m> so that <m>A \vx' = \vb'</m>,
+    where <m>\vb'</m> is not exactly <m>\vb</m>.
+    Let <m>\Delta \vx</m> be the error in our calculated solution and
+    <m>\Delta \vb</m> the difference between <m>\vb'</m> and <m>\vb</m>.
+    We would like to know how large the error <m>||\Delta \vx||</m> can be.
+    But this isn't exactly the right question.
+    We could scale everything to make <m>||\Delta \vx||</m> as large as we want.
+    What we really need is a measure of the <em>relative error</em>
+    <m>\frac{||\Delta \vx||}{||\vx||}</m>,
+    or how big the error is compared to <m>||\vx||</m> itself.
+    More specifically, we want to know how large the relative error in
+    <m>\Delta \vx</m> is compared to the relative error in <m>\Delta \vb</m>.
+    In other words, we want to know how good the relative error in
+    <m>\Delta \vb</m> is as a predictor of the relative error in <m>\Delta \vx</m>
+    (we may have some control over the relative error in <m>\Delta \vb</m>,
+    perhaps by keeping more significant digits).
+    So we want know if there is a best constant <m>C</m> such that
+    <me>
+      \frac{||\Delta \vx||}{||\vx||} \leq C \frac{||\Delta \vb||}{||\vb||}
+    </me>.
+  </p>
+  <p>
+    This best constant <m>C</m> is the condition number <mdash/> a measure of how well the relative error in
+    <m>\Delta \vb</m> predicts the relative error in <m>\Delta \vx</m>.
+    How can we find <m>C</m>?
+  </p>
+  <p>
+    Since <m>A \vx' = \vb'</m> we have
+    <me>
+      A(\vx + \Delta \vx) = \vb + \Delta \vb
+    </me>.
+  </p>
+  <p>
+    Distributing on the left and using the fact that <m>A\vx = \vb</m> gives us
+    <men xml:id="eq_7_c_cn">
+      A\Delta \vx = \Delta \vb
+    </men>.
+  </p>
+  <p>
+    We return for a moment to the operator norm of a matrix.
+    This is an appropriate norm to use here since we are considering <m>A</m> to be a transformation.
+    Recall that if <m>A</m> is an <m>m \times n</m> matrix,
+    we defined the operator norm of <m>A</m> to be
+    <me>
+      ||A|| = \max_{||\vx|| \neq \vzero} \left\{\frac{||A\vx||}{||\vx||} \right\} = \max_{||\vx||=1} \{||A\vx||\}
+    </me>.
+  </p>
+  <p>
+    One important property that the norm has is that if the product <m>AB</m> is defined, then
+    <me>
+      ||AB|| \leq ||A|| \ ||B||
+    </me>.
+  </p>
+  <p>
+    To see why, notice that
+    <me>
+      \frac{||AB\vx||}{||\vx||} = \frac{||A(B\vx)||}{||B\vx||} \ \frac{||B\vx||}{||\vx||}
+    </me>.
+  </p>
+  <p>
+    Now <m>\frac{||A(B\vx)||}{||B\vx||} \leq ||A||</m> and
+    <m>\frac{||B\vx||}{||\vx||} \leq ||B||</m> by the definition of the norm,
+    so we conclude that
+    <me>
+      \frac{||AB\vx||}{||\vx||} \leq ||A|| \ ||B||
+    </me>
+    for every <m>\vx</m>.
+    Thus,
+    <me>
+      ||AB|| \leq ||A|| \ ||B||
+    </me>.
+  </p>
+  <p>
+    Now we can find the condition number.
+    From <m>A \Delta \vx = \Delta \vb</m> we have
+    <me>
+      \Delta \vx = A^{-1} \Delta \vb
+    </me>,
+    so
+    <men xml:id="eq_7_c_cn2">
+      ||\Delta \vx|| \leq ||A^{-1}|| \ ||\Delta \vb||
+    </men>.
+  </p>
+  <p>
+    Similarly, <m>\vb = A\vx</m> implies that <m>||\vb|| \leq ||A|| \ ||\vx||</m> or
+    <men xml:id="eq_7_c_cn3">
+      \frac{1}{||\vx||} \leq \frac{||A||}{||\vb||}
+    </men>.
+  </p>
+  <p>
+    Combining <xref ref="eq_7_c_cn2"/> and <xref ref="eq_7_c_cn3"/> gives
+    <md>
+      <mrow>\frac{||\Delta \vx||}{||\vx||} \amp \leq \frac{||A^{-1}|| \ ||\Delta \vb||}{||\vx||}</mrow>
+      <mrow>\amp = ||A^{-1}|| \ ||\Delta \vb|| \left(\frac{1}{||\vx||}\right)</mrow>
+      <mrow>\amp \leq ||A^{-1}|| \ ||\Delta \vb||  \frac{||A||}{||\vb||}</mrow>
+      <mrow>\amp = ||A^{-1}|| \ ||A|| \ \frac{||\Delta \vb||}{||\vb||}</mrow>
+    </md>.
+  </p>
+  <p>
+    This constant <m>||A^{-1}|| \ ||A||</m> is the best bound and so is called the condition number of <m>A</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <term>condition number</term><idx><h>condition number of a matrix</h></idx> of an invertible matrix <m>A</m> is the number <m>||A^{-1}|| \ ||A||</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    How does a singular value decomposition tell us about the condition number of a matrix?
+    Recall that the maximum value of
+    <m>||A\vx||</m> for <m>\vx</m> on the unit <m>n</m>-sphere is <m>\sigma_1</m>.
+    So <m>||A|| = \sigma_1</m>.
+    If <m>A</m> is an invertible matrix and
+    <m>A = U \Sigma V^{\tr}</m> is a singular value decomposition for <m>A</m>, then
+    <me>
+      A^{-1} = (U \Sigma V^{\tr})^{-1} = (V^{\tr})^{-1} \Sigma^{-1} U^{-1} = V \Sigma^{-1} U^{\tr}
+    </me>,
+    where
+    <me>
+      \Sigma^{-1} = \left[ \begin{array}{ccccc} \frac{1}{\sigma_1}\amp \amp \amp \amp 0 \\ \amp  \frac{1}{\sigma_2}\amp \amp \amp  \\ \amp \amp  \frac{1}{\sigma_3}\amp \amp  \\ \amp   \amp  \amp  \ddots \amp   \\ 0\amp \amp \amp \amp  \frac{1}{\sigma_n} \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Now <m>V \Sigma^{-1} U^{\tr}</m> is a singular value decomposition for <m>A^{-1}</m> with the diagonal entries in reverse order, so
+    <me>
+      ||A^{-1}|| = \frac{1}{\sigma_n}
+    </me>.
+  </p>
+  <p>
+    Therefore, the condition number of <m>A</m> is
+    <me>
+      ||A^{-1}|| \ ||A|| = \frac{\sigma_1}{\sigma_n}
+    </me>.
+  </p>
+  <activity>
+    <p>
+      Let <m>A = \left[ \begin{array}{cc} 1.0000\amp 1.0000 \\ 1.0000\amp 1.0005 \end{array} \right]</m>.
+      A computer algebra system gives the singular values of <m>A</m> as 2.00025003124999934 and 0.000249968750000509660.
+      What is the condition number of <m>A</m>.
+      What does that tell us about <m>A</m>?
+      Does this seem reasonable given the result of <xref ref="act_7_c_cond_num">Activity</xref>?
+    </p>
+  </activity>
+  <activity>
+    <ul>
+      <li>
+        <p>
+          What is the smallest the condition number of a matrix can be?
+          Find an entire class of matrices with this smallest condition number.
+        </p>
+      </li>
+      <li>
+        <p>
+          What is the condition number of an orthogonal matrix?
+          Why does this make sense?
+          <hint>
+            <p>
+              If <m>P</m> is an orthogonal matrix,
+              what is <m>||P \vx||</m> for any vector <m>\vx</m>?
+              What does this make <m>||P||</m>?
+            </p>
+          </hint>
+        </p>
+      </li>
+      <li>
+        <p>
+          What is the condition number of an invertible symmetric matrix in terms of its eigenvalues?
+        </p>
+      </li>
+      <li>
+        <p>
+          Why do we not define the condition number of a non-invertible matrix?
+          If we did, what would the condition number have to be?
+          Why?
+        </p>
+      </li>
+    </ul>
+  </activity>
+</section>

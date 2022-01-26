@@ -1,0 +1,62 @@
+<section xml:id="sec_egspace_geom">
+  <title>Eigenspaces, A Geometric Example</title>
+  <p>
+    Recall that for each eigenvalue <m>\lambda</m> of an <m>n \times n</m> matrix <m>A</m>,
+    the eigenspace of <m>A</m> corresponding to the eigenvalue <m>\lambda</m> is <m>\Nul (A - \lambda I_n)</m>.
+    These eigenspaces can tell us important information about the matrix transformation defined by <m>A</m>.
+    For example,
+    consider the matrix transformation <m>T</m> from <m>\R^3</m> to <m>\R^3</m> defined by <m>T(\vx) = A \vx</m>, where
+    <me>
+      A = \left[ \begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp 1\\0\amp 0\amp 2 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    We are interested in understanding what this matrix transformation does to vectors in <m>\R^3</m>.
+    First we note that <m>A</m> has eigenvalues
+    <m>\lambda_1 = 1</m> and <m>\lambda_2 = 2</m>,
+    with <m>\lambda_1</m> having multiplicity <m>2</m>.
+    There is a pair <m>\vv_1 = \left[ \begin{array}{c} 1\\0\\0 \end{array}  \right]</m> and
+    <m>\vv_2 = \left[ \begin{array}{c} 0\\1\\0 \end{array}  \right]</m> of linearly independent eigenvectors for <m>A</m> corresponding to the eigenvalue <m>\lambda_1</m> and an eigenvector
+    <m>\vv_3=\left[ \begin{array}{c} 1\\1\\1 \end{array}  \right]</m> for <m>A</m> corresponding to the eigenvalue <m>\lambda_2</m>.
+    Note that the vectors <m>\vv_1</m>,
+    <m>\vv_2</m>, and <m>\vv_3</m> are linearly independent
+    (recall from Theorem that eigenvectors corresponding to different eigenvalues are always linearly independent).
+    So any vector <m>\vb</m> in <m>\R^3</m> can be written uniquely as a linear combination of <m>\vv_1</m>,
+    <m>\vv_2</m>, and <m>\vv_3</m>.
+    Let's now consider the action of the matrix transformation <m>T</m> on a linear combination of <m>\vv_1</m>,
+    <m>\vv_2</m>, and <m>\vv_2</m>.
+    Note that
+    <md>
+      <mrow>T(c_1\vv_1 + c_2 \vv_2 + c_3 \vv_3) \amp = c_1T(\vv_1) + c_2T(\vv_2) + c_3 T(\vv_3)</mrow>
+      <mrow>\amp = c_1 \lambda_1 \vv_1 + c_2 \lambda_1 \vv_2 + c_3 \lambda_2 \vv_3</mrow>
+      <mrow xml:id="eq_4_b_2" number="yes">\amp = (1)(c_1\vv_1 + c_2 \vv_2) + (2)c_3 \vv_3</mrow>
+    </md>.
+  </p>
+  <p>
+    Equation <xref ref="eq_4_b_2"/> illustrates that it is most convenient to view the action of <m>T</m> in the coordinate system where
+    <m>\Span \{\vv_1\}</m> serves as the <m>x</m>-axis,
+    <m>\Span \{\vv_2\}</m> serves as the <m>y</m>-axis,
+    and <m>\Span \{\vv_3\}</m> as the <m>z</m>-axis.
+    In this case,
+    we can visualize that when we apply the transformation <m>T</m> to a vector
+    <m>\vb = c_1 \vv_1 + c_2 \vv_2 + c_3 \vv_3</m> in <m>\R^3</m> the result is an output vector that is unchanged in the <m>\vv_1</m>-<m>\vv_2</m> plane and scaled by a factor of <m>2</m> in the <m>\vv_3</m> direction.
+    For example,
+    consider the box whose sides are determined by the vectors <m>\vv_1</m>,
+    <m>\vv_2</m>,
+    and <m>\vv_3</m> as shown in <xref ref="F_4_b_1">Figure</xref>.
+    The transformation <m>T</m> stretches this box by a factor of <m>2</m> in the <m>\vv_3</m> direction and leaves everything else alone,
+    as illustrated in <xref ref="F_4_b_1">Figure</xref>.
+    So the entire <m>\Span \{\vv_1, \vv_2\})</m> is unchanged by <m>T</m>,
+    but <m>\Span \{\vv_3\})</m> is scaled by <m>2</m>.
+    In this situation,
+    the eigenvalues and eigenvectors provide the most convenient perspective through which to visualize the action of the transformation <m>T</m>.
+  </p>
+  <figure xml:id="F_4_b_1">
+    <caption>A box and a transformed box.</caption>
+    <image width="73%" source="4_b_Eigenspaces.eps"/>
+  </figure>
+  <p>
+    This geometric perspective illustrates how each eigenvalue and the corresponding eigenspace of <m>A</m> tells us something important about <m>A</m>.
+    So it behooves us to learn a little more about eigenspaces.
+  </p>
+</section>

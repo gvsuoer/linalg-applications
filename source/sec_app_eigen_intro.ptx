@@ -1,0 +1,67 @@
+<section xml:id="sec_app_eigen_intro">
+  <title>Introduction</title>
+  <p>
+    We have used the characteristic polynomial to find the eigenvalues of a matrix,
+    and for each eigenvalue row reduced a corresponding matrix to find the eigenvectors This method is only practical for small matrices <mdash/> for more realistic applications approximation techniques are used.
+    We investigate one such technique in this section,
+    the <em>power method</em>.
+  </p>
+  <activity xml:id="pa_4_d">
+    <p>
+      Let <m>A = \left[ \begin{array}{cc} 2\amp 6 \\ 5\amp 3 \end{array} \right]</m>.
+      Our goal is to find a scalar <m>\lambda</m> and a nonzero vector <m>\vv</m> so that <m>A \vv = \lambda \vv</m>.
+      <ol>
+        <li>
+          <p>
+            If we have no prior knowledge of the eigenvalues and eigenvectors of this matrix,
+            we might just begin with a guess.
+            Let <m>\vx_0 = [1 \ 0]^{\tr}</m> be such a guess for an eigenvector.
+            Calculate <m>A \vx_0</m>.
+            Is <m>\vx_0</m> an eigenvector of <m>A</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>\vx_0</m> is not a good approximation to an eigenvector of <m>A</m>,
+            then we need to make a better guess.
+            We have little to work with other than just random guessing,
+            but we can use <m>\vx_1 = A\vx_0</m> as another guess.
+            We calculated <m>\vx_1</m> in part 1.
+            Is <m>\vx_1</m> an eigenvector for <m>A</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            In parts (a) and (b) you might have noticed that in some sense <m>\vx_1</m> is closer to being an eigenvector of <m>A</m> than <m>\vx_0</m> was.
+            So maybe continuing this process will get us closer to an eigenvector of <m>A</m>.
+            In other words,
+            for each positive integer <m>k</m> we define <m>\vx_k</m> as <m>A \vx_{k-1}</m>.
+            Before we proceed, however,
+            we should note that as we calculate the vectors <m>\vx_1</m>,
+            <m>\vx_2</m>, <m>\vx_3</m>,
+            <m>\ldots</m>, the entries in the vectors get large very quickly.
+            So it will be useful to scale the entries so that they stay at a reasonable size,
+            which makes it easier to interpret the output.
+            One way to do this is to divide each vector <m>\vx_i</m> by its largest component in absolute value so that all of the entries stay between <m>-1</m> and <m>1</m>.<fn>
+            There are several other ways to scale,
+            but we won't consider them here.
+            </fn> So in our example we have <m>\vx_0 = [1 \ 0]^{\tr}</m>,
+            <m>\vx_1 = [2/5 \ 1]^{\tr}</m>,
+            and <m>\vx_2 = [1 \ 25/34]^{\tr}</m>.
+            Explain why scaling our vectors will not affect our search for an eigenvector.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use an appropriate technological tool to find the vectors <m>\vx_k</m> up to <m>k=10</m>.
+            What do you think the limiting vector <m>\lim_{k \to \infty} \vx_k</m> is?
+            Is this limiting vector an eigenvector of <m>A</m>?
+            If so, what is the corresponding eigenvalue?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

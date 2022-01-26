@@ -1,0 +1,131 @@
+<section xml:id="sec_row_ech_summ">
+  <title>Summary</title>
+  <p>
+    In this section we learned about the row echelon and reduced row echelon forms of a matrix and some of the things these forms tell us about solutions to systems of linear equations.
+  </p>
+  <ul>
+    <li>
+      <p>
+        A matrix is in row echelon form if
+      </p>
+      <ol>
+        <li>
+          <p>
+            All nonzero rows are above any rows of all zeros.
+          </p>
+        </li>
+        <li>
+          <p>
+            Each <em>pivot</em>
+            (the first nonzero entry)
+            of a row is in a column to the right of the pivot of the row above it.
+          </p>
+        </li>
+      </ol>
+    </li>
+    <li>
+      <p>
+        Once an augmented matrix is in row echelon form,
+        we can use back substitution to solve the corresponding linear system.
+      </p>
+    </li>
+    <li>
+      <p>
+        To reduce a matrix to row echelon form we do the following:
+      </p>
+      <ul>
+        <li>
+          <p>
+            Begin with the leftmost nonzero column
+            (if there is one).
+            This will be a pivot column.
+          </p>
+        </li>
+        <li>
+          <p>
+            Select a nonzero entry in this pivot column as a pivot.
+            If necessary,
+            interchange rows to move this entry to the first row
+            (this entry will be a pivot).
+          </p>
+        </li>
+        <li>
+          <p>
+            Use row operations to create zeros in all positions below the pivot.
+          </p>
+        </li>
+        <li>
+          <p>
+            Cover (or ignore) the row containing the pivot position and cover all rows, if any,
+            above it.
+            Apply the preceding steps to the submatrix that remains.
+            Repeat the process until there are no more nonzero rows to modify.
+          </p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p>
+        A matrix is in reduced row echelon form if it is in row echelon form and
+        <ol>
+          <li>
+            <title>(3)</title>
+            <p>
+              The pivot in each nonzero row is 1.
+            </p>
+          </li>
+          <li>
+            <title>(4)</title>
+            <p>
+              Each pivot is the only nonzero entry in its column.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </li>
+    <li>
+      <p>
+        To obtain the reduced row echelon form from the row echelon form,
+        beginning with the rightmost pivot and working upward and to the left,
+        create zeros above each pivot.
+        If a pivot is not 1, make it 1 by an appropriate row multiplication.
+      </p>
+    </li>
+    <li>
+      <p>
+        Both row echelon forms of an augmented matrix tell us about the number of solutions to the corresponding linear system.
+        <ul>
+          <li>
+            <p>
+              A linear system is inconsistent if and only if a row echelon form of the augmented matrix of the system contains a row of the form
+              <me>
+                [0 \ 0 \ 0 \ \cdots \ 0 \ *]
+              </me>,
+              where <m>*</m> is not zero.
+              Another way to say this is that a linear system is inconsistent if and only if the last column of the augmented matrix of the system is a pivot column.
+            </p>
+          </li>
+          <li>
+            <p>
+              A consistent linear system will have a unique solution if and only if each column but the last in the augmented matrix of the system is a pivot column.
+              This is equivalent to saying that a consistent linear system will have a unique solution if and only if the consistent system has no free variables.
+            </p>
+          </li>
+          <li>
+            <p>
+              A consistent linear system will have infinitely many solutions if and only if the coefficient matrix of the system contains a non-pivot column.
+              In that case,
+              the free variables corresponding to the non-pivot columns can be chosen arbitrarily and the basic variables corresponding to pivot columns can be written in terms of the free variables.
+            </p>
+          </li>
+          <li>
+            <p>
+              A linear system can have no solutions,
+              exactly one solution, or infinitely many solutions.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,132 @@
+<section xml:id="sec_basis_vec_space">
+  <title>Finding a Basis for a Vector Space</title>
+  <p>
+    We already know how to find bases for certain vector spaces,
+    namely <m>\Nul A</m> and <m>\Col A</m>,
+    where <m>A</m> is any matrix.
+    Finding a basis for a different kind of vector space will require other methods.
+    Since a basis for a vector space is a minimal spanning set,
+    to find a basis for a given vector space we might begin from scratch,
+    starting with a given vector in the space and adding one vector at a time until we have a spanning set.
+  </p>
+  <activity xml:id="act_5_b_2">
+    <p>
+      Let <m>W = \{a + bt + ct^3 \mid a, b, c \text{ are scalars } \}</m>.
+      We will find a basis of <m>W</m> that contains the polynomial <m>3+t-t^3</m>.
+      <ul>
+        <li>
+          <p>
+            Let <m>\CS_1 = \{3+t-t^3\}</m>.
+            Find a polynomial <m>p(t)</m> in <m>W</m> that is not in <m>\Span \ \CS_1</m>.
+            Explain why this means that the set <m>\CS_1</m> does not span <m>W</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\CS_2 = \{3+t-t^3, p(t)\}</m>.
+            Find a polynomial <m>q(t)</m> that is not in <m>\Span \ \CS_2</m>.
+            What does this mean about <m>\CS_2</m> being a possible spanning set of <m>W</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\CS_3 = \{3+t-t^3, p(t), q(t)\}</m>.
+            Explain why the set <m>\CS_3</m> is a basis for <m>W</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Alternatively,
+    we might construct a basis from a known spanning set.
+  </p>
+  <activity xml:id="act_5_b_2_b">
+    <p>
+      Let <m>W = \left\{\left[ \begin{array}{cc} v+z\amp w+z \\ x\amp y \end{array} \right] \left. \right| v, w, x, y, z \text{ are scalars } \right\}</m>.
+      Assume that <m>W</m> is a subspace of <m>\M_{2 \times 2}</m>.
+      <ul>
+        <li>
+          <p>
+            Find a set <m>S</m> of five
+            <m>2 \times 2</m> matrices that spans <m>W</m>
+            (since <m>W</m> is a span of a set of vectors in <m>\M_{2 \times 2}</m>,
+            <m>W</m> is a subspace of <m>\M_{2 \times 2}</m>).
+            Without doing any computation,
+            can this set <m>S</m> be a basis for <m>W</m>?
+            Why or why not?
+          </p>
+        </li>
+        <li>
+          <p>
+            Find a subset <m>\CB</m> of <m>S</m> that is a basis for <m>W</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_5_b_2">Activities</xref>
+    and <xref ref="act_5_b_2_b"></xref>
+    give us two ways of finding a basis for a subspace <m>W</m> of a vector space <m>V</m>,
+    assuming <m>W</m> has a basis with finitely many vectors.
+    One way (illustrated in <xref ref="act_5_b_2">Activity</xref>) is to start by choosing any non-zero vector <m>\vw_1</m> in <m>W</m>.
+    Let <m>\CS_1 = \{\vw_1\}</m>.
+    If <m>\CS_1</m> spans <m>W</m>,
+    then <m>\CS_1</m> is a basis for <m>W</m>.
+    If not, there is a vector <m>\vw_2</m> in <m>W</m> that is not in <m>\Span \ \CS_1</m>.
+    Then <m>\CS_2 = \{\vw_1, \vw_2\}</m> is a linearly independent set.
+    If <m>\Span \ \CS_2 = W</m>,
+    then <m>\CS_2</m> is a basis for <m>W</m> and we are done.
+    If not, repeat the process.
+    We will show later that this process must stop as long as we know that <m>W</m> has a basis with finitely many vectors.
+  </p>
+  <p>
+    Another way
+    (illustrated in <xref ref="act_5_b_2_b">Activity</xref>)
+    to find a basis for <m>W</m> is to start with a spanning set <m>\CS_1</m> of <m>W</m>.
+    If <m>\CS_1</m> is linearly independent,
+    then <m>\CS_1</m> is a basis for <m>W</m>.
+    If <m>\CS_1</m> is linearly dependent,
+    then one vector in <m>\CS_1</m> is a linear combination of the others and we can remove that vector to obtain a new set <m>\CS_2</m> that also spans <m>W</m>.
+    If <m>\CS_2</m> is linearly independent,
+    then <m>\CS_2</m> is a basis for <m>W</m>.
+    If not, we repeat the process as many times as needed until we arrive until at a subset <m>\CS_k</m> of <m>\CS_1</m> that is linearly independent and spans <m>W</m>.
+    We summarize these results in the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>W</m> be a subspace of a finite-dimensional vector space <m>V</m>.
+        Then
+        <ol>
+          <li>
+            <p>
+              any linearly independent subset of <m>W</m> can be extended to a basis of <m>W</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              any subset of <m>W</m> that spans <m>W</m> can be reduced to a basis of <m>W</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We conclude this section with the result mentioned in the introduction <mdash/> that every vector in a vector space with basis <m>\B</m> can be written in one and only one way as a linear combination of basis vectors.
+    The proof is similar to that of <xref ref="thm_1_f_unique_representation">Theorem</xref> and is left to the exercises.
+  </p>
+  <theorem xml:id="thm_5_b_4">
+    <statement>
+      <p>
+        Let <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
+        <m>\vv_n</m> be vectors in a vector space <m>V</m> that make up a basis <m>\B</m> for <m>V</m>.
+        If <m>\vu</m> is a vector in <m>V</m>,
+        then <m>\vu</m> can be written in one and only one way as a linear combination of vectors <m>\vv_1</m>,
+        <m>\vv_2</m>, <m>\ldots</m>, <m>\vv_n</m> in <m>\B</m>.
+      </p>
+    </statement>
+  </theorem>
+</section>

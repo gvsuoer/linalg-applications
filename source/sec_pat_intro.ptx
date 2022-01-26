@@ -1,0 +1,124 @@
+<section xml:id="sec_pat_intro">
+  <title>Introduction</title>
+  <p>
+    We are familiar with quadratic equations in algebra.
+    Examples of quadratic equations include <m>x^2=1</m>,
+    <m>x^2+y^2=1</m>, and <m>x^2+xy+y^2=3</m>.
+    We don't, however, have to restrict ourselves to two variables.
+    A quadratic equation in <m>n</m> variables is any equation in which the sum of the exponents in any monomial term is 2.
+    So a quadratic equation in the variables <m>x_1</m>, <m>x_2</m>,
+    <m>\ldots</m>, <m>x_n</m> is an equation in the form
+    <md>
+      <mrow>a_{11}x_1^2\amp +a_{22}x_2^2 + a_{33}x_3^2 + \cdots + a_{nn}x_n^2</mrow>
+      <mrow>\amp + a_{12}x_1x_2 + a_{13}x_1x_3 + \cdots a_{1n}x_1x_n</mrow>
+      <mrow>\amp + a_{23}x_2x_3 + a_{24}x_2x_4 + \cdots a_{2n}x_2x_n + \cdots</mrow>
+      <mrow>\amp + a_{n-1n}x_{n-1}x_n</mrow>
+      <mrow>\amp = c</mrow>
+    </md>
+    for some constant <m>c</m>.
+    In matrix notation this expression on the left of this equation has the form
+    <me>
+      \sum_{i=1}^{n} \sum_{j=1}^n a_{ij}x_ix_j = \vx^{\tr} A \vx
+    </me>
+    where <m>\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]</m> and <m>A</m> is the
+    <m>n \times n</m> matrix <m>A = [a_{ij}]</m>.
+    For example,
+    if <m>A= \left[ \begin{array}{rcr} 1\amp 3\amp -2 \\ -1\amp 1\amp 2 \\ 0\amp 2\amp -2 \end{array}  \right]</m>,
+    then we get the quadratic expression <m>x_1^2+3x_1x_2-2x_1x_3-x_2x_1+x_2^2+2x_2x_3+2x_3x_2-2x_3^2</m>.
+    We should note here that the terms involving <m>x_ix_j</m> and <m>x_jx_i</m> are repeated in our sum, but
+    <me>
+      a_{ij}x_ix_j + a_{ji}x_jx_i = 2\left(\frac{a_{ij} + a_{ji}}{2}\right)x_ix_j
+    </me>
+    and so we could replace <m>a_{ij}</m> and <m>a_{ji}</m> both with
+    <m>\left(\frac{a_{ij} + a_{ji}}{2}\right)</m> without changing the quadratic form.
+    With this alteration in mind,
+    we can then assume that <m>A</m> is a symmetric matrix.
+    So in the previous example,
+    the symmetric matrix <m>A'= \left[ \begin{array}{rcr} 1\amp 1\amp -1 \\ 1\amp 1\amp 2 \\ -1\amp 2\amp -2 \end{array} \right]</m> gives the same quadratic expression.
+    This leads to the following definition.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>quadratic form</term>
+            <idx><h>quadratic form</h></idx>
+        on <m>\R^n</m> is a function <m>Q</m> defined by
+        <me>
+          Q(\vx) = \vx^{\tr} A \vx
+        </me>
+        for some <m>n \times n</m> symmetric matrix <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    As we show in <xref ref="ex_7_b_unique_A">Exercise</xref>,
+    the symmetric matrix <m>A</m> is unique to the quadratic form,
+    so we call the symmetric matrix <m>A</m> is the
+    <em>matrix of the quadratic form</em>.
+    It is these quadratic forms that we will study in this section.
+  </p>
+  <activity xml:id="pa_7_b">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            To get a little more comfortable with quadratic forms,
+            write the quadratic forms in matrix form,
+            explicitly identifying the vector <m>\vx</m> and the symmetric matrix <m>A</m> of the quadratic form.
+            <ul>
+              <li>
+                <p>
+                  <m>3x_1^2-2x_2^2 +4x_1x_2+x_2x_3</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>x_1x_4 + 4x_2x_3 - x_2^2 + 10x_1x_5</m>
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            Some quadratic forms form equations in <m>\R^2</m> that are very familiar:
+            <m>x^2+y^2=1</m> is an equation of a circle,
+            <m>2x^2+3y^2=2</m> is an equation of an ellipse,
+            and <m>x^2-y^2=1</m> is an equation of a hyperbola.
+            Of course, these do not represent all of the quadratic forms in <m>\R^2</m> <mdash/> some contain cross-product terms.
+            We can recognize the equations above because they contain no cross-product terms
+            (terms involving <m>xy</m>).
+            We can more easily recognize the quadratic forms that contain cross-product terms if  we can somehow rewrite the forms in a different format with no cross-product terms.
+            We illustrate how this can be done with the quadratic form <m>Q</m> defined by <m>Q(\vx) = x^2-xy+y^2</m>.
+            <ul>
+              <li>
+                <p>
+                  Write <m>Q(\vx)</m> in the form <m>\vx^{\tr} A \vx</m>,
+                  where <m>A</m> is a <m>2 \times 2</m> symmetric matrix.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since <m>A</m> is a symmetric matrix we can orthogonally diagonalize <m>A</m>.
+                  Given that the eigenvalues of <m>A</m> are <m>\frac{3}{2}</m> and
+                  <m>\frac{1}{2}</m> with corresponding eigenvectors
+                  <m>\left[ \begin{array}{r} -1 \\ 1 \end{array} \right]</m> and <m>\left[ \begin{array}{c} 1 \\ 1 \end{array} \right]</m>,
+                  respectively,
+                  find a matrix <m>P</m> that orthogonally diagonalizes <m>A</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Define <m>\vy = \left[ \begin{array}{c} w \\ z \end{array} \right]</m> to satisfy <m>\vx = P\vy</m>.
+                  Substitute for <m>\vx</m> in the quadratic form <m>Q(\vx)</m> to write the quadratic form in terms of <m>w</m> and <m>z</m>.
+                  What kind of graph does the quadratic equation <m>Q(\vx) = 1</m> have?
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

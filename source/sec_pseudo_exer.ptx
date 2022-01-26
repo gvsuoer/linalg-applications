@@ -1,0 +1,367 @@
+<section xml:id="sec_pseudo_exer">
+  <title>Exercises</title>
+  <ol>
+    <li>
+      <p>
+        Let <m>A = \left[ \begin{array}{rcc} 20\amp 4\amp 32 \\ -4\amp 4\amp 2 \\ 35\amp 22\amp 26 \end{array}  \right]</m>.
+        Then <m>A</m> has singular value decomposition <m>U \Sigma V^{\tr}</m> , where
+        <md>
+          <mrow>U \amp = \frac{1}{5}\left[ \begin{array}{crc} 3\amp 4\amp 0</mrow>
+          <mrow>0\amp 0\amp 5</mrow>
+          <mrow>4\amp -3\amp 0 \end{array} \right]</mrow>
+          <mrow>\Sigma \amp = \left[ \begin{array}{crc} 60\amp 0\amp 0</mrow>
+          <mrow>0\amp 15\amp 0</mrow>
+          <mrow>0\amp 0\amp 6 \end{array} \right]</mrow>
+          <mrow>V \amp = \frac{1}{3}\left[ \begin{array}{crr} 2\amp -1\amp -2</mrow>
+          <mrow>1\amp -2\amp 2</mrow>
+          <mrow>2\amp 2\amp 1 \end{array} \right]</mrow>
+        </md>.
+        <ul>
+          <li>
+            <p>
+              What are the singular values of <m>A</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Write the outer product decomposition of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the best rank 1 approximation to <m>A</m>.
+              What is the relative error in approximating <m>A</m> by this rank 1 matrix?
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the best rank 2 approximation to <m>A</m>.
+              What is the relative error in approximating <m>A</m> by this rank 2 matrix?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A = \left[ \begin{array}{ccrr} 861\amp 3969\amp 70\amp 140 \\ 3969\amp 861\amp 70\amp 140 \\ 3969\amp 861\amp -70\amp -140 \\ 861\amp 3969\amp -70\amp -140 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Find a singular value decomposition for <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              What are the singular values of <m>A</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Write the outer product decomposition of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the best rank 1, 2, and 3 approximations to <m>A</m>.
+              How much information about <m>A</m> does each of these approximations contain?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Assume that the number of feet traveled by a batted baseball at various angles in degrees
+        (all hit at the same bat speed)
+        is given in <xref ref="T_7_d_batting">Table</xref>.
+        <table xml:id="T_7_d_batting">
+          <title>Distance traveled by batted ball</title>
+          <tabular>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Angle</cell>
+              <cell><m>10^{\circ}</m></cell>
+              <cell><m>20^{\circ}</m></cell>
+              <cell><m>30^{\circ}</m></cell>
+              <cell><m>40^{\circ}</m></cell>
+              <cell><m>50^{\circ}</m></cell>
+              <cell><m>60^{\circ}</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell>Distance</cell>
+              <cell>116</cell>
+              <cell>190</cell>
+              <cell>254</cell>
+              <cell>285</cell>
+              <cell>270</cell>
+              <cell>230</cell>
+            </row>
+            <row bottom="minor">
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+        </table>
+        <ul>
+          <li>
+            <p>
+              Plot the data and explain why a quadratic function is likely a better fit to the data than a linear function.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the least squares quadratic approximation to this data.
+              Plot the quadratic function on same axes as your data.
+            </p>
+          </li>
+          <li>
+            <p>
+              At what angle
+              (or angles),
+              to the nearest degree,
+              must a player bat the ball in order for the ball to travel a distance of 220 feet?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        How close can a matrix be to being non-invertible?
+        We explore that idea in this exercise.
+        Let <m>A = [a_{ij}]</m> be the
+        <m>n \times n</m> upper triangular matrix with 1s along the diagonal and with every other entry being <m>-1</m>.
+        <ul>
+          <li>
+            <p>
+              What is <m>\det(A)</m>?
+              What are the eigenvalues of <m>A</m>?
+              Is <m>A</m> invertible?
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>B = [b_{ij}]</m> be the
+              <m>n \times n</m> matrix so that <m>b_{n1} = -\frac{1}{2^{n-2}}</m> and
+              <m>b_{ij} = a_{ij}</m> for all other <m>i</m> and <m>j</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    For the matrix <m>B</m> with <m>n=3</m>,
+                    show that the equation <m>B \vx = \vzero</m> has a non-trivial solution.
+                    Find one non-trivial solution.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    For the matrix <m>B</m> with <m>n=4</m>,
+                    show that the equation <m>B \vx = \vzero</m> has a non-trivial solution.
+                    Find one non-trivial solution.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Use the pattern established in parts (i.) and (ii.) to find a non-trivial solution to the equation
+                    <m>B \vx = \vzero</m> for an arbitrary value of <m>n</m>.
+                    Be sure to verify that you have a solution.
+                    Is <m>B</m> invertible?
+                    <hint>
+                      <p>
+                        For any positive integer <m>m</m>,
+                        the sum <m>1+\sum_{k=0}^{m-1} 2^k</m> is the partial sum of a geometric series with ratio <m>2</m> and so <m>1+\sum_{k=0}^{m-1} 2^k = 1+\frac{1-2^m}{1-2} = 2^m</m>.
+                      </p>
+                    </hint>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Explain why <m>B</m> is not an invertible matrix.
+                    Notice that <m>A</m> and <m>B</m> differ by a single entry,
+                    and that <m>A</m> is invertible and <m>B</m> is not.
+                    Let us examine how close <m>A</m> is to <m>B</m>.
+                    Calculate <m>|| A - B ||_F</m>?
+                    What happens to <m>||A - B||_F</m> as <m>n</m> goes to infinity?
+                    How close can an invertible matrix be to becoming non-invertible?
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A = \left[ \begin{array}{crr} 1\amp 0\amp 0 \\ 0\amp 1\amp -1 \\ 0\amp -1\amp 1 \end{array}  \right]</m>.
+        In this exercise we find a matrix <m>B</m> so that <m>B^2 = A</m>,
+        that is, find a square root of the matrix <m>A</m>.
+        <ul>
+          <li>
+            <p>
+              Find the eigenvalues and corresponding eigenvectors for <m>A</m> and <m>A^{\tr}A</m>.
+              Explain what you see.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a matrix <m>V</m> that orthogonally diagonalizes <m>A^{\tr}A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ex_7_c_Symmetric_SVD">Exercise</xref>
+              in <xref ref="sec_SVD">Section</xref>
+              shows if <m>U \Sigma V^{\tr}</m> is a singular value decomposition for a symmetric matrix <m>A</m>,
+              then so is <m>V \Sigma V^{\tr}</m>.
+              Recall that <m>A^n = \left(V \Sigma V^{\tr}\right)^n = V \Sigma^n V^{\tr}</m> for any positive integer <m>n</m>.
+              We can exploit this idea to define <m>\sqrt{A}</m> to be the matrix
+              <me>
+                V \Sigma^{1/2}V^{\tr}
+              </me>,
+              where <m>\Sigma^{1/2}</m> is the matrix whose diagonal entries are the square roots of the corresponding entries of <m>\Sigma</m>.
+              Let <m>B = \sqrt{A}</m>.
+              Calculate <m>B</m> and show that <m>B^2 = A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Why was it important that <m>A</m> be a symmetric matrix for this process to work,
+              and what had to be true about the eigenvalues of <m>A</m> for this to work?
+            </p>
+          </li>
+          <li>
+            <p>
+              Can you extend the process in this exercise to find a cube root of <m>A</m>?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix with singular value decomposition <m>U \Sigma V^{\tr}</m>.
+        Let <m>A^{+}</m> be defined as in <xref ref="eq_pseudoinverse"/>.
+        In this exercise we prove the remaining parts of <xref ref="thm_7_d_pseudoinverse">Theorem</xref>.
+        <ul>
+          <li>
+            <p>
+              Show that <m>(AA^{+})^{\tr} = AA^{+}</m>.
+              <hint>
+                <p>
+                  <m>\Sigma \Sigma^+</m> is a symmetric matrix.
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>(A^{+}A)^{\tr} = A^{+}A</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        In this exercise we show that the pseudoinverse of a matrix is the unique matrix that satisfies the Moore-Penrose conditions.
+        Let <m>A</m> be an <m>m \times n</m> matrix with singular value decomposition
+        <m>U \Sigma V^{\tr}</m> and pseudoinverse <m>X = V\Sigma^{+}U^{\tr}</m>.
+        To show that <m>A^{+}</m> is the unique matrix that satisfies the Moore-Penrose conditions,
+        suppose that there is another matrix <m>Y</m> that also satisfies the Moore-Penrose conditions.
+        <ul>
+          <li>
+            <p>
+              Show that <m>X = YAX</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>Y = YAX</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              How do the results of parts (a) and (b) show that <m>A^{+}</m> is the unique matrix satisfying the Moore-Penrose conditions?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Find the pseudoinverse of the
+        <m>m \times n</m> zero matrix <m>A=0</m>.
+        Explain the conclusion.
+      </p>
+    </li>
+    <li>
+      <p>
+        In all of the examples that we have done finding a singular value decomposition of a matrix,
+        it has been the case
+        (though we haven't mentioned it),
+        that if <m>A</m> is an <m>m \times n</m> matrix,
+        then <m>\rank(A) = \rank\left(A^{\tr}A\right)</m>.
+        Prove this result.
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> A matrix has a pseudo-inverse if and only if the matrix is singular.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The pseudoinverse of an invertible matrix <m>A</m> is the matrix <m>A^{-1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If the columns of <m>A</m> are linearly dependent,
+              then there is no least squares solution to <m>A\vx = \vb</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If the columns of <m>A</m> are linearly independent,
+              then there is a unique least squares solution to <m>A\vx = \vb</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>T</m> is the matrix transformation defined by a matrix <m>A</m> and <m>S</m> is the matrix transformation defined by <m>A^{+}</m>,
+              then <m>T</m> and <m>S</m> are inverse transformations.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

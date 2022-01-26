@@ -1,0 +1,246 @@
+<section xml:id="sec_gram_schmidt_exer">
+  <title>Exercises</title>
+  <ol>
+    <li>
+      <p>
+        Let <m>V = C[0,1]</m> with the inner product <m>\langle f(t),
+        g(t) \rangle = \int_0^1 f(t) g(t) \, dt</m>.
+        Let <m>W = \pol_2</m>.
+        Note that <m>W</m> is a subspace of <m>V</m>.
+        <ul>
+          <li>
+            <p>
+              Find the polynomial <m>q(t)</m> in <m>W</m> that is closest to the function <m>h</m> defined by
+              <m>h(t) = \frac{2}{1+t^2}</m> in the least squares sense.
+              That is, find the projection of <m>h(t)</m> onto <m>W</m>.
+              <hint>
+                <p>
+                  Recall the work done in <xref ref="act_6_d_gs_examples">Activity</xref>.
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the second order Taylor polynomial <m>P_2(t)</m> for <m>h(t)</m> centered at 0.
+            </p>
+          </li>
+          <li>
+            <p>
+              Plot <m>h(t)</m>, <m>q(t)</m>,
+              and <m>P_2(t)</m> on the same set of axes.
+              Which approximation provides a better fit to <m>h</m> on this interval.
+              Why?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Each set <m>S</m> is linearly independent.
+        Use the Gram-Schmidt process to create an orthogonal set of vectors with the same span as <m>S</m>.
+        Then find an orthonormal basis for the same span.
+        <ul>
+          <li>
+            <p>
+              <m>S = \{1+t, 1-t, t-t^2\}</m> in <m>\pol_2</m> using the inner product
+              <me>
+                \langle p(t), q(t) \rangle = \int_{-1}^1 p(t) q(t) \, dt
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S = \left\{\left[ \begin{array}{c} 1\\0\\2 \end{array} \right], \left[ \begin{array}{r} -1\\1\\1 \end{array} \right], \left[ \begin{array}{c} 1\\1\\0 \end{array} \right] \right\}</m> in <m>\R^3</m> using the inner product <m>\langle \vu, \vv \rangle = (A\vu) \cdot (A\vv)</m>,
+              where <m>A = \left[ \begin{array}{ccc} 1\amp 0\amp 1 \\ 0\amp 1\amp 1\\1\amp 1\amp 0 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S = \left\{\left[ \begin{array}{c} 1\\0\\1\\0\\1\\0\\1 \end{array}  \right], \left[ \begin{array}{r} -1\\2\\3\\0\\1\\0\\1 \end{array}  \right], \left[ \begin{array}{r} 1\\0\\4\\-1\\2\\0\\1 \end{array}  \right], \left[ \begin{array}{c} 1\\1\\1\\1\\1\\1\\1 \end{array}  \right]\right\}</m> in <m>\R^7</m> with the weighted inner product
+              <md>
+                <mrow>\langle [u_1 \ \amp u_2 \ u_3 \ u_4 \ u_5 \ u_6 \ u_7]^{\tr}, [v_1 \ v_2 \ v_3 \ v_4 \ v_5 \ v_6 \ v_7]^{\tr} \rangle</mrow>
+                <mrow>\amp = u_1v_1 + u_2v_2 + u_3v_3 + 2u_4v_4 + 2u_5v_5 + u_6v_6 + u_7v_7</mrow>
+              </md>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>S = \{1, \cos(t), \sin(t)\}</m>.
+        <ul>
+          <li>
+            <p>
+              Show that <m>S</m> is a linearly independent set in <m>C[0,\pi]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the Gram-Schmidt process to find an orthogonal basis from <m>S</m> using the inner product
+              <me>
+                \langle f(t), g(t) \rangle = \int_{0}^{\pi} f(t) g(t) \, dt
+              </me>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Find an orthonormal basis for the subspace <m>W</m> of <m>\pol_2</m> that consists of all polynomials of the form
+        <m>a + (a+b)t + bt^2</m> using the inner product <m>\langle p(t),
+        q(t) \rangle = \int_0^1 p(t)q(t) \, dt</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The Legendre polynomials form an orthonormal basis for the infinite dimensional inner product space <m>\pol</m> of all polynomials using the inner product
+        <me>
+          \langle p(t), q(t) \rangle = \int_{-1}^{1} p(t) q(t) \, dt
+        </me>.
+        The Legendre polynomials have applications to differential equations,
+        statistics, numerical analysis,
+        and physics (e.g., they appear when solving Schr&#xf6;dinger equation in three dimensions for a central force).
+        The Legendre polynomials are found by using the Gram-Schmidt process to find an orthogonal basis from the standard basis <m>\{1, t, t^2, \cdots\}</m> for <m>\pol</m>.
+        Find the first four Legendre polynomials by creating a orthonormal basis from the set <m>\{1,t,t^2, t^3\}</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The sine integral function <m>\Si</m> has applications in physics and engineering.
+        We define <m>\Si</m> as
+        <me>
+          \Si(x) = \int_0^x \frac{\sin(t)}{t} \, dt
+        </me>.
+        Since we cannot find an elementary formula for <m>\Si(x)</m>,
+        we use approximations.
+        Find the best approximation to <m>\Si(x)</m> in <m>\pol_3</m> with inner product <m>\langle p(t),
+        q(t) \rangle = \int_0^1 p(t)q(t) \, dt</m>.
+        Use appropriate technology for computations and round output six places to the right of the decimal.
+      </p>
+    </li>
+    <li>
+      <p>
+        Recall from <xref ref="ex_6_c_all_ips">Exercise</xref>
+        in <xref ref="sec_inner_products">Section</xref>
+        that any finite dimensional vector space <m>V</m> can be made into an inner product space by setting a basis <m>\CB</m> for <m>V</m> and defining
+        <men xml:id="ex_6_e_ip">
+          \langle \vu, \vw \rangle_{\CB} = \sum_{i=1}^n u_iw_i
+        </men>
+        if <m>\vu = \sum_{i=1}^n u_i \vv_i</m> and <m>\vw = \sum_{i=1}^n w_i \vv_i</m> in <m>V</m>.
+        Let  <m>V = \pol_2</m> and <m>\CB = \{1+t, 1+t^2, t+t^2\}</m>.
+        (You may assume that <m>\CB</m> is a basis for <m>V</m>.)
+        <ul>
+          <li>
+            <p>
+              Find an orthogonal basis for <m>V</m> containing the polynomial
+              <m>p_1(t) = 1</m> using the inner product <xref ref="ex_6_e_ip"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the best approximation possible as measured by the inner product <xref ref="ex_6_e_ip"/> to the polynomial
+              <m>1 + 2t + 3t^2</m> by a polynomial in <m>\pol_1</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>a</m>, <m>b</m>,
+        and <m>c</m> be three distinct fixed real numbers and define <m>\langle \ , \ \rangle : \pol_2 \to \R</m> by
+        <men xml:id="eq_ip">
+          \langle p(t),q(t) \rangle = p(a)q(a) + p(b)q(b) + p(c)q(c)
+        </men>.
+        <ul>
+          <li>
+            <p>
+              Show that <m>\langle \ , \ \rangle</m> as defined in <xref ref="eq_ip"/> is an inner product on <m>\pol_2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is the mapping
+              <men xml:id="eq_ip_2">
+                \langle p(t),q(t) \rangle = p(a)q(a) + p(b)q(b)
+              </men>
+              an inner product on <m>\pol_2</m>?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>a = -1</m>, <m>b=1</m>, and <m>c=3</m>.
+              Find an orthogonal basis for <m>\pol_2</m> using the inner product <xref ref="eq_ip"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Continue with <m>a = -1</m>, <m>b=1</m>, and <m>c=3</m>.
+              Find the best approximation possible as measured by the inner product <xref ref="eq_ip"/> to the polynomial
+              <m>1 + 2t + 3t^2</m> by a polynomial in <m>\pol_1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>W = \Span\{1+t\}</m>,
+              find <m>W^{\perp}</m> in <m>\pol_2</m> with respect to the inner product <xref ref="eq_ip"/>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        Throughout, let <m>V</m> be a vector space.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\{\vw_1, \vw_2\}</m> is a basis for a subspace <m>W</m> of an inner product space <m>V</m>,
+              then the vector <m>\frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2} \vw_2</m> is the vector in <m>W</m> closest to <m>\vv</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>W</m> is a subspace of an inner product space <m>V</m>,
+              then the vector <m>\vv - \proj_{W} \vv</m> is orthogonal to every vector in <m>W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\vu_1</m>,
+              <m>\vu_2</m>,
+              <m>\vu_3</m> are vectors in an inner product space <m>V</m>,
+              then the Gram-Schmidt process constructs an orthogonal set of vectors
+              <m>\{\vv_1, \vv_2, \vv_3\}</m> with the same span as <m>\{\vu_1, \vu_2, \vu_3\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Any set
+              <m>\{\vu_1, \vu_2, \ldots, \vu_k\}</m> of orthogonal vectors in an inner product space <m>V</m> can be extended to an orthogonal basis of <m>V</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Every nontrivial finite dimensional subspace of an inner product space has an orthogonal basis.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> In any inner product space <m>V</m>,
+              if <m>W</m> is a subspace satisfying <m>W^\perp=\{\vzero\}</m>,
+              then <m>W=V</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

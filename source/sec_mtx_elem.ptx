@@ -1,0 +1,269 @@
+<section xml:id="sec_mtx_elem">
+  <title>Elementary Matrices</title>
+  <p>
+    As we saw in Preview <xref ref="pa_4_f">Activity</xref>,
+    elementary row operations can be achieved by multiplication by
+    <em>elementary matrices</em>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        An <term>elementary matrix</term>
+            <idx><h>matrix</h><h>elementary</h></idx>
+        is a matrix obtained by performing a single elementary row operation on an identity matrix.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The following elementary matrices correspond, respectively,
+    to an elementary row operation which swaps rows 2 and 4;
+    an elementary row operation which multiplies the third row by 5;
+    and an elementary row operation which adds four times the third row to the first row on any <m>4\times 4</m> matrix:
+    <me>
+      E_1 = \left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 0\\0\amp 0\amp 0\amp 1\\0\amp 0\amp 1\amp 0\\ 0\amp 1\amp 0\amp 0 \end{array}  \right], \ \ E_2 = \left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 0\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 5\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array}  \right], \ \ \text{ and }  \ \ E_3 = \left[ \begin{array}{cccc} 1\amp 0\amp 4\amp 0\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp 0\\0\amp 0\amp 0\amp 1 \end{array}  \right]\,
+    </me>.
+  </p>
+  <p>
+    To obtain an elementary matrix corresponding an elementary row operation,
+    we simply perform the elementary row operation on the identity matrix.
+    For example,
+    <m>E_1</m> above is obtained by swapping rows 2 and 4 of the identity matrix.
+  </p>
+  <p>
+    With the use of elementary matrices,
+    we can now prove the result about how the determinant is affected by elementary row operations.
+    We first rewrite <xref ref="thm_4_f_1">Theorem</xref>
+    in terms of elementary matrices:
+  </p>
+  <theorem xml:id="thm_4_f_2">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> matrix.
+        If <m>E</m> is an <m>n\times n</m> elementary matrix,
+        then <m>\det(EA)=\det(E)\det(A)</m> where
+        <me>
+          \det(E) = \left\{ \begin{array}{rl} r \amp  \text{ if \(E\) corresponds to multiplying a row by \(r\) }  \\ -1\amp  \text{ if \(E\) corresponds to swapping two rows }  \\ 1 \amp  \text{ if \(E\) corresponds to adding a multiple of a row to another. } \end{array}  \right.
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    <em>Notes on <xref ref="thm_4_f_2">Theorem</xref>.</em>
+    An elementary matrix <m>E</m> obtained by multiplying a row by <m>r</m> is a diagonal matrix with one <m>r</m> along the diagonal and the rest 1s, so <m>\det(E) = r</m>.
+    Similarly, an elementary matrix <m>E</m> obtained by adding a multiple of a row to another is a triangular matrix with 1s along the diagonal,
+    so <m>\det(E) = 1</m>.
+    The fact that the the determinant of an elementary matrix obtained by swapping two rows is <m>-1</m> is a bit more complicated and is verified independently later in this section.
+    Also, the proof of <xref ref="thm_4_f_2"></xref>
+    depends on the fact that the cofactor expansion of a matrix is the same along any two rows.
+    A proof of this can also be found later in this section.
+  </p>
+  <proof>
+    <p>
+      We will prove the result by induction on <m>n</m>,
+      the size of the matrix <m>A</m>.
+      We verified these results in Preview <xref ref="pa_4_f">Activity</xref>
+      for <m>n=2</m> using elementary row operations.
+      The elementary matrix versions follow immediately.
+    </p>
+    <p>
+      Now assume the theorem is true for
+      <m>k\times k</m> matrices with <m>k\geq 2</m> and consider an
+      <m>n\times n</m> matrix <m>A</m> where <m>n=k+1</m>.
+      If <m>E</m> is an <m>n\times n</m> elementary matrix,
+      we want to show that <m>\det(EA)=\det(E)\det(A)</m>.
+      Let <m>EA=B</m>.
+      (Although it is an abuse of language,
+      we will refer to both the elementary matrix and the elementary row operation corresponding to it by <m>E</m>.)
+    </p>
+    <p>
+      When finding <m>\det(B)=\det(EA)</m> we will use a cofactor expansion along a row which is not affected by the elementary row operation <m>E</m>.
+      Since <m>E</m> affects at most two rows and <m>A</m> has <m>n\geq 3</m> rows,
+      it is possible to find such a row, say row <m>i</m>.
+      The cofactor expansion along row <m>i</m> of <m>B</m> is
+      <men xml:id="eq_4_f_1">
+        b_{i1} (-1)^{i+1} \det(B_{i1}) + b_{i2} (-1)^{i+2} \det(B_{i2}) + \cdots + b_{in} (-1)^{i+n} \det(B_{in}) \,
+      </men>.
+    </p>
+    <p>
+      Since we chose a row of <m>A</m> which was not affected by the elementary row operation,
+      it follows that <m>b_{ij}=a_{ij}</m> for <m>1\leq j\leq n</m>.
+      Also, the matrix <m>B_{ij}</m> obtained by removing row <m>i</m> and column <m>j</m> from matrix <m>B=EA</m> can be obtained from <m>A_{ij}</m> by an elementary row operation of the same type as <m>E</m>.
+      Hence there is an elementary matrix <m>E_k</m> of the same type as <m>E</m> with <m>B_{ij}=E_k A_{ij}</m>.
+      Therefore, by induction,
+      <m>\det(B_{ij})=\det(E_k)\det(A_{ij})</m> and
+      <m>\det(E_k)</m> is equal to 1, -1 or <m>r</m> depending on the type of elementary row operation.
+      If we substitute this information into equation <xref ref="eq_4_f_1"/>, we obtain
+      <me>
+        \begin{split} \det(B)\amp = a_{i1} (-1)^{i+1} \det(E_k) \det(A_{i1}) + a_{i2} (-1)^{i+2} \det(E_k) \det(A_{i2}) \\ \amp \qquad + \cdots + a_{in} (-1)^{i+n} \det(E_k) \det(A_{in})\\ \amp = \det(E_k) \det(A) \, . \end{split}
+      </me>
+    </p>
+    <p>
+      This equation proves <m>\det(EA)=\det(E_k)\det(A)</m> for any
+      <m>n\times n</m> matrix <m>A</m> where <m>E_k</m> is the corresponding elementary row operation on the
+      <m>k\times k</m> matrices obtained in the cofactor expansion.
+    </p>
+    <p>
+      The proof of the inductive step will be finished if we show that <m>\det(E_k)=\det(E)</m>.
+      This equality follows if we let <m>A=I_n</m> in <m>\det(EA)=\det(E_k)\det(A)</m>.
+      Therefore, <m>\det(E)</m> is equal to <m>r</m>, or 1, or <m>-1</m>,
+      depending on the type of the elementary row operation <m>E</m> since the same is true of
+      <m>\det(E_k)</m> by inductive hypothesis.
+    </p>
+    <p>
+      Therefore, by the principle of induction,
+      the claim is true for every <m>n\geq 2</m>.
+    </p>
+  </proof>
+  <p>
+    As a corollary of this theorem,
+    we can prove the multiplicativity of determinants:
+  </p>
+  <theorem xml:id="thm_determinant_product">
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be <m>n\times n</m> matrices.
+        Then
+        <me>
+          \det(AB)=\det(A)\det(B) \,
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      If <m>A</m> is non-invertible,
+      then <m>AB</m> is also non-invertible and both <m>\det(A)</m> and
+      <m>\det(AB)</m> are 0, proving the equality in this case.
+    </p>
+    <p>
+      Suppose now that <m>A</m> is invertible.
+      By the Invertible Matrix Theorem,
+      we know that <m>A</m> is row equivalent to <m>I_n</m>.
+      Expressed in terms of elementary matrices,
+      this means that there are elementary matrices <m>E_1, E_2, \ldots, E_\ell</m> such that
+      <men xml:id="eq_4_f_2">
+        A= E_1 E_2 \cdots E_\ell I_n = E_1 E_2 \cdots E_\ell \,
+      </men>.
+    </p>
+    <p>
+      Therefore, repeatedly applying <xref ref="thm_4_f_2">Theorem</xref>,
+      we find that
+      <men xml:id="eq_4_f_3">
+        \det(A) = \det(E_1) \det(E_2) \cdots \det(E_\ell) \,
+      </men>.
+    </p>
+    <p>
+      If we multiply equation <xref ref="eq_4_f_2"/> by <m>B</m> on the right,
+      we obtain
+      <me>
+        AB = E_1 E_2 \cdots E_\ell B \,
+      </me>.
+    </p>
+    <p>
+      Again, by repeatedly applying <xref ref="thm_4_f_2">Theorem</xref>
+      with this product of matrices, we find
+      <me>
+        \det(AB) = \det(E_1 E_2 \cdots E_\ell B ) = \det(E_1) \det(E_2) \cdots \det(E_\ell) \det(B) \,
+      </me>.
+    </p>
+    <p>
+      From equation <xref ref="eq_4_f_3"/>,
+      the product of <m>\det(E_i)</m>'s equals <m>\det(A)</m>, so
+      <me>
+        \det(AB) = \det(A) \det(B)
+      </me>
+      which finishes the proof of the theorem.
+    </p>
+  </proof>
+  <p>
+    We can use the multiplicative property of the determinant and the determinants of elementary matrices to calculate the determinant of a matrix in a more efficient way than using the cofactor expansion.
+    The next activity provides an example.
+  </p>
+  <activity xml:id="act_4_f_2">
+    <p>
+      Let <m>A=\left[ \begin{array}{rcc} 1\amp 1\amp 2\\ 2\amp 2\amp 6\\ -1\amp 2\amp 1 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Use elementary row operations to reduce <m>A</m> to a row echelon form.
+            Keep track of the elementary row operation you use.
+          </p>
+        </li>
+        <li>
+          <p>
+            Taking into account how elementary row operations affect the determinant,
+            use the row echelon form of <m>A</m> to calculate <m>\det(A)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Your work in <xref ref="act_4_f_2">Activity</xref>
+    provides an efficient method for calculating the determinant.
+    If <m>A</m> is a square matrix,
+    we use row operations given by elementary matrices <m>E_1</m>,
+    <m>E_2</m>, <m>\ldots</m>,
+    <m>E_k</m> to row reduce <m>A</m> to row echelon form <m>R</m>.
+    That is
+    <me>
+      R = E_kE_{k-1} \cdots E_2E_1A
+    </me>.
+  </p>
+  <p>
+    We know <m>\det(E_i)</m> for each <m>i</m>,
+    and since <m>R</m> is a triangular matrix we can find its determinant.
+    Then
+    <me>
+      \det(A) = \det(E_1)^{-1}\det(E_2)^{-1} \cdots \det(E_2)^{-1}\det(R)
+    </me>.
+  </p>
+  <p>
+    In other words,
+    if we keep track of how the row operations affect the determinant,
+    we can calculate the determinant of a matrix <m>A</m> using row operations.
+  </p>
+  <activity xml:id="act_4_f_2_b">
+    <p>
+      <xref ref="thm_4_f_2">Theorems</xref>
+      and <xref ref="thm_determinant_product"></xref>
+      can be used to prove the following
+      (part c of <xref ref="thm_determinant_properties">Theorem</xref>)
+      that <m>A</m> is invertible if and only if <m>\det(A) \neq 0</m>.
+      We see how in this activity.
+      Let <m>A</m> be an <m>n \times n</m> matrix.
+      We can row reduce <m>A</m> to its reduced row echelon form <m>R</m> by elementary matrices <m>E_1</m>,
+      <m>E_2</m>,
+      <m>\ldots</m>, <m>E_k</m> so that
+      <me>
+        R = E_1E_2 \cdots E_kA
+      </me>.
+      <ul>
+        <li>
+          <p>
+            Suppose <m>A</m> is invertible.
+            What, then, is <m>R</m>?
+            What is <m>\det(R)</m>?
+            Can the determinant of an elementary matrix ever be <m>0</m>?
+            How do we conclude that <m>\det(A) \neq 0</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Now suppose that <m>\det(A) \neq 0</m>.
+            What can we conclude about <m>\det(R)</m>?
+            What, then, must <m>R</m> be?
+            How do we conclude that <m>A</m> is invertible?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <em>Summary: </em> Let <m>A</m> be an <m>n\times n</m> matrix.
+    Suppose we swap rows <m>s</m> times and divide rows by constants
+    <m>k_1, k_2, \ldots,
+    k_r</m> while computing a row echelon form <m>\text{ REF } (A)</m> of <m>A</m>.
+    Then <m>\det(A)=(-1)^s k_1 k_2\cdots k_r \det(\text{ REF } (A))</m>.
+  </p>
+</section>

@@ -1,0 +1,161 @@
+<section xml:id="sec_mtx_lu_factor">
+  <title>The LU Factorization of a Matrix</title>
+  <p>
+    There are many instances where we have a number of systems to solve of the form <m>A \vx = \vb</m>,
+    all with the same coefficient matrix.
+    The system may evolve over time so that we do not know the constant vectors <m>\vb</m> in the system all at once,
+    but only determine them as time progresses.
+    Each time we obtain a new vector <m>\vb</m>,
+    we have to apply the same row operations to reduce the coefficient matrix to solve the new system.
+    This is time repetitive and time consuming.
+    Instead, we can keep track of the row operations in one row reduction and save ourselves a significant amount of time.
+    One way of doing this is the <m>LU</m>-factorization
+    (or decomposition).
+  </p>
+  <p>
+    To illustrate,
+    suppose we can write the matrix <m>A</m> as a product <m>A = LU</m>, where
+    <me>
+      L = \left[ \begin{array}{rccc} 1\amp 0\amp 0\amp 0\\-1\amp 1\amp 0\amp 0 \\0\amp 1\amp 1\amp 0\\1\amp 0\amp 0\amp 1 \end{array}   \right] \ \ \text{ and }  \ \ U = \left[ \begin{array}{ccrr} 1\amp 0\amp 1\amp 0\\0\amp 1\amp 3\amp -2 \\0\amp 0\amp 0\amp 3\\0\amp 0\amp 0\amp 0 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    Let <m>\vb = [3 \ 1 \ 1 \ 3]^{\tr}</m> and <m>\vx = [x_1 \ x_2 \ x_3 \ x_4]^{\tr}</m>,
+    and consider the linear system <m>A \vx = \vb</m>.
+    If <m>A \vx = \vb</m>, then <m>LU \vx = \vb</m>.
+    We can solve this system without applying row operations as follows.
+    Let <m>U\vx = \vz</m>, where <m>\vz = [z_1 \ z_2 \ z_3 \ z_4]^{\tr}</m>.
+    We can solve <m>L\vz = \vb</m> by using forward substitution.
+  </p>
+  <p>
+    The equation <m>L \vz = \vb</m> is equivalent to the system
+    <md>
+      <mrow>{5} {}z_1   \  \amp {}  \  \amp {}      \  \amp {} \  \amp {}     \  \amp {} \   \amp {}       \amp = 3</mrow>
+      <mrow>{-}z_1  \  \amp {+} \  \amp {}z_2   \  \amp {} \   \amp {}     \  \amp {}  \   \amp {}       \amp = 1</mrow>
+      <mrow>{}      \  \amp {}  \  \amp {}z_2   \  \amp {+} \   \amp {}z_3  \   \amp {}  \   \amp {}       \amp = 1</mrow>
+      <mrow>{}      \  \amp {}  \  \amp {}      \  \amp {}  \   \amp {}     \   \amp {}  \   \amp {}z_4    \amp = 3</mrow>
+    </md>.
+  </p>
+  <p>
+    The first equation shows that <m>z_1=3</m>.
+    Substituting into the second equation gives us <m>z_2 = 4</m>.
+    Using this information in the third equation yields <m>z_3 = -3</m>,
+    and then the fourth equation shows that <m>z_4 = 0</m>.
+    To return to the original system, since <m>U\vx = \vz</m>,
+    we now solve this system to find the solution vector <m>\vx</m>.
+    In this case,
+    since <m>U</m> is upper triangular, we use back substitution.
+    The equation <m>U\vx = \vz</m> is equivalent to the system
+    <md>
+      <mrow>{5} {}x_1   \  \amp {}  \  \amp {}      \  \amp {+} \  \amp {}x_3   \  \amp {}    \   \amp {}       \amp = \amp {}\amp 3</mrow>
+      <mrow>{}      \  \amp {} \  \amp {}x_2   \  \amp {+} \   \amp {3}x_3  \  \amp {-}  \  \amp {2}x_4   \amp = \amp {}\amp 4</mrow>
+      <mrow>{}      \  \amp {}  \  \amp {}      \  \amp {}  \   \amp {}      \   \amp {}  \  \amp {3}x_4   \amp = \amp {-}\amp 3</mrow>
+    </md>.
+  </p>
+  <p>
+    Note that the third column of <m>U</m> is not a pivot column,
+    so <m>x_3</m> is a free variable.
+    The last equation shows that <m>x_4=-1</m>.
+    Substituting into the second equation and solving for <m>x_2</m> yields <m>x_2 = 2-3x_3</m>.
+    The first equation then gives us <m>x_1 = 3-x_3</m>.
+    So the general solution
+    <me>
+      \vx = \left[ \begin{array}{r} 3\\2\\0\\-1 \end{array}  \right] +  \left[ \begin{array}{r} -1\\-3\\1\\0 \end{array}  \right]x_3
+    </me>
+    to <m>A \vx = \vb</m> can be found through <m>L</m> and <m>U</m> via forward and backward substitution.
+    If we can find a factorization of a matrix <m>A</m> into a lower triangular matrix <m>L</m> and an upper triangular matrix <m>U</m>,
+    then <m>A= LU</m> is called an <m>LU</m>-<em>factorization</em>
+        <idx><h><m>LU</m> factorization</h></idx>
+    or <m>LU</m>-<em>decomposition</em>.
+  </p>
+  <p>
+    We can use elementary matrices to obtain a factorization of certain matrices into products of lower triangular (the
+    <q>L</q>
+    in LU) and upper triangular (the
+    <q>U</q>
+    in LU) matrices.
+    We illustrate with an example.
+    Let
+    <me>
+      A = \left[ \begin{array}{rccr} 1\amp 0\amp 1\amp 0\\-1\amp 1\amp 2\amp -2 \\0\amp 1\amp 3\amp 1\\1\amp 0\amp 1\amp 0 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    Our goal is to find an upper triangular matrix <m>U</m> and a lower triangular matrix <m>L</m> so that <m>A = LU</m>.
+    We begin by row reducing <m>A</m> to an upper triangular matrix,
+    keeping track of the elementary matrices used to perform the row operations.
+    We start by replacing the entries below the <m>(1,1)</m> entry in <m>A</m> with zeros.
+    The elementary matrices that perform these operations are
+    <me>
+      E_1 = \left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 0\\1\amp 1\amp 0\amp 0 \\0\amp 0\amp 1\amp 0\\0\amp 0\amp 0\amp 1 \end{array}   \right] \ \ \text{ and }  \ \ E_2 = \left[ \begin{array}{rccc} 1\amp 0\amp 0\amp 0\\0\amp 1\amp 0\amp 0 \\0\amp 0\amp 1\amp 0\\-1\amp 0\amp 0\amp 1 \end{array}   \right]
+    </me>,
+    and
+    <me>
+      E_2E_1A = \left[ \begin{array}{ccrr} 1\amp 0\amp 1\amp 0\\0\amp 1\amp 3\amp -2 \\0\amp 1\amp 3\amp 1\\0\amp 0\amp 0\amp 0 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    We next zero out the entries below the <m>(2,2)</m> entry as
+    <me>
+      E_3E_2E_1A = \left[ \begin{array}{ccrr} 1\amp 0\amp 1\amp 0\\0\amp 1\amp 3\amp -2 \\0\amp 0\amp 0\amp 3\\0\amp 0\amp 0\amp 0 \end{array}   \right]
+    </me>,
+    where
+    <me>
+      E_3 = \left[ \begin{array}{crcc} 1\amp 0\amp 0\amp 0\\0\amp 1\amp 0\amp 0 \\0\amp -1\amp 1\amp 0\\0\amp 0\amp 0\amp 1 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    The product <m>E_3E_2E_1A</m> is an upper triangular matrix <m>U</m>.
+    So we have
+    <me>
+      E_3E_2E_1A = U
+    </me>
+    and
+    <me>
+      A = E_1^{-1}E_2^{-1}E_3^{-1}U
+    </me>,
+    where
+    <me>
+      E_1^{-1}E_2^{-1}E_3^{-1} = \left[ \begin{array}{rccc} 1\amp 0\amp 0\amp 0\\-1\amp 1\amp 0\amp 0 \\0\amp 1\amp 1\amp 0\\1\amp 0\amp 0\amp 1 \end{array}   \right]
+    </me>
+    is a lower triangular matrix <m>L</m>.
+    So we have decomposed the matrix <m>A</m> into a product <m>A = LU</m>,
+    where <m>L</m> is lower triangular and <m>U</m> is upper triangular.
+    Since every matrix is row equivalent to a matrix in row echelon form,
+    we can always find an upper triangular matrix <m>U</m> in this way.
+    However, we may not always obtain a corresponding lower triangular matrix,
+    as the next example illustrates.
+  </p>
+  <p>
+    Suppose we change the problem slightly and consider the matrix
+    <me>
+      B = \left[ \begin{array}{rccr} 1\amp 0\amp 1\amp 0\\-1\amp 1\amp 2\amp -2 \\0\amp 1\amp 3\amp 1\\1\amp 0\amp 0\amp 1 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    Using the same elementary matrices <m>E_1</m>, <m>E_2</m>,
+    and <m>E_3</m> as earlier, we have
+    <me>
+      E_3E_2E_1B = \left[ \begin{array}{ccrr} 1\amp 0\amp 1\amp 0\\0\amp 1\amp 3\amp -2 \\0\amp 0\amp 0\amp 3\\0\amp 0\amp -1\amp 1 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    To reduce <m>B</m> to row-echelon form now requires a row interchange.
+    Letting
+    <me>
+      E_4 = \left[ \begin{array}{crcc} 1\amp 0\amp 0\amp 0\\0\amp 1\amp 0\amp 0 \\0\amp 0\amp 0\amp 1\\0\amp 0\amp 1\amp 0 \end{array}   \right]
+    </me>
+    brings us to
+    <me>
+      E_4E_3E_2E_1B = \left[ \begin{array}{ccrr} 1\amp 0\amp 1\amp 0\\0\amp 1\amp 3\amp -2 \\0\amp 0\amp -1\amp 1\\0\amp 0\amp 0\amp 3 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    So in this case we have <m>U = E_4E_3E_2E_1B</m>, but
+    <me>
+      E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1} = \left[ \begin{array}{rccc} 1\amp 0\amp 0\amp 0\\-1\amp 1\amp 0\amp 0 \\0\amp 1\amp 0\amp 1\\1\amp 0\amp 1\amp 0 \end{array}   \right]
+    </me>
+    is not lower triangular.
+    The difference in this latter example is that we needed a row swap to obtain the upper triangular form.
+  </p>
+</section>

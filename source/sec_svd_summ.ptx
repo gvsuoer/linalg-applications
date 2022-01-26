@@ -1,0 +1,75 @@
+<section xml:id="sec_svd_summ">
+  <title>Summary</title>
+  <p>
+    We learned about the singular value decomposition of a matrix.
+  </p>
+  <ul>
+    <li>
+      <p>
+        The operator norm of an <m>m \times n</m> matrix <m>A</m> is
+        <me>
+          ||A|| = \max_{||\vx|| \neq 0} \frac{||A\vx||}{||\vx||} = \max_{||\vx||=1} ||A\vx||
+        </me>.
+        The operator norm of a matrix tells us that how big the action of an
+        <m>m \times n</m> matrix is can be determined by its action on the unit sphere in <m>\R^n</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        A singular value decomposition of an
+        <m>m \times n</m> matrix is of the form <m>A = U \Sigma V^{\tr}</m>, where
+      </p>
+      <ul>
+        <li>
+          <p>
+            <m>V= [\vv_1 \ \vv_2 \ \vv_3 \ \cdots \ \vv_n ]</m> where
+            <m>\{\vv_1, \vv_2, \vv_3, \ldots, \vv_n\}</m> is an orthonormal basis of eigenvectors of <m>A^{\tr}A</m> such that
+            <m>(A^{\tr}A) \vv_i = \lambda_i \vv_i</m> for <m>i</m> from 1 to <m>n</m> with <m>\lambda_1 \geq \lambda_{2} \geq \cdots \geq \lambda_n \geq 0</m>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>U = [\vu_1 \ \vu_2 \ \cdots \ \vu_m]</m> where
+            <m>\vu_i = \frac{A\vv_i}{||A\vv_i||}</m> for <m>i</m> from 1 to <m>r</m>,
+            and this orthonormal basis of <m>\Col A</m> is extended to an orthonormal basis <m>\{\vu_1, \vu_2, \ldots, \vu_r, \vu_{r+1} \vu_{r+2}, \ldots, \vu_m\}</m> of <m>\R^m</m>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\Sigma = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp 0\amp \\ \amp \sigma_2\amp \amp \amp \amp 0 \\ \amp \amp \sigma_3\amp \amp \amp \\ \amp \amp \amp \ddots \amp \amp \\ 0\amp \amp \amp \amp \sigma_r \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array} \right]</m>,
+            where <m>\sigma_i = \sqrt{\lambda_i} > 0</m> for <m>i</m> from 1 to <m>r</m>.
+          </p>
+        </li>
+      </ul>
+      A singular value decomposition is important in that every matrix has a singular value decomposition,
+      and a singular value decomposition has a variety of applications including scientific computing and digital signal processing,
+      image compression, principal component analysis,
+      web searching through latent semantic indexing, and seismology.
+    </li>
+    <li>
+      <p>
+        The vectors <m>\vu_1</m>, <m>\vu_2</m>, <m>\ldots</m>,
+        <m>\vu_r</m> in an SVD for an
+        <m>m \times n</m> matrix <m>A</m> form a basis for <m>\Col A</m> while the vectors <m>\vv_{r+1}</m>,
+        <m>\vv_{r+2}</m>,
+        <m>\ldots</m>, <m>\vv_n</m> form a basis for <m>\Nul A</m>.
+        Also, the set <m>\{\vv_1, \vv_2, \ldots, \vv_r\}</m> is a basis for <m>\Row A</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A</m> have an SVD as in the second bullet.
+        Decomposing <m>A</m> as
+        <me>
+          A =\sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_r \vu_r\vv_r^{\tr}
+        </me>
+        is an outer product decomposition of <m>A</m>.
+        An outer product decomposition allows us to approximate <m>A</m> with smaller rank matrices.
+        For example,
+        the matrix <m>\sigma_1 \vu_1\vv_1^{\tr}</m> is the best rank 1 approximation to <m>A</m>,
+        <m>\sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr}</m> is the best rank 2 approximation,
+        and so on.
+      </p>
+    </li>
+  </ul>
+</section>

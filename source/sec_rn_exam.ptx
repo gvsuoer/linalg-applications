@@ -1,0 +1,176 @@
+<section xml:id="sec_rn_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>W = \left\{\left[ \begin{array}{c} 2r+s+t \\ r+t \\ r+s \end{array} \right] : r,s,t \in \R \right\}</m>.
+        <ul>
+          <li>
+            <p>
+              Show that <m>W</m> is a subspace of <m>\R^3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Describe in detail the geometry of the subspace <m>W</m> (e.g., is it a line,
+              a union of lines, a plane, a union of planes, etc.)
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Every vector in <m>W</m> has the form
+              <me>
+                \left[ \begin{array}{c}  2r+s+t \\ r+t \\ r+s \end{array}  \right] = r\left[ \begin{array}{c} 2 \\ 1 \\ 1 \end{array}  \right] + s\left[ \begin{array}{c} 1 \\ 0 \\ 1 \end{array}  \right] + t\left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array}  \right]
+              </me>
+              for some real numbers <m>r</m>, <m>s</m>, and <m>t</m>.
+              Thus,
+              <me>
+                W = \Span\left\{\left[ \begin{array}{c} 2 \\ 1 \\ 1 \end{array}  \right], \left[ \begin{array}{c} 1 \\ 0 \\ 1 \end{array}  \right], \left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array}  \right] \right\}
+              </me>.
+              As a span of a set of vectors,
+              we know that <m>W</m> is a subspace of <m>\R^3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vv_1 = \left[ \begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right]</m>,
+              <m>\vv_2 = \left[ \begin{array}{c} 1 \\ 0 \\ 1 \end{array} \right]</m>,
+              and <m>\vv_3 = \left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array} \right]</m>.
+              The reduced row echelon form of
+              <m>[\vv_1 \ \vv_2 \ \vv_3]</m> is <m>\left[ \begin{array}{ccr} 1\amp 0\amp 1\\0\amp 1\amp -1\\0\amp 0\amp 0 \end{array} \right]</m>.
+              The pivot columns of <m>[\vv_1 \ \vv_2 \ \vv_3]</m> form a linearly independent set with the same span as <m>\{\vv_1, \vv_2, \vv_3\}</m>, So
+              <m>W = \Span\{\vv_1, \vv_2\}</m> and <m>W</m> forms the plane in <m>\R^3</m> through the origin and the points <m>(2,1,1)</m> and <m>(1,0,1)</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        <nbsp/>
+        <ul>
+          <li>
+            <p>
+              Let <m>X = \Span\left\{ \left[ \begin{array}{c} 1\\0\\0 \end{array}  \right] \right\}</m> and let <m>Y = \Span\left\{ \left[ \begin{array}{c} 0\\1\\0 \end{array}  \right] \right\}</m>.
+              That is, <m>X</m> is the <m>x</m>-axis and <m>Y</m> the <m>y</m>-axis in three-space.
+              Let
+              <me>
+                X+Y = \{\vx+\vy : \vx \in X \text{ and }  \vy \in Y\}
+              </me>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Is <m>\left[ \begin{array}{c} 2\\3\\0 \end{array} \right]</m> in <m>X+Y</m>?
+                    Justify your answer.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Is <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right]</m> in <m>X+Y</m>?
+                    Justify your answer.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Assume that <m>X+Y</m> is a subspace of <m>\R^3</m>.
+                    Describe in detail the geometry of this subspace.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Now let <m>W_1</m> and <m>W_2</m> be arbitrary subspaces of <m>\R^n</m> for some positive integer <m>n</m>.
+              Let
+              <me>
+                W_1+W_2 = \{\vw_1+\vw_2 : \vw_1 \in W_1 \text{ and }  \vw_2 \in W_2\}
+              </me>.
+              Show that <m>W_1+W_2</m> is a subspace of <m>\R^n</m>.
+              The set <m>W_1+W_2</m> is called the <em>sum</em>
+                <idx><h>subspace</h><h>sum</h></idx>
+              of the subspaces <m>W_1</m> and <m>W_2</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We let <m>X = \Span\left\{ \left[ \begin{array}{c} 1\\0\\0 \end{array} \right] \right\}</m> and <m>Y = \Span\left\{ \left[ \begin{array}{c} 0\\1\\0 \end{array} \right] \right\}</m>.
+              T
+              <ol label="i">
+                <li>
+                  <p>
+                    Let <m>\vw = \left[ \begin{array}{c} 2\\3\\0 \end{array} \right]</m>,
+                    <m>\vx = 2\left[ \begin{array}{c} 1\\0\\0 \end{array} \right]</m>,
+                    and <m>\vy = 3\left[ \begin{array}{c} 0\\1\\0 \end{array} \right]</m>.
+                    Since <m>\vw = \vx+\vy</m> with <m>\vx \in X</m> and
+                    <m>\vy \in Y</m> we conclude that <m>\vw \in X + Y</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Every vector in <m>X</m> has the form <m>a \ve_1</m> for some scalar <m>a</m> (where <m>\ve_1 = \left[ \begin{array}{c} 1\\0\\0 \end{array} \right]</m>,
+                    and every vector in <m>Y</m> has the form <m>b \ve_2</m> for some scalar <m>b</m>
+                    (where <m>\ve_2 = \left[ \begin{array}{c} 0\\1\\0 \end{array} \right]</m>).
+                    So every vector in <m>X+Y</m> is of the form <m>a\ve_1 + b\ve_2 = \left[ \begin{array}{c} a\\b\\0 \end{array} \right]</m>.
+                    Since the vector <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right]</m> does not have a <m>0</m> in the third component,
+                    we conclude that in <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right]</m> is not in <m>X+Y</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    As we just argued,
+                    every vector in <m>X+Y</m> has the form <m>a\ve_1+b\ve_2</m>.
+                    So <m>X+Y = \Span\{\ve_1,\ve_2\}</m>,
+                    which is the <m>xy</m>-plane in <m>\R^3</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              To see why the set <m>W_1+W_2</m> is a subspace of <m>\R^3</m>,
+              suppose that <m>\vx</m> and <m>\vy</m> are in <m>W_1+W_2</m>.
+              Then <m>\vx = \vu_1+\vu_2</m> and <m>\vy = \vz_1+\vz_2</m> for some
+              <m>\vu_1, \vz_1</m> in <m>W_1</m> and some <m>\vu_2, \vz_2</m> in <m>W_2</m>.
+              Then
+              <me>
+                \vx+\vy = (\vu_1+\vu_2)+(\vz_1+\vz_2) = (\vu_1+\vz_1)+(\vu_2+\vz_2)
+              </me>.
+              Since <m>W_1</m> is a subspace of <m>\R^3</m> it follows that <m>\vu_1+\vz_1 \in W_1</m>.
+              Similarly, <m>\vu_2+\vz_2 \in W_2</m>.
+              This makes <m>\vx + \vy</m> an element of <m>W_1+W_2</m>.
+              Also, suppose that <m>a</m> is a scalar.
+              Then
+              <me>
+                a \vx = a(\vu_1+\vu_2) = a\vu_1 + a\vu_2
+              </me>.
+              Since <m>W_1</m> is a subspace of <m>\R^3</m> it follows that <m>a\vu_1 \in W_1</m>.
+              Similarly, <m>a\vu_2 \in W_2</m>.
+              This makes <m>a\vx</m> an element of <m>W_1+W_2</m>.
+              Finally, since <m>\vzero</m> is in both <m>W_1</m> and <m>W_2</m>,
+              and <m>\vzero = \vzero + \vzero</m>,
+              it follows that <m>\vzero</m> is an element of <m>W_1+W_2</m>.
+              We conclude that <m>W_1+W_2</m> is a subspace of <m>\R^3</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,164 @@
+<section xml:id="sec_mtx_cob">
+  <title>The Change of Basis Matrix in <m>\R^n</m></title>
+  <p>
+        <idx><h>change of basis matrix in <m>\R^n</m></h></idx>
+    Suppose we have two different finite bases <m>\CB</m> and <m>\CC</m> for <m>\R^n</m>.
+    In Preview <xref ref="pa_3_e_2">Activity</xref>
+    we learned how to translate between the two bases in the 2-dimensional case <mdash/> if
+    <m>\CB = \{\vb_1, \vb_2\}</m> and <m>\CC = \{\vc_1, \vc_2\}</m>,
+    then the change of basis matrix from <m>\CB</m> to <m>\CC</m> is the matrix <m>[[\vb_1]_{\CC} \ [\vb_2]_{\CC}]</m>.
+    This result in the 2-dimensional case generalizes to the <m>n</m>-dimensional case,
+    and we can determine a straightforward method for calculating a change of basis matrix.
+    The essential idea was introduced in Preview <xref ref="pa_3_e_2">Activity</xref>.
+  </p>
+  <p>
+    Let <m>\CB = \{\vb_1, \vb_2, \ldots, \vb_n\}</m> and
+    <m>\CC = \{\vc_1, \vc_2, \ldots, \vc_n\}</m> be two bases for <m>\R^n</m>.
+    If <m>\vx</m> is in <m>\R^n</m>,
+    we have defined the coordinate vectors <m>[\vx]_{\CB}</m> and
+    <m>[\vx]_{\CC}</m> for <m>\vx</m> with respect to <m>\CB</m> and <m>\CC</m>,
+    respectively.
+    Recall that <m>[\vx]_{\CB} = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]</m> if
+    <me>
+      \vx = x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n
+    </me>.
+  </p>
+  <p>
+    To see how to convert from the coordinates of <m>\vx</m> with respect to <m>\CB</m> to coordinates of <m>\vx</m> with respect to <m>\CC</m>,
+    note that
+    <md>
+      <mrow>_{\CC} \amp = [x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n]_{\CC}</mrow>
+      <mrow>\amp = x_1 [\vb_1]_{\CC} + x_2 [\vb_2]_{\CC} + \cdots + x_n [\vb_n]_{\CC}</mrow>
+      <mrow>\amp = [[\vb_1]_{\CC} \ [\vb_2]_{\CC}  \  \cdots  \ [\vb_n]_{\CC}]\left[ \begin{array}{c} x_1</mrow>
+      <mrow>x_2</mrow>
+      <mrow>\vdots</mrow>
+      <mrow>x_n \end{array} \right]</mrow>
+      <mrow>\amp = [[\vb_1]_{\CC} \ [\vb_2]_{\CC}  \  \cdots  \ [\vb_n]_{\CC}][\vx]_{\CB}</mrow>
+    </md>.
+  </p>
+  <p>
+    So we can convert from coordinates with respect to the basis <m>\CB</m> to coordinates with respect to the basis <m>\CC</m> by multiplying
+    <m>[\vx]_{\CB}</m> on the left by the matrix
+    <me>
+      [[\vb_1]_{\CC} \ [\vb_2]_{\CC}  \  \cdots  \ [\vb_n]_{\CC}]
+    </me>.
+  </p>
+  <p>
+    This matrix is called the <em>change of basis matrix</em>
+    from <m>\CB</m> to <m>\CC</m> and is denoted <m>\underset{\CC \leftarrow \CB}{P}</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>n</m> be a positive integer and let <m>\CB = \{\vb_1, \vb_2, \ldots, \vb_n\}</m> and
+        <m>\CC = \{\vc_1, \vc_2, \ldots, \vc_n\}</m> be two bases for <m>\R^n</m>.
+        The <term>change of basis matrix</term><idx><h>change of basis matrix in <m>\R^n</m></h></idx> from <m>\CB</m> to <m>\CC</m> is the matrix
+        <me>
+          \underset{\CC \leftarrow \CB}{P} = [[\vb_1]_{\CC} \ [\vb_2]_{\CC}  \  \cdots  \ [\vb_n]_{\CC}]
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The change of basis matrix allows us to convert from coordinates with respect to one basis to coordinates with respect to another.
+    The result is summarized in the following theorem.
+  </p>
+  <theorem xml:id="thm_3_e_COB">
+    <statement>
+      <p>
+        Let <m>n</m> be a positive integer and let <m>\CB = \{\vb_1, \vb_2, \ldots, \vb_n\}</m> and
+        <m>\CC = \{\vc_1, \vc_2, \ldots, \vc_n\}</m> be two bases for <m>\R^n</m>.
+        Then
+        <me>
+          [\vx]_{\CC} = \underset{\CC \leftarrow \CB}{P}[\vx]_{\CB}
+        </me>
+        for any vector <m>\vx</m> in <m>\R^n</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    One way to find a change of basis matrix is to utilize a basis in which computations are straightforward.
+    The following activity illustrates the process.
+  </p>
+  <activity xml:id="act_3_e_COB_standard_basis">
+    <p>
+      Let <m>\CS = \{[1 \ 0]^{\tr}, [0 \ 1]^{\tr}\}</m> be the standard basis for <m>\R^2</m>.
+      Let <m>\CB = \{\vb_1, \vb_2\}</m> and <m>\CC = \{\vc_1, \vc_2\}</m>,
+      where <m>\vb_1 = [4 \ 1]^{\tr}</m>,
+      <m>\vb_1 =  [2 \ 5]^{\tr}</m>,
+      <m>\vc_1 = [-1 \ 2]^{\tr}</m>,
+      and <m>\vc_2 = [-1 \ -1]^{\tr}</m>.
+      You may assume that
+      <me>
+        \underset{\CC \leftarrow \CB}{P} = \left[ \begin{array}{rr} -1\amp 1 \\ -3\amp -3 \end{array}  \right]
+      </me>.
+      <ul>
+        <li>
+          <p>
+            Find <m>[\vb_1]_{\CS}</m>,
+            <m>[\vb_2]_{\CS}</m>, <m>[\vc_1]_{\CS}</m>, and <m>[\vc_2]_{\CS}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Row reduce <m>[[\vc_1]_{\CS} \ [\vc_2]_{\CS} \ | \ [\vb_1]_{\CS} \ [\vb_2]_{\CS}]</m>.
+            What do you notice?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    In general, as <xref ref="act_3_e_COB_standard_basis">Activity</xref> suggests,
+    we can use the standard basis to do our work to find a change of basis matrix
+    <me>
+      \underset{\CC \leftarrow \CB}{P} = [[\vb_1]_{\CC} \ [\vb_2]_{\CC}  \  \cdots  \ [\vb_n]_{\CC}]
+    </me>
+    from a basis <m>\CB = \{\vb_1, \vb_2, \ldots, \vb_n\}</m> of <m>\R^n</m> to a basis <m>\CC = \{\vc_1, \vc_2, \ldots, \vc_n\}</m> of <m>\R^n</m>.
+    Recall that we need to write <m>\vb_i</m> as a linear combination of the vectors in <m>\CC</m>.
+    That is, we need to find weights <m>x_{1,i}</m>,
+    <m>x_{2,i}</m>, <m>\ldots</m>, <m>x_{n,i}</m> so that
+    <men xml:id="eq_3_e_COB">
+      \vb_i = x_{1,i}\vc_1 + x_{2,i} \vc_2 + \cdots + x_{n,i} \vc_n
+    </men>.
+  </p>
+  <p>
+    The weights in equation <xref ref="eq_3_e_COB"/> are also the weights that satisfy the equation
+    <me>
+      [\vb_i]_{\CS} = x_{1,i}[\vc_1]_{\CS} + x_{2,i} [\vc_2]_{\CS} + \cdots + x_{n,i} [\vc_n]_{\CS}
+    </me>
+    where <m>\CS</m> is any basis for <m>\R^n</m>.
+    So to find these weights, we choose a convenient basis <m>\CS</m>
+    (often the standard basis, if one exists, is a good choice)
+    and then row reduce the matrix
+    <me>
+      [[\vc_1]_{\CS} \ [\vc_2]_{\CS} \ \cdots \ [\vc_n]_{\CS} \ | \ [\vb_i]_{\CS}]
+    </me>.
+  </p>
+  <p>
+    The row operations we will apply to row reduce the coefficient matrix
+    <me>
+      [[\vc_1]_{\CS} \ [\vc_2]_{\CS} \ \cdots \ [\vc_n]_{\CS}]
+    </me>
+    will be the same regardless of the augmented column,
+    so we can solve all of the systems at one time by row reducing the matrix
+    <me>
+      [[\vc_1]_{\CS} \ [\vc_2]_{\CS} \ \cdots \ [\vc_n]_{\CS} \ | \ [\vb_1]_{\CS} \ [\vb_2]_{\CS} \ \cdots \ [\vb_n]_{\CS}]
+    </me>.
+  </p>
+  <p>
+    The result of the row reduction will be the matrix
+    <me>
+      \left[ I_n \ | \ \underset{\CC \leftarrow \CB}{P} \right]
+    </me>.
+  </p>
+  <p>
+    In particular,
+    if we use the standard basis for <m>\R^n</m> as our basis <m>\CS</m>,
+    then <m>[\vv]_{\CS} = \vv</m> for any vector <m>\vv</m>.
+    Our change of basis matrix can then be realized by row reducing the matrix
+    <me>
+      [\vc_1 \ \vc_2 \ \cdots \ \vc_n \ | \ \vb_1 \ \vb_2 \ \cdots \ \vb_n]
+    </me>.
+  </p>
+</section>

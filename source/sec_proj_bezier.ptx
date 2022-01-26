@@ -1,0 +1,257 @@
+<section xml:id="sec_proj_bezier">
+  <title>Project: Generating B&#xe9;zier Curves</title>
+  <p>
+    B&#xe9;zier curves can be created as linear combinations of vectors.
+    In this section we will investigate how cubic B&#xe9;zier curves
+    (the ones used for fonts)
+    can be realized through linear and quadratic B&#xe9;zier curves.
+    We begin with linear B&#xe9;zier curves.
+  </p>
+  <activity xml:id="act_1_d_linear_Bezier">
+    <p>
+      Start with two vectors <m>\vp_0</m> and <m>\vp_1</m>.
+      Linear B&#xe9;zier curves are linear combinations
+      <me>
+        \vq = (1-t)\vp_0 + t\vp_1
+      </me>
+      of the vectors <m>\vp_0</m> and <m>\vp_1</m> for scalars <m>t</m> between 0 and 1. (You can visualize these linear combinations using the GeoGebra file <c>Linear Bezier</c> at \url{https://www.geogebra.org/m/HvrPhh86}. With this file you can draw the vectors <m>\vq</m> for varying values of <m>t</m>.
+      You can move the points <m>\vp_0</m> and <m>\vp_1</m> in the GeoGebra file,
+      and the slider controls the values of <m>t</m>.
+      The point identified with <m>\vq</m> is traced as <m>t</m> is changed.) For this activity,
+      we will see what the curve <m>\vq</m> corresponds to by evaluating certain points on the curve in a specific example.
+      Let <m>\vp_0 = \left[ \begin{array}{c} 2 \\ 1 \end{array}  \right]</m> and <m>\vp_1 = \left[ \begin{array}{c} 6 \\ 3 \end{array}  \right]</m>.
+      <ul>
+        <li>
+          <p>
+            What are the components of the vector
+            <m>(1-t)\vp_0 + t\vp_1</m> if <m>t = \frac{1}{2}</m>?
+            Where is this vector in relation to <m>\vp_0</m> and <m>\vp_1</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the components of the vector
+            <m>(1-t)\vp_0 + t\vp_1</m> if <m>t = \frac{1}{3}</m>?
+            Where is this vector in relation to <m>\vp_0</m> and <m>\vp_1</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the components of the vector
+            <m>(1-t)\vp_0 + t\vp_1</m> for an arbitrary <m>t</m>?
+            Where is this vector in relation to <m>\vp_0</m> and <m>\vp_1</m>?
+            Explain.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    For each value of <m>t</m>,
+    the vector <m>\vq = (1-t)\vp_0 + t\vp_1</m> is a linear combination of the vectors <m>\vp_0</m> and <m>\vp_1</m>.
+    Note that when <m>t=0</m>,
+    we have <m>\vq = \vp_0</m> and when <m>t=1</m> we have <m>\vq = \vp_1</m>,
+    and for <m>0 \leq t \leq 1</m> Project <xref ref="act_1_d_linear_Bezier">Activity</xref>
+    shows that the vectors <m>\vq</m> trace out the line segment from <m>\vp_0</m> to <m>\vp_1</m>.
+    The span <m>\{(1-t)\vp_0 + t\vp_1\}</m> of the vectors <m>\vp_0</m> and <m>\vp_1</m> for
+    <m>0 \leq t \leq 1</m> is a linear B&#xe9;zier curve.
+    Once we have a construction like this,
+    it is natural in mathematics to extend it and see what happens.
+    We do that in the next activity to construct quadratic B&#xe9;zier curves.
+  </p>
+  <activity xml:id="act_1_d_quadratic_Bezier">
+    <p>
+      Let <m>\vp_0</m>, <m>\vp_1</m>,
+      and <m>\vp_2</m> be vectors in the plane.
+      We can then let
+      <me>
+        \vq_0 = (1-t)\vp_0 + t\vp_1 \ \ \text{ and }  \ \  \vq_1 = (1-t)\vp_1 + t\vp_2
+      </me>
+      be the linear B&#xe9;zier curves as defined in Project <xref ref="act_1_d_linear_Bezier">Activity</xref>.
+      Since <m>\vq_0</m> and <m>\vq_1</m> are vectors,
+      we can define <m>\vr</m> as
+      <me>
+        \vr = (1-t)\vq_0 + t\vq_1
+      </me>.
+    </p>
+    <p>
+      (You can visualize these linear combinations using the GeoGebra file <c>Quadraric Bezier</c> at \url{https://www.geogebra.org/m/VWCZZBXz}. With this file you can draw the vectors <m>\vr</m> for varying values of <m>t</m>.
+      You can move the points <m>\vp_0</m>, <m>\vp_1</m>,
+      and <m>\vp_2</m> in the GeoGebra file,
+      and the slider controls the values of <m>t</m>.
+      The point identified with <m>\vr</m> is traced as <m>t</m> is changed.) In this activity we investigate how the vectors <m>\vr</m> change as <m>t</m> changes.
+      For the remainder of this activity,
+      let <m>\vp_0 = \left[ \begin{array}{c} 2 \\ 3 \end{array} \right]</m>,
+      <m>\vp_1 = \left[ \begin{array}{c} 8 \\ 4 \end{array} \right]</m>,
+      and <m>\vp_2 = \left[ \begin{array}{r} 6 \\ -3 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            At what point
+            (in terms of <m>\vp_0</m>, <m>\vp_1</m>, and <m>\vp_2</m>)
+            is the vector <m>\vr = (1-t)\vq_0 + t\vq_1</m> when <m>t=0</m>?
+            Explain using the definition of <m>\vr</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            At what point
+            (in terms of <m>\vp_0</m>, <m>\vp_1</m>, and <m>\vp_2</m>)
+            is the vector <m>\vr = (1-t)\vq_0 + t\vq_1</m> when <m>t=1</m>?
+            Explain using the definition of <m>\vr</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find by hand the components of the vector
+            <m>(1-t)\vq_0 + t\vq_1</m> with <m>t = \frac{1}{4}</m>.
+            Compare with the result of the GeoGebra file.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The span <m>\{(1-t)\vq_0 + t \vq_1\}</m> of the vectors <m>\vq_0</m> and <m>\vq_1</m>,
+    or the set of points traced out by the vectors <m>\vr</m> for <m>0 \leq t \leq 1</m>,
+    is a quadratic B&#xe9;zier curve.
+    To understand why this curve is called quadratic,
+    we examine the situation in a general context in the following activity.
+  </p>
+  <activity xml:id="act_1_d_quadratic_Bezier_general">
+    <p>
+      Let <m>\vp_0</m>, <m>\vp_1</m>,
+      and <m>\vp_2</m> be arbitrary vectors in the plane.
+      Write <m>\vr = (1-t)\vq_0 + t\vq_1</m> as a linear combination of <m>\vp_0</m>,
+      <m>\vp_1</m>, and <m>\vp_2</m>.
+      That is, write <m>\vr</m> in the form <m>a_0 \vp_0 + a_1 \vp_1 + a_2 \vp_2</m> for some scalars
+      (that may depend on <m>t</m>)
+      <m>a_0</m>, <m>a_1</m>, and <m>a_2</m>.
+      Explain why the result leads us to call these vectors
+      <em>quadratic</em> B&#xe9;zier curves.
+    </p>
+  </activity>
+  <p>
+    Notice that if any one of the <m>\vp_i</m> lies on the line determined by the other two vectors,
+    then the quadratic B&#xe9;zier curve is just a line segment.
+    So to obtain something non-linear we need to choose our vectors so that that doesn't happen.
+  </p>
+  <p>
+    Quadratic B&#xe9;zier curves are limited,
+    because their graphs are parabolas.
+    For applications we need higher order B&#xe9;zier curves.
+    In the next activity we consider cubic B&#xe9;zier curves.
+  </p>
+  <activity xml:id="act_1_d_cubic_Bezier">
+    <p>
+      Start with four vectors <m>\vp_0</m>,
+      <m>\vp_1</m>, <m>\vp_2</m>,
+      <m>\vp_3</m> <mdash/> the points defined by these vectors are called
+      <em>control points</em> for the curve.
+      As with the linear and quadratic B&#xe9;zier curves, we let
+      <me>
+        \vq_0 = (1-t)\vp_0 + t\vp_1, \ \ \vq_1 = (1-t)\vp_1+t\vp_2,  \ \ \text{ and }  \ \  \vq_2 = (1-t)\vp_2 + t\vp_3
+      </me>.
+    </p>
+    <p>
+      Then let
+      <me>
+        \vr_0 = (1-t)\vq_0 + t\vq_1 \ \ \text{ and }  \ \ \vr_1 = (1-t)\vq_1 + t\vq_2
+      </me>.
+    </p>
+    <p>
+      We take this one step further to generate the cubic B&#xe9;zier curves by letting
+      <me>
+        \vs = (1-t)\vr_0 + t\vr_1
+      </me>.
+    </p>
+    <p>
+      (You can visualize these linear combinations using the GeoGebra file <c>Cubic</c> <c> Bezier</c> at \url{https://www.geogebra.org/m/EDAhudy9}. With this file you can draw the vectors <m>\vs</m> for varying values of <m>t</m>.
+      You can move the points <m>\vp_0</m>,
+      <m>\vp_1</m>, <m>\vp_2</m>,
+      and <m>\vp_3</m> in the GeoGebra file,
+      and the slider controls the values of <m>t</m>.
+      The point identified with <m>\vs</m> is traced as <m>t</m> is changed.) In this activity we investigate how the vectors <m>\vs</m> change as <m>t</m> changes.
+      For the remainder of this activity,
+      let <m>\vp_0 = \left[ \begin{array}{c} 1 \\ 3 \end{array} \right]</m>,
+      <m>\vp_1 = \left[ \begin{array}{c} 4 \\ 5 \end{array} \right]</m>,
+      <m>\vp_2 = \left[ \begin{array}{r} 9 \\ -3 \end{array} \right]</m>,
+      and <m>\vp_3 = \left[ \begin{array}{c} 2 \\ 0 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            At what point
+            (in terms of <m>\vp_0</m>, <m>\vp_1</m>,
+            <m>\vp_2</m>, and <m>\vp_3</m>)
+            is the vector <m>\vs = (1-t)\vr_0 + t\vr_1</m> when <m>t=0</m>?
+            Explain using the definition of <m>\vs</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            At what point
+            (in terms of <m>\vp_0</m>, <m>\vp_1</m>,
+            <m>\vp_2</m>, and <m>\vp_3</m>)
+            is the vector <m>\vs = (1-t)\vr_0 + t\vr_1</m> when <m>t=1</m>?
+            Explain using the definition of <m>\vs</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find by hand the components of the vector
+            <m>(1-t)\vr_0 + t\vr_1</m> with <m>t = \frac{3}{4}</m>.
+            Compare with the result of the GeoGebra file.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The span <m>\{(1-t)\vr_0 + t \vr_1\}</m> of the vectors <m>\vr_0</m> and <m>\vr_1</m>,
+    or the set of points traced out by the vectors <m>\vs</m> for <m>0 \leq t \leq 1</m>,
+    is a cubic B&#xe9;zier curve.
+    To understand why this curve is called cubic,
+    we examine the situation in a general context in the following activity.
+  </p>
+  <activity xml:id="act_1_d_cubic_Bezier_general">
+    <p>
+      Let <m>\vp_0</m>, <m>\vp_1</m>, <m>\vp_2</m>,
+      and <m>\vp_3</m> be arbitrary vectors in the plane.
+      Write <m>\vs = (1-t)\vr_0 + t\vr_1</m> as a linear combination of <m>\vp_0</m>,
+      <m>\vp_1</m>,
+      <m>\vp_2</m>, and <m>\vp_3</m>.
+      That is, write <m>\vs</m> in the form <m>b_0 \vp_0 + b_1 \vp_1 + b_2 \vp_2 + b_3 \vp_3</m> for some scalars
+      (that may depend on <m>t</m>)
+      <m>b_0</m>, <m>b_1</m>, <m>b_2</m>, and <m>b_3</m>.
+      Explain why the result leads us to call these vectors
+      <em>cubic</em> B&#xe9;zier curves.
+    </p>
+  </activity>
+  <p>
+    Just as with the quadratic case,
+    we need certain subsets of the set of control vectors to be linearly independent so that the cubic B&#xe9;zier curve does not degenerate to a quadratic or linear B&#xe9;zier curve.
+  </p>
+  <p>
+    More complicated and realistic shapes can be represented by piecing together two or more B&#xe9;zier curves as illustrated with the letter
+    <q>S</q>
+    in <xref ref="F_Letter_S">Figure</xref>.
+    Suppose we have two cubic B&#xe9;zier curves,
+    the first with control points <m>\vp_0</m>,
+    <m>\vp_1</m>, <m>\vp_2</m>,
+    and <m>\vp_3</m> and the second with control points <m>\vp_0'</m>,
+    <m>\vp_1'</m>,
+    <m>\vp_2'</m>, and <m>\vp_3'</m>.
+    You may have noticed that <m>\vp_1</m> lies on the tangent line to the first B&#xe9;zier curve at <m>\vp_0</m> and that <m>\vp_2</m> lies on the tangent line to the first B&#xe9;zier curve at <m>\vp_3</m>.
+    (Play around with the program <c>Cubic Bezier</c> to convince yourself of these statements.
+    This can be proved in a straightforward manner using vector calculus.)
+    So if we want to make a smooth curve from these two B&#xe9;zier curves,
+    the curves will need to join together smoothly at <m>\vp_3</m> and <m>\vp_0'</m>.
+    This will force <m>\vp_3 = \vp_0'</m> and the tangents at <m>\vp_3 = \vp_0'</m> will have to match.
+    This implies that <m>\vp_2</m>, <m>\vp_3</m>,
+    and <m>\vp_1'</m> all have to lie on this common tangent line.
+    Keeping this idea in mind,
+    use the GeoGebra file <c>Cubic Bezier Pair</c> at \url{https://www.geogebra.org/m/UwxQ6RPk} to find control points for the pair of B&#xe9;zier curves that create your own letter S.
+  </p>
+</section>

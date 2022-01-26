@@ -1,0 +1,378 @@
+<section xml:id="sec_proj_gershgorin">
+  <title>Project: Understanding the Gershgorin Disk Theorem</title>
+  <p>
+    To understand the Gershgorin Disk Theorem,
+    we need to recall how to visualize a complex number in the plane.
+    Recall that a complex number <m>z</m> is a number of the form
+    <m>z = a+bi</m> where <m>a</m> and <m>b</m> are real numbers and <m>i^2 = -1</m>.
+    The number <m>a</m> is the real part of <m>z</m>,
+    denoted as <m>\text{ Re } (z)</m>,
+    and <m>b</m> is the imaginary part of <m>z</m>,
+    denoted <m>\text{ Im } (z)</m>.
+    The set of all complex numbers is denoted <m>\C</m>.
+    We define addition and multiplication on <m>\C</m> as follows.
+    For <m>a+bi, c+di \in \C</m>,
+    <me>
+      (a+bi) + (c+di) = (a+c) + (b+d)i \ \ \ \ \ \text{ and }  \ \ \ \ \ (a+bi)(c+di) = (ac-bd) + (ad+bc)i
+    </me>.
+  </p>
+  <p>
+    Note that the product is what we would expect if we
+    <q>expanded</q>
+    the product in the normal way and used the fact that <m>i^2=-1</m>.
+    The set of complex numbers forms a field <mdash/> that is,
+    <m>\C</m> satisfies all of the same properties as <m>\R</m> as stated in <xref ref="thm_1_d_reals">Theorem</xref>.
+  </p>
+  <p>
+    We can visualize the complex number <m>a+bi</m> in the plane as the point <m>(a,b)</m>.
+    Here we are viewing the horizontal axis as the real axis and the vertical axis as the imaginary axis.
+    The length (or magnitude) of the complex number <m>z = a+bi</m>,
+    which we denote as <m>|z|</m>,
+    is the distance from the origin to <m>z</m>.
+    So by the Pythagorean Theorem we have <m>|a+bi| = \sqrt{a^2+b^2}</m>.
+    Note that the magnitude of
+    <m>z = a+bi</m> can be written as a complex product
+    <me>
+      |z| = \sqrt{(a+bi)(a-bi)}
+    </me>.
+  </p>
+  <p>
+    The complex number <m>a-bi</m> is called the
+    <em>complex conjugate</em>
+    of <m>z=a+bi</m> and is denoted as <m>\overline{z}</m>.
+    A few important properties of real numbers and their conjugates are the following.
+    Let <m>z = a+bi</m> and <m>w = c+di</m> be complex numbers.
+    Then
+    <ul>
+      <li>
+        <p>
+          <m>\overline{z+w} = \overline{(a+c) + (b+d)i} = (a+c)-(b+d)i = (a-bi) + (c-di) = \overline{z} + \overline{w}</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\overline{zw} = \overline{(ac-bd) + (ad+bc)i} = (ac-bd)-(ad+bc)i = (a-bi)(c-di) = \overline{z} \overline{w}</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\overline{\overline{z}} = z</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>|z| = \sqrt{a^2+b^2} \geq \sqrt{a^2} = |a| = |\text{ Re } (z)|</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>|z| = \sqrt{a^2+b^2} \geq \sqrt{b^2} = |b| = |\text{ Im } (z)|</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\left| \overline{z} \right| = |z|</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>|z| = 0</m> if and only if <m>z = 0</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>p(x)</m> is a polynomial with real coefficients and the complex number <m>z</m> satisfies <m>p(z) = 0</m>,
+          then <m>p\left(\overline{z}\right) = 0</m> as well.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Using these facts we can show that the triangle inequality is true for complex numbers.
+    That is,
+    <me>
+      |z+w| \leq |z| + |w|
+    </me>.
+  </p>
+  <p>
+    To see why, notice that
+    <md>
+      <mrow>|z+w|^2 \amp = (z+w)(\overline{z+w})</mrow>
+      <mrow>\amp = (z+w)(\overline{z} + \overline{w})</mrow>
+      <mrow>\amp = z\overline{z} + z\overline{w} + w \overline{z} + w \overline{w}</mrow>
+      <mrow>\amp = z\overline{z} + z\overline{w} + \overline{zw\overline{w}} + w \overline{w}</mrow>
+      <mrow>\amp = |z|^2 + 2\text{ Re } (z\overline{w}) + |w|^2</mrow>
+      <mrow>\amp \leq |z|^2 + 2|zw| + |w|^2</mrow>
+      <mrow>\amp = |z|^2 + 2|z| |w| + |w|^2</mrow>
+      <mrow>\amp = (|z|+|w|)^2</mrow>
+    </md>.
+  </p>
+  <p>
+    Since <m>|z+w|</m>, <m>|z|</m>,
+    and <m>|w|</m> are all non-negative,
+    taking square roots of both sides gives us <m>|z+w| \leq |z| + |w|</m> as desired.
+    We can extend this triangle inequality to any number of complex numbers.
+    That is, if <m>z_1</m>, <m>z_2</m>,
+    <m>\ldots</m>, <m>z_k</m> are complex numbers, then
+    <men xml:id="eq_general_triangle_inequaltity">
+      |z_1+z_2+ \cdots + z_k| \leq |z_1| + |z_2| + \cdots + |z_k|
+    </men>.
+  </p>
+  <p>
+    We can prove Equation <xref ref="eq_general_triangle_inequaltity"/> by mathematical induction.
+    We have already done the <m>k=2</m> case and so we assume that Equation <xref ref="eq_general_triangle_inequaltity"/> is true for any sum of <m>k</m> complex numbers.
+    Now suppose that <m>z_1</m>, <m>z_2</m>,
+    <m>\ldots</m>, <m>z_k</m>, <m>z_{k+1}</m> are complex numbers.
+    Then
+    <md>
+      <mrow>|z_1+z_2+ \cdots + z_k + z_{k+1}| \amp = |(z_1+z_2+ \cdots + z_k) + z_{k+1}|</mrow>
+      <mrow>\amp \leq |z_1+z_2+ \cdots + z_k| + |z_{k+1}|</mrow>
+      <mrow>\amp \leq (|z_1| + |z_2| + \cdots + |z_k|) + |z_{k+1}|</mrow>
+      <mrow>\amp = |z_1| + |z_2| + \cdots + |z_k| + |z_{k+1}|</mrow>
+    </md>.
+  </p>
+  <p>
+    To prove the Gershgorin Disk Theorem,
+    we will use the Levy-Desplanques Theorem,
+    which gives conditions that guarantee that a matrix is invertible.
+    We illustrate with an example in the following activity.
+  </p>
+  <activity xml:id="act_Gershgorin_1">
+    <p>
+      Let <m>A = \left[ \begin{array}{rc} 3\amp 2 \\ -1\amp 4 \end{array}  \right]</m>.
+      Since <m>\det(A) \neq 0</m>, we know that <m>A</m> is an invertible matrix.
+      Let us assume for a moment that we don't know that <m>A</m> is invertible and try to determine if 0 is an eigenvalue of <m>A</m>.
+      In other words,
+      we want to know if there is a nonzero vector <m>\vv</m> so that <m>A \vv = \vzero</m>.
+      Assuming the existence of such a vector <m>\vv = [v_1 \ v_2]^{\tr}</m>,
+      for <m>A \vv</m> to be <m>\vzero</m> it must be the case that
+      <me>
+        3v_1 + 2v_2 = 0\ \text{ and }  \ -v_1 + 4v_2 = 0
+      </me>.
+    </p>
+    <p>
+      Since the vector <m>\vv</m> is not the zero vector,
+      at least one of <m>v_1</m>, <m>v_2</m> is not zero.
+      Note that if one of <m>v_1</m>,
+      <m>v_2</m> is zero, the so is the other.
+      So we can assume that <m>v_1</m> and <m>v_2</m> are nonzero.
+      <ul>
+        <li>
+          <p>
+            Use the fact that <m>3v_1+2v_2 = 0</m> to show that <m>|v_2| > |v_1|</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the fact that <m>-v_1 + 4v_2 = 0</m> to show that <m>|v_1| > |v_2|</m>.
+            What conclusion can we draw about whether 0 is an eigenvalue of <m>A</m>?
+            Why does this mean that <m>A</m> is invertible?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    What makes the arguments work in Project <xref ref="act_Gershgorin_1">Activity</xref>
+    is that <m>|3| > |2|</m> and <m>|4| > |-1|</m>.
+    This argument can be extended to larger matrices,
+    as described in the following theorem.
+  </p>
+  <theorem>
+    <title>Levy-Desplanques Theorem</title>
+    <statement>
+      <p>
+        Any square matrix <m>A = [a_{ij}]</m> satisfying
+        <m>|a_{ii}| > \sum_{j \neq i} |a_{ij}|</m> for all <m>i</m> is invertible.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>A = [a_{ij}]</m> be an
+      <m>n \times n</m> matrix satisfying <m>|a_{ii}| > \sum_{j \neq i} |a_{ij}|</m> for all <m>i</m>.
+      Let us assume that <m>A</m> is not invertible,
+      that is that there is a vector
+      <m>\vv \neq \vzero</m> such that <m>A \vv = \vzero</m>.
+      Let <m>\vv = [v_1 \ v_2 \ \cdots \ v_n]</m> and <m>t</m> be between 1 and <m>n</m> so that <m>|v_t| \geq |v_i|</m> for all <m>i</m>.
+      That is, choose <m>v_t</m> to be the component of <m>\vv</m> with the largest absolute value.
+    </p>
+    <p>
+      Expanding the product <m>A\vv</m> using the row-column product along the <m>t</m>th row shows that
+      <me>
+        a_{t1}v_1 + a_{t2}v_2 + \cdots a_{tn}v_n = 0
+      </me>.
+    </p>
+    <p>
+      Solving for the <m>a_{tt}</m> term gives us
+      <me>
+        a_{tt}v_t = -(a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1} + \cdots + a_{tn}v_n)
+      </me>.
+    </p>
+    <p>
+      Then
+      <md>
+        <mrow>|a_{tt}| |v_t| \amp = |-(a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1} + \cdots + a_{tn}v_n|</mrow>
+        <mrow>\amp = |a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1} + \cdots + a_{tn}v_n|</mrow>
+        <mrow>\amp \leq |a_{t1}| |v_1| + |a_{t2}| |v_2| + \cdots |a_{t(t-1)}| |v_{t-1}| + |a_{t(t+1)}| |v_{t+1}| + \cdots + |a_{tn}| |v_n|</mrow>
+        <mrow>\amp \leq |a_{t1}| |v_t| + |a_{t2}| |v_t| + \cdots |a_{t(t-1)}| |v_{t}| + |a_{t(t+1)}| |v_{t}| + \cdots + |a_{tn}| |v_t|</mrow>
+        <mrow>\amp =  (|a_{t1}| + |a_{t2}| + \cdots |a_{t(t-1)}|  + |a_{t(t+1)}| + \cdots + |a_{tn}|) |v_t|</mrow>
+      </md>.
+    </p>
+    <p>
+      Since <m>|v_t| \neq 0</m>, we cancel the <m>|v_t|</m> term to conclude that
+      <me>
+        |a_{tt}| \leq  |a_{t1}| + |a_{t2}| + \cdots |a_{t(t-1)}|  + |a_{t(t+1)}| + \cdots + |a_{tn}|
+      </me>.
+    </p>
+    <p>
+      But this contradicts the condition that <m>|a_{ii}| > \sum_{j \neq i} |a_{ij}|</m> for all <m>i</m>.
+      We conclude that 0 is not an eigenvalue for <m>A</m> and <m>A</m> is invertible.
+    </p>
+  </proof>
+  <p>
+    Any matrix <m>A = [a_{ij}]</m> satisfying the condition of the Levy-Desplanques Theorem is given a special name.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A square matrix <m>A = [a_{ij}]</m> is
+        <term>strictly diagonally dominant</term><idx><h>strictly diagonally dominant matrix</h></idx> if <m>|a_{ii}| > \sum_{j \neq i} |a_{ij}|</m> for all <m>i</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    So any strictly diagonally dominant matrix is invertible.
+    A quick glance can show that a matrix is strictly diagonally dominant.
+    For example, since <m>|3| > |1| + |-1|</m>,
+    <m>|12| > |5| +|6|</m>, and <m>|-8| > |-2| + |4|</m>, the matrix
+    <me>
+      A = \left[ \begin{array}{rcr} 3\amp 1\amp -1 \\ 5\amp 12\amp 6 \\ -2\amp 4\amp -8 \end{array}  \right]
+    </me>
+    is strictly diagonally dominant and therefore invertible.
+    However, just because a matrix is not strictly diagonally dominant,
+    it does not follow that the matrix is non-invertible.
+    For example,
+    the matrix <m>B = \left[ \begin{array}{cc} 1\amp 2 \\ 0\amp 1 \end{array}  \right]</m> is invertible,
+    but not strictly diagonally dominant.
+  </p>
+  <p>
+    Now we can address the Gershgorin Disk Theorem.
+  </p>
+  <activity xml:id="act_Gershgorin_2">
+    <p>
+          <idx><h>Gershgorin Disk Theorem</h></idx>
+      Let <m>A</m> be an arbitrary <m>n \times n</m> matrix and assume that <m>\lambda</m> is an eigenvalue of <m>A</m>.
+      <ul>
+        <li>
+          <p>
+            Explain why the matrix <m>A - \lambda I</m> is singular.
+          </p>
+        </li>
+        <li>
+          <p>
+            What does the Levy-Desplanques Theorem tell us about the matrix <m>A - \lambda I</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain how we can conclude the Gershgorin Disk Theorem.
+            <theorem xml:id="thm_Gershgorin">
+              <title>Gershgorin Disk Theorem</title>
+              <statement>
+                <p>
+                  Let <m>A=[a_{ij}]</m> be an
+                  <m>n \times n</m> matrix with complex entries.
+                  Then every eigenvalue of <m>A</m> lies in one of the Gershgorin discs
+                  <me>
+                    \{z \in \C : |z-a_{ii}| \leq r_i\}
+                  </me>,
+                  where <m>r_i = \sum_{j \neq i} |a_{ij}|</m>.
+                </p>
+              </statement>
+            </theorem>
+            Based on this theorem,
+            we define a Gershgorin disk to be <m>D(a_{ii}, r_i)</m>,
+            where <m>r_i =  \sum_{j \neq i} |a_{ij}|</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the Gershgorin Disk Theorem to give estimates on the locations of the eigenvalues of the matrix <m>A = \left[ \begin{array}{rr} -1\amp 2 \\ -3\amp 2 \end{array} \right]</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The Gershgorin Disk Theorem has a consequence that gives additional information about the eigenvalues if some of the Gershgorin disks do not overlap.
+  </p>
+  <theorem xml:id="thm_Gersgorin_consequence">
+    <statement>
+      <p>
+        If <m>S</m> is a union of <m>m</m> Gershgorin disks of a matrix <m>A</m> such that <m>S</m> does not intersect any other Gershgorin disk,
+        then <m>S</m> contains exactly <m>m</m> eigenvalues
+        (counting multiplicities)
+        of <m>A</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Most proofs of this theorem require some results from topology.
+      For that reason,
+      we will not present a completely rigorous proof but rather give the highlights.
+      Let <m>A = [a_{ij}]</m> be an <m>n \times n</m> matrix.
+      Let <m>D_i</m> be a collection of Gershgorin disks of <m>A</m> for <m>1 \leq i \leq m</m> such that
+      <m>S = \cup_{1 \leq i \leq m} D_i</m> does not intersect any other Gershgorin disk of <m>A</m>,
+      and let <m>S'</m> be the union of the Gershgorin disks of <m>A</m> that are different from the <m>D_i</m>.
+      Note that <m>S \cap S' = \emptyset</m>.
+      Let <m>C</m> be the matrix whose <m>i</m>th column is <m>a_{ii}\ve_i</m>,
+      that is <m>C</m> is the diagonal matrix whose diagonal entries are the corresponding diagonal entries of <m>A</m>.
+      Note that the eigenvalues of <m>C</m> are <m>a_{ii}</m> and the Gershgorin disks of <m>C</m> are just the points <m>a_{ii}</m>.
+      So our theorem is true for this matrix <m>C</m>.
+      To prove the result,
+      we build a continuum of matrices from <m>C</m> to <m>A</m> as follows:
+      let <m>B = A-C</m>
+      (so that <m>B</m> is the matrix whose off-diagonal entries are those of <m>A</m> and whose diagonal entries are 0),
+      and let <m>A(t) = tB + C</m> for <m>t</m> in the interval <m>[0,1]</m>.
+      Note that <m>A(1) = A</m>.
+      Since the diagonal entries of <m>A(t)</m> are the same as those of <m>A</m>,
+      the Gershgorin disks of <m>A(t)</m> have the same centers as the corresponding Gershgorin disks of <m>A</m>,
+      while the radii of the Gershgorin disks of <m>A(t)</m> are those of <m>A</m> but scaled by <m>t</m>.
+      So the Gershgorin disks of <m>A(t)</m> increase from points
+      (the <m>a_{ii}</m>)
+      to the Gershgorin disks of <m>A</m> as <m>t</m> increases from 0 to 1.
+      While the centers of the disks all remain fixed,
+      it is important to recognize that the eigenvalues of <m>A(t)</m> move as <m>t</m> changes.
+      An illustration of this is shown in <xref ref="F_Gershgorin_2">Figure</xref>
+      with the eigenvalues as the black points and the changing Gershgorin disks dashed in magenta,
+      using the matrix <m>\left[ \begin{array}{cc} i\amp \frac{1}{2} \\ 1\amp -2+i \end{array} \right]</m>.
+      We can learn about how the eigenvalues move with the characteristic polynomial.
+    </p>
+    <figure xml:id="F_Gershgorin_2">
+      <caption>How eigenvalues move.</caption>
+      <image width="73%" source="Gershgorin_2.eps"/>
+    </figure>
+    <p>
+      Let <m>p(t,x)</m> be the characteristic polynomial of <m>A(t)</m>.
+      Note that these characteristic polynomials are functions of both <m>t</m> and <m>x</m>.
+      Since polynomials are continuous functions,
+      their roots (the eigenvalues of <m>A(t)</m>) are continuous for <m>t \in [0,1]</m> as well.
+      Let <m>\lambda(t)</m> be an eigenvalue of <m>A(t)</m>.
+      Note that <m>\lambda(1)</m> is an eigenvalue of <m>A</m>,
+      and <m>\lambda(0)</m> is one of the <m>a_{ii}</m> and is therefore in <m>S</m>.
+      We will argue that <m>\lambda(t)</m> is in <m>S</m> for every value of <m>t</m> in <m>[0,1]</m>.
+      Let <m>r_i</m> be the radius of <m>D_i</m> and let <m>D(t)_i</m> be the Gershgorin disk of <m>A(t)</m> with the same center as <m>D_i</m> and radius <m>r(t)_i = tr_i</m>.
+      Let <m>S(t) = \cup_{1 \leq i \leq m} D(s)_i</m>.
+      Since <m>r(s)_i \leq r_i</m>,
+      it follows that <m>D(s)_i \subseteq D_i</m> and so <m>S(t) \cap S' = \emptyset</m> as well.
+      From topology,
+      we know that since the disks <m>D_i</m> are closed,
+      the union <m>S</m> of these disks is also closed.
+      Similarly, <m>S(t)</m> and <m>S'</m> are closed.
+      Thus, <m>\lambda(t)</m> is continuous in a closed set and so does not leave the set.
+      Thus, <m>\lambda(t)</m> is in <m>S</m> for every value of <m>t</m> in <m>[0,1]</m>.
+    </p>
+  </proof>
+</section>
