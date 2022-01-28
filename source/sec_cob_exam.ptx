@@ -1,0 +1,199 @@
+<section xml:id="sec_cob_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        <nbsp/>
+        <ul>
+          <li>
+            <p>
+              Find the coordinate vector of <m>\vv</m> with respect to the ordered basis <m>\CB</m> in the indicated space.
+              <ol label="i">
+                <li>
+                  <p>
+                    <m>\CB = \{[1 \ 1]^{\tr}, [2 \ -1]^{\tr}\}</m> in <m>\R^2</m> with <m>\vv = [4 \ 1]^{\tr}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\CB = \left\{[1 \ 0 \ 0 \ 1]^{\tr}, [1 \ 0 \ -1 \ 1]^{\tr}, [1 \ 1 \ 0 \ 1]^{\tr}, [0 \ 0 \ 0 \ 1]^{\tr} \right\}</m> in <m>\R^4</m> with <m>\vv = [2 \ 3 \ 1 \ 0]^{\tr}</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the vector <m>\vv</m> given the basis <m>\CB</m> and the coordinate vector <m>[\vv]_{\CB}</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    <m>\CB = \{[1\ 0 \ 1]^{\tr}, [1 \ 1 \ 1]^{\tr}, [0 \ 1 \ 1]^{\tr}\}</m>,
+                    <m>[\vv]_{\CB} = [2 \ 1 \ 3]^{\tr}</m>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\CB = \left\{[0 \ 0 \ 1 \ 1 \ 2]^{\tr}, [-1 \ 3 \ 4 \ 7 \ 0]^{\tr}\right\}</m> in
+                    <m>\Span \ \CB</m> with <m>[\vx]_{\CB} = [2 \ -1]^{\tr}</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Find the coordinate vector of <m>\vv</m> with respect to the ordered basis <m>\CB</m> in the indicated vector space.
+              <ol label="i">
+                <li>
+                  <p>
+                    We need to write <m>\vv =[4 \ 1]^{\tr}</m> as a linear combination of
+                    <m>[1 \ 1]^{\tr}</m> and <m>[2-t]2 \ -1]^{\tr}</m>.
+                    If <m>[4 \ 1]^{\tr} = c_1([1 \ 1]^{\tr}) + c_2([2 \ -1]^{\tr})</m>,
+                    then equating coefficients of like power terms yields the equations
+                    <m>4 = c_1 +2c_2</m> and <m>1 = c_1-c_2</m>.
+                    The solution to this system is <m>c_1 = 2</m> and <m>c_2 = 1</m>,
+                    so <m>[\vv]_{\CB} = [2 \ 1]^{\tr}</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    We need to write <m>\vv</m> as a linear combination of the vectors in <m>\CB</m>.
+                    If
+                    <me>
+                      \vv = c_1[1 \ 0 \ 0 \ 1]^{\tr} + c_2 [1 \  0 \ -1 \ 1]^{\tr} + c_3 [1 \ 1 \ 0 \ 1]^{\tr} + c_4  [0 \ 0 \ 0  \ 1]^{\tr}
+                    </me>,
+                    equating corresponding components produces the system
+                    <md>
+                      <mrow>{6} {}c_1   \amp {}+{}  \amp {}c_2  \amp {}+{}  \amp {}c_3  \amp {}{}    \amp {}    \amp {}={}  \amp \ {}\amp 2\amp {}</mrow>
+                      <mrow>{}    \amp {}{}    \amp {}    \amp {}{}    \amp {}c_3  \amp {}{}    \amp {}    \amp {}={}   \amp \ {}\amp 3\amp {}</mrow>
+                      <mrow>{}    \amp {}{}    \amp {-}c_2  \amp {}{}    \amp {}    \amp {}{}    \amp {}    \amp {}={}   \amp \ {}\amp 1\amp {}</mrow>
+                      <mrow>{}c_1    \amp {}+{}  \amp {}c_2  \amp {}+{}  \amp {}c_3  \amp {}+{}  \amp {}c_4  \amp {}={}  \amp  \ {}\amp 0\amp {.}</mrow>
+                    </md>
+                    The solution to this system is <m>c_1 = 0</m>,
+                    <m>c_2 = -1</m>, <m>c_3 = 3</m>,
+                    and <m>c_4 = -2</m>, so <m>[\vv]_{\CB} = [0 \ -1 \ 3 \ -2]^{\tr}</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the vector <m>\vv</m> given the basis <m>\CB</m> of <m>V</m> and the coordinate vector <m>[\vv]_{\CB}</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Since <m>[\vv]_{\CB} = [2 \ 1 \ 3]^{\tr}</m>, it follows that
+                    <me>
+                      \vv =  2[1\ 0 \ 1]^{\tr} + [1 \ 1 \ 1]^{\tr} + 3[0 \ 1 \ 1]^{\tr} = [3 \ 4 \ 6]^{\tr}
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Since <m>[\vx]_{\CB} = [2 \ -1]^{\tr}</m>, it follows that
+                    <me>
+                      \vv = 2[0 \ 0 \ 1 \ 1 \ 2]^{\tr} - [-1 \ 3 \ 4 \ 7 \ 0]^{\tr} = [1 \ -3 \ -6 \ -14 \ 4]^{\tr}
+                    </me>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>\CB = \{\vb_1, \vb_2, \vb_3\}</m> and <m>\CC = \{\vc_1, \vc_2, \vc_3\}</m>,
+        where <m>\vb_1 = [1 \ 2 \ 0]^{\tr}</m>,
+        <m>\vb_2 = [0 \ 4 \ -1]^{\tr}</m>,
+        <m>\vb_3 = [3 \ -1 \ 1]^{\tr}</m>,
+        <m>\vc_1 = [2 \ 4 \ 1]^{\tr}</m>,
+        <m>\vc_2 = [1 \ 0 \ -1]^{\tr}</m>,
+        and <m>\vc_3 = [0 \ 1 \ 1]^{\tr}</m>.
+        <ul>
+          <li>
+            <p>
+              Find the change of basis matrix <m>\underset{\CC \leftarrow \CB}{P}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the change of basis matrix to find <m>[\vb_1]_{\CC}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>\vv</m> and <m>\vw</m> are vectors in <m>\R^3</m> with
+              <m>[\vv]_{\CB} = [2 \ -2 \ 5]^{\tr}</m> and <m>\vw = [ 1 \ 3 \ -1]^{\tr}</m>,
+              find <m>[2\vv-4\vw]_{\CC}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the change of basis matrix <m>\underset{\CB \leftarrow \CC}{P}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              To find <m>\underset{\CC \leftarrow \CB}{P}</m> we row reduce <m>[\vc_1 \ \vc_2 \ \vc_3 \ | \ \vb_1 \ \vb_2 \ \vb_3]</m> and get the matrix
+              <me>
+                \left[ \begin{array}{ccc|rrr} 1\amp 0\amp 0\amp 1\amp 5\amp -5\\ 0\amp 1\amp 0\amp -1\amp -10\amp 13\\ 0\amp 0\amp 1\amp -2\amp -16\amp 19 \end{array}  \right]
+              </me>.
+              So
+              <me>
+                \underset{\CC \leftarrow \CB}{P} = \left[ \begin{array}{rrr} 1\amp 5\amp -5\\ -1\amp -10\amp 13\\ -2\amp -16\amp 19 \end{array}  \right]
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since <m>[\vb_1]_{\CB} = [1 \ 0 \ 0]^{\tr}</m>, it follows that
+              <me>
+                [\vb_1]_{\CC} =  \underset{\CB \leftarrow \CC}{P} [\vb_1]_{\CB} = [1 \ -1 \ -2]^{\tr}
+              </me>.
+              A quick check shows that <m>\vc_1-\vc_2 - 2\vc_3 = \vb_1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Properties of the matrix-vector product show that
+              <md>
+                <mrow>_{\CC} \amp = \underset{\CB \leftarrow \CC}{P}[2\vv-4\vw]_{\CB}</mrow>
+                <mrow>\amp = 2\underset{\CB \leftarrow \CC}{P}[\vv]_{\CB} -4\underset{\CB \leftarrow \CC}{P} [\vw]_{\CB}</mrow>
+                <mrow>\amp = 2[ -33 \ 83 \ 123]^{\tr} - 4[21 \ -44 \ -69]^{\tr}</mrow>
+                <mrow>\amp = [-150 \ 342 \ 522]^{\tr}</mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since <m>\underset{\CC \leftarrow \CB}{P} = \underset{\CB \leftarrow \CC}{P}^{-1}</m>,
+              technology shows that
+              <me>
+                \underset{\CC \leftarrow \CB}{P} = \frac{1}{3} \left[ \begin{array}{rrr} 18\amp -15\amp 15\\-7\amp 9\amp -8\\-4\amp 6\amp -5 \end{array}  \right]
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

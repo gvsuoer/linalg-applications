@@ -1,0 +1,145 @@
+<section xml:id="sec_jordan_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Find a Jordan form <m>J</m> for each of the following matrices.
+        Find a matrix <m>C</m> such that <m>C^{-1}AC = J</m>.
+        <ul>
+          \begin{minipage}{2in}
+          <li>
+            <p>
+              <m>A = \left[ \begin{array}{cc} 1\amp 1\\1\amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{2in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A = \left[ \begin{array}{ccc} 0\amp 1\amp 1\\0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{2in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A = \left[ \begin{array}{cccc} 1\amp 1\amp 1\amp 1\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 2\amp 2 \\ 0\amp 0\amp 0\amp 2 \end{array} \right]</m> \end{minipage}
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+      </p>
+    </statement>
+  </example>
+  <ul>
+    <li>
+      <p>
+        The eigenvalues of <m>A</m> are <m>2</m> and <m>0</m> with corresponding eigenvectors
+        <m>[1 \ 1]^{\tr}</m> and <m>[-1 \ 1]^{\tr}</m>.
+        Since we have a basis for <m>\R^2</m> consisting of eigenvectors for <m>A</m>,
+        we know that <m>A</m> is diagonalizable.
+        Moreover, Jordan canonical form of <m>A</m> is
+        <m>J = \left[ \begin{array}{cc} 2\amp 0\\0\amp 0 \end{array} \right]</m> and <m>C^{-1}AC = J</m>,
+        where <m>C = \left[ \begin{array}{cr} 1\amp -1\\1\amp 1 \end{array} \right]</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Since <m>A</m> is upper triangular,
+        its eigenvalues are the diagonal entries.
+        So the only eigenvalue of <m>A</m> is 0, and technology shows that this eigenvalue has geometric multiplicity 2.
+        An eigenvector for <m>A</m> is <m>\vv_1 = [1 \ 0 \ 0]^{\tr}</m>.
+        A vector <m>\vv_2</m> that satisfies
+        <m>A \vv_2 = \vv_1</m> is <m>\vv_2 = [0 \ 0 \ 1]^{\tr}</m>.
+        Letting <m>C = \left[ \begin{array}{ccr} 1\amp 0\amp 0\\0\amp 0\amp -1\\0\amp 1\amp 1 \end{array}  \right]</m> gives us
+        <me>
+          \C^{-1}AC = \left[ \begin{array}{ccc} 0\amp 1\amp 0 \\ 0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{array}  \right]
+        </me>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Again, <m>A</m> is upper triangular,
+        so the eigenvalues of <m>A</m> are <m>2</m> and <m>1</m>,
+        both of algebraic multiplicity 2 and geometric multiplicity 1.
+        Technology shows that the reduced row echelon forms of
+        <m>A - 2I_4</m> and <m>(A-2I_4)^2</m> are
+        <me>
+          \left[ \begin{array}{ccrc} 1\amp 0\amp -1\amp 0 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right] \ \text{ and }  \ \left[ \begin{array}{ccrc} 1\amp 0\amp -1\amp 1 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+        </me>.
+        Now <m>\vv_2 = [-1 \ 0 \ 0 \ 1]^{\tr}</m> is in <m>\Nul (A-2I_4)^2</m>, and
+        <me>
+          \vv_1 = (A-2I_4)\vv_2 = [2 \ 0 \ 2 \ 0]^{\tr}
+        </me>.
+        Notice that  Let <m>\vv_1</m> is an eigenvector of <m>A</m> with eigenvalue <m>2</m>.
+        Technology also shows that the reduced row echelon forms of <m>A-I_4</m> and <m>(A-I_4)^2</m> are
+        <me>
+          \left[ \begin{array}{cccc} 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right] \ \text{ and }  \ \left[ \begin{array}{cccc} 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+        </me>.
+        Now <m>\vv_4 = [0 \ 1 \ 0 \ 0]^{\tr}</m> is in <m>\Nul (A-I_4)^2</m>, and
+        <me>
+          \vv_3 = (A-I_4)\vv_4 = [1 \ 0 \ 0 \ 0]^{\tr}
+        </me>.
+        Notice that  Let <m>\vv_3</m> is an eigenvector of <m>A</m> with eigenvalue <m>1</m>.
+        Letting <m>C = \left[ \begin{array}{crcc} 2\amp -1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \\ 2\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0 \end{array}  \right]</m> gives us
+        <me>
+          C^{-1}AC = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 1 \end{array}  \right]
+        </me>.
+      </p>
+    </li>
+  </ul>
+  <figure xml:id="F_JCF_example_3_d">
+    <caption>The effect of the transformation <m>T</m>.</caption>
+    <image width="73%" source="JCF_example_3_d"/>
+  </figure>
+  <example>
+    <statement>
+      <p>
+        Let <m>T(\vx) = A\vx</m>,
+        where <m>A = \left[ \begin{array}{crc} 0\amp 1\amp 1 \\ 0\amp 1\amp 2 \\ 1\amp -1\amp 2 \end{array} \right]</m>.
+        Assume that <m>P^{-1}AP = \left[ \begin{array}{ccc} 1\amp 1\amp 0 \\ 0\amp 1\amp 1 \\ 0\amp 0\amp 1 \end{array} \right]</m>,
+        where <m>P = \left[ \begin{array}{ccc} 1\amp 0\amp 4 \\ 0\amp 2\amp 4 \\ 1\amp 2\amp 0 \end{array} \right]</m>.
+        Find a specific coordinate system in which it is possible to succinctly describe the action of <m>T</m>,
+        then describe the action of <m>T</m> on <m>\R^3</m> in as much detail as possible.
+      </p>
+      <p>
+        <em>Example Solution. </em>
+      </p>
+    </statement>
+  </example>
+  <p>
+    First note that <m>1</m> is the only eigenvalue of <m>A</m>.
+    Since <m>A</m> does not have <m>0</m> as an eigenvalue,
+    it follows that <m>A</m> is invertible and so <m>T</m> is both one-to-one and onto.
+    Let <m>\vv_1 = [4 \ 4 \ 0]^{\tr}</m>,
+    <m>\vv_2 = [0 \ 2 \ 2]^{\tr}</m>,
+    and <m>\vv_3 = [1 \ 0 \ 1]^{\tr}</m>.
+    We have that
+    <md>
+      <mrow>(A-I_3)\vv_3 \amp = \vv_2</mrow>
+      <mrow>(A-I_3)\vv_2 \amp = \vv_1</mrow>
+      <mrow>(A-I_3) \vv_1 \amp = \vzero</mrow>
+    </md>.
+    and so
+    <md>
+      <mrow>T(\vv_3) \amp = A \vv_3 = \vv_3+\vv_2</mrow>
+      <mrow>T(\vv_2) \amp = A \vv_2 = \vv_2+\vv_1</mrow>
+      <mrow>T(\vv_1) \amp = A\vv_1 = \vv_1</mrow>
+    </md>.
+  </p>
+  <p>
+    If we consider the coordinate system in <m>\R^3</m> defined by the basis
+    <m>\{\vv_1, \vv_2, \vv_3\}</m> as shown in blue in <xref ref="F_JCF_example_3_d">Figure</xref>,
+    the fact that <m>T(\vv_1) = \vv_1</m> shows that <m>T</m> fixes all vectors in <m>\Span\{\vv_1\}</m>.
+    That <m>T(\vv_2) = \vv_2+\vv_1</m> tells us that <m>T</m> maps
+    <m>\Span\{\vv_2\}</m> onto <m>\Span\{\vv_1+\vv_2\}</m>,
+    and <m>T(\vv_3) = \vv_3+\vv_2</m> shows that <m>T</m> maps
+    <m>\Span\{\vv_3\}</m> onto <m>\Span\{\vv_2+\vv_3\}</m>.
+    So <m>T</m> sends the box defined by <m>\vv_1</m>, <m>\vv_2</m>,
+    and <m>\vv_3</m> onto the box defined by <m>\vv_1</m>,
+    <m>\vv_1+\vv_2</m>,
+    and <m>\vv_2+\vv_3</m> (in red in <xref ref="F_JCF_example_3_d">Figure</xref>.
+    So the action of <m>T</m> is conveniently viewed in the coordinate system determined by the columns of a matrix <m>P</m> that converts <m>A</m> into its Jordan canonical form.
+  </p>
+</section>

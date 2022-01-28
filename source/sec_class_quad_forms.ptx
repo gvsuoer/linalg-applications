@@ -1,0 +1,100 @@
+<section xml:id="sec_class_quad_forms">
+  <title>Classifying Quadratic Forms</title>
+  <p>
+    If we draw graphs of equations of the type <m>z=Q(\vx)</m>,
+    where <m>Q</m> is a quadratic form,
+    we can see that a quadratic form whose matrix does not have 0 as an eigenvalue can take on all positive values
+    (except at <m>\vx=\vzero</m>)
+    as shown at left in <xref ref="F_7_b_Paraboloids">Figure</xref>,
+    all negative values
+    (except at <m>\vx=\vzero</m>)
+    as shown in the center of <xref ref="F_7_b_Paraboloids">Figure</xref>,
+    or both positive and negative values as depicted at right in <xref ref="F_7_b_Paraboloids">Figure</xref>.
+    We can see when these cases happen by analyzing the eigenvalues of the matrix that defines the quadratic form.
+    Let <m>A</m> be a <m>2 \times 2</m> symmetric matrix with eigenvalues
+    <m>\lambda_1</m> and <m>\lambda_2</m>,
+    and let <m>P</m> be a matrix that orthogonally diagonalizes <m>A</m> so that <m>P^{\tr}AP = D = \left[ \begin{array}{cc} \lambda_1 \amp  0 \\ 0 \amp  \lambda_2 \end{array}  \right]</m>.
+    If we let <m>\vy = \left[ \begin{array}{c} w\\z \end{array}  \right] = P^{\tr}\vx</m>, then
+    <md>
+      <mrow>Q(\vx) \amp = \vx^{\tr}A\vx</mrow>
+      <mrow>\amp = \vy^{\tr} D \vy</mrow>
+      <mrow>\amp = \lambda_1 w^2 + \lambda_2 z^2</mrow>
+    </md>.
+  </p>
+  <p>
+    Then <m>Q(\vx) \geq 0</m> if all of the eigenvalues of <m>A</m> are positive (with
+    <m>Q(\vx) > 0</m> when <m>\vx \neq \vzero</m>) and
+    <m>Q(\vx) \leq 0</m> if all of the eigenvalues of <m>A</m> are negative (with
+    <m>Q(\vx) \lt 0</m> when <m>\vx \neq \vzero</m>).
+    If one eigenvalue of <m>A</m> is positive and the other negative,
+    then <m>Q(\vx)</m> will take on both positive and negative values.
+    As a result, we classify symmetric matrices
+    (and their corresponding quadratic forms)
+    according to these behaviors.
+  </p>
+  <figure xml:id="F_7_b_Paraboloids">
+    <caption>Left: Paraboloid <m>Q(\vx)=x^2+y^2</m>. Center: Hyperbolic Paraboloid <m>Q(\vx)=x^2-y^2</m>. Right: Paraboloid <m>Q(\vx) = -x^2 - y^2</m>.</caption>
+    <image width="73%" source="7_b_Paraboloid"/>
+    <image width="73%" source="7_b_Hyperbolic_Paraboloid"/>
+    <image width="73%" source="7_b_Paraboloid2"/>
+  </figure>
+  <definition xml:id="def_7_4_definite">
+    <statement>
+      <p>
+        A symmetric matrix <m>A</m>
+        (and its associated quadratic form <m>Q</m>)
+        is
+        <ul>
+          <li>
+            <p>
+              <em>positive definite</em><idx><h>matrix</h><h>positive definite</h></idx> if
+              <m>\vx^{\tr}A\vx > 0</m> for all <m>\vx \neq \vzero</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>positive semidefinite</em><idx><h>matrix</h><h>positive semidefinite</h></idx> if <m>\vx^{\tr}A\vx \geq 0</m> for all <m>\vx</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>negative definite</em><idx><h>matrix</h><h>negative definite</h></idx> if
+              <m>\vx^{\tr}A\vx \lt 0</m> for all <m>\vx \neq \vzero</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>negative semidefinite</em><idx><h>matrix</h><h>negative semidefinite</h></idx> if <m>\vx^{\tr}A\vx \leq 0</m> for all <m>\vx</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>indefinite</em>
+                <idx><h>matrix</h><h>indefinite</h></idx>
+              if <m>\vx^{\tr}A\vx</m> takes on both positive and negative values.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    For example, the quadratic form
+    <m>Q(\vx) = x^2+y^2</m> at left in <xref ref="F_7_b_Paraboloids">Figure</xref> is positive definite
+    (with repeated eigenvalue 1),
+    the quadratic form <m>Q(\vx) = -(x^2+y^2)</m> at right in <xref ref="F_7_b_Paraboloids">Figure</xref> is negative definite
+    (repeated eigenvalue <m>-1</m>),
+    and the hyperbolic paraboloid
+    <m>Q(\vx) = x^2-y^2</m> in the center of <xref ref="F_7_b_Paraboloids">Figure</xref> is indefinite
+    (eigenvalues <m>1</m> and <m>-1</m>).
+  </p>
+  <p>
+    So we have argued that a quadratic form
+    <m>Q(\vx) = \vx^{\tr} A \vx</m> is positive definite if <m>A</m> has all positive eigenvalues,
+    negative definite if <m>A</m> has all negative eigenvalues,
+    and indefinite if <m>A</m> has both positive and negative eigenvalues.
+    Similarly, the quadratic form is positive semidefinite if <m>A</m> has all nonnegative eigenvalues and negative semidefinite if <m>A</m> has all nonpositive eigenvalues.
+    Positive definite matrices are important,
+    as we discuss in the next section.
+  </p>
+</section>

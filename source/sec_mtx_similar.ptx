@@ -1,0 +1,137 @@
+<section xml:id="sec_mtx_similar">
+  <title>Similar Matrices</title>
+  <p>
+    Similar matrices play an important role in certain calculations.
+    For example, <xref ref="act_4_c_0_5">Activity</xref>
+    showed that if we can write a square matrix <m>A</m> in the form
+    <m>A = P^{-1}DP</m> for some invertible matrix <m>P</m> and diagonal matrix <m>D</m>,
+    then finding the powers of <m>A</m> is straightforward.
+    As we will see, the relation
+    <m>A = P^{-1}DP</m> will imply that the matrices <m>A</m> and <m>D</m> share many properties.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <m>n \times n</m> matrix <m>A</m> is <term>similar</term>
+            <idx><h>similar matrices</h></idx>
+        to the <m>n \times n</m> matrix <m>B</m> if there is an invertible matrix <m>P</m> such that <m>A = P^{-1}BP</m>.
+      </p>
+    </statement>
+  </definition>
+  <activity xml:id="act_4_c_1">
+    <p>
+      Let <m>A = \left[ \begin{array}{cc} 1\amp 1\\2\amp 0 \end{array} \right]</m> and <m>B = \left[ \begin{array}{cr} 2\amp 2\\0\amp -1 \end{array} \right]</m>.
+      Assume that <m>A</m> is similar to <m>B</m> via the matrix <m>P = \left[ \begin{array}{cc} 2\amp 1\\2\amp 2 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Calculate <m>\det(A)</m> and <m>\det(B)</m>.
+            What do you notice?
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the characteristic polynomials of <m>A</m> and <m>B</m>.
+            What do you notice?
+          </p>
+        </li>
+        <li>
+          <p>
+            What can you say about the eigenvalues of <m>A</m> and <m>B</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why <m>\vx = \left[ \begin{array}{c} 1\\1 \end{array} \right]</m> is an eigenvector for <m>A</m> with eigenvalue 2.
+            Is <m>\vx</m> an eigenvector for <m>B</m> with eigenvalue 2?
+            Why or why not?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_4_c_1">Activity</xref>
+    suggests that similar matrices share some, but not all,
+    properties.
+    Note that if <m>A = P^{-1}BP</m>,
+    then <m>B = Q^{-1}AQ</m> with <m>Q = P^{-1}</m>.
+    So if <m>A</m> is similar to <m>B</m>,
+    then <m>B</m> is similar to <m>A</m>.
+    Similarly (no pun intended), since <m>A = I^{-1}AI</m>
+    (where <m>I</m> is the identity matrix),
+    then any square matrix is similar to itself.
+    Also, if <m>A = P^{-1}BP</m> and <m>B = M^{-1}CM</m>,
+    then <m>A = (MP)^{-1}C(MP)</m>.
+    So if <m>A</m> is similar to <m>B</m> and <m>B</m> is similar to <m>C</m>,
+    then <m>A</m> is similar to <m>C</m>.
+    If you have studied relations,
+    these three properties show that similarity is an equivalence relation on the set of all <m>n \times n</m> matrices.
+    This is one reason why similar matrices share many important traits,
+    as the next activity highlights.
+  </p>
+  <activity xml:id="act_4_c_2">
+    <p>
+      Let <m>A</m> and <m>B</m> be similar matrices with <m>A = P^{-1}BP</m>.
+      <ul>
+        <li>
+          <p>
+            Use the multiplicative property of the determinant to explain why <m>\det(A) = \det(B)</m>.
+            So similar matrices have the same determinants.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the fact that <m>P^{-1}IP = I</m> to show that
+            <m>A-\lambda I</m> is similar to <m>B - \lambda I</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why it follows from (a) and (b) that
+            <me>
+              \det(A - \lambda I) = \det(B - \lambda I)
+            </me>.
+            So similar matrices have the same characteristic polynomial,
+            and the same eigenvalues.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    We summarize some properties of similar matrices in the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be similar
+        <m>n \times n</m> matrices and <m>I</m> the <m>n \times n</m> identity matrix.
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>\det(A) = \det(B)</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A-\lambda I</m> is similar to <m>B - \lambda I</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A</m> and <m>B</m> have the same characteristic polynomial,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A</m> and <m>B</m> have the same eigenvalues.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

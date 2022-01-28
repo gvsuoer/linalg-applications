@@ -1,0 +1,162 @@
+<section xml:id="sec_eqs_quad_r2">
+  <title>Equations Involving Quadratic Forms in <m>\R^2</m></title>
+  <p>
+    When we consider equations of the form <m>Q(\vx) = d</m>,
+    where <m>Q</m> is a quadratic form in <m>\R^2</m> and <m>d</m> is a constant,
+    we wind up with old friends like <m>x^2+y^2=1</m>,
+    <m>2x^2+3y^2=2</m>, or <m>x^2-y^2=1</m>.
+    As we saw in Preview <xref ref="pa_7_b">Activity</xref>
+    these equations are relatively easy to recognize.
+    However, when we have cross-product terms,
+    like in <m>x^2-xy+y^2=1</m>,
+    it is not so easy to identify the curve the equation represents.
+    If there was a way to eliminate the cross-product term <m>xy</m> from this form,
+    we might be more easily able to recognize its graph.
+    The discussion in this section will focus on quadratic forms in <m>\R^2</m>,
+    but we will see later that the arguments work in any number of dimensions.
+    While working in <m>\R^2</m> we will use the standard variables <m>x</m> and <m>y</m> instead of <m>x_1</m> and <m>x_2</m>.
+  </p>
+  <p>
+    In general, the equation of the form <m>Q(\vx) = d</m>,
+    where <m>Q</m> is a quadratic form in <m>\R^2</m> defined by a matrix
+    <m>A = \left[ \begin{array}{cc} a\amp b/2\\b/2\amp c \end{array}  \right]</m> and <m>d</m> is a constant looks like
+    <me>
+      ax^2+bxy+cy^2 = d
+    </me>.
+  </p>
+  <p>
+    The graph of an equation like this is either an ellipse (a circle is a special case of an ellipse),
+    a hyperbola,
+    two non-intersecting lines, a point, or the empty set
+    (see <xref ref="ex_7_b_QF_characterization">Exercise</xref>).
+    The quadratic forms do not involve linear terms,
+    so we don't consider the cases of parabolas.
+    One way to see into which category one of these quadratic form equations falls is to write the equation in standard form.
+  </p>
+  <p>
+    The standard forms for quadratic equations in <m>\R^2</m> are as follows,
+    where <m>a</m> and <m>b</m> are nonzero constants and <m>h</m> and <m>k</m> are any constants.
+    <ul>
+      <li>
+        <title>Lines:</title>
+        <p>
+          <m>\ds ax^2 = 1</m> or <m>\ds ay^2=1</m> (<m>a > 0</m>)
+        </p>
+      </li>
+      <li>
+        <title>Ellipse:</title>
+        <p>
+          <m>\ds \frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1</m>
+        </p>
+      </li>
+      <li>
+        <title>Hyperbola:</title>
+        <p>
+          <m>\ds \frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1</m> or <m>\ds \frac{(y-k)^2}{b^2} - \frac{(x-h)^2}{a^2} = 1</m>
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Preview <xref ref="pa_7_b">Activity</xref>
+    contains the main tool that we need to convert a quadratic form into one of these standard forms.
+    By this we mean that if we have a quadratic form <m>Q</m> in the variables <m>x_1</m>,
+    <m>x_2</m>, <m>\ldots</m>, <m>x_n</m>,
+    we want to find variables <m>y_1</m>,
+    <m>y_2</m>, <m>\ldots</m>,
+    <m>y_n</m> in terms of <m>x_1</m>,
+    <m>x_2</m>, <m>\ldots</m>,
+    <m>x_n</m> so that when written in terms of the variables <m>y_1</m>,
+    <m>y_2</m>, <m>\ldots</m>,
+    <m>y_n</m> the quadratic form <m>Q</m> contains no cross terms.
+    In other words, we want to find a vector
+    <m>\vy = \left[ \begin{array}{c} y_1 \\ y_2 \\ \vdots \\ y_n \end{array} \right]</m> so that <m>Q(\vx) = \vy^{\tr} D \vy</m>,
+    where <m>D</m> is a diagonal matrix.
+    Since every real symmetric matrix is orthogonally diagonalizable,
+    we will always be able to find a matrix <m>P</m> that orthogonally diagonalizes <m>A</m>.
+    The details are as follows.
+  </p>
+  <p>
+    Let <m>Q</m> be the quadratic form defined by <m>Q(\vx) = \vx^{\tr} A \vx</m>,
+    where <m>A</m> is an <m>n \times n</m> symmetric matrix.
+    As in Preview <xref ref="pa_7_b">Activity</xref>,
+    the fact that <m>A</m> is symmetric means that we can find an orthogonal matrix
+    <m>P = [ \vp_1 \  \vp_2 \  \vp_3 \  \cdots \  \vp_n ]</m> whose columns are orthonormal eigenvectors of <m>A</m> corresponding to eigenvalues <m>\lambda_1</m>,
+    <m>\lambda_2</m>, <m>\ldots</m>,
+    <m>\lambda_n</m>, respectively.
+    Letting <m>\vy = P^{\tr} \vx</m> give us <m>\vx = P\vy</m> and
+    <me>
+      \vx^{\tr} A \vx = (P\vy)^{\tr}A(P\vy) = \vy^{\tr}(P^{\tr}AP)\vy = \vy^{\tr} D \vy
+    </me>,
+    where <m>D</m> is the diagonal matrix whose <m>i</m>th diagonal entry is <m>\lambda_i</m>.
+  </p>
+  <p>
+    Moreover, the set <m>\B = \{\vp_1, \vp_2, \cdots, \vp_n\}</m> is an orthonormal basis for <m>\R^n</m> and so defines a coordinate system for <m>\R^n</m>.
+    Note that if <m>y = [y_1 \ y_2 \ \cdots \ y_n]^{\tr}</m>, then
+    <me>
+      \vx = P\vy = y_1\vp_1 + y_2 \vp_2 + \cdots + y_n \vp_n
+    </me>.
+  </p>
+  <p>
+    Thus, the coordinate vector of <m>\vx</m> with respect to <m>\B</m> is <m>\vy</m>,
+    or <m>[\vx]_{\B} = \vy</m>.
+    We summarize in <xref ref="thm_7_b_Principal_Axis_Theorem">Theorem</xref>.
+  </p>
+  <theorem xml:id="thm_7_b_Principal_Axis_Theorem">
+    <title>Principal Axis Theorem</title>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> symmetric matrix.
+        There is an orthogonal change of variables
+        <m>\vx = P\vy</m> so that the quadratic form <m>Q</m> defined by
+        <m>Q(\vx) = \vx^{\tr} A \vx</m> is transformed into the quadratic form
+        <m>\vy^{\tr} D \vy</m> where <m>D</m> is a diagonal matrix.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The columns of the orthogonal matrix <m>P</m> in the Principal Axis Theorem form an orthogonal basis for <m>\R^n</m> and are called the <em>principal axes</em>
+    for the quadratic form <m>Q</m>.
+    Also, the coordinate vector of <m>\vx</m> with respect to this basis is <m>\vy</m>.
+  </p>
+  <activity>
+    <p>
+      Let <m>Q</m> be the quadratic form defined by <m>Q(\vx) = 2x^2 + 4xy + 5y^2 = \vx^{\tr} A \vx</m>,
+      where <m>\vx = \left[ \begin{array}{c} x \\ y \end{array} \right]</m> and <m>A = \left[ \begin{array}{cc}2\amp 2\\2\amp 5 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            The eigenvalues of <m>A</m> are <m>\lambda_1 = 6</m> and
+            <m>\lambda_2=1</m> with corresponding eigenvectors
+            <m>\vv_1 = [1 \ 2]^{\tr}</m> and <m>\vv_2 = [-2 \ 1]^{\tr}</m>,
+            respectively.
+            Find an orthogonal matrix <m>P</m> with determinant 1 that diagonalizes <m>A</m>.
+            Is <m>P</m> unique?
+            Explain.
+            Is there a matrix without determinant 1 that orthogonally diagonalizes <m>A</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the matrix <m>P</m> to write the quadratic form without the cross-product.
+          </p>
+        </li>
+        <li>
+          <p>
+            We can view <m>P</m> as a change of basis matrix from the coordinate system defined by
+            <m>\vy = P^{\tr} \vx</m> to the standard coordinate system.
+            In other words, in the standard <m>xy</m> coordinate system,
+            the quadratic form is written as <m>\vx^{\tr}A \vx</m>,
+            but in the new coordinate system defined by <m>\vy</m> the quadratic form is written as <m>(P\vy)^{\tr}A(P\vy)</m>.
+            As a change of basis matrix, <m>P</m> performs a rotation.
+            See if you can recall what we learned about rotation matrices and determine the angle of rotation <m>P</m> defines.
+            Plot the graph of the quadratic equation
+            <m>Q(\vx) = 1</m> in the new coordinate system and identify this angle on the graph.
+            Interpret the result.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

@@ -1,0 +1,139 @@
+<section xml:id="sec_imt_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>M = \left[ \begin{array}{cccc} 1\amp 2\amp 2\amp 1 \\ 0\amp 1\amp 0\amp 1 \\ 1\amp 3\amp 2\amp 3 \\ 0\amp 1\amp 0\amp 0 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Without doing any calculations, is <m>M</m> invertible?
+              Explain your response.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is the equation <m>M \vx = \vb</m> consistent for every <m>\vb</m> in <m>\R^4</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is the equation <m>M \vx = \vzero</m> consistent?
+              If so, how many solutions does this equation have?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is it possible to find a <m>4 \times 4</m> matrix <m>P</m> such that <m>PM = I_4</m>?
+              Explain.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              The third column of <m>M</m> is twice the first,
+              so the columns of <m>M</m> are not linearly independent.
+              We conclude that <m>M</m> is not invertible.
+            </p>
+          </li>
+          <li>
+            <p>
+              The equation <m>M \vx = \vb</m> is not consistent for every <m>\vb</m> in <m>\R^4</m>.
+              If it was, then the columns of <m>M</m> would span <m>\R^4</m> and,
+              since there are exactly four columns,
+              the columns of <m>M</m> would be a basis for <m>\R^4</m>.
+              Thus, <m>M</m> would have to be invertible, which it is not.
+            </p>
+          </li>
+          <li>
+            <p>
+              The homogeneous system is always consistent.
+              Since the columns of <m>M</m> are linearly dependent,
+              the equation <m>M \vx = \vzero</m> has infinitely many solutions.
+            </p>
+          </li>
+          <li>
+            <p>
+              It is not possible to find a
+              <m>4 \times 4</m> matrix <m>P</m> such that <m>PM = I_4</m>.
+              Otherwise <m>M</m> would have to be invertible.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>M</m> be an <m>n \times n</m> matrix whose eigenvalues are all nonzero.
+        <ul>
+          <li>
+            <p>
+              Let <m>\vb \in \R^n</m>.
+              Is the equation <m>M \vx = \vb</m> consistent?
+              If yes, explain why and find all solutions in terms of <m>M</m> and <m>\vb</m>.
+              If no, explain why.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>S</m> be the matrix transformation defined by <m>S(\vx) = M\vx</m>.
+              Suppose <m>S(\va) = S(\vb)</m> for some vectors <m>\va</m> and <m>\vb</m> in <m>\R^n</m>.
+              Must there be any relationship between <m>\va</m> and <m>\vb</m>?
+              If yes, explain the relationship.
+              If no, explain why.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vm_1</m>, <m>\vm_2</m>,
+              <m>\ldots</m>, <m>\vm_n</m> be the columns of <m>M</m>.
+              In how many ways can we write the zero vector as a linear combination of <m>\vm_1</m>,
+              <m>\vm_2</m>, <m>\ldots</m>, <m>\vm_n</m>?
+              Explain.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Since <m>0</m> is not an eigenvalue of <m>M</m>,
+              we know that <m>M</m> is invertible.
+              Therefore, the equation <m>M \vx = \vb</m> has the unique solution <m>\vx = M^{-1} \vb</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The fact that <m>M</m> is invertible implies that <m>S</m> is one-to-one.
+              So if <m>S(\va) = S(\vb)</m>,
+              then it must be the case that <m>\va = \vb</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Because <m>M</m> is invertible,
+              the columns of <m>M</m> are linearly independent.
+              Therefore, there is only the trivial solution to the equation
+              <me>
+                x_1\vm_1 + x_2\vm_2 +  \cdots + x_n\vm_n = \vzero
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,32 @@
+<section xml:id="sec_find_basis_subspace">
+  <title>Finding a Basis for a Subspace</title>
+  <p>
+    Since every vector in a subspace of <m>\R^n</m> can be written uniquely as a linear combination of vectors in a basis for the subspace,
+    a basis provides us with the most efficient and convenient way to represent vectors in the subspace.
+    Until now we have been given a set of vectors and have been asked to find a basis from that set,
+    so an important question to address is how we can find a basis for a subspace <m>W</m> of <m>\R^n</m> starting from scratch.
+    Here is one way.
+    If <m>W = \{\vzero\}</m>,
+    then the dimension of <m>W</m> is 0 and <m>W</m> has no basis.
+    So suppose <m>\dim(W) > 0</m>.
+    Start by choosing any nonzero vector <m>\vw_1</m> in <m>W</m>.
+    Let <m>\B_1 = \{\vw_1\}</m>.
+    If <m>\B_1</m> spans <m>W</m>,
+    then <m>\B_1</m> is a basis for <m>W</m>.
+    If not, there is a vector <m>\vw_2</m> in <m>W</m> that is not in <m>\Span(\B_1)</m>.
+    Then <m>\B_2 = \{\vw_1, \vw_2\}</m> is a linearly independent set.
+    If <m>\Span(\B_2) = W</m>,
+    then <m>\B_2</m> is a basis for <m>W</m> and we are done.
+    If not, repeat the process.
+    Since any basis for <m>W</m> can contain at most <m>n=\dim(\R^n)</m> vectors,
+    we know the process must stop at some point.
+    This process also allows us to construct a basis for a vector space that contains a given nonzero vector.
+  </p>
+  <activity xml:id="act_3_d_4">
+    <p>
+      Find a basis for <m>\R^3</m> that contains the vector <m>\left[ \begin{array}{r} 1 \\ 2 \\ -1 \end{array} \right]</m>.
+      When constructing your basis,
+      how do you know when to stop?
+    </p>
+  </activity>
+</section>

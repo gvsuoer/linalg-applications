@@ -1,0 +1,110 @@
+<section xml:id="sec_mtx_inverse_props">
+  <title>Properties of the Matrix Inverse</title>
+  <p>
+    As we have done with every new operation,
+    we ask what properties the inverse of a matrix has.
+  </p>
+  <activity xml:id="act_2_c_5">
+    <p>
+      Consider the following questions about matrix inverses.
+      If two <m>n \times n</m> matrices <m>A</m> and <m>B</m> are invertible,
+      is the product <m>AB</m> invertible?
+      If so, what is the inverse of <m>AB</m>?
+      We answer these questions in this activity.
+      <ul>
+        <li>
+          <p>
+            Let
+            <me>
+              A = \left[ \begin{array}{cc} 1\amp 2\\1\amp 3 \end{array}  \right] \ \ \text{ and }   B = \left[ \begin{array}{rc} 2\amp 3\\-1\amp 2 \end{array}  \right]
+            </me>.
+            <ol label="i">
+              <li>
+                <p>
+                  Use formula <xref ref="eq_2_c_1"/> to find the inverses of <m>A</m> and <m>B</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find the matrix product <m>AB</m>.
+                  Is <m>AB</m> invertible?
+                  If so, use formula <xref ref="eq_2_c_1"/> to find the inverse of <m>AB</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the products <m>A^{-1}B^{-1}</m> and <m>B^{-1}A^{-1}</m>.
+                  What do you notice?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            In part (a) we saw that the matrix product
+            <m>B^{-1}A^{-1}</m> was the inverse of the matrix product <m>AB</m>.
+            Now we address the question of whether this is true in general.
+            Suppose now that <m>C</m> and <m>D</m> are invertible
+            <m>n \times n</m> matrices so that the matrix inverses <m>C^{-1}</m> and <m>D^{-1}</m> exist.
+            <ol label="i">
+              <li>
+                <p>
+                  Use matrix algebra to simplify the matrix product <m>(CD)\left(D^{-1}C^{-1}\right)</m>.
+                  <hint>
+                    <p>
+                      What do you know about <m>DD^{-1}</m> and <m>CC^{-1}</m>?
+                    </p>
+                  </hint>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Simplify the matrix product
+                  <m>\left(D^{-1}C^{-1}\right)(CD)</m> in a manner similar to part i.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What conclusion can we draw from parts i and ii?
+                  Explain.
+                  What property of matrix multiplication requires us to reverse the order of the product when we create the inverse of <m>CD</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_2_c_5">Activity</xref>
+    gives us one important property of matrix inverses.
+    The other properties given in the next theorem can be verified similarly.
+  </p>
+  <theorem xml:id="thm_inverse_properties">
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be invertible <m>n \times n</m> matrices.
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>\left(A^{-1}\right)^{-1} = A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The product <m>AB</m> is invertible and <m>(AB)^{-1} = B^{-1}A^{-1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A^{\tr}</m> is invertible and <m>\left(A^{\tr}\right)^{-1} = \left(A^{-1}\right)^{\tr}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

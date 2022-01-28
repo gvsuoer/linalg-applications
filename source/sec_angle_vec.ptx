@@ -1,0 +1,120 @@
+<section xml:id="sec_angle_vec">
+  <title>The Angle Between Two Vectors</title>
+  <p>
+    Determining a
+    <q>best</q>
+    solution to a problem often involves finding a solution that minimizes a distance.
+    We generally accomplish a minimization through orthogonality <mdash/> which depends on the angle between vectors.
+    Given two vectors <m>\vu</m> and <m>\vv</m> in <m>\R^n</m>,
+    we position the vectors so that they emanate from the same initial point.
+    If the vectors are nonzero, then they determine a plane in <m>\R^n</m>.
+    In that plane there are two angles that these vectors create.
+    We will define the angle between the vectors to be the smaller of these two angles.
+    The dot product will tell us how to find the angle between vectors.
+    Let <m>\vu</m> and <m>\vv</m> be vectors in <m>\R^n</m> and <m>\theta</m> the angle between them as illustrated in <xref ref="F_Angle">Figure</xref>.
+  </p>
+  <figure xml:id="F_Angle">
+    <caption>The angle between <m>\vu</m> and <m>\vv</m></caption>
+    <image width="73%" source="6_a_Angle.eps"/>
+  </figure>
+  <p>
+    Using the Law of Cosines, we have
+    <me>
+      ||\vu-\vv||^2=||\vu||^2+||\vv||^2 - 2||\vu|| \ ||\vv|| \ \cos(\theta) \,
+    </me>.
+  </p>
+  <p>
+    Rearranging, we obtain
+    <md>
+      <mrow>||\vu|| \ ||\vv|| \ \cos(\theta) \amp = \frac{1}{2} \left( ||\vu||^2+||\vv||^2 - ||\vu-\vv||^2 \right)</mrow>
+      <mrow>\amp = \frac{1}{2} (||\vu||^2+||\vv||^2 - (\vu-\vv)\cdot (\vu-\vv) )</mrow>
+      <mrow>\amp = \frac{1}{2} (||\vu||^2+||\vv||^2 - \vu\cdot \vu +2\vu \cdot \vv - \vv\cdot \vv )</mrow>
+      <mrow>\amp = \vu \cdot \vv  \, </mrow>
+    </md>.
+  </p>
+  <p>
+    So the angle <m>\theta</m> between two nonzero vectors <m>\vu</m> and <m>\vv</m> in <m>\R^n</m> satisfies the equation
+    <men xml:id="eq_6_a_angle_between">
+      \knownindex{\lt h>angle between vectors\lt /h>} \cos(\theta) = \frac{\vu \cdot \vv}{||\vu|| \ ||\vv||}
+    </men>.
+  </p>
+  <p>
+    Of particular interest to us will be the situation where vectors <m>\vu</m> and <m>\vv</m> are
+    <em>orthogonal</em> (perpendicular).<fn>
+    We use the term orthogonal instead of perpendicular because we will be able to extend this idea to situations where we normally don't think of objects as being perpendicular.
+    </fn> Intuitively,
+    we think of two vectors as orthogonal if the angle between them is <m>90^{\circ}</m>.
+  </p>
+  <activity xml:id="act_6_a_orthogonality">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            The vectors <m>\ve_1 = [ 1 \ 0]^{\tr}</m> and
+            <m>\ve_2 = [0 \ 1]^{\tr}</m> are perpendicular in <m>\R^2</m>.
+            What is <m>\ve_1 \cdot \ve_2</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Now let <m>\vu</m> and <m>\vv</m> be any vectors in <m>\R^n</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Suppose the angle between nonzero vectors <m>\vu</m> and <m>\vv</m> is <m>90^{\circ}</m>.
+                  What does Equation <xref ref="eq_6_a_angle_between"/> tell us about <m>\vu \cdot \vv</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now suppose that <m>\vu \cdot \vv = 0</m>.
+                  What does Equation <xref ref="eq_6_a_angle_between"/> tell us about the angle between <m>\vu</m> and <m>\vv</m>?
+                  Why?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why the following definition makes sense.
+                  <definition xml:id="def_6_a_orthogonal_dot_product">
+                    <statement>
+                      <p>
+                        Two vectors <m>\vu</m> and <m>\vv</m> in <m>\R^n</m> are <term>orthogonal</term>
+              <idx><h>orthogonal</h></idx>
+                        if <m>\vu \cdot \vv = 0</m>.
+                      </p>
+                    </statement>
+                  </definition>
+                </p>
+              </li>
+              <li>
+                <p>
+                  According to <xref ref="def_6_a_orthogonal_dot_product">Definition</xref>,
+                  to which vectors is <m>\vzero</m> orthogonal?
+                  Does this make sense to you intuitively?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <activity>
+    <ul>
+      <li>
+        <p>
+          Find the angle between the two vectors
+          <m>\vu = [1 \ 3 \ -2 \ 5]^{\tr}</m> and <m>\vv = [5 \ 2 \ 3 \ -1]^{\tr}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Find, if possible,
+          two non-parallel vectors orthogonal to <m>\vu = \left[ \begin{array}{r} 0\\3\\-2\\1 \end{array} \right]</m>.
+        </p>
+      </li>
+    </ul>
+  </activity>
+</section>

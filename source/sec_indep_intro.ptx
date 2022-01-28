@@ -1,0 +1,199 @@
+<section xml:id="sec_indep_intro">
+  <title>Introduction</title>
+  <p>
+    In <xref ref="sec_vector_representation">Section</xref>
+    we saw how to represent water-benzene-acetic acid chemical solutions with vectors,
+    where the components represent the water,
+    benzene and acid percentages.
+    We then considered a problem of determining if a given chemical solution could be made by mixing other chemical solutions.
+    Suppose we now have three different water-benzene-acetic acid chemical solutions,
+    one with 40% water, 50% benzene and 10% acetic acid,
+    the second with 52% water, 42% benzene and 6% acid,
+    and a third with 46% water, 46% benzene and 8% acid.
+    We represent the first chemical solution with the vector <m>\vv_1 = \left[ \begin{array}{c} 40\\50\\10 \end{array}  \right]</m>,
+    the second with the vector <m>\vv_2 = \left[ \begin{array}{c} 52\\42\\6 \end{array}  \right]</m>,
+    and the third with the vector <m>\vv_3 = \left[ \begin{array}{c} 46\\46\\8 \end{array}  \right]</m>.
+    By combining these three chemical solutions we can make a chemical solution with 43% water, 48% benzene and 9% acid as follows
+    <me>
+      \frac{7}{12}\vv_1 + \frac{1}{12} \vv_2 + \frac{1}{3}\vv_3 = \left[ \begin{array}{c} 43\\48\\9 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    However, if we had noticed that the third chemical solution can actually be made from the first two, that is,
+    <me>
+      \frac{1}{2}\vv_1 + \frac{1}{2} \vv_2 = \vv_3
+    </me>,
+    we might have realized that we don't need the third chemical solution to make the 43% water, 48% benzene and 9% acid chemical solution.
+    In fact,
+    <me>
+      \frac{3}{4}\vv_1 + \frac{1}{4} \vv_2 = \left[ \begin{array}{c} 43\\48\\9 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    (See <xref ref="ex_1_d_acid">Exercise</xref>
+    of <xref ref="sec_vector_representation">Section</xref>.) Using the third chemical solution
+    (represented by <m>\vv_3</m>)
+    uses more information than we actually need to make the desired 43% water, 48% benzene and 9% acid chemical solution because the vector <m>\vv_3</m> is redundant <mdash/> all of the material we need to make <m>\vv_3</m> is contained in <m>\vv_1</m> and <m>\vv_2</m>.
+    This is the basic idea behind linear independence <mdash/> representing information in the most efficient way.
+  </p>
+  <p>
+    Information is often contained in and conveyed through vectors <mdash/> especially linear combinations of vectors.
+    In this section we will investigate the concepts of linear dependence and independence of a set of vectors.
+    Our goal is to be able to efficiently determine when a given set of vectors forms a
+    <em>minimal spanning set</em>.
+    A minimal spanning set is a spanning set that contains the smallest number of vectors to obtain all of the vectors in the span.
+    An important aspect of a minimal spanning set is that every vector in the span can be written in one and only one way as a linear combination of the vectors in the minimal spanning set.
+    This will allow us to define the important notion of the dimension of a vector space.
+  </p>
+  <p>
+    <em>Review of useful information:</em>
+    Recall that a linear combination of vectors <m>\vv_1</m>,
+    <m>\vv_2</m>, <m>\ldots</m>,
+    <m>\vv_k</m> in <m>\R^n</m> is a sum of scalar multiples of <m>\vv_1</m>,
+    <m>\vv_2</m>, <m>\ldots</m>, <m>\vv_k</m>.
+    That is, a linear combination of the vectors <m>\vv_1</m>,
+    <m>\vv_2</m>,
+    <m>\ldots</m>, <m>\vv_k</m> is a vector of the form
+    <me>
+      c_1\vv_1 + c_2\vv_2 + \cdots + c_k\vv_k
+    </me>,
+    where <m>c_1</m>, <m>c_2</m>,
+    <m>\ldots</m>, <m>c_k</m> are scalars.
+  </p>
+  <p>
+    Recall also that the collection of all linear combinations of a set <m>\{\vv_1</m>,
+    <m>\vv_2</m>, <m>\ldots</m>,
+    <m>\vv_k\}</m> of vectors in <m>\R^n</m> is called the span of the set of vectors.
+    That is, the span <m>\Span \{\vv_1, \vv_2, \ldots, \vv_k\}</m> of the set <m>\vv_1</m>,
+    <m>\vv_2</m>,
+    <m>\ldots</m>, <m>\vv_k</m> of vectors in <m>\R^n</m> is the set
+    <me>
+      \{c_1\vv_1 + c_2\vv_2 + \cdots + c_k\vv_k : \text{ where }  c_1, c_2, \ldots, c_k \text{ are scalars } \}
+    </me>.
+  </p>
+  <p>
+    For example,
+    a linear combination of vectors <m>\vv_1 = \left[ \begin{array}{c} 1\\1\\2 \end{array}  \right]</m> and
+    <m>\vv_2 = \left[ \begin{array}{r} 0\\-2\\1 \end{array}  \right]</m> is <m>2 \vv_1-3\vv_2 = \left[ \begin{array}{c} 2\\8\\1 \end{array}  \right]</m>.
+    All linear combinations of these two vectors can be expressed as the collection of vectors of the form
+    <m>\left[ \begin{array}{c} c_1\\c_1-2c_2\\2c_1+c_2 \end{array}  \right]</m> where <m>c_1, c_2</m> are scalars.
+    Suppose we want to determine whether <m>\vw=\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right]</m> is in the span,
+    in other words if <m>\vw</m> is a linear combination of <m>\vv_1, \vv_2</m>.
+    This means we are looking for <m>c_1, c_2</m> such that
+    <me>
+      \left[ \begin{array}{c} c_1\\c_1-2c_2\\2c_1+c_2 \end{array}  \right] = \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] \,
+    </me>.
+    we solve for the system represented with the augmented matrix
+    <me>
+      \left[\begin{array}{crc|c} 1\amp 0\amp \amp 1\\ 1\amp -2\amp \amp 2 \\ 2\amp 1\amp \amp 3 \end{array}  \right] \,
+    </me>.
+  </p>
+  <p>
+    By reducing this matrix, we find that there are no solutions of the system,
+    which implies that <m>\vw</m> is not a linear combination of <m>\vv_1, \vv_2</m>.
+    Note that we can use any names we please for the scalars,
+    say <m>x_1, x_2</m>, if we prefer.
+  </p>
+  <activity xml:id="pa_1_f">
+    <p>
+      Let <m>\vv_1 = \left[ \begin{array}{r} 2\\1\\-3 \end{array}  \right]</m>,
+      <m>\vv_2 =  \left[ \begin{array}{c} 1\\1\\0 \end{array}  \right]</m>,
+      and <m>\vv_3 = \left[ \begin{array}{r} 1\\-1\\-6 \end{array}  \right]</m>,
+      and let <m>\vb = \left[ \begin{array}{c} 0 \\ 1 \\ 3 \end{array}  \right]</m>.
+      If <m>\vb</m> is in <m>\Span \{\vv_1, \vv_2, \vv_3\}</m>,
+      we are interested in the most efficient way to represent <m>\vb</m> as a linear combination of <m>\vv_1</m>,
+      <m>\vv_2</m>, and <m>\vv_3</m>.
+      <ol>
+        <li xml:id="act_PA1_f_1">
+          <p>
+            The vector <m>\vb</m> is in
+            <m>\Span \{\vv_1, \vv_2, \vv_3\}</m> if there exist <m>x_1</m>,
+            <m>x_2</m>, and <m>x_3</m> so that
+            <me>
+              x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3 = \vb
+            </me>.
+            (Recall that we can use any letters we want for the scalars.
+            They are simply unknown scalars we want to solve for.)
+            <ul>
+              <li>
+                <p>
+                  Explain why <m>\vb</m> is in <m>\Span \{\vv_1, \vv_2, \vv_3\}</m>.
+                  <hint>
+                    <p>
+                      What is the matrix we need to reduce?
+                    </p>
+                  </hint>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write <m>\vb</m> as a linear combination of <m>\vv_1</m>,
+                  <m>\vv_2</m>, and <m>\vv_3</m>.
+                  In how many ways can <m>\vb</m> be written as a linear combination of the vectors <m>\vv_1</m>,
+                  <m>\vv_2</m>, and <m>\vv_3</m>?
+                  Explain.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li xml:id="act_PA1_f_2">
+          <p>
+            In <xref ref="act_PA1_f_1">problem</xref>
+            we saw that the vector <m>\vb</m> could be written in infinitely many different ways as linear combinations of <m>\vv_1</m>,
+            <m>\vv_2</m>, and <m>\vv_3</m>.
+            We now ask the question if we really need all of the vectors <m>\vv_1</m>,
+            <m>\vv_2</m>,
+            and <m>\vv_3</m> to make <m>\vb</m> as a linear combination in a unique way.
+            <ul>
+              <li>
+                <p>
+                  Can the vector <m>\vb</m> be written as a linear combination of the vectors <m>\vv_1</m> and <m>\vv_2</m>?
+                  If not, why not?
+                  If so, in how many ways can <m>\vb</m> be written as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If possible,
+                  write <m>\vb</m> as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            In <xref ref="act_PA1_f_1">problem</xref>
+            we saw that <m>\vb</m> could be written in infinitely many different ways as a linear combination of the vectors <m>\vv_1</m>,
+            <m>\vv_2</m>, and <m>\vv_3</m>.
+            However, the vector <m>\vb</m> could only be written in one way as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>.
+            So <m>\vb</m> is in <m>\Span \{\vv_1, \vv_2, \vv_3\}</m> and <m>\vb</m> is also in <m>\Span \{\vv_1, \vv_2\}</m>.
+            This raises a question <mdash/> is <em>any</em>
+            vector in <m>\Span \{\vv_1, \vv_2, \vv_3\}</m> also in <m>\Span\{\vv_1, \vv_2\}</m>.
+            If so, then the vector <m>\vv_3</m> is redundant in terms of forming the span of <m>\vv_1</m>,
+            <m>\vv_2</m>, and <m>\vv_3</m>.
+            For the sake of efficiency,
+            we want to recognize and eliminate this redundancy.
+            <ul>
+              <li>
+                <p>
+                  Can <m>\vv_3</m> be written as a linear combination of the vectors <m>\vv_1</m> and <m>\vv_2</m>?
+                  If not, why not?
+                  If so, write <m>\vv_3</m> as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the result of part (a) to decide if <em>any</em>
+                  vector in <m>\Span\{\vv_1, \vv_2, \vv_3\}</m> is also in <m>\Span\{\vv_1, \vv_2\}</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

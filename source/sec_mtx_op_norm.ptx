@@ -1,0 +1,260 @@
+<section xml:id="sec_mtx_op_norm">
+  <title>The Operator Norm of a Matrix</title>
+  <p>
+    Before we introduce the Singular Value Decomposition,
+    let us work through some preliminaries to motivate the idea.
+    The first is to provide an answer to the question
+    <q>How <sq>big</sq> is a matrix?</q>
+    There are many ways to interpret and answer this question,
+    but a substantial
+    (and useful)
+    answer should involve more than just the dimensions of the matrix.
+    A good measure of the size of a matrix,
+    which we will refer to as the norm of the matrix,
+    should take into account the action of the linear transformation defined by the matrix on vectors.
+    This then will lead to questions about how difficult or easy is it to solve a matrix equation <m>A \vx = \vb</m>.
+  </p>
+  <p>
+    If we want to incorporate the action of a matrix <m>A</m> into a calculation of the norm of <m>A</m>,
+    we might think of measuring how much <m>A</m> can change a vector <m>\vx</m>.
+    This could lead us to using
+    <m>||A\vx||</m> as some sort of measure of a norm of <m>A</m>.
+    However, since <m>||A (c\vx)|| = |c| \ ||A\vx||</m> for any scalar <m>c</m>,
+    scaling <m>\vx</m> by a large scalar will produce a large norm,
+    so this is not a viable definition of a norm.
+    We could instead measure the <em>relative</em>
+    effect that <m>A</m> has on a vector <m>\vx</m> as <m>\ds \frac{||A\vx||}{||\vx||}</m>,
+    since this ratio does not change when <m>\vx</m> is multiplied by a scalar.
+    The largest of all of these ratios would provide a good sense of how much <m>A</m> can change vectors.
+    Thus, we define the operator norm of a matrix <m>A</m> as follows.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <term>operator norm</term><idx><h>operator norm of a matrix</h></idx>
+        <fn>
+        Technically this definition should be in terms of a supremum,
+        but because the equivalent definition restricts the <m>\vx</m>'s to a compact subset,
+        the sup is achieved and we can use max.
+        </fn> of a matrix <m>A</m> is
+        <me>
+          ||A|| = \max_{||\vx|| \neq 0} \left\{\frac{||A\vx||}{||\vx||} \right\}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Due to the linearity of matrix multiplication,
+    we can restrict ourselves to unit vectors for an equivalent definition of the operator norm of the matrix <m>A</m> as
+    <me>
+      ||A|| = \ds \max_{||\vx|| = 1}\{||A\vx||\}
+    </me>.
+  </p>
+  <activity xml:id="pa_7_c_1">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Determine <m>||A||</m> if <m>A</m> is the zero matrix.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine <m>||I_n||</m>,
+            where <m>I_n</m> is the <m>n \times n</m> identity matrix.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>A = \left[ \begin{array}{cc} 1\amp 0\\0\amp 2 \end{array} \right]</m>.
+            Find <m>||A||</m>.
+            Justify your answer. (Hint: <m>x_1^2+4x_2^2 \leq 4(x_1^2 + x_2^2)</m>.)
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>P</m> is an orthogonal matrix, what is <m>||P||</m>?
+            Why?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+  <p>
+    The operator norm of a matrix tells us that how big the action of an
+    <m>m \times n</m> matrix is can be determined by its action on the unit sphere in <m>\R^n</m>
+    (the unit sphere is the set of terminal point of unit vectors).
+    Let us consider two examples.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \left[ \begin{array}{cc} 2\amp 1 \\ 2\amp 5 \end{array} \right]</m>.
+        We can draw a graph to see the action of <m>A</m> on the unit circle.
+        A picture of the set <m>\{A\vx \ : \ ||\vx|| = 1\}</m> is shown in <xref ref="F_7_c_Mat_norm1">Figure</xref>.
+      </p>
+      <figure xml:id="F_7_c_Mat_norm1">
+        <caption>The image of the unit circle under the action of <m>A</m>.</caption>
+        <image width="73%" source="7_c_Mat_norm_a"/>
+      </figure>
+      <p>
+        It appears that <m>A</m> transforms the unit circle into an ellipse.
+        To find <m>||A||</m> we want to maximize
+        <m>||A\vx||</m> for <m>\vx</m> on the unit circle.
+        This is the same as maximizing
+        <me>
+          ||A\vx||^2 = (A\vx)^{\tr}(A\vx) = \vx^{\tr}A^{\tr}A\vx
+        </me>.
+      </p>
+      <p>
+        Now <m>A^{\tr}A = \left[ \begin{array}{cc} 8\amp 12 \\ 12\amp 26 \end{array}  \right]</m> is a symmetric matrix,
+        so we can orthogonally diagonalize <m>A^{\tr}A</m>.
+        The eigenvalues of <m>A^{\tr}A</m> are 32 and 2.
+        Let <m>P = [\vu_1 \ \vu_2]</m>,
+        where <m>\vu_1=\left[ \frac{\sqrt{5}}{5} \ \frac{2\sqrt{5}}{5} \right]^{\tr}</m> is a unit eigenvector of
+        <m>A^{\tr}A</m> with eigenvalue 32 and
+        <m>\vu_2=\left[ -\frac{2\sqrt{5}}{5} \ \frac{\sqrt{5}}{5} \right]^{\tr}</m> is a unit eigenvector of <m>A^{\tr}A</m> with eigenvalue 2.
+        Then <m>P</m> is an orthogonal matrix such that <m>P^{\tr}(A^{\tr}A)P = \left[ \begin{array}{cc} 32\amp 0 \\ 0\amp 2 \end{array}  \right] = D</m>.
+        It follows that
+        <me>
+          \vx^{\tr} (A^{\tr}A)  \vx = \vx^{\tr} PDP^{\tr} \vx = (P^{\tr}\vx)^{\tr} D (P^{\tr}\vx)
+        </me>.
+      </p>
+      <p>
+        Now <m>P^{\tr}</m> is orthogonal,
+        so <m>||P^{\tr}\vx|| = ||\vx||</m> and <m>P^{\tr}</m> maps the unit circle to the unit circle.
+        Moreover, if <m>\vx</m> is on the unit circle,
+        then <m>\vy = P\vx</m> is also on the unit circle and <m>P^{\tr}\vy = P^{\tr}P\vx = \vx</m>.
+        So every point <m>\vx</m> on the unit circle corresponds to a point <m>P\vx</m> on the unit circle.
+        Thus, the forms <m>\vx^{\tr} (A^{\tr}A) \vx</m> and
+        <m>(P^{\tr}\vx)^{\tr} D (P^{\tr}\vx)</m> take on exactly the same values over all points on the unit circle.
+        Now we just need to find the maximum value of <m>(P^{\tr}\vx)^{\tr} D (P^{\tr}\vx)</m>.
+        This turns out to be relatively easy since <m>D</m> is a diagonal matrix.
+      </p>
+      <p>
+        Let's simplify the notation.
+        Let <m>\vy = P^{\tr}\vx</m>.
+        Then our job is to maximize <m>\vy^{\tr}D\vy</m>.
+        If <m>\vy = [y_1 \ y_2]^{\tr}</m>, then
+        <me>
+          \vy^{\tr} D  \vy = 32y_1^2 + 2y_2^2
+        </me>.
+      </p>
+      <p>
+        We want to find the maximum value of this expression for <m>\vy</m> on the unit circle.
+        Note that <m>2y_2^2 \leq 32y_2^2</m> and so
+        <me>
+          32y_1^2 + 2y_2^2 \leq 32y_1^2 + 32y_2^2 = 32(y_1^2+y_2^2) = 32||\vy||^2 = 32
+        </me>.
+      </p>
+      <p>
+        Since <m>[1 \ 0]^{\tr}</m> is on the unit circle,
+        the expression <m>32y_1^2 + 2y_2^2</m> attains the value 32 at some point on the unit circle,
+        so 32 is the maximum value of
+        <m>\vy^{\tr} D \vy</m> over all <m>\vy</m> on the unit circle.
+        While we are at it, we can similarly find the minimum value of
+        <m>\vy^{\tr} D  \vy</m> for <m>\vy</m> on the unit circle.
+        Since <m>2y_1^2 \leq 32y_1^2</m> we see that
+        <me>
+          32y_1^2 + 2y_2^2 \geq 2y_1^2 + 2y_2^2 = 2(y_1^2+y_2^2) = 2||\vy||^2 = 2
+        </me>.
+      </p>
+      <p>
+        Since the expression <m>\vy^{\tr} D \vy</m> attains the value 2 at <m>[0 \ 1]^{\tr}</m> on the unit circle,
+        we can see that <m>\vy^{\tr} D \vy</m> attains the minimum value of 2 on the unit circle.
+      </p>
+      <p>
+        Now we can return to the expression <m>\vx^{\tr} (A^{\tr}A) \vx</m>.
+        Since <m>\vy^{\tr} D \vy</m> assumes the same values as <m>\vx^{\tr} (A^{\tr}A) \vx</m>,
+        we can say that the maximum value of
+        <m>\vx^{\tr} (A^{\tr}A) \vx</m> for <m>\vx</m> on the unit circle is 32
+        (and the minimum value is 2).
+        Moreover, the quadratic form
+        <m>(P^{\tr}\vx)^{\tr} D (P^{\tr}\vx)</m> assumes its maximum value when
+        <m>P^{\tr}\vx = [1 \ 0]^{\tr}</m> or <m>[-1 \ 0]^{\tr}</m>.
+        Thus, the form <m>\vx^{\tr} (A^{\tr}A) \vx</m> assumes its maximum value at the vector <m>\vx = P[1 \ 0 ]^{\tr} = \vu_1</m> or <m>-\vu_1</m>.
+        Similarly, the quadratic form
+        <m>\vx^{\tr} (A^{\tr}A) \vx</m> attains its minimum value at <m>P[0 \ 1]^{\tr} = \vu_2</m> or <m>-\vu_2</m>.
+        We conclude that <m>||A|| = \sqrt{32}</m>.
+      </p>
+      <p>
+        <xref ref="F_7_c_Mat_norm1_b">Figure</xref>
+        shows the image of the unit circle under the action of <m>A</m> and the images of <m>A\vu_1</m> and <m>A\vu_2</m> where
+        <m>\vu_1, \vu_2</m> are the two unit eigenvectors of <m>A^{\tr}A</m>.
+        The image also supports that <m>A\vx</m> assumes its maximum and minimum values for points on the unit circle at <m>\vu_1</m> and <m>\vu_2</m>.
+      </p>
+      <figure xml:id="F_7_c_Mat_norm1_b">
+        <caption>The image of the unit circle under the action of <m>A</m>, and the vectors <m>A\vu_1</m> and <m>A\vu_2</m></caption>
+        <image width="73%" source="7_c_Mat_norm_b"/>
+      </figure>
+    </statement>
+  </example>
+  <p>
+    <em>IMPORTANT NOTE 1:</em> What we have just argued is that the maximum value of
+    <m>||A\vx||</m> for <m>\vx</m> on the unit sphere in <m>\R^n</m> is the square root of the largest eigenvalue of
+    <m>A^{\tr}A</m> and occurs at a corresponding unit eigenvector.
+  </p>
+  <example>
+    <statement>
+      <p>
+        This same process works for matrices other than <m>2 \times 2</m> ones.
+        For example,
+        consider <m>A = \left[ \begin{array}{rrr} -2\amp 8\amp 20 \\ 14\amp 19\amp 10 \end{array} \right]</m>.
+        In this case <m>A</m> maps <m>\R^3</m> to <m>\R^2</m>.
+        The image of the unit sphere
+        <m>\{\vx \in \R^3 : ||\vx|| = 1\}</m> under left multiplication by <m>A</m> is a filled ellipse as shown in <xref ref="F_7_c_Mat_norm_2">Figure</xref>.
+      </p>
+      <figure xml:id="F_7_c_Mat_norm_2">
+        <caption>The image of the unit circle under the action of <m>A</m>, and the vectors <m>A\vu_1</m> and <m>A\vu_2</m></caption>
+        <image width="73%" source="7_c_Mat_norm_2"/>
+      </figure>
+      <p>
+        As with the previous example,
+        the norm of <m>A</m> is the square root of the maximum value of
+        <m>\vx^{\tr} (A^{\tr}A) \vx</m> and this maximum value is the dominant eigenvalue of <m>A^{\tr}A = \left[ \begin{array}{ccc} 200\amp 250\amp 100\\ \noalign{}250\amp 425\amp 350\\ \noalign{}100\amp 350\amp 500 \end{array} \right]</m>.
+        The eigenvalues of <m>A</m> are
+        <m>\lambda_1 = 900</m>, <m>\lambda_2 = 225</m>,
+        and <m>\lambda_3 = 0</m> with corresponding unit eigenvectors <m>\vu_1=\left[ \frac{1}{3} \ \frac{2}{3} \ \frac{2}{3} \right]^{\tr}</m>,
+        <m>\vu_1=\left[ -\frac{2}{3} \ -\frac{1}{3} \ \frac{2}{3} \right]^{\tr}</m>,
+        and <m>\vu_3=\left[ \frac{2}{3} \ -\frac{2}{3} \ \frac{1}{3} \right]^{\tr}</m>.
+        So in this case we have <m>||A|| = \sqrt{900} = 30</m>.
+        The transformation defined by matrix multiplication by <m>A</m> from <m>\R^3</m> to <m>\R^2</m> has a one-dimensional kernel which is spanned by the eigenvector corresponding to <m>\lambda_3</m>.
+        The image of the transformation is 2-dimensional and the image of the unit circle is an ellipse where <m>A\vu_1</m> gives the major axis of the ellipse and <m>A\vu_2</m> gives the minor axis.
+        Essentially, the square roots of the eigenvalues of
+        <m>A^{\tr}A</m> tell us how <m>A</m> stretches the image space in each direction.
+      </p>
+    </statement>
+  </example>
+  <p>
+    <em>IMPORTANT NOTE 2:</em> We have just argued that the image of the unit <m>n</m>-sphere under the action of an
+    <m>m \times n</m> matrix is an ellipsoid in <m>\R^m</m> stretched the greatest amount,
+    <m>\sqrt{\lambda_1}</m>,
+    in the direction of an eigenvector for the largest eigenvalue (<m>\lambda_1</m>) of <m>A^{\tr}A</m>;
+    the next greatest amount, <m>\sqrt{\lambda_2}</m>,
+    in the direction of a unit vector for the second largest eigenvalue (<m>\lambda_2</m>) of <m>A^{\tr}A</m>;
+    and so on.
+  </p>
+  <activity>
+    <p>
+      Let <m>A = \left[ \begin{array}{rc} 0\amp 5\\ 4\amp 3 \\ -2\amp 1 \end{array} \right]</m>.
+      Then <m>A^{\tr}A = \left[ \begin{array}{cc} 20\amp 10\\ 10\amp 35 \end{array} \right]</m>.
+      The eigenvalues of <m>A^{\tr}A</m> are <m>\lambda_1 = 40</m> and
+      <m>\lambda_2 = 15</m> with respective eigenvectors
+      <m>\vv_1 = \left[ \begin{array}{c} \frac{1}{2} \\ 1 \end{array} \right]</m> and <m>\vv_2 = \left[ \begin{array}{r} -2 \\ 1 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Find <m>||A||</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find a unit vector <m>\vx</m> at which
+            <m>||A\vx||</m> assumes its maximum value.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

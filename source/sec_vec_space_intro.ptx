@@ -1,0 +1,188 @@
+<section xml:id="sec_vec_space_intro">
+  <title>Introduction</title>
+  <p>
+    We have previously seen that <m>\R^n</m> and the set of fixed size matrices have a nice algebraic structure when endowed with the addition and scalar multiplication operations.
+    In fact, as we will see,
+    there are many other sets of elements that have the same kind of structure with natural addition and scalar multiplication operations.
+    Due to this underlying similar structure,
+    these sets are connected in some way and can all be studied jointly.
+    Mathematicians look for these kinds of connections between seemingly dissimilar objects and,
+    from a mathematical standpoint,
+    it is convenient to study all of these similar structures at once by combining them into a larger collection.
+    This motivates the idea of a <em>vector space</em>
+    that we will investigate in this chapter.
+  </p>
+  <p>
+    An example of a set that has a structure similar to vectors is a collection of polynomials.
+    Let <m>\pol_1</m> be the collection of all polynomials of degree less than or equal to 1 with real coefficients.
+    That is,
+    <me>
+      \pol_1 = \{ a_0 + a_1t : a_0, a_1 \in \R\}
+    </me>.
+  </p>
+  <p>
+    So, for example, the polynomials <m>2+t</m>, <m>5t</m>,
+    <m>-7</m>,
+    and <m>\sqrt{12}-\pi t</m> are in <m>\pol_1</m>,
+    but <m>\sqrt{t}</m> is not in <m>\pol_1</m>.
+    Two polynomials <m>a(t)=a_0+a_1t</m> and
+    <m>b(t)=b_0+b_1t</m> in <m>\pol_1</m> are equal if <m>a_0=b_0</m> and <m>a_1=b_1</m>.
+  </p>
+  <p>
+    We define addition of polynomials in <m>\pol_1</m> by adding the coefficients of the like degree terms.
+    So if <m>a(t) = a_0+a_1t</m> and <m>b(t) = b_0+b_1t</m>,
+    then the polynomial sum of <m>a(t)</m> and <m>b(t)</m> is
+    <me>
+      a(t)+b(t) = (a_0+a_1t) + (b_0+b_1t) = (a_0+b_0) + (a_1+b_1)t
+    </me>.
+  </p>
+  <p>
+    So, for example,
+    <me>
+      (2+3t)+(-1+5t) = (2+(-1)) + (3+5)t = 1+8 t
+    </me>.
+  </p>
+  <p>
+    We now consider the properties of the addition operation.
+    For example, we can ask if polynomial addition is commutative.
+    That is, if <m>a(t)</m> and <m>b(t)</m> are in <m>\pol_1</m>,
+    must it be the case that
+    <me>
+      a(t)+b(t)~=~b(t)+a(t)?
+    </me>
+  </p>
+  <p>
+    To show that addition is commutative in <m>\pol_1</m>,
+    we choose arbitrary polynomials
+    <m>a(t) = a_0 + a_1t</m> and <m>b(t) = b_0 + b_1t</m> in <m>\pol_1</m>.
+    Then we have
+    <md>
+      <mrow>a(t)+b(t) \amp = (a_0+b_0) + (a_1+b_1)t</mrow>
+      <mrow>\amp = (b_0+a_0) + (b_1+a_1)t</mrow>
+      <mrow>\amp = b(t)+a(t)</mrow>
+    </md>.
+  </p>
+  <p>
+    Note that in the middle step,
+    we used the definition of equality of polynomials since <m>a_0+b_0=b_0+a_0</m> and
+    <m>a_1+b_1=b_1+a_1</m> due to the fact that addition of real numbers is commutative.
+    So addition of elements in <m>\pol_1</m> is a commutative operation.
+  </p>
+  <activity xml:id="pa_5_a">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Now we investigate other properties of addition in <m>\pol_1</m>.
+            <ul>
+              <li>
+                <p>
+                  To show addition is associative in <m>\pol_1</m>,
+                  we need to verify that if <m>a(t) = a_0 + a_1t</m>, <m>b(t) = b_0+b_1t</m>,
+                  and <m>c(t) = c_0 + c_1t</m> are in <m>\pol_1</m>, it must be the case that
+                  <me>
+                    (a(t) + b(t)) + c(t) = a(t) + (b(t)+c(t))
+                  </me>.
+                  Either verify this property by using the definition of two polynomials being equal,
+                  or give a counterexample to show the equality fails in that case.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a polynomial <m>z(t) \in \pol_1</m> such that
+                  <me>
+                    a(t) + z(t) = a(t)
+                  </me>
+                  for all <m>a(t) \in \pol_1</m>.
+                  This polynomial is called the <em>zero</em>
+                  polynomial or the <em>additive identity</em>
+                  polynomial in <m>\pol_1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a(t) = a_0 + a_1t</m> is an element of <m>\pol_1</m>,
+                  is there an element <m>p(t) \in \pol_1</m> such that
+                  <me>
+                    a(t) + p(t) = z(t)
+                  </me>,
+                  where <m>z(t)</m> is the additive identity polynomial you found above?
+                  If not, why not?
+                  If so, what polynomial is <m>p(t)</m>?
+                  Explain.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            We can also define a multiplication of polynomials by scalars
+            (real numbers).
+            <ul>
+              <li>
+                <p>
+                  What element in <m>\pol_1</m> could be the scalar multiple <m>\frac{1}{2} (2+3t)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In general, if <m>k</m> is a scalar and <m>a(t) = a_0 + a_1t</m> is in <m>\pol_1</m>,
+                  how do we define the scalar multiple <m>ka(t)</m> in <m>\pol_1</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>k</m> is a scalar and <m>a(t) = a_0 + a_1t</m> and
+                  <m>b(t) = b_0 + b_1t</m> are elements in <m>\pol_1</m>,
+                  is it true that
+                  <me>
+                    k(a(t) + b(t)) = ka(t) + kb(t)?
+                  </me>
+                  If no, explain why.
+                  If yes, verify your answer using the definition of two polynomials being equal.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>k</m> and <m>m</m> are scalars and
+                  <m>a(t) = a_0 + a_1t</m> is an element in <m>\pol_1</m>,
+                  is it true that
+                  <me>
+                    (k+m)a(t) = ka(t) + ma(t)?
+                  </me>
+                  If no, explain why.
+                  If yes, verify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>k</m> and <m>m</m> are scalars and
+                  <m>a(t) = a_0 + a_1t</m> is an element in <m>\pol_1</m>,
+                  is it true that
+                  <me>
+                    (km)a(t) = k(ma(t))?
+                  </me>
+                  If no, explain why.
+                  If yes, verify your answer.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>a(t) = a_0 + a_1t</m> is an element of <m>\pol_1</m>,
+                  is it true that
+                  <me>
+                    1a(t) = a(t)?
+                  </me>
+                  If no, explain why.
+                  If yes, verify your answer.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

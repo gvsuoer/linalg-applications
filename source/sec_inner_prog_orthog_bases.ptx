@@ -1,0 +1,128 @@
+<section xml:id="sec_inner_prog_orthog_bases">
+  <title>Orthogonal and Orthonormal Bases in Inner Product Spaces</title>
+  <p>
+    As we did with inner products in <m>\R^n</m>,
+    we define an orthogonal set to be one in which all of the vectors in the set are orthogonal to each other
+    (compare to <xref ref="def_6_b_orthogonal_set_Rn">Definition</xref>).
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A subset <m>S</m> of an inner product space for which <m>\langle \vu, \vv \rangle = 0</m> for all
+        <m>\vu \neq \vv</m> in <m>S</m> is called an
+        <term>orthogonal set</term>.
+            <idx><h>orthogonal set in an inner product space</h></idx>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    As in <m>\R^n</m>,
+    an orthogonal set of nonzero vectors is always linearly independent.
+    The proof is similar to that of <xref ref="thm_6_b_Orth_li">Theorem</xref> and is left to the exercises.
+  </p>
+  <theorem xml:id="thm_6_c_Orth_li_ips">
+    <statement>
+      <p>
+        Let <m>\{\vv_1, \vv_2, \ldots, \vv_m\}</m> be a set of nonzero orthogonal vectors in an inner product space.
+        Then the vectors <m>\vv_1</m>, <m>\vv_2</m>,
+        <m>\ldots</m>, <m>\vv_m</m> are linearly independent.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    A basis that is also an orthogonal set is given a special name
+    (compare to <xref ref="def_6_b_orthogonal_basis_Rn">Definition</xref>).
+  </p>
+  <definition>
+    <statement>
+      <p>
+        An <term>orthogonal basis</term><idx><h>orthogonal basis in an inner product space</h></idx> <m>\CB</m> for a subspace <m>W</m> of an inner product space is a basis of <m>W</m> that is also an orthogonal set.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Using inner products in <m>\R^n</m>,
+    we saw that the representation of a vector as a linear combination of vectors in an orthogonal basis was quite elegant.
+    The same is true in any inner product space.
+    To see this,
+    let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> be an orthogonal basis for a subspace <m>W</m> of an inner product space and let <m>\vx</m> be any vector in <m>W</m>.
+    We know that
+    <me>
+      \vx = x_1\vv_1 + x_2\vv_2 + \cdots + x_m \vv_m
+    </me>
+    for some scalars <m>x_1</m>, <m>x_2</m>,
+    <m>\ldots</m>, <m>x_m</m>.
+    If <m>1\leq k\leq m</m>, then,
+    using inner product properties and the orthogonality of the vectors <m>\vv_i</m>, we have
+    <me>
+      \langle \vv_k, \vx \rangle = x_1 \langle \vv_k, \vv_1 \rangle + x_2 \langle \vv_k, \vv_2 \rangle + \cdots + x_m \langle \vv_k, \vv_m \rangle = x_k \langle \vv_k, \vv_k \rangle
+    </me>.
+  </p>
+  <p>
+    So
+    <me>
+      x_k = \ds \frac{\langle \vx, \vv_k \rangle}{\langle \vv_k,  \vv_k \rangle}
+    </me>.
+  </p>
+  <p>
+    Thus, we can calculate each weight individually with two simple inner product calculations.
+  </p>
+  <p>
+    We summarize this discussion in the next theorem
+    (compare to <xref ref="thm_6_b_orth_dcomp">Theorem</xref>).
+  </p>
+  <theorem xml:id="thm_6_c_orth_dcomp">
+    <statement>
+      <p>
+        Let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> be an orthogonal basis for a subspace of an inner product space.
+        Let <m>\vx</m> be a vector in <m>W</m>.
+        Then
+        <men xml:id="eq_6_c_orth_decomp_ips">
+          \vx = \ds \frac{\langle \vx, \vv_1 \rangle}{\langle \vv_1, \vv_1 \rangle} \vv_1 +  \frac{\langle \vx, \vv_2 \rangle}{\langle \vv_2, \vv_2 \rangle} \vv_2 + \cdots + \frac{\langle \vx, \vv_m \rangle}{\langle \vv_m, \vv_m \rangle} \vv_m
+        </men>.
+      </p>
+    </statement>
+  </theorem>
+  <activity>
+    <p>
+      Let <m>p_1(t) = 1-t</m>, <m>p_2(t) = -2+4t+4t^2</m>,
+      and <m>p_3(t) = 7-41t+40t^2</m> be vectors in the inner product space <m>\pol_2</m> with inner product defined by <m>\langle p(t),
+      q(t) \rangle = \int_0^1 p(t)q(t) \ dt</m>.
+      Let <m>\CB = \{p_1(t), p_2(t), p_3(t)\}</m>.
+      You may assume that <m>\CB</m> is an orthogonal basis for <m>\pol_2</m>.
+      Let <m>z(t) = 4-2t^2</m>.
+      Find the weight <m>x_3</m> so that <m>z(t) = x_1p_1(t) + x_2 p_2(t) + x_3 p_3(t)</m>.
+      Use technology as appropriate to evaluate any integrals.
+    </p>
+  </activity>
+  <p>
+    The decomposition <xref ref="eq_6_c_orth_decomp_ips"/> is even simpler if <m>\langle \vv_k, \vv_k \rangle = 1</m> for each <m>k</m>.
+    Recall that
+    <me>
+      \langle \vv, \vv \rangle = || \vv ||^2
+    </me>,
+    so the condition <m>\langle \vv, \vv \rangle  = 1</m> implies that the vector <m>\vv</m> has norm 1.
+    As with inner products in <m>\R^n</m>,
+    an orthogonal basis with this additional condition is given a special name
+    (compare to <xref ref="def_6_b_orthonormal_basis">Definition</xref>).
+  </p>
+  <definition>
+    <statement>
+      <p>
+        An <term>orthonormal basis</term><idx><h>orthonormal basis in an inner product space</h></idx>
+        <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> for a subspace <m>W</m> of an inner product space is an orthogonal basis such that
+        <m>|| \vv_k || = 1</m> for <m>1\leq k\leq m</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    If <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> is an orthonormal basis for a subspace <m>W</m> of an inner product space and <m>\vx</m> is a vector in <m>W</m>,
+    then <xref ref="eq_6_c_orth_decomp_ips"/> becomes
+    <men xml:id="eq_6_c_orthnorm_decomp_ips">
+      \vx = \langle \vx, \vv_1 \rangle \vv_1 +  \langle \vx, \vv_2 \rangle \vv_2 + \cdots + \langle \vx, \vv_m \rangle \vv_m
+    </men>.
+  </p>
+  <p>
+    Recall that we can construct an orthonormal basis from an orthogonal basis by dividing each basis vector by its magnitude.
+  </p>
+</section>

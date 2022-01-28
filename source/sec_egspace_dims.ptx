@@ -1,0 +1,92 @@
+<section xml:id="sec_egspace_dims">
+  <title>Dimensions of Eigenspaces</title>
+  <p>
+    There is a connection between the dimension of the eigenspace of a matrix corresponding to an eigenvalue and the multiplicity of that eigenvalue as a root of the characteristic polynomial.
+    Recall that the dimension of a subspace of <m>\R^n</m> is the number of vectors in a basis for the eigenspace.
+    We investigate the connection between dimension and multiplicity in the next activity.
+  </p>
+  <activity xml:id="act_4_b_3">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Find the dimension of the eigenspace for each eigenvalue of matrix
+            <m>A = \left[ \begin{array}{crc} 3\amp -2\amp 5 \\ 1\amp 0\amp 7 \\ 0\amp 0\amp 1 \end{array} \right]</m> from <xref ref="act_4_b_1">Activity</xref> (a).
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the dimension of the eigenspace for each eigenvalue of matrix
+            <m>A=\left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 1\\ 1\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]</m> from <xref ref="act_4_b_1">Activity</xref> (b).
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider now a <m>3\times 3</m> matrix with 3 distinct eigenvalues <m>\lambda_1, \lambda_2, \lambda_3</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Recall that a polynomial of degree can have at most three distinct roots.
+                  What does that say about the multiplicities of <m>\lambda_1, \lambda_2, \lambda_3</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the fact that eigenvectors corresponding to distinct eigenvalues are linearly independent to find the dimensions of the eigenspaces for <m>\lambda_1, \lambda_2, \lambda_3</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The examples in <xref ref="act_4_b_3">Activity</xref>
+    all provide instances of the principle that the dimension of an eigenspace corresponding to an eigenvalue <m>\lambda</m> cannot exceed the multiplicity of <m>\lambda</m>.
+    Specifically:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        If <m>\lambda</m> is an eigenvalue of <m>A</m>,
+        the dimension of the eigenspace corresponding to <m>\lambda</m> is less than or equal to the multiplicity of <m>\lambda</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The examples we have seen raise another important point.
+    The matrix <m>A = \left[ \begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp 1\\0\amp 0\amp 2 \end{array} \right]</m> from our geometric example has two eigenvalues <m>1</m> and <m>2</m>,
+    with the eigenvalue 1 having multiplicity 2.
+    If we let <m>E_{\lambda}</m> represent the eigenspace of <m>A</m> corresponding to the eigenvalue <m>\lambda</m>,
+    then <m>\dim(E_1)=2</m> and <m>\dim(E_2) = 1</m>.
+    If we change this matrix slightly to the matrix
+    <m>B = \left[ \begin{array}{crc} 2\amp 0\amp 1 \\ 0\amp 1\amp 1 \\ 0\amp 0\amp 1 \end{array} \right]</m> we see that <m>B</m> has two eigenvalues <m>1</m> and <m>2</m>,
+    with the eigenvalue 1 having multiplicity 2.
+    However, in this case we have
+    <m>\dim(E_1) = 1</m> (like the example in from <xref ref="act_4_b_1">Activities</xref>
+    (a) and <xref ref="act_4_b_3"></xref> (a)).
+    In this case the vector <m>\vv_1 = [1 \ 0 \ 0]^{\tr}</m> forms a basis for <m>E_2</m> and the vector
+    <m>\vv_2 = [0 \ 1 \ 0]^{\tr}</m> forms a basis for <m>E_1</m>.
+    We can visualize the action of <m>B</m> on the square formed by <m>\vv_1</m> and <m>\vv_2</m> in the <m>xy</m>-plane as a scaling by 2 in the <m>\vv_1</m> direction as shown in <xref ref="F_4_b_2">Figure</xref>,
+    but since we do not have a third linearly independent eigenvector,
+    the action of <m>B</m> in the direction of <m>[0 \ 0 \ 1]^{\tr}</m> is not so clear.
+  </p>
+  <figure xml:id="F_4_b_2">
+    <caption>A box and a transformed box.</caption>
+    <image width="73%" source="4_b_Eigenspaces_2.eps"/>
+  </figure>
+  <p>
+    So the action of a matrix transformation can be more easily visualized if the dimension of each eigenspace is equal to the multiplicity of the corresponding eigenvalue.
+    This geometric perspective leads us to define the geometric multiplicity of an eigenvalue.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <term>geometric multiplicity</term><idx><h>multiplicity</h><h>geometric</h></idx> of an eigenvalue of an
+        <m>n \times n</m> matrix <m>A</m> is the dimension of the corresponding eigenspace <m>\Nul (A-\lambda I_n)</m>.
+      </p>
+    </statement>
+  </definition>
+</section>

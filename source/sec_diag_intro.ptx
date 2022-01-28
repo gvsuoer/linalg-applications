@@ -1,0 +1,59 @@
+<section xml:id="sec_diag_intro">
+  <title>Introduction</title>
+  <p>
+    As we have seen when studying Markov processes,
+    each state is dependent on the previous state.
+    If <m>\vx_0</m> is the initial state and <m>A</m> is the transition matrix,
+    then the <m>n</m>th state is found by <m>A^n \vx_0</m>.
+    In these situations, and others,
+    it is valuable to be able to quickly and easily calculate powers of a matrix.
+    We explore a way to do that in this section.
+  </p>
+  <activity xml:id="pa_4_c">
+    <p>
+      Consider a very simplified weather forecast.
+      Let us assume there are two possible states for the weather:
+      rainy (<m>R</m>) or sunny(<m>S</m>).
+      Let us also assume that the weather patterns are stable enough that we can reasonably predict the weather tomorrow based on the weather today.
+      If is is sunny today,
+      then there is a 70% chance that it will be sunny tomorrow,
+      and if it is rainy today then there is a 40% chance that it will be rainy tomorrow.
+      If <m>\vx_0 = \left[ \begin{array}{c} s \\ r \end{array}  \right]</m> is a state vector that indicates a probability <m>s</m> that it is sunny and probability <m>r</m> that it is rainy on day <m>0</m>, then
+      <me>
+        \vx_1 = \left[ \begin{array}{cc} 0.70\amp 0.40 \\ 0.30\amp 0.60 \end{array}  \right] \vx_0
+      </me>
+      tells us the likelihood of it being sunny or rainy on day 1.
+      Let <m>A = \left[ \begin{array}{cc} 0.70\amp 0.40 \\ 0.30\amp 0.60 \end{array}  \right]</m>.
+      <ol>
+        <li>
+          <p>
+            Suppose it is sunny today,
+            that is <m>\vx_0 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]</m>.
+            Calculate <m>\vx_1 = A \vx_0</m> and explain how this matrix-vector product tells us the probability that it will be sunny tomorrow.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate <m>\vx_2 = A\vx_1</m> and interpret the meaning of each component of the product.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why <m>\vx_2 = A^2 \vx_0</m>.
+            Then explain in general why <m>\vx_n = A^n \vx_0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The previous result demonstrates that to determine the long-term probability of a sunny or rainy day,
+            we want to be able to easily calculate powers of the matrix <m>A</m>.
+            Use a computer algebra system (e.g., Maple, Mathematica, Wolfram<m>|</m>Alpha) to calculate the entries of <m>\vx_{10}</m>,
+            <m>\vx_{20}</m>, and <m>\vx_{30}</m>.
+            Based on this data,
+            what do you expect the long term probability of any day being a sunny one?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

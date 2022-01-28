@@ -1,0 +1,123 @@
+<section xml:id="sec_mtx_nilpotent">
+  <title>Nilpotent Matrices and Invariant Subspaces</title>
+  <p>
+    We will prove the existence of the Jordan canonical form in two steps.
+    In the next subsection <xref ref="lem_JCF_1">Lemma</xref>
+    will show that every linear transformation can be diagonalized in some form,
+    and <xref ref="lem_JCF_2">Lemma</xref>
+    will provide the specific Jordan canonical form.
+    Before we proceed to the lemmas,
+    there are two concepts we need to introduce <mdash/> nilpotent matrices and invariant subspaces.
+    We don't need these concepts beyond our proof,
+    so we won't spend a lot of time on them.
+  </p>
+  <activity xml:id="act_nilpotent_intro">
+    <p>
+      Let <m>A = \left[ \begin{array}{rr} 1\amp 1\\-1\amp -1 \end{array} \right]</m> and <m>B = \left[ \begin{array}{rcr} 2\amp 1\amp -3 \\ -2\amp 1\amp 1 \\ 2\amp 1\amp -3 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            Calculate the positive integer powers of <m>A</m> and <m>B</m>.
+            What do you notice?
+          </p>
+        </li>
+        <li>
+          <p>
+            Compare the eigenvalues of <m>A</m> to the eigenvalues of <m>B</m>.
+            What do you notice?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_nilpotent_intro">Activity</xref>
+    shows that there are some matrices whose powers eventually become the zero matrix,
+    and that there might be some connection to the eigenvalues of these matrices.
+    Such matrices are given a special name.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A square matrix <m>A</m> is <term>nilpotent</term>
+            <idx><h>nilpotent matrix</h></idx>
+        if <m>A^m =0</m> for some positive integer <m>m</m>.
+        Correspondingly,
+        a linear transformation <m>T</m> from a <m>n</m>-dimensional vector space <m>V</m> to <m>V</m> is <term>nilpotent</term>
+            <idx><h>nilpotent transfomation</h></idx>
+        if <m>T^m = 0</m> for some positive integer <m>m</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Nilpotent matrices are the essential obstacle to the diagonalization process.
+    If <m>A</m> is a nilpotent matrix,
+    the smallest positive integer <m>m</m> such that <m>A^m = 0</m> is called the <em>index</em>
+        <idx><h>index</h></idx>
+    of <m>A</m>.
+  </p>
+  <p>
+    A characterization of nilpotent matrices is given in the following theorem.
+  </p>
+  <theorem xml:id="thm_nilpotent_evals">
+    <statement>
+      <p>
+        A square matrix <m>A</m> is nilpotent if and only if <m>0</m> is the only eigenvalue of <m>A</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The proof is left to the exercises.
+  </p>
+  <p>
+    We have seen that if <m>T: V \to V</m> is a linear transformation from a vector space to itself,
+    and if <m>\lambda</m> is an eigenvalue of <m>T</m> with eigenvector <m>\vv</m>,
+    then <m>T(\vv) = \lambda \vv</m>.
+    In other words, <m>T</m> maps every vector in
+    <m>W = \Span\{\vv\}</m> to a vector in <m>W</m>.
+    When this happens we say that <m>W</m> is invariant under the transformation <m>T</m>.
+  </p>
+  <definition xml:id="def_JCF_invariant">
+    <statement>
+      <p>
+        A subspace <m>W</m> of a vector space <m>V</m> is <term>invariant</term>
+            <idx><h>invariant subspace</h></idx>
+        under a linear transformation <m>T: V \to V</m> if
+        <m>T(\vw) \in W</m> whenever <m>\vw</m> is in <m>W</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    So, for example,
+    every eigenspace of a transformation is invariant under the transformation.
+    Other spaces that are always invariant are <m>V</m> and <m>\{\vzero\}</m>.
+  </p>
+  <activity>
+    <p>
+      Let <m>V</m> be a vector space and let
+      <m>T : V \to V</m> be a linear transformation.
+      <ul>
+        <li>
+          <p>
+            Let <m>V = \R^2</m> and <m>T</m> the linear transformation defined by <m>T([x \ y]^{\tr}) = [x-y \ y-x]^{\tr}</m>.
+            Find two invariant subspaces besides <m>V</m> or <m>\{\vzero\}</m> for <m>T</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Recall that <m>\Ker(T) = \{\vv \in V : T(\vv) = \vzero\}</m>.
+            Is <m>\Ker(T)</m> invariant under <m>T</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Recall that <m>\Range(T) = \{\vw \in V : \vw = T(\vv) \text{ for some } \vv \in V\}</m>.
+            Is <m>\Range(T)</m> invariant under <m>T</m>?
+            Explain.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

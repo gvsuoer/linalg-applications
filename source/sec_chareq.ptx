@@ -1,0 +1,156 @@
+<section xml:id="sec_chareq">
+  <title>The Characteristic Equation</title>
+  <p>
+    Until now, we have been given eigenvalues or eigenvectors of a matrix and determined eigenvectors and eigenvalues from the known information.
+    In this section we use determinants to find
+    (or approximate)
+    the eigenvalues of a matrix.
+    From there we can find
+    (or approximate)
+    the corresponding eigenvectors.
+    The tool we will use is a polynomial equation,
+    the <em>characteristic equation</em>,
+    of a square matrix whose roots are the eigenvalues of the matrix.
+    The characteristic equation will then provide us with an <em>algebraic</em>
+    way of finding the eigenvalues of a square matrix.
+  </p>
+  <p>
+    We have seen that the eigenvalues of a square matrix <m>A</m> are the scalars <m>\lambda</m> so that
+    <m>A - \lambda I</m> has a nontrivial null space.
+    Since a matrix has a nontrivial null space if and only if the matrix is not invertible,
+    we can also say that <m>\lambda</m> is an eigenvalue of <m>A</m> if
+    <men xml:id="eq_4_b_1">
+      \det(A - \lambda I) = 0
+    </men>.
+  </p>
+  <p>
+    Note that if <m>A</m> is an <m>n \times n</m> matrix,
+    then <m>\det(A - \lambda I)</m> is a polynomial of degree <m>n</m>.
+    Furthermore, if <m>A</m> has real entries,
+    the polynomial has real coefficients.
+    This polynomial,
+    and the equation <xref ref="eq_4_b_1"/> are given special names.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> matrix.
+        The <term>characteristic polynomial</term><idx><h>characteristic polynomial</h></idx> of <m>A</m> is the polynomial
+        <me>
+          \det(A-\lambda I_n)
+        </me>,
+        where <m>I_n</m> is the <m>n \times n</m> identity matrix.
+        The <term>characteristic equation</term>
+            <idx><h>characteristic equation</h></idx>
+        of <m>A</m> is the equation
+        <me>
+          \det(A-\lambda I_n) = 0
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    So the characteristic equation of <m>A</m> gives us an algebraic way of finding the eigenvalues of <m>A</m>.
+  </p>
+  <activity xml:id="act_4_b_1">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Find the characteristic polynomial of the matrix <m>A = \left[ \begin{array}{crc} 3\amp -2\amp 5 \\ 1\amp 0\amp 7 \\ 0\amp 0\amp 1 \end{array} \right]</m>,
+            and use the characteristic polynomial to find all of the eigenvalues of <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Verify that 1 and 2 are the only eigenvalues of the matrix <m>\left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 1\\ 1\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As we argued in Preview <xref ref="pa_4_b">Activity</xref>,
+    a <m>2 \times 2</m> matrix can have at most 2 eigenvalues.
+    For an <m>n \times n</m> matrix,
+    the characteristic polynomial will be a degree <m>n</m> polynomial,
+    and we know from algebra that a degree <m>n</m> polynomial can have at most <m>n</m> roots.
+    Since an eigenvalue of a matrix is a root of the characteristic polynomial of that matrix,
+    we can conclude that an <m>n \times n</m> matrix can have at most <m>n</m> distinct eigenvalues.
+    <xref ref="act_4_b_1">Activity</xref>
+    (b) shows that a <m>4 \times 4</m> matrix may have fewer than <m>4</m> eigenvalues, however.
+    Note that one of these eigenvalues,
+    the eigenvalue 1, appears three times as a root of the characteristic polynomial of the matrix.
+    The number of times an eigenvalue appears as a root of the characteristic polynomial is called the
+    <em>(algebraic) multiplicity</em> of the eigenvalue.
+    More formally:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <term>(algebraic) multiplicity</term><idx><h>multiplicity</h><h>algebraic</h></idx> of an eigenvalue <m>\lambda</m> of a matrix <m>A</m> is the largest integer <m>m</m> so that
+        <m>(x-\lambda)^m</m> divides the characteristic polynomial of <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Thus, in <xref ref="act_4_b_1">Activity</xref>
+    (b) the eigenvalue 1 has multiplicity 3 and the eigenvalue 2 has multiplicity 1.
+    Notice that if we count the eigenvalues of an
+    <m>n \times n</m> matrix with their multiplicities,
+    the total will always be <m>n</m>.
+  </p>
+  <p>
+    If <m>A</m> is a matrix with real entries,
+    then the characteristic polynomial will have real coefficients.
+    It is possible that the characteristic polynomial can have complex roots,
+    and that the matrix <m>A</m> has complex eigenvalues.
+    The Fundamental Theorem of Algebra shows us that if a real matrix has complex eigenvalues,
+    then those eigenvalues will appear in conjugate pairs,
+    i.e., if <m>\lambda_1=a+ib</m> is an eigenvalue of <m>A</m>,
+    then <m>\lambda_2=a-ib</m> is another eigenvalue of <m>A</m>.
+    Furthermore, for an odd degree polynomial,
+    since the complex eigenvalues will come in conjugate pairs,
+    we will be able to find at least one real eigenvalue.
+  </p>
+  <p>
+    We now summarize the information we have so far about eigenvalues of an <m>n\times n</m> real matrix:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> matrix with real entries.
+        Then
+        <ol>
+          <li>
+            <p>
+              There are at most <m>n</m> eigenvalues of <m>A</m>.
+              If each eigenvalue
+              (including complex eigenvalues)
+              is counted with its multiplicity,
+              there are exactly <m>n</m> eigenvalues.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> has a complex eigenvalue <m>\lambda</m>,
+              the complex conjugate of <m>\lambda</m> is also an eigenvalue of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>n</m> is odd, <m>A</m> has at least one real eigenvalue.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> is upper or lower-triangular,
+              the eigenvalues are the entries on the diagonal.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

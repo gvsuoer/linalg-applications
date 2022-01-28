@@ -1,4 +1,4 @@
-\achapter{25}{Projections onto Subspaces and the Gram-Schmidt Process in $\R^n$} \label{sec:gram_schmidt}
+\achapter{25}{Projections onto Subspaces and the Gram-Schmidt Process in $\R^n$} \label{chap:gram_schmidt}
 
 \vspace*{-17 pt}
 \framebox{
@@ -13,6 +13,7 @@
 \vspace*{13 pt}
 
 \csection{Application: MIMO Systems}      
+\label{sec:mimo}
 
 MIMO (Multiple Input Multiple Output) systems are widely used to increase data transmission rates and improve the quality of wireless communication systems.  MIMO is one of several forms of smart antenna technology, and it makes use of multiple antennas at the transmitter to send signals and multiple antennas at the receiver to accept the signals. MIMO systems transmit the same data on multiple streams, which introduces redundancy into the system. MIMO systems can utilize bounced and reflected signals to actually improve signal strength. This is very useful in urban environments in the presence of large buildings and the absence of direct line-of-sight transmission. MIMO systems can transmit several information streams in parallel (known as spatial multiplexing), allowing for increased data transformation rates. The presence of multiple receiver antennas allows for greater reliability in the system. 
 
@@ -26,6 +27,7 @@ MIMO (Multiple Input Multiple Output) systems are widely used to increase data t
 In a MIMO system, every transmitter antenna sends a signal to every receiver antenna as illustrated in Figure \ref{F:MIMO}. In each of these transmissions the signal can be disturbed in some way. Two types of disturbances are \emph{fading} and \emph{noise}. Fading is due to time variations in the received signal, which can occur because of atmospheric conditions or obstacles over the path which are varying with respect to time. In a MIMO system we have \emph{multipath fading} for the different paths the signal takes from different antennas to receivers, which causes fluctuations in amplitude, phase and angle of arrival of the received signal. Noise is an unwanted signal which interferes with actual signal. Both fading and noise result in a received signal that is different than the transmitted signal. The problem is how to recover the original signal from the transmitted signal. The QR decomposition is used in this process. To improve the efficiency of MIMO systems, different methods are introduced to determine a QR decomposition. We will discuss MIMO systems in more detail later in this section, and how Householder transformations can be used to find QR decompositions. 
 
 \csection{Introduction}
+\label{sec:gram_schmidt_intro}
 
 In many situations (least squares approximations, for example) want to find a vector $\vw$ in a subspace $W$ of $\R^n$ that is the ``best" approximation to a vector $\vv$ not in the subspace. A natural measure of ``best" is to find a vector $\vw$ in $W$, if one exists, such that the distance from $\vw$ to $\vu$ is a minimum. This means we want to find $\vw$ so that the quantity
 \[||\vw - \vu ||\]
@@ -60,6 +62,7 @@ is as small as possible over all vectors $\vw$ in $W$. To do this, we will need 
 
 
 \csection{Projections onto Subspaces and Orthogonal Projections }
+\label{sec:proj_subsp_orth}
 
 Preview Activity \ref{pa:6_e_1} gives an indication of how we can project a vector $\vv$ in $\R^n$ onto a subspace $W$ of $\R^n$. If we have an orthogonal basis for $W$, we can just add the projections of $\vv$ onto each basis vector. The resulting vector is called the projection of $\vv$ onto the subspace $W$. As we did with projections onto vectors, we can also define the projection of $\vv$ orthogonal to $W$. Note that to make this all work out properly, we will see that we need an orthogonal basis for $W$. 
 
@@ -92,6 +95,7 @@ for some scalars $c_1$, $c_2$, $\ldots$, $c_m$. So
 and so $\vv - \vw$ is orthogonal to every vector in $W$. 
 
 \csection{Best Approximations}
+\label{sec:best_approx}
 
 We have seen that $\proj_{\perp W} \vv$ is orthogonal to every vector in $W$, which suggests that $\proj_W \vv$ is in fact the vector in $W$ that is closest to $\vv$. We now verify this fact and conclude that $\proj_W \vv$ is the vector in $W$ closest to $\vv$ and therefore the best approximation of $\vv$ by a vector in $W$.
 
@@ -126,6 +130,7 @@ So $\proj_W \vv$ minimizes this sum of squares over all vectors in $W$. As a res
 
 
 \csection{The Gram-Schmidt Process}
+\label{sec:gram_schmidt_process}
 We have seen that orthogonal bases make computations very convenient. However, until now we had no convenient way to construct orthogonal bases. The problem we address in this section is how to create an orthogonal basis from any basis.  
 
 \begin{pa} \label{pa:6_d_2_no_inner_product}  Let $W = \Span \{\vv_1, \vv_2, \vv_3\}$ in $\R^4$, where $\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}$, $\vv_2 = [-1 \ 4 \ 4 \ -1]^{\tr}$, and $\vv_3 = [2 \ -1 \ 1 \ 0]^{\tr}$. Our goal in this preview activity is to begin to understand how we can find an orthogonal set $\CB = \{\vw_1, \vw_2, \vw_3\}$ in $\R^4$ so that $\Span \ \CB = W$. To begin, we could start by letting $\vw_1 = \vv_1$. 
@@ -195,6 +200,7 @@ The Gram-Schmidt process builds an orthogonal basis $\{\vw_1, \vw_2, \vw_3, \ldo
 
 
 \csection{The QR Factorization of a Matrix}
+\label{sec:qr_fact}
 
 There are several different factorizations, or decompositions, of matrices where each matrix is written as a product of certain types of matrices: LU decomposition using lower and upper triangular matrices (see Section \ref{sec:det_properties}), EVD (EigenVector Decomposition) decomposition using eigenvectors and diagonal matrices (see Section \ref{sec:diagonalization}), and in this section we will introduce the QR decomposition of a matrix. The QR decomposition is one of the most important tools for matrix computations. Jack Dongarra and Francis Sullivan\footnote{Jack Dongarra and Francis Sullivan. Introduction to the top 10 algorithms. Computing in Science and Engineering, 2: 22-23, 2000.} nominated the QR decomposition as one of the ``10 algorithms with the greatest influence on the development and practice of science and engineering in the 20th century."  The QR algorithm's importance stems from the fact that is a ``genuinely new contribution to the field of numerical analysis and not just a refinement of ideas given by Newton, Gauss, Hadamard, or Schur."\footnote{[3] Beresford N. Parlett. The QR algorithm. Computing in Science and Engineering, 2:38-42, 2000.}  Most computer algebra systems (e.g., MATLAB) use a variant of the QR decomposition to compute eigenvalues. While there are other methods for approximating eigenvalues, the QR algorithm stands out. For example, the power method is useful when a matrix is large and contains a lot of zero entries (such matrices are called \emph{sparse}). When most of the entries of a matrix are nonzero, the power method is not recommended. The better, more sophisticated,  alternative in these situations is to use the QR decomposition. The QR factorization has applications to solving least squares problems and approximating eigenvalues of matrices.
 
@@ -243,6 +249,7 @@ The algorithm works as follows.
 Note that $A_{k+1} = Q_k^{-1}A_kQ_k$ and so all of the matrices $A_k$ are similar to each other and therefore all have the same eigenvalues. We won't go into the details, but it can be shown that if the eigenvalues of $A$ are real and have distinct absolute values, then the sequence $\{A_i\}$ converges to an upper triangular matrix with the eigenvalues of $A$ as the diagonal entries. If some of the eigenvalues of $A$ are complex, then the sequence $\{A_i\}$ converges to a block upper triangular matrix, where the diagonal blocks are either $1 \times 1$ (approximating the real eigenvalues of $A$) or $2 \times 2$ (which provide a pair of conjugate complex eigenvalues of $A$).
 
 \csection{Examples} 
+\label{sec:gram_schmidt_examples}
 
 \ExampleIntro
 
@@ -331,6 +338,7 @@ so $[1 \ 0 \ 1 \ 1]^{\tr}$ is one unit away from $\vz = [1 \ 1 \ 1 \ 1]^{\tr}$.
 \end{example}
 
 \csection{Summary}
+\label{sec:gram_schmidt_summ}
 \begin{itemize}
 \item The projection of the vector $\vv$ in $V$ onto $W$ is the vector
 \[\proj_W \vv = \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m,\]
@@ -357,6 +365,7 @@ is an upper triangular matrix.
 
 
 \csection{Exercises}
+\label{sec:gram_schmidt_exercises}
 \be
 \item Let $W = \Span \{\vw_1, \vw_2\}$ in $\R^3$, with $\vw_1=[1 \ 2 \ 1]^{\tr}$ and $\vw_2= [1 \ -1 \ 1]^{\tr}$,  and  $\vv = [1 \ 0 \ 0]^{\tr}$. 
 	\ba
@@ -459,6 +468,7 @@ Show that $Q_1 = Q_2$ and $R_1 = R_2$. Conclude that the QR factorization of a m
 \ee
 
 \csection{Project: MIMO Systems and Householder Transformations}
+\label{sec:project_mimo}
 
 In a simplified model, a MIMO system will have $k$ transmitting antennas and $m$ receiving antennas. We record a transmitted symbol in a vector $\vx = [x_1 \ x_2 \ \ldots \ x_k]^{\tr}$ (one $x_i$ for each transmitting antenna) and the received symbol as a vector $\vy = [y_1 \ y_2 \ \ldots \ y_m]^{\tr}$ (one $y_j$ for each received symbol). 
 

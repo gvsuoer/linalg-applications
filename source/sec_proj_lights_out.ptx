@@ -1,0 +1,317 @@
+<section xml:id="sec_proj_lights_out">
+  <title>Project: Solving the Lights Out Game</title>
+  <p>
+    The Lights Out game starts with a
+    <m>5 \times 5</m> grid on which some of the squares are lit (on) and some are not lit
+    (off).
+    We will call such a state a <em>configuration</em>.
+    Pressing a square that is on turns it off and changes the state of all adjacent
+    (vertically and horizontally)
+    squares, and pressing a square that is off turns it on and changes the state of all adjacent
+    (vertically and horizontally)
+    squares.
+    To model this situation,
+    we consider the number system
+    <m>\Z_2 = \{0,1\}</m> consisting only of 0 and 1, where 0 represents the off state and 1 the on state.
+    We can also think of 1 as the act of pressing a square and 0 as the act of not pressing <mdash/> that is,
+    <ul>
+      <li>
+        <p>
+          <m>0+0 = 0</m> (not pressing an off square leaves it off),
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>0+1 = 1 = 1 + 0</m> (pressing an off square turns it on or not pressing a lit square leaves it lit),
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>1+1 = 0</m>
+          (pressing a lit square turns it off).
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    The numbers 0 and 1 in <m>\Z_2</m> will be the only numbers we use when playing the Lights Out game,
+    so all of our matrix entries will be in <m>\Z_2</m> and all of our calculations are done in <m>\Z_2</m>.
+  </p>
+  <p>
+    There are two ways we can view a Lights Out game.
+    <ul>
+      <li>
+        <p>
+          We can view each configuration as a <m>5 \times 5</m> matrix.
+          In this situation,
+          we label the entries in the grid as shown in <xref ref="F_LO">Figure</xref>.
+          Each entry in the grid will be assigned a 0 or 1 according to whether the light in that entry is off or on.
+        </p>
+      </li>
+      <li>
+        <p>
+          For our purposes a better way to visualize a Lights Out configuration is as a <m>25 \times 1</m> vector.
+          The components in this vector correspond to the entries in the
+          <m>5 \times 5</m> grid with the correspondence given by the numbering demonstrated in <xref ref="F_LO">Figure</xref>
+          (for the sake of space, this array is shown in a row instead of a column).
+          Again, each component is assigned a 0 or 1 according to whether the light for that entry is off or on.
+          In this view,
+          each configuration is a vector with 25 components in <m>\Z_2</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <figure xml:id="F_LO">
+    <caption>Two representations of the Lights Out game.</caption>
+    <image width="73%" source="LO"/>
+    <image width="73%" source="LO_vector"/>
+  </figure>
+  <p>
+    We will take the latter perspective and view the Lights Out game as if it is played on a
+    <m>25 \times 1</m> board with entries in <m>\Z_2</m>.
+    The space of all of these Lights Out configurations is denoted as <m>\Z_2^{25}</m>
+    (similar to <m>\R^{25}</m>,
+    but with entries in <m>\Z_2</m> rather than <m>\R</m>).
+    Since <m>\Z_2</m> is a field,
+    the space <m>\Z_2^{25}</m> is a vector space just as <m>\R^{25}</m> is.
+    This is the environment in which we will play the Lights Out game.
+  </p>
+  <p>
+    If we think about the game as played on a <m>25 \times 1</m> board,
+    then pressing a square correlates to selecting one of the 25 components of a configuration vector.
+    Each time we press a square,
+    we make a move that changes the status of that square and all the squares vertically or horizontally adjacent to it from the <m>5 \times 5</m> board.
+    Recalling that adding 1 to a square has the effect of changing its status
+    (from on to off or off to on),
+    and each move that we make in the game can be represented as a
+    <m>25 \times 1</m> vector that is added to a configuration.
+    For example,
+    the move of pressing the first square is given by adding the vector
+    <me>
+      \vm_{1} = [ 1 \ 1 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0\  0 \ 0 \ 0 \ 0 \ 0 ]^{\tr}
+    </me>
+    to a configuration vector and the move of pressing the second square is represented by adding the vector
+    <me>
+      \vm_{2} = [ 1 \ 1 \ 1 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0\  0 \ 0 \ 0 \ 0 \ 0 ]^{\tr}
+    </me>.
+  </p>
+  <activity>
+    <p>
+      Let <m>\vm_i</m> be the move of pressing the <m>i</m>th square for <m>i</m> from 1 to 25.
+      <ul>
+        <li>
+          <p>
+            Find vector representations for <m>\vm_9</m> and <m>\vm_{22}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>M = [m_{ij}] = \left[\vm_1 | \vm_2 | \cdots | \vm_{25} \right]</m>.
+            Explain why <m>m_{ij} = m_{ji}</m> for each <m>i</m> and <m>j</m>.
+            In other words, explain why <m>M^{\tr} = M</m>.
+            (Such a matrix is called a <em>symmetric</em> matrix.)
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The goal of the Lights Out game is to begin with an initial configuration <m>\vc</m> (a vector in
+    <m>\Z_2^{25}</m>) and determine if we can apply a sequence of moves to obtain the configuration in which all the entries are 0
+    (or all the lights are off).
+    The vector in <m>\Z_2^{25}</m> of all 0s is the zero vector in
+    <m>\Z_2^{25}</m> and we will denote it as <m>\vzero</m>.
+    Some basic algebra of vector addition in <m>\Z_2</m>
+    (or mod 2)
+    will help us understand the strategy.
+  </p>
+  <p>
+    Start with a configuration <m>\vc</m>.
+    If we press the <m>i</m>th square,
+    then we obtain the new configuration <m>\vc_1 = \vm_i + \vc</m>
+    (where each move <m>\vm_i</m> is also in <m>\Z_2^{25}</m>).
+  </p>
+  <activity xml:id="act_LO_1">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            What happens if we press the <m>i</m>th square twice in a row?
+            Explain in terms of the action and the game and verify using vector addition.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why applying move <m>\vm_i</m> then move <m>\vm_j</m> is the same as applying move <m>\vm_j</m>,
+            then <m>\vm_i</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain how the answers to the previous two questions show that to play the game we only need to determine which buttons to press
+            (and only once each)
+            without worrying about the order in which the buttons are pressed.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    What we have seen is that to play the game we are really looking for scalars <m>x_1</m>,
+    <m>x_2</m>, <m>\ldots</m>, <m>x_{25}</m> in <m>\Z_2</m>
+    (in other words, either 0 or 1)
+    so that
+    <men xml:id="eq_LO1">
+      x_1\vm_1 + x_2\vm_2 + \cdots + x_{25}\vm_{25} + \vc = \vzero
+    </men>.
+  </p>
+  <activity>
+    <p>
+      Explain why <xref ref="eq_LO1"/> has the equivalent matrix equation
+      <men xml:id="eq_LO2">
+        M\vx = \vc
+      </men>,
+      where <m>M = \left[\vm_1 | \vm_2 | \cdots | \vm_{25} \right]</m>, or
+      <me>
+        M =  \left[ \begin{array}{c c c c c c c c c c c c c c c c c c c c c c c c c } 1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \end{array} \right]
+      </me>.
+    </p>
+    <p>
+      Explicitly identify the vector <m>\vx</m>.
+      Also, explain why <m>\vc</m> is on the right side of this equation.
+    </p>
+  </activity>
+  <p>
+    To solve a Lights Out game now,
+    all we need do is determine a solution,
+    if one exists, to the matrix equation <xref ref="eq_LO2"/>.
+  </p>
+  <activity xml:id="act_LO_2">
+    <p>
+      For this activity you may use the fact that the reduced row echelon form of the matrix <m>M</m>
+      (using algebra in <m>\Z_2</m>)
+      is as shown below.
+      <ul>
+        <li>
+          <p>
+            Find a basis for the column space of <m>M</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why not every Lights Out puzzle can be solved.
+            That is, explain why there are some initial configurations of lights on and off for which it is not possible to turn out all the lights
+            (without turning off the game).
+            Relate this to the column space of <m>M</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The reduced row echelon form of the matrix <m>M</m> (using algebra in <m>\Z_2</m>):
+    <me>
+      \left[ \begin{array}{ccccccccccccccccccccccccc} 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    To find conditions under which a Lights Out game is not solvable,
+    we will demonstrate that if <m>A</m> is an <m>n \times n</m> matrix,
+    then the scalar product of any vector in
+    <m>\Nul A^{\tr}</m> with any column of <m>A</m> is <m>\vzero</m>.
+    Let <m>A = [a_{ij}]</m> be an
+    <m>n \times n</m> matrix with columns <m>\va_1</m>,
+    <m>\va_2</m>, <m>\ldots</m>, <m>\va_n</m>.
+    Represent the entries in the <m>i</m>th column as
+    <m>\va_i = [a_{1i} \ a_{2i} \ \ldots \ a_{ni}]^{\tr}</m> for each <m>i</m> between 1 and <m>n</m>.
+    Note that <m>\va_i</m> is also the <m>i</m>th row of <m>A^{\tr}</m>.
+    Also, let <m>\vx = [x_1 \ x_2 \ \ldots \ x_n]^{\tr}</m> be a vector in <m>\Nul A^{\tr}</m>.
+    Then <m>A^{\tr} \vx = \vzero</m>.
+    Using the row-column method of multiplying a matrix by a vector,
+    when we multiply the <m>i</m>th row of <m>A^{\tr}</m> with <m>\vx</m> we obtain
+    <men xml:id="eq_LO_dp">
+      a_{1i}x_1 + a_{2i}x_2 + \cdots + a_{ni}x_n = 0
+    </men>.
+  </p>
+  <p>
+    This equation is valid for each <m>i</m> between 1 and <m>n</m>.
+    Recall that the sum in <xref ref="eq_LO_dp"/> is the scalar product of <m>\va_i</m> and <m>\vx</m> and is denoted <m>\va_i \cdot \vx</m>.
+    That is,
+    <me>
+      \va_i \cdot \vx = a_{i1}x_1 + a_{i2}x_2 + \cdots + a_{in}x_n
+    </me>.
+  </p>
+  <p>
+    The fact that <m>\vx</m> is in <m>\Nul A^{\tr}</m> means
+    <m>\va_i \cdot \vx = \vzero</m> for every <m>i</m> between 1 and <m>n</m>.
+    In other words, the scalar product of any vector in
+    <m>\Nul A^{\tr}</m> with any column of <m>A</m> is <m>\vzero</m>.
+    (When the scalar product of two vectors is <m>\vzero</m>,
+    we call the vectors <em>orthogonal</em>
+    <mdash/> a fancy word for
+    <q>perpendicular</q>.)
+    Since scalar products are linear,
+    we can extend this result to the following.
+  </p>
+  <theorem xml:id="thm_LO_Nul_Col">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> matrix.
+        If <m>\vx</m> is any vector in <m>\Col A</m> and <m>\vy</m> is any vector in <m>\Nul A^{\tr}</m>,
+        then <m>\vx \cdot \vy = 0</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    With <xref ref="thm_LO_Nul_Col">Theorem</xref>
+    in mind we can return to our analysis of the Lights Out game,
+    applying this result to the matrix <m>M</m>.
+  </p>
+  <activity>
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Find a basis for the null space of <m>M^{\tr}</m>. (Recall that <m>M^{\tr} = M</m>,
+            so you can use the reduced row echelon form of <m>M</m>
+            (using algebra in <m>\Z_2</m>)
+            given earlier.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Use  <xref ref="thm_LO_Nul_Col">Theorem</xref>
+            to show that if <m>\vc = [c_1 \  c_2 \  \ldots \  c_{25}]^{\tr}</m> is an initial Lights Out configuration that is solvable,
+            then <m>\vc</m> must be orthogonal to each of the vectors in a basis for <m>\Nul M^{\tr}</m>.
+            Then show that if <m>\vc</m> is a solvable initial Lights Out configuration,
+            <m>\vc</m> must satisfy
+            <md>
+              <mrow>c_2 + c_3 + c_4 + c_6 + c_8 + c_{10} + c_{11} + c_{12} \amp + c_{14} + c_{15} + c_{16} + c_{18}</mrow>
+              <mrow>\amp + c_{20} + c_{22} + c_{23} + c_{24} = 0</mrow>
+            </md>
+            and
+            <me>
+              c_1 + c_3 + c_5 + c_6 + c_8 + c_{10} + c_{16} + c_{18} + c_{20} + c_{21} + c_{23} + c_{25} = 0
+            </me>.
+            Be very specific in your explanation.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <activity>
+    <p>
+      Now that we know which Lights Out games can be solved,
+      let <m>\vc</m> be an initial configuration to a solvable Lights Out game.
+      Explain how to find a solution to this game.
+      Will the solution be unique?
+      Explain.
+    </p>
+  </activity>
+  <p>
+    Now that we have a strategy for solving the Lights Out game,
+    use it to solve random puzzles at \url{https://www.geogebra.org/m/wcmctahp}, or create your own game to solve.
+  </p>
+</section>

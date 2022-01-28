@@ -1,0 +1,85 @@
+<section xml:id="sec_det_intro">
+  <title>Introduction</title>
+  <p>
+    We know that a non-zero vector <m>\vx</m> is an eigenvector of an <m>n \times n</m> matrix <m>A</m> if
+    <m>A \vx = \lambda \vx</m> for some scalar <m>\lambda</m>.
+    Note that this equation can be written as <m>(A-\lambda I_n)\vx=\vzero</m>.
+    Until now, we were given eigenvalues of matrices and have used the eigenvalues to find the eigenvectors.
+    In this section we will learn an algebraic technique to find the eigenvalues ourselves.
+    We will also be able to justify why an
+    <m>n\times n</m> matrix has at most <m>n</m> eigenvalues.
+  </p>
+  <p>
+    A scalar <m>\lambda</m> is an eigenvalue of <m>A</m> if
+    <m>(A - \lambda I_n)\vx=\vzero</m> has a non-trivial solution <m>\vx</m>,
+    which happens if and only if <m>A-\lambda I_n</m> is not invertible.
+    In this section we will find a scalar whose value will tell us when a matrix is invertible and when it is not,
+    and use this scalar to find the eigenvalues of a matrix.
+  </p>
+  <activity xml:id="pa_4_a">
+    <p>
+      In this activity, we will focus on <m>2\times 2</m> matrices.
+      Let <m>A = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]</m> be a <m>2\times 2</m> matrix.
+      To see if <m>A</m> is invertible,
+      we row reduce <m>A</m> by replacing row 2 with <m>a\cdot</m>(row 2) <m>- c \cdot</m>(row 1):
+      <me>
+        \left[ \begin{array}{cc} a\amp b \\ 0\amp ad-bc \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      So the only way <m>A</m> can be reduced <m>I_2</m> is if <m>ad - bc \neq 0</m>.
+      We call this quantity <m>ad-bc</m> the
+      <em>determinant</em> of <m>A</m>,
+      and denote the determinant of <m>A</m> as <m>\det(A)</m> or <m>|A|</m>.
+      When <m>\det(A)\neq 0</m>, we know that
+      <me>
+        A^{-1} = \frac{1}{ad-bc} \left[ \begin{array}{rr} d\amp -b \\ -c\amp a \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      We now consider how we can use the determinant to find eigenvalues and other information about the invertibility of a matrix.
+      <ol>
+        <li>
+          <p>
+            Let <m>A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 4 \end{array} \right]</m>.
+            Find <m>\det(A)</m> by hand.
+            What does this mean about the matrix <m>A</m>?
+            Can you confirm this with other methods?
+          </p>
+        </li>
+        <li>
+          <p>
+            One of the eigenvalues of <m>A=\left[ \begin{array}{cc} 1\amp 3 \\ 2\amp 2 \end{array} \right]</m> is <m>\lambda=4</m>.
+            Recall that we can rewrite the matrix equation
+            <m>A\vx=4\vx</m> in the form <m>(A-4I_2) \vx = \vzero</m>.
+            What must be true about <m>A-4I_2</m> in order for 4 to be an eigenvalue of <m>A</m>?
+            How does this relate to <m>\det(A-4I_2)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Another eigenvalue of <m>A=\left[ \begin{array}{cc} 1\amp 3 \\ 2\amp 2 \end{array} \right]</m> is <m>\lambda=-1</m>.
+            What must be true about <m>A+I_2</m> in order for <m>-1</m> to be an eigenvalue of <m>A</m>?
+            How does this relate to <m>\det(A+I_2)</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            To find the eigenvalues of the matrix <m>A=\left[ \begin{array}{cc} 3\amp 2\\2\amp 6 \end{array} \right]</m>,
+            we rewrite the equation <m>A \vx = \lambda \vx</m> as <m>(A - \lambda I_2) \vx = \vzero</m>.
+            The coefficient matrix of this last system has the form <m>A-\lambda I_2 = \left[ \begin{array}{cc} 3-\lambda \amp 2 \\ 2\amp 6-\lambda \end{array} \right]</m>.
+            The determinant of this matrix is a quadratic expression in <m>\lambda</m>.
+            Since the eigenvalues will occur when the determinant is 0, we need to solve a quadratic equation.
+            Find the resulting eigenvalues.
+            (Note: One of the eigenvalues is 2.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Can you explain why a <m>2\times 2</m> matrix can have at most two eigenvalues?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

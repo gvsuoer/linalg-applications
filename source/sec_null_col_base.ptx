@@ -1,0 +1,272 @@
+<section xml:id="sec_null_col_base">
+  <title>Bases for <m>\Nul A</m> and <m>\Col A</m></title>
+  <p>
+    When confronted with a subspace of <m>\R^n</m>,
+    we will usually want to find a minimal spanning set <mdash/> a smallest spanning set <mdash/> for the space.
+    Recall that a minimal spanning set is also called a basis for the space.
+    So a basis for a space must span that space,
+    and to be a minimal spanning set we have seen that a basis must also be linearly independent.
+    So to prove that a set is a basis for a subspace of <m>\R^n</m> we need to demonstrate two things:
+    that the set is linearly independent,
+    and that the set spans the subspace.
+  </p>
+  <activity xml:id="act_3_b_3">
+    <p>
+      In this activity we see how to find a basis for <m>\Col A</m> and <m>\Nul A</m> for a specific matrix <m>A</m>.
+      Let
+      <me>
+        A =  \left[ \begin{array}{rrrrr} 1\amp 1\amp 1\amp 0\amp 2 \\ 0\amp 1\amp 0\amp 1\amp 1 \\ 1\amp 0\amp 1\amp 1\amp -1 \\ 0\amp 1\amp 0\amp 1\amp 1 \end{array}  \right]
+      </me>.
+    </p>
+    <p>
+      Assume that the reduced row echelon form of <m>A</m> is
+      <me>
+        R= \left[ \begin{array}{rrrrr} 1\amp 0\amp 1\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 2 \\ 0\amp 0\amp 0\amp 1\amp -1 \\ 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]
+      </me>.
+      <ul>
+        <li>
+          <p>
+            First we examine <m>\Col A</m>.
+            Recall that to find a minimal spanning set of a set of vectors
+            <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> in <m>\R^n</m> we just select the pivot columns of the matrix <m>[\vv_1 \ \vv_2 \ \cdots \ \vv_k]</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Find a basis for <m>\Col A</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does <m>\Col A</m> equal <m>\Col R</m>?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Now we look at <m>\Nul A</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Write the general solution to the homogeneous system <m>A \vx = \vzero</m> in vector form.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a spanning set for <m>\Nul A</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find a basis for <m>\Nul A</m>.
+                  Explain how you know you have a basis.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    You should have noticed that <xref ref="act_3_b_3">Activity</xref>
+    (a) provides a process for finding a basis for <m>\Col A</m> <mdash/> the pivot columns of <m>A</m> form a basis for <m>\Col A</m>.
+    Similarly, <xref ref="act_3_b_3">Activity</xref>
+    (b) shows us that we can find a basis for <m>\Nul A</m> by writing the general solution to the homogeneous equation
+    <m>A\vx = \vzero</m> as a linear combination of vectors whose weights are the variables corresponding to the non-pivot columns of <m>A</m> <mdash/> and these vectors form a basis for <m>\Nul A</m>.
+    As we will argue next,
+    these process always give us bases for <m>\Col A</m> and <m>\Nul A</m>.
+  </p>
+  <p>
+    Let <m>A</m> be an <m>m \times n</m> matrix,
+    and let <m>R</m> be the reduced row echelon form of <m>A</m>.
+    Suppose <m>R</m> has <m>k</m> non-pivot columns and <m>n-k</m> pivot columns.
+    We can rearrange the columns so that the non-pivot columns of <m>R</m> are the last <m>k</m> columns
+    (this just amounts to relabeling the unknowns in the system).
+    <ul>
+      <li>
+        <title>Basis for <m>\Nul A</m></title>
+        <p>
+          Here we argue that the method described following <xref ref="act_3_b_3">Activity</xref>
+          to find a spanning set for the null space always yields a basis for the null space.
+          First note that <m>\Nul R = \Nul A</m>,
+          since the system <m>A\vx = \vzero</m> has the same solution set as <m>R \vx = \vzero</m>.
+          So it is enough to find a basis for <m>\Nul R</m>.
+          If every column of <m>R</m> is a pivot column,
+          then <m>R \vx = \vzero</m> has only the trivial solution and the null space of <m>R</m> is <m>\{ \vzero \}</m>.
+          Let us now consider the case where <m>R</m> contains non-pivot columns.
+          If we let <m>\vx = [x_1 \ x_2 \ \ldots \ x_n]^{\tr}</m>,
+          and if <m>R\vx = \vzero</m> then we can write <m>x_1</m>,
+          <m>x_2</m>, <m>\ldots</m>,
+          <m>x_{n-k}</m> in terms of <m>x_{n-k+1}</m>,
+          <m>x_{n-k+2}</m>, <m>\ldots</m>, and <m>x_n</m>.
+          From these equations we can write <m>\vx</m> as a linear combination of some vectors <m>\vv_1</m>,
+          <m>\vv_2</m>, <m>\ldots</m>,
+          <m>\vv_k</m> with <m>x_{n-k+1}</m>,
+          <m>x_{n-2+2}</m>, <m>\ldots</m>, <m>x_n</m> as weights.
+          By construction, each of the vectors <m>\vv_1</m>,
+          <m>\vv_2</m>, <m>\ldots</m>,
+          <m>\vv_k</m> has a component that is 1 with the corresponding component as 0 in all the other <m>\vv_i</m>.
+          Therefore, the vectors <m>\vv_1</m>, <m>\vv_2</m>,
+          <m>\ldots</m>,
+          <m>\vv_k</m> are linearly independent and span <m>\Nul R</m>
+          (and <m>\Nul A</m>).
+          In other words,
+          the method we have developed to find the general solution to
+          <m>A \vx = \vzero</m> always produces a basis for <m>\Nul A</m>.
+        </p>
+      </li>
+      <li>
+        <title>Basis for <m>\Col A</m></title>
+        <p>
+          Here we explain why the pivot columns of <m>A</m> form a basis for <m>\Col A</m>.
+          Recall that the product <m>A \vx</m> expresses a linear combination of the columns of <m>A</m> with weights from <m>\vx</m>,
+          and every such linear combination is matched with a product <m>R \vx</m> giving a linear combination of the columns of <m>R</m>
+          <em>using the same weights</em>.
+          So if a set of columns of <m>R</m> is linearly independent
+          (or dependent),
+          then the set of corresponding columns in <m>A</m> is linearly independent
+          (or dependent)
+          and vice versa.
+          Since each pivot column of <m>R</m> is a vector with 1 in one entry (a different entry for different pivot columns) and zeros elsewhere,
+          the pivot columns of <m>R</m> are clearly linearly independent.
+          It follows that the pivot columns of <m>A</m> are linearly independent.
+          All that remains is to explain why the pivot columns of <m>A</m> span <m>\Col A</m>.
+          Let <m>\vr_1</m>, <m>\vr_2</m>, <m>\ldots</m>,
+          <m>\vr_n</m> be the columns of <m>R</m> so that <m>R~=~[\vr_1 \ \ \vr_2 \ \ \cdots \ \ \vr_n]</m>,
+          and let <m>\va_1</m>, <m>\va_2</m>, <m>\ldots</m>,
+          <m>\va_n</m> be the columns of <m>A</m> so that <m>A~=~[\va_1 \ \ \va_2 \ \ \cdots \ \ \va_n]</m>.
+          Suppose <m>\va_i</m> is a non-pivot column for <m>A</m> and <m>\vr_i</m> the corresponding non-pivot column in <m>R</m>.
+          Each pivot column is composed of a single 1 with the rest of its entries 0.
+          Also, if a non-pivot column contains a nonzero entry,
+          then there is a corresponding pivot column that contains a 1 in the corresponding position.
+          So <m>\vr_i</m> is a linear combination of <m>\vr_1</m>,
+          <m>\vr_2</m>,
+          <m>\ldots</m>,
+          <m>\vr_{n-k}</m> <mdash/> the pivot columns of <m>R</m>.
+          Thus,
+          <me>
+            \vr_i = c_1 \vr_1 + c_2\vr_2 + \cdots + c_{n-k}\vr_{n-k}
+          </me>
+          for some scalars <m>c_1</m>, <m>c_2</m>,
+          <m>\ldots</m>, <m>c_{n-k}</m>.
+          Let <m>\vx = [c_1 \ c_2 \ \cdots \ c_{n-k} \ 0 \ \cdots 0 \ -1 \ 0 \ \cdots \ 0]^{\tr}</m>,
+          where the <m>-1</m> is in position <m>i</m>.
+          Then <m>R \vx = \vzero</m> and so <m>A \vx = \vzero</m>.
+          Thus,
+          <me>
+            \va_i = c_1 \va_1 + c_2\va_2 + \cdots + c_{n-k}\va_{n-k}
+          </me>
+          and <m>\va_i</m> is a linear combination of the pivot columns of <m>A</m>.
+          So every non-pivot column of <m>A</m> is in the span of <m>A</m> and we conclude that the pivot columns of <m>A</m> form a basis for <m>\Col A</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    <em>IMPORTANT POINT:</em> It is the pivot columns of <m>A</m> that form a basis for <m>\Col A</m>,
+    not the pivot columns of the reduced row echelon form <m>R</m> of <m>A</m>.
+    In general, <m>\Col R \neq \Col A</m>.
+  </p>
+  <p>
+    We can incorporate the ideas of this section to expand the Invertible Matrix Theorem.
+  </p>
+  <theorem>
+    <title>The Invertible Matrix Theorem</title>
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> matrix.
+        The following statements are equivalent.
+        <ol>
+          <li>
+            <p>
+              The matrix <m>A</m> is an invertible matrix.
+            </p>
+          </li>
+          <li xml:id="item_3_b_trivial_soln">
+            <p>
+              The matrix equation <m>A \vx = \vzero</m> has only the trivial solution.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A</m> has <m>n</m> pivot columns.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every row of <m>A</m> contains a pivot.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> span <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A</m> is row equivalent to the identity matrix <m>I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> are linearly independent.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> form a basis for <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^n</m> defined by <m>T(\vx) = A\vx</m> is one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix equation <m>A \vx = \vb</m> has exactly one solution for each vector <m>\vb</m> in <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^n</m> defined by <m>T(\vx) = A\vx</m> is onto.
+            </p>
+          </li>
+          <li xml:id="item_3_b_AC_I">
+            <p>
+              There is an <m>n \times n</m> matrix <m>C</m> so that <m>AC = I_n</m>.
+            </p>
+          </li>
+          <li xml:id="item_3_b_DA_I">
+            <p>
+              There is an <m>n \times n</m> matrix <m>D</m> so that <m>DA = I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The scalar 0 is not an eigenvalue of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A^{\tr}</m> is invertible.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\Nul A = \{\vzero\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\Col A = \R^n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

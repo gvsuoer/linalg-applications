@@ -1,0 +1,174 @@
+<section xml:id="sec_mtx_lin_intro">
+  <title>Introduction</title>
+  <p>
+    When working with a linear system,
+    the labels for the variables are irrelevant to the solution <mdash/> the only thing that matters is the coefficients of the variables in the equations and the constants on the other side of the equations.
+    For example, given a linear system of the form
+    <men xml:id="eq_PA_1">
+      \begin{alignedat}{4} a_2   \amp {}-{}   \amp a_1   \amp {}+{}  \amp a_0 \amp = 2 \\ a_2   \amp {}+{}   \amp a_1   \amp {}+{}   \amp a_0 \amp = 6 \\ 4a_2  \amp {}+{}   \amp 2a_1   \amp {}+{}   \amp a_0  \amp = 5, \end{alignedat}
+    </men>
+    the important information in the system can be represented as
+    <me>
+      <tabular>
+        <row>
+          <cell>1</cell>
+          <cell>\(-1\)</cell>
+          <cell>1</cell>
+          <cell>2</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell>1</cell>
+          <cell>1</cell>
+          <cell>6</cell>
+        </row>
+        <row>
+          <cell>4</cell>
+          <cell>2</cell>
+          <cell>1</cell>
+          <cell>5</cell>
+        </row>
+      </tabular>
+    </me>
+    where we interpret the first three numbers in each horizontal row to represent the coefficients of the variables <m>a</m>,
+    <m>b</m> and <m>c</m>, respectively,
+    and the last number to be the constant on the right hand side of the equation.
+    This tells us that we can record all the necessary information about our system in a rectangular array of numbers.
+    Such an array is called a <em>matrix</em>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>matrix</term>
+            <idx><h>matrix</h></idx>
+        is a rectangular array of quantities or expressions.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We usually delineate a matrix by enclosing its entries in square brackets <m>[ * ]</m>.
+    For the system in <xref ref="eq_PA_1"/>, there are two corresponding matrices:
+  </p>
+  <sidebyside>
+    <m>\left[ \begin{array}{rrr} 1   \amp -1   \amp 1   \\ 1  \amp 1    \amp 1  \\ 4  \amp 2    \amp 1
+    \end{array}  \right]</m>
+    <m>\left[ \begin{array}{rrr|r} 1   \amp -1   \amp 1 \amp 2   \\ 1  \amp 1    \amp 1 \amp 6   \\ 4   \amp 2    \amp 1 \amp 5
+    \end{array}  \right]</m>
+  </sidebyside>
+  <p>
+    The matrix on the left is the matrix of the coefficients of the system,
+    and is called the <em>coefficient matrix</em>
+        <idx><h>coefficient matrix</h></idx>
+    of the system.
+    The matrix on the right is the matrix of coefficients and the constants,
+    and is called the <em>augmented matrix</em>
+        <idx><h>augmented matrix</h></idx>
+    of the system
+    (where we say we augment the coefficient matrix with the additional column of constants).
+    We will separate the augmented column from the coefficient matrix with a vertical line to keep it clear that the last column is an augmented column of constants and not a column of coefficients.<fn>
+    You should note that not every author uses this convention <mdash/> when they do not,
+    it is important that you be careful to understand if the matrix has an augmented column or not.
+    </fn>
+  </p>
+  <p>
+    <em>Terminology.</em> There is some important terminology related to matrices.
+    <ul>
+      <li>
+        <p>
+          Any number in a matrix is called an <em>entry</em>
+            <idx><h>matrix</h><h>entry</h></idx>
+          of the matrix.
+        </p>
+      </li>
+      <li>
+        <p>
+          The collection of entries in an augmented matrix that corresponds to a given equation
+          (that is reading the entries from left to right,
+          or a horizontal set of entries)
+          is called a <em>row</em>
+            <idx><h>matrix</h><h>row</h></idx>
+          of the matrix.
+          We number the rows from top to bottom in a matrix.
+          For example,
+          <m>\left[ \begin{array}{crc} 1\amp -1\amp 1 \end{array} \right]</m> is the first row and
+          <m>\left[ \begin{array}{ccc} 1\amp 1\amp 1 \end{array} \right]</m> is the second row of the coefficient matrix of the system <xref ref="eq_PA_1"/>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The set of entries as we read from top to bottom
+          (or a vertical set of entries that correspond to one fixed variable or the constants on the right hand sides of the equations)
+          is called a <em>column</em>
+            <idx><h>matrix</h><h>column</h></idx>
+          of the matrix.
+          We number the columns from left to right in a matrix.
+          For example,
+          <m>\left[ \begin{array}{c} 1 \\ 1 \\ 4 \end{array} \right]</m> is the first column and
+          <m>\left[ \begin{array}{c} 1 \\ 1 \\ 1 \end{array} \right]</m> is the third column of the coefficient matrix of the system <xref ref="eq_PA_1"/>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The <em>size</em>
+            <idx><h>matrix</h><h>size</h></idx>
+          of a matrix is given as <m>m\times n</m> where <m>m</m> is the number of rows and <m>n</m> is the number of columns.
+          The coefficient matrix above is a
+          <m>3\times 3</m> matrix since it has 3 rows and 3 columns,
+          while the augmented matrix is a
+          <m>3\times 4</m> matrix as it has 4 columns.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <activity xml:id="pa_1_b">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Write the augmented matrix for the following linear system.
+            If needed, rearrange an equation to ensure that the variables appear in the same order on the left side in each equation with the constants being on the right hand side of each equation.
+            <men>
+              \begin{split} -x_3 + 3 + 2x_2\amp = -x_1   \\ -3 + 2x_3 \amp = -x_2  \\ -2x_2 + x_1 \amp = 3x_3-7 \end{split}
+            </men>
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the linear system in variables <m>x_1, x_2</m> and <m>x_3</m>,
+            appearing in the natural order that corresponds to the following augmented matrix.
+            Then solve the linear system using the elimination method.
+            <me>
+              \left[ \begin{array}{rrr|r} 1 \amp  1 \amp  -1 \amp  4 \\ 1 \amp  2 \amp  2 \amp  3 \\ 2 \amp  3 \amp  -3 \amp  11 \end{array}  \right]
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the three types of elementary operations on systems of equations introduced in <xref ref="sec_intro_linear_systems">Section</xref>.
+            Each row of an augmented matrix of a system corresponds to an equation,
+            so each elementary operation on equations corresponds to an operation on rows
+            (called row operations).
+            <ul>
+              <li>
+                <p>
+                  Describe the row operation that corresponds to interchanging two equations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the row operation that corresponds to multiplying an equation by a nonzero scalar.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe the row operation that corresponds to replacing one equation by the sum of that equation and a scalar multiple of another equation.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

@@ -1,0 +1,335 @@
+<section xml:id="sec_proj_det_area_vol">
+  <title>Project: Area and Volume Using Determinants</title>
+  <p>
+    The approach we will take to connecting area (volume) to the determinant will help shed light on properties of the determinant that we will discuss from an algebraic perspective in a later section.
+    First, we mention some basic properties of area
+    (we focus on area for now,
+    but these same properties are valid for volumes as well). volume).
+    As a shorthand,
+    we denote the area of a region <m>R</m> by <m>\Area(R)</m>.
+    <ul>
+      <li>
+        <p>
+          Area cannot be negative.
+        </p>
+      </li>
+      <li>
+        <p>
+          If two regions <m>R_1</m> and <m>R_2</m> don't overlap,
+          then the area of the union of the regions is equal to the sum of the areas of the regions.
+          That is, if <m>R_1 \cap R_2 = \emptyset</m>,
+          then <m>\Area(R_1 \cup R_2) = \Area(R_1) + \Area(R_2)</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Area is invariant under translation.
+          That is, if we move a geometric region by the same amount uniformly in a given direction,
+          the area of the original region and the area of the transformed region are the same.
+          A translation of a region is done by just adding a fixed vector to each vector in the region.
+          That is, a translation by a vector <m>\vv</m> is a function <m>T_{\vv}</m> such that the image
+          <m>T_{\vv}(R)</m> of a region <m>R</m> is defined as
+          <me>
+            T_{\vv}(R) = \{\vr+\vv : \vr \in R\}
+          </me>.
+          Since area is translation invariant,
+          <m>\Area(T_{\vv}(R)) = \Area(R)</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The area of a one-dimensional object like a line segment is <m>0</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Now we turn our attention to areas of parallelograms.
+    Let <m>\vu</m> and <m>\vv</m> be vectors in <m>\R^2</m>.
+    The parallelogram <m>P(\vu,\vv)</m> defined by <m>\vu</m> and <m>\vv</m> with point <m>Q</m> as basepoint is the set
+    <me>
+      P(\vu, \vv) = \{\overrightarrow{OQ}+r \vu + s \vv : 0 \leq r, s \leq 1\}
+    </me>.
+  </p>
+  <p>
+    An illustration of such a parallelogram is shown at left in <xref ref="F_parallelograms">Figure</xref>.
+  </p>
+  <figure xml:id="F_parallelograms">
+    <caption>A parallelogram and a translated, rotated parallelogram.</caption>
+    <image width="73%" source="4_a_parallelogram_rotated.eps"/>
+  </figure>
+  <p>
+    If <m>\vu = [u_1 \ u_2]^{\tr}</m> and <m>\vv = [v_1 \ v_2]^{\tr}</m>,
+    then we will also represent
+    <m>P(\vu,\vv)</m> as <m>P\left( \left[ \begin{array}{cc}u_1\amp u_2 \\ v_1\amp v_2 \end{array} \right] \right)</m>.
+  </p>
+  <p>
+    Since area is translation and rotation invariant,
+    we can translate our parallelogram by
+    <m>-\overrightarrow{OQ}</m> to place its basepoint at the origin,
+    then rotate by an angle <m>\theta</m> (as shown at left in <xref ref="F_parallelograms">Figure</xref>.
+    This transforms the vector <m>\vv</m> to a vector <m>\vv'</m> and the vector <m>\vu</m> to a vector <m>\vu'</m> as shown at right in <xref ref="F_parallelograms">Figure</xref>.
+    With this in mind we can always assume that our parallelograms have one vertex at the origin,
+    with <m>\vu</m> along the <m>x</m>-axis,
+    and <m>\vv</m> in standard position.
+    Now we can investigate how to calculate the area of a parallelogram.
+  </p>
+  <activity xml:id="act_parallelogram_area">
+    <p>
+      There are two situations to consider when we want to find the area of a parallelogram determined by vectors <m>\vu</m> and <m>\vv</m>,
+      both shown in <xref ref="F_parallelogram_area">Figure</xref>.
+      The parallelogram will be determined by the lengths of these vectors.
+    </p>
+    <figure xml:id="F_parallelogram_area">
+      <caption>Parallelograms formed by <m>\vu</m> and <m>\vv</m></caption>
+      <image width="73%" source="4_a_parallelogram_area.eps"/>
+    </figure>
+    <ul>
+      <li>
+        <p>
+          In the situation depicted at left in <xref ref="F_parallelogram_area">Figure</xref>,
+          use geometry to explain why <m>\Area(P(\vu,\vv)) = h |\vu|</m>.
+          <hint>
+            <p>
+              What can we say about the triangles <m>ODB</m> and <m>EAC</m>?
+            </p>
+          </hint>
+        </p>
+      </li>
+      <li>
+        <p>
+          In the situation depicted at right in <xref ref="F_parallelogram_area">Figure</xref>,
+          use geometry to again explain why
+          <m>\Area(P(\vu,\vv)) = h |\vu|</m>. (Hint: What can we say about
+          <m>\Area(AEC)</m> and <m>\Area(ODB)</m>?)
+        </p>
+      </li>
+    </ul>
+  </activity>
+  <p>
+    The result of Project <xref ref="act_parallelogram_area">Activity</xref>
+    is that the area of <m>P(\vu,\vv)</m> is given by <m>h |\vu|</m>,
+    where <m>h</m> is the height of the parallelogram determined by dropping a perpendicular from the terminal point of <m>\vv</m> to the line determined by the vector <m>\vu</m>.
+  </p>
+  <p>
+    Now we turn to the question of how the determinant is related to area of a parallelogram.
+    Our approach will use some properties of the area of <m>P(\vu, \vv)</m>.
+  </p>
+  <activity xml:id="act_P_area_properties">
+    <p>
+      Let <m>\vu</m> and <m>\vv</m> be vectors that determine a parallelogram in <m>\R^2</m>.
+    </p>
+    <figure xml:id="F_area_propertities">
+      <caption>Parallelograms formed by <m>k\vu</m> and <m>\vv</m> and by <m>\vu</m> and <m>\vv+k\vu</m>.</caption>
+      <image width="73%" source="4_a_parallelogram_shear.eps"/>
+    </figure>
+    <ul>
+      <li>
+        <p>
+          Explain why
+          <men xml:id="eq_P_area_properties_1">
+            \Area(P(\vu,\vv)) = \Area(P(\vv,\vu))
+          </men>
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>k</m> is any scalar,
+          then <m>k\vu</m> either stretches or compresses <m>\vu</m>.
+          Use this idea,
+          and the result of Project <xref ref="act_parallelogram_area">Activity</xref>,
+          to explain why
+          <men xml:id="eq_P_area_properties_2">
+            \Area(P(k\vu,\vv)) = \Area(P(\vu,k\vv)) = |k| \Area(P(\vu,\vv))
+          </men>
+          for any real number <m>k</m>.
+          A representative picture of this situation is shown at left in <xref ref="F_parallelogram_area">Figure</xref> for a value of <m>k > 1</m>.
+          You will also need to consider what happens when <m>k \lt  0</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Finally, use the result of Project <xref ref="act_parallelogram_area">Activity</xref> to explain why
+          <men xml:id="eq_P_area_properties_3">
+            \Area(P(\vu+k\vv,\vv)) = \Area(P(\vu,\vv+k\vu)) = \Area(P(\vu,\vv))
+          </men>
+          for any real number <m>k</m>.
+          A representative picture is shown at right in <xref ref="F_area_propertities">Figure</xref>.
+        </p>
+      </li>
+    </ul>
+  </activity>
+  <p>
+    Properties <xref ref="eq_P_area_properties_2"/> and <xref ref="eq_P_area_properties_3"/> will allow us to calculate the area of the parallelogram determined by vectors <m>\vu</m> and <m>\vv</m>.
+  </p>
+  <activity xml:id="act_det_area">
+    <p>
+      Let <m>\vu = [u_1 \ u_2]^{\tr}</m> and <m>\vv = [v_1 \ v_2]^{\tr}</m>.
+      We will now demonstrate that
+      <me>
+        \Area(P(\vu,\vv)) = \left|\det\left(\left| \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array}  \right] \right)\right|
+      </me>.
+    </p>
+    <p>
+      Before we begin,
+      note that if both <m>u_1</m> and <m>v_1</m> are <m>0</m>,
+      then <m>\vu</m> and <m>\vv</m> are parallel.
+      This makes <m>P(\vu, \vv)</m> a line segment and so <m>\Area(P(\vu,\vv)) = 0</m>.
+      But if <m>u_1 = v_1 = 0</m>, it is also the case that
+      <me>
+        \det\left(\left| \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array}  \right] \right) = u_1v_2-u_2v_1 = 0
+      </me>
+      as well.
+      So we can assume that at least one of <m>u_1</m>,
+      <m>v_1</m> is not <m>0</m>.
+      Since <m>P(\vu, \vv) = P(\vv, \vu)</m>,
+      we can assume without loss of generality that <m>u_1 \neq 0</m>.
+      <ul>
+        <li>
+          <p>
+            Explain using properties <xref ref="eq_P_area_properties_2"/> and  <xref ref="eq_P_area_properties_3"/> as appropriate why
+            <me>
+              \Area(P(\vu,\vv)) =\Area\left(P\left(\vu, \left[0 \ v_2-\frac{v_1}{u_1}u_2\right] \right) \right)
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\vv_1 = \left[0 \ v_2-\frac{v_1}{u_1}u_2\right]^{\tr}</m>.
+            Recall that our alternate representation of <m>P(\vu,\vv))</m> allows us to write
+            <me>
+              \Area(P(\vu, \vv_1)) = \Area\left( P\left(  \left[ \begin{array}{cc} u_1\amp u_2 \\ 0\amp v_2-\frac{v_1}{u_1}u_2 \end{array}  \right] \right) \right)
+            </me>.
+            This should seem very suggestive.
+            We are essentially applying the process of Gaussian elimination to our parallelogram matrix to reduce it to a diagonal matrix.
+            From there, we can calculate the area.
+            The matrix form should indicate the next step <mdash/>  applying an operation to eliminate the entry in the first row and second column.
+            To do this, we need to consider what happens if
+            <m>v_2-\frac{v_1}{u_1}u_2 = 0</m> and if <m>v_2-\frac{v_1}{u_1}u_2 \neq 0</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Assume that <m>v_2-\frac{v_1}{u_1}u_2 = 0</m>.
+                  Explain why <m>\Area(P(\vu,\vv)) = 0</m>.
+                  Then explain why <m>\Area(P(\vu,\vv)) = 0 = \det\left(\left[ \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array} \right]\right)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now we consider the case when <m>v_2-\frac{v_1}{u_1}u_2 \neq 0</m>.
+                  Complete the process as in part (a),
+                  using properties <xref ref="eq_P_area_properties_2"/> and  <xref ref="eq_P_area_properties_3"/>
+                  (compare to Gaussian elimination)
+                  to continue to reduce the problem of calculating
+                  <m>\Area(P(\vu,\vv))</m> to one of calculating <m>\Area(P(\ve_1, \ve_2))</m>.
+                  Use this process to conclude that
+                  <me>
+                    \Area(P(\vu,\vv)) = \left| \det\left(\left[ \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array}  \right]\right)\right|
+                  </me>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    We can apply the same arguments as above using rotations,
+    translations,
+    shearings,
+    and scalings to show that the properties of area given above work in any dimension.
+    Given vectors <m>\vu_1</m>,
+    <m>\vu_2</m>, <m>\ldots</m>, <m>\vu_n</m> in <m>\R^n</m>, we let
+    <me>
+      P(\vu_1, \vu_2, \ldots, \vu_n) = \{\overrightarrow{OQ}+x_1 \vu_1 + x_2 \vu_2 + \cdots + x_n \vu_n : 0 \leq x_i \leq 1 \text{ for each }  i\}
+    </me>.
+  </p>
+  <p>
+    If <m>n = 2</m>,
+    then <m>P(\vu_1,\vu_2)</m> is the parallelogram determined by <m>\vu_1</m> and <m>\vu_2</m> with basepoint <m>Q</m>.
+    If <m>n = 3</m>,
+    then <m>P(\vu_1, \vu_2, \vu_3)</m> is the parallelepiped with basepoint <m>Q</m> determined by <m>\vu_1</m>,
+    <m>\vu_2</m>, and <m>\vu_3</m>.
+    In higher dimensions the sets
+    <m>P(\vu_1, \vu_2, \ldots,\vu_n)</m> are called parallelotopes,
+    and we use the notation <m>\Vol(P(\vu_1, \vu_2, \ldots,\vu_n))</m> for their volume.
+    The <m>n</m>-dimensional volumes of these paralleotopes satisfy the following properties:
+    <md>
+      <mrow>\Vol\amp (P(\vu_1, \vu_2, \ldots, \vu_{i-1}, \vu_i, \vu_{i+1}, \ldots, \vu_{j-1}, \vu_j, \vu_{j+1}, \ldots,\vu_n))</mrow>
+      <mrow xml:id="eq_vol_property_1" number="yes">\amp = \Vol(P(\vu_1, \vu_2, \ldots, \vu_{i-1}, \vu_j, \vu_{i+1}, \ldots, \vu_{j-1}, \vu_i, \vu_{j+1}, \ldots,\vu_n))</mrow>
+    </md>
+    for any <m>i</m> and <m>j</m>.
+    <men xml:id="eq_vol_property_2">
+      \Vol(P(\vu_1,\vu_2, \ldots, \vu_{i-1}, k\vu_i, \vu_{i+1}, \ldots, \vu_n)) = |k| \Vol(P(\vu_1,\vu_2, \ldots, \vu_n))
+    </men>
+    for any real number <m>k</m> and any <m>i</m>.
+    <men xml:id="eq_vol_property_3">
+      \Vol(P(\vu_1,\vu_2, \ldots, \vu_{i-1}, \vu_{i}+k\vu_j, \vu_{i+1}, \ldots, \vu_n)) = \Vol(P(\vu_1,\vu_2, \ldots, \vu_n))
+    </men>
+    for any real number <m>k</m> and any distinct <m>i</m> and <m>j</m>.
+  </p>
+  <activity xml:id="act_det_vol">
+    <p>
+      We now show that <m>\Vol(P(\vu_1, \vu_2, \vu_3))</m> is the absolute value of the determinant of <m>\left[ \begin{array}{c} \vu_1 \\ \vu_2 \\ \vu_3 \end{array}  \right]</m>.
+      For easier notation, let <m>\vu = [u_1 \ u_2 \ u_3]^{\tr}</m>,
+      <m>\vv = [v_1 \ v_2 \ v_3]^{\tr}</m>,
+      and <m>\vw = [w_1 \ w_2 \ w_3]^{\tr}</m>.
+      As we argued in the 2-dimensional case,
+      we can assume that all terms that we need to be nonzero are nonzero,
+      and we can do so without verification.
+      <ul>
+        <li>
+          <p>
+            Explain how property <xref ref="eq_vol_property_2"/> shows that <m>\Vol(P(\vu, \vv, \vw))</m> is equal to
+            <me>
+              \Vol\left(P\left( \left[ \begin{array}{ccc} u_{1}\amp u_{2}\amp u_{3} \\ 0\amp \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2})\amp \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\\ 0\amp \frac{1}{u_1}(w_{2}u_1-w_{1}u_{2})\amp \frac{1}{u_1}(w_{3}u_1-w_{1}u_{3}) \end{array}  \right] \right)\right)
+            </me>.
+            <hint>
+              <p>
+                Think about how these properties are related to row operations.
+              </p>
+            </hint>
+          </p>
+        </li>
+        <li>
+          <p>
+            Now let <m>\vv_1 = \left[ 0 \ \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2}) \ \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\right]^{\tr}</m> and  <m>\vw_1 = \left[ 0 \ \frac{1}{u_1}(w_{2}u_1-w_{1}u_{2}) \ \frac{1}{u_1}(w_{3}u_1-w_{1}u_{3})\right]^{\tr}</m>.
+            Explain how property <xref ref="eq_vol_property_2"/> shows that <m>\Vol(P(\vu, \vv, \vw))</m> is equal to
+            <me>
+              \Vol\left(P\left( \left[ \begin{array}{ccc} u_{1}\amp u_{2}\amp u_{3} \\ 0\amp \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2})\amp \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\\ 0\amp 0\amp d \end{array}  \right] \right)\right)
+            </me>,
+            where
+            <me>
+              d = \frac{1}{u_1v_2-u_2v_1}(u_1(v_2w_3-v_3w_2)-u_2(v_1w_3-v_{3}w_1)+u_3(v_1w_2-v_2w_1))
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Just as we saw in the 2-dimensional case,
+            we can proceed to use the diagonal entries to eliminate the entries above the diagonal without changing the volume to see that
+            <me>
+              \Vol(P(\vu, \vv, \vw)) = \Vol\left(P\left( \left[ \begin{array}{ccc} u_{1}\amp 0\amp 0 \\ 0\amp \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2})\amp 0\\ 0\amp 0\amp d \end{array}  \right] \right)\right)
+            </me>.
+            Complete the process, applying appropriate properties to explain why
+            <me>
+              \Vol(P(\vu, \vv, \vw)) = x \Vol(P(\ve_1, \ve_2, \ve_3))
+            </me>
+            for some constant <m>x</m>.
+            Find the constant and, as a result,
+            find a specific expression for
+            <m>\Vol(P(\vu, \vv, \vw))</m> involving a determinant.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Properties <xref ref="eq_vol_property_1"/>, <xref ref="eq_vol_property_2"/>,
+    and <xref ref="eq_vol_property_3"/> involve the analogs of row operations on matrices,
+    and we will prove algebraically that the determinant exhibits the same properties.
+    In fact, the determinant can be uniquely defined by these properties.
+    So in a sense, the determinant is an area or volume function.
+  </p>
+</section>

@@ -1,0 +1,135 @@
+<section xml:id="sec_bases">
+  <title>Bases</title>
+  <p>
+    A basis for a vector space is a spanning set that is as small as it can be.
+    We already saw how to define bases formally in <m>\R^n</m>.
+    We will now formally define a basis for a vector space and understand why with this definition a basis is a minimal spanning set.
+    Bases are important because any vector in a vector space can be uniquely represented as a linear combination of basis vectors.
+    We will see in later sections that this representation will allow us to identify any vector space with a basis of <m>n</m> vectors with <m>\R^n</m>.
+  </p>
+  <p>
+    To obtain the formal definition of a basis,
+    which is a minimal spanning set,
+    we consider what additional property makes a spanning set a
+    <em>minimal</em> spanning set.
+    As a consequence of <xref ref="thm_5_b_3">Theorem</xref>,
+    if <m>S</m> is a spanning set that is linearly dependent,
+    then we can find a proper subset of <m>S</m> that has the same span.
+    Thus, the set <m>S</m> cannot be a minimal spanning set.
+    However, if <m>S</m> is linearly independent,
+    then no vector in <m>S</m> is a linear combination of the others and we need all of the vectors in <m>S</m> to form the span.
+    This leads us to the following formal characterization of a minimal spanning set,
+    called a <em>basis</em>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>basis</term><idx><h>basis for a vector space</h></idx>
+            <idx><h>vector space</h><h>basis</h></idx>
+        for a vector space <m>V</m> is a subset <m>S</m> of <m>V</m> if
+        <ol>
+          <li>
+            <p>
+              <m>\Span \ S = V</m> and
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S</m> is a linearly independent set.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    In other words,
+    a basis for a vector space <m>V</m> is a linearly independent spanning set for <m>V</m>.
+    To put it another way,
+    a basis for a vector space is a minimal spanning set for the vector space.
+    Similar reasoning will show that a basis is also a maximal linearly independent set.
+  </p>
+  <p>
+    The key ideas to take from the previous theorems are:
+    <ul>
+      <li>
+        <p>
+          A basis for a vector space <m>V</m> is a minimal spanning set for <m>V</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          A basis for <m>V</m> is a subset <m>S</m> of <m>V</m> so that
+          <ol>
+            <li>
+              <p>
+                <m>S</m> spans <m>V</m> and
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>S</m> is linearly independent.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+      <li>
+        <p>
+          No vector in a basis can be written as a linear combination of the other vectors in the basis.
+        </p>
+      </li>
+      <li>
+        <p>
+          If a subset <m>S</m> of a vector space <m>V</m> has the property that one of the vectors in <m>S</m> is a linear combination of the other vectors in <m>S</m>,
+          then <m>S</m> is not a basis for <m>V</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    As an example of a basis of a vector space,
+    we saw in Preview <xref ref="pa_5_b">Activity</xref>
+    that the set <m>S = \{1-t, 1+t\}</m> is both linearly independent and spans <m>\pol_1</m>,
+    and so <m>S</m> is a basis for <m>\pol_1</m>.
+  </p>
+  <activity xml:id="act_5_b_1">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Is <m>S = \{1+t, t, 1-t\}</m> a basis for <m>\pol_1</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why the set <m>S = \{1, t, t^2, \ldots,
+            t^n\}</m> is a basis for <m>\pol_n</m>.
+            This basis is called the <em>standard basis</em><idx><h>standard basis</h><h>for <m>\pol_n</m></h></idx> for <m>\pol_n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that the set
+            <me>
+              \left\{ \left[ \begin{array}{cc} 1\amp 0 \\ 1\amp 1 \end{array}  \right], \left[ \begin{array}{cc} 0\amp 1 \\ 1\amp 1 \end{array}  \right], \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array}  \right], \left[ \begin{array}{cc} 1\amp 1 \\ 0\amp 1 \end{array}  \right] \right\}
+            </me>
+            is a basis for <m>\M_{2 \times 2}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    It should be noted that not every vector space has a finite basis.
+    For example,
+    the space <m>\pol</m> of all polynomials with real coefficients
+    (of any degree)
+    is a vector space,
+    but no finite set of vectors will span <m>\pol</m>.
+    In fact, the infinite set <m>\{1, t, t^2, \ldots\}</m> is both linearly independent and spans <m>\pol</m>,
+    so <m>\pol</m> has an infinite basis.
+  </p>
+</section>

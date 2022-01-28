@@ -1,0 +1,101 @@
+<section xml:id="sec_det_prop_summ">
+  <title>Summary</title>
+  <ul>
+    <li>
+      <p>
+        The elementary row operations have the following effects on the determinant:
+        <ul>
+          <li>
+            <p>
+              If we multiply a row of a matrix by a constant <m>k</m>,
+              then the determinant is multiplied by <m>k</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If we swap two rows of a matrix,
+              then the determinant changes sign.
+            </p>
+          </li>
+          <li>
+            <p>
+              If we add a multiple of a row of a matrix to another,
+              the determinant does not change.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Each of the elementary row operations can be achieved by multiplication by elementary matrices.
+        To obtain the elementary matrix corresponding to an elementary row operation,
+        we perform the operation on the identity matrix.
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A</m> be an <m>n\times n</m> invertible matrix.
+        For any <m>\vb</m> in <m>\R^n</m>,
+        the solution <m>\vx</m> of <m>A\vx=\vb</m> has entries
+        <me>
+          x_i =\frac{\det(A_i(\vb))}{\det(A)}
+        </me>
+        where <m>A_i(\vb)</m> represents the matrix formed by replacing <m>i</m>th column of <m>A</m> with <m>\vb</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>A</m> be an invertible <m>n\times n</m> matrix.
+        Then
+        <me>
+          A^{-1} = \frac{1}{\det(A)} \text{ adj }  A
+        </me>
+        where the <m>\text{ adj }  A</m> matrix,
+        the <em>adjugate of <m>A</m></em>,
+        is defined as the matrix whose <m>ij</m>-th entry is <m>C_{ji}</m>,
+        the <m>ji</m>-th cofactor of <m>A</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        For a <m>2\times 2</m> matrix <m>A</m>,
+        the area of the image of the unit square under the transformation
+        <m>T(\vx)=A\vx</m> is equal to <m>|\det(A)|</m>,
+        which is also equal to the area of the parallelogram defined by the columns of <m>A</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        For a <m>3\times 3</m> matrix <m>A</m>,
+        the volume of the image of the unit cube under the transformation
+        <m>T(\vx)=A\vx</m> is equal to <m>|\det(A)|</m>,
+        which is also equal to the volume of the parallelepiped defined by the columns of <m>A</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        An <m>LU</m> factorization of a square matrix <m>A</m> consists of a lower triangular matrix <m>L</m> and an upper triangular matrix <m>U</m> so that <m>A = LU</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        A square matrix <m>A</m> has an <m>LU</m> factorization if we can use row operations without row interchanges to row reduce <m>A</m> to an upper triangular matrix <m>U</m>.
+        In this situation the elementary matrices that perform the row operations produce a lower triangular matrix <m>L</m> so that <m>A = LU</m>.
+        If <m>A</m> cannot be reduced to an upper triangular matrix <m>U</m> without row interchanges,
+        then we can factor <m>A</m> in the form <m>PLU</m>,
+        where <m>L</m> is a lower triangular matrix,
+        <m>U</m> is an upper triangular matrix,
+        and <m>P</m> is obtained from the identity matrix by appropriate row interchanges.
+      </p>
+    </li>
+    <li>
+      <p>
+        There are many instances where we have a number of systems to solve of the form <m>A \vx = \vb</m>,
+        all with the same coefficient matrix but where the vectors <m>\vb</m> can change.
+        With an <m>LU</m> factorization,
+        we can keep track of the row operations in one row reduction and save ourselves a significant amount of time when solving these systems.
+      </p>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,77 @@
+<section xml:id="sec_gram_schmidt_summ">
+  <title>Summary</title>
+  <ul>
+    <li>
+      <p>
+        The projection of the vector <m>\vv</m> in <m>V</m> onto <m>W</m> is the vector
+        <me>
+          \proj_W \vv = \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m
+        </me>,
+        where <m>W</m> is the a subspace of <m>\R^n</m> with orthogonal basis <m>\{\vw_1, \vw_2, \ldots, \vw_m\}</m>.
+        These projections are important in that
+        <m>\proj_W \vv</m> is the best approximation of the vector <m>\vv</m> by a vector in <m>W</m> in the least squares sense.
+      </p>
+    </li>
+    <li>
+      <p>
+        With <m>W</m> as in (a),
+        the projection of <m>\vv</m> orthogonal to <m>W</m> is the vector
+        <me>
+          \proj_{\perp W} \vv = \vv - \proj_W \vv
+        </me>.
+        The norm of <m>\proj_{\perp W} \vv</m> provides a measure of how well
+        <m>\proj_W \vv</m> approximates the vector <m>\vv</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The Gram-Schmidt process produces an orthogonal basis from any basis.
+        It works as follows.
+        Let <m>\{\vv_1, \vv_2, \ldots, \vv_m\}</m> be a basis for a subspace <m>W</m> of <m>\R^n</m>.
+        The set <m>\{\vw_1</m>, <m>\vw_2</m>,
+        <m>\vw_3</m>, <m>\ldots</m>, <m>\vw_{m}\}</m> defined by
+        <ul>
+          <li>
+            <p>
+              <m>\vw_1 = \vv_1</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vw_2 = \vv_2 - \ds \frac{\vv_2 \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vw_3 = \vv_3 - \ds \frac{ \vv_3 \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_3 \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2</m>,
+              <m>\vdots</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vw_m = \vv_m - \ds \frac{ \vv_m \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_m \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2 - \cdots - \frac{ \vv_m \cdot \vw_{m-1} }{ \vw_{m-1} \cdot \vw_{m-1} } \vw_{m-1}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      is an orthogonal basis for <m>W</m>.
+      Moreover,
+      <me>
+        \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\} = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k}\}
+      </me>
+      for each <m>k</m> between 1 and <m>m</m>.
+    </li>
+    <li>
+      <p>
+        The QR factorization has applications to solving least squares problems and approximating eigenvalues of matrices.
+        The QR factorization writes an
+        <m>m \times n</m> matrix with rank <m>n</m> as a product <m>A = QR</m>,
+        where the columns of <m>Q</m> form an orthonormal basis for <m>\Col A</m> and
+        <me>
+          R = [\vr_1 \ | \ \vr_2 \ | \ \vr_3 \ | \ \cdots \ | \ \vr_n ] = \left[ \begin{array}{cccccc} r_{11}\amp r_{12}\amp r_{13}\amp  \cdots \amp r_{1n-1}\amp r_{1n} \\ 0\amp r_{22}\amp r_{23}\amp  \cdots \amp r_{2n-1}\amp r_{2n} \\ 0\amp 0\amp r_{33}\amp  \cdots \amp r_{3n-1}\amp r_{3n} \\ \vdots\amp \vdots \amp \vdots \amp \vdots \amp \vdots \amp \vdots \\ 0\amp 0\amp 0\amp  \cdots \amp 0\amp r_{nn} \end{array}  \right]
+        </me>
+        is an upper triangular matrix.
+      </p>
+    </li>
+  </ul>
+</section>

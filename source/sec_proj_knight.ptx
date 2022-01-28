@@ -1,0 +1,170 @@
+<section xml:id="sec_proj_knight">
+  <title>Project: Analyzing Knight Moves</title>
+  <p>
+    To understand where a knight can move in a chess game,
+    we need to know the initial setup.
+    A chess board is an <m>8 \times 8</m> grid.
+    To be able to refer to the individual positions on the board,
+    we will place the board so that its lower left corner is at the origin,
+    make each square in the grid have side length <m>1</m>,
+    and label each square with the point at the lower left corner.
+    This is illustrated at left in <xref ref="F_knight_2">Figure</xref>.
+  </p>
+  <figure xml:id="F_knight_2">
+    <caption>Initial knight placement and moves.</caption>
+    <image width="73%" source="knight_grid"/>   <image width="73%" source="knight_move_2"/>
+  </figure>
+  <p>
+    Each player has two knights to start the game,
+    for one player the knights would begin in positions <m>(1,0)</m> and <m>(6,0)</m>.
+    Because of the symmetry of the knight's moves,
+    we will only analyze the moves of the knight that begins at position <m>(1,0)</m>.
+    This knight has only three allowable moves from its starting point
+    (assuming that the board is empty),
+    as shown at right in <xref ref="F_knight_2">Figure</xref>.
+    The questions we will ask are:
+    given any position on the board,
+    can the knight move from its start position to that position using only knight moves and,
+    what sequence of moves will make that happen.
+    To answer these questions we will use linear combinations of knight moves described as vectors.
+  </p>
+  <p>
+    Each knight move can be described by a vector.
+    A move one position to the right and two up can be represented as <m>\vn_1 = \left[ \begin{array}{c} 1\\2 \end{array}  \right]</m>.
+    Three other moves are <m>\vn_2 = \left[ \begin{array}{r} -1\\2 \end{array}  \right]</m>,
+    <m>\vn_3 = \left[ \begin{array}{c} 2\\1 \end{array}  \right]</m>,
+    and <m>\vn_4 = \left[ \begin{array}{r} -2\\1 \end{array}  \right]</m>.
+    The other four knight moves are the additive inverses of these four.
+    Any sequence of moves by the knight is given by the linear combination
+    <me>
+      x_1 \vn_1 + x_2 \vn_2 + x_3 \vn_3 + x_4 \vn_4
+    </me>.
+  </p>
+  <p>
+    A word of caution: the knight can only make complete moves,
+    so we are restricted to integer
+    (either positive or negative)
+    values for <m>x_1</m>, <m>x_2</m>,
+    <m>x_3</m>, and <m>x_4</m>.
+    You can use the GeoGebra app at \url{https://www.geogebra.org/m/dfwtskrj} to see the effects the weights have on the knight moves.
+    We should note here that since addition of vectors is commutative,
+    the order in which we apply our moves does not matter.
+    However, we may need to be careful with the order so that our knight does not leave the chess board.
+  </p>
+  <activity xml:id="act_knight_1">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Explain why the vector equation
+            <me>
+              \left[ \begin{array}{c} 1\\0 \end{array}  \right] + x_1 \vn_1 + x_2 \vn_2 + x_3 \vn_3 + x_4 \vn_4 = \left[ \begin{array}{c} 5\\2 \end{array}  \right]
+            </me>
+            will tell us if it is possible for the knight to move from its initial position at <m>(1,0)</m> to the position (5,2).
+          </p>
+        </li>
+        <li>
+          <p>
+            Find all solutions, if any, to the system from part (a).
+            If it is possible to find a sequence of moves that take the knight from its initial position to position <m>(5,2)</m>,
+            find weights <m>x_1</m>, <m>x_2</m>,
+            <m>x_3</m>, and <m>x_4</m> to accomplish this move.
+            (Be careful <mdash/> we must have solutions in which <m>x_1</m>,
+            <m>x_2</m>, <m>x_3</m>, and <m>x_4</m> are integers.)
+            Is there more than one sequence of possible moves?
+            You can check your solution with the GeoGebra app at \url{https://www.geogebra.org/m/dfwtskrj}.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Project <xref ref="act_knight_1">Activity</xref>
+    shows that it is possible for our knight to move to position <m>(5,2)</m> on the board.
+    We would like to know if it is possible to move to any position on the board.
+    That is, we would like to know if the integer span of the four moves <m>\vn_1</m>,
+    <m>\vn_2</m>, <m>\vn_3</m>,
+    and <m>\vn_4</m> will allow our knight to cover the entire board.
+    This takes a bit more work.
+  </p>
+  <activity xml:id="act_knight_2">
+    <p>
+      Given any position <m>(a,b)</m>,
+      we want to know if our knight can move from its start position <m>(1,0)</m> to position <m>(a,b)</m>.
+      <ul>
+        <li>
+          <p>
+            Write a vector equation whose solution will tell us if it is possible for our knight to move from its start position <m>(1,0)</m> to position <m>(a,b)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that the solution to part (a) can be written in the form
+            <md>
+              <mrow xml:id="eq_knight_x1" number="yes">x_1 \amp = \frac{1}{4}\left(-5x_3+3x_4+b+2(a-1)\right)</mrow>
+              <mrow xml:id="eq_knight_x2" number="yes">x_2 \amp = \frac{1}{4}\left(3x_3-5x_4+b-2(a-1)\right)</mrow>
+              <mrow>x_3 \amp \text{ is free }</mrow>
+              <mrow>x_4 \amp \text{ is free. }</mrow>
+            </md>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    To answer our question if our knight can reach any position,
+    we now need to determine if we can always find integer values of <m>x_3</m> and <m>x_4</m> to make equations <xref ref="eq_knight_x1"/> and <xref ref="eq_knight_x2"/> have integer solutions.
+    In other words,
+    we need to find values of <m>x_3</m> and <m>x_4</m> so that <m>-5x_3+3x_4+b+2(a-1)</m> and
+    <m>3x_3-5x_4+b-2(a-1)</m> are multiples of <m>4</m>.
+    How we do this could depend on the parity
+    (even or odd)
+    of <m>a</m> and <m>b</m>.
+    For example, if <m>a</m> is odd and <m>b</m> is even,
+    say <m>a = 2r+1</m> and <m>b = 2s</m> for some integers <m>r</m> and <m>s</m>, then
+    <md>
+      <mrow>x_1 \amp = \frac{1}{4}\left( -5x_3 + 3x_4 + 2s + 4r\right)</mrow>
+      <mrow>x_2 \amp = \frac{1}{4}\left( 3x_3 - 5x_4 + 2s - 4r \right)</mrow>
+    </md>.
+  </p>
+  <p>
+    With a little trial and error we can see that if we let <m>x_3 = x_4 = s</m>,
+    then <m>x_1 = r</m> and <m>x_2 = -r</m> is a solution with integer weights.
+    For example,
+    when <m>a=5</m> and <m>b=2</m> we have <m>r=2</m> and <m>s = 1</m>.
+    This makes <m>x_1 = 2</m>,
+    <m>x_2 = -2</m>, <m>x_3 = 1 = x_4</m>.
+    Compare this to the solution(s) you found in Project <xref ref="act_knight_1">Activity</xref>.
+    This analysis shows us how to move our knight to any position <m>(a,b)</m> where <m>a</m> is odd and <m>b</m> is even.
+  </p>
+  <activity xml:id="act_knight_3">
+    <p>
+      Complete the analysis as above to determine if there are integer solutions to our knight's move system in the following cases.
+      <ul>
+        <li>
+          <p>
+            <m>a</m> odd and <m>b</m> odd
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a</m> even and <m>b</m> even
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a</m> even and <m>b</m> odd.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Project <xref ref="act_knight_3">Activity</xref>
+    shows that for any position on the chess board,
+    using linear combinations of move vectors,
+    we can find a sequence of moves that takes our knight to that position.
+    (We actually haven't shown that these moves can be made so that our knight always stays on the board <mdash/> we leave that question to you.)
+  </p>
+</section>

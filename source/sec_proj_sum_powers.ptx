@@ -1,0 +1,157 @@
+<section xml:id="sec_proj_sum_powers">
+  <title>Project: Finding Formulas for Sums of Powers</title>
+  <p>
+    One way to derive formulas for sums of powers of whole numbers is to use different bases and coordinate vectors.
+    One basis that will be useful is a basis of polynomials created by the binomial coefficients.
+    Recall that the binomial coefficient <m>\binom{n}{k}</m> is equal to
+    <me>
+      \binom{n}{k} = \frac{n!}{k!(n-k)!}
+    </me>,
+    with <m>\binom{n}{k} = 0</m> if <m>n \lt  k</m>.
+  </p>
+  <p>
+    The binomial coefficient can be rewritten in a way to make it applicable to polynomials as
+    <me>
+      \binom{n}{k} = \frac{n(n-1)(n-2) \cdots (n-k+1)}{k!} = \Pi_{i=1}^k \frac{1}{i}(n-i+1)
+    </me>.
+  </p>
+  <p>
+    With this representation of <m>\binom{n}{k}</m>,
+    we can define a new polynomial in <m>t</m> of degree <m>k</m> as
+    <me>
+      p_{k}(t) = \frac{1}{k!}(t)(t-1)(t-2) \cdots (t-k+1)
+    </me>
+    with <m>p_0(t) = 1</m>.
+    For example,
+    <md>
+      <mrow>p_1(t) \amp = \frac{1}{1!}t = t</mrow>
+      <mrow>p_2(t) \amp = \frac{1}{2}(t)(t-1) = \frac{1}{2}\left(t^2-t\right)</mrow>
+      <mrow>p_3(t) \amp = \frac{1}{6}(t)(t-1)(t-2) = \frac{1}{6}\left(t^3-3t^2+2t\right)</mrow>
+    </md>.
+  </p>
+  <p>
+    These
+    <q>generalized binomial coefficients</q>
+    appear in Newton's generalized binomial theorem.
+  </p>
+  <p>
+    Two facts will make these polynomials useful for our sums.
+  </p>
+  <activity xml:id="act_hockey_stick">
+    <p>
+      Our polynomials <m>p_k(t)</m> are defined in terms of binomial coefficients.
+      A useful identity will relate sums of binomial coefficients to other binomial coefficients.
+      This identity, called the <em>hockey-stick identity</em>
+      after the way it can be visualized on Pascal's triangle,
+      is as follows:
+      <me>
+        \sum_{k=0}^{n-1} \binom{k}{r} = \binom{n}{r+1}
+      </me>
+      for positive integers <m>r</m>.
+      Use the definition of the binomial coefficients and some algebra to verify the hockey-stick identity.
+    </p>
+  </activity>
+  <p>
+    The second useful fact about our polynomials <m>p_k(t)</m> is that they form a basis for <m>\pol_n</m>.
+  </p>
+  <activity xml:id="act_binomial_basis">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Let <m>k</m> be a positive integer.
+            Explain why <m>p_k(0) = p_k(1) = p_k(2) = \cdots = p_k(k-1) = 0</m> and <m>p_k(k) = 1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\CP_n = \{p_0(t), p_1(t),
+            p_2(t), \ldots, p_n(t)\}</m>.
+            Show that <m>\CP_n</m> is a basis for <m>\pol_n</m>. (Hint: Let <m>c_1</m>,
+            <m>c_2</m>,
+            <m>\ldots</m>, <m>c_n</m> be scalars and consider the equation
+            <me>
+              c_0p_0(t) + c_1p_1(t) + c_2 p_2(t) + \cdots + c_np_n(t) = 0
+            </me>.
+            Evaluate this equation at <m>t=0</m>, <m>t=1</m>,
+            <m>\ldots</m>, <m>t=n</m> and use the result of part (a).)
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Now we have the tools we need to derive our formulas.
+    To simplify computations,
+    we will change coordinates to the standard basis <m>\CS_n = \{1, t, t^2, \ldots,
+    t^n\}</m> for <m>\pol_n</m>.
+  </p>
+  <p>
+    We will illustrate the process of deriving formulas for our sums with the sum <m>\sum_{t=0}^{n-1} t</m>.
+    We want to write <m>t</m> as a linear combination of the vectors in <m>\CP_1</m> so that we can utilize the hockey-stick identity.
+    In this case, by definition we have <m>t = p_1(t)</m>.
+    It follows by the hockey-stick identity and the fact that <m>p_1(t) = \binom{t}{1}</m> that
+    <md>
+      <mrow>\sum_{t=0}^{n-1} t \amp = \sum_{t=0}^{n-1}  p_1(t)</mrow>
+      <mrow>\amp = \sum_{t=0}^{n-1}  \binom{t}{1}</mrow>
+      <mrow>\amp = \binom{n}{2}</mrow>
+      <mrow>\amp = \frac{1}{2}\left(n^2-n\right)</mrow>
+    </md>.
+  </p>
+  <p>
+    This is exactly the formula we saw at the beginning of this section.
+    The cases for sums of higher powers work the same way,
+    but we will need to do a little more work to write <m>t^n</m> in terms of the basis vectors in <m>\CP_n</m>.
+  </p>
+  <activity xml:id="act_sum_2">
+    <p>
+      Consider the sum <m>\sum_{t=0}^{n-1} t^2</m>.
+      We want to write <m>t^2</m> as a linear combination of <m>p_0(t)</m>,
+      <m>p_1(t)</m> and <m>p_2(t)</m>.
+      To do so, we will use the coordinate vectors with respect to <m>\CS_2</m> and do our work in <m>\R^3</m>.
+      <ul>
+        <li>
+          <p>
+            Find <m>[p_0(t)]_{\CS_2}</m>,
+            <m>[p_1(t)]_{\CS_2}</m>, <m>[p_2(t)]_{\CS_2}</m>, and <m>[t^2]_{\CS_2}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the coordinate vectors from part (a) to write <m>t^2</m> as a linear combination of the vectors in <m>\CP_2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the result of part (b) and,
+            the hockey-stick identity,
+            and the fact that <m>p_k(t) = \binom{t}{k}</m> to find a formula for <m>\sum_{t=0}^{n-1} t^2</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Deriving formulas for higher powers involves the same process,
+    just with more algebra.
+  </p>
+  <activity xml:id="act_sums_higher">
+    <p>
+      Use the process outlined in Project <xref ref="act_sum_2">Activity</xref>
+      to derive formulas for the following sums.
+      <ul>
+        <li>
+          <p>
+            <m>\sum_{t=0}^{n-1} t^3</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\sum_{t=0}^{n-1} t^4</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

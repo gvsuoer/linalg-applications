@@ -1,0 +1,77 @@
+<section xml:id="sec_best_approx">
+  <title>Best Approximations</title>
+  <p>
+    We have seen that <m>\proj_{\perp W} \vv</m> is orthogonal to every vector in <m>W</m>,
+    which suggests that <m>\proj_W \vv</m> is in fact the vector in <m>W</m> that is closest to <m>\vv</m>.
+    We now verify this fact and conclude that
+    <m>\proj_W \vv</m> is the vector in <m>W</m> closest to <m>\vv</m> and therefore the best approximation of <m>\vv</m> by a vector in <m>W</m>.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>\B = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> be an orthogonal basis for a subspace <m>W</m> of <m>\R^n</m> and let <m>\vv</m> be a vector in <m>\R^n</m>.
+        Then
+        <me>
+          ||\vv - \emph{proj}_W \vv || \lt  || \vv - \vx ||
+        </me>
+        for every vector <m>\vx</m> different from <m>\emph{proj}_W \vv</m> in <m>W</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>\B = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> be an orthogonal basis for a subspace <m>W</m> of <m>\R^n</m> and let <m>\vv</m> be a vector in <m>\R^n</m>.
+      Let <m>\vx</m> be a vector in <m>W</m>.
+      The vector <m>\proj_W \vv - \vx</m> is in <m>W</m>,
+      so is orthogonal to <m>\proj_{\perp W} \vv = \vv - \proj_W \vv</m>.
+      Thus, the dotted triangle whose vertices are the tips of the vectors <m>\vv</m>,
+      <m>\vx</m>,
+      and <m>\proj_W \vv</m> in <xref ref="F_best_approx">Figure</xref> is a right triangle.
+    </p>
+    <figure xml:id="F_best_approx">
+      <caption>The best approximation to <m>\vv</m> in <m>W</m></caption>
+      <image width="73%" source="6_d_best_approx"/>
+    </figure>
+    <p>
+      The Pythagorean theorem then shows that
+      <me>
+        || \vv - \vx ||^2 = || \proj_{\perp W} \vv ||^2 + || \proj_W \vv - \vx ||^2
+      </me>.
+    </p>
+    <p>
+      Now <m>\vx \neq \proj_W \vv</m>,
+      so <m>|| \proj_W \vv - \vx ||^2 > 0</m>.
+      This implies
+      <me>
+        || \vv - \vx ||^2 > || \proj_{\perp W} \vv ||^2
+      </me>
+      and it follows that
+      <me>
+        || \vv - \vx || > || \proj_{\perp W} \vv ||
+      </me>.
+    </p>
+  </proof>
+  <p>
+    This theorem shows that the distance from
+    <m>\proj_W \vv</m> to <m>\vv</m> is less than the distance from any other vector in <m>W</m> to <m>\vv</m>.
+    So <m>\proj_W \vv</m> is the best approximation to <m>\vv</m> of all the vectors in <m>W</m>.
+  </p>
+  <p>
+    If <m>\vv = [v_1 \ v_2 \ v_3 \ \ldots \ v_m]^{\tr}</m> and <m>\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}</m>,
+    then the square of the error in approximating <m>\vv</m> by <m>\proj_W \vv</m> is given by
+    <me>
+      || \vv - \proj_W \vv ||^2 = \sum_{i=1}^m (v_i - w_i)^2
+    </me>.
+  </p>
+  <p>
+    So <m>\proj_W \vv</m> minimizes this sum of squares over all vectors in <m>W</m>.
+    As a result, we call <m>\proj_W \vv</m> the
+    <em>least squares approximation</em> to <m>\vv</m>.
+  </p>
+  <activity>
+    <p>
+      Let <m>\CB = \left\{\left[ \begin{array}{r} 1 \\ 0 \\ -1 \\ 0 \end{array} \right], \left[ \begin{array}{r} 0 \\ 1 \\ 0 \\ -1 \end{array} \right], \left[ \begin{array}{r} -1 \\ 1 \\ -1 \\ 1 \end{array} \right]\right\}</m> and let <m>W = \Span(\CB)</m> in <m>\R^4</m>.
+      Find the best approximation in <m>W</m> to the vector <m>\vv = \left[ \begin{array}{r} 2 \\ 3 \\ 1 \\ -1 \end{array} \right]</m> in <m>W</m>.
+    </p>
+  </activity>
+</section>

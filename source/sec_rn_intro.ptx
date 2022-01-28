@@ -1,0 +1,130 @@
+<section xml:id="sec_rn_intro">
+  <title>Introduction</title>
+  <p>
+    The set <m>\R^n</m> with vector addition and scalar multiplication has a nice algebraic structure.
+    These operations satisfy a number of properties,
+    such as associativity and commutativity of vector addition,
+    the existence of an additive identity and additive inverse,
+    distribution of scalar multiplication over vector addition,
+    and others.
+    These properties make it easier to work with the whole space since we can express the vectors as linear combinations of basis vectors in a unique way.
+    This algebraic structure makes <m>\R^n</m> a <em>vector space</em>.
+  </p>
+  <p>
+    There are many subsets of <m>\R^n</m> that have this same structure.
+    These subsets are called <em>subspaces</em> of <m>\R^n</m>.
+    These are the sets of vectors for which the addition of any two vectors is defined within the set,
+    the scalar multiple of any vector by any scalar is defined within the set and the set contains the zero vector.
+    One type of subset with this structure is the span of a set of vectors.
+  </p>
+  <p>
+    Recall that the span of a set of vectors
+    <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> in <m>\R^n</m> is the set of all linear combinations of the vectors.
+    For example,
+    if <m>\vv_1=\left[ \begin{array}{c} 1\\1\\0 \end{array}  \right]</m> and <m>\vv_2=\left[ \begin{array}{c} 1\\0\\1 \end{array}  \right]</m>,
+    then a linear combination of these two vectors is of the form
+    <me>
+      c_1 \vv_1 + c_2 \vv_2 = c_1 \left[ \begin{array}{c} 1\\1\\0 \end{array}  \right] + c_2 \left[ \begin{array}{c} 1\\0\\1 \end{array}  \right] = \left[ \begin{array}{c} c_1+c_2 \\c_1 \\c_2 \end{array}  \right] \,
+    </me>.
+  </p>
+  <p>
+    One linear combination can be obtained by letting <m>c_1=2, c_2=-3</m>,
+    which gives the vector <m>2\vv_1-3\vv_2=\left[ \begin{array}{c} -1\\-3\\2 \end{array} \right]</m>.
+    All such linear combinations form the span of the vectors <m>\vv_!</m> and <m>\vv_2</m>.
+    In this case,
+    these vectors will form a plane through the origin in <m>\R^3</m>.
+  </p>
+  <p>
+    Now we will investigate if the span of two vectors form a subspace,
+    i.e. if it has the same structure as a vector space.
+  </p>
+  <activity xml:id="pa_3_a">
+    <p>
+      Let <m>\vw_1</m> and <m>\vw_2</m> be two vectors in <m>\R^n</m>.
+      Let <m>W = \Span \{\vw_1, \vw_2\}</m>.
+      <ol>
+        <li>
+          <p>
+            For <m>W</m> to be a subspace of <m>\R^n</m>,
+            the sum of any two vectors in <m>W</m> must also be in <m>W</m>.
+            <ul>
+              <li>
+                <p>
+                  Pick two specific examples of vectors <m>\vu, \vy</m> in <m>W</m>
+                  (keeping <m>\vw_1, \vw_2</m> unknown/general vectors).
+                  For example, one specific <m>\vu</m> would be
+                  <m>2\vw_1-3\vw_2</m> as we used in the above example.
+                  Find the sum of <m>\vu, \vy</m>.
+                  Is the sum also in <m>W</m>?
+                  Explain.
+                  <hint>
+                    <p>
+                      What does it mean for a vector to be in <m>W</m>?
+                    </p>
+                  </hint>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now let <m>\vu</m> and <m>\vy</m> be arbitrary vectors in <m>W</m>.
+                  Explain why <m>\vu + \vy</m> is in <m>W</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>W</m> to be a subspace of <m>\R^n</m>,
+            any scalar multiple of any vector in <m>W</m> must also be in <m>W</m>.
+            <ul>
+              <li>
+                <p>
+                  Pick a specific example <m>\vu</m> in <m>W</m>.
+                  Explain why <m>2\vu, -3\vu, \pi\vu</m> are all also in <m>W</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now let <m>a</m> be an arbitrary scalar and let <m>\vu</m> be an arbitrary vector in <m>W</m>.
+                  Explain why the vector <m>a \vu</m> is in <m>W</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>W</m> to be a subspace of <m>\R^n</m>,
+            the zero vector must also be in <m>W</m>.
+            Explain why the zero vector is in <m>W</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Does vector addition being commutative for vectors in <m>\R^n</m> imply that vector addition is also commutative for vectors in <m>W</m>?
+            Explain your reasoning.
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose we have an arbitrary <m>\vu</m> in <m>W</m>.
+            There is an additive inverse of <m>\vu</m> in <m>\R^n</m>.
+            In other words,
+            there is a <m>\vu'</m> such that <m>\vu+ \vu'=\vzero</m>.
+            Should this <m>\vu'</m> be also in <m>W</m>?
+            If so, explain why.
+            If not, give a counterexample.
+          </p>
+        </li>
+        <li>
+          <p>
+            Look at the other properties of vector addition and scalar multiplication of vectors in <m>\R^n</m> listed in <xref ref="thm_vector_properties">Theorem</xref>
+            in <xref ref="sec_vector_representation">Section</xref>.
+            Which of these properties should also hold for vectors in <m>W</m>?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

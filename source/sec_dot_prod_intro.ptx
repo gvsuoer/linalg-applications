@@ -1,0 +1,225 @@
+<section xml:id="sec_dot_prod_intro">
+  <title>Introduction</title>
+  <p>
+    Orthogonality,
+    a concept which generalizes the idea of perpendicularity,
+    is an important concept in linear algebra.
+    We use the dot product to define orthogonality and more generally angles between vectors in <m>\R^n</m> for any dimension <m>n</m>.
+    The dot product has many applications,
+    e.g., finding components of forces acting in different directions in physics and engineering.
+    The dot product is also an example of a larger concept,
+    <em>inner products</em>, that we will discuss later.
+    We introduce and investigate dot products in this section.
+  </p>
+  <p>
+    We will illustrate the dot product in <m>\R^2</m>,
+    but the process we go through will translate to any dimension.
+    Recall that we can represent the vector
+    <m>\vv = \left[ \begin{array}{c} v_1 \\ v_2 \end{array}  \right]</m> as the directed line segment
+    (or arrow)
+    from the origin to the point <m>(v_1, v_2)</m> in <m>\R^2</m>,
+    as illustrated in <xref ref="F_6_a_Vector_norm">Figure</xref>.
+    Using the Pythagorean Theorem we can then define the length
+    (or magnitude or norm)
+    of the vector <m>\vv</m> in <m>\R^2</m> as
+    <me>
+      || \vv || = \sqrt{v_1^2 + v_2^2}
+    </me>.
+  </p>
+  <p>
+    We can also write this norm as
+    <me>
+      \sqrt{v_1v_1 + v_2v_2}
+    </me>.
+  </p>
+  <p>
+    The expression under the square root is an important one and we extend it and give it a special name.
+  </p>
+  <figure xml:id="F_6_a_Vector_norm">
+    <caption>A vector in <m>\R^2</m> from the origin to a point.</caption>
+    <image width="92.5%" source="6_a_Vector_norm"/>
+  </figure>
+  <p>
+    If <m>\vu = [ u_1 \ u_2 ]^{\tr}</m> and
+    <m>\vv = [ v_1 \ v_2]^{\tr}</m> are vectors in <m>\R^2</m>,
+    then we call the expression
+    <m>u_1v_1+u_2v_2</m> the <em>dot product</em>
+    of <m>\vu</m> and <m>\vv</m>,
+    and denote it as <m>\vu \cdot \vv</m>.
+    With this idea in mind,
+    we can rewrite the norm of the vector <m>\vv</m> as
+    <me>
+      || \vv || = \sqrt{\vv \cdot \vv}
+    </me>.
+  </p>
+  <p>
+    The definition of the dot product translates naturally to <m>\R^n</m>
+    (see <xref ref="ex_1_e_scalar_product">Exercise</xref>
+    in <xref ref="sec_matrix_vector">Section</xref>).
+  </p>
+  <definition xml:id="def_6_a_dot_product">
+    <statement>
+      <p>
+        Let <m>\vu = [u_1 \ u_2 \ \cdots \ u_n]</m> and
+        <m>\vv = [ v_1 \ v_2 \ \cdots \ v_n ]</m> be vectors in <m>\R^n</m>.
+        The <term>dot product</term>
+            <idx><h>dot product</h></idx>
+        (or <term>scalar product</term>
+            <idx><h>scalar product</h></idx>
+        ) of <m>\vu</m> and <m>\vv</m> is the scalar
+        <me>
+          \vu \cdot \vv = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \displaystyle \sum_{i=1}^n u_iv_i
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The dot product then allows us to define the norm
+    (or magnitude or length)
+    of any vector in <m>\R^n</m>.
+  </p>
+  <definition xml:id="def_6_a_length_Rn">
+    <statement>
+      <p>
+        The <term>norm</term><idx><h>vector</h><h>norm in <m>\R^n</m></h></idx> <m>||\vv||</m> of the vector <m>\vv \in \R^n</m> is
+        <me>
+          ||\vv|| = \sqrt{\vv \cdot \vv}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We also use the words <em>magnitude</em><idx><h>vector</h><h>magnitude in <m>\R^n</m></h></idx> or
+    <em>length</em><idx><h>vector</h><h>length in <m>\R^n</m></h></idx> as alternatives for the word norm.
+    We can equivalently write the norm of the vector <m>\vv = [ v_1 \ v_2 \ \cdots \ v_n ]^{\tr}</m> as
+    <me>
+      ||\vv|| = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}
+    </me>.
+  </p>
+  <p>
+    We can also realize the dot product as a matrix product.
+    If <m>\vu = [ u_1 \ u_2 \ \cdots \ u_n ]^{\tr}</m> and <m>\vv = [  v_1 \ v_2 \ \cdots \ v_n ]^{\tr}</m>, then
+    <me>
+      \vu \cdot \vv = \vu^{\tr}\vv.\footnote{Technically, \(\vu^{\tr}\vv\) is a \(1 \times 1\) matrix and not a scalar, but we usually think of \(1 \times 1\) matrices as scalars.}
+    </me>
+  </p>
+  <p>
+    <em>IMPORTANT NOTE: </em> The dot product is only defined between two vectors with the
+    <em>same number of components</em>.
+  </p>
+  <p>
+    \item The dot product satisfies some useful properties as given in the next theorem.
+  </p>
+  <theorem xml:id="thm_6_a_dot_product">
+    <statement>
+      <p>
+        Let <m>\vu</m>, <m>\vv</m>,
+        and <m>\vw</m> be vectors in <m>\R^n</m>,
+        and let <m>c</m> be a scalar.
+        Then
+        <ul>
+          <li>
+            <p>
+              <m>\vu \cdot \vv = \vv \cdot \vu</m> (the dot product is <em>commutative</em>),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(\vu + \vv) \cdot \vw = (\vu \cdot \vw) + (\vv \cdot \vw)</m> (the dot product
+              <em>distributes over vector addition</em>),
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(c\vu) \cdot \vv = \vu \cdot (c\vv) = c(\vu \cdot \vv)</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vu \cdot \vu \geq 0</m> with equality if and only if <m>\vu = \vzero</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>||c \vu || = |c| ||\vu||</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Verification of some of these properties is left to the exercises.
+  </p>
+  <activity xml:id="pa_6_a">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Find <m>\vu \cdot \vv</m> if
+            <m>\vu = [2 \ 3 \ -1 \ 4]^{\tr}</m> and <m>\vv = [4 \ 6 \ 7 \ -5]^{\tr}</m> in <m>\R^4</m>.
+            Let <m>\vu</m> and <m>\vv</m> be vectors in <m>\R^5</m> with <m>\vu \cdot \vv = -1</m>,
+            <m>|| \vu || = 2</m> and <m>|| \vv || = 3</m>.
+            <ul>
+              <li>
+                <p>
+                  Use property (c) of <xref ref="thm_6_a_dot_product">Theorem</xref>
+                  to determine the value of <m>\vu \cdot 2\vv</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use property (b) of <xref ref="thm_6_a_dot_product">Theorem</xref>
+                  to determine the value of <m>(\vu + \vv) \cdot \vv</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use whatever properties of <xref ref="thm_6_a_dot_product">Theorem</xref>
+                  that are needed to determine the value of <m>(2\vu+4\vv) \cdot (\vu - 7\vv)</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            At times we will want to find vectors in the direction of a given vector that have a certain magnitude.
+            Let <m>\vu = [2 \ 2 \ 1]^{\tr}</m> in <m>\R^3</m>.
+            <ul>
+              <li>
+                <p>
+                  What is <m>|| \vu ||</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Show that <m>\left| \left| \frac{1}{||\vu||} \vu \right| \right| = 1</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+  <p>
+    Vectors with magnitude 1 are important and are given a special name.
+  </p>
+  <definition xml:id="def_6_a_unit_vector">
+    <statement>
+      <p>
+        A vector <m>\vv</m> in <m>\R^n</m> is a <term>unit vector</term>
+            <idx><h>unit vector</h></idx>
+        if <m>|| \vv || = 1</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We can use unit vectors to find vectors of a given length in the direction of a given vector.
+    Let <m>c</m> be a positive scalar and <m>\vv</m> a vector in <m>\R^n</m>.
+    Use properties from <xref ref="thm_6_a_dot_product">Theorem</xref>
+    to show that the magnitude of the vector <m>c \frac{\vv}{||\vv||}</m> is <m>c</m>.
+  </p>
+</section>

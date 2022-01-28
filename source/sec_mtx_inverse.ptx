@@ -1,0 +1,86 @@
+<section xml:id="sec_mtx_inverse">
+  <title>Finding the Inverse of a Matrix</title>
+  <p>
+    The next questions for us to address are how to tell when a matrix is invertible and how to find the inverse of an invertible matrix.
+    Consider a <m>2 \times 2</m> matrix <m>A</m>.
+    To find the inverse matrix <m>B = [\vb_1 \ \vb_2]</m> of <m>A</m>,
+    we have to solve the two matrix-vector equations <m>A \vb_1 = \begin{bmatrix}1 \\ 0 \end{bmatrix}</m> and
+    <m>A \vb_2= \begin{bmatrix}0 \\1 \end{bmatrix}</m> to find the columns of <m>B</m>.
+    Since <m>A</m> is the coefficient matrix for both systems,
+    we apply the same row operations on both systems to reduce <m>A</m> to RREF. Thus,
+    instead of solving the two matrix-vector equations separately,
+    we could simply have found the RREF of
+    <me>
+      \left[\, A \ \left| \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array} \right. \right]
+    </me>
+    and done all of the work in one pass.
+    Note that the right hand side of the augmented matrix is now <m>I_2</m>.
+    So we row reduce <m>[A \ | \ I_2]</m>,
+    and if the systems are consistent,
+    the reduced row echelon form of
+    <m>[A \ | \ I_2]</m> must be <m>[I_2 \ | \ A^{-1}]</m>.
+    You should be able to see that this same process works in any dimension.
+  </p>
+  <p>
+    <em>How to find the inverse of an
+    <m>n \times n</m> matrix <m>A</m>:</em>
+    <ul>
+      <li>
+        <p>
+          Augment <m>A</m> with the identity matrix <m>I_n</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Apply row operations to reduce the augmented matrix <m>[A \ | \ I_n]</m>.
+          If the system is consistent,
+          then the reduced row echelon form of <m>[A \ | \ I_n]</m> will have the form
+          <m>[I_n \ | \ B]</m> (by <xref ref="act_2_c_1">Activity</xref> (d)).
+          If the reduced row echelon form of <m>A</m> is not <m>I_n</m>,
+          then this step fails and <m>A</m> is not invertible.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>A</m> is row equivalent to <m>I_n</m>,
+          then the matrix <m>B</m> in the second step has the property that <m>AB = I_n</m>.
+          We will show later that the matrix <m>B</m> also satisfies
+          <m>BA = I_n</m> and so <m>B</m> is the inverse of <m>A</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <activity xml:id="act_2_c_3">
+    <p>
+      Find the inverse of each matrix
+      <em>using the method above</em>, if it exists.
+      Compare the result with the inverse that you get from using appropriate technology to directly calculate the inverse.
+      <ul>
+        <li>
+          <p>
+            <m>\left[ \begin{array}{crr} 1\amp 1\amp 1\\ 1\amp 1\amp -1\\ 1\amp -1\amp 0 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left[ \begin{array}{cccc} 1\amp 1\amp 1\\ 2\amp 2\amp 2\\ 0\amp 0\amp 1 \end{array} \right]</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    We can use this method of finding the inverse of a matrix to derive a concrete formula for the inverse of a <m>2 \times 2</m> matrix:
+    <men xml:id="eq_2_c_1">
+      \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]^{-1} = \frac{1}{ad-bc} \left[ \begin{array}{rr} d\amp -b \\ -c\amp a \end{array}  \right]
+    </men>,
+    provided that <m>ad-bc \neq 0</m>
+    (see <xref ref="ex_2_c_2by2_inverse">Exercise</xref>).
+    Hence, any <m>2\times 2</m> matrix
+    <m>\left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]</m> has an inverse if and only if <m>ad-bc\neq 0</m>.
+    We call this quantity <em>determinant of <m>A</m></em>,
+    <m>\det(A)</m>.
+    We will see that the determinant of a general
+    <m>n\times n</m> matrix will be essential in determining invertibility of the matrix.
+  </p>
+</section>

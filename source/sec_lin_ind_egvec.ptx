@@ -1,0 +1,156 @@
+<section xml:id="sec_lin_ind_egvec">
+  <title>Linearly Independent Eigenvectors</title>
+  <p>
+    An important question we will want to answer about a matrix is how many linearly independent eigenvectors the matrix has.
+    <xref ref="act_3_c_1">Activity</xref>
+    shows that eigenvectors for the same eigenvalue may be linearly dependent or independent,
+    but all of our examples so far seem to indicate that eigenvectors corresponding to different eigenvalues are linearly independent.
+    This turns out to be universally true as our next theorem demonstrates.
+    The next activity should help prepare us for the proof of this theorem
+  </p>
+  <activity xml:id="act_3_c_3">
+    <p>
+      Let <m>\lambda_1</m> and <m>\lambda_2</m> be distinct eigenvalues of a matrix <m>A</m> with corresponding eigenvectors <m>\vv_1</m> and <m>\vv_2</m>.
+      The goal of this activity is to demonstrate that <m>\vv_1</m> and <m>\vv_2</m> are linearly independent.
+      To prove that <m>\vv_1</m> and <m>\vv_2</m> are linearly independent,
+      suppose that
+      <men xml:id="eq_3_c_2">
+        x_1\vv_1 + x_2 \vv_2 = \vzero
+      </men>.
+      <ul>
+        <li>
+          <p>
+            Multiply both sides of equation <xref ref="eq_3_c_2"/> on the left by the matrix <m>A</m> and show that
+            <men xml:id="eq_3_c_3">
+              x_1\lambda_1\vv_1 + x_2 \lambda_2\vv_2 = \vzero
+            </men>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now multiply both sides of equation <xref ref="eq_3_c_2"/> by the scalar <m>\lambda_1</m> and show that
+            <men xml:id="eq_3_c_4">
+              x_1\lambda_1\vv_1 + x_2 \lambda_1\vv_2 = \vzero
+            </men>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Combine equations <xref ref="eq_3_c_3"/> and <xref ref="eq_3_c_4"/> to obtain the equation
+            <men xml:id="eq_3_c_5">
+              x_2(\lambda_2-\lambda_1)\vv_2 = \vzero
+            </men>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain how we can conclude that <m>x_2 = 0</m>.
+            Why does it follow that <m>x_1 = 0</m>?
+            What does this tell us about <m>\vv_1</m> and <m>\vv_2</m>?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_3_c_3">Activity</xref>
+    contains the basic elements of the proof of the next theorem.
+  </p>
+  <theorem xml:id="thm_4_b_lin_indep_evects">
+    <statement>
+      <p>
+        Let <m>\lambda_1</m>, <m>\lambda_2</m>, <m>\ldots</m>,
+        <m>\lambda_k</m> be <m>k</m> distinct eigenvalues for a matrix <m>A</m> and for each <m>i</m> between 1 and <m>k</m> let <m>\vv_i</m> be an eigenvector of <m>A</m> with eigenvalue <m>\lambda_i</m>.
+        Then the vectors <m>\vv_1</m>,
+        <m>\vv_2</m>,
+        <m>\ldots</m>, <m>\vv_k</m> are linearly independent.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>A</m> be a matrix with <m>k</m> distinct eigenvalues <m>\lambda_1</m>,
+      <m>\lambda_2</m>, <m>\ldots</m>,
+      <m>\lambda_k</m> and corresponding eigenvectors <m>\vv_1</m>,
+      <m>\vv_2</m>,
+      <m>\ldots</m>, <m>\vv_k</m>.
+      To understand why <m>\vv_1</m>,
+      <m>\vv_2</m>,
+      <m>\ldots</m>, <m>\vv_k</m> are linearly independent,
+      we will argue by contradiction and suppose that the vectors <m>\vv_1</m>,
+      <m>\vv_2</m>,
+      <m>\ldots</m>, <m>\vv_k</m> are linearly dependent.
+      Note that <m>\vv_1</m> cannot be the zero vector (why?), so the set
+      <m>S_1=\{\vv_1\}</m> is linearly independent.
+      If we include <m>\vv_2</m> into this set,
+      the set <m>S_2 = \{\vv_1, \vv_2\}</m> may be linearly independent or dependent.
+      If <m>S_2</m> is linearly independent,
+      then the set <m>S_3 = \{\vv_1, \vv_2, \vv_3\}</m> may be linearly independent or dependent.
+      We can continue adding additional vectors until we reach the set
+      <m>S_k = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_k\}</m> which we are assuming is linearly dependent.
+      So there must be a smallest integer
+      <m>m \geq 2</m> such that the set <m>S_m</m> is linearly dependent while <m>S_{m-1}</m> is linearly independent.
+      Since <m>S_m = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_m\}</m> is linearly dependent,
+      there is a linear combination of <m>\vv_1</m>,
+      <m>\vv_2</m>, <m>\ldots</m>,
+      <m>\vv_m</m> with weights not all 0 that is the zero vector.
+      Let <m>c_1</m>, <m>c_2</m>,
+      <m>\ldots</m>, <m>c_m</m> be such weights, not all zero, so that
+      <men xml:id="eq_distinct_eigenvalues">
+        c_1\vv_1 + c_2\vv_2 + \cdots + c_{m-1} \vv_{m-1} + c_m \vv_m = \vzero
+      </men>
+    </p>
+    <p>
+      If we multiply both sides of <xref ref="eq_distinct_eigenvalues"/> on the left by the matrix <m>A</m> we obtain
+      <md>
+        <mrow>A(c_1\vv_1 + c_{2}\vv_{2} + \cdots + c_m \vv_m) \amp = A\vzero</mrow>
+        <mrow>c_1A\vv_1 + c_{2}A\vv_{2} + \cdots + c_m A\vv_m \amp = \vzero</mrow>
+        <mrow xml:id="eq_distinct_eigenvalues2" number="yes">c_1 \lambda_1\vv_1 + c_{2}\lambda_{2}\vv_{2} + \cdots + c_m \lambda_m\vv_m \amp = \vzero</mrow>
+      </md>.
+    </p>
+    <p>
+      If we multiply both sides of <xref ref="eq_distinct_eigenvalues"/> by
+      <m>\lambda_m</m> we obtain the equation
+      <men xml:id="eq_distinct_eigenvalues3">
+        c_1\lambda_m\vv_1 + c_{2}\lambda_m\vv_{2} + \cdots + c_m \lambda_m\vv_m = \vzero
+      </men>.
+    </p>
+    <p>
+      Subtracting corresponding sides of equation <xref ref="eq_distinct_eigenvalues3"/> from <xref ref="eq_distinct_eigenvalues2"/> gives us
+      <men xml:id="eq_distinct_eigenvalues4">
+        c_{1}(\lambda_{1}-\lambda_m)\vv_{1} + c_{2}(\lambda_{2}-\lambda_m)\vv_{2} + \cdots + c_{m-1} (\lambda_{m-1}-\lambda_m) \vv_{m-1} = \vzero
+      </men>.
+    </p>
+    <p>
+      Recall that <m>S_{m-1}</m> is a linearly independent set,
+      so the only way a linear combination of vectors in <m>S_{m-1}</m> can be <m>\vzero</m> is if all of the weights are 0.
+      Therefore, we must have
+      <me>
+        c_{1}(\lambda_{1}-\lambda_m) = 0, \ \ c_{2}(\lambda_{2}-\lambda_m) = 0, \ \ \ldots, \ \ c_{m-1} (\lambda_{m-1}-\lambda_m) = 0
+      </me>.
+    </p>
+    <p>
+      Since the eigenvalues are all distinct, this can only happen if
+      <me>
+        c_1 = c_2 = \cdots = c_{m-1} = 0
+      </me>.
+    </p>
+    <p>
+      But equation <xref ref="eq_distinct_eigenvalues"/> then implies that <m>c_m = 0</m> and so all of the weights <m>c_1</m>,
+      <m>c_2</m>,
+      <m>\ldots</m>, <m>c_m</m> are 0.
+      However, when we assumed that the eigenvectors <m>\vv_1</m>,
+      <m>\vv_2</m>,
+      <m>\ldots</m>, <m>\vv_k</m> were linearly dependent,
+      this led to having at least one of the weights <m>c_1</m>,
+      <m>c_2</m>,
+      <m>\ldots</m>, <m>c_m</m> be nonzero.
+      This cannot happen,
+      so our assumption that the eigenvectors <m>\vv_1</m>,
+      <m>\vv_2</m>, <m>\ldots</m>,
+      <m>\vv_k</m> were linearly dependent must be false and we conclude that the eigenvectors <m>\vv_1</m>,
+      <m>\vv_2</m>,
+      <m>\ldots</m>, <m>\vv_k</m> are linearly independent.
+    </p>
+  </proof>
+</section>

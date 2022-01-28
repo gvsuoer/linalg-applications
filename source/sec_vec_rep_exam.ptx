@@ -1,0 +1,278 @@
+<section xml:id="sec_vec_rep_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        For each of the following systems,
+        <ul>
+          <li>
+            <p>
+              express an arbitrary solution to the system algebraically as a linear combination of vectors,
+            </p>
+          </li>
+          <li>
+            <p>
+              find a set of vectors that spans the solution set,
+            </p>
+          </li>
+          <li>
+            <p>
+              describe the solution set geometrically.
+            </p>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <p>
+              <nbsp/>
+              <md>
+                <mrow>{5} {}x_1   \amp {}{}     \amp {}     \amp {}+{}    \amp {}x_3     \amp = \amp {}   \amp 0\amp {}</mrow>
+                <mrow>{2}x_1   \amp {}+{}  \amp {}x_2   \amp {}+{}     \amp {3}x_3     \amp = \amp {}   \amp 0\amp {}</mrow>
+                <mrow>{4}x_1  \amp {}-{}   \amp {}x_2   \amp {}+{}     \amp {3}x_3    \amp = \amp {}   \amp 0\amp {.}</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <nbsp/>
+              <md>
+                <mrow>{5} {}x_1   \amp {}+{}   \amp {2}x_2   \amp {}+{}    \amp {3}x_3     \amp = \amp {}   \amp 0\amp {}</mrow>
+                <mrow>{2}x_1   \amp {}+{}  \amp {4}x_2   \amp {}+{}     \amp {6}x_3     \amp = \amp {}   \amp 0\amp {}</mrow>
+                <mrow>{4}x_1  \amp {}+{}   \amp {8}x_2   \amp {}+{}     \amp {12}x_3    \amp = \amp {}   \amp 0\amp {.}</mrow>
+              </md>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em> In each example,
+        we use technology to find the reduced row echelon form of the augmented matrix.
+      </p>
+      <ul>
+        <li>
+          <p>
+            The reduced row echelon form of the augmented matrix
+            <me>
+              \left[ \begin{array}{crc|c} 1\amp 0\amp 1\amp 0 \\ 2\amp 1\amp 3\amp 0 \\ 4\amp -1\amp 3\amp 0 \end{array}  \right]
+            </me>
+            is
+            <me>
+              \left[ \begin{array}{ccc|c} 1\amp 0\amp 1\amp 0 \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+            </me>.
+          </p>
+          <ul>
+            <li>
+              <p>
+                There is no pivot in the <m>x_3</m> column,
+                so <m>x_3</m> is a free variable.
+                Since the system is consistent,
+                it has infinitely many solutions.
+                We can write both <m>x_1</m> and <m>x_2</m> in terms of <m>x_3</m> as
+                <m>x_2 = -x_3</m> and <m>x_1 = -x_3</m>.
+                So the general solution to the system has the algebraic form
+                <me>
+                  \left[ \begin{array}{c} x_1\\x_2\\x_3 \end{array}  \right] = \left[ \begin{array}{r} -x_3\\-x_3\\x_3 \end{array}  \right] = x_3\left[ \begin{array}{r} -1\\-1\\1 \end{array}  \right]
+                </me>.
+                So every solution to this system is a scalar multiple
+                (linear combination)
+                of the vector <m>\left[ \begin{array}{r} -1\\-1\\1 \end{array}  \right]</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Since every solution to the system is a scalar multiple of the vector <m>\left[ \begin{array}{r} -1\\-1\\1 \end{array} \right]</m>,
+                the solution set to the system is <m>\Span\left\{\left[ \begin{array}{r} -1\\-1\\1 \end{array} \right]\right\}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                As the set of scalar multiples of a single vector,
+                the solution set to this system is a line in <m>\R^3</m> through the origin and the point <m>(-1,-1,1)</m>.
+              </p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>
+            The reduced row echelon form of the augmented matrix
+            <me>
+              \left[ \begin{array}{ccc|c} 1\amp 2\amp 3\amp 0 \\ 2\amp 4\amp 6\amp 0 \\ 4\amp 8\amp 12\amp 0 \end{array}  \right]
+            </me>
+            is
+            <me>
+              \left[ \begin{array}{ccc|c} 1\amp 2\amp 3\amp 0 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+            </me>.
+            <ul>
+              <li>
+                <p>
+                  There are no pivots in the <m>x_2</m> and <m>x_3</m> columns,
+                  so <m>x_2</m> and <m>x_3</m> are free variables.
+                  Since the system is consistent,
+                  it has infinitely many solutions.
+                  We can write <m>x_1</m>  in terms of  <m>x_2</m> and <m>x_3</m> as <m>x_1 = -2x_2-3x_3</m>.
+                  So the general solution to the system has the algebraic form
+                  <me>
+                    \left[ \begin{array}{c} x_1\\x_2\\x_3 \end{array}  \right] = \left[ \begin{array}{c} -2x_2-3x_3\\x_2\\x_3 \end{array}  \right] = x_2\left[ \begin{array}{r} -2\\1\\0 \end{array}  \right] + x_3\left[ \begin{array}{r} -3\\0\\1 \end{array}  \right]
+                  </me>.
+                  So every solution to this system is a linear combination of the vectors
+                  <m>\left[ \begin{array}{r} -2\\1\\0 \end{array}  \right]</m> and <m>\left[ \begin{array}{r} -3\\0\\1 \end{array}  \right]</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since every solution to the system is a linear combination of the vectors
+                  <m>\left[ \begin{array}{r} -2\\1\\0 \end{array}  \right]</m> and <m>\left[ \begin{array}{r} -3\\0\\1 \end{array}  \right]</m>,
+                  the solution set to the system is
+                  <me>
+                    \Span\left\{\left[ \begin{array}{r} -2\\1\\0 \end{array}  \right], \left[ \begin{array}{r} -3\\0\\1 \end{array}  \right] \right\}
+                  </me>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  As the set of linear combinations of two vectors,
+                  the solution set to this system is a plane in <m>\R^3</m> through the origin and the points <m>(-2,1,0)</m> and <m>(-3,0,1)</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ul>
+    </statement>
+  </example>
+  <example xml:id="example_1_d_span">
+    <statement>
+      <p>
+        Let <m>W = \left\{\left[ \begin{array}{c} s+t \\ r+2s \\ r-3t \\ r+s+t \end{array} \right] : r,s,t \in \R \right\}</m>.
+        <ul>
+          <li>
+            <p>
+              Find three vectors <m>\vv_1</m>, <m>\vv_2</m>,
+              and <m>\vv_3</m> such that <m>W = \Span\{\vv_1, \vv_2, \vv_3\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Can <m>\vw = \left[ \begin{array}{r} -2\\-4\\-1\\0 \end{array} \right]</m> be written as a linear combination of the vectors <m>\vv_1</m>,
+              <m>\vv_2</m>, <m>\vv_3</m>?
+              If so, find such a linear combination.
+              If not, justify your response.
+              What does your result tell us about the relationship between <m>\vw</m> and <m>W</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Can <m>\vu = \left[ \begin{array}{r} 3\\-4\\1\\-1 \end{array} \right]</m> be written as a linear combination of the vectors <m>\vv_1</m>,
+              <m>\vv_2</m>, <m>\vv_3</m>?
+              If so, find such a linear combination.
+              If not, justify your response.
+              What does your result tell us about the relationship between <m>\vu</m> and <m>W</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              What relationship, if any,
+              exists between <m>\Span\{\vv_1, \vv_2, \vv_3\}</m> and <m>\Span \ W</m>?
+              Explain.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Every vector in <m>W</m> has the form
+              <md>
+                <mrow>\left[ \begin{array}{c} s+t</mrow>
+                <mrow>r+2s</mrow>
+                <mrow>r-3t</mrow>
+                <mrow>r+s+t \end{array} \right] \amp = \left[ \begin{array}{c} 0</mrow>
+                <mrow>r</mrow>
+                <mrow>r</mrow>
+                <mrow>r\end{array} \right] + \left[ \begin{array}{c} s</mrow>
+                <mrow>2s</mrow>
+                <mrow>0</mrow>
+                <mrow>s \end{array} \right] + \left[ \begin{array}{r} t</mrow>
+                <mrow>0</mrow>
+                <mrow>-3t</mrow>
+                <mrow>t \end{array} \right]</mrow>
+                <mrow>\amp = r\left[ \begin{array}{c} 0</mrow>
+                <mrow>1</mrow>
+                <mrow>1</mrow>
+                <mrow>1 \end{array} \right] + s\left[ \begin{array}{r} 1</mrow>
+                <mrow>2</mrow>
+                <mrow>0</mrow>
+                <mrow>1 \end{array} \right] + t\left[ \begin{array}{r} 1</mrow>
+                <mrow>0</mrow>
+                <mrow>-3</mrow>
+                <mrow>1 \end{array} \right]</mrow>
+              </md>
+              for some real numbers <m>r</m>, <m>s</m>, and <m>t</m>.
+              Thus, <m>W = \Span\{\vv_1, \vv_2, \vv_3\}</m> where <m>\vv_1 = \left[ \begin{array}{c} 0 \\ 1 \\ 1 \\ 1 \end{array}  \right]</m>,
+              <m>\vv_2 = \left[ \begin{array}{r} 1 \\ 2 \\ 0 \\ 1 \end{array}  \right]</m>,
+              and <m>\vv_3 = \left[ \begin{array}{r} 1 \\ 0 \\ -3 \\ 1 \end{array}  \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              To determine if <m>\vw</m> is a linear combination of <m>\vv_1</m>,
+              <m>\vv_2</m>, and <m>\vv_3</m>,
+              we row reduced the augmented matrix <m>[\vv_1 \ \vv_2 \ \vv_3 \ | \ \vw]</m>.
+              The reduced row echelon form of the matrix <m>[\vv_1 \ \vv_2 \ \vv_3 \ | \ \vw]</m> is
+              <me>
+                \left[ \begin{array}{ccc|r} 1\amp 0\amp 0\amp 2 \\ 0\amp 1\amp 0\amp -3\\ 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0 \end{array} \right]
+              </me>.
+              The system with this as augmented matrix is consistent.
+              If we let <m>x_1</m>, <m>x_2</m>,
+              and <m>x_3</m> be the variables corresponding to the first three columns,
+              respectively, of this augmented matrix,
+              then we see that <m>x_1 = 2</m>,
+              <m>x_2 = -3</m>, and <m>x_3 = 1</m>.
+              So <m>\vw</m> can be written as a linear combination of <m>\vv_1</m>,
+              <m>\vv_2</m>, and <m>\vv_3</m> as
+              <me>
+                \vw = 2\vv_1 -3\vv_2 + \vv_3
+              </me>.
+              Since <m>W = \Span\{\vv_1, \vv_2, \vv_3\}</m>,
+              it follows that <m>\vw \in W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              To determine if <m>\vu</m> is a linear combination of <m>\vv_1</m>,
+              <m>\vv_2</m>, and <m>\vv_3</m>,
+              we row reduced the augmented matrix <m>[\vv_1 \ \vv_2 \ \vv_3 \ | \ \vu]</m>.
+              The reduced row echelon form of the matrix <m>[\vv_1 \ \vv_2 \ \vv_3 \ | \ \vu]</m> is
+              <me>
+                \left[ \begin{array}{ccc|c} 1\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]
+              </me>.
+              The last row shows that the system with this as augmented matrix is inconsistent.
+              So <m>\vu</m> cannot be written as a linear combination of <m>\vv_1</m>,
+              <m>\vv_2</m>, and <m>\vv_3</m>.
+              Since <m>W = \Span\{\vv_1, \vv_2, \vv_3\}</m>,
+              it follows that <m>\vu \not\in W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We know that <m>\Span\{\vv_1, \vv_2, \vv_3\} = W</m>.
+              Now <m>\Span \ W</m> contains the linear combinations of vectors in <m>W</m>,
+              which are all linear combinations of the vectors <m>\vv_1</m>,
+              <m>\vv_2</m>, and <m>\vv_3</m>.
+              Thus, <m>\Span \ W</m> is just the set of linear combinations of <m>\vv_1</m>,
+              <m>\vv_2</m>, and <m>\vv_3</m>.
+              We conclude that <m>\Span \ W = \Span\{\vv_1, \vv_2, \vv_3\} = W</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

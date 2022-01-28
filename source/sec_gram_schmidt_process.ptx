@@ -1,0 +1,204 @@
+<section xml:id="sec_gram_schmidt_process">
+  <title>The Gram-Schmidt Process</title>
+  <p>
+    We have seen that orthogonal bases make computations very convenient.
+    However, until now we had no convenient way to construct orthogonal bases.
+    The problem we address in this section is how to create an orthogonal basis from any basis.
+  </p>
+  <activity xml:id="pa_6_d_2_no_inner_product">
+    <p>
+      Let <m>W = \Span \{\vv_1, \vv_2, \vv_3\}</m> in <m>\R^4</m>,
+      where <m>\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}</m>,
+      <m>\vv_2 = [-1 \ 4 \ 4 \ -1]^{\tr}</m>,
+      and <m>\vv_3 = [2 \ -1 \ 1 \ 0]^{\tr}</m>.
+      Our goal in this preview activity is to begin to understand how we can find an orthogonal set
+      <m>\CB = \{\vw_1, \vw_2, \vw_3\}</m> in <m>\R^4</m> so that <m>\Span \ \CB = W</m>.
+      To begin, we could start by letting <m>\vw_1 = \vv_1</m>.
+      <ol>
+        <li>
+          <p>
+            Now we want to find a vector in <m>W</m> that is orthogonal to <m>\vw_1</m>.
+            Let <m>W_1 = \Span\{\vw_1\}</m>.
+            Explain why <m>\vw_2 = \proj_{\perp W_1} \vv_2</m> is in <m>W</m> and is orthogonal to <m>\vw_1</m>.
+            Then calculate the vector <m>\vw_2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Next we need to find a third vector <m>\vw_3</m> that is in <m>W</m> and is orthogonal to both <m>\vw_1</m> and <m>\vw_2</m>.
+            Let <m>W_2 = \Span \{\vw_1, \vw_2\}</m>.
+            Explain why <m>\vw_3 = \proj_{\perp W_2} \vv_3</m> is in <m>W</m> and is orthogonal to both <m>\vw_1</m> and <m>\vw_2</m>.
+            Then calculate the vector <m>\vw_3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why the set <m>\{\vw_1, \vw_2, \vw_3\}</m> is an orthogonal basis for <m>W</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+  <p>
+    Preview <xref ref="pa_6_d_2_no_inner_product">Activity</xref>
+    shows the first steps of the Gram-Schmidt process to construct an orthogonal basis from any basis of a subspace in <m>\R^n</m>.
+    To understand why the process works in general,
+    let <m>\{\vv_1, \vv_2, \ldots, \vv_m\}</m> be a basis for a subspace <m>W</m> of <m>\R^n</m>.
+    Let <m>\vw_1 = \vv_1</m> and let <m>W_1 = \Span\{\vw_1\}</m>.
+    Since <m>\vw_1 = \vv_1</m> we have that <m>W_1 = \Span\{\vw_1\} = \Span\{\vv_1\}</m>.
+  </p>
+  <p>
+    The vectors <m>\vv_1 = \vw_1</m> and <m>\vv_2</m> are possibly not orthogonal,
+    but we know the orthogonal projection of <m>\vv_2</m> onto
+    <m>W_1^{\perp}</m> is orthogonal to <m>\vw_1</m>.
+    Let
+    <me>
+      \vw_2 = \proj_{\perp W_1} \vv_2 = \vv_2 -  \frac{ \vv_2 \cdot \vw_1 }{ \vw_1 \cdot  \vw_1 } \vw_1
+    </me>.
+  </p>
+  <p>
+    Then <m>\{\vw_1, \vw_2\}</m> is an orthogonal set.
+    Note that <m>\vw_1 = \vv_1 \neq \vzero</m>,
+    and the fact that <m>\vv_2 \notin W_1</m> implies that <m>\vw_2 \neq \vzero</m>.
+    So the set <m>\{\vw_1, \vw_2\}</m> is linearly independent,
+    being a set of non-zero orthogonal vectors.
+    Now the question is whether <m>\Span\{\vw_1,\vw_2\} = \Span\{\vv_1,\vv_2\}</m>.
+    Note that <m>\vw_2</m> is a linear combination of <m>\vv_1</m> and <m>\vv_2</m>,
+    so <m>\vw_2</m> is in <m>\Span\{\vv_1,\vv_2\}</m>.
+    Since <m>\Span\{\vw_1,\vw_2\}</m> is a 2-dimensional subspace of the 2-dimensional space <m>\Span\{\vv_1,\vv_2\}</m>,
+    it must be true that <m>\Span\{\vw_1,\vw_2\} = W_2 = \Span\{\vv_1,\vv_2\}</m>.
+  </p>
+  <p>
+    Now we take the next step, adding <m>\vv_3</m> into the mix.
+    The vector
+    <me>
+      \vw_3 = \proj_{\perp W_2} \vv_3 = \vv_3 - \frac{ \vv_3 \cdot  \vw_1 }{ \vw_1 \cdot  \vw_1 } \vw_1 - \frac{ \vv_3 \cdot  \vw_2 }{ \vw_2 \cdot  \vw_2 } \vw_2
+    </me>
+    is orthogonal to both <m>\vw_1</m> and <m>\vw_2</m> and,
+    by construction,
+    <m>\vw_3</m> is a linear combination of <m>\vv_1</m>,
+    <m>\vv_2</m>, and <m>\vv_3</m>.
+    So <m>\vw_3</m> is in <m>W_3 = \Span\{\vv_1, \vv_2, \vv_3\}</m>.
+    The fact that <m>\vv_3 \notin W_2</m> implies that <m>\vw_3 \neq \vzero</m> and
+    <m>\{\vw_1, \vw_2, \vw_3\}</m> is a linearly independent set.
+    Since <m>\Span\{\vw_1, \vw_2, \vw_3\}</m> is a 3-dimensional subspace of the 3-dimensional space <m>\Span\{\vv_1,\vv_2,\vv_3\}</m>,
+    we conclude that <m>\Span\{\vw_1, \vw_2, \vw_3\} = W_3 = \Span\{\vv_1,\vv_2,\vv_3\}</m>.
+  </p>
+  <p>
+    We continue inductively in this same manner.
+    If we have constructed a set <m>\{\vw_1</m>,
+    <m>\vw_2</m>, <m>\vw_3</m>, <m>\ldots</m>,
+    <m>\vw_{k-1}\}</m> of <m>k-1</m> orthogonal vectors such that
+    <me>
+      \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k-1}\} = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k-1}\}
+    </me>,
+    then we let
+    <md>
+      <mrow>\vw_{k} \amp = \proj_{\perp W_{k-1}} \vv_k</mrow>
+      <mrow>\amp = \vv_k - \ds \frac{ \vv_k \cdot  \vw_1 }{ \vw_1 \cdot  \vw_1 } \vw_1 - \frac{ \vv_k \cdot  \vw_2 }{ \vw_2 \cdot  \vw_2 } \vw_2 - \cdots - \frac{ \vv_k \cdot  \vw_{k-1} }{ \vw_{k-1} \cdot  \vw_{k-1} } \vw_{k-1}</mrow>
+    </md>,
+    where
+    <me>
+      W_{k-1} = \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k-1}\}
+    </me>.
+  </p>
+  <p>
+    We know that <m>\vw_k</m> is orthogonal to <m>\vw_1</m>,
+    <m>\vw_2</m>,
+    <m>\ldots</m>, <m>\vw_{k-1}</m>.
+    Since <m>\vw_1</m>, <m>\vw_2</m>,
+    <m>\ldots</m>, <m>\vw_{k-1}</m>,
+    and <m>\vv_k</m> are all in
+    <m>W_k = \Span\{\vv_1, \vv_2, \ldots, \vv_k\}</m> we see that <m>\vw_k</m> is also in <m>W_k</m>.
+    Since <m>\vv_k \notin W_{k-1}</m> implies that <m>\vw_k \neq \vzero</m> and
+    <m>\{\vw_1, \vw_2, \ldots, \vw_k\}</m> is a linearly independent set.
+    Then <m>\Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\}</m> is a <m>k</m>-dimensional subspace of the <m>k</m>-dimensional space <m>W_k</m>,
+    so it follows that
+    <me>
+      \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\} = W_k = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k}\}
+    </me>.
+  </p>
+  <p>
+    This process will end when we have an orthogonal set <m>\{\vw_1</m>,
+    <m>\vw_2</m>, <m>\vw_3</m>,
+    <m>\ldots</m>,
+    <m>\vw_{m}\}</m> with <m>\Span\{\vw_1</m>, <m>\vw_2</m>,
+    <m>\vw_3</m>, <m>\ldots</m>, <m>\vw_{m}\}</m> = <m>W</m>.
+  </p>
+  <p>
+    We summarize the process in the following theorem.
+  </p>
+  <theorem xml:id="thm_6_d_Gram_Schmidt_ips">
+    <title>The Gram-Schmidt Process</title>
+    <statement>
+      <p>
+            <idx><h>Gram-Schmidt Process</h><h>in <m>\R^n</m></h></idx>
+        Let <m>\{\vv_1, \vv_2, \ldots, \vv_m\}</m> be a basis for a subspace <m>W</m> of <m>\R^n</m>.
+        The set <m>\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}</m> defined by
+        <ul>
+          <li>
+            <p>
+              <m>\vw_1 = \vv_1</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vw_2 = \vv_2 - \ds \frac{ \vv_2 \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vw_3 = \vv_3 - \ds \frac{ \vv_3 \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_3 \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2</m>,
+              <m>\vdots</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vw_m = \vv_m - \ds \frac{ \vv_m \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_m \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2 - \cdots - \frac{ \vv_m \cdot \vw_{m-1} }{ \vw_{m-1} \cdot \vw_{m-1} } \vw_{m-1}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        is an orthogonal basis for <m>W</m>.
+        Moreover,
+        <me>
+          \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\} = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k}\}
+        </me>
+        for <m>1\leq k\leq m</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The Gram-Schmidt process builds an orthogonal basis
+    <m>\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}</m> for us from a given basis.
+    To make an orthonormal basis <m>\{\vu_1, \vu_2, \vu_3, \ldots, \vu_{m}\}</m>,
+    all we need do is normalize each basis vector:
+    that is, for each <m>i</m>, we let
+    <me>
+      \vu_i = \ds \frac{\vw_i}{|| \vw_i ||} \,
+    </me>.
+  </p>
+  <activity xml:id="act_6_d_gs_examples">
+    <p>
+      Let <m>W = \Span \left\{\left[ \begin{array}{c} 1\\1\\0\\0 \end{array} \right], \left[ \begin{array}{c} 0\\1\\1\\0 \end{array} \right], \left[ \begin{array}{c} 0\\0\\1\\1 \end{array} \right] \right\}</m>.
+      <ul>
+        <li>
+          <p>
+            Use the Gram-Schmidt process to find an orthogonal basis for <m>W</m>.
+            <hint>
+              <p>
+                Order your vectors carefully to minimize computation.
+              </p>
+            </hint>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the projection of the vector <m>\vv = [0 \ 1 \ 1 \ 1]^{\tr}</m> onto <m>W</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

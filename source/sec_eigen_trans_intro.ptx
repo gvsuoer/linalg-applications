@@ -1,0 +1,65 @@
+<section xml:id="sec_eigen_trans_intro">
+  <title>Introduction</title>
+  <p>
+    Recall that a scalar <m>\lambda</m> is an eigenvalue of an <m>n \times n</m> matrix <m>A</m> if
+    <m>A \vx = \lambda \vx</m> for some nonzero vector <m>\vx</m> in <m>\R^n</m>.
+    Now that we have seen how to represent a linear transformation <m>T</m> from a finite dimensional vector space <m>V</m> to itself with a matrix transformation,
+    we can exploit this idea to define and find eigenvalues and eigenvectors for <m>T</m> just as we did for matrices.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>V</m> be an <m>n</m> dimensional vector space and
+        <m>T : V \to V</m> a linear transformation.
+        A scalar <m>\lambda</m> is an <term>eigenvalue</term><idx><h>linear transformation</h><h>eigenvalue</h></idx> for <m>T</m> if there is a nonzero vector <m>\vv</m> in <m>V</m> such that <m>T(\vv) = \lambda \vv</m>.
+        The vector <m>\vv</m> is an <term>eigenvector</term><idx><h>linear transformation</h><h>eigenvector</h></idx> for <m>T</m> corresponding to the eigenvalue <m>\lambda</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We can exploit the fact that we can represent linear transformations as matrix transformations to find eigenvalues and eigenvectors of a linear transformation.
+  </p>
+  <activity xml:id="pa_8_c">
+    <p>
+      Let <m>T: \pol_1 \to \pol_1</m> be defined by <m>T(a_0+a_1t) = (a_0+2a_1) + (3a_0+2a_1)t</m>.
+      Assume <m>T</m> is a linear transformation.
+      <ol>
+        <li>
+          <p>
+            Let <m>\CS = \{1,t\}</m> be the standard basis for <m>\pol_1</m>.
+            Find the matrix <m>[T]_{\CS}</m>.
+            (Recall that we use the shorthand notation
+            <m>[T]_{\CS}</m> for <m>[T]_{\CS}^{\CS}</m>.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Check that <m>\lambda_1 = 4</m> and
+            <m>\lambda_2 = -1</m> are the eigenvalues of <m>[T]_{\CS}</m>.
+            Find an eigenvector <m>\vv_1</m> for
+            <m>[T]_{\CS}</m> corresponding to the eigenvalue <m>4</m> and an eigenvector <m>\vv_2</m> of
+            <m>[T]_{\CS}</m> corresponding to the eigenvalue <m>-1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the vector in <m>\pol_1</m> corresponding to the eigenvector of
+            <m>[T]_{\CS}</m> for the eigenvalue <m>\lambda=4</m>.
+            Check that this is an eigenvector of <m>T</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why in general,
+            if <m>V</m> is a vector space with basis <m>\CB</m> and
+            <m>S: V \to V</m> is a linear transformation,
+            and if <m>\vv</m> in <m>V</m> satisfies <m>[\vv]_{\CB}=\vw</m>,
+            where <m>\vw</m> is an eigenvector of
+            <m>[S]_{\CB}</m> with eigenvalue <m>\lambda</m>,
+            then <m>\vv</m> is an eigenvector of <m>S</m> with eigenvalue <m>\lambda</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

@@ -1,0 +1,103 @@
+<section xml:id="sec_chareq_intro">
+  <title>Introduction</title>
+  <p>
+    We have seen that the eigenvalues of an
+    <m>n \times n</m> matrix <m>A</m> are the scalars <m>\lambda</m> so that
+    <m>A - \lambda I_n</m> has a nontrivial null space.
+    Since a matrix has a nontrivial null space if and only if the matrix is not invertible,
+    we can also say that <m>\lambda</m> is an eigenvalue of <m>A</m> if
+    <men xml:id="eq_PA5_2_1">
+      \det(A - \lambda I_n) = 0
+    </men>.
+  </p>
+  <p>
+    This equation is called the <em>characteristic equation</em> of <m>A</m>.
+    It provides us an <em>algebraic</em> way to find eigenvalues,
+    which can then be used in finding eigenvectors corresponding to each eigenvalue.
+    Suppose we want to find the eigenvalues of <m>A=\left[ \begin{array}{cc} 1 \amp  1 \\ 1\amp  3 \end{array}  \right]</m>.
+    Note that
+    <me>
+      A- \lambda I_2 = \left[ \begin{array}{cc} 1-\lambda \amp  1 \\ 1\amp  3-\lambda \end{array}  \right]\,
+    </me>,
+    with determinant <m>(1-\lambda)(3-\lambda)-1=\lambda^2-4\lambda+2</m>.
+    Hence, the eigenvalues <m>\lambda_1, \lambda_2</m> are the solutions of the characteristic equation <m>\lambda^2-4\lambda+2=0</m>.
+    Using quadratic formula,
+    we find that <m>\lambda_1=2+\sqrt{2}</m> and <m>\lambda_2=2-\sqrt{2}</m> are the eigenvalues.
+  </p>
+  <p>
+    In this activity,
+    our goal will be to use the characteristic equation to obtain information about eigenvalues and eigenvectors of a matrix with real entries.
+  </p>
+  <activity xml:id="pa_4_b">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            For each of the following parts,
+            use the characteristic equation to determine the eigenvalues of <m>A</m>.
+            Then, for each eigenvalue <m>\lambda</m>,
+            find a basis of the corresponding eigenspace,
+            i.e., <m>\Nul(A-\lambda I)</m>.
+            You might want to recall how to find a basis for the null space of a matrix from <xref ref="sec_null_space">Section</xref>.
+            Also, make sure that your eigenvalue candidate <m>\lambda</m> yields nonzero eigenvectors in
+            <m>\Nul(A-\lambda I)</m> for otherwise <m>\lambda</m> will not be an eigenvalue.
+            <ul>
+              \begin{minipage}{1.5in}
+              <li>
+                <p>
+                  <m>A=\left[ \begin{array}{cr} 2 \amp 0 \\ 0 \amp -3 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A=\left[ \begin{array}{cc} 1 \amp 2 \\ 0 \amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>A=\left[ \begin{array}{cc} 1 \amp 4 \\2 \amp 3 \end{array} \right]</m> \end{minipage}
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use your eigenvalue and eigenvector calculations of the above problem as a guidance to answer the following questions about a matrix with real entries.
+            <ul>
+              <li>
+                <p>
+                  At most how many eigenvalues can a <m>2\times 2</m> matrix have?
+                  Is it possible to have no eigenvalues?
+                  Is it possible to have only one eigenvalue?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If a matrix is an upper-triangular matrix (i.e., all entries below the diagonal are 0's, as in the first two matrices of the previous problem),
+                  what can you say about its eigenvalues?
+                  Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How many linearly independent eigenvectors can be found for a <m>2\times 2</m> matrix?
+                  Is it possible to have a matrix without 2 linearly independent eigenvectors?
+                  Explain.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the characteristic equation,
+            determine which matrices have 0 as an eigenvalue.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

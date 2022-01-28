@@ -1,0 +1,368 @@
+<section xml:id="sec_mtx_ops_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let
+        <me>
+          \begin{array}{ccc} A = \left[ \begin{array}{ccrc} 1\amp 2\amp 0\amp 1\\3\amp 0\amp -4\amp 5\\7\amp 6\amp -1\amp 0 \end{array}  \right] \amp \amp   B = \left[ \begin{array}{rcr} -2\amp 4\amp -3\\5\amp 1\amp 9\\1\amp 1\amp -2 \end{array}  \right] \\ \amp \amp  \\ C = \left[ \begin{array}{crc} 0\amp -1\amp 6\\3\amp -2\amp 5\\1\amp 0\amp 4 \end{array}  \right] \amp \amp  D = \left[ \begin{array}{cr} 10\amp -4\\5\amp 2\\8\amp -1 \end{array}  \right] \\ \amp \amp  \\ E = \left[ \begin{array}{cr} 1\amp 0\\4\amp -3\\5\amp -1 \end{array}  \right] \amp \text{ and }   \amp  F = \left[ \begin{array}{rcr} -2\amp 1\amp 5\\6\amp 3\amp -8\\1\amp 0\amp -1\\ 7\amp 0\amp -5 \end{array}  \right]. \end{array}
+        </me>
+      </p>
+      <p>
+        Determine the results of the following operations, if defined.
+        If not defined, explain why.
+        <ul>
+          \begin{minipage}{1.5in}
+          <li>
+            <p>
+              <m>AF</m> \end{minipage} \begin{minipage}{1.5in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A(BC)</m> \end{minipage} \begin{minipage}{1.5in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(BC)A</m> \end{minipage} \begin{minipage}{1.5in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(B+C)D</m> \end{minipage} \begin{minipage}{1.5in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>D^{\tr}E</m> \end{minipage} \begin{minipage}{1.5in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\left(A^{\tr}+F\right)^{\tr}</m> \end{minipage}
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Since <m>A</m> is a <m>3 \times 4</m> matrix and <m>F</m> is a <m>4 \times 3</m> matrix,
+              the number of columns of <m>A</m> equals the number of rows of <m>F</m> and the matrix produce <m>AF</m> is defined.
+              Recall that if <m>F = [\vf_1 \ \vf_2 \ \vf_3]</m>,
+              where <m>\vf_1</m>, <m>\vf_2</m>,
+              <m>\vf_3</m> are the columns of <m>F</m>,
+              then <m>AF = [A\vf_1 \ A\vf_2 \ A\vf_3]</m>.
+              Recall also that <m>A \vf_1</m> is the linear combination of the columns of <m>A</m> with weights from <m>\vf_1</m>, so
+              <md>
+                <mrow>A\vf_1 \amp = \left[ \begin{array}{ccrc} 1\amp 2\amp 0\amp 1</mrow>
+                <mrow>3\amp 0\amp -4\amp 5</mrow>
+                <mrow>7\amp 6\amp -1\amp 0 \end{array} \right] \left[ \begin{array}{r} -2</mrow>
+                <mrow>6</mrow>
+                <mrow>1</mrow>
+                <mrow>7 \end{array} \right]</mrow>
+                <mrow>\amp = (-2) \left[ \begin{array}{c} 1</mrow>
+                <mrow>3</mrow>
+                <mrow>7 \end{array} \right]  + (6)  \left[ \begin{array}{c} 2</mrow>
+                <mrow>0</mrow>
+                <mrow>6 \end{array} \right]  + (1)  \left[ \begin{array}{r} 0</mrow>
+                <mrow>-4</mrow>
+                <mrow>-1 \end{array} \right] + (7)  \left[ \begin{array}{c} 1</mrow>
+                <mrow>5</mrow>
+                <mrow>0 \end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{c} -2+12+0+7</mrow>
+                <mrow>-6+0-4+35</mrow>
+                <mrow>-14+36-1+0\end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{c} 17</mrow>
+                <mrow>25</mrow>
+                <mrow>21 \end{array} \right]</mrow>
+              </md>,
+              <md>
+                <mrow>A\vf_2 \amp = \left[ \begin{array}{ccrc} 1\amp 2\amp 0\amp 1</mrow>
+                <mrow>3\amp 0\amp -4\amp 5</mrow>
+                <mrow>7\amp 6\amp -1\amp 0 \end{array} \right] \left[ \begin{array}{c} 1</mrow>
+                <mrow>3</mrow>
+                <mrow>0</mrow>
+                <mrow>0 \end{array} \right]</mrow>
+                <mrow>\amp = (1) \left[ \begin{array}{c} 1</mrow>
+                <mrow>3</mrow>
+                <mrow>7 \end{array} \right]  + (3)  \left[ \begin{array}{c} 2</mrow>
+                <mrow>0</mrow>
+                <mrow>6 \end{array} \right]  + (0)  \left[ \begin{array}{r} 0</mrow>
+                <mrow>-4</mrow>
+                <mrow>-1 \end{array} \right] + (0)  \left[ \begin{array}{c} 1</mrow>
+                <mrow>5</mrow>
+                <mrow>0 \end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{c} 1+6+0+0</mrow>
+                <mrow>3+0+0+0</mrow>
+                <mrow>7+18+0+0\end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{c} 7</mrow>
+                <mrow>3</mrow>
+                <mrow>25 \end{array} \right]</mrow>
+              </md>,
+              and
+              <md>
+                <mrow>A\vf_3 \amp = \left[ \begin{array}{ccrc} 1\amp 2\amp 0\amp 1</mrow>
+                <mrow>3\amp 0\amp -4\amp 5</mrow>
+                <mrow>7\amp 6\amp -1\amp 0 \end{array} \right] \left[ \begin{array}{r} 5</mrow>
+                <mrow>-8</mrow>
+                <mrow>-1</mrow>
+                <mrow>-5 \end{array} \right]</mrow>
+                <mrow>\amp = (5) \left[ \begin{array}{c} 1</mrow>
+                <mrow>3</mrow>
+                <mrow>7 \end{array} \right]  - (8)  \left[ \begin{array}{c} 2</mrow>
+                <mrow>0</mrow>
+                <mrow>6 \end{array} \right]  - (1)  \left[ \begin{array}{r} 0</mrow>
+                <mrow>-4</mrow>
+                <mrow>-1 \end{array} \right] - (5)  \left[ \begin{array}{c} 1</mrow>
+                <mrow>5</mrow>
+                <mrow>0 \end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{c} 5-16-0-5</mrow>
+                <mrow>15-0+4-25</mrow>
+                <mrow>35-48+1-0\end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{r} -16</mrow>
+                <mrow>-6</mrow>
+                <mrow>-12 \end{array} \right]</mrow>
+              </md>.
+              So <m>AF = \left[ \begin{array}{ccr} 17\amp 7\amp -16\\25\amp 3\amp -6\\21\amp 25\amp -12 \end{array}  \right]</m>.
+              Alternatively,
+              if <m>A = \left[ \begin{array}{c} \va_1\\ \va_2 \\ \va_3 \\ \va_4 \end{array} \right]</m>,
+              then the matrix product <m>AF</m> is the matrix whose <m>ij</m> entry is <m>\va_i \cdot \vf_j</m>.
+              Using this method we have
+              <me>
+                AF = \left[ \begin{array}{ccc} \va_1 \cdot \vf_1\amp \va_1 \cdot \vf_2 \amp  \va_1 \cdot \vf_3 \\ \va_2 \cdot \vf_1\amp \va_2 \cdot \vf_2 \amp  \va_2 \cdot \vf_3 \\ \va_3 \cdot \vf_1\amp \va_3 \cdot \vf_2 \amp  \va_3 \cdot \vf_3 \end{array}  \right]
+              </me>.
+              Now
+              <md>
+                <mrow>\va_1 \cdot \vf_1 \amp = (1)(-2)+(2)(6)+(0)(1)+(1)(7) = 17</mrow>
+                <mrow>\va_1 \cdot \vf_2 \amp = (1)(1)+(2)(3)+(0)(0)+(1)(0) = 7</mrow>
+                <mrow>\va_1 \cdot \vf_3 \amp = (1)(5)+(2)(-8)+(0)(-1)+(1)(-5) = -16</mrow>
+                <mrow>\va_2 \cdot \vf_1 \amp = (3)(-2)+(0)(6)+(-4)(1)+(5)(7) = 25</mrow>
+                <mrow>\va_2 \cdot \vf_2 \amp = (3)(1)+(0)(3)+(-4)(0)+(5)(0) = 3</mrow>
+                <mrow>\va_2 \cdot \vf_3 \amp = (3)(5)+(0)(-8)+(-4)(-1)+(5)(-5) = -6</mrow>
+                <mrow>\va_3 \cdot \vf_1 \amp = (7)(-2)+(6)(6)+(-1)(1)+(0)(7) = 21</mrow>
+                <mrow>\va_3 \cdot \vf_2 \amp = (7)(1)+(6)(3)+(-1)(0)+(0)(0) = 25</mrow>
+                <mrow>\va_3 \cdot \vf_3 \amp =(7)(5)+(6)(-8)+(-1)(-1)+(0)(-5) = -12</mrow>
+              </md>,
+              so <m>AF = \left[ \begin{array}{ccr} 17\amp 7\amp -16\\25\amp 3\amp -6\\21\amp 25\amp -12 \end{array}  \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since <m>BC</m> is a <m>3 \times 3</m> matrix but <m>A</m> is <m>3 \times 4</m>,
+              the number of columns of <m>A</m> is not equal to the number of rows of <m>BC</m>.
+              We conclude that <m>A(BC)</m> is not defined.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since <m>BC</m> is a <m>3 \times 3</m> matrix and <m>A</m> is <m>3 \times 4</m>,
+              the number of columns of <m>BC</m> is equal to the number of rows of <m>A</m>.
+              Thus, the quantity <m>(BC)A</m> is defined.
+              First we calculate <m>BC</m> using the dot product of the rows of <m>B</m> with the columns of <m>C</m>.
+              Letting <m>B = \left[ \begin{array}{c} \vb_1 \\ \vb_2 \\ \vb_3 \end{array}  \right]</m> and <m>C = [\vc_1 \ \vc_2 \ \vc_3]</m>,
+              where <m>\vb_1</m>, <m>\vb_2</m>,
+              and <m>\vb_3</m> are the rows of <m>B</m> and <m>\vc_1</m>,
+              <m>\vc_2</m>,
+              and <m>\vc_3</m> are the columns of <m>C</m>, we have
+              <me>
+                BC = \left[ \begin{array}{ccc} \vb_1 \cdot \vc_1 \amp  \vb_1 \cdot \vc_2 \amp  \vb_1 \cdot \vc_3 \\ \vb_2 \cdot \vc_1 \amp  \vb_2 \cdot \vc_2 \amp  \vb_2 \cdot \vc_3 \\ \vb_3 \cdot \vc_1 \amp  \vb_3 \cdot \vc_2 \amp  \vb_3 \cdot \vc_3 \end{array}  \right]
+              </me>.
+              Now
+              <md>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (-2)(0)+(4)(3)+(-3)(1) = 9</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (-2)(-1)+(4)(-2)+(-3)(0) = -6</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (-2)(6)+(4)(5)+(-3)(4) = -4</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (5)(0)+(1)(3)+(9)(1) = 12</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (5)(-1)+(1)(-2)+(9)(0) = -7</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (5)(6)+(1)(5)+(9)(4) = 71</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp =(1)(0)+(1)(3)+(-2)(1) = 1</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (1)(-1)+(1)(-2)+(-2)(0) = -3</mrow>
+                <mrow>\vb_1 \cdot \vc_1 \amp = (1)(6)+(1)(5)+(-2)(4) = 3</mrow>
+              </md>,
+              so <m>BC = \left[ \begin{array}{crr} 9\amp -6\amp -4 \\ 12\amp -7\amp 71 \\ 1\amp -3\amp 3 \end{array}  \right]</m>.
+              If <m>BC = \left[ \begin{array}{c} \vr_1 \\  \vr_2 \\ \vr_3 \end{array}  \right]</m> and <m>A = [\vs_1 \ \vs_2 \ \vs_3 \ \vs_4]</m>,
+              where <m>\vr_1</m>, <m>\vr_2</m>,
+              and <m>\vr_3</m> are the rows of <m>BC</m> and <m>\vs_1</m>,
+              <m>\vs_2</m>,
+              <m>\vs_3</m>, and <m>\vs_4</m> are the columns of <m>A</m>, then
+              <me>
+                (BC)A = \left[ \begin{array}{cccc} \vr_1 \cdot \vs_1 \amp  \vr_1 \cdot \vs_2 \amp  \vr_1 \cdot \vr_3 \amp  \vr_1 \cdot \vs_4 \\ \vr_2 \cdot \vs_1 \amp  \vr_2 \cdot \vs_2 \amp  \vr_2 \cdot \vs_3 \amp  \vr_2 \cdot \vs_4 \\ \vr_3 \cdot \vs_1 \amp  \vr_3 \cdot \vs_2 \amp  \vr_3 \cdot \vs_3 \amp  \vr_3 \cdot \vs_4 \end{array}  \right]
+              </me>.
+              Now
+              <md>
+                <mrow>\vr_1 \cdot \vs_1 \amp = (9)(1)+(-6)(3)+(-4)(7) = -37</mrow>
+                <mrow>\vr_1 \cdot \vs_2 \amp = (9)(2)+(-6)(0)+(-4)(6) = -6</mrow>
+                <mrow>\vr_1 \cdot \vs_3 \amp = (9)(0)+(-6)(-4)+(-4)(-1) = 28</mrow>
+                <mrow>\vr_1 \cdot \vs_4 \amp = (9)(1)+(-6)(5)+(-4)(0) = -21</mrow>
+                <mrow>\vr_2 \cdot \vs_1 \amp = (12)(1)+(-7)(3)+(71)(7) = 488</mrow>
+                <mrow>\vr_2 \cdot \vs_2 \amp = (12)(2)+(-7)(0)+(71)(6) = 450</mrow>
+                <mrow>\vr_2 \cdot \vs_3 \amp = (12)(0)+(-7)(-4)+(71)(-1) = -43</mrow>
+                <mrow>\vr_2 \cdot \vs_4 \amp = (12)(1)+(-7)(5)+(71)(0) = -23</mrow>
+                <mrow>\vr_3 \cdot \vs_1 \amp = (1)(1)+(-3)(3)+(3)(7) = 13</mrow>
+                <mrow>\vr_3 \cdot \vs_2 \amp = (1)(2)+(-3)(0)+(3)(6) = 20</mrow>
+                <mrow>\vr_3 \cdot \vs_3 \amp = (1)(0)+(-3)(-4)+(3)(-1) = 9</mrow>
+                <mrow>\vr_3 \cdot \vs_4 \amp = (1)(1)+(-3)(5)+(3)(0) = -14</mrow>
+              </md>,
+              so <m>(BC)A =  \left[ \begin{array}{rrrr} -37\amp -6\amp 28\amp -21 \\ 488\amp 450\amp -43\amp -23 \\ 13\amp 20\amp 9\amp -14 \end{array}  \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since <m>B</m> and <m>C</m> are both <m>3 \times 3</m> matrices,
+              their sum is defined and is a <m>3 \times 3</m> matrix.
+              Because <m>D</m> is <m>3 \times 2</m> matrix,
+              the number of columns of <m>B+C</m> is equal to the number of rows of <m>D</m>.
+              Thus, the quantity <m>(B+C)D</m> is defined and,
+              using the row-column method of matrix multiplication as earlier,
+              <md>
+                <mrow>(B+C)D \amp = \left( \left[ \begin{array}{rcr} -2\amp 4\amp -3</mrow>
+                <mrow>5\amp 1\amp 9</mrow>
+                <mrow>1\amp 1\amp -2 \end{array} \right] +  \left[ \begin{array}{crc} 0\amp -1\amp 6</mrow>
+                <mrow>3\amp -2\amp 5</mrow>
+                <mrow>1\amp 0\amp 4 \end{array} \right] \right) \left[ \begin{array}{cr} 10\amp -4</mrow>
+                <mrow>5\amp 2</mrow>
+                <mrow>8\amp -1 \end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{ccc} -2+0\amp 4-1\amp -3+6</mrow>
+                <mrow>5+3\amp 1-2\amp 9+5</mrow>
+                <mrow>1+1\amp 1+0\amp -2+4 \end{array} \right]  \left[ \begin{array}{cr} 10\amp -4</mrow>
+                <mrow>5\amp 2</mrow>
+                <mrow>8\amp -1 \end{array} \right]</mrow>
+                <mrow>\amp = \left[ \begin{array}{rrc} -2\amp 3\amp 3</mrow>
+                <mrow>8\amp -1\amp 14</mrow>
+                <mrow>2\amp 1\amp 2 \end{array} \right]  \left[ \begin{array}{cr} 10\amp -4</mrow>
+                <mrow>5\amp 2</mrow>
+                <mrow>8\amp -1 \end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{cr} 19\amp 11</mrow>
+                <mrow>187\amp -48</mrow>
+                <mrow>41\amp -8 \end{array} \right]</mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Since <m>D^{\tr}</m> is a <m>2 \times 3</m> matrix and <m>E</m> is <m>3 \times 2</m>,
+              the number of columns of <m>D^{\tr}</m> is equal to the number of rows of <m>E</m>.
+              Thus, <m>D^{\tr}E</m> is defined and
+              <md>
+                <mrow>D^{\tr}E \amp = \left[ \begin{array}{cr} 10\amp -4</mrow>
+                <mrow>5\amp 2</mrow>
+                <mrow>8\amp -1 \end{array} \right]^{\tr} \left[ \begin{array}{cr} 1\amp 0</mrow>
+                <mrow>4\amp -3</mrow>
+                <mrow>5\amp -1 \end{array} \right]</mrow>
+                <mrow>\amp = \left[ \begin{array}{rcr} 10\amp 5\amp 8</mrow>
+                <mrow>-4\amp 2\amp -1 \end{array} \right] \left[ \begin{array}{cr} 1\amp 0</mrow>
+                <mrow>4\amp -3</mrow>
+                <mrow>5\amp -1 \end{array} \right]</mrow>
+                <mrow>\amp = \left[ \begin{array}{rr} 70\amp -23</mrow>
+                <mrow>-1\amp -5 \end{array} \right]</mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The fact that <m>A</m> is a
+              <m>3 \times 4</m> matrix means that <m>A^{\tr}</m> is a <m>4 \times 3</m> matrix.
+              Since <m>F</m> is also a <m>4 \times 3</m> matrix,
+              the sum <m>A^{\tr}+F</m> is defined.
+              The transpose of any matrix is also defined,
+              so <m>\left(A^{\tr}+F\right)^{\tr}</m> is defined and
+              <md>
+                <mrow>\left(A^{\tr}+F\right)^{\tr} \amp = \left( \left[ \begin{array}{ccrc} 1\amp 2\amp 0\amp 1</mrow>
+                <mrow>3\amp 0\amp -4\amp 5</mrow>
+                <mrow>7\amp 6\amp -1\amp 0 \end{array} \right]^{\tr} +  \left[ \begin{array}{rcr} -2\amp 1\amp 5</mrow>
+                <mrow>6\amp 3\amp -8</mrow>
+                <mrow>1\amp 0\amp -1</mrow>
+                <mrow>7\amp 0\amp -5 \end{array} \right] \right)^{\tr}</mrow>
+                <mrow>\amp = \left( \left[ \begin{array}{crr} 1\amp 3\amp 7</mrow>
+                <mrow>2\amp 0\amp 6</mrow>
+                <mrow>0\amp -4\amp -1</mrow>
+                <mrow>1\amp 5\amp 0 \end{array} \right] + \left[ \begin{array}{rcr} -2\amp 1\amp 5</mrow>
+                <mrow>6\amp 3\amp -8</mrow>
+                <mrow>1\amp 0\amp -1</mrow>
+                <mrow>7\amp 0\amp -5 \end{array} \right] \right)^{\tr}</mrow>
+                <mrow>\amp = \left( \left[ \begin{array}{ccc} 1-2\amp 3+1\amp 7+5</mrow>
+                <mrow>2+6\amp 0+3\amp 6-8</mrow>
+                <mrow>0+1\amp -4+0\amp -1-1</mrow>
+                <mrow>1+7\amp 5+0\amp 0-5 \end{array} \right] \right)^{\tr}</mrow>
+                <mrow>\amp = \left( \left[ \begin{array}{rrr} -1\amp 4\amp 12</mrow>
+                <mrow>8\amp 3\amp -2</mrow>
+                <mrow>1\amp -4\amp -2</mrow>
+                <mrow>8\amp 5\amp -5 \end{array} \right] \right)^{\tr}</mrow>
+                <mrow>\amp = \left[ \begin{array}{rrrr} -1\amp 8\amp 1\amp 8</mrow>
+                <mrow>4\amp 3\amp -4\amp 5</mrow>
+                <mrow>12\amp -2\amp -2\amp -5 \end{array} \right]</mrow>
+              </md>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \left[ \begin{array}{cr} 2\amp -1\\7\amp -2 \end{array} \right]</m> and <m>B = \left[ \begin{array}{rc} 4\amp 6 \\ -3\amp 5 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Determine the matrix sum <m>A+B</m>.
+              Then use this sum to calculate <m>(A+B)^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Now calculate <m>(A+B)^2</m> in a different way.
+              Use the fact that matrix multiplication distributes over matrix addition to expand
+              (like foiling)
+              <m>(A+B)^2</m> into a sum of matrix products.
+              The calculate each summand and add to find <m>(A+B)^2</m>.
+              You should obtain the same result as part (a).
+              If not, what could be wrong?
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Adding corresponding terms shows that <m>A+B = \left[ \begin{array}{cc} 6\amp 5\\4\amp 3 \end{array} \right]</m>.
+              Squaring this sum yields the result <m>(A+B)^2 = \left[ \begin{array}{cc} 56\amp 45 \\ 36\amp 29 \end{array} \right]</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Expanding <m>(A+B)^2</m>
+              (remember that matrix multiplication is not commutative)
+              gives us
+              <md>
+                <mrow>(A+B)^2 \amp = (A+B)(A+B)</mrow>
+                <mrow>\amp = A^2 + AB + BA + B^2</mrow>
+                <mrow>\amp = \left[ \begin{array}{rr} -3\amp 0</mrow>
+                <mrow>0\amp -3 \end{array} \right] +  \left[ \begin{array}{cc} 11\amp 7</mrow>
+                <mrow>34\amp 32 \end{array} \right] +  \left[ \begin{array}{cr} 50\amp -16</mrow>
+                <mrow>29\amp -7 \end{array} \right] +  \left[ \begin{array}{rc} -2\amp 54</mrow>
+                <mrow>-27\amp 7 \end{array} \right]</mrow>
+                <mrow>\amp =  \left[ \begin{array}{cc} 56\amp 45</mrow>
+                <mrow>36\amp 29 \end{array} \right]</mrow>
+              </md>
+              just as in part (a).
+              If instead you obtained the matrix
+              <m>\left[ \begin{array}{cc} 17\amp 68 \\41\amp 68 \end{array}  \right]</m> you likely made the mistake of equating <m>(A+B)^2</m> with <m>A^2+2AB+B^2</m>.
+              These two matrices are not equal in general,
+              because we cannot say that <m>AB</m> is equal to <m>BA</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,243 @@
+<section xml:id="sec_proj_orbits_cob">
+  <title>Project: Planetary Orbits and Change of Basis</title>
+  <p>
+    We are interested in determining the orbit of planet that orbits the sun.
+    Finding the equation of such an orbit is not difficult,
+    but just having an equation is not enough.
+    For many purposes,
+    it is important to know where the planet is fro the perspective or earth observation.
+    This is a more complicated question,
+    one we can address through change of bases matrices.<fn>
+    This project is based on the paper
+    <q>Planetary Orbits: Change of Basis in R<m>^3</m></q>, Donald Teets,
+    <em>Teaching Mathematics and its Applications: An International Journal of the IMA</em>, Volume 17, Issue 2, 1 June 1998, Pages 66-68.
+    </fn>
+  </p>
+  <activity xml:id="act_orbits_ellipse">
+    <p>
+      Since planetary orbits are elliptical, not circular,
+      we need to understand ellipses.
+      An ellipse is a shape like a flattened circle.
+      More specifically,
+      while a circle is the set of points equidistant from a fixed point,
+      and ellipse is a set of points so that the sum of the distances from a point on the ellipse to two fixed points
+      (called foci)
+      is a constant.
+      We can use this definition to derive an equation for an ellipse.
+      We will simplify by rotating and translating an ellipse so that its foci are at points <m>(-c,0)</m> and <m>(c,0)</m>,
+      and the constant sum is <m>2a</m>.
+      Let <m>(x,y)</m> be a point on the ellipse as illustrated in <xref ref="F_ellipse">Figure</xref>.
+      Use the fact that the sum of the distances from <m>(x,y)</m> to the foci is <m>2a</m> to show that <m>(x,y)</m> satisfies the equation
+      <men xml:id="eq_orbit_ellipse">
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+      </men>,
+      where the points <m>(0,b)</m> and <m>(0,-b)</m> are the <m>y</m> intercepts of the ellipse.
+    </p>
+    <figure xml:id="F_ellipse">
+      <caption>An ellipse.</caption>
+      <image width="73%" source="5_e_Ellipse"/>
+    </figure>
+  </activity>
+  <p>
+    The longer axis of an ellipse is called the major axis and the axis perpendicular to the major axis through the origin is the minor axis.
+    Half of these axes
+    (from the origin)
+    are the semi-major axis and the semi-minor axis.
+    So the parameter <m>a</m> in <xref ref="eq_orbit_ellipse"/> is the length of the semi-major axis and the parameter <m>b</m> is the length of the semi-minor axis.
+    Note that the points <m>(0,b)</m> and <m>(0,-b)</m> are the <m>y</m> intercepts and the points <m>(a,0)</m> and <m>(-a,0)</m> are the <m>x</m> intercepts of this ellipse.
+    Note that if <m>a</m> and <m>b</m> are equal,
+    then the ellipse is a circle.
+    How far the ellipse deviates from a circle is called the <em>eccentricity</em>
+    (usually denoted as <m>e</m>)
+    of the ellipse.
+    In other words,
+    the eccentricity is a measure of how flattened en ellipse is,
+    and this is determined by how close <m>c</m> is to <m>a</m>,
+    or how close the ratio <m>\frac{c}{a}</m> is to <m>1</m>.
+    Thus, we define the eccentricity of an ellipse by
+    <me>
+      e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}
+    </me>.
+  </p>
+  <p>
+    Now we assume we have a planet
+    (different from the earth)
+    orbiting the sun and we establish how to convert back and forth from the coordinate system of earth's orbit to the coordinate system of the planet's orbit.
+    To do so we need to establish some coordinate systems.
+    We assume the orbit of earth is in the standard <m>xy</m> plane,
+    with the sun
+    (one of the foci)
+    at the origin.
+    The elliptical orbit of the planet is in some other plane with coordinate axes <m>x'</m> and <m>y'</m>.
+    The two orbital planes intersect in a line.
+    Let this line be the <m>x'</m> axis and let <m>\alpha</m> be the angle the positive <m>x'</m> axis makes with the positive <m>x</m> axis.
+    We can represent the elliptical orbit of the planet in the <m>x'y'</m> plane,
+    but the <m>x'</m> and <m>y'</m> axes are not likely to be the best axes for this orbit.
+    So we define a third coordinate system <m>x''y''</m> in the <m>x'y'</m> plane so that the origin
+    (the position of the sun)
+    is at one focus of the planet's orbit and the <m>x''</m> axis is the major axis of the orbit and the <m>y''</m> axis is the minor axis of the orbit of the planet.
+    The unit vectors <m>\vb_1</m>,
+    <m>\vb_2</m>,
+    and <m>\vb_3</m> in the positive <m>x</m>, <m>y</m>,
+    and <m>z</m> directions define a basis <m>\CB = \{\vb_1, \vb_2, \vb_3\}</m> for <m>\R^3</m>,
+    the unit vectors <m>\vb'_1</m>,
+    <m>\vb'_2</m>,
+    <m>\vb'_3</m> in the positive <m>x'</m>, <m>y'</m>,
+    and <m>z'</m> directions define a basis <m>\CB' = \{\vb'_1, \vb'_2, \vb'_3\}</m> for <m>\R^3</m>,
+    and the unit vectors <m>\vb''_1</m>,
+    <m>\vb''_2</m>,
+    <m>\vb''_3</m> in the positive <m>x''</m>, <m>y''</m>,
+    and <m>z''</m> directions define a basis <m>\CB'' = \{\vb''_1, \vb''_2, \vb''_3\}</m> for <m>\R^3</m>.
+    See <xref ref="F_orbits">Figure</xref> for illustrations.
+  </p>
+  <figure xml:id="F_orbits">
+    <caption>Left: The planet's orbit in the <m>x''y''</m> system. Right: The planes of the planet and earth orbits.</caption>
+    <image width="73%" source="5_e_orbit"/>   <image width="73%" source="5_e_orbit_plane"/>
+  </figure>
+  <p>
+    Finally, let <m>\gamma</m> be the angle between the positive <m>x'</m> axis and the positive <m>x''</m> axis as shown at left in <xref ref="F_orbits">Figure</xref>.
+    Our first step is to find the change of basis matrix from <m>\CB''</m> to <m>\CB'</m>.
+  </p>
+  <activity xml:id="act_orbits_COB_1">
+    <p>
+      Explain why the change of basis matrix <m>\underset{\CB' \leftarrow \CB''}{P}</m> is given by
+      <me>
+        \underset{\CB' \leftarrow \CB''}{P} = \left[ \begin{array}{ccc} \cos(\gamma)\amp -\sin(\gamma)\amp 0 \\ \sin(\gamma)\amp \cos(\gamma)\amp 0 \\ 0\amp 0\amp 1 \end{array}  \right]
+      </me>.
+    </p>
+  </activity>
+  <p>
+    More complicated is the change of basis matrix from <m>\CB'</m> to <m>\CB</m>.
+  </p>
+  <activity xml:id="act_orbits_COB_2">
+    <p>
+      Now we look for <m>\underset{\CB \leftarrow \CB'}{P} = [[\vb'_1]_{\CB} \ [\vb'_2]_{\CB} \ [\vb'_3]_{\CB}]</m>.
+      Assume that the plane <m>p</m> in which the planet's orbit lies has equation <m>z = ax+by</m>.
+      <ul>
+        <li>
+          <p>
+            Explain why <m>\vb'_1 = \cos(\alpha) \vb_1 + \sin(\alpha) \vb_2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <m>x'</m> axis is the intersection of the plane <m>z=ax+by</m> with the plane <m>z=0</m>,
+            so the equation of <m>x'</m> axis in terms of <m>x</m> and <m>y</m> is <m>ax+by=0</m>.
+            Now we determine the coordinates of <m>\vb'_2</m> in terms of the basis <m>\CB</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Explain why the vector <m>[b \ -a \ 0]^{\tr}</m> lies on the <m>x'</m> axis.
+                  We take this vector to point in the positive <m>x'</m> direction.
+                  This gives us another representation of <m>\vb'_1</m> <mdash/> namely that <m>\vb'_1 = \frac{1}{\sqrt{a^2+b^2}} [b \ -a \ 0]^{\tr}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why a vector in the plane
+                  <m>z = ax+by</m> orthogonal to <m>\vb'_1</m> is <m>\left[a \ b \ a^2+b^2 \right]^{\tr}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  From the previous part we have
+                  <me>
+                    \vb'_2 = \frac{1}{\sqrt{a^2+b^2+(a^2+b^2)^2}} \left[b \ a \ a^2+b^2 \right]^{\tr}
+                  </me>.
+                  Let <m>G = \left(\frac{b}{\sqrt{a^2+b^2+(a^2+b^2)^2}}, \frac{a}{\sqrt{a^2+b^2+(a^2+b^2)^2}}, 0\right)</m> be the terminal point of the projection of <m>\vb'_2</m> onto the <m>xy</m> plane.
+                  Show that <m>\overrightarrow{OG}</m> is orthogonal to <m>\vb'_1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>\beta</m> be the angle between the plane <m>p</m> and the <m>xy</m> plane as illustrated at right in <xref ref="F_orbits">Figure</xref>.
+                  Explain why <m>||\overrightarrow{OG}|| = \cos(\beta)</m>.
+                  Then explain why
+                  <me>
+                    \vb'_2 = [ -\cos(\beta)\sin(\alpha) \ \cos(\beta)\cos(\alpha) \ \sin(\beta)]^{\tr}
+                  </me>.
+                  (Hint: Use the trigonometric identities
+                  <m>\cos\left(A+\frac{\pi}{2}\right) =  -\sin(A)</m> and <m>\sin\left(A + \frac{\pi}{2}\right) =\cos(A)</m>.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Finally, we find <m>[\vb'_3]_{\CB}</m>.
+            The cross product of <m>\vb'_1</m> and <m>\vb'_2</m> is a vector orthogonal to <m>\vb'_1</m> and <m>\vb'_2</m>, so
+            <me>
+              \vb'_3 = \frac{1}{\sqrt{\left(a^2+b^2\right)^2+4a^2b^2}} \left[-a(a^2+b^2) \ -b(a^2+b^2) \ 2ab \right]^{\tr}
+            </me>.
+            Let <m>H</m> be the terminal point of the projection of <m>\vb'_3</m> onto the <m>xy</m> plane as illustrated at right in <xref ref="F_orbits">Figure</xref>.
+            <ol label="i">
+              <li>
+                <p>
+                  Explain why the angle between <m>\vb'_1</m> and
+                  <m>\overrightarrow{OH}</m> is <m>\frac{\pi}{2}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain why <m>||\overrightarrow{OH}|| = \sin(\beta)</m>. (Hint: Use the trigonometric identity <m>\cos\left(\frac{\pi}{2}-A \right) = \sin(A)</m>.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since the angle from <m>\vb_1</m> to <m>\overrightarrow{OH}</m> is negative,
+                  this angle is <m>\alpha-\frac{\pi}{2}</m>.
+                  Use this angle and the previous information to find the coordinates of the point <m>H</m> and,
+                  consequently,
+                  explain why
+                  <me>
+                    \vb'_3  = [ \sin(\beta)\sin(\alpha) \ -\sin(\beta)\cos(\alpha) \ \cos(\beta)]^{\tr}
+                  </me>.
+                  (Hint: Use the trigonometric identities
+                  <m>\cos\left(A - \frac{\pi}{2} \right) = \sin(A)</m> and <m>\sin\left(A - \frac{\pi}{2}\right) = -\cos(A)</m>.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Explain why the change of basis matrix
+            <m>\underset{\CB \leftarrow \CB'}{P}</m> from <m>\CB'</m> to <m>\CB</m> is
+            <me>
+              \underset{\CB \leftarrow \CB'}{P} = \left[ \begin{array}{ccc} \cos(\alpha)\amp -\cos(\beta)\sin(\alpha)\amp \sin(\beta)\sin(\alpha) \\ \sin(\alpha)\amp \cos(\beta)\cos(\alpha)\amp -\sin(\beta)\cos(\alpha) \\ 0\amp \sin(\beta)\amp \cos(\beta) \end{array}  \right]
+            </me>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <figure xml:id="F_ellipse_polar">
+    <caption>Points on the ellipse in terms of angles.</caption>
+    <image width="73%" source="5_e_ellipse_polar"/>
+  </figure>
+  <p>
+    With the change of basis matrices we can convert from any one coordinate system to the other.
+    Note that all of the change of basis matrices are written in terms of angles,
+    so it will be convenient to have a way to express points on our ellipses using angles as well.
+    Given any point on an ellipse
+    (or any point in the plane),
+    we can represent the coordinates of that point in terms of the angle <m>\theta</m> the vector through the origin and the point makes with the positive <m>x</m>-axis and the distance <m>r</m> from the origin to the point as shown in <xref ref="F_ellipse_polar">Figure</xref>.
+    In this representation we have
+    <m>x = r\cos(\theta)</m> and <m>y = r \sin(\theta)</m>.
+  </p>
+  <p>
+    So we can start in the <m>x''y''</m> coordinate system with the coordinate vector of a point <m>\left[\overrightarrow{OP}\right]_{\CB''} = [ r\cos(\theta) \ r\sin(\theta) \ 0]^{\tr}</m>.
+    Then to view this point in the <m>xy</m> system,
+    we apply the change of basis matrices
+    <me>
+      \left[\overrightarrow{OP}\right]_{\CB} = \underset{\CB \leftarrow \CB'}{P} \underset{\CB' \leftarrow \CB''}{P} [ r\cos(\theta) \ r\sin(\theta) \ 0]^{\tr}
+    </me>.
+  </p>
+  <p>
+    Of course we can also covert from <m>\CB</m> coordinates to <m>\CB''</m> coordinates by applying the inverses of our change of basis matrices.
+  </p>
+  <p>
+    \part{Eigenvalues and Eigenvectors}
+  </p>
+</section>

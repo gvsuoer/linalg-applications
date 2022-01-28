@@ -1,0 +1,161 @@
+<section xml:id="sec_proj_back_face">
+  <title>Project: Back-Face Culling</title>
+  <p>
+    To identify hidden polygons in a surface,
+    we will utilize a technique called
+    <em>back face culling</em>.
+        <idx><h>back-face culling</h></idx>
+    This involves identifying which polygons are back facing and which are front facing relative to the viewer's perspective.
+    The first step is to assign a direction to each polygon in a surface.
+  </p>
+  <activity xml:id="act_bf_normal">
+    <p>
+      Consider the polygon <m>ABCD</m> in <xref ref="F_Normal_vector">Figure</xref>.
+      Since a polygon is flat,
+      every vector in the polygon is perpendicular to a fixed vector
+      (which we call a <em>normal vector</em> to the polygon).
+      A normal vector <m>\vn</m> for the polygon <m>ABCD</m> in <xref ref="F_Normal_vector">Figure</xref> is shown.
+      In this activity we learn how to find a normal vector to a polygon.
+    </p>
+    <p>
+      Let <m>\vx = [x_1 \ x_2 \ x_3]^{\tr}</m> and
+      <m>\vy = [y_1 \ y_2 \ y_3]^{\tr}</m> be two vectors in <m>\R^3</m>.
+      If <m>\vx</m> and <m>\vy</m> are linearly independent,
+      then <m>\vx</m> and <m>\vy</m> determine a polygon as shown in <xref ref="F_Normal_vector">Figure</xref>.
+      Our goal is to find a vector <m>\vn</m> that is orthogonal to both <m>\vx</m> and <m>\vy</m>.
+      Let <m>\vw = [w_1 \ w_2 \ w_3]^{\tr}</m> be another vector in <m>\R^3</m> and let
+      <m>C = \left[ \begin{array}{c} \vw^{\tr} \\ \vx^{\tr} \\ \vy^{\tr} \end{array}  \right]</m> be the matrix whose rows are <m>\vw</m>,
+      <m>\vx</m>, and <m>\vy</m>.
+      Let <m>C_{ij}</m> be the <m>ij</m>th cofactor of <m>C</m>,
+      that is <m>C_{ij}</m> is <m>(-1)^{i+j}</m> times the determinant of the submatrix of <m>C</m> obtained by deleting the <m>i</m>th row and <m>j</m>th column of <m>C</m>.
+      Now define the vector <m>\vx \times \vy</m> as follows:
+      <me>
+        \vx \times \vy = C_{11}\ve_1 + C_{12}\ve_2 + C_{13} \ve_3
+      </me>.
+    </p>
+    <p>
+      The vector <m>\vx \times \vy</m> is called the <em>cross product</em>
+          <idx><h>cross product</h></idx>
+      of the vectors <m>\vx</m> and <m>\vy</m>.
+      (Note that the cross product is only defined for vectors in <m>\R^3</m>.)
+      We will show that <m>\vx \times \vy</m> is orthogonal to both <m>\vx</m> and <m>\vy</m>,
+      making <m>\vx \times \vy</m> a normal vector to the polygon defined by <m>\vx</m> and <m>\vy</m>.
+    </p>
+    <figure xml:id="F_Normal_vector">
+      <caption>Normal vector to a polygon.</caption>
+      <image width="73%" source="6_a_normal.eps"/>
+    </figure>
+    <ul>
+      <li>
+        <p>
+          Show that
+          <me>
+            \vx \times \vy = \left[ \begin{array}{c} x_2y_3-x_3y_2 \\ x_3y_1-x_1y_3 \\ x_1y_2-x_2y_1 \end{array}  \right]
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use a cofactor expansion of <m>C</m> along the first row and properties of the dot product to show that
+          <me>
+            \det(C) = \vw \cdot (\vx \times \vy)
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use the result of part (b) and properties of the determinant to calculate
+          <m>\vx \cdot (\vx \times \vy)</m> and <m>\vy \cdot (\vx \times \vy)</m>.
+          Explain why <m>\vx \times \vy</m> is orthogonal to both <m>\vx</m> and <m>\vy</m> and is therefore a normal vector to the polygon determined by <m>\vx</m> and <m>\vy</m>.
+        </p>
+      </li>
+    </ul>
+  </activity>
+  <p>
+    Project <xref ref="act_bf_normal">Activity</xref>
+    shows how we can find a normal vector to a parallelogram <mdash/> take two vectors <m>\vx</m> and <m>\vy</m> between the vertices of the parallelogram and calculate their cross products.
+    Such a normal vector can define a direction for the parallelogram.
+    There is still a problem, however.
+  </p>
+  <activity xml:id="act_bf_normal_2">
+    <p>
+      Let <m>\vx = [x_1 \ x_2 \ x_3]^{\tr}</m> and
+      <m>\vy = [y_1 \ y_2 \ y_3]^{\tr}</m> be any vectors in <m>\R^3</m>.
+      There is a relationship between
+      <m>\vx \times \vy</m> and <m>\vy \times \vx</m>.
+      Find and verify this relationship.
+    </p>
+  </activity>
+  <p>
+    Project <xref ref="act_bf_normal_2">Activity</xref>
+    shows that the cross product is anticommutative,
+    so we get different directions if we switch the order in which we calculate the cross product.
+    To fix a direction,
+    we establish the convention that we always label the vertices of our parallelogram in the counterclockwise direction as shown in <xref ref="F_Normal_vector">Figure</xref>.
+    This way we always use <m>\vx</m> as the vector from vertex <m>A</m> to vertex <m>B</m> rather than the reverse.
+    With this convention established,
+    we can now define the direction of a parallelogram as the direction of its normal vector.
+  </p>
+  <p>
+    Once we have a normal vector established for each polygon,
+    we can now determine which polygons are back-face and which are front-face.
+    <xref ref="F_Hidden">Figure</xref>
+    at left provides the gist of the idea,
+    where we represent the polygons with line segments to illustrate.
+    If the viewer's eye is at point <m>P</m> and views the figures,
+    the normal vectors of the visible polygons point in a direction toward the viewer (front-face) and the normal vectors of the polygons hidden from the viewer point away from the viewer
+    (back-face).
+    What remains is to determine an effective computational way to identify the front and back facing polygons.
+  </p>
+  <figure xml:id="F_Hidden">
+    <caption>Left: Hidden faces. Right: Back face culling.</caption>
+    <image width="73%" source="6_a_hidden.eps"/>
+    <image width="73%" source="6_a_cull.eps"/>
+  </figure>
+  <activity xml:id="act_bf_dot_product">
+    <p>
+      Consider the situation as depicted at right in <xref ref="F_Hidden">Figure</xref>.
+      Assume that <m>AB</m> and <m>RS</m> are polygons
+      (rendered one dimensionally here)
+      with normal vectors <m>\vn</m> at their centers as shown.
+      The viewer's eye is at point <m>P</m> and the viewer's line of vision to the centers <m>C_{AB}</m> and <m>C_{RS}</m> are indicated by the vectors <m>\vv</m>.
+      Each vector <m>\vv</m> makes an angle <m>\theta</m> with the normal to the polygon.
+      <ul>
+        <li>
+          <p>
+            What can be said about the angle <m>\theta</m> for a front-facing polygon?
+            What must be true about <m>\vv \cdot \vn</m> for a front-facing polygon?
+            Why?
+          </p>
+        </li>
+        <li>
+          <p>
+            What can be said about the angle <m>\theta</m> for a back-facing polygon?
+            What must be true about <m>\vv \cdot \vn</m> for a back-facing polygon?
+            Why?
+          </p>
+        </li>
+        <li>
+          <p>
+            The dot product then provides us with a simple computational tool for identifying back-facing polygons
+            (assuming we have already calculated all of the normal vectors).
+            We can then create an algorithm to cull the back-facing polygons.
+            Assuming that we the viewpoint <m>P</m> and the coordinates of the polygons of the surface,
+            complete the pseudo-code for a back-face culling algorithm:
+            <em>for all</em> polygons on the surface <em>do</em>
+            \- calculate the normal vector <m>\vn</m> using the <fillin/> product for the current polygon \- calculate the center <m>C</m> of the current polygon \- calculate the viewing vector <fillin/> \-
+            <em>if</em> <fillin/> <em>then</em>
+            \- render the current polygon \-
+            <em>end if</em> <em>end for</em>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As a final comment,
+    back-face culling generally reduces the number of polygons to be rendered by half.
+    This algorithm is not perfect and does not always do what we want it to do (e.g., it may not remove all parts of a polygon that we don't see),
+    so there are other algorithms to use in concert with back-face culling to correctly render objects.
+  </p>
+</section>

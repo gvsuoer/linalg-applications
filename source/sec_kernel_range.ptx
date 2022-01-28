@@ -1,0 +1,187 @@
+<section xml:id="sec_kernel_range">
+  <title>The Kernel and Range of Linear Transformation</title>
+  <p>
+    As we saw in Preview <xref ref="pa_8_a">Activity</xref>,
+    any linear transformation sends the additive identity to the additive identity.
+    If <m>T</m> is a matrix transformation defined by
+    <m>T(\vx) = A \vx</m> for some <m>m \times n</m> matrix <m>A</m>,
+    then we have seen that the set of vectors that <m>T</m> maps to the zero vector is <m>\Nul A = \{\vx : A \vx = \vzero\}</m>,
+    which is also <m>\Ker(T) = \{\vx : T(\vx) = \vzero\}</m>.
+    We can extend this idea of the kernel of a matrix transformation to any linear transformation <m>T</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>T : V \to W</m> be a linear transformation from the vector space <m>V</m> to the vector space <m>W</m>.
+        The <term>kernel</term><idx><h>linear transformation</h><h>kernel</h></idx> of <m>T</m> is the set
+        <me>
+          \Ker(T) = \{\vx \in V : T(\vx) = \vzero_W\}
+        </me>,
+        where <m>\vzero_W</m> is the additive identity in <m>W</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Just as the null space of an
+    <m>m \times n</m> matrix <m>A</m> is a subspace of <m>\R^n</m>,
+    the kernel of a linear transformation from a vector space <m>V</m> to a vector space <m>W</m> is a subspace of <m>V</m>.
+    The proof is left to the exercises.
+  </p>
+  <theorem xml:id="thm_8_a_ker">
+    <statement>
+      <p>
+        Let <m>T : V \to W</m> be a linear transformation from a vector space <m>V</m> to vector space <m>W</m>.
+        Then <m>\Ker(T)</m> is a subspace of <m>V</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The kernel of a linear transformation provides a convenient way to determine if the linear transformation is one-to-one.
+    If <m>T</m> is one-to-one,
+    then the only solution to <m>T(\vx) = \vzero_W</m> is
+    <m>\vzero_V</m> and <m>\Ker(T)</m> contains only the zero vector.
+    If <m>T</m> is not one-to-one
+    (and the domain of <m>T</m> is not just <m>\{\vzero\}</m>),
+    then the number of solutions to
+    <m>T(\vx) = \vzero_W</m> is infinite and <m>\Ker(T)</m> contains more than just the zero vector.
+    We formalize this idea in the next theorem.
+    (Compare to <xref ref="thm_3_b_one_to_one_kernel">Theorem</xref>.)
+    The formal proof is left for the exercises.
+  </p>
+  <theorem xml:id="thm_8_a_one_to_one_kernel">
+    <statement>
+      <p>
+        A linear transformation <m>T</m> from a vector space <m>V</m> to a vector space <m>W</m> is one-to-one if and only if <m>\Ker(T) = \{\vzero_V\}</m>,
+        where <m>\vzero_V</m> is the additive identity in <m>V</m>.
+      </p>
+    </statement>
+  </theorem>
+  <activity xml:id="act_8_a_Lin_trans_1">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Let <m>T: \pol_1 \to \pol_2</m> be defined by <m>T(a_0+a_1t) = a_1t^2</m>.
+            Find <m>\Ker(T)</m>.
+            Is <m>T</m> one-to-one?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>T: \D \to \F</m> be defined by <m>T(f) = f'</m>.
+            Find <m>\Ker(T)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Recall that the matrix-vector product <m>A \vx</m> is a linear combination of the columns of <m>A</m> and the set of all vectors of the form <m>A \vx</m> is the column space of <m>A</m>.
+    For the matrix transformation <m>T</m> defined by <m>T(\vx) = A\vx</m>,
+    the set of all vectors of the form <m>A \vx</m> is also the range of the transformation <m>T</m>.
+    We can extend this idea to arbitrary linear transformations to define the
+    <em>range</em> of a transformation.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>T : V \to W</m> be a linear transformation from the vector space <m>V</m> to the vector space <m>W</m>.
+        The <term>range</term><idx><h>range of a linear transformation</h></idx> of <m>T</m> is the set
+        <me>
+          \Range(T) = \{T(\vx) : \vx \text{ is in }  V\}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We also call the range of a transformation <m>T</m> the
+    <em>image</em><idx><h>image of a linear transformation</h></idx> of the transformation and use the notation <m>\Image(T)</m>.
+  </p>
+  <p>
+    If <m>T(\vx) = A\vx</m> for some <m>m \times n</m> matrix <m>A</m>,
+    we know that <m>\Col A</m>,
+    the span of the columns of <m>A</m>,
+    is a subspace of <m>\R^m</m>.
+    Consequently, the range of <m>T</m>,
+    which is also the column space of <m>A</m>,
+    is a subspace of <m>\R^m</m>.
+    In general, the range of a linear transformation <m>T</m> from <m>V</m> to <m>W</m> is a subspace of <m>W</m>.
+    The fact that the range of a transformation is a subspace of the codomain is a consequence of the more general result in the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>T : V \to W</m> be a linear transformation from a vector space <m>V</m> to vector space <m>W</m>,
+        and let <m>U</m> be a subspace of <m>V</m>.
+        Then the set
+        <me>
+          T(U) = \{T(\vu) : \vu \in U\}
+        </me>
+        is a subspace of <m>W</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>T : V \to W</m> be a linear transformation from a vector space <m>V</m> to vector space <m>W</m>,
+      and let <m>U</m> be a subspace of <m>V</m>.
+      Let <m>\vzero_V</m> and <m>\vzero_W</m> be the additive identities in <m>V</m> and <m>W</m>,
+      respectively.
+      We have already shown that <m>T(\vzero_V) = \vzero_W</m>,
+      so <m>\vzero_W</m> is in <m>T(U)</m>.
+      To show that <m>T(U)</m> is a subspace of <m>W</m> we must also demonstrate that <m>\vw+\vz</m> is in <m>T(U)</m> whenever <m>\vw</m> and <m>\vz</m> are in <m>T(U)</m> and that <m>a\vw</m> is in <m>T(U)</m> whenever <m>a</m> is a scalar and <m>\vw</m> is in <m>T(U)</m>.
+      Let <m>\vw</m> and <m>\vz</m> be in <m>T(U)</m>.
+      Then <m>T(\vx) = \vw</m> and
+      <m>T(\vy) = \vz</m> for some vectors <m>\vx</m> and <m>\vy</m> in <m>U</m>.
+      Since <m>U</m> is a subspace of <m>V</m>,
+      we know that <m>\vx+\vy</m> is in <m>U</m>.
+      The fact that <m>T</m> is a linear transformation means that
+      <me>
+        T(\vx + \vy) = T(\vx) + T(\vy) = \vw + \vz
+      </me>.
+    </p>
+    <p>
+      So <m>\vw+\vz</m> is in <m>T(U)</m>.
+    </p>
+    <p>
+      Finally, let <m>a</m> be a scalar.
+      Since <m>U</m> is a subspace of <m>V</m>,
+      we know that <m>a \vx</m> is in <m>U</m>.
+      The linearity of <m>T</m> gives us
+      <me>
+        T(a\vx) = aT(\vx) = a\vw
+      </me>,
+      so <m>a \vw</m> is in <m>T(U)</m>.
+      We conclude that <m>T(U)</m> is a subspace of <m>W</m>.
+    </p>
+  </proof>
+  <p>
+    Letting <m>U = V</m> shows that
+    <m>\Range(T)</m> is a subspace of <m>W</m>.
+  </p>
+  <p>
+    The subspace <m>\Range(T)</m> provides us with a convenient criterion for the transformation <m>T</m> being onto.
+    The transformation <m>T</m> is onto if for each <m>\vb</m> in <m>W</m>,
+    there is at least one <m>\vx</m> for which <m>T(\vx)=\vb</m>.
+    This means that every <m>\vb</m> in <m>W</m> belongs to
+    <m>\Range(T)</m> for <m>T</m> to be onto.
+  </p>
+  <theorem xml:id="thm_8_a_onto_range">
+    <statement>
+      <p>
+        A linear transformation <m>T</m> from a vector space <m>V</m> to a vector space <m>W</m> is onto if and only if <m>\Range(T) = W</m>.
+      </p>
+    </statement>
+  </theorem>
+  <activity>
+    <p>
+      Let <m>T: \pol_1 \to \pol_2</m> be defined by
+      <m>T(a_0+a_1t) = a_1t^2</m> as in <xref ref="act_8_a_Lin_trans_1">Activity</xref>.
+      Describe the vectors in <m>\Range(T)</m>.
+      Is <m>T</m> onto?
+      Explain.
+    </p>
+  </activity>
+</section>

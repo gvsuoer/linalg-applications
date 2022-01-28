@@ -1,0 +1,96 @@
+<section xml:id="sec_orthog_set_intro">
+  <title>Introduction</title>
+  <p>
+    If <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> is a basis for a subspace <m>W</m> of <m>\R^n</m>,
+    we know that any vector <m>\vw</m> in <m>W</m> can be written uniquely as a linear combination of the vectors in <m>\CB</m>.
+    In the past,
+    the way we have found the coordinates of <m>\vx</m> with respect to <m>\CB</m>,
+    i.e. the weights needed to write a vector <m>\vx</m> as a linear combination of the elements in <m>\CB</m>,
+    has been to row reduce the matrix
+    <m>[\vv_1 \ \vv_2 \ \cdots \ \vv_m \ | \ \vx]</m> to solve the corresponding system.
+    This can be a cumbersome process,
+    especially if we need to do it many times.
+    This process also forces us to determine all of the weights at once.
+    For certain types of bases,
+    namely the <em>orthogonal</em> and
+    <em>orthonormal</em> bases,
+    there is a much easier way to find individual weights for this linear combination.
+  </p>
+  <p>
+    Recall that two nonzero vectors <m>\vu</m> and <m>\vv</m> in <m>\R^n</m> are orthogonal if <m>\vu \cdot \vv = 0</m>.
+    We can extend this idea to an entire set.
+    For example, the standard basis
+    <m>\CS = \{\ve_1, \ve_2, \ve_3\}</m> for <m>\R^3</m> has the property that any two distinct vectors in <m>\CS</m> are orthogonal to each other.
+    The basis vectors in <m>\CS</m> make a very nice coordinate system for <m>\R^3</m>,
+    where the basis vectors provide the directions for the coordinate axes.
+    We could rotate this standard basis,
+    or multiply any of the vectors in the basis by a nonzero constant,
+    and retain a basis in which all distinct vectors are orthogonal to each other (e.g., <m>\{[2 \ 0 \ 0]^{\tr}, [0 \ 3 \ 0]^{\tr}, [0 \ 0 \ 1]^{\tr}\}</m>).
+    We define this idea of having all vectors be orthogonal to each other for sets,
+    and then for bases.
+  </p>
+  <definition xml:id="def_6_b_orthogonal_set_Rn">
+    <statement>
+      <p>
+        A non-empty subset <m>S</m> of <m>\R^n</m> is
+        <term>orthogonal</term><idx><h>orthogonal set in <m>\R^n</m></h></idx> if
+        <m>\vu \cdot \vv = 0</m> for every pair of distinct vectors <m>\vu</m> and <m>\vv</m> in <m>S</m>.
+      </p>
+    </statement>
+  </definition>
+  <activity xml:id="pa_6_b">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Determine if the set <m>S = \{[1 \ 2 \ 1]^{\tr}, [2 \ -1 \ 0]^{\tr}\}</m> is an orthogonal set.
+          </p>
+        </li>
+        <li>
+          <p>
+            Orthogonal bases are especially important.
+            <definition xml:id="def_6_b_orthogonal_basis_Rn">
+              <statement>
+                <p>
+                  An <term>orthogonal basis</term><idx><h>orthogonal basis in <m>\R^n</m></h></idx> <m>\CB</m> for a subspace <m>W</m> of <m>\R^n</m> is a basis of <m>W</m> that is also an orthogonal set.
+                </p>
+              </statement>
+            </definition>
+            Let <m>\CB = \{\vv_1, \vv_2, \vv_3\}</m>,
+            where <m>\vv_1 = [1 \ 2 \ 1]^{\tr}</m>,
+            <m>\vv_2 = [2 \ -1 \ 0]^{\tr}</m>,
+            and <m>\vv_3 = [1 \ 2 \ -5]^{\tr}</m>.
+            <ul>
+              <li>
+                <p>
+                  Explain why <m>\CB</m> is an orthogonal basis for <m>\R^3</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose <m>\vx</m> has coordinates
+                  <m>x_1, x_2, x_3</m> with respect to the basis <m>\CB</m>, i.e.
+                  <me>
+                    \vx = x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3 \,
+                  </me>.
+                  Substitute this expression for <m>\vx</m> in
+                  <m>\vx \cdot \vv_1</m> and use the orthogonality property of the basis <m>\CB</m> to show that <m>x_1 = \frac{\vx \cdot \vv_1}{\vv_1 \cdot \vv_1}</m>.
+                  Then determine <m>x_2</m> and <m>x_3</m> similarly.
+                  Finally, calculate the values of <m>x_1</m>,
+                  <m>x_2</m>, and <m>x_3</m> if <m>\vx = [1 \ 1 \ 1]^{\tr}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find components of <m>\vx = [1 \ 1 \ 1]^{\tr}</m> by reducing the augmented matrix <m>[\vv_1 \ \vv_2 \ \vv_3 \ | \ \vx]</m>.
+                  Does this result agree with your work from the previous part?
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

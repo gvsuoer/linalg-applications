@@ -1,0 +1,144 @@
+<section xml:id="sec_gram_schmidt_examples">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>W</m> be the subspace of <m>\R^4</m> spanned by <m>\vw_1 = [1 \ 0 \ 0 \ 0]^{\tr}</m>,
+        <m>\vw_2 = [1 \ 1 \ 1 \ 0]^{\tr}</m>,
+        and <m>\vw_3 = [1 \ 2 \ 0 \ 1]^{\tr}</m>.
+        <ul>
+          <li>
+            <p>
+              Use the Gram-Schmidt process to find an orthonormal basis for the subspace <m>W</m> of <m>\R^4</m> spanned by <m>\vw_1 = [1 \ 0 \ 0 \ 0]^{\tr}</m>,
+              <m>\vw_2 = [1 \ 1 \ 1 \ 0]^{\tr}</m>,
+              and <m>\vw_3 = [1 \ 2 \ 0 \ 1]^{\tr}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a QR factorization of the matrix <m>A = \left[ \begin{array}{cccc} 1\amp 1\amp 1\amp 0 \\ 0\amp 1\amp 2\amp 0 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1 \end{array} \right]</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              First note that <m>\vw_1</m>,
+              <m>\vw_2</m>, and <m>\vw_3</m> are linearly independent.
+              We let <m>\vv_1 = \vw_1</m> and the Gram-Schmidt process gives us
+              <md>
+                <mrow>\vv_2 \amp = \vw_2 - \frac{\vw_2 \cdot \vv_1}{\vv_1 \cdot \vv_1} \vv_1</mrow>
+                <mrow>\amp = [1 \ 1 \ 1 \ 0]^{\tr} - \frac{1}{1}[1 \ 0 \ 0 \ 0]^{\tr}</mrow>
+                <mrow>\amp = [0 \ 1 \ 1 \ 0]^{\tr}</mrow>
+              </md>
+              and
+              <md>
+                <mrow>\vv_3 \amp = \vw_3 - \frac{\vw_3 \cdot \vv_1}{\vv_1 \cdot \vv_1} \vv_1 - \frac{\vw_3 \cdot \vv_2}{\vv_2 \cdot \vv_2} \vv_2</mrow>
+                <mrow>\amp = [1 \ 2 \ 0 \ 1]^{\tr} - \frac{1}{1}[1 \ 0 \ 0 \ 0]^{\tr} - \frac{2}{2}[0 \ 1 \ 1 \ 0]^{\tr}</mrow>
+                <mrow>\amp = [0 \ 1 \ -1 \ 1]^{\tr}</mrow>
+              </md>.
+              So <m>\{\vv_1, \vv_2, \vv_3\}</m> is an orthogonal basis for <m>W</m>.
+              An orthonormal basis is found by dividing each vector by its magnitude, so
+              <me>
+                \{[1 \ 0 \ 0 \ 0]^{\tr}, \frac{1}{\sqrt{2}} [0 \ 1 \ 1 \ 0]^{\tr}, \frac{1}{\sqrt{3}}[0 \ 1 \ -1 \ 1]^{\tr}\}
+              </me>
+              is an orthonormal basis for <m>W</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Technology shows that the reduced row echelon form of <m>A</m> is <m>I_4</m>,
+              so the columns of <m>A</m> are linearly independent and <m>A</m> has rank <m>4</m>.
+              From part (a) we have an orthogonal basis for the span of the first three columns of <m>A</m>.
+              To find a fourth vector to add so that the span is <m>\Col \ A</m>,
+              we apply the Gram-Schmidt process one more time with <m>\vw_4 = [0 \ 0 \ 0 \ 1]^{\tr}</m>:
+              <md>
+                <mrow>\vv_4 \amp = \vw_4 - \frac{\vw_4 \cdot \vv_1}{\vv_1 \cdot \vv_1} \vv_1 - \frac{\vw_4 \cdot \vv_2}{\vv_2 \cdot \vv_2} \vv_2 - \frac{\vw_4 \cdot \vv_3}{\vv_3 \cdot \vv_3} \vv_3</mrow>
+                <mrow>\amp = [0 \ 0 \ 0 \ 1]^{\tr} - \frac{0}{1}[1 \ 0 \ 0 \ 0]^{\tr} - \frac{0}{2}[0 \ 1 \ 1 \ 0]^{\tr} - \frac{1}{3}[0 \ 1 \ -1 \ 1]^{\tr}</mrow>
+                <mrow>\amp = \frac{1}{3} [0 \ -1 \ 1 \ 2]^{\tr}</mrow>
+              </md>.
+              So <m>\{\vu_1, \vu_2, \vu_3, \vu_4\}</m> is an orthonormal basis for <m>\Col \ A</m>, where
+              <me>
+                \begin{array}{ccc} \vu_1 = [1 \ 0 \ 0 \ 0]^{\tr} \amp  \amp \vu_2 = \frac{\sqrt{2}}{2}[0 \ 1 \ 1 \ 0]^{\tr} \\ \vu_3 = \frac{\sqrt{3}}{3}[0 \ 1 \ -1 \ 1]^{\tr} \amp    \amp \vu_4 = \frac{\sqrt{6}}{6} [0 \ -1 \ 1 \ 2]^{\tr}. \end{array}
+              </me>
+              This makes
+              <me>
+                Q = \left[  \begin{array}{ccrr} 1\amp 0\amp 0\amp 0 \\ 0\amp \frac{\sqrt{2}}{2}\amp \frac{\sqrt{3}}{3}\amp -\frac{\sqrt{6}}{6} \\ 0\amp \frac{\sqrt{2}}{2}\amp -\frac{\sqrt{3}}{3}\amp \frac{\sqrt{6}}{6} \\ 0\amp 0\amp \frac{\sqrt{3}}{3}\amp \frac{\sqrt{6}}{3} \end{array}  \right]
+              </me>.
+              To find the matrix <m>R</m>,
+              we write the columns of <m>A</m> in terms of the basis vectors <m>\vu_1</m>,
+              <m>\vu_2</m>,
+              <m>\vu_3</m>, and <m>\vu_4</m>.
+              Technology shows that the reduced row echelon form of <m>[Q  \ | \ A]</m> is
+              <me>
+                \left[   \begin{array}{cccc|cccc} 1\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp \sqrt{2}\amp \sqrt{2}\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp \sqrt{3}\amp \frac{\sqrt{3}}{3} \\ 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp \frac{\sqrt{6}}{3} \end{array}  \right]
+              </me>.
+              So
+              <me>
+                R = \left[  \begin{array}{cccc} 1\amp 1\amp 1\amp 0 \\ 0\amp \sqrt{2}\amp \sqrt{2}\amp 0 \\ 0\amp 0\amp \sqrt{3}\amp \frac{\sqrt{3}}{3} \\ 0\amp 0\amp 0\amp \frac{\sqrt{6}}{3} \end{array}  \right]
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>W = \Span\{[1 \ 0 \ 1 \ 0]^{\tr}, [0 \ 0 \ 1 \ -1]^{\tr}, [1 \ 0 \ -1 \ 0]^{\tr}\}</m>.
+        Find the vector in <m>W</m> that is closest to the vector <m>[1 \ 1 \ 1 \ 1]^{\tr}</m>.
+        Provide a numeric measure of the error in approximating <m>[1 \ 1 \ 1 \ 1]^{\tr}</m> by this vector.
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Our job is to find <m>\proj_{W} [1 \ 1 \ 1 \ 1]^{\tr}</m>.
+              To do this, we need an orthogonal basis of <m>W</m>.
+              Let <m>\vv_1 = [1  \ 0 \ 1 \ 0]^{\tr}</m>,
+              <m>\vv_2 = [0 \ 0 \ 1 \ -1]^{\tr}</m>,
+              and <m>\vv_3 = [1 \ 0 \ -1 \ 0]^{\tr}</m>.
+              Technology shows that each column of the matrix <m>[\vv_1 \ \vv_2 \ \vv_3]</m> is a pivot column,
+              so the set <m>\{\vv_1, \vv_2, \vv_3\}</m> is a basis for <m>W</m>.
+              We apply the Gram-Schmidt process to this basis to obtain an orthogonal basis <m>\{\vw_1, \vw_2, \vw_3\}</m> of <m>W</m>.
+              We start with <m>\vw_1= \vv_1</m>, then
+              <md>
+                <mrow>\vw_2 \amp = \vv_2 - \frac{\vv_2 \cdot \vw_1}{ \vw_1 \cdot \vw_1} \vw_1</mrow>
+                <mrow>\amp = [0 \ 0 \ 1 \ -1]^{\tr} - \frac{1}{2} [1  \ 0 \ 1 \ 0]^{\tr}</mrow>
+                <mrow>\amp = \frac{1}{2}[-1 \ 0 \ 1 \ -2]^{\tr}</mrow>
+              </md>
+              and
+              <md>
+                <mrow>\vw_3 \amp = \vv_3 - \frac{\vv_3 \cdot \vw_1}{ \vw_1 \cdot \vw_1} \vw_1 - \frac{\vv_3 \cdot \vw_2}{ \vw_2 \cdot \vw_2} \vw_2</mrow>
+                <mrow>\amp = [1 \ 0 \ -1 \ 0]^{\tr} - \frac{0}{2} [1  \ 0 \ 1 \ 0]^{\tr} + \frac{2}{3} \left(\frac{1}{2}[-1 \ 0 \ 1 \ -2]^{\tr}\right)</mrow>
+                <mrow>\amp = \frac{1}{3} [2 \ 0 \ -2 \ -2]^{\tr}</mrow>
+              </md>.
+              Then, letting <m>\vz = [1 \ 1 \ 1 \ 1]^{\tr}</m> we have
+              <md>
+                <mrow>\proj_{W} \vz \amp = \frac{\vz \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 +  \frac{\vz \cdot \vw_2}{\vw_2 \cdot \vw_2} \vw_2 +  \frac{\vz \cdot \vw_3}{\vw_3 \cdot \vw_3} \vw_3</mrow>
+                <mrow>\amp = \frac{2}{2}[1  \ 0 \ 1 \ 0]^{\tr} + \frac{-1}{3/2}\frac{1}{2}[-1 \ 0 \ 1 \ -2]^{\tr} + \frac{-2/3}{4/3}  \frac{1}{3} [2 \ 0 \ -2 \ -2]^{\tr}</mrow>
+                <mrow>\amp = [1  \ 0 \ 1 \ 0]^{\tr} - \frac{1}{3}[-1 \ 0 \ 1 \ -2]^{\tr} - \frac{1}{6}[2 \ 0 \ -2 \ -2]^{\tr}</mrow>
+                <mrow>\amp = [1 \ 0 \ 1 \ 1]^{\tr}</mrow>
+              </md>.
+              The norm of <m>\proj_{W^{\perp}} \vz = \vz - \proj_W \vz</m> tells us how well our projection
+              <m>[1 \ 0 \ 1 \ 1]^{\tr}</m> approximates <m>\vz = [1 \ 1 \ 1 \ 1]^{\tr}</m>.
+              Now
+              <me>
+                ||\proj_{W^{\perp}} \vz || = ||[1 \ 1 \ 1 \ 1]^{\tr} - [1 \ 0 \ 1 \ 1]^{\tr}|| = ||[0 \ 1 \ 0 \ 0]^{\tr}|| = 1
+              </me>,
+              so <m>[1 \ 0 \ 1 \ 1]^{\tr}</m> is one unit away from <m>\vz = [1 \ 1 \ 1 \ 1]^{\tr}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

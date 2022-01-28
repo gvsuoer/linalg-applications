@@ -1,0 +1,121 @@
+<section xml:id="sec_mtx_transpose">
+  <title>The Transpose of a Matrix</title>
+  <p>
+    One additional operation on matrices is the transpose.
+    The transpose of a matrix occurs in many useful formulas in linear algebra and in applications of linear algebra.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <term>transpose</term>
+            <idx><h>matrix</h><h>transpose</h></idx>
+        of an <m>m \times n</m> matrix <m>A = [a_{ij}]</m> is the
+        <m>n \times m</m> matrix <m>A^{\tr}</m> whose <m>i,j</m>th entry is <m>a_{ji}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Written out, the transpose of the <m>m \times n</m> matrix
+    <me>
+      A = \left[ \begin{array}{ccccc} a_{11} \amp  a_{12} \amp  \cdots    \amp  a_{1n-1} \amp  a_{1n} \\ a_{21} \amp  a_{22} \amp  \cdots    \amp  a_{2n-1} \amp  a_{2n} \\ \vdots \amp        \amp  \ddots    \amp            \amp \vdots \\ a_{m1} \amp  a_{m2} \amp  \cdots    \amp  a_{mn-1} \amp  a_{mn} \end{array}  \right]
+    </me>
+    is the <m>n \times m</m> matrix
+    <me>
+      A^{\tr} = \left[ \begin{array}{ccccc} a_{11} \amp  a_{21} \amp  \cdots \amp  a_{m-11} \amp  a_{m1} \\ a_{12} \amp  a_{22} \amp  \cdots \amp  a_{m-12} \amp  a_{m2} \\ \vdots \amp        \amp  \ddots \amp           \amp \vdots \\ a_{1n} \amp  a_{2n} \amp  \cdots \amp  a_{m-1n} \amp  a_{mn} \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    In other words,
+    the transpose of a matrix <m>A</m> is the matrix <m>A^{\tr}</m> whose rows are the columns of <m>A</m>.
+    Alternatively,
+    the transpose of <m>A</m> is the matrix <m>A^{\tr}</m> whose columns are the rows of <m>A</m>.
+    We can also view the transpose of <m>A</m> as the reflection of <m>A</m> across its main diagonal,
+    where the <em>diagonal</em>
+        <idx><h>diagonal of a matrix</h></idx>
+    of a matrix <m>A = [a_{ij}]</m> consists of the entries of the form <m>[a_{ii}]</m>.
+  </p>
+  <activity xml:id="act_A2_1_4">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Find the transpose of each of the indicated matrices.
+            <m>\!\!\!\!\!\!\! \left[ \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 5 \amp 6 \amp 7 \amp 8 \end{array} \right]</m>
+            <m>\left[ \begin{array}{r} 1 \\ -1 \\ 0 \end{array} \right]</m> <m>\left[ \begin{array}{cr} 1 \amp 2 \\ 4 \amp -3 \\ 0 \amp -1 \end{array} \right]</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the transpose of the new matrix for each part above.
+            What can you conjecture based on your results?
+            There are certain special types of matrices that are given names.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <definition xml:id="def_special_matrices">
+      <statement>
+        <p>
+          Let <m>A</m> be a square matrix whose <m>ij</m>th entry is <m>a_{ij}</m>.
+          <ol>
+            <li>
+              <p>
+                The matrix <m>A</m> is a <em>diagonal matrix</em>
+                  <idx><h>diagonal matrix</h></idx>
+                if <m>a_{ij} = 0</m> whenever <m>i \neq j</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The matrix <m>A</m> is a <em>symmetric</em>
+                  <idx><h>symmetric matrix</h></idx>
+                matrix if <m>A^{\tr} = A</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The matrix <m>A</m> is an <em>upper triangular</em>
+                  <idx><h>upper triangular matrix</h></idx>
+                if <m>a_{ij} = 0</m> whenever <m>i > j</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The matrix <m>A</m> is a <em>lower triangular</em>
+                  <idx><h>lower triangular matrix</h></idx>
+                if <m>a_{ij} = 0</m> whenever <m>i \lt j</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+    <ol label="i">
+      <li>
+        <p>
+          Find an example of a diagonal matrix <m>A</m>.
+          What can you say about <m>A^{\tr}</m>?
+        </p>
+      </li>
+      <li>
+        <p>
+          Find an example of a non-diagonal symmetric matrix <m>B</m>.
+          If <m>B^{\tr} = B</m>, must <m>B</m> be a square matrix?
+        </p>
+      </li>
+      <li>
+        <p>
+          Find an example of an upper triangular matrix <m>C</m>.
+          What kind of a matrix is <m>C^{\tr}</m>?
+        </p>
+      </li>
+    </ol>
+  </activity>
+  <p>
+    We will see later that diagonal matrices are important in that their powers are easy to calculate.
+    Symmetric matrices arise frequently in applications such as in graph theory as adjacency matrices and in quantum mechanics as observables,
+    and have many useful properties including being diagonalizable and having real eigenvalues,
+    as we will also see later.
+  </p>
+</section>

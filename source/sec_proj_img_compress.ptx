@@ -1,0 +1,433 @@
+<section xml:id="sec_proj_img_compress">
+  <title>Project: Image Compression with Wavelets</title>
+  <p>
+    We return to the problem of image compression introduced at the beginning of this section.
+    The first step in the wavelet compression process is to digitize an image.
+    There are two important ideas about digitalization to understand here:
+    intensity levels and resolution.
+    In grayscale image processing,
+    it is common to think of 256 different intensity levels,
+    or scales,
+    of gray ranging from 0 (black) to 255
+    (white).
+    A digital image can be created by taking a small grid of squares
+    (called pixels)
+    and coloring each pixel with some shade of gray.
+    The resolution of this grid is a measure of how many pixels are used per square inch.
+    An example of a 16 by 16 pixel picture of a flower was shown in <xref ref="F_Flower_1">Figure</xref>.
+  </p>
+  <p>
+    An image can be thought of in several ways:
+    as a two-dimensional array;
+    as one long vector by stringing the columns together one after another;
+    or as a collection of column vectors.
+    For simplicity, we will use the last approach in this project.
+    We call each column vector in a picture a <em>signal</em>.
+    Wavelets are used to process signals.
+    After processing we can apply some technique to compress the processed signals.
+  </p>
+  <p>
+    To process a signal we select a family of wavelets.
+    There are many different families of wavelets <mdash/> which family to use depends on the problem to be addressed.
+    The simplest family of wavelets is the Haar family.
+    More complicated families of wavelets are usually used in applications,
+    but the basic ideas in wavelets can be seen through working with the Haar wavelets,
+    and their relative simplicity will make the details easier to follow.
+    Each family of wavelets has a father wavelet
+    (usually denoted <m>\phi</m>)
+    and a mother wavelet
+    (<m>\psi</m>).
+  </p>
+  <p>
+    Wavelets are generated from the mother wavelet by scalings and translations.
+    To further simplify our work we will restrict ourselves to wavelets on [0,1], although this is not necessary.
+    The advantage the wavelets have over other methods of data analysis (Fourier analysis for example) is that with the scalings and translations we are able to analyze both frequency on large intervals and isolate signal discontinuities on very small intervals.
+    The way this is done is by using a large collection (infinite,
+    in fact) of basis functions with which to transform the data.
+    We'll begin by looking at how these basis functions arise.
+  </p>
+  <p>
+    If we sample data at various points,
+    we can consider our data to represent a piecewise constant function obtained by partitioning [0,1] into <m>n</m> equal sized subintervals,
+    where <m>n</m> represents the number of sample points.
+    For the purposes of this project we will always choose <m>n</m> to be a power of 2.
+    So we can consider all of our data to represent functions.
+    For us, then,
+    it is natural to look at these functions in the vector space of all functions from <m>\R</m> to <m>\R</m>.
+    Since our data is piecewise constant,
+    we can really restrict ourselves to a subspace of this larger vector space <mdash/> subspaces of piecewise constant functions.
+    The most basic piecewise constant function on the interval <m>[0,1]</m> is the one whose value is 1 on the entire interval.
+    We define <m>\phi</m> to be this constant function
+    (called the characteristic function of the unit interval).
+    That is
+    <me>
+      \phi(x) = \begin{cases}1 \amp \text{ if }  0 \leq x \lt  1 \\ 0,   \amp  \text{ otherwise. } \end{cases}
+    </me>
+  </p>
+  <p>
+    This function <m>\phi</m> is the Father Haar wavelet.
+  </p>
+  <figure xml:id="F_phi_graphs_1">
+    <caption>Graphs of <m>\phi(x)</m>, <m>\phi(2x)</m>, and <m>\phi(2x-1)</m> from left to right.</caption>
+    <image width="73%" source="5_b_Haar_1"/>
+  </figure>
+  <p>
+    This function <m>\phi</m> may seem to be a very simple function but it has properties that will be important to us.
+    One property is that <m>\phi</m> satisfies a scaling equation.
+    For example,
+    <xref ref="F_phi_graphs_1">Figure</xref> shows that
+    <me>
+      \phi(x) = \phi(2x) + \phi(2x-1)
+    </me>
+    while <xref ref="F_phi_graphs_2">Figure</xref> shows that
+    <me>
+      \phi(x) = \phi(2^2x) + \phi(2^2x-1) +  \phi(2^2x-2) + \phi(2^2x-3)
+    </me>.
+  </p>
+  <figure xml:id="F_phi_graphs_2">
+    <caption>Graphs of <m>\phi(2^2x)</m>, <m>\phi(2^2x-1)</m>, <m>\phi(2^2x-2)</m>, and <m>\phi(2^2x-3)</m>, from left to right.</caption>
+    <image width="73%" source="5_b_Haar_2"/>
+  </figure>
+  <p>
+    So <m>\phi</m> is a sum of scalings and translations of itself.
+    In general, for each positive integer <m>n</m> and integers <m>k</m> between 0 and <m>2^n-1</m> we define
+    <me>
+      \phi_{n,k}(x) = \phi\left(2^nx-k\right)
+    </me>.
+  </p>
+  <p>
+    Then <m>\phi(x) = \sum_{k=0}^{2^{n}-1} \phi_{n,k}(x)</m> for each <m>n</m>.
+  </p>
+  <p>
+    These functions <m>\phi_{n,k}</m> are useful in that they form a basis for the vector space <m>V_n</m> of all piecewise constant functions on <m>[0,1]</m> that have possible breaks at the points
+    <m>\frac{1}{2^n}</m>, <m>\frac{2}{2^n}</m>,
+    <m>\frac{3}{2^n}</m>, <m>\ldots</m>, <m>\frac{2^n-1}{2^n}</m>.
+    This is exactly the kind of space in which digital signals live,
+    especially if we sample signals at <m>2^n</m> evenly spaced points on <m>[0,1]</m>.
+    Let <m>\CB_n = \{ \phi_{n,k} : 0 \leq k \leq 2^n-1\}</m>.
+    You may assume without proof that <m>\CB_n</m> is a basis of <m>V_n</m>.
+  </p>
+  <activity>
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Draw the linear combination <m>2\phi_{2,0} - 3\phi_{2,1} + 17 \phi_{2,2} + 30 \phi_{2,3}</m>.
+            What does this linear combination look like?
+            Explain the statement made previously ``Notice that these <m>2^n</m> functions
+            <m>\phi_{n,k}</m> form a basis for the vector space of all piecewise constant functions on <m>[0,1]</m> that have possible breaks at the points
+            <m>\frac{1}{2^n}</m>, <m>\frac{2}{2^n}</m>,
+            <m>\frac{3}{2^n}</m>, <m>\ldots</m>,
+            <m>\frac{2^n-1}{2^n}</m>".
+          </p>
+        </li>
+        <li>
+          <p>
+            Remember that we can consider our data to represent a piecewise constant function obtained by partitioning <m>[0,1]</m> into <m>n</m> subintervals,
+            where <m>n</m> represents the number of sample points.
+            Suppose we collect the following data:
+            <m>10</m>, <m>13</m>, <m>21</m>,
+            <m>55</m>, <m>3</m>, <m>12</m>, <m>4</m>, <m>18</m>.
+            Explain how we can use this data to define a piecewise constant function <m>f</m> on <m>[0,1]</m>.
+            Express <m>f</m> as a linear combination of suitable functions <m>\phi_{n,k}</m>.
+            Plot this linear combination of <m>\phi_{n,k}</m> to verify.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Working with functions can be more cumbersome than working with vectors in <m>\R^n</m>,
+    but the digital nature of our data makes it possible to view our piecewise constant functions as vectors in <m>\R^n</m> for suitable <m>n</m>.
+    More specifically, if <m>f</m> is an element in <m>V_n</m>,
+    then <m>f</m> is a piecewise constant function on <m>[0,1]</m> with possible breaks at the points
+    <m>\frac{1}{2^n}</m>, <m>\frac{2}{2^n}</m>,
+    <m>\frac{3}{2^n}</m>, <m>\ldots</m>, <m>\frac{2^n-1}{2^n}</m>.
+    If <m>f</m> has the value of <m>y_i</m> on the interval between
+    <m>\frac{i-1}{2^n}</m> and <m>\frac{i}{2^n}</m>,
+    then we can identify <m>f</m> with the vector <m>\left[y_1 \ y_1 \ \ldots \ y_{2^n}\right]^{\tr}</m>.
+  </p>
+  <activity xml:id="act_wavelets_vectors">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Determine the vector in <m>\R^8</m> that is identified with <m>\phi</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the value of <m>m</m> and the vectors in <m>\R^m</m> that are identified with <m>\phi_{2,0}</m>,
+            <m>\phi_{2,1}</m>, <m>\phi_{2,2}</m>, and <m>\phi_{2,3}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    We can use the functions <m>\phi_{n,k}</m> to represent digital signals,
+    but to manipulate the data in useful ways we need a different perspective.
+    A different basis for <m>V_n</m> (a
+    <em>wavelet basis</em>) will allow us to identify the pieces of the data that are most important.
+    We illustrate in the next activity with the spaces <m>V_1</m> and <m>V_2</m>.
+  </p>
+  <activity xml:id="act_psi">
+    <p>
+      The space <m>V_1</m> consists of all functions that are piecewise constant on <m>[0,1]</m> with a possible break at <m>x=\frac{1}{2}</m>.
+      The functions <m>\phi = \phi_{n,k}</m> are used to records the values of a signal,
+      and by summing these values we can calculate their average.
+      Wavelets act by averaging and differencing,
+      and so <m>\phi</m> does the averaging.
+      We need functions that will perform the differencing.
+      <ul>
+        <li>
+          <p>
+            Define <m>\{\psi_{0,0}\}</m> as
+            <me>
+              \psi_{0,0}(x) = \begin{cases}1 \amp \text{ if }  0 \leq x \lt  \frac{1}{2} \\ -1 \amp \text{ if }  \frac{1}{2} \leq x \lt  1 \\ 0 \amp \text{ otherwise } \end{cases}
+            </me>.
+            A picture of <m>\psi_{0,0}</m> is shown in <xref ref="F_psi_graphs">Figure</xref>.
+            Since <m>\psi_{0,0}</m> assumes values of <m>1</m> and <m>-1</m>,
+            we can use <m>\psi_{0,0}</m> to perform differencing.
+            The function <m>\psi = \psi_{0,0}</m> is the Mother Haar wavelet.<fn>
+            The first mention of wavelets appeared in an appendix to the thesis of A. Haar in 1909.
+            </fn> Show that
+            <m>\{\phi, \psi\}</m> is a basis for <m>V_1</m>.
+            <figure xml:id="F_psi_graphs">
+              <caption>The graphs of <m>\psi_{0,0}</m>, <m>\psi_{1,0}</m> and <m>\psi_{1,1}</m> from left to right.</caption>
+              <image width="73%" source="5_b_Haar_3"/>
+            </figure>
+          </p>
+        </li>
+        <li>
+          <p>
+            We continue in a manner similar to the one in which we constructed bases for <m>V_n</m>.
+            For <m>k=0</m> and <m>k=1</m>,
+            let <m>\psi_{1,k} = \psi\left(2^1x-k\right)</m>.
+            Graphs of <m>\psi_{1,0}</m> and
+            <m>\psi_{1,1}</m> are shown in <xref ref="F_psi_graphs">Figure</xref>.
+            The functions <m>\psi_{1,k}</m> assume the values of <m>1</m> and <m>-1</m> on smaller intervals,
+            and so can be used to perform differencing on smaller scale than <m>\psi_{0,0}</m>.
+            Show that <m>\{\phi_{0,0}, \psi_{0,0}, \psi_{1,0}, \psi_{1,1}\}</m> is a basis for <m>V_2</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As Project <xref ref="act_psi">Activity</xref> suggests,
+    we can make a basis for <m>V_n</m> from
+    <m>\phi_{0,0}</m> and functions of the form <m>\psi_{n,k}</m> defined by
+    <m>\psi_{n,k}(x) = \psi\left(2^nx-k\right)</m> for <m>k</m> from 0 to <m>2^n-1</m>.
+    More specifically,
+    if we let <m>\CS_n = \{\psi_{n,k} : 0 \leq k \leq 2^n-1\}</m>,
+    then the set
+    <me>
+      \CW_n = \{\phi_{0,0}\} \cup \bigcup_{j=0}^{n-1} \CS_j
+    </me>
+    is a basis for <m>V_n^{\perp}</m>
+    (we state this without proof).
+    The functions <m>\psi_{n,k}</m> are the <em>wavelets</em>.
+  </p>
+  <activity xml:id="act_wavelets_differencing">
+    <p>
+      We can now write any function in <m>V_n</m> using the basis <m>\CW_n</m>.
+      As an example,
+      the string 50, 16, 14, 28 represents a piecewise constant function which can be written as
+      <m>50 \phi_{2,0} + 16 \phi_{2,1} + 14 \phi_{2,2} + 28 \phi_{2,3}</m>,
+      an element in <m>V_2</m>.
+      <ul>
+        <li>
+          <p>
+            Specifically identify the functions in <m>\CW_0</m>, <m>\CW_1</m>,
+            and <m>\CW_2</m>, and <m>\CW_3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            As mentioned earlier, we can identify a signal,
+            and each wavelet function,
+            with a vector in <m>\R^m</m> for an appropriate value of <m>m</m>.
+            We can then use this identification to decompose any signal as a linear combination of wavelets.
+            We illustrate this idea with the signal <m>[50 \ 16 \ 14 \ 28]^{\tr}</m> in <m>\R^4</m>.
+            Recall that we can represent this signal as the function <m>f = 50 \phi_{2,0} + 16 \phi_{2,1} + 14 \phi_{2,2} + 28 \phi_{2,3}</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Find the the vectors <m>\vw_1</m>,
+                  <m>\vw_2</m>, <m>\vw_3</m>,
+                  and <m>\vw_4</m> in <m>\R^m</m> that are identified with <m>\phi_{0,0}</m>,
+                  <m>\psi_{0,0}</m>,
+                  <m>\psi_{1,0}</m>, and <m>\psi_{1,1}</m>, respectively.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Any linear combination <m>c_1\phi_{0,0} + c_2 \psi_{0,0} + c_3 \psi_{1,0} + c_4\psi_{1,1}</m> is then identified with the linear combination <m>c_1 \vw_1 + c_2 \vw_2 + c_3 \vw_3 + c_4 \vw_4</m>.
+                  Use this idea to find the weights to write the function <m>f</m> as a linear combination of <m>\phi_{0,0}</m>,
+                  <m>\psi_{0,0}</m>, <m>\psi_{1,0}</m>, and <m>\psi_{1,1}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Although is it not necessarily easy to observe,
+    the weights in the decomposition
+    <m>f = 27 \phi_{0,0} + 6 \psi_{0,0} + 17 \psi_{1,0} - 7 \psi_{1,1}</m> are just averages and differences of the original weights in <m>f = 50 \phi_{2,0} + 16 \phi_{2,1} + 14 \phi_{2,2} + 28 \phi_{2,3}</m>.
+    To see how, notice that if we take the overall average of the original weights we obtain the value of <m>27</m>.
+    If we average the original weights in pairs (<m>50</m> and <m>16</m>,
+    and <m>14</m> and <m>28</m>) we obtain the values <m>33</m> and <m>21</m>,
+    and if we take average differences of the original weights in pairs (<m>50</m> and <m>16</m>,
+    and <m>14</m> and <m>28</m>) we obtain the values <m>17</m> and <m>-7</m>.
+    We can treat the signal <m>[33 \ 21]^{\tr}</m> formed from the average of the pairs of the original weights as a smaller copy of the original signal.
+    The average difference of the entries of this new signal is <m>6</m>.
+    So the weights in our final decomposition are obtained by differences between successive averages and certain coefficients.
+    The coefficients in our final decomposition <m>27 \phi_{0,0} + 6 \psi_{0,0} + 17 \psi_{1,0} - 7 \psi_{1,1}</m> are called
+    <em>wavelet coefficients</em>.
+    This is the idea that makes wavelets so useful for image compression.
+    In many images,
+    pixels that are near to each other often have similar coloring or shading.
+    These pixels are coded with numbers that are close in value.
+    In the differencing process,
+    these numbers are replaced with numbers that are close to 0.
+    If there is little difference in the shading of the adjacent pixels,
+    the image will be changed only a little if the shadings are made the same.
+    This results in replacing these small wavelet coefficients with zeros.
+    If the processed vectors contain long strings of zeros,
+    the vectors can be significantly compressed.
+  </p>
+  <p>
+    Once we have recognized the pattern in expressing our original function as an overall average and wavelet coefficients we can perform these operations more quickly with matrices.
+  </p>
+  <activity xml:id="act_wavelets_matrices">
+    <p>
+      The process of averaging and differencing discussed in and following Project <xref ref="act_wavelets_differencing">Activity</xref>
+      can be viewed as a matrix-vector problem.
+      As we saw in Project <xref ref="act_wavelets_differencing">Activity</xref>,
+      we can translate the problem of finding wavelet coefficients to the matrix world.
+      <ul>
+        <li>
+          <p>
+            Consider again the problem of finding the wavelet coefficients contained in the vector
+            <m>[27 \ 6 \ 17 \ - 7]^{\tr}</m> for the signal <m>[50 \ 16 \ 14 \ 28]^{\tr}</m>.
+            Find the matrix <m>A_4</m> that has the property that <m>A_4 [50 \ 16 \ 14 \ 28]^{\tr} = [27 \ 6 \ 17 \ - 7]^{\tr}</m>.
+            (You have already done part of this problem in Project <xref ref="act_wavelets_differencing">Activity</xref>.)
+            Explain how <m>A_4</m> performs the averaging and differencing discussed earlier.
+          </p>
+        </li>
+        <li>
+          <p>
+            Repeat the process in part (a) to find the matrix <m>A_8</m> that converts a signal to its wavelet coefficients.
+          </p>
+        </li>
+        <li>
+          <p>
+            The matrix <m>A_i</m> is called a
+            <em>forward wavelet transformation matrix</em>
+            and <m>A_i^{-1}</m> is the <em>inverse wavelet transform matrix</em>.
+            Use <m>A_8</m> to show that the wavelet coefficients for the data string
+            <m>[80 \ 48 \ 4 \ 36 \ 28 \ 64 \ 6 \ 50]^{\tr}</m> are contained in the vector <m>[39.5 \ 2.5 \ 22 \ 9 \ 16 \ -16 \ -18 \ -22]^{\tr}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Now we have all of the necessary background to discuss image compression.
+    Suppose we want to store an image.
+    We partition the image vertically and horizontally and record the color or shade at each grid entry.
+    The grid entries will be our pixels.
+    This gives a matrix, <m>M</m>, of colors,
+    indexed by pixels or horizontal and vertical position.
+    To simplify our examples we will work in gray-scale,
+    where our grid entries are integers between 0 (black) and 255
+    (white).
+    We can treat each column of our grid as a piecewise constant function.
+    As an example,
+    the image matrix <m>M</m> that produced the picture at left in <xref ref="F_Flower_1">Figure</xref>
+    is given in <xref ref="eq_flower_image_matrix"/>.
+  </p>
+  <p>
+    We can then apply a 16 by 16 forward wavelet transformation matrix <m>A_{16}</m> to <m>M</m> to convert the columns to averages and wavelet coefficients that will appear in the matrix <m>A_{16}M</m>.
+    These wavelet coefficients allow us to compress the image <mdash/> that is,
+    create a smaller set of data that contains the essence of the original image.
+  </p>
+  <p>
+    Recall that the forward wavelet transformation matrix computes weighted differences of consecutive entries in the columns of the image matrix <m>M</m>.
+    If two entries in <m>M</m> are close in values,
+    the weighted difference in <m>A_{16}M</m> will be close to 0.
+    For our example, the matrix <m>A_{16}M</m> is approximately
+    <me>
+      \left[ {\tiny{ \begin{array}{cccccccccccccccc}  208.0\amp  202.0\amp  178.0\amp  165.0\amp 155.0\amp  172.0\amp  118.0\amp  172.0\amp  155.0\amp  153.0\amp  176.0\amp  202.0\amp  208.0\amp  210.0\amp 209.0\amp  208.0\\ 33.4\amp  24.1\amp - 0.625\amp  0.938\amp - 2.50\amp - 5.94\amp  42.8\amp - 5.94\amp - 2.50\amp  12.8\amp  0.938\amp  24.7\amp  30.6\amp  33.4\amp  32.5\amp  31.6 \\- 1.88\amp - 13.8\amp  19.4\amp  2.50\amp  0.0\amp - 2.50\amp  8.12\amp - 2.50 \amp  0.0\amp  2.50\amp  19.4\amp - 13.8\amp  1.88\amp - 3.75\amp - 1.88\amp  0.0\\ 17.5\amp  61.9\amp  61.9\amp  6.88\amp  0.0\amp  61.9\amp  0.0\amp  61.9\amp  0.0\amp  30.6\amp  65.0\amp  66.9\amp 66.9\amp  19.4\amp  66.9\amp  66.9\\ 0.0\amp  27.5\amp  43.8\amp  16.2\amp  0.0 \amp - 11.2\amp  16.2\amp - 11.2\amp  0.0\amp  16.2\amp  43.8\amp  27.5\amp  0.0\amp  0.0\amp  0.0\amp  0.0 \\ 3.75\amp  0.0\amp  27.5\amp - 11.2\amp  0.0\amp - 16.2\amp  22.5\amp - 16.2\amp 0.0\amp - 11.2\amp  27.5\amp  0.0\amp - 3.75\amp - 7.50\amp - 3.75\amp  0.0\\ 47.5\amp  0.0\amp  0.0\amp  13.8\amp  82.5\amp  0.0\amp  0.0\amp  0.0\amp  82.5\amp  13.8\amp  0.0\amp  3.75\amp 3.75\amp  51.2\amp  3.75\amp  3.75\\ 82.5\amp  41.2\amp  41.2\amp  82.5\amp 82.5\amp  41.2\amp  0.0\amp  41.2\amp  82.5\amp  35.0\amp  35.0\amp  35.0\amp  35.0\amp  82.5\amp  35.0\amp  35.0 \\ 0.0\amp  0.0\amp  0.0\amp  55.0\amp - 22.5\amp - 22.5\amp  55.0\amp - 22.5\amp - 22.5\amp  55.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\\ 0.0\amp 55.0\amp - 22.5\amp - 22.5\amp  22.5\amp  0.0\amp - 22.5\amp  0.0\amp  22.5\amp - 22.5\amp - 22.5\amp  55.0\amp 0.0\amp  0.0\amp  0.0\amp  0.0\\- 7.50\amp  0.0\amp - 55.0\amp  22.5\amp  22.5\amp - 22.5\amp  0.0\amp - 22.5\amp  22.5\amp  22.5\amp - 55.0\amp  0.0\amp  7.50\amp  0.0\amp  0.0\amp  0.0 \\ 0.0\amp  0.0\amp  0.0\amp  0.0\amp  22.5\amp - 55.0\amp  0.0\amp - 55.0\amp  22.5 \amp  0.0\amp  0.0\amp  0.0\amp - 15.0\amp  0.0\amp - 7.50\amp  0.0\\ 0.0\amp  0.0\amp 0.0\amp - 55.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp - 55.0\amp  0.0\amp  7.50\amp  7.50\amp  7.50\amp 7.50\amp  7.50\\ 95.0\amp  0.0\amp  0.0\amp - 82.5\amp  0.0\amp  0.0\amp  0.0\amp 0.0\amp  0.0\amp - 82.5\amp  0.0\amp  0.0\amp  0.0\amp  95.0\amp  0.0\amp  0.0\\ 0.0\amp - 82.5\amp  82.5\amp  0.0\amp  0.0\amp - 82.5\amp  0.0\amp - 82.5\amp  0.0\amp  95.0\amp - 95.0\amp  95.0 \amp - 95.0\amp  0.0\amp  95.0\amp - 95.0\\ 0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp 0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0 \end{array}  }} \right]
+    </me>.
+  </p>
+  <p>
+    Note that there are many wavelet coefficients that are quite small compared to others <mdash/> the ones where the weighted averages are close to 0.
+    In a sense, the weighted differences tell us how much
+    <q>detail</q>
+    about the whole that each piece of information contains.
+    If a piece of information contains only a small amount of information about the whole,
+    then we shouldn't sacrifice much of the picture if we ignore the small
+    <q>detail</q>
+    coefficients.
+    One way to ignore the small
+    <q>detail</q>
+    coefficients is to use <em>thresholding</em>.
+  </p>
+  <p>
+    With thresholding
+    (this is <em>hard thresholding</em>
+    or <em>keep or kill</em>),
+    we decide on how much of the detail we want to remove
+    (this is called the <em>tolerance</em>).
+    So we set a tolerance and then replace each entry in our matrix <m>A_{16}M</m> whose absolute value is below the tolerance with 0 to obtain a new matrix <m>M_1</m>.
+    In our example,
+    if you use a threshold value of 10 we obtain the new matrix <m>M_1</m>:
+    <me>
+      \left[ {\tiny{\begin{array}{cccccccccccccccc}  208.0\amp  202.0\amp  178.0\amp  165.0\amp 155.0\amp  172.0\amp  118.0\amp  172.0\amp  155.0\amp  153.0\amp  176.0\amp  202.0\amp  208.0\amp  210.0\amp 209.0\amp  208.0\\ 33.4\amp  24.1\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  42.8 \amp  0.0\amp  0.0\amp  12.8\amp  0.0\amp  24.7\amp  30.6\amp  33.4\amp  32.5\amp  31.6 \\ 0.0\amp - 13.8\amp  19.4\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp 0.0\amp  19.4\amp - 13.8\amp  0.0\amp  0.0\amp  0.0\amp  0.0\\ 17.5\amp  61.9\amp 61.9\amp  0.0\amp  0.0\amp  61.9\amp  0.0\amp  61.9\amp  0.0\amp  30.6\amp  65.0\amp  66.9\amp  66.9\amp  19.4\amp 66.9\amp  66.9\\ 0.0\amp  27.5\amp  43.8\amp  16.2\amp  0.0\amp - 11.2\amp 16.2\amp - 11.2\amp  0.0\amp  16.2\amp  43.8\amp  27.5\amp  0.0\amp  0.0\amp  0.0\amp  0.0 \\ 0.0\amp  0.0\amp  27.5\amp - 11.2\amp  0.0\amp - 16.2\amp  22.5\amp - 16.2\amp 0.0\amp - 11.2\amp  27.5\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\\ 47.5\amp 0.0\amp  0.0\amp  13.8\amp  82.5\amp  0.0\amp  0.0\amp  0.0\amp  82.5\amp  13.8\amp  0.0\amp  0.0\amp  0.0\amp  51.2\amp 0.0\amp  0.0\\ 82.5\amp  41.2\amp  41.2\amp  82.5\amp  82.5\amp  41.2\amp  0.0\amp 41.2\amp  82.5\amp  35.0\amp  35.0\amp  35.0\amp  35.0\amp  82.5\amp  35.0\amp  35.0 \\ 0.0\amp  0.0\amp  0.0\amp  55.0\amp - 22.5\amp - 22.5\amp  55.0\amp - 22.5\amp - 22.5\amp  55.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\\ 0.0\amp 55.0\amp - 22.5\amp - 22.5\amp  22.5\amp  0.0\amp - 22.5\amp  0.0\amp  22.5\amp - 22.5\amp - 22.5\amp  55.0\amp 0.0\amp  0.0\amp  0.0\amp  0.0\\ 0.0\amp  0.0\amp - 55.0\amp  22.5\amp  22.5\amp - 22.5\amp  0.0\amp - 22.5\amp  22.5\amp  22.5\amp - 55.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0 \\ 0.0\amp  0.0\amp  0.0\amp  0.0\amp  22.5\amp - 55.0\amp  0.0\amp - 55.0\amp  22.5 \amp  0.0\amp  0.0\amp  0.0\amp - 15.0\amp  0.0\amp  0.0\amp  0.0\\ 0.0\amp  0.0\amp 0.0\amp - 55.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp - 55.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp 0.0\\ 95.0\amp  0.0\amp  0.0\amp - 82.5\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp 0.0\amp - 82.5\amp  0.0\amp  0.0\amp  0.0\amp  95.0\amp  0.0\amp  0.0\\ 0.0\amp - 82.5\amp  82.5\amp  0.0\amp  0.0\amp - 82.5\amp  0.0\amp - 82.5\amp  0.0\amp  95.0\amp - 95.0\amp  95.0\amp - 95.0\amp  0.0\amp  95.0\amp - 95.0\\ 0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp 0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0\amp  0.0 \end{array}  }} \right]
+    </me>.
+  </p>
+  <p>
+    We now have introduced many zeros in our matrix.
+    This is where we compress the image.
+    To store the original image, we need to store every pixel.
+    Once we introduce strings of zeros we can identify a new code (say 256) that indicates we have a string of zeros.
+    We can then follow that code with the number of zeros in the string.
+    So if we had a string of 15 zeros in a signal,
+    we could store that information in 2 bytes rather than 15 and obtain significant savings in storage.
+    This process removes some detail from our picture,
+    but only the small detail.
+    To convert back to an image,
+    we just undo the forward processing by multiplying our thresholded matrix <m>M_1</m> by <m>A_{16}^{-1}</m>.
+    The ultimate goal is to obtain significant compression but still have
+    <m>A_{16}^{-1}M_1</m> retain all of the essence of the original image.
+  </p>
+  <p>
+    In our example using <m>M_1</m>,
+    the reconstructed image matrix is <m>A_{16}^{-1}M_1</m>
+    (rounded to the nearest whole number)
+    is
+    <me>
+      \left[  \begin{array}{cccccccccccccccc}  242\amp  240\amp  241\amp  237\amp 132\amp  138\amp  232\amp  138\amp  132\amp  238\amp  239\amp  240\amp  238\amp  244\amp 242\amp  240\\ 242\amp  240\amp  241\amp  127\amp  178\amp 183\amp  122\amp  183\amp  178\amp  128\amp  239\amp  240\amp  238\amp  244\amp  242\amp 240\\ 242\amp  240\amp  131\amp  127\amp  178\amp  183\amp 122\amp  183\amp  178\amp  128\amp  129\amp  240\amp  238\amp  244\amp  242\amp  240 \\ 242\amp  130\amp  176\amp  172\amp  132\amp  183\amp  167\amp 183\amp  132\amp  172\amp  174\amp  130\amp  238\amp  244\amp  242\amp  240 \\ 242\amp  240\amp  131\amp  177\amp  178\amp  133\amp  183\amp 133\amp  178\amp  178\amp  129\amp  240\amp  238\amp  244\amp  242\amp  240 \\ 242\amp  240\amp  241\amp  132\amp  132\amp  178\amp  183\amp 178\amp  132\amp  132\amp  239\amp  240\amp  238\amp  244\amp  242\amp  240 \\ 242\amp  240\amp  131\amp  177\amp  178\amp  133\amp  138\amp 133\amp  178\amp  178\amp  129\amp  240\amp  223\amp  244\amp  242\amp  240 \\ 242\amp  240\amp  131\amp  177\amp  132\amp  243\amp  138\amp 243\amp  132\amp  178\amp  129\amp  240\amp  253\amp  244\amp  242\amp  240 \\ 240\amp  240\amp  239\amp  124\amp  238\amp  234\amp  75\amp 234\amp  238\amp  130\amp  241\amp  244\amp  244\amp  248\amp  244\amp  244 \\ 240\amp  240\amp  239\amp  234\amp  238\amp  234\amp  75\amp 234\amp  238\amp  240\amp  241\amp  244\amp  244\amp  248\amp  244\amp  244 \\ 240\amp  240\amp  239\amp  69\amp  73\amp  234\amp  75\amp 234\amp  73\amp  75\amp  241\amp  244\amp  244\amp  240\amp  244\amp  244 \\ 50\amp  240\amp  239\amp  234\amp  73\amp  234\amp  75\amp 234\amp  73\amp  240\amp  241\amp  244\amp  244\amp  50\amp  244\amp  244 \\ 240\amp  75\amp  239\amp  248\amp  238\amp  69\amp  75\amp 69\amp  238\amp  240\amp  51\amp  240\amp  50\amp  240\amp  240\amp  50 \\ 240\amp  240\amp  74\amp  248\amp  238\amp  234\amp  75\amp 234\amp  238\amp  50\amp  241\amp  50\amp  240\amp  240\amp  50\amp  240 \\ 75\amp  75\amp  74\amp  83\amp  73\amp  69\amp  75\amp  69\amp 73\amp  75\amp  76\amp  75\amp  75\amp  75\amp  75\amp  75\\ 75\amp  75\amp  74\amp  83\amp  73\amp  69\amp  75\amp  69\amp  73\amp  75\amp  76\amp 75\amp  75\amp  75\amp  75\amp  75 \end{array}   \right]
+    </me>.
+  </p>
+  <p>
+    We convert this into a gray-scale image and obtain the image at right in <xref ref="F_Flower_1">Figure</xref>.
+    Compare this image to the original at right in <xref ref="F_Flower_1">Figure</xref>.
+    It is difficult to tell the difference.
+  </p>
+  <p>
+    There is a Sage file you can use at \url{http://faculty.gvsu.edu/schlicks/Wavelets_Sage.html} that allows you to create your own 16 by 16 image and process,
+    process your image with the Haar wavelets in <m>\R^{16}</m>,
+    apply thresholding, and reconstruct the compressed image. matrix.
+    You can create your own image,
+    experiment with several different threshold levels,
+    and choose the one that you feel gives the best combination of strings of 0s while reproducing a reasonable copy of the original image.
+  </p>
+</section>

@@ -1,0 +1,387 @@
+<section xml:id="sec_mtxof_trans_exer">
+  <title>Exercises</title>
+  <ol>
+    <li xml:id="ex_8_b_matrix_transformation">
+      <p>
+        Let <m>T : \pol_2 \to \pol_3</m> be defined by <m>T(a_0+a_1t+a_2t^2) = (a_0+a_1) + (a_1+a_2)t + a_0t^2 + a_2t^3</m>.
+        You may assume that <m>T</m> is a linear transformation.
+        Let <m>\CB = \{p_0(t), p_1(t), p_2(t)\}</m>,
+        where <m>p_0(t)=1</m>, <m>p_1(t)=t</m>, and <m>p_2(t) = t^2</m>,
+        be the standard basis for <m>\pol_2</m> and <m>\CC=\{q_0(t),
+        q_1(t), q_2(t), q_3(t)\}</m>,
+        where <m>q_0(t) = 1</m>, <m>q_1(t) = t</m>, <m>q_2(t)=t^2</m>,
+        and <m>q_3(t)=t^3</m>, the standard basis for <m>\pol_3</m>.
+        <ul>
+          <li>
+            <p>
+              Write the polynomial <m>r(t) = r_0+r_1t+r_2t^2</m> as a linear combination
+              <m>c_0p_0(t)+c_1p_1(t)+c_2p_2(t)</m> of the basis vectors in <m>\CB</m>.
+              Identify the weights <m>c_0</m>,
+              <m>c_1</m>, and <m>c_2</m>.
+              What is <m>[r(t)]_{\CB}</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Without doing any calculations, explain why
+              <me>
+                T(r(t)) = c_0T(p_0(t)) + c_1 T(p_1(t)) + c_2 T(p_2(t))
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Without doing any calculations, explain why
+              <me>
+                [T(r(t))]_{\CC} = c_0[T(p_0(t))]_{\CC} + c_1 [T(p_1(t))]_{\CC} + c_2 [T(p_2(t))]_{\CC}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explicitly determine <m>[T(p_0(t))]_{\CC}</m>,
+              <m>[T(p_1(t))]_{\CC}</m>, <m>[T(p_2(t))]_{\CC}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Combine the results of parts (c) and (d) to find a matrix <m>A</m> so that
+              <me>
+                [T(r(t))]_{\CC} = A [r(t)]_{\CB}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the matrix <m>A</m> to find <m>[T(1+t-t^2)]_{\CC}</m>.
+              Then use this vector to calculate <m>T(1+t-t^2)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculate <m>T(1+t-t^2)</m> directly from the rule for <m>T</m> and compare to the previous result.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>V</m> and <m>W</m> be finite dimensional vector spaces,
+        and let <m>S</m> and <m>T</m> be linear transformations from <m>V</m> to <m>W</m>.
+        <ul>
+          <li>
+            <p>
+              The sum <m>S+T</m> is defined as
+              <me>
+                (S+T)(\vx) = S(\vx) + T(\vx)
+              </me>
+              for all <m>\vx</m> in <m>V</m>.
+              Let <m>\CB</m> be a basis for <m>V</m> and <m>\CC</m> a basis for <m>W</m>.
+              Is the statement
+              <me>
+                [S+T]_{\CB}^{\CC} = [S]_{\CB}^{\CC} + [T]_{\CB}^{\CC}
+              </me>
+              true or false?
+              If true, prove the statement.
+              If false, provide a counterexample.
+            </p>
+          </li>
+          <li>
+            <p>
+              The scalar multiple <m>cT</m>,
+              for a scalar <m>c</m>, is defined as
+              <me>
+                (cT)(\vx) = cT(\vx)
+              </me>
+              for all <m>\vx</m> in <m>V</m>.
+              Let <m>\CB</m> be a basis for <m>V</m> and <m>\CC</m> a basis for <m>W</m>.
+              Is the statement
+              <me>
+                [cT]_{\CB}^{\CC} = c[T]_{\CB}^{\CC}
+              </me>
+              true or false?
+              If true, prove the statement.
+              If false, provide a counterexample.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        If <m>V</m>, <m>W</m>,
+        and <m>U</m> are finite dimensional vector spaces and <m>S:V \to W</m> and
+        <m>T:W \to U</m> are linear transformations,
+        the composite <m>T \circ S</m> is defined as
+        <me>
+          (T \circ S)(\vx) = T(S(\vx))
+        </me>
+        for all <m>\vx</m> in <m>V</m>.
+        <ul>
+          <li>
+            <p>
+              Prove that <m>T \circ S:V\to U</m> is a linear transformation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\CB</m> be a basis for <m>V</m>,
+              <m>\CC</m> a basis for <m>W</m>,
+              and <m>\CD</m> a basis for <m>U</m>.
+              Is the statement
+              <me>
+                [T \circ S]_{\CB}^{\CD} = [T]_{\CC}^{\CD}  [S]_{\CB}^{\CC}
+              </me>
+              true or false?
+              If true, prove the statement.
+              If false, provide a counterexample.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>V</m> be a finite dimensional vector space with basis <m>\CB</m>,
+        and let <m>T</m> be a one-to-one linear transformation from <m>V</m> to <m>V</m>.
+        <ul>
+          <li>
+            <p>
+              Use the matrix <m>[T]_{\CB}</m> to explain why <m>T</m> is also onto.
+              (Recall that we use the shorthand notation
+              <m>[T]_{\CB}</m> for <m>[T]_{\CB}^{\CB}</m>.)
+            </p>
+          </li>
+          <li>
+            <p>
+              Since <m>T</m> is one-to-one and onto,
+              as a function <m>T</m> has an inverse defined by
+              <me>
+                T^{-1}(\vy) = \vx
+              </me>
+              whenever <m>T(\vx) = \vy</m>.
+              Show that <m>T^{-1}</m> is a linear transformation from <m>V</m> to <m>V</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is the statement
+              <me>
+                [T^{-1}]_{\CB} = \left([T]_{\CB}\right)^{-1}
+              </me>
+              true or false?
+              If true, prove the statement.
+              If false, provide a counterexample.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_8_b_Ker_Nul">
+      <p>
+        Let <m>V</m> and <m>W</m> be vector spaces with
+        <m>\dim(V) = n</m> and <m>\dim(W) = m</m>,
+        and let <m>T : V \to W</m>.
+        Let <m>\CB</m> be a basis for <m>V</m> and <m>\CC</m> a basis for <m>W</m>.
+        There is a connection between <m>\Ker(T)</m> and <m>\Nul [T]_{\CB}^{\CC}</m>.
+        Find the connection and verify it.
+      </p>
+    </li>
+    <li xml:id="ex_8_b_transformation_space">
+      <p>
+        Let <m>V</m> and <m>W</m> be vector spaces and define <m>L(V,W)</m> to be the set of all linear transformations from <m>V</m> to <m>W</m> as in <xref ref="ex_8_a_transformation_space">Exercise</xref>
+        of <xref ref="sec_linear_transformation">Section</xref>.
+        The set <m>L(V,W)</m> is a vector space with the operations as as follows for <m>S</m> and <m>T</m> are in <m>L(V,W)</m> and <m>c</m> a scalar:
+        <me>
+          (S+T)(\vv) = S(\vv) + T(\vv) \ \ \text{ and }  \ \ (cT)(\vv) = cT(\vv)
+        </me>
+        for all <m>\vv</m> in <m>V</m>.
+        If <m>\dim(V) = n</m> and <m>\dim(W) = m</m>,
+        find the dimension of <m>L(V,W)</m>. (Hint: Let <m>\CB</m> be a basis for <m>V</m> and <m>\CC</m> a basis for <m>W</m>.
+        What can be said about the mapping that sends <m>T</m> in <m>L(V,W)</m> to <m>[T]_{\CB}^{\CC}</m>?
+        Then use <xref ref="ex_8_a_isomorphic_dimension">Exercise</xref>
+        in <xref ref="sec_linear_transformation">Section</xref>.)
+      </p>
+    </li>
+    <li xml:id="ex_8_b_range_matrix">
+      <p>
+        Let <m>T : V \to W</m> be a linear transformation from an <m>n</m>-dimensional vector space <m>V</m> to an <m>m</m>-dimensional vector space <m>W</m>.
+        Let <m>\CB</m> be a basis for <m>V</m> and <m>\CC</m> a basis for <m>W</m>.
+        Let <m>A = [T]_{\CB}^{\CC}</m>.
+        Let <m>T'</m> be the matrix transformation from <m>\R^n</m> to <m>\R^m</m> defined by <m>T'(\vx) = A\vx</m>.
+        <ul>
+          <li>
+            <p>
+              Show that if <m>\vw</m> is in <m>\Range(T)</m>,
+              then <m>[\vw]_{\CC}</m> is in the range of <m>T'</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}</m> and <m>\CC = \{\vw_1, \vw_2, \ldots, \vw_m\}</m>.
+              Show that if the vector <m>\vy = [y_1 \ y_2 \ \cdots \ y_m]</m> is in the range of <m>T'</m>,
+              then the vector <m>\vw = y_1\vw_1 + y_2 \vw_2 + \cdots y_m \vw_m</m> is in the range of <m>T</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why the results of (a) and (b) show that <m>T</m> is onto if and only if every row of <m>A = [T]_{\CB}^{\CC}</m> contains a pivot.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Our entire world is always in a state of motion.
+        Much of this motion is vibration.
+        When the vibrations of one object some into contact with the vibrations of another,
+        the vibrations can be amplified.
+        This is called <em>resonance</em>.
+        Resonance appears in our lives every day,
+        e.g., resonance is how food cooks in a microwave oven.
+        A great example of resonance is the collapse of the Tacoma Narrows Bridge
+        (just Google Tacoma Narrows Bridge to find some fascinating videos of this event).
+        Resonance can be seen in mathematical models of vibrations.
+        One such model is the second order differential equation
+        <me>
+          y'' + y = \cos(t)
+        </me>,
+        where <m>y</m> is some unknown function of <m>t</m> and <m>y''</m> is its second derivative.
+        You can think of this system as modeling the oscillatory motion of a spring with mass attached to it.
+        The cosine function in this example exerts an external force on the mass-spring system.
+        (You don't need to know how this model is derived for this project.)
+        Our goal is to find the solutions to this differential equation within the subspace <m>Y = \Span \ \CB</m>,
+        where <m>\CB = \{\cos(t), \sin(t),
+        t\cos(t), t\sin(t)\}</m> of <m>\D^2</m>,
+        the subspace of <m>\F</m> of functions with second derivatives
+        (you may assume that <m>\D^2</m> is a subspace of <m>\F</m>).
+        Let <m>T: \D^2 \to \D^2</m> be defined by <m>T(f) = f'' + f</m>.
+        <ul>
+          <li>
+            <p>
+              Show that <m>T</m> is a linear transformation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>\CB</m> is a basis for <m>Y</m>.
+              <hint>
+                <p>
+                  You might consider using the Wronskian.
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the matrix of <m>T</m> with respect to the basis <m>\CB</m>.
+              That is, find <m>[T]_{\CB}</m>.
+              (Recall that we use the shorthand notation
+              <m>[T]_{\CB}</m> for <m>[T]_{\CB}^{\CB}</m>.)
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the matrix to find <em>all</em>
+              solutions to the equation <m>T(f) = \cos(t)</m> in <m>Y</m>. (Hint: If <m>T(f) = \cos(t)</m>,
+              what does that say about the relationship between <m>[T]_{\CB}^{\CB}</m>,
+              <m>[\cos(t)]_{\CB}</m>, and <m>[f]_{\CB}</m>?)
+            </p>
+          </li>
+          <li>
+            <p>
+              Sketch a few graphs of solutions to
+              <m>T(f) = \cos(t)</m> and explain what they look like and how they are related to resonance.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> If <m>T</m> is a linear transformation from a vector space <m>V</m> to a vector space <m>W</m>,
+              and <m>[T]_{\CB}^{\CC}</m> is a
+              <m>3 \times 2</m> matrix for some bases <m>\CB</m> of <m>V</m> and <m>\CC</m> of <m>W</m>,
+              then <m>T</m> cannot be one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>T</m> is a linear transformation from a vector space <m>V</m> to a vector space <m>W</m>,
+              and <m>[T]_{\CB}^{\CC}</m> is a
+              <m>2 \times 3</m> matrix for some bases <m>\CB</m> of <m>V</m> and <m>\CC</m> of <m>W</m>,
+              then <m>T</m> cannot be onto.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>T</m> is a linear transformation from a vector space <m>V</m> to a vector space <m>W</m>,
+              and <m>[T]_{\CB}^{\CC}</m> is a
+              <m>2 \times 3</m> matrix for some bases <m>\CB</m> of <m>V</m> and <m>\CC</m> of <m>W</m>,
+              then <m>T</m> cannot be one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>T</m> is a linear transformation from a vector space <m>V</m> to a vector space <m>W</m>,
+              and <m>[T]_{\CB}^{\CC}</m> is a
+              <m>3 \times 2</m> matrix for some bases <m>\CB</m> of <m>V</m> and <m>\CC</m> of <m>W</m>,
+              then <m>T</m> cannot be onto.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Let <m>S</m> be a linear transformation from a vector space <m>Y</m> to a vector space <m>V</m> and let <m>T</m> be a linear transformation from a vector space <m>V</m> to a vector space <m>W</m>.
+              Suppose that <m>[S]_{\CS}^{\CB}</m> is a
+              <m>3 \times 4</m> matrix and <m>[T]_{\CB}^{\CC}</m> is a
+              <m>4 \times 2</m> matrix for some bases <m>\CS</m> of <m>Y</m>,
+              <m>\CB</m> of <m>V</m> and <m>\CC</m> of <m>W</m>.
+              Then <m>[T \circ S]_{\CS}^{\CC}</m> is a <m>3 \times 2</m> matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Let <m>V</m> be a finite dimensional vector space of dimension <m>n</m> with basis <m>\CB</m> and <m>W</m> a finite dimensional vector space of dimension <m>m</m> with basis <m>\CC</m>.
+              Let <m>T</m> be a linear transformation from <m>V</m> to <m>W</m>.
+              If the columns of the matrix
+              <m>[T]_{\CB}^{\CC}</m> are linearly independent,
+              then the transformation <m>T</m> is onto.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Let <m>V</m> be a finite dimensional vector space of dimension <m>n</m> with basis <m>\CB</m> and <m>W</m> a finite dimensional vector space of dimension <m>m</m> with basis <m>\CC</m>.
+              Let <m>T</m> be a linear transformation from <m>V</m> to <m>W</m>.
+              If the columns of the matrix
+              <m>[T]_{\CB}^{\CC}</m> are linearly independent,
+              then the transformation <m>T</m> is one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Let <m>V</m> be a finite dimensional vector space of dimension <m>n</m> with basis <m>\CB</m> and <m>W</m> a finite dimensional vector space of dimension <m>m</m> with basis <m>\CC</m>.
+              Let <m>T</m> be a linear transformation from <m>V</m> to <m>W</m>.
+              If the matrix <m>[T]_{\CB}^{\CC}</m> has <m>n</m> pivots,
+              then the transformation <m>T</m> is onto.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> Let <m>V</m> be a finite dimensional vector space of dimension <m>n</m> with basis <m>\CB</m> and <m>W</m> a finite dimensional vector space of dimension <m>m</m> with basis <m>\CC</m>.
+              Let <m>T</m> be a linear transformation from <m>V</m> to <m>W</m>.
+              If the matrix <m>[T]_{\CB}^{\CC}</m> has <m>n</m> pivots,
+              then the transformation <m>T</m> is one-to-one.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

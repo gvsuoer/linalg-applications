@@ -1,0 +1,124 @@
+<section xml:id="sec_diagonal">
+  <title>Diagonalization</title>
+  <p>
+    If <m>T : V \to V</m> is a linear transformation,
+    one important question is that of finding a basis for <m>V</m> in which the matrix of <m>T</m> has as simple a form as possible.
+    In other words,
+    can we find a basis <m>\CB</m> for <m>V</m> for which the matrix
+    <m>[T]_{\CB}</m> is a diagonal matrix?
+    Since any matrices for <m>T</m> with respect to different bases are similar,
+    this will happen if we can diagonalize any matrix for <m>T</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>V</m> be a vector space of dimension <m>n</m>.
+        A linear transformation <m>T</m> from <m>V</m> to <m>V</m> is
+        <term>diagonalizable</term><idx><h>linear transformation</h><h>diagonalizable</h></idx> if there is a basis <m>\CB</m> for <m>V</m> for which
+        <m>[T]_{\CB}</m> is a diagonalizable matrix.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Now the question is, if <m>T</m> is diagonalizable,
+    how do we find a basis <m>\CB</m> to that
+    <m>[T]_{\CB}</m> is a diagonal matrix?
+    Recall that to diagonalize a matrix <m>A</m> means to find a matrix <m>P</m> so that
+    <m>P^{-1}AP</m> is a diagonal matrix.
+  </p>
+  <activity xml:id="act_8_c_lt_diag">
+    <p>
+      Let <m>V = \pol_1</m>,
+      <m>T : V \to V</m> defined by <m>T(a_0+a_1t) = (a_0+2a_1) + (2a_0+a_1)t</m>.
+      Let <m>\CS = \{1, t\}</m> be the standard basis for <m>V</m>.
+      <ul>
+        <li>
+          <p>
+            Find the matrix <m>[T]_{\CS}</m> for <m>T</m> relative to the basis <m>\CS</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the fact that the eigenvalues of
+            <m>[T]_{\CS}</m> are <m>-1</m> and 3 with corresponding eigenvectors
+            <m>\left[ \begin{array}{r} -1 \\ 1 \end{array} \right]</m> and <m>\left[ \begin{array}{c} 1 \\ 1 \end{array} \right]</m>,
+            respectively,
+            to find a matrix <m>P</m> so that
+            <m>P^{-1}[T]_{\CS}P</m> is a diagonal matrix <m>D</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            To find a basis <m>\CB</m> for which <m>[T]_{\CB}</m> is diagonal,
+            note that if <m>P= \underset{\CB \leftarrow \CS}{P}</m> of the previous part is the change of basis matrix from <m>\CS</m> to <m>\CB</m>,
+            then the matrices of <m>T</m> with respect to <m>\CS</m> and <m>\CB</m> are related by <m>P^{-1} [T]_{\CS} P = [T]_{\CB}</m>,
+            which makes <m>[T]_{\CB}</m> a diagonal matrix.
+            Use the fact that <m>P[\vx]_{\CB}=[\vx]_{\CS}</m> to find the vectors in the basis <m>\CB</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now show directly that <m>[T]_{\CB} = D</m>,
+            where <m>\CB = \{\vv_1, \vv_2\}</m>,
+            and verify that we have found a basis for <m>V</m> for which the matrix for <m>T</m> is diagonal.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The general idea for diagonalizing a linear transformation is contained in <xref ref="act_8_c_lt_diag">Activity</xref>.
+    Let <m>V</m> be an <m>n</m> dimensional vector space and assume the linear transformation <m>T : V \to V</m> is diagonalizable.
+    So there exists a basis <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}</m> for which
+    <m>[T]_{\CB}</m> is a diagonal matrix.
+    To find this basis,
+    note that for any other basis <m>\CC</m> we know that
+    <m>[T]_{\CC}</m> and <m>[T]_{\CB}</m> are similar.
+    That means that there is an invertible matrix <m>P</m> so that <m>P^{-1}[T]_{\CC}P = [T]_{\CB}</m>,
+    where <m>P= \underset{\CC \leftarrow \CB}{P}</m> is the change of basis matrix from <m>\CB</m> to <m>\CC</m>.
+    So to find <m>\CB</m>,
+    we choose <m>\CB</m> so that <m>P</m> is the matrix that diagonalizes <m>[T]_{\CC}</m>.
+    Using the definition of the change of basis matrix,
+    we then know that each basis vector <m>\vv_i</m> in <m>\CB</m> satisfies <m>[\vv_i]_{\CC}=P[\vv_i]_{\CB}= P \ve_i</m>.
+    From this we can find <m>\vv_i</m>.
+    Note that a standard basis <m>\CS</m> is often a convenient choice to make for the basis <m>\CC</m>.
+    This is the process we used in <xref ref="act_8_c_lt_diag">Activity</xref>.
+  </p>
+  <p>
+    Recall that an <m>n \times n</m> matrix <m>A</m> is diagonalizable if and only if <m>A</m> has <m>n</m> linearly independent eigenvectors.
+    We apply this idea to a linear transformation as well,
+    summarized by the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>V</m> be a vector space of dimension <m>n</m> and let <m>T</m> be a linear transformation from <m>V</m> to <m>V</m>.
+        Then the following are equivalent.
+        <ol>
+          <li>
+            <p>
+              <m>T</m> is diagonalizable.
+            </p>
+          </li>
+          <li>
+            <p>
+              There exists a basis <m>\CB</m> for <m>V</m> and an invertible matrix <m>P</m> so that
+              <m>P^{-1}[T]_{\CB}P</m> is a diagonal matrix.
+            </p>
+          </li>
+          <li>
+            <p>
+              There exists a basis <m>\CC</m> of <m>V</m> for which the matrix
+              <m>[T]_{\CC}</m> has <m>n</m> linearly independent eigenvectors.
+            </p>
+          </li>
+          <li>
+            <p>
+              There exists a basis of <m>V</m> consisting of eigenvectors of <m>T</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

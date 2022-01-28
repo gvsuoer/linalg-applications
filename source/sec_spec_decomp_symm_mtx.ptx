@@ -1,0 +1,145 @@
+<section xml:id="sec_spec_decomp_symm_mtx">
+  <title>The Spectral Decomposition of a Symmetric Matrix <m>A</m></title>
+  <p>
+    Let <m>A</m> be an <m>n \times n</m> symmetric matrix with real entries.
+    The Spectral Theorem tells us we can find an orthonormal basis
+    <m>\{\vu_1, \vu_2, \ldots, \vu_n\}</m> of eigenvectors of <m>A</m>.
+    Let <m>A \vu_i = \lambda_i \vu_i</m> for each <m>1 \leq i \leq n</m>.
+    If <m>P = [ \vu_1 \  \vu_2 \  \vu_3 \  \cdots \ \vu_n]</m>,
+    then we know that
+    <me>
+      P^{\tr}AP = P^{-1}AP = D
+    </me>,
+    where <m>D</m> is the <m>n \times n</m> diagonal matrix
+    <me>
+      \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\ 0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0 \\ \vdots\amp \vdots\amp \vdots\amp \amp \vdots\amp \vdots \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_n \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Since <m>A = PDP^{\tr}</m> we see that
+    <md>
+      <mrow>A \amp = [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_n] \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0</mrow>
+      <mrow>0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0</mrow>
+      <mrow>\vdots\amp \vdots\amp \vdots\amp \amp \vdots\amp \vdots</mrow>
+      <mrow>0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_n \end{array} \right] \left[ \begin{array}{c} \vu_1^{\tr}</mrow>
+      <mrow>\vu_2^{\tr}</mrow>
+      <mrow>\vu_3^{\tr}</mrow>
+      <mrow>\vdots</mrow>
+      <mrow>\vu_n^{\tr} \end{array} \right]</mrow>
+      <mrow>\amp = [ \lambda_1\vu_1 \ \lambda_2\vu_2 \ \lambda_3\vu_3 \ \cdots \ \lambda_n\vu_n] \left[ \begin{array}{c} \vu_1^{\tr}</mrow>
+      <mrow>\vu_2^{\tr}</mrow>
+      <mrow>\vu_3^{\tr}</mrow>
+      <mrow>\vdots</mrow>
+      <mrow>\vu_n^{\tr} \end{array} \right]</mrow>
+      <mrow xml:id="eq_spec_decomp" number="yes">\amp = \lambda_1 \vu_1\vu_1^{\tr} + \lambda_2 \vu_2\vu_2^{\tr} + \lambda_3 \vu_3\vu_3^{\tr} + \cdots + \lambda_n \vu_n\vu_n^{\tr}</mrow>
+    </md>,
+    where the last product follows from <xref ref="ex_7_a_product">Exercise</xref>.
+    The expression in <xref ref="eq_spec_decomp"/> is called a
+    <em>spectral decomposition</em>
+        <idx><h>spectral decomposition</h></idx>
+    of the matrix <m>A</m>.
+    Let <m>P_i = \vu_i\vu_i^{\tr}</m> for each <m>i</m>.
+    The matrices <m>P_i</m> satisfy several special conditions given in the next theorem.
+    The proofs are left to the exercises.
+  </p>
+  <theorem xml:id="thm_7_a_spectral_decomposition">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>n \times n</m> symmetric matrix with real entries,
+        and let <m>\{\vu_1, \vu_2, \ldots, \vu_n\}</m> be an orthonormal basis of eigenvectors of <m>A</m> with <m>A \vu_i = \lambda_i \vu_i</m> for each <m>i</m>.
+        For each <m>i</m>, let <m>P_i = \vu_i\vu_i^{\tr}</m>.
+        Then
+        <ol>
+          <li>
+            <p>
+              <m>A = \lambda_1 P_1 + \lambda_2 P_2 + \cdots + \lambda_n P_n</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>P_i</m> is a symmetric matrix for each <m>i</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>P_i</m> is a rank 1 matrix for each <m>i</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>P_i^2 = P_i</m> for each <m>i</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>P_i P_j = 0</m> if <m>i \neq j</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>P_i \vu_i = \vu_i</m> for each <m>i</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>P_i \vu_j = \vzero</m> if <m>i \neq j</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              For any vector <m>\vv</m> in <m>\R^n</m>,
+              <m>P_i \vv = \text{ proj } _{\Span\{\vu_i\}} \vv</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The consequence of <xref ref="thm_7_a_spectral_decomposition">Theorem</xref>
+    is that any symmetric matrix can be written as the sum of symmetric,
+    rank 1 matrices.
+    As we will see later,
+    this kind of decomposition contains much information about the matrix product
+    <m>A^{\tr}A</m> for any matrix <m>A</m>.
+  </p>
+  <activity xml:id="act_7_a_4">
+    <p>
+      Let <m>A = \left[ \begin{array}{ccc} 4\amp 2\amp 2 \\ 2\amp 4\amp 2 \\ 2\amp 2\amp 4 \end{array} \right]</m>.
+      Let <m>\lambda_1 = 2</m>, <m>\lambda_2 = 2</m>,
+      and <m>\lambda_3 = 8</m> be the eigenvalues of <m>A</m>.
+      A basis for the eigenspace <m>E_8</m> of <m>A</m> corresponding to the eigenvalue 8 is
+      <m>\{[1 \ 1\ 1]^{\tr}\}</m> and a basis for the eigenspace <m>E_2</m> of <m>A</m> corresponding to the eigenvalue 2 is <m>\{[1 \ -1\ 0]^{\tr}, [1 \ 0 \ -1]^{\tr}\}</m>.
+      (Compare to <xref ref="act_7_a_3">Activity</xref>.)
+      <ul>
+        <li>
+          <p>
+            Find orthonormal eigenvectors <m>\vu_1</m>, <m>\vu_2</m>,
+            and <m>\vu_3</m> of <m>A</m> corresponding to <m>\lambda_1</m>,
+            <m>\lambda_2</m>, and <m>\lambda_3</m>, respectively.
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute <m>\lambda_1 \vu_1\vu_1^{\tr}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute <m>\lambda_2 \vu_2\vu_2^{\tr}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute <m>\lambda_3 \vu_3\vu_3^{\tr}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Verify that <m>A = \lambda_1 \vu_1\vu_1^{\tr} + \lambda_2 \vu_2\vu_2^{\tr} + \lambda_3 \vu_3\vu_3^{\tr}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

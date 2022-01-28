@@ -1,0 +1,213 @@
+<section xml:id="sec_null_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        <nbsp/>
+        <ul>
+          <li>
+            <p>
+              Let <m>A = \left[ \begin{array}{rrrr} 1\amp 0\amp -2\amp 3 \\ -2\amp -4\amp 0\amp -14 \\ 1\amp 3\amp 1\amp 9 \end{array} \right]</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Find a basis for <m>\Col A</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Describe <m>\Col A</m> geometrically (e.g., as a line, a plane,
+                    a union of lines, etc.) in the appropriate larger space.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>B = \left[ \begin{array}{rrr} 0\amp -2\amp 1\\-1\amp 0\amp 1 \\ 6\amp -10\amp -1 \\ 1\amp -4\amp 1 \end{array} \right]</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Find a basis for <m>\Nul B</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Describe <m>\Nul B</m> geometrically (e.g., as a line, a plane,
+                    a union of lines, etc.) in the appropriate larger space.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We use <m>A = \left[ \begin{array}{rrrr} 1\amp 0\amp -2\amp 3 \\ -2\amp -4\amp 0\amp -14 \\ 1\amp 3\amp 1\amp 9 \end{array}  \right]</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Technology shows that the reduced row echelon form of <m>A</m> is
+                    <me>
+                      \left[ \begin{array}{ccrc} 1\amp 0\amp -2\amp 3\\ 0\amp 1\amp 1\amp 2 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
+                    </me>.
+                    The first two columns of <m>A</m> are the pivot columns of <m>A</m>.
+                    Since the pivot columns of <m>A</m> form a basis for <m>\Col A</m>,
+                    a basis for <m>\Col A</m> is
+                    <me>
+                      \left\{ \left[ \begin{array}{r} 1\\ -2 \\ 1 \end{array}  \right], \left[ \begin{array}{r} 0\\ -4 \\ 3 \end{array}  \right] \right\}
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Let <m>\vv_1 = \left[ \begin{array}{r} 1\\ -2 \\ 1 \end{array} \right]</m> and <m>\vv_2 = \left[ \begin{array}{r} 0\\ -4 \\ 3 \end{array} \right]</m>.
+                    Since neither <m>\vv_1</m> nor <m>\vv_2</m> is a scalar multiple of the other,
+                    we see that <m>\Col A</m> is the span of two linearly independent vectors in <m>\R^3</m>.
+                    Thus, we conclude that <m>\Col A</m> is the plane in <m>\R^3</m> through the origin and the points <m>(1,-2,1)</m> and <m>(0,-4,3)</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              We use <m>B = \left[ \begin{array}{rrr} 0\amp -2\amp 1\\-1\amp 0\amp 1 \\ 6\amp -10\amp -1 \\ 1\amp -4\amp 1 \end{array}  \right]</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Technology shows that the reduced row echelon form of <m>B</m> is
+                    <me>
+                      \left[  \begin{array}{ccr} 1\amp 0\amp -1\\ 0\amp 1\amp -\frac{1}{2} \\ 0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{array}  \right]
+                    </me>.
+                    To find a basis for <m>\Nul B</m>,
+                    we must solve the homogeneous equation <m>B \vx = \vzero</m>.
+                    If <m>\vx = \left[ \begin{array}{c}x_1\\x_2\\x_3 \end{array}  \right]</m> and <m>B \vx = \vzero</m>,
+                    the reduced row echelon form of <m>B</m> shows that <m>x_3</m> is free,
+                    <m>x_2 = \frac{1}{2}x_3</m>, and <m>x_1 = x_3</m>.
+                    So
+                    <md>
+                      <mrow>\vx \amp = \left[ \begin{array}{c}x_1</mrow>
+                      <mrow>x_2</mrow>
+                      <mrow>x_3 \end{array} \right]</mrow>
+                      <mrow>\amp = \left[  \begin{array}{c}x_3</mrow>
+                      <mrow>\frac{1}{2}x_3</mrow>
+                      <mrow>x_3 \end{array} \right]</mrow>
+                      <mrow>\amp = x_3\left[  \begin{array}{c}1</mrow>
+                      <mrow>\frac{1}{2}1</mrow>
+                      <mrow>1 \end{array} \right] </mrow>
+                    </md>.
+                    Thus, a basis for <m>\Nul B</m> is
+                    <me>
+                      \left\{ \left[ \begin{array}{c} 2\\ 1 \\ 2 \end{array}  \right] \right\}
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Since <m>\Nul B = \Span\left\{ \left[ \begin{array}{c} 2\\ 1 \\ 2 \end{array} \right] \right\}</m> is the span of one nonzero vector in <m>\R^3</m>,
+                    we conclude that <m>\Nul B</m> is the line in <m>\R^3</m> through the origin and the point <m>(2,1,2)</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>A = \left[ \begin{array}{rr} 1\amp 3\\-1\amp 2 \\ 0\amp -2\\5\amp 6 \end{array} \right]</m>,
+        and let <m>T</m> be the matrix transformation defined by <m>T(\vx) = A\vx</m>.
+        <ul>
+          <li>
+            <p>
+              What are the domain and codomain of <m>T</m>?
+              Why?
+            </p>
+          </li>
+          <li>
+            <p>
+              Find all vectors <m>\vx</m> such that <m>T(\vx) = \vzero</m>.
+              How is this set of vectors related to <m>\Nul A</m>?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>T</m> one-to-one?
+              Explain.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>T</m> onto?
+              If yes, explain why.
+              If no, find a basis for the range of <m>T</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Recall that <m>A \vx</m> is a linear combination of the columns of <m>A</m> with weights from <m>\vx</m>.
+              So <m>A \vx</m> is defined only when the number of components of <m>\vx</m> is equal to the number of columns of <m>A</m>.
+              This explains why the domain of <m>T</m> is <m>\R^2</m>.
+              Also, since each output of <m>T</m> is a linear combination of the columns of <m>A</m>,
+              the codomain of <m>T</m> is <m>\R^4</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The set of vectors <m>\vx</m> such that
+              <m>\vzero = T(\vx) = A\vx</m> is the same as <m>\Nul A</m>.
+              The reduced row echelon form of <m>A</m> is
+              <me>
+                \left[ \begin{array}{cc} 1\amp 0\\0\amp 1\\0\amp 0\\0\amp 0 \end{array} \right]
+              </me>.
+              Since both columns of <m>A</m> are pivot columns,
+              the columns of <m>A</m> are linearly independent.
+              This implies that <m>A \vx = \vzero</m> has only the trivial solution.
+              Therefore, the only vector <m>\vx</m> such that
+              <m>T(\vx) = \vzero</m> is the zero vector in <m>\R^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The previous part shows that <m>\Ker(T) = \{\vzero\}</m>.
+              This means that <m>T</m> is one-to-one by <xref ref="thm_3_b_one_to_one_kernel">Theorem</xref>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Recall that the range of <m>T</m> is the same as <m>\Col A</m>.
+              The reduced row echelon form of <m>A</m> has a row of zeros,
+              so <m>A \vx = \vb</m> is not consistent for every <m>\vb</m> in <m>\R^4</m>.
+              We conclude that <m>T</m> is not onto.
+              To find a basis for the range of <m>T</m>,
+              we just need to find a basis for <m>\Col A</m>.
+              The pivot columns of <m>A</m> form such a basis,
+              so a basis for the range of <m>T</m> is
+              <me>
+                \left\{ \left[ \begin{array}{r} 1\\-1 \\ 0\\5 \end{array}  \right], \left[ \begin{array}{r} 3\\2 \\ -2\\6 \end{array}  \right] \right\}
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

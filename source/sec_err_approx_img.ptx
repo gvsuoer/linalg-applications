@@ -1,0 +1,220 @@
+<section xml:id="sec_err_approx_img">
+  <title>Calculating the Error in Approximating an Image</title>
+  <p>
+    In the context where a matrix represents an image,
+    the operator aspect of the matrix is irrelevant <mdash/> we are only interested in the matrix as a holder of information.
+    In this situation, we think of an
+    <m>m \times n</m> matrix as simply a long vector in <m>\R^{mn}</m> where we have folded the data into a rectangular array.
+    If we are interested in determining the error in approximating an image by a compressed image,
+    it makes sense to use the standard norm in <m>\R^{mn}</m> to determine length and distance.
+    This leads to what is called the
+    <em>Frobenius</em> norm of a matrix.
+    The Frobenius norm <m>||M||_F</m> of an
+    <m>m \times n</m> matrix <m>M = [m_{ij}]</m> is
+    <me>
+      ||M||_F = \sqrt{ \sum m_{ij}^2 }
+    </me>.
+  </p>
+  <p>
+    There is a natural corresponding inner product on the set of <m>m \times n</m> matrices
+    (called the <em>Frobenius product</em>)
+    defined by
+    <me>
+      \langle A,B \rangle = \sum a_{ij}b_{ij}
+    </me>,
+    where <m>A = [a_{ij}]</m> and
+    <m>B = [b_{ij}]</m> are <m>m \times n</m> matrices.
+    Note that
+    <me>
+      ||A||_F = \sqrt{\langle A, A\rangle}
+    </me>.
+  </p>
+  <p>
+    If an <m>m \times n</m> matrix <m>M</m> of rank <m>r</m> has a singular value decomposition <m>M = U \Sigma V^{\tr}</m>,
+    we have seen that we can write <m>M</m> as an outer product
+    <men xml:id="eq_7_c_outer_product">
+      M = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{r} \vu_{r}\vv_{r}^{\tr}
+    </men>,
+    where the <m>\vu_i</m> are the columns of <m>U</m> and the <m>\vv_j</m> the columns of <m>V</m>.
+    Each of the products <m>\vu_i \vv_i^{\tr}</m> is an <m>m \times n</m> matrix.
+    Since the columns of <m>\vu_i \vv_i^{\tr}</m> are all scalar multiples of <m>\vu_i</m>,
+    the matrix <m>\vu_i \vv_i^{\tr}</m> is a rank 1 matrix.
+    So <xref ref="eq_7_c_outer_product"/> expresses <m>M</m> as a sum of rank 1 matrices.
+    Moreover, if we let <m>\vx</m> and <m>\vw</m> be
+    <m>m \times 1</m> vectors and let <m>\vy</m> and <m>\vz</m> be <m>n \times 1</m> vectors with
+    <m>\vy = [y_1 \ y_2 \ \ldots \ y_n]^{\tr}</m> and <m>\vz = [z_1 \ z_2 \ \ldots \ z_n]^{\tr}</m>, then
+    <md>
+      <mrow>\langle \vx\vy^{\tr}, \vw\vz^{\tr} \rangle \amp = \langle [y_1\vx \ y_2\vx \ \cdots \ y_n\vx], [z_1\vw \ z_2\vw \ \cdots \ z_n\vw] \rangle</mrow>
+      <mrow>\amp = \sum (y_i\vx) \cdot (z_i\vw)</mrow>
+      <mrow>\amp = \sum (y_iz_i)(\vx \cdot \vw)</mrow>
+      <mrow>\amp = (\vx \cdot \vw) \sum (y_iz_i)</mrow>
+      <mrow>\amp = (\vx \cdot \vw) (\vy \cdot \vz)</mrow>
+    </md>.
+  </p>
+  <p>
+    Using the vectors from the singular value decomposition of <m>M</m> as in <xref ref="eq_7_c_outer_product"/> we see that
+    <me>
+      \langle \vu_i\vv_i^{\tr}, \vu_j\vv_j^{\tr} \rangle = (\vu_i \cdot \vu_j)(\vv_i \cdot \vv_j) = \begin{cases}0, \amp \text{ if }  i\neq j, \\ 1, \amp \text{ if }  i = j. \end{cases}
+    </me>
+  </p>
+  <p>
+    It follows that
+    <men xml:id="eq_7_c_SVD_norm">
+      ||M||_F^2 = \sum \sigma_i^2 (\vu_i \cdot \vu_i)(\vv_i \cdot \vv_i) = \sum \sigma_i^2
+    </men>.
+  </p>
+  <activity>
+    <p>
+      Verify <xref ref="eq_7_c_SVD_norm"/> that <m>||M||_F^2 = \sum \sigma_i^2</m>.
+    </p>
+  </activity>
+  <p>
+    When we used the singular value decomposition to approximate the image defined by <m>M</m>,
+    we replaced <m>M</m> with a matrix of the form
+    <men xml:id="eq_7_c_outer_product_k">
+      M_k = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{k} \vu_{k}\vv_{k}^{\tr}
+    </men>.
+  </p>
+  <p>
+    We call <m>M_k</m> the rank <m>k</m> approximation to <m>M</m>.
+    Notice that the outer product expansion in <xref ref="eq_7_c_outer_product_k"/> is in fact a singular value decomposition for <m>M_k</m>.
+    The error <m>E_k</m> in approximating <m>M</m> with <m>M_k</m> is
+    <men xml:id="eq_7_c_outer_product_error">
+      E_k = M - M_k = \sigma_{k+1} \vu_{k+1}\vv_{k+1}^{\tr} + \sigma_{k+2} \vu_{k+2}\vv_{k+2}^{\tr} + \cdots + \sigma_{r} \vu_{r}\vv_{r}^{\tr}
+    </men>.
+  </p>
+  <p>
+    Once again, notice that <xref ref="eq_7_c_outer_product_error"/> is a singular value decomposition for <m>E_k</m>.
+    We define the relative error in approximating <m>M</m> with <m>M_k</m> as
+    <me>
+      \ds \frac{||E_k||}{||M||}
+    </me>.
+  </p>
+  <p>
+    Now <xref ref="eq_7_c_SVD_norm"/> shows that
+    <me>
+      \ds \frac{||E_k||}{||M||} = \sqrt{ \frac{\sum_{i=k+1}^r \sigma_i^2}{\sum_{i=1}^r \sigma_i^2} }
+    </me>.
+  </p>
+  <p>
+    In applications,
+    we often want to retain a certain degree of accuracy in our approximations and this error term can help us accomplish that.
+  </p>
+  <p>
+    In our flower example,
+    the singular values of <m>M</m> are given in <xref ref="eq_7_c_Flower_sing_values"/>.
+    The relative error in approximating <m>M</m> with <m>M_{12}</m> is
+    <me>
+      \sqrt{ \frac{\sum_{i=13}^{16} \sigma_i^2}{\sum_{i=1}^{16} \sigma_i^2} } \approx 0.0018
+    </me>.
+  </p>
+  <p>
+    Errors (rounded to 4 decimal places) for approximating <m>M</m> with some of the <m>M_k</m> are shown in <xref ref="T_7_c_Errors">Table</xref>
+  </p>
+  <table xml:id="T_7_c_Errors">
+    <title>Errors in approximating <m>M</m> by <m>M_k</m></title>
+    <tabular>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>k</m></cell>
+        <cell>10</cell>
+        <cell>9</cell>
+        <cell>8</cell>
+        <cell>7</cell>
+        <cell>6</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>\frac{||E_k||}{||M||}</m></cell>
+        <cell>0.0070</cell>
+        <cell>0.0146</cell>
+        <cell>0.0252</cell>
+        <cell>0.0413</cell>
+        <cell>0.06426</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+    </tabular>
+    <tabular>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>k</m></cell>
+        <cell>5</cell>
+        <cell>4</cell>
+        <cell>3</cell>
+        <cell>2</cell>
+        <cell>1</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>\frac{||E_k||}{||M||}</m></cell>
+        <cell>0.0918</cell>
+        <cell>0.1231</cell>
+        <cell>0.1590</cell>
+        <cell>0.201</cell>
+        <cell>0.2460</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+    </tabular>
+  </table>
+  <activity>
+    <p>
+      Let <m>M</m> represent the flower image.
+      <ul>
+        <li>
+          <p>
+            Find the relative errors in approximating <m>M</m> by <m>M_{13}</m> and <m>M_{14}</m>.
+            You may use the fact that <m>\sqrt{\sum_{i=1}^{16} \sigma_i^2} \approx 3102.0679</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            About how much of the information in the image is contained in the rank 1 approximation?
+            Explain.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

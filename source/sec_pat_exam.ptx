@@ -1,0 +1,228 @@
+<section xml:id="sec_pat_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Write the given quadratic equation in a system in which it has no cross-product terms.
+        <ul>
+          <li>
+            <p>
+              <m>8x^2-4xy+5y^2 = 1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>x^2+4xy+y^2=1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>4x^2+4y^2+4z^2+4xy+4xz+4yz-3=0</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              We write the quadratic form
+              <m>Q(x,y)=8x^2-4xy+5y^2</m> as <m>\vx^{\tr} A \vx</m>,
+              where <m>\vx = \left[ \begin{array}{c} x\\y \end{array}  \right]</m> and <m>A = \left[  \begin{array}{rr} 8\amp -2\\-2\amp 5 \end{array}  \right]</m>.
+              The eigenvalues for <m>A</m> are <m>9</m> and <m>4</m>,
+              and bases for the corresponding eigenspaces <m>E_9</m> and <m>E_{4}</m> are
+              <m>\{[-2 \ 1]^{\tr}\}</m> and <m>\{[1 \ 2]^{\tr}\}</m>,
+              respectively.
+              An orthogonal matrix <m>P</m> that orthogonally diagonalizes <m>A</m> is
+              <me>
+                P = \left[ \begin{array}{rc} -\frac{2}{\sqrt{5}}\amp \frac{1}{\sqrt{5}} \\ \frac{1}{\sqrt{5}}\amp \frac{2}{\sqrt{5}} \end{array}  \right]
+              </me>.
+              If <m>\vy =  [u \ v]^{\tr}</m> and we let <m>\vx = P\vy</m>,
+              then we can rewrite the quadratic equation <m>8x^2-4xy+5y^2 = 1</m> as
+              <md>
+                <mrow>8x^2-4xy+5y^2 \amp = 1</mrow>
+                <mrow>\vx^{\tr}A\vx \amp = 1</mrow>
+                <mrow>(P\vy)^{\tr}A(P\vy) \amp = 1</mrow>
+                <mrow>\vy^{\tr} P^{\tr}AP \vy \amp = 1</mrow>
+                <mrow>\vy^{\tr} \left[ \begin{array}{cc} 9\amp 0</mrow>
+                <mrow>0\amp 4 \end{array} \right] \vy \amp = 1</mrow>
+                <mrow>9u^2+4v^2 \amp = 1</mrow>
+              </md>.
+              So the quadratic equation <m>8x^2-4xy+5y^2=1</m> is an ellipse.
+            </p>
+          </li>
+          <li>
+            <p>
+              We write the quadratic form
+              <m>Q(x,y)=x^2+4xy+y^2</m> as <m>\vx^{\tr} A \vx</m>,
+              where <m>\vx = \left[ \begin{array}{c} x\\y \end{array}  \right]</m> and <m>A = \left[  \begin{array}{cc} 1\amp 2\\2\amp 1 \end{array}  \right]</m>.
+              The eigenvalues for <m>A</m> are <m>3</m> and <m>-1</m>,
+              and bases for the corresponding eigenspaces <m>E_3</m> and <m>E_{-1}</m> are
+              <m>\{[1 \ 1]^{\tr}\}</m> and <m>\{[-1 \ 1]^{\tr}\}</m>,
+              respectively.
+              An orthogonal matrix <m>P</m> that orthogonally diagonalizes <m>A</m> is
+              <me>
+                P = \left[ \begin{array}{rc} \frac{1}{\sqrt{2}}\amp \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}}\amp \frac{1}{\sqrt{2}} \end{array}  \right]
+              </me>.
+              If <m>\vy =  [u \ v]^{\tr}</m> and we let <m>\vx = P\vy</m>,
+              then we can rewrite the quadratic equation <m>x^2+4xy+y^2 = 1</m> as
+              <md>
+                <mrow>x^2+4xy+y^2 \amp = 1</mrow>
+                <mrow>\vx^{\tr}A\vx \amp = 1</mrow>
+                <mrow>(P\vy)^{\tr}A(P\vy) \amp = 1</mrow>
+                <mrow>\vy^{\tr} P^{\tr}AP \vy \amp = 1</mrow>
+                <mrow>\vy^{\tr} \left[ \begin{array}{cr} 3\amp 0</mrow>
+                <mrow>0\amp -1 \end{array} \right] \vy \amp = 1</mrow>
+                <mrow>3u^2-v^2 \amp = 1</mrow>
+              </md>.
+              So the quadratic equation <m>x^2+4xy+y^2=1</m> is a hyperbola.
+            </p>
+          </li>
+          <li>
+            <p>
+              We write the quadratic form
+              <m>Q(x,y,z)=4x^2+4y^2+4z^2+4xy+4xz+4yz</m> as <m>\vx^{\tr} A \vx</m>,
+              where <m>\vx = \left[ \begin{array}{c} x\\y\\z \end{array}  \right]</m> and <m>A = \left[ \begin{array}{ccc} 4\amp 2\amp 2\\2\amp 4\amp 2\\2\amp 2\amp 4 \end{array}  \right]</m>.
+              The eigenvalues for <m>A</m> are <m>2</m> and <m>8</m>,
+              and bases for the corresponding eigenspaces <m>E_2</m> and <m>E_8</m> are
+              <m>\{[-1 \ 0 \ 1]^{\tr}, [-1 \ 1\ 0]^{\tr}\}</m> and <m>\{[1 \ 1\ 1]^{\tr}\}</m>,
+              respectively.
+              Applying the Gram-Schmidt process to the basis for <m>E_2</m> gives us an orthogonal basis <m>\{\vw_1, \vw_2\}</m> of <m>E_2</m>,
+              where <m>\vw_1 = [-1 \ 0 \ 1]^{\tr}</m> and
+              <md>
+                <mrow>\vw_2 \amp =  [-1 \ 1 \ ]^{\tr} - \frac{ [-1 \ 0 \ 1]^{\tr} \cdot [-1 \ 1 \ 0]^{\tr}}{[-1 \ 0 \ 1]^{\tr} \cdot [-1 \ 0 \ 1]^{\tr}} [-1 \ 0 \ 1]^{\tr}</mrow>
+                <mrow>\amp =  [-1 \ 1 \ 0]^{\tr} - \frac{1}{2}[-1 \ 0 \ 1]^{\tr}</mrow>
+                <mrow>\amp = \frac{1}{2}[ -1 \ 2 \ -1]^{\tr}</mrow>
+              </md>.
+              An orthogonal matrix <m>P</m> that orthogonally diagonalizes <m>A</m> is
+              <me>
+                P = \left[ \begin{array}{rrc} -\frac{1}{\sqrt{2}}\amp -\frac{1}{\sqrt{6}}\amp \frac{1}{\sqrt{3}} \\ 0\amp \frac{2}{\sqrt{6}}\amp \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{2}}\amp -\frac{1}{\sqrt{6}}\amp \frac{1}{\sqrt{3}} \end{array}  \right]
+              </me>.
+              If <m>\vy =  [u \ v \ w]^{\tr}</m> and we let <m>\vx = P\vy</m>,
+              then we can rewrite the quadratic equation <m>4x^2+4y^2+4z^2+4xy+4xz+4yz = 3</m> as
+              <md>
+                <mrow>4x^2+4y^2+4z^2+4xy+4xz+4yz \amp = 3</mrow>
+                <mrow>\vx^{\tr}A\vx \amp = 3</mrow>
+                <mrow>(P\vy)^{\tr}A(P\vy) \amp = 3</mrow>
+                <mrow>\vy^{\tr} P^{\tr}AP \vy \amp = 3</mrow>
+                <mrow>\vy^{\tr} \left[ \begin{array}{ccc} 2\amp 0\amp 0</mrow>
+                <mrow>0\amp 2\amp 0</mrow>
+                <mrow>0\amp 0\amp 8 \end{array} \right] \vy \amp = 3</mrow>
+                <mrow>2u^2+2v^2+8w^2 \amp = 3</mrow>
+              </md>.
+              So the quadratic equation <m>4x^2+4y^2+4z^2+4xy+4xz+4yz-3 = 0</m> is a ellipsoid.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be positive definite matrices,
+        and let <m>C = \left[ \begin{array}{rr}5\amp -3\\-3\amp 3 \end{array} \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Must <m>A</m> be invertible?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Must <m>A^{-1}</m> be positive definite?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Must <m>A^{2}</m> be positive definite?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Must <m>A+B</m> be positive definite?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>C</m> positive definite?
+              Justify your answer.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Since <m>A</m> has all positive eigenvalues and <m>\det(A)</m> is the product of the eigenvalues of <m>A</m>,
+              then <m>\det(A) > 0</m>.
+              Thus, <m>A</m> is invertible.
+            </p>
+          </li>
+          <li>
+            <p>
+              The fact that <m>A</m> is positive definite means that <m>A</m> is also symmetric.
+              Recall that <m>\left(A^{-1}\right)^{\tr} = \left(A^{\tr}\right)^{-1}</m>.
+              Since <m>A</m> is symmetric,
+              it follows that <m>\left(A^{-1}\right)^{\tr} = A^{-1}</m> and <m>A^{-1}</m> is symmetric.
+              The eigenvalues of <m>A^{-1}</m> are the reciprocals of the eigenvalues of <m>A</m>.
+              Since the eigenvalues of <m>A</m> are all positive,
+              so are the eigenvalues of <m>A^{-1}</m>.
+              Thus, <m>A^{-1}</m> is positive definite.
+            </p>
+          </li>
+          <li>
+            <p>
+              Notice that
+              <me>
+                \left(A^2\right)^{\tr} = (AA)^{\tr} = A^{\tr}A^{\tr} = A^2
+              </me>,
+              so <m>A^2</m> is symmetric.
+              The eigenvalues of <m>A^2</m> are the squares of the eigenvalues of <m>A</m>.
+              Since no eigenvalue of <m>A</m> is <m>0</m>,
+              the eigenvalues of <m>A^2</m> are all positive and <m>A^2</m> is positive definite.
+            </p>
+          </li>
+          <li>
+            <p>
+              We know that <m>B</m> is symmetric, and
+              <me>
+                (A+B)^{\tr} = A^{\tr} + B^{\tr} = A+B
+              </me>,
+              so <m>A+B</m> is symmetric.
+              Also, the fact that <m>\vx^{\tr}A\vx > 0</m> and
+              <m>\vx^{\tr}B\vx > 0</m> for all <m>\vx</m> implies that
+              <me>
+                \vx^{\tr}(A+B)\vx = \vx^{\tr}A\vx + \vx^{\tr}B\vx > 0
+              </me>
+              for all <m>\vx</m>.
+              Thus, <m>A+B</m> is positive definite.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>C</m> is symmetric and
+              <me>
+                \det(C - \lambda I_2) = (5-\lambda)(3-\lambda) - 9 = \lambda^2-8\lambda+6
+              </me>.
+              So the eigenvalues of <m>C</m> are
+              <m>4 + \sqrt{10}</m> and <m>4 - \sqrt{10} \approx 0.8</m>.
+              Since the eigenvalues of <m>C</m> are both positive,
+              <m>C</m> is positive definite.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

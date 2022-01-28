@@ -1,0 +1,56 @@
+<section xml:id="sec_comp_eigen">
+  <title>Complex Eigenvalues</title>
+  <p>
+    As you noticed in Preview <xref ref="pa_4_e">Activity</xref>,
+    the complex roots of the characteristic equation of a real matrix <m>A</m> come in complex conjugate pairs.
+    This should come as no surprise since we know through our use of the quadratic formula that complex roots of (real) quadratic polynomials come in complex conjugate pairs.
+    More generally,
+    if <m>p(x)=a_0+a_1x+a_2x^2 + \cdots + a_nx^n</m> is a polynomial with real coefficients and <m>z</m> is a root of this polynomial,
+    meaning <m>p(z)=0</m>, then
+    <me>
+      0=\overline{p(z)} = \overline{a_0+a_1z+a_2z^2 + \cdots + a_nz^n} = a_0 + a_1 \overline{z} + a_2 \overline{z}^2 + \cdots + a_n \overline{z}^n = p(\overline{z})\,
+    </me>.
+  </p>
+  <p>
+    Therefore, <m>\overline{z}</m> is also a root of <m>p(x)</m>.
+  </p>
+  <activity xml:id="act_4e_1">
+    <p>
+      Let <m>A=\left[ \begin{array}{cr} 0\amp -1 \\ 1\amp 0 \end{array} \right]</m>.
+      <ul>
+        <li>
+          <p>
+            The matrix transformation <m>T:\R^2 \to \R^2</m> defined by
+            <m>T(\vx)=A\vx</m> is a rotation transformation.
+            What is the angle of rotation?
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the eigenvalues of <m>A</m>.
+            For each eigenvalue, find an eigenvector.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    In Preview <xref ref="pa_4_e">Activity</xref>
+    and in <xref ref="act_4e_1">Activity</xref>,
+    you found that if <m>\vv</m> is an eigenvector of <m>A</m> corresponding to <m>\lambda</m>,
+    then <m>\overline{\vv}</m> obtained by taking the complex conjugate of each entry in <m>\vv</m> is an eigenvector of <m>A</m> corresponding to <m>\overline{\lambda}</m>.
+    Specifically,
+    if <m>\vv=\vu+i\vw</m> where both <m>\vu</m> and <m>\vw</m> are real vectors is an eigenvector of <m>A</m>,
+    then so is <m>\overline{\vv} = \vu-i\vw</m>.
+    We can justify this property using matrix algebra as follows:
+    <me>
+      A\overline{\vv} = \overline{A}\overline{\vv} = \overline{A\vv} = \overline{\lambda \vv} = \overline{\lambda} \overline{\vv} \,
+    </me>.
+  </p>
+  <p>
+    In the first equality,
+    we used the fact that <m>A</m> is a real matrix, so <m>\overline{A}=A</m>.
+    In all the other equalities,
+    we used the properties of the conjugation operation in complex numbers.
+  </p>
+</section>

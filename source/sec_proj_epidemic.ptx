@@ -1,0 +1,346 @@
+<section xml:id="sec_proj_epidemic">
+  <title>Project: Modeling an Epidemic</title>
+  <p>
+    The COVID-19 epidemic has generated many mathematical and statistical models to try to understand the spread of the virus.
+    In this project we examine a simple stochastic model of the spread of an epidemic proposed by Norman Bailey in 1950.<fn>
+    Bailey, N. T. J. (1950) A simple stochastic epidemic.
+    <em>Biometrika</em> 37
+    </fn> This is a model of a relatively mild epidemic in which no one dies from the disease.
+    Of course, mathematicians build on simple models to form more complicated and realistic ones,
+    but this is a good, and accessible, starting point.
+    Bailey writes about the the difficulties in the stochastic<fn>
+    The word <em>stochastic</em> refers to quantities that have a random pattern that can be analyzed statistically,
+    but generally cannot be predicted precisely.
+    </fn> analysis of epidemics.
+    For example, the overall epidemic
+    <q>can often be broken down into smaller epidemics occurring in separate regional subdivisions</q>
+    and that these regional epidemics
+    <q>are not necessarily in phase and often interact with each other</q>. This is behavior that has been clearly evident in the COVID-19 epidemic in the US. Even within a single district,
+    <q>it is obvious that a given infectious individual has not the same chance of infecting each inhabitant.
+    He will probably be in close contact with a small number of people only,
+    perhaps of the order of 10-50,
+    depending on the nature of his activities.</q>
+    But then the epidemic for the whole district will
+    <q>be built up from epidemics taking place in several relatively small groups of associates and acquaintances.</q>
+    So we can see in this analysis that an epidemic can spread from small,
+    localized areas.
+  </p>
+  <p>
+    Bailey begins by considering a community of <m>n</m> persons who are susceptible to a disease,
+    and supposes introducing a single infected individual into the community.
+    Bailey makes the following assumptions:
+    <q>We shall assume that the infection spreads by contact between the members of the community,
+    and that it is not sufficiently serious for cases to be withdrawn from circulation by isolation or death;
+    also that no case becomes clear of infection during the course of the main part of the epidemic.</q>
+  </p>
+  <p>
+    To see how the Bailey's model is constructed, we make some assumption.
+    We split the population at any time into two groups,
+    those infected with the disease,
+    and those susceptible, i.e., not currently infected.
+    We assume that once an individual is infected,
+    that individual is always infected.
+    A person catches the disease by interacting with an infected individual.
+    That is, if a susceptible individual meets an infected individual,
+    the chance that the susceptible person contracts the disease is <m>\beta</m>
+    (the <em>infection rate</em>).
+    For example,
+    there many be a <m>5\%</m> chance that an encounter between a susceptible individual and an infected individual results in the susceptible individual contracting the disease.
+    (Of course, there are many variables involved in such an interaction <mdash/> if no one is wearing masks and the interaction involves close contact,
+    the infection rate would be higher than if everyone practices social distancing.
+    For the sake of simplicity,
+    we assume one infection rate for the entire population.)
+    With this simple model we assume assume homogeneous mixing in the population.
+    That is, it is equally likely that any one individual will interact with any other in a given time frame.
+    Let <m>y</m> be the number of susceptible individuals in the population at time <m>t</m>.
+    Then the number of infected individuals is the total population minus <m>y</m>,
+    or <m>n+1-y</m>
+    (recall that we introduced an infected individual into the population).
+    So the change in the number of susceptible individuals in the population at time <m>s</m> is <m>-\beta y(n+1-y)</m>
+    (since the <m>n+1-y</m> susceptible individuals interact with the <m>y</m> infected individuals).
+    That is, <m>\frac{dy}{ds} = -\beta y (n+1-y)</m>.
+    Bailey makes the substitution of <m>t</m> for <m>\beta s</m> to simplify the equation.
+    This substitution makes <m>ds = \frac{1}{\beta} dt</m>,
+    which produces the differential equation <m>\beta \frac{dy}{dt} =  -\beta y (n+1-y)</m>.
+    The <m>\beta</m>s cancel, producing the differential equation
+    <men xml:id="eq_Bailey_1">
+      \frac{dy}{dt} = -y(n+1-y)
+    </men>
+    with <m>y(0) = n</m>.
+  </p>
+  <p>
+    The above analysis is just to provide some background.
+    Bailey's stochastic model deals with probabilities instead of actual numbers,
+    so we now take that approach.
+    For <m>r</m> from <m>0</m> to <m>n</m>,
+    let <m>p_r(t)</m> be the probability that there are <m>r</m> susceptible individuals still uninfected at time <m>t</m>.
+    Similar to the case describe above,
+    if there are <m>r</m> susceptible individuals,
+    any one of them can be come infected by interacting with the <m>n-r+1</m> infected individuals.
+    With that in mind, Bailey's model of the spread of the disease is the system
+    <me>
+      \begin{cases}\frac{d p_r(t)}{dt} = (r+1)(n-r)p_{r+1}(t) - r(n-r+1)p_r(t) \amp \text{ for }  0 \leq r \leq n-1\\ \frac{dp_n(t)}{dt} = -np_n(t). \amp \end{cases}
+    </me>
+  </p>
+  <p>
+    That is,
+    <md>
+      <mrow>\frac{d p_0(t)}{dt} \amp = np_1(t)</mrow>
+      <mrow>\frac{d p_1(t)}{dt} \amp = 2(n-1)p_2(t) - np_1(t)</mrow>
+      <mrow>\frac{d p_2(t)}{dt} \amp = 3(n-2)p_3(t) - 2(n-1)p_2(t)</mrow>
+      <mrow>\vdots \amp</mrow>
+      <mrow>\frac{d p_{n-1}(t)}{dt} \amp = np_n(t) - (n-1)(2)p_{n-1}(t)</mrow>
+      <mrow>\frac{dp_n(t)}{dt} \amp = -np_n(t)</mrow>
+    </md>.
+  </p>
+  <p>
+    Since we start with <m>n</m> susceptible individuals,
+    at time <m>0</m> we have <m>p_r(0) = 0</m> if <m>0 \leq r \leq n-1</m> and <m>p_n(0)=1</m>.
+  </p>
+  <p>
+    This system can be written in matrix form.
+    Let <m>P(t) = \left[ \begin{array}{c} p_0(t)\\p_1(t) \\ \vdots \\ p_n(t) \end{array}  \right]</m>.
+    Assuming that we can differentiate a vector function component-wise,
+    our system becomes
+    <me>
+      \frac{dP(t)}{dt} = A P(t)
+    </me>
+    with initial condition <m>P(0) = [0 \ 0 \ \ldots \ 0 \ 1]^{\tr}</m>, where
+    <me>
+      A=\left[ \begin{array}{ccccccccc} 0\amp n\amp 0\amp 0\amp 0\amp  \cdots \amp 0\amp 0\amp 0 \\ 0\amp -n\amp 2(n-1)\amp 0 \amp 0\amp \cdots \amp 0\amp 0\amp 0 \\ 0\amp 0\amp -2(n-1)\amp 3(n-2) \amp 0 \amp  \cdots \amp  0\amp 0\amp 0 \\ \amp \amp \amp \amp \vdots\amp \amp \amp \amp  \\ 0\amp 0\amp  \cdots \amp -r(n-r+1) \amp (r+1)(n-r)\amp  0 \amp  \cdots \amp  0\amp 0 \\ \amp \amp \amp \amp \vdots\amp \amp \amp \amp   \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp 0 \amp 0\amp -2(n-1)\amp n \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp 0\amp 0\amp 0\amp -n \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    The solution to this system involves a matrix exponential <m>e^{At}</m>.
+    The matrix exponential acts much like our familiar exponential function in that
+    <me>
+      \frac{d}{dx}e^{At} = Ae^{At}
+    </me>.
+  </p>
+  <p>
+    With this in mind it is not difficult to see that Bailey's system has solution <m>P(t)= e^{At}P(0)</m>.
+    To truly understand this solution,
+    we need to make sense of the matrix exponential <m>e^{At}</m>.
+  </p>
+  <p>
+    We can make sense of the matrix exponential by utilizing the Taylor series of the exponential function centered at the origin.
+    From calculus we know that
+    <men xml:id="eq_exponential">
+      e^x = 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots + \frac{1}{n!}x^n + \cdots = \sum_{k\geq 0} \frac{1}{k!}x^k
+    </men>.
+  </p>
+  <p>
+    Since powers of square matrices are defined,
+    the matrix exponential <m>e^M</m> of a square matrix <m>M</m> is then
+    <men xml:id="eq_Matrix_exponential">
+      e^M = I_n + M + \frac{1}{2!}M^2 + \frac{1}{3!}M^3 + \cdots + \frac{1}{n!}M^n + \cdots = \sum_{k\geq 0} \frac{1}{k!}M^k
+    </men>.
+  </p>
+  <p>
+    Just as in calculus,
+    <m>e^M</m> converges for any square matrix <m>M</m>.
+  </p>
+  <activity>
+    <p>
+      If <m>M</m> is diagonalizable,
+      then <m>e^M</m> can be found fairly easily.
+      Assume that there is an invertible matrix <m>P</m> such that <m>P^{-1}MP = D</m>,
+      where <m>D = \left[ \begin{array}{ccccc} \lambda_1\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  \lambda_2\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  \lambda_n \end{array}  \right]</m> is a diagonal matrix.
+      <ul>
+        <li>
+          <p>
+            Use <xref ref="eq_Matrix_exponential"/> to explain why
+            <me>
+              e^M = Pe^DP^{-1}
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now show that
+            <me>
+              e^M = P\left[ \begin{array}{ccccc} e^{\lambda_1}\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  e^{\lambda_2}\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  e^{\lambda_n} \end{array}  \right]P^{-1}
+            </me>.
+            <hint>
+              <p>
+                What is <m>D^k</m> for any positive integer <m>k</m>?
+                Then add corresponding components and compare to <xref ref="eq_exponential"/>.
+              </p>
+            </hint>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As we will see,
+    the matrix <m>A</m> in Bailey's model is not diagonalizable,
+    so we need to learn how to consider the matrix exponential in this new situation.
+    In these cases we can utilize the Jordan canonical form.
+    Of course, the computations are more complicated.
+    We first illustrate with the <m>2 \times 2</m> case.
+  </p>
+  <activity>
+    <p>
+      Assume <m>A</m> is a <m>2 \times 2</m> matrix with Jordan canonical form<m>J = \left[ \begin{array}{cc} \lambda\amp 1\\0\amp \lambda \end{array}  \right]</m>,
+      where <m>C^{-1}AC = J</m>.
+      The same argument as above shows that
+      <me>
+        e^A = Ce^JC^{-1}
+      </me>
+      and so we only have to be able to find <m>e^J</m>.
+      <ul>
+        <li>
+          <p>
+            We can write <m>J</m> in the form <m>J = D+N</m>,
+            where <m>D</m> is a diagonal matrix and <m>N</m> is a nilpotent matrix.
+            Find <m>D</m> and <m>N</m> in this case and explain why <m>N</m> is a nilpotent matrix.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the index of <m>N</m>.
+            That is, find the smallest positive power <m>s</m> of <m>N</m> such that <m>N^s = 0</m>.
+            Then use <xref ref="eq_Matrix_exponential"/> to find <m>e^N</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Assume that the matrix exponential satisfies the standard property of exponential functions that <m>e^{R+S} = e^Re^S</m> for any
+            <m>n \times n</m> matrices <m>R</m> and <m>S</m>.
+            Use this property to explain why
+            <me>
+              e^J = \left[ \begin{array}{cc} e^{\lambda}\amp e^{\lambda}\\0\amp e^{\lambda} \end{array}  \right]
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the previous information to calculate <m>e^M</m> where <m>M = \left[ \begin{array}{cr} 3 \amp -1 \\ 4 \amp 7 \end{array} \right]</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Now we turn to the general case of finding the matrix exponential <m>e^M</m> when <m>M</m> is not diagonalizable.
+    Suppose <m>C</m> is an invertible matrix and <m>C^{-1}MC = J</m>,
+    where <m>J</m> is a Jordan canonical form of <m>M</m>.
+    Then we have
+    <me>
+      e^M = e^{CJC^{-1}} = C e^J C^{-1}
+    </me>.
+  </p>
+  <p>
+    We know that <m>J</m> can be written in the form <m>D+N</m>,
+    where <m>D</m> is a diagonal matrix and <m>N</m> is an upper triangular matrix with zeros on the diagonal and some ones along the superdiagonal.
+    It follows that
+    <me>
+      e^M = Ce^De^NC^{-1}
+    </me>.
+  </p>
+  <p>
+    We know that if
+    <me>
+      D = \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\  0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0 \\ \amp \amp \amp \ddots\amp \amp  \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_n \end{array}  \right]
+    </me>,
+    then
+    <me>
+      e^D = \left[ \begin{array}{cccccc} e^{\lambda_1}\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\  0\amp e^{\lambda_2}\amp 0\amp \cdots\amp 0\amp 0 \\ \amp \amp \amp \ddots\amp \amp  \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp e^{\lambda_n} \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    So finding <m>e^M</m> boils down to determining <m>e^N</m>.
+  </p>
+  <p>
+    Now <m>N</m> has only zero as an eigenvalue, so <m>N</m> is nilpotent.
+    If <m>k</m> is the index of <m>N</m>, then
+    <me>
+      e^N = I + N + \frac{1}{2}N^2 + \frac{1}{3!}N^3 + \cdots + \frac{1}{(k-1)!}N^{k-1}
+    </me>.
+  </p>
+  <activity>
+    <p>
+      Let us apply this analysis to a specific case of Bailey's model,
+      with <m>n = 5</m>.
+      <ul>
+        <li>
+          <p>
+            Find the entries of <m>A</m> when <m>n = 5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>J</m> be a Jordan canonical form for <m>A</m>.
+            Explain why the solution to Bailey's model has the form
+            <me>
+              P(t)= e^{At}P(0) = Ce^{Dt}e^{Nt}C^{-1}P(0)
+            </me>,
+            where <m>C</m> is an invertible matrix,
+            <m>Dt</m> is a diagonal matrix,
+            and <m>Nt</m> is a nilpotent matrix.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find a Jordan canonical form <m>J</m> for <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find a diagonal matrix <m>D</m> and a nilpotent matrix <m>N</m> so that <m>J = D+N</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find <m>e^{Dt}</m> and <m>e^{Nt}</m>.
+            Then show that
+            <me>
+              P(t) = \left[  \begin{array}{c} 1+\frac{172}{3}e^{-5t}-80te^{-5t}+\frac{125}{3}e^{-8t}-200te^{-8t}-100e^{-9t} \\ -\frac{220}{3}e^{-5t}+80te^{-5t}-\frac {320}{3}e^{-8t}+320te^{-8t} +180e^{-9t} \\ 10e^{-5t}+80e^{-8t}-120te^{-8t}-90e^{-9t} \\ \frac{10}{3}e^{-5t}-\frac{40}{3}e^{-8t}+10e^{-9t} \\ \frac{5}{3}e^{-5t}- \frac{5}{3}e^{-8t} \\ e^{-5t} \end{array}  \right]
+            </me>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    One use for mathematical models like Bailey's is to make predictions that can help set policies.
+    Recall that we made the substitution of <m>t</m> for <m>\beta s</m> in our original equation in order to make the equations dimensionless,
+    where <m>\beta</m> is the infection rate <mdash/> the rate at which people catch the disease.
+    Let us replace <m>t</m> with <m>\beta s</m> in our solution and analyze the effect of changing the value of <m>\beta</m>.
+  </p>
+  <activity>
+    <p>
+      If <m>\beta = 1</m>,
+      then the disease is easily transmitted from person to person.
+      If <m>\beta</m> can be made smaller,
+      then the disease is not so easily transmitted.
+      We continue to work with the case where <m>n=5</m>.
+      Plot the curves <m>p_0(t)</m> through <m>p_5(t)</m> on the same set of axes for the following values of <m>\beta</m>:
+      <me>
+        (a) \beta =1  (b) \beta = 0.5  (c) \beta = 0.25
+      </me>.
+    </p>
+    <p>
+      Explain what you see and how this might be related to the phrase
+      <q>flattening the curve</q>
+      used during the COVID-19 pandemic of 2020.
+    </p>
+  </activity>
+  <p>
+    In general, the matrix <m>A</m> has eigenvalues of algebraic multiplicity 1 and 2.
+    When <m>n</m> is even,
+    <m>n+1</m> is odd and the eigenvalues of <m>A</m> will occur in pairs except for the single eigenvalue <m>0</m> of multiplicity 1.
+    When <m>n</m> is odd,
+    <m>n+1</m> is even and we have two eigenvalues of multiplicity 1:
+    <m>0</m> and the eigenvalue
+    <m>-r(n-r+1)</m> when <m>r = \frac{n+1}{2}</m>,
+    at which <m>-r(n-r+1) = -\frac{(n+1)^2}{4}</m>.
+    It can be shown, although we won't do it here,
+    that every eigenvalue of algebraic multiplicity 2 has geometric multiplicity 1.
+    This information completely determines the Jordan canonical formof <m>A</m>.
+  </p>
+  <p>
+    \appendix
+  </p>
+</section>

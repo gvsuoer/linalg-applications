@@ -1,0 +1,173 @@
+<section xml:id="sec_proj_tennis">
+  <title>Project: The Tennis Racket Theorem</title>
+  <p>
+    If a particle of mass <m>m</m> and velocity <m>v</m> is moving in a straight line,
+    its kinetic energy <m>KE</m> is given by <m>KE = \frac{1}{2}mv^2</m>.
+    If, instead,
+    the particle rotates around an axis with angular velocity <m>\omega</m>
+    (in radians per unit of time),
+    its linear velocity is <m>v = r \omega</m>,
+    where <m>r</m> is the radius of the particle's circular path.
+    Substituting into the kinetic energy formula shows that the kinetic energy of the rotating particle is then <m>KE = \frac{1}{2}\left(mr^2\right) \omega^2</m>.
+    The quantity <m>mr^2</m> is called the
+    <em>moment of inertia</em>
+        <idx><h>moment of inertia</h></idx>
+    of the particle and is denoted by <m>I</m>.
+    So <m>KE = \frac{1}{2}I\omega^2</m> for a rotating particle.
+    Notice that the larger the value of <m>r</m>, the larger the inertia.
+    You can imagine this with a figure skater.
+    When a skater spins along their major axis with their arms outstretched,
+    the speed at which they rotate is lower than when they bring their arms into their bodies.
+    The moment of inertia for rotational motion plays a role similar to the mass in linear motion.
+    Essentially,
+    the inertia tells us how resistant the particle is to rotation.
+  </p>
+  <p>
+    To understand the tennis racket effect,
+    we are interested in rigid bodies as they move through space.
+    Any rigid body in three space has three principal axes about which it likes to spin.
+    These axes are at right angles to each other and pass through the center of mass.
+    Think of enclosing the object in an ellipsoid <mdash/> the longest axis is the <em>primary</em> axis,
+    the middle axis is the <em>intermediate</em> axis,
+    and the third axis is the third axis.
+    As a rigid body moves through space,
+    it rotates around these axes and there is inertia along each axis.
+    Just like with a tennis racket,
+    if you were to imagine an axle along any of the principal axes and spin the object along that axel,
+    it will either rotate happily with no odd behavior like flipping,
+    or it won't.
+    The former behavior is that of a stable axis and the latter an unstable axis.
+    The Tennis Racket Theorem is a statement about the rotation of the body.
+    Essentially,
+    the Tennis Racket Theorem states that the rotation of a rigid object around its primary and third principal axes is stable,
+    while rotation around its intermediate axis is not.
+    To understand why this is so,
+    we need to return to moments of inertia.
+  </p>
+  <p>
+    Assume that we have a rigid body moving through space.
+    Euler's (rotation) equation describes the rotation of a rigid body with respect to the body's principal axes of inertia.
+    Assume that <m>I_1</m>, <m>I_2</m>,
+    and <m>I_3</m> are the moments of inertia around the primary,
+    intermediate,
+    and third principal axes with <m>I_1 > I_2 > I_3</m>.
+    Also assume that <m>\omega_1</m>, <m>\omega_2</m>,
+    and <m>\omega_3</m> are the components of the angular velocity along each axis.
+    When there is no torque applied,
+    using a principal orthogonal coordinates, Euler's equation tells us that
+    <md>
+      <mrow xml:id="eq_Euler_1" number="yes">I_1 \dot{\omega}_1 \amp = (I_2-I_3) \omega_2 \omega_3</mrow>
+      <mrow xml:id="eq_Euler_2" number="yes">I_2 \dot{\omega}_2 \amp = (I_3-I_1) \omega_3 \omega_1</mrow>
+      <mrow xml:id="eq_Euler_3" number="yes">I_3 \dot{\omega}_3 \amp = (I_1-I_2) \omega_1 \omega_2</mrow>
+    </md>.
+  </p>
+  <p>
+    (The dots indicate a derivative with respect to time,
+    which is common notation in physics.) We will use Euler's equations to understand the Tennis Racket Theorem.
+  </p>
+  <activity xml:id="act_TRT_axes1">
+    <p>
+      To start, we consider rotation around the first principal axis.
+      Our goal is to show that rotation around this axis is stable.
+      That is, small perturbations in angular velocity will have only small effects on the rotation of the object.
+      So we assume that <m>\omega_2</m> and <m>\omega_3</m> are small.
+      In general, the product of two small quantities will be much smaller,
+      so <xref ref="eq_Euler_1"/> implies that <m>\dot{\omega}_1</m> must be very small.
+      So we can disregard <m>\dot{\omega}_1</m> in our calculations.
+      <ul>
+        <li>
+          <p>
+            Differentiate <xref ref="eq_Euler_2"/> with respect to time to explain why
+            <me>
+              I_2 \ddot{\omega}_2 \approx (I_3-I_1)  \dot{\omega}_3 \omega_1
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Substitute for <m>\dot{\omega}_3</m> from <xref ref="eq_Euler_3"/> to show that
+            <m>\omega_2</m> is an approximate solution to
+            <men xml:id="eq_TRT_de_1">
+              \ddot{\omega}_2 = -k \omega_2
+            </men>
+            for some positive constant <m>k</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The equation <xref ref="eq_TRT_de_1"/> is a differential equation because it is an equation that involves derivatives of a function.
+            Show by differentiating twice that, if
+            <men xml:id="eq_TRT_de_2">
+              \omega_2 = A\cos\left(\sqrt{k}t + B\right)
+            </men>
+            (where <m>A</m> and <m>B</m> are any scalars),
+            then <m>\omega_2</m> is a solution to <xref ref="eq_TRT_de_1"/>.
+            (In fact, <m>\omega_2</m> is the general solution to <xref ref="eq_TRT_de_1"/>,
+            which is verified in just about any course in differential equations.)
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="eq_TRT_de_2">Equation</xref>
+    shows that <m>\omega_2</m> is is bounded,
+    so that any slight perturbations in angular velocity have a limited effect on <m>\omega_2</m>.
+    A similar argument can be made for <m>\omega_3</m>.
+    This implies that the rotation around the principal axes is stable <mdash/> slight changes in angular velocity have limited effects on the rotations around the other axes.
+  </p>
+  <p>
+    We can make a similar argument for rotation around the third principal axes.
+  </p>
+  <activity xml:id="act_TRT_axes3">
+    <p>
+      In this activity,
+      repeat the process from Project Activity to show that rotation around the third principal axis is stable.
+      So assume that <m>\omega_1</m> and <m>\omega_3</m> are small,
+      which implies by <xref ref="eq_Euler_3"/> implies that
+      <m>\dot{\omega}_3</m> must be very small and can be disregarded in calculations.
+    </p>
+  </activity>
+  <p>
+    Now the issue is why is rotation around the second principal axis different.
+  </p>
+  <activity xml:id="act_TRT_axes2">
+    <p>
+      Now assume that <m>\omega_1</m> and <m>\omega_3</m> are small.
+      Thus, <m>\dot{\omega}_2</m> is very small by <xref ref="eq_Euler_2"/>,
+      and we consider <m>\dot{\omega}_2</m> to be negligible.
+      <ul>
+        <li>
+          <p>
+            Differentiate  <xref ref="eq_Euler_1"/> to show that
+            <me>
+              I_1 \ddot{\omega}_1 \approx (I_2-I_3)  \omega_2 \dot{\omega}_3
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Substitute for <m>\dot{\omega}_3</m> from <xref ref="eq_Euler_3"/> to show that
+            <m>\omega_1</m> is an approximate solution to
+            <men xml:id="eq_TRT_de_3">
+              \ddot{\omega}_1 = k \omega_1
+            </men>
+            for some positive scalar <m>k</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The fact that  the constant multiplier in <xref ref="eq_TRT_de_3"/> is positive instead of negative as in <xref ref="eq_TRT_de_1"/> completely changes the type of solution.
+            Show that
+            <men xml:id="eq_TRT_de_4">
+              \omega_1 = Ae^{\sqrt{k}t+B}
+            </men>
+            (where <m>A</m> and <m>B</m> are any scalars) is a solution to <xref ref="eq_TRT_de_3"/>
+            (and, in fact, is the general solution).
+            Explain why this shows that rotation around the second principal axis is not stable.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

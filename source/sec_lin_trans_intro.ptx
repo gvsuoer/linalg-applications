@@ -1,0 +1,114 @@
+<section xml:id="sec_lin_trans_intro">
+  <title>Introduction</title>
+  <p>
+    We have encountered functions throughout our study of mathematics <mdash/> we explore graphs of functions in algebra and differentiate and integrate functions in calculus.
+    In linear algebra we have investigated special types of functions,
+    e.g., matrix and coordinate transformations,
+    that preserve the vector space structure.
+    Any function that has the same properties as matrix and coordinate transformations is a
+    <em>linear transformation</em>.
+    Linear transformations are important in linear algebra in that we can study similarities and connections between vector spaces by examining transformations between them.
+    Linear transformations model or approximately model certain real-life processes
+    (like discrete dynamical systems,
+    geometrical transformations, Google PageRank, etc.).
+    Also, we can determine the behavior of an entire linear transformation by knowing how it acts on just a basis.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>linear transformation</term>
+            <idx><h>linear transformation</h></idx>
+        from a vector space <m>V</m> to a vector space <m>W</m> is a function <m>T: V \to W</m> such that
+        <ol>
+          <li>
+            <p>
+              <m>T(\vu + \vv) = T(\vu) + T(\vv)</m> and
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>T(c\vv) = cT(\vv)</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        for all <m>\vu, \vv</m> in <m>V</m> and all scalars <m>c</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    These transformations are called <em>linear</em>
+    because they respect linear combinations.
+    We can combine both parts of this definition into one statement and say that a mapping <m>T</m> from a vector space <m>V</m> to a vector space <m>W</m> is a linear transformation if
+    <me>
+      T(a\vu + b \vv) = aT(\vu) + bT(\vv)
+    </me>
+    for all vectors <m>\vu, \vv</m> in <m>V</m> and all scalars <m>a</m> and <m>b</m>.
+    We can extend this property of a linear transformation
+    (by mathematical induction)
+    to any finite linear combination of vectors.
+    That is, if <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
+    <m>\vv_k</m> are any vectors in the domain of a linear transformation <m>T</m> and <m>c_1</m>,
+    <m>c_2</m>, <m>\ldots</m>, <m>c_k</m> are any scalars, then
+    <me>
+      T(c_1 \vv_1 + c_2 \vv_2 + \cdots + c_k \vv_k) = c_1 T(\vv_1) + c_2 T(\vv_2) + \cdots + c_k T(\vv_k)
+    </me>.
+  </p>
+  <p>
+    This is the property that <m>T</m> respects linear combinations.
+  </p>
+  <activity xml:id="pa_8_a">
+    <p>
+      <nbsp/>
+      <ol>
+        <li>
+          <p>
+            Consider the transformation <m>T: \R^3 \to \R^2</m> defined by
+            <me>
+              T\left( \left[ \begin{array}{cc} x\\y\\z \end{array}  \right] \right) = \left[ \begin{array}{c} x+y\\z+3 \end{array}  \right]
+            </me>
+            Check that <m>T</m> is not linear by finding two vectors
+            <m>\vu, \vv</m> which violate the additive property of linear transformations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider the transformation <m>T : \pol_2 \to \pol_3</m> defined by
+            <me>
+              T(a_0+a_1t+a_2t^2) = (a_0+a_1) + a_2t + a_1t^3
+            </me>
+            Check that <m>T</m> is a linear transformation.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\D</m> be the set of all differentiable functions from <m>\R</m> to <m>\R</m>.
+            Since <m>\frac{d}{dx}(0) = 0</m>,
+            <m>(f+g)'(x) = f'(x)+g'(x)</m> and
+            <m>(cf)'(x) = cf'(x)</m> for any differentiable functions <m>f</m> and <m>g</m> and any scalar <m>c</m>,
+            it follows that <m>\D</m> is a subspace of <m>\F</m>,
+            the vector space of all functions from <m>\R</m> to <m>\R</m>.
+            Let <m>T: \D \to \F</m> be defined by <m>T(f) = f'</m>.
+            Check that <m>T</m> is a linear transformation.
+          </p>
+        </li>
+        <li>
+          <p>
+            Every matrix transformation is a linear transformation,
+            so we might expect that general linear transformations share some of the properties of matrix transformations.
+            Let <m>T</m> be a linear transformation from a vector space <m>V</m> to a vector space <m>W</m>.
+            Use the linearity properties to show that <m>T(\vzero_V) = \vzero_W</m>,
+            where <m>\vzero_V</m> is the additive identity in <m>V</m> and
+            <m>\vzero_W</m> is the additive identity in <m>W</m>.
+            <hint>
+              <p>
+                <m>0_V + 0_V = 0_V</m>.
+              </p>
+            </hint>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+</section>

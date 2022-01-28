@@ -1,0 +1,196 @@
+<section xml:id="sec_dot_prod_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>\ell</m> be the line defined by the equation
+        <m>ax+by+c=0</m> with in <m>\R^2</m> and let
+        <m>P = (x_0,y_0)</m> be a point in the plane.
+        In this example we will learn how to find the distance from <m>P</m> to <m>\ell</m>.
+        <ul>
+          <li>
+            <p>
+              Show that <m>\vn = [a \ b]^{\tr}</m> is orthogonal to the line <m>\ell</m>.
+              That is, <m>\vn</m> is orthogonal to any vector on the line <m>\ell</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>Q = (x_1, y_1)</m> be any point on line <m>\ell</m>.
+              Draw a representative picture of <m>P</m>,
+              <m>\vn</m> with its initial point at <m>P</m>,
+              along with <m>Q</m> and <m>\ell</m>.
+              Explain how to use a projection to determine the distance from <m>P</m> to <m>\ell</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the idea from part (b) to show that the distance <m>d</m> from <m>P</m> to <m>\ell</m> satisfies
+              <men xml:id="eq_dist_point_line">
+                d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}
+              </men>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use Equation <xref ref="eq_dist_point_line"/> to find the distance from the point <m>(3,4)</m> to the line <m>y = 2x+1</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              Any vector on the line <m>\ell</m> is a  vector between two points on the line.
+              Let <m>Q = (x_1,y_1)</m> and
+              <m>R = (x_2,y_2)</m> be points on the line <m>\ell</m>.
+              Then <m>\vu = \overrightarrow{QR} = [x_2-x_1 \ y_2-y_1]^{\tr}</m> is a vector on line <m>\ell</m>.
+              Since <m>Q</m> and <m>R</m> are on the line,
+              we know that <m>ax_1+by_1+c=0</m> and <m>ax_2+by_2+c = 0</m>.
+              So <m>-c = ax_1+by_1 = ax_2+by_2</m> and
+              <me>
+                0 = a(x_2-x_1) + b(y_2-y_1) = [a \ b]^{\tr} \vu
+              </me>.
+              Thus, <m>\vn = [a \ b]^{\tr}</m> is orthogonal to every vector on the line <m>\ell</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              A picture of the situation is shown in <xref ref="F_dist_point_line">Figure</xref>.
+              If <m>\vv = \overrightarrow{PQ}</m>,
+              then the distance from point <m>P</m> to line <m>\ell</m> is given by <m>||\proj_{\vn} \vv||</m>.
+              <figure xml:id="F_dist_point_line">
+                <caption>Distance from a point to a line.</caption>
+                <image width="73%" source="6_a_distance_line.eps"/>
+              </figure>
+            </p>
+          </li>
+          <li>
+            <p>
+              Recall that <m>\vn = [a \ b]^{\tr}</m> and <m>\vv = \overrightarrow{PQ} = [x_1-x_0 \ y_1-y_0]^{\tr}</m>.
+              Since <m>ax_1+by_1+c = 0</m>, we have
+              <md>
+                <mrow>\proj_{\vn} \vv \amp = \frac{\vv \cdot \vv}{||\vn||^2} \vn</mrow>
+                <mrow>\amp = \frac{a(x_1-x_0)+ b(y_1-y_0)}{a^2+b^2} [a \ b]^{\tr}</mrow>
+                <mrow>\amp = \frac{ax_1+by_1-ax_0-by_0}{a^2+b^2} [a \ b]^{\tr}</mrow>
+                <mrow>\amp = \frac{-c-ax_0-by_0}{a^2+b^2} [a \ b]^{\tr}</mrow>
+              </md>.
+              So
+              <me>
+                ||\proj_{\vn} \vv|| = \frac{|ax_0+by_0+c|}{a^2+b^2} \sqrt{a^2+b^2} = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Here we have <m>P = (3,4)</m>,
+              and the equation of our line is <m>2x-y+1=0</m>.
+              So <m>a=2</m>, <m>b=-1</m>, and <m>c=-1</m>.
+              Thus, the distance from <m>P</m> to the line is
+              <me>
+                \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}} = \frac{|2(3)-(4)+1|}{\sqrt{4+1}} = \frac{3}{\sqrt{5}}
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>a</m>, <m>b</m>,
+        and <m>c</m> be scalars with <m>a \neq 0</m>, and let
+        <me>
+          W = \{ax+by+cz=0 : x,y,z \in \R\} \,
+        </me>.
+        <ul>
+          <li>
+            <p>
+              Find two vectors that span <m>W</m>,
+              showing that <m>W</m> is a subspace of <m>\R^3</m>.
+              (In fact, <m>W</m> is a plane through the origin in <m>\R^3</m>.)
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a vector <m>\vn</m> that is orthogonal to the two vectors you found in part (a).
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why <m>\{\vn\}</m> is a basis for <m>W^{\perp}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              The coefficient matrix for the system
+              <m>ax+by+cz = 0</m> is <m>[a \ b \ c]^{\tr}</m>.
+              The first column is a pivot column and the others are not.
+              So <m>y</m> and <m>z</m> are free variables and
+              <me>
+                [x \ y \ z]^{\tr} = \left[-\frac{b}{a}y - \frac{c}{a}z, y, z\right]^{\tr} = y\left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr} + z\left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}
+              </me>.
+              So <m>W = \Span\left\{\left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr}, \left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}\right\}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If we let <m>\vn = [a \ b \ c]^{\tr}</m>, then
+              <md>
+                <mrow>\vn \cdot \left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr} \amp = -b+b = 0</mrow>
+                <mrow>\vn \cdot \left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}\ \amp = -c+c = 0</mrow>
+              </md>.
+              Thus, <m>[a \ b \ c]^{\tr}</m> is orthogonal to both
+              <m>\left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr}</m> and <m>\left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vu = \left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr}</m> and <m>\vv = \left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}</m>.
+              Every vector in <m>W</m> has the form
+              <m>x\vu + y\vv</m> for some scalars <m>x</m> and <m>y</m>, and
+              <me>
+                \vn \cdot (x\vu + y\vv) = x(\vn \cdot \vu) + y (\vn \cdot \vv) = 0
+              </me>.
+              So <m>\vn \in W^{\perp}</m>.
+              Now we need to verify that <m>\{\vn\}</m> spans <m>W^{\perp}</m>.
+              Let <m>\vw = [w_1 \ w_2 \ w_3]^{\tr}</m> be in <m>W^{\perp}</m>.
+              Then <m>\vw \cdot \vz = 0</m> for every <m>\vz \in W</m>.
+              In particular,
+              <m>\vw \cdot \vu = 0</m> or <m>-\frac{b}{a}w_1 + w_2 = 0</m>,
+              and <m>\vw \cdot \vv = 0</m> or <m>-\frac{c}{a}w_1 + w_3 = 0</m>.
+              Equivalently,
+              we have <m>w_2 = \frac{b}{a}w_1</m> and <m>w_3 = \frac{c}{a}w_1</m>.
+              So
+              <md>
+                <mrow>\vw \amp =  [w_1 \ w_2 \ w_3]^{\tr}</mrow>
+                <mrow>\amp = \left[ w_1 \ \frac{b}{a}w_1 \ \frac{c}{a}w_1\right]^{\tr}</mrow>
+                <mrow>\amp = \frac{1}{a}[a \ b \ c]^{\tr}w_1</mrow>
+                <mrow>\amp = \frac{w_1}{a} \vn</mrow>
+              </md>.
+              So every vector in <m>W^{\perp}</m> is a multiple of <m>\vn</m>,
+              and <m>\{\vn\}</m> spans <m>W^{\perp}</m>.
+              We conclude that <m>\{\vn\}</m> is a basis for <m>W^{\perp}</m>.
+              Thus, the vector <m>[a \ b \ c]^{\tr}</m> is a normal vector to the plane <m>ax+by+cz=0</m> if <m>a \neq 0</m>.
+              The same reasoning works if at least one of <m>a</m>,
+              <m>b</m>,or <m>c</m> is nonzero,
+              so we can say in every case that
+              <m>[a \ b \ c]^{\tr}</m> is a normal vector to the plane <m>ax+by+cz=0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+</section>

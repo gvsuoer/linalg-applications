@@ -1,0 +1,279 @@
+<section xml:id="sec_project_mimo">
+  <title>Project: MIMO Systems and Householder Transformations</title>
+  <introduction>
+    <p>
+      In a simplified model,
+      a MIMO system will have <m>k</m> transmitting antennas and <m>m</m> receiving antennas.
+      We record a transmitted symbol in a vector <m>\vx = [x_1 \ x_2 \ \ldots \ x_k]^{\tr}</m>
+      (one <m>x_i</m> for each transmitting antenna)
+      and the received symbol as a vector <m>\vy = [y_1 \ y_2 \ \ldots \ y_m]^{\tr}</m>
+      (one <m>y_j</m> for each received symbol).
+    </p>
+    <p>
+      Between each transmit antenna and each receiver antenna is a fading channel.
+      The MIMO system is the collection of fading channels.
+      If we let <m>h_{ij}</m> be the fading between the <m>j</m>th transmitter and <m>i</m>th receiver,
+      then we can represent this multipath fading as an
+      <m>m \times k</m> matrix <m>H = [h_{ij}]</m>.
+      We assume that there is also some noise in the received signal that we represent by <m>n_j</m>
+      (for the <m>j</m>th receiving antenna).
+      Our MIMO system is then represented as the matrix-vector equation
+      <me>
+        \vy = H\vx + \vn
+      </me>,
+      where <m>\vn = [n_1 \ n_2 \ \ldots \ n_m]^{\tr}</m>.
+      The goal is to reproduce the original signal <m>\vx</m> from the received signal <m>\vy</m>.
+      This is where the QR decomposition comes into play.
+    </p>
+    <activity xml:id="act_QR_example_1">
+      <p>
+        To see why and how the QR decomposition is used in MIMO systems,
+        we begin with an example.
+        Assume that we have two transmitters and three receivers,
+        and suppose <m>H = \left[ \begin{array}{cc} 2\amp 1\\2\amp 1\\1\amp 5 \end{array}  \right]</m>.
+        From this point,
+        to simplify the situation we assume that noise is negligible and consider the system <m>\vy = H\vx</m>.
+        Assume that the received signal is <m>\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]</m>.
+        <ul>
+          <li>
+            <p>
+              Show that the system <m>H \vx = \vy</m> is inconsistent.
+            </p>
+          </li>
+          <li>
+            <p>
+              When we receive a signal, we need to interpret it,
+              and that is difficult if we cannot find a solution.
+              One reason that the system might not have a solution is that the elements in <m>\vx</m> have to come from a specified alphabet,
+              and so we are looking for solutions that are in that alphabet,
+              and there may be no direct solution in that alphabet.
+              As a result, we generally have to find a
+              <q>best</q>
+              solution in the alphabet space.
+              That can be done with the QR decomposition.
+              Assume that <m>H</m> has a QR decomposition <m>H = QR</m> with <m>Q</m> having orthonormal columns and <m>R</m> a diagonal matrix.
+              Explain how the equation <m>\vy = H\vx</m> can be transformed into
+              <men xml:id="eq_QR_system_example">
+                Q^{\tr} \vy = R\vx
+              </men>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Return to our example of <m>H = \left[ \begin{array}{cc} 2\amp 1\\2\amp 1\\1\amp 5 \end{array}  \right]</m>.
+              Assume that
+              <me>
+                H = QR =  \left[  \begin{array}{cr} \frac{2}{3}\amp  -\frac{\sqrt{2}}{6} \\ \frac{2}{3}\amp  -\frac{\sqrt{2}}{6} \\ \frac{1}{3}\amp  \frac{2\sqrt{2}}{3} \end{array}  \right] \left[ \begin{array}{cc} 3\amp 3\\0\amp 3\sqrt{2} \end{array}  \right]
+              </me>.
+              Use <xref ref="eq_QR_system_example"/> to find <m>\vx</m> if <m>\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </activity>
+    <p>
+      In Project <xref ref="act_QR_example_1">Activity</xref>
+      we saw that a QR decomposition allows us to replace the system
+      <m>\vy = H\vx</m> with an upper triangular system <m>Q^{\tr}\vy = R\vx</m> that has a solution.
+      This solution is what is called a least squares solution
+      (which we will discuss in more detail in a later section).
+      The key to all of this is finding an efficient way to calculate a QR decomposition.
+      This is the focus of the remainder of this project.
+    </p>
+  </introduction>
+  <subsection>
+    <title>Householder Transformations and the QR Decomposition</title>
+    <p>
+      There are three main ways to compute a QR decomposition.
+      <ul>
+        <li>
+          <p>
+            The method discussed in this section uses Gram-Schmidt orthogonalization.
+            This method is not recommended for numerical use as it is inherently numerically unstable.
+            Under certain circumstances,
+            cancellation can destroy the accuracy of the computed vectors and the resulting vectors may not be orthogonal.
+          </p>
+        </li>
+        <li>
+          <p>
+            The method that we will discuss in this project using Householder transformations
+            (developed by Alston S. Householder).
+            In Gaussian elimination,
+            we can zero out entries below the diagonal by multiplying by elementary matrices to perform row operations.
+            Householder transformations do something similar,
+            allowing us to replace columns with columns of mostly zeros,
+            which then allow for more efficient computations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Givens (or Jacobi) rotations
+            (used by W. Givens and originally invented by Jacobi for use with in solving the symmetric eigenvalue problem)
+            is another method that allows us to selectively produce zeros into a matrix.
+            We will focus on Householder transformations in this project.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The first step in a QR decomposition using Householder matrices is to create a matrix that is upper triangular.
+      To get to this form, we use a <em>Householder transformation</em>.
+      A Householder transformation
+      (or matrix)
+      is a matrix of the form
+      <me>
+        H = I - 2 \frac{\vv \vv^{\tr}}{||\vv||^2}
+      </me>,
+      where <m>\vv</m> is a vector in <m>\R^n</m> and <m>I</m> is the <m>n \times n</m> identity matrix.
+    </p>
+    <activity>
+      <p>
+        We will discover some properties of Householder transformations in this activity.
+        <ul>
+          <li>
+            <p>
+              Let <m>\vx</m> be any vector and let <m>\vy</m> be a unit vector.
+              In this part of the exercise we show that,
+              with a suitable choice of <m>\vv</m>,
+              the Householder transformation <m>H</m> transforms <m>\vx</m> into a vector of the same length parallel to <m>\vy</m>.
+              That is,
+              <me>
+                H \vx = -\sigma \vy
+              </me>
+              for some scalar <m>\sigma</m>.
+              <hint>
+                <p>
+                  Let <m>\sigma = ||\vx||</m>, and let <m>\vv = \vx + \sigma \vy</m>.
+                  Apply <m>H</m> to <m>\vx</m>,
+                  factor out <m>\vx + \sigma \vy</m>,
+                  and ultimately show that <m>H \vx = -\sigma \vy</m>.
+                </p>
+              </hint>
+              A similar argument shows that <m>H (\vx - \sigma \vy) = \sigma \vy</m>.
+              Letting <m>\vy = \ve_1</m> gives us the following result.
+              <lemma xml:id="lem_Householder">
+                <statement>
+                  <p>
+                    Let <m>\vx</m> be any vector,
+                    let <m>\sigma = ||\vx||</m>, and let <m>\vv = \vx \pm \sigma \ve_1</m>.
+                    Then <m>H \vx = \mp \sigma \ve_1</m>.
+                  </p>
+                </statement>
+              </lemma>
+            </p>
+          </li>
+          <li>
+            <p>
+              The Householder matrix <m>H</m> has two other important properties.
+              Show that <m>H</m> is symmetric and orthogonal.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </activity>
+    <p>
+      There are many advantages to using Householder matrices.
+      One is that instead of having to store all entries of the matrix <m>H = I - 2 \frac{\vv \vv^{\tr}}{||\vv||^2}</m>,
+      all we need to store is the entries of <m>\vv</m>.
+      Another advantage of Householder transformations is that they can be used to efficiently calculate QR decompositions.
+      The next project activity shows how to use <xref ref="lem_Householder">Lemma</xref>
+      and Householder transformations to compute a QR decomposition through an example.
+    </p>
+    <activity xml:id="act_MIMO_Householder">
+      <p>
+        Assume that we have five receiving antennas and three transmitting antennas, and that
+        <me>
+          A = \left[ \begin{array}{crc} 1.0\amp 0.0\amp 1.0 \\ 7.0\amp 7.0\amp 8.0 \\1.0\amp 2.0\amp 1.0 \\ 7.0\amp 7.0\amp 6.0 \\ 0.0\amp -1.0\amp 0.0 \end{array}  \right]
+        </me>.
+      </p>
+      <p>
+        (We use <m>A</m> now instead of <m>H</m> so as to avoid confusion with Householder matrices.) The calculations in this activity can get rather messy,
+        so use appropriate technology and round entries to four decimal places to the right of the decimal.
+        <ul>
+          <li>
+            <p>
+              Let <m>\vx_1</m> be the first column of <m>A</m>.
+              Identify an appropriate Householder transformation <m>H_1</m> so that <m>H_1 \vx</m> is a constant multiple of <m>[1 \ 0 \ 0 \ 0 \ 0]^{\tr}</m>.
+              Determine the matrix <m>A_1</m>,
+              where <m>A_1 = H_1 A</m>. (Special note:
+              when deciding which of <m>\vx \pm \sigma \ve_1</m> to use to create <m>H</m>,
+              it is best to use the one whose sign is the same as <m>x_1</m>
+              (the first entry of <m>\vx</m>).
+              We won't go into the details,
+              but this helps prevent problems due to cancellation,)
+            </p>
+          </li>
+          <li>
+            <p>
+              Next we consider just the bottom right <m>4 \times 2</m> portion
+              <m>\hat{A}_2</m> of the matrix <m>A_1</m> found in part (a).
+              <ol label="i">
+                <li>
+                  <p>
+                    Repeat the process on <m>\hat{A}_2</m> to find a Householder matrix
+                    <m>\hat{H}_2</m> that will make the first column of
+                    <m>\hat{A}_2</m> have all zeros below its first entry.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Let
+                    <me>
+                      H_2 =  \left[ \begin{array}{cc} I_1\amp 0 \\ 0\amp \hat{H}_2 \end{array}  \right]
+                    </me>.
+                    Explain what the matrix <m>A_2 = H_2H_1A</m> is.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              As a final step,
+              we consider just the bottom right <m>3 \times 1</m> portion
+              <m>\hat{A}_3</m> of the matrix <m>A_2</m> and repeat the process.
+              <ol label="i">
+                <li>
+                  <p>
+                    Find a matrix <m>\hat{H}_3</m> that produces zeros below the first entry.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Let
+                    <me>
+                      H_3 = \left[ \begin{array}{cc}I_2\amp 0 \\ 0\amp \hat{H}_3 \end{array}  \right]
+                    </me>.
+                    What matrix is <m>H_3H_2H_1A</m>?
+                    Why?
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why <m>Q = H_1H_2H_3</m> is an orthogonal matrix.
+              Then find an upper triangular matrix <m>R</m> such that <m>A = QR</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </activity>
+    <p>
+      Project <xref ref="act_MIMO_Householder">Activity</xref>
+      illustrates the general method for finding a QR decomposition of a matrix <m>A</m> by using Householder transformations to reduce <m>A</m> to an upper triangular matrix <m>R</m>.
+      The product of the Householder matrices is then the orthogonal matrix <m>Q</m>.
+      One final note: You may have noticed that the matrix <m>Q</m> you found in this project was a square
+      <m>5 \times 5</m> matrix and <m>R</m> was a <m>5 \times 3</m> matrix,
+      and so they have different sizes than the QR decomposition in this section.
+      We could use the Gram-Schmidt process to obtain these larger matrices by extending the columns of a
+      <m>5 \times 3</m> matrix <m>Q</m> to form an orthonormal basis for <m>\R^5</m>.
+      However, if we want a QR decomposition for <m>A</m> in which <m>Q</m> is <m>5 \times 3</m> and <m>R</m> is
+      <m>3 \times 3</m> from the work we did in Project <xref ref="act_MIMO_Householder">Activity</xref>,
+      we can simply delete the last two columns of the matrix <m>Q</m> and the last two rows of the matrix <m>R</m> we calculated.
+      This smaller QR decomposition is often referred to as a
+      <em>thin</em> QR decomposition.
+    </p>
+  </subsection>
+</section>

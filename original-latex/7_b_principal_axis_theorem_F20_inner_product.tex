@@ -1,4 +1,4 @@
-\achapter{28}{Quadratic Forms and the Principal Axis Theorem} \label{sec:principal_axis_theorem}
+\achapter{28}{Quadratic Forms and the Principal Axis Theorem} \label{chap:principal_axis_theorem}
 
 \vspace*{-17 pt}
 \framebox{\hspace*{3 pt}
@@ -10,6 +10,7 @@
 \vspace*{3 pt}
 
 \csection{Application: The Tennis Racket Effect} 
+\label{sec:appl_tennis}
 
 Try an experiment with a tennis racket (or a squash racket, or a ping pong paddle). Let us define a 3D coordinate system with the center of the racket as the origin with the head of the racket lying in the $xy$-plane. We let $\vu_1$ be the vector in the direction of the handle and $\vu_2$ the perpendicular direction (still lying in the plane defined by the head) as illustrated in Figure \ref{F:tennis_racket}. We then let $\vu_3$ be a vector perpendicular to the plane of the head. Hold the racket by the handle and spin it to make one rotation around the $\vu_1$ axis. This is pretty easy. It is also not difficult to throw the racket so that it rotates around the $\vu_3$. Now toss the racket into the air to make one complete rotation around the axis of the vector $\vu_2$ and catch the handle. Repeat this several times. You should notice that in most instances, the racket will also have made a half rotation around the $\vu_1$ axis so that the other face of the racket now points up. This is quite different than the rotations around the $\vu_1$ and $\vu_3$ axes. A good video that illustrates this behavior can be seen at \url{https://www.youtube.com/watch?v=4dqCQqI-Gis}. 
 
@@ -24,6 +25,7 @@ Try an experiment with a tennis racket (or a squash racket, or a ping pong paddl
 This effect is a result in classical mechanics that describes the rotational movement of a rigid body in space, called the \emph{tennis racket effect} (or the Dzhanibekov effect, after the Russian cosmonaut Vladimir Dzhanibekov who discovered the theorem's consequences while in zero gravity in space -- you can see an illustration of this in the video at \url{https://www.youtube.com/watch?v=L2o9eBl_Gzw}). The result is simple to see in practice, but is difficult to intuitively understand why the behavior is different around the intermediate axis. There is a story of a student who asked the famous physicist Richard Feynman if there is any intuitive way to understand the result; Feynman supposedly went into deep thought for about 10 or 15 seconds and answered, "no." As we will see later in this section, we can understand this effect using the principal axes of a rigid body. 
 
 \csection{Introduction}
+\label{sec:pat_intro}
 
 We are familiar with quadratic equations in algebra. Examples of quadratic equations include $x^2=1$, $x^2+y^2=1$, and $x^2+xy+y^2=3$. We don't, however, have to restrict ourselves to two variables. A quadratic equation in $n$ variables is any equation in which the sum of the exponents in any monomial term is 2. So a quadratic equation in the variables $x_1$, $x_2$, $\ldots$, $x_n$ is an equation in the form
 \begin{align*}
@@ -76,6 +78,7 @@ As we show in Exercise \ref{ex:7_b_unique_A}, the symmetric matrix $A$ is unique
 
 
 \csection{Equations Involving Quadratic Forms in $\R^2$}
+\label{sec:eqs_quad_r2}
 
 When we consider equations of the form $Q(\vx) = d$, where $Q$ is a quadratic form in $\R^2$ and $d$ is a constant, we wind up with old friends like $x^2+y^2=1$, $2x^2+3y^2=2$, or $x^2-y^2=1$. As we saw in Preview Activity \ref{pa:7_b} these equations are relatively easy to recognize. However, when we have cross-product terms, like in $x^2-xy+y^2=1$, it is not so easy to identify the curve the equation represents. If there was a way to eliminate the cross-product term $xy$ from this form, we might be more easily able to recognize its graph. The discussion in this section will focus on quadratic forms in $\R^2$, but we will see later that the arguments work in any number of dimensions. While working in $\R^2$ we will use the standard variables $x$ and $y$ instead of $x_1$ and $x_2$.
 
@@ -124,6 +127,7 @@ The columns of the orthogonal matrix $P$ in the Principal Axis Theorem form an o
 \end{activity}
 
 \csection{Classifying Quadratic Forms}
+\label{sec:class_quad_forms}
 
 If we draw graphs of equations of the type $z=Q(\vx)$, where $Q$ is a quadratic form, we can see that a quadratic form whose matrix does not have 0 as an eigenvalue can take on all positive values (except at $\vx=\vzero$) as shown at left in Figure \ref{F:7_b_Paraboloids}, all negative values (except at $\vx=\vzero$) as shown in the center of  Figure \ref{F:7_b_Paraboloids}, or both positive and negative values as depicted at right in Figure \ref{F:7_b_Paraboloids}. We can see when these cases happen by analyzing the eigenvalues of the matrix that defines the quadratic form. Let $A$ be a $2 \times 2$ symmetric matrix with eigenvalues $\lambda_1$ and $\lambda_2$, and let $P$ be a matrix that orthogonally diagonalizes $A$ so that $P^{\tr}AP = D = \left[ \begin{array}{cc} \lambda_1 & 0 \\ 0 & \lambda_2 \end{array} \right]$. If we let $\vy = \left[ \begin{array}{c} w\\z \end{array} \right] = P^{\tr}\vx$, then \begin{align*}
 Q(\vx) &= \vx^{\tr}A\vx \\
@@ -158,6 +162,7 @@ For example, the quadratic form $Q(\vx) = x^2+y^2$ at left in Figure \ref{F:7_b_
 So we have argued that a quadratic form $Q(\vx) = \vx^{\tr} A \vx$ is positive definite if $A$ has all positive eigenvalues, negative definite if $A$ has all negative eigenvalues, and indefinite if $A$ has both positive and negative eigenvalues. Similarly, the quadratic form is positive semidefinite if $A$ has all nonnegative eigenvalues and negative semidefinite if $A$ has all nonpositive eigenvalues. Positive definite matrices are important, as we discuss in the next section.
 
 \csection{Inner Products}
+\label{sec:pat_inner_prod}
 
 We used the dot product to define lengths of vectors, to measure angles between vectors, and to define orthogonality in $\R^n$. We can generalize the notion of orthogonality by using different types of products called \emph{inner products} that behave like the dot product. 
 
@@ -228,6 +233,7 @@ Find a matrix $A$ so that $\langle \vx, \vy \rangle = \vx^{\tr} A \vy$ and expla
 \end{activity}
 
 \csection{Examples}
+\label{sec:pat_exam}
 
 \ExampleIntro
 
@@ -332,6 +338,7 @@ So the eigenvalues of $C$ are $4 + \sqrt{10}$ and $4 - \sqrt{10} \approx 0.8$. S
 \end{example}
 
 \csection{Summary}
+\label{sec:pat_summ}
 
 \begin{itemize}
 \item A quadratic form on $\R^n$ is a function $Q$ defined by
@@ -341,6 +348,7 @@ for some $n \times n$ symmetric matrix $A$.
 \end{itemize}
 
 \csection{Exercises}
+\label{sec:pat_exer}
 
 \be
 \item Find the matrix for each quadratic form.
@@ -536,6 +544,7 @@ Equation (\ref{eq:7_b_triangle_inequality}) is called the \emph{Triangle Inequal
 \ee
 
 \csection{Project: The Tennis Racket Theorem}
+\label{sec:proj_tennis}
 
 If a particle of mass $m$ and velocity $v$ is moving in a straight line, its kinetic energy $KE$ is given by $KE = \frac{1}{2}mv^2$. If, instead, the particle rotates around an axis with angular velocity $\omega$ (in radians per unit of time), its linear velocity is $v = r \omega$, where $r$ is the radius of the particle's circular path. Substituting into the kinetic energy formula shows that the kinetic energy of the rotating particle is then $KE = \frac{1}{2}\left(mr^2\right) \omega^2$. The quantity $mr^2$ is called the \emph{moment of inertia}\index{moment of inertia} of the particle and is denoted by $I$. So $KE = \frac{1}{2}I\omega^2$ for a rotating particle. Notice that the larger the value of $r$, the larger the inertia. You can imagine this with a figure skater. When a skater spins along their major axis with their arms outstretched, the speed at which they rotate is lower than when they bring their arms into their bodies. The moment of inertia for rotational motion plays a role similar to the mass in linear motion. Essentially, the inertia tells us how resistant the particle is to rotation. 
 

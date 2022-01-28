@@ -1,0 +1,135 @@
+<section xml:id="sec_inner_prod_summ">
+  <title>Summary</title>
+  <ul>
+    <li>
+      <p>
+        An inner product <m>\langle \ , \ \rangle</m> on a vector space <m>V</m> is a mapping from <m>V \times V \to \R</m> satisfying
+        <ol>
+          <li>
+            <p>
+              <m>\langle \vu , \vv \rangle = \langle \vv , \vu \rangle</m> for all <m>\vu</m> and <m>\vv</m> in <m>V</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu + \vv , \vw \rangle = \langle \vu , \vw \rangle + \langle \vv , \vw \rangle</m> for all <m>\vu</m>,
+              <m>\vv</m>, and <m>\vw</m> in <m>V</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle c\vu , \vv \rangle = c\langle \vu , \vv \rangle</m> for all <m>\vu</m>,
+              <m>\vv</m> in <m>V</m> and <m>c \in \R</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu , \vu \rangle \geq 0</m> for all <m>\vu</m> in <m>V</m> and
+              <m>\langle \vu , \vu \rangle = 0</m> if and only if <m>\vu = \vzero</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </li>
+    <li>
+      <p>
+        An inner product space is a pair <m>V</m>,
+        <m>\langle \ , \ \rangle</m> where <m>V</m> is a vector space and
+        <m>\langle \ , \ \rangle</m> is an inner product on <m>V</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The length of a vector <m>\vv</m> in an inner product space <m>V</m> is defined to be the real number <m>||\vv|| = \sqrt{\langle \vv, \vv \rangle}</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The distance between two vectors <m>\vu</m> and <m>\vv</m> in an inner product space <m>V</m> is the scalar <m>|| \vu - \vv ||</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The angle <m>\theta</m> between two vectors <m>\vu</m> and <m>\vv</m> is the angle which satisfies <m>0\leq \theta \leq \pi</m> and
+        <me>
+          \cos(\theta) = \frac{\langle \vu, \vv \rangle}{||\vu|| ||\vv||} \,
+        </me>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Two vectors <m>\vu</m> and <m>\vv</m> in an inner product space <m>V</m> are orthogonal if <m>\langle \vu, \vv \rangle = 0</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        A subset <m>S</m> of an inner product space is an orthogonal set if
+        <m>\langle \vu, \vv \rangle = 0</m> for all <m>\vu \neq \vv</m> in <m>S</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        A basis for a subspace of an inner product space is an orthogonal basis if the basis is also an orthogonal set.
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> be an orthogonal basis for a subspace of an inner product space <m>V</m>.
+        Let <m>\vx</m> be a vector in <m>W</m>.
+        Then
+        <me>
+          \vx = \sum_{i=1}^m c_i \vv_i
+        </me>,
+        where
+        <me>
+          c_i = \frac{\langle \vx, \vv_i \rangle}{\langle \vv_i, \vv_i \rangle}
+        </me>
+        for each <m>i</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        An orthogonal basis <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> for a subspace <m>W</m> of an inner product space <m>V</m> is an orthonormal basis if
+        <m>|| \vv_k || = 1</m> for each <m>k</m> from 1 to <m>m</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        If <m>\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> is an orthogonal basis for <m>V</m> and <m>\vx \in V</m>, then
+        <me>
+          [\vx]_{\CB} = \left[ \begin{array}{c} \frac{\langle \vx, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \\ \frac{\langle \vx, \vw_2 \rangle}{\langle \vw_2, \vw_2 \rangle} \\ \vdots \\ \frac{\langle \vx, \vw_m \rangle}{\langle \vw_m, \vw_m \rangle} \end{array}  \right]
+        </me>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The projection of the vector <m>\vv</m> in an inner product space <m>V</m> onto a subspace <m>W</m> of <m>V</m> is the vector
+        <me>
+          \proj_W \vv =  \frac{\langle \vv, \vw_1 \rangle }{\langle \vw_1, \vw_1 \rangle } \vw_1 + \frac{\langle \vv, \vw_2 \rangle }{\langle \vw_2, \vw_2 \rangle }  \vw_2 + \cdots + \frac{\langle \vv, \vw_m \rangle}{\langle \vw_m, \vw_m \rangle} \vw_m
+        </me>,
+        where <m>\{\vw_1, \vw_2, \ldots, \vw_m\}</m> is an orthogonal basis of <m>W</m>.
+        Projections are important in that
+        <m>\proj_W \vv</m> is the best approximation of the vector <m>\vv</m> by a vector in <m>W</m> in the least squares sense.
+      </p>
+    </li>
+    <li>
+      <p>
+        With <m>W</m> as in (a),
+        the projection of <m>\vv</m> orthogonal to <m>W</m> is the vector
+        <me>
+          \proj_{W^{\perp}} \vv = \vv - \proj_W \vv
+        </me>.
+        The norm of <m>\proj_{W^{\perp}} \vv</m> provides a measure of how well
+        <m>\proj_W \vv</m> approximates the vector <m>\vv</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        The orthogonal complement of a subset <m>S</m> of an inner product space <m>V</m> is the set
+        <me>
+          S^{\perp} = \{\vv \in V : \langle \vv, \vu \rangle = 0 \text{ for all }  \vu \in S\}
+        </me>.
+      </p>
+    </li>
+  </ul>
+</section>

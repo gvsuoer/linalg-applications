@@ -1,0 +1,107 @@
+<section xml:id="sec_det_geom">
+  <title>Geometric Interpretation of the Determinant</title>
+  <p>
+    Determinants have interesting and useful applications from a geometric perspective.
+    To understand the geometric interpretation of the determinant of an <m>n\times n</m> matrix <m>A</m>,
+    we consider the image of the unit square under the transformation
+    <m>T(\vx)=A\vx</m> and see how its area changes based on <m>A</m>.
+  </p>
+  <activity xml:id="act_4_f_3">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            Let <m>A = \left[ \begin{array}{cc} 2\amp 0\\0\amp 3 \end{array} \right]</m>.
+            Start with the unit square in <m>\R^2</m> with corners at the origin and at <m>(1,1)</m>.
+            In other words,
+            the unit square we are considering consists of all vectors <m>\vv=\left[ \begin{array}{c} x\\y \end{array} \right]</m> where
+            <m>0\leq x\leq 1</m> and <m>0\leq y\leq 1</m>,
+            visualized as points in the plane.
+            <ol label="i">
+              <li>
+                <p>
+                  Consider the collection of image vectors <m>A\vv</m> obtained by multiplying <m>\vv</m>'s by <m>A</m>.
+                  Sketch the rectangle formed by these image vectors.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explain how the area of this image rectangle and the unit square is related via <m>\det(A)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does the relationship you found above generalize to an arbitrary <m>A = \left[ \begin{array}{cc} a\amp 0\\0\amp b \end{array} \right]</m>?
+                  If not, modify the relationship to hold for all diagonal matrices.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>A=\left[ \begin{array}{cc} 2\amp 1\\ 0\amp 3 \end{array} \right]</m>.
+            <ol label="i">
+              <li>
+                <p>
+                  Sketch the image of the unit square under the transformation <m>T(\vv)=A\vv</m>.
+                  To make the sketching easier,
+                  find the images of the vectors
+                  <m>[0 \ 0]^{\tr}, [1 \ 0]^{\tr}, [0 \ 1]^{\tr}, [1 \ 1]^{\tr}</m> as points first and then connect these images to find the image of the unit square.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Check that the area of the parallelogram you obtained in the above part is equal to <m>\det(A)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Does the relationship between the area and <m>\det(A)</m> still hold if <m>A=\left[ \begin{array}{rc} -2\amp 1\\ 0\amp 3 \end{array} \right]</m>?
+                  If not, how will you modify the relationship?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    It can be shown that for all
+    <m>2\times 2</m> matrices a similar relationship holds.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        For a <m>2\times 2</m> matrix <m>A</m>,
+        the area of the image of the unit square under the transformation
+        <m>T(\vx)=A\vx</m> is equal to <m>|\det(A)|</m>.
+        This is equivalent to saying that
+        <m>|\det(A)|</m> is equal to the area of the parallelogram defined by the columns of <m>A</m>.
+        The area of the parallelogram is also equal to the lengths of the column vectors of <m>A</m> multiplied by
+        <m>|\sin(\theta)|</m> where <m>\theta</m> is the angle between the two column vectors.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    There is a similar geometric interpretation of the determinant of a
+    <m>3\times 3</m> matrix in terms of volume.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        For a <m>3\times 3</m> matrix <m>A</m>,
+        the volume of the image of the unit cube under the transformation
+        <m>T(\vx)=A\vx</m> is equal to <m>|\det(A)|</m>.
+        This is equivalent to saying that
+        <m>|\det(A)|</m> is equal to the volume of the parallelepiped defined by the columns of <m>A</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The sign of <m>\det(A)</m> can be interpreted in terms of the orientation of the column vectors of <m>A</m>.
+    See the project in <xref ref="sec_determinants">Section</xref> for details.
+  </p>
+</section>

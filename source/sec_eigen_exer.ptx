@@ -1,0 +1,244 @@
+<section xml:id="sec_eigen_exer">
+  <title>Exercises</title>
+  <ol>
+    <li>
+      <p>
+        For each of the following matrix-vector pairs,
+        determine whether the given vector is an eigenvector of the matrix.
+        <ul>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{cc} 1\amp 2 \\ 4\amp 3 \end{array} \right]</m>,
+              <m>\vv=\left[ \begin{array}{r} 1\\-1 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{cc} 1\amp 2 \\ 0\amp 3 \end{array} \right]</m>,
+              <m>\vv=\left[ \begin{array}{r} 1\\1 \end{array} \right]</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{rcc} 2\amp 1\amp 0 \\ 0\amp 1\amp 0 \\ -1\amp 0\amp 1 \end{array} \right]</m>,
+              <m>\vv=\left[ \begin{array}{r} -1\\0\\1 \end{array} \right]</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        For each of the following matrix-eigenvalue pairs,
+        determine an eigenvector of <m>A</m> for the given eigenvalue.
+        <ul>
+          \begin{minipage}{2.0in}
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{rc} 1\amp 2 \\ -1\amp 4 \end{array} \right]</m>,
+              <m>\lambda=3</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{cc} 1\amp 4 \\ 1\amp 1 \end{array} \right]</m>,
+              <m>\lambda=3</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{rcc} -1\amp 4\amp 1 \\ 3\amp 3\amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m>,
+              <m>\lambda=5</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{cccc} 4\amp 0\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 2 \\ 2\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 3 \end{array} \right]</m>,
+              <m>\lambda=4</m> \end{minipage}
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        For each of the following matrix-<m>\lambda</m> pairs,
+        determine whether the given <m>\lambda</m> will work as an eigenvalue.
+        You do not need to find an eigenvector as long you can justify if <m>\lambda</m> is a valid eigenvalue or not.
+        <ul>
+          \begin{minipage}{2.0in}
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{cc} 4\amp 3 \\ 4\amp 8 \end{array} \right]</m>,
+              <m>\lambda=2</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{cr} 4\amp -2 \\ 2\amp -1 \end{array} \right]</m>,
+              <m>\lambda=0</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{rc} 1\amp 2 \\ -1\amp 4 \end{array} \right]</m>,
+              <m>\lambda=-1</m> \end{minipage} \begin{minipage}{2.0in}
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\left[ \begin{array}{rr} 0\amp -2 \\ -1\amp 1 \end{array} \right]</m>,
+              <m>\lambda=-2</m> \end{minipage}
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        For a matrix <m>A</m> with eigenvector
+        <m>\vv_1=\left[ \begin{array}{c} 1\\1 \end{array} \right]</m> with eigenvalue <m>\lambda_1=2</m>,
+        and eigenvector <m>\vv_2=\left[ \begin{array}{c} 1\\2 \end{array} \right]</m> with eigenvalue <m>\lambda_2=-1</m>,
+        determine the value of the following expressions using matrix-vector product properties:
+        <ul>
+          <li>
+            <p>
+              <m>A(2\vv_1+3\vv_2)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A(A(\vv_1+2\vv_2))</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A^{20} (4\vv_1-2\vv_2)</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_2_b_Markov">
+      <p>
+        In this problem we consider a discrete dynamical system that forms what is called a <em>Markov chain</em>
+    <idx><h>Markov chain</h></idx>
+        (see <xref ref="def_Markov">Definition</xref>) which models the number of students attending and skipping a linear algebra class in a semester.
+        Assume the course starts with 1,000,000 students on day 0.
+        For any given class day, 90% of the students who attend a class attend the next class (and 10% of these students skip next class) while only 30% of those absent are there the next time
+        (and 70% of these students continue skipping class).
+        <ul>
+          <li>
+            <p>
+              We know that there will be 900,000 students in class on the second day and 100,000 students skipping class.
+              On the third day, 90% of the 900,000 students (attenders) and 30% of the 100,000 students (skippers) will come back to class.
+              Therefore, 840,000 students will attend class on the third day.
+              On the other hand, 10% of 900,000 students and 70% of 100,000 students skip class on the third day,
+              for a total of 160,000 students skipping class.
+              We can use variables to represent these numbers.
+              Let <m>a_n</m> represent the number of students attending class <m>n</m> days after first day.
+              So <m>a_0=1,000,000, a_1=900,000, a_2=840,000</m>.
+              Let <m>s_n</m> represent the students skipping class.
+              So <m>s_0=0, s_1=100,000, s_2=160,000</m>.
+              Find <m>a_3, s_3, a_4, s_4</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find a linear expression for <m>a_{k+1}</m> in terms of the previous day values,
+              <m>a_k</m> and <m>s_k</m>, using the story given in the problem.
+              Similarly, express <m>s_{k+1}</m> in terms of <m>a_k</m> and <m>s_k</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\textbf{x}_k</m> represent the state vector:
+              <em>x</em><m>_k=\begin{bmatrix}a_k\\s_k \end{bmatrix}</m>.
+              It describes the state of the whole system
+              (students attending class and skipping class)
+              in one vector.
+              For example,
+              <em>x</em><m>_0=\begin{bmatrix}1,000,000\\0 \end{bmatrix}</m> is the initial state.
+              The state next day is <em>x</em><m>_1=\begin{bmatrix}900,000\\100,000 \end{bmatrix}</m>.
+              Using your answer to the previous part,
+              find a matrix <m>A</m> which describes how the system changes from one day to the other so that
+              <em>x</em><m>_{k+1} = A\textbf{x}_k</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> The number 0 cannot be an eigenvalue.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The <m>\vzero</m> vector cannot be an eigenvector.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\vv</m> is an eigenvector of <m>A</m>,
+              then so is <m>2\vv</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\vv</m> is an eigenvector of <m>A</m>,
+              then it is also an eigenvector of <m>A^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\vv</m> and <m>\vu</m> are eigenvectors of <m>A</m> with the same eigenvalue,
+              then <m>\vv+\vu</m> is also an eigenvector with the same eigenvalue.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\lambda</m> is an eigenvalue of <m>A</m>,
+              then <m>\lambda^2</m> is an eigenvalue of <m>A^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> A projection matrix satisfies <m>P^2=P</m>.
+              If <m>P</m> is a projection matrix,
+              then the eigenvalues of <m>P</m> can only be 0 and 1.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\lambda</m> is an eigenvalue of an <m>n\times n</m> matrix <m>A</m>,
+              then <m>1+\lambda</m> is an eigenvalue of <m>I_n+A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\lambda</m> is an eigenvalue of two matrices <m>A</m> and <m>B</m> of the same size,
+              then <m>\lambda</m> is an eigenvalue of <m>A+B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>\vv</m> is an eigenvector of two matrices <m>A</m> and <m>B</m> of the same size,
+              then it is also an eigenvector of <m>A+B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> A matrix <m>A</m> has 0 as an eigenvalue if and only if <m>A</m> has linearly dependent columns.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

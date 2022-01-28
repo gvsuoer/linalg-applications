@@ -1,0 +1,481 @@
+<section xml:id="sec_pat_exer">
+  <title>Exercises</title>
+  <ol>
+    <li>
+      <p>
+        Find the matrix for each quadratic form.
+        <ul>
+          <li>
+            <p>
+              <m>x_1^2 - 2x_1x_2 + 4x_2^2</m> if <m>\vx</m> is in <m>\R^2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>10x_1^2 + 4x_1x_3 + 2x_2x_3 + x_3^2</m> if <m>\vx</m> is in <m>\R^3</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>2x_1x_2 + 2x_1x_3 - x_1x_4 + 5x_2^2 + 4x_3x_4 + 8x_4^2</m> if <m>\vx</m> is in <m>\R^4</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        For each quadratic form, identify the matrix <m>A</m> of the form,
+        find a matrix <m>P</m> that orthogonally diagonalizes <m>A</m>,
+        and make a change of variable that transforms the quadratic form into one with no cross-product terms.
+        <ul>
+          <li>
+            <p>
+              <m>x_1^2+2x_1x_2+x_2^2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-2x_1^2+2x_1x_2+4x_1x_3-2x_2^2-4x_2x_3-x_3^2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>11x_1^2-12x_1x_2-12x_1x_3-12x_1x_4-x_2^2-2x_3x_4</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_b_constrained_optimization">
+      <p>
+        One topic in multivariable calculus is constrained optimization.
+        We can use the techniques of this section to solve certain types of constrained optimization problems involving quadratic forms.
+        As an example,
+        we will find the maximum and minimum values of the quadratic form defined by the matrix <m>\left[ \begin{array}{cc} 2\amp 1\\1\amp 2 \end{array}  \right]</m> on the unit circle.
+        <ul>
+          <li>
+            <p>
+              First we determine some bounds on the values of a quadratic form.
+              Let <m>Q</m> be the quadratic form defined by the
+              <m>n \times n</m> real symmetric matrix <m>A</m>.
+              Let <m>\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n</m> be the eigenvalues of <m>A</m>,
+              and let <m>P</m> be a matrix that orthogonally diagonalizes <m>A</m>,
+              with <m>P^{\tr}AP = D</m> as the matrix with diagonal entries <m>\lambda_1</m>,
+              <m>\lambda_2</m>, <m>\ldots</m>,
+              <m>\lambda_n</m> in order.
+              Let <m>\vy = [y_1 \ y_2 \  \cdots \ y_n]^{\tr} = P^{\tr} [x_1 \ x_2 \ \cdots \ x_n]^{\tr}</m>.
+              <ol label="i">
+                <li>
+                  <p>
+                    Show that
+                    <me>
+                      Q(\vx) = \lambda_1 y_1^2 + \lambda_2 y_2^2 + \cdots + \lambda_n y_n^2
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Use the fact that <m>\lambda_1 \geq \lambda_i</m> for each <m>i</m> and the fact that <m>P</m>
+                    (and <m>P^{\tr}</m>)
+                    is an orthogonal matrix to show that
+                    <me>
+                      Q(\vx) \leq  \lambda_1 ||\vx||
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Now show that <m>Q(\vx) \geq \lambda_n ||\vx||</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the result of part (a) to find the maximum and minimum values of the quadratic form defined by the matrix <m>\left[ \begin{array}{cc} 2\amp 1\\1\amp 2 \end{array} \right]</m> on the unit circle.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        In this exercise we characterize the symmetric, positive definite,
+        <m>2 \times 2</m> matrices with real entries in terms of the entries of the matrices.
+        Let <m>A = \left[ \begin{array}{cc} a\amp b/2\\b/2\amp c \end{array} \right]</m> for some real numbers <m>a</m>,
+        <m>b</m>,
+        and <m>c</m>.
+        <ul>
+          <li>
+            <p>
+              Assume that <m>A</m> is positive definite.
+              <ol label="i">
+                <li>
+                  <p>
+                    Show that <m>a</m> must be positive.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Use the fact that the eigenvalues of <m>A</m> must be positive to show that <m>ac > b^2</m>.
+                    We conclude that if <m>A</m> is positive definite,
+                    then <m>a> 0</m> and <m>ac > b^2</m>.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <p>
+              Now show that if <m>a > 0</m> and <m>ac > b^2</m>,
+              then <m>A</m> is positive definite.
+              This will complete our classification of positive definite <m>2 \times 2</m> matrices.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_b_QF_characterization">
+      <p>
+        In this exercise we determine the form of
+        <men xml:id="eq_7_b_QF_characterization">
+          \vx^{\tr}A\vx=1
+        </men>,
+        where <m>A</m> is a symmetric <m>2 \times 2</m> matrix.
+        Let <m>P</m> be a matrix that orthogonally diagonalizes <m>A</m> and let <m>\vy = P^{\tr}\vx</m>.
+        <ul>
+          <li>
+            <p>
+              Substitute <m>\vy</m> for <m>P^{\tr}\vx</m> in the equation <m>\vx^{\tr}A\vx = 1</m>.
+              What form does the resulting equation have (write this form in terms of the eigenvalues of <m>A</m>)?
+            </p>
+          </li>
+          <li>
+            <p>
+              What kind of graph does the equation <xref ref="eq_7_b_QF_characterization"/> have if <m>A</m> is positive definite?
+              Why?
+            </p>
+          </li>
+          <li>
+            <p>
+              What kind of graph does the equation <xref ref="eq_7_b_QF_characterization"/> have if <m>A</m> has both positive and negative eigenvalues?
+              Why?
+            </p>
+          </li>
+          <li>
+            <p>
+              What kind of graph does the equation <xref ref="eq_7_b_QF_characterization"/> have if one eigenvalue of <m>A</m> is zero and the other non-zero?
+              Why?
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_b_aij">
+      <p>
+        Let <m>A = [a_{ij}]</m> be a symmetric <m>n \times n</m> matrix.
+        <ul>
+          <li>
+            <p>
+              Show that <m>\ve_i^{\tr}A\ve_j = a_{ij}</m>,
+              where <m>\ve_i</m> is the <m>i</m>th standard unit vector for <m>\R^n</m>. (This result will be useful in <xref ref="ex_7_b_unique_A">Exercise</xref>)
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vu</m> be a unit eigenvector of <m>A</m> with eigenvalue <m>\lambda</m>.
+              Find <m>\vu^{\tr}A\vu</m> in terms of <m>\lambda</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_b_unique_A">
+      <p>
+        Suppose <m>A</m> and <m>B</m> are symmetric <m>n \times n</m> matrices,
+        and let <m>Q_A(\vx) = \vx^{\tr}A\vx</m> and <m>Q_B(\vx) = \vx^{\tr} B\vx</m>.
+        If <m>Q_A(\vx) = Q_B(\vx)</m> for all <m>\vx</m> in <m>\R^n</m>,
+        show that <m>A=B</m>. (Hint: Use <xref ref="ex_7_b_aij">Exercise</xref>
+        (a) to compare <m>Q_A(\ve_i)</m> and <m>Q_B(\ve_i)</m>,
+        then compare <m>Q_A(\ve_i+\ve_j)</m> to
+        <m>Q_B(\ve_i + \ve_j)</m> for <m>i \neq j</m>.) Thus,
+        quadratic forms are uniquely determined by their symmetric matrices.
+      </p>
+    </li>
+    <li xml:id="ex_7_b_PD_inner_product">
+      <p>
+        In this exercise we analyze all inner products on <m>\R^n</m>.
+        Let <m>\langle \ , \ \rangle</m> be an inner product on <m>\R^n</m>.
+        Let <m>\vx = [x_1 \ x_2 \ \ldots \ x_n]^{\tr}</m> and
+        <m>\vy = [y_1 \ y_2 \ \ldots \ y_n]^{\tr}</m> be arbitrary vectors in <m>\R^n</m>.
+        Then
+        <me>
+          \vx = \sum_{i=1}^n x_i \ve_i \ \ \ \text{ and }  \ \ \ \vy = \sum_{j=1}^n y_j \ve_j
+        </me>,
+        where <m>\ve_i</m> is the <m>i</m>th standard vector in <m>\R^n</m>.
+        <ul>
+          <li>
+            <p>
+              Explain why
+              <men xml:id="eq_7_b_PD_inner_product_1">
+                \langle \vx, \vy \rangle = \sum_{i=1}^n \sum_{j=1}^n x_i \langle \ve_i, \ve_j \rangle y_j
+              </men>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculate the matrix product
+              <me>
+                \vx^{\tr} \left[ \begin{array}{cccc} \langle \ve_1,\ve_1 \rangle \amp  \langle \ve_1,\ve_2 \rangle \amp  \cdots \amp  \langle \ve_1,\ve_n \rangle \\ \langle \ve_2,\ve_1 \rangle \amp  \langle \ve_2,\ve_2 \rangle \amp  \cdots \amp  \langle \ve_2,\ve_n \rangle \\ \vdots                      \amp   \vdots                       \amp        \amp  \vdots \\ \langle \ve_n,\ve_1 \rangle \amp  \langle \ve_n,\ve_2 \rangle \amp  \cdots \amp  \langle \ve_n,\ve_n \rangle \end{array}  \right] \vy
+              </me>
+              and compare to <xref ref="eq_7_b_PD_inner_product_1"/>.
+              What do you notice?
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain why any inner product on <m>\R^n</m> is of the form <m>\vx^{\tr} A \vy</m> for some symmetric,
+              positive definite matrix <m>A</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_b_dot_product">
+      <p>
+        <xref ref="ex_7_b_PD_inner_product">Exercise</xref>
+        shows that any inner product
+        <m>\langle \, \rangle</m> on <m>\R^n</m> has the form <m>\langle \vu, \vv \rangle = \vu^{\tr} A \vv</m> for some symmetric,
+        positive definite matrix <m>A</m>.
+        Find the matrix <m>A</m> for which
+        <m>\vu \cdot \vv = \vu^{\tr} A \vv</m> for all <m>\vu</m> and <m>\vv</m> in <m>\R^n</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\langle \ , \ \rangle</m> be an inner product on <m>\R^n</m>,
+        let <m>\vu</m>, <m>\vv</m>,
+        and <m>\vw</m> be vectors <m>\R^n</m>,
+        and let <m>c</m> be a scalar.
+        Verify the following properties.
+        <ul>
+          <li>
+            <p>
+              <m>\langle \vzero , \vv \rangle = \langle \vv , \vzero \rangle = 0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu , c\vv \rangle = c\langle \vu , \vv \rangle</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vv+\vw , \vu \rangle = \langle \vv , \vu \rangle + \langle \vw , \vu \rangle</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\langle \vu - \vv, \vw \rangle = \langle \vw, \vu - \vv \rangle= \langle \vu , \vw \rangle - \langle \vv , \vw \rangle= \langle \vw, \vu \rangle - \langle \vw, \vv \rangle</m>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_b_Pyth_Thm">
+      <p>
+        We extend the notions of length and orthogonality in <m>\R^n</m> with respect to an inner product as follows.
+        If <m>\langle \, \rangle</m> is an inner product on <m>\R^n</m>,
+        we define the length of a vector <m>\vu</m> with respect to the inner product to be <m>||\vu|| = \sqrt{\langle \vu, \vu \rangle}</m>.
+        We can also define two vectors <m>\vu</m> and <m>\vv</m> to be orthogonal if <m>\langle \vu, \vv \rangle = 0</m>.
+        In this exercise we verify the Pythagorean Theorem with respect to an inner product.
+        The Pythagorean Theorem states that if <m>a</m> and <m>b</m> are the lengths of the legs of a right triangle whose hypotenuse has length <m>c</m>,
+        then <m>a^2+b^2=c^2</m>.
+        If we think of the legs as defining vectors <m>\vu</m> and <m>\vv</m>,
+        then the hypotenuse is the vector <m>\vu+\vv</m> and we can restate the Pythagorean Theorem<idx><h>Pythagorean Theorem in <m>\R^n</m> with respect to an inner product</h></idx> as
+        <me>
+          ||\vu+\vv||^2 = ||\vu||^2+||\vv||^2
+        </me>.
+        In this exercise we show that this result holds in any dimension and for any inner product.
+        Use an arbitrary inner product <m>\langle \ , \ \rangle</m>.
+        <ul>
+          <li>
+            <p>
+              Let <m>\vu</m> and <m>\vv</m> be orthogonal vectors in <m>\R^n</m>.
+              Show that <m>||\vu+\vv||^2 = ||\vu||^2+||\vv||^2</m>.
+              <hint>
+                <p>
+                  Rewrite <m>||\vu+\vv||^2</m> using the dot product.
+                </p>
+              </hint>
+            </p>
+          </li>
+          <li>
+            <p>
+              Must it be true that if <m>\vu</m> and <m>\vv</m> are vectors in <m>\R^n</m> with <m>||\vu+\vv||^2 = ||\vu||^2+||\vv||^2</m>,
+              then <m>\vu</m> and <m>\vv</m> are orthogonal?
+              If not, provide a counterexample.
+              If true, verify the statement.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li xml:id="ex_7_b_Cauchy_Schwarz">
+      <p>
+        The Cauchy-Schwarz inequality<idx><h>Cauchy-Schwarz inequality</h><h>in <m>\R^n</m> with respect to an inner product</h></idx>,
+        <men xml:id="eq_7_b_Cauchy_Schwartz">
+          |\langle \vu, \vv \rangle| \leq ||\vu|| \ \||\vv||
+        </men>
+        for any vectors <m>\vu</m> and <m>\vv</m> in <m>\R^n</m>,
+        is considered one of the most important inequalities in mathematics.
+        We verify the Cauchy-Schwarz inequality for an arbitrary inner product <m>\langle \ , \ \rangle</m> in this exercise.
+        Let <m>\vu</m> and <m>\vv</m> be vectors in <m>\R^n</m>.
+        <ul>
+          <li>
+            <p>
+              Explain why the inequality <xref ref="eq_7_b_Cauchy_Schwartz"/> is true if either <m>\vu</m> or <m>\vv</m> is the zero vector.
+              As a consequence,
+              we assume that <m>\vu</m> and <m>\vv</m> are nonzero vectors for the remainder of this exercise.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\vw = \proj_{\vv} \vu = \frac{\langle \vu, \vv \rangle }{||\vv||^2} \vv</m> and let <m>\vz = \vu - \vw</m>.
+              We know that <m>\langle \vw, \vz \rangle = 0</m>.
+              Use <xref ref="ex_7_b_Pyth_Thm">Exercise</xref> of this section to show that
+              <me>
+                ||\vu||^2 \geq ||\vw||^2
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Now show that <m>||\vw||^2 = \frac{|\langle \vu, \vv \rangle^2}{||\vv||^2}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Combine parts (b) and (c) to explain why equation <xref ref="eq_7_b_Cauchy_Schwartz"/> is true.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+    <li>
+      <p>
+        Let <m>\vu</m> and <m>\vv</m> be vectors in <m>\R^n</m>.
+        Then <m>\vu</m>, <m>\vv</m> and <m>\vu+\vv</m> form a triangle.
+        We should then expect that the length of any one side of the triangle is smaller than the sum of the lengths of the other sides
+        (since the straight line distance is the shortest distance between two points).
+        In other words, we expect that
+        <men xml:id="eq_7_b_triangle_inequality">
+          ||\vu + \vv|| \leq ||\vu|| + ||\vv||
+        </men>.
+        Equation <xref ref="eq_7_b_triangle_inequality"/> is called the
+        <em>Triangle Inequality</em><idx><h>triangle inequality in <m>\R^n</m> with respect to an inner product</h></idx>.
+        Use the Cauchy-Schwarz inequality
+        (<xref ref="ex_7_b_Cauchy_Schwarz">Exercise</xref>)
+        to prove the triangle inequality for any inner product on <m>\R^n</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Label each of the following statements as True or False.
+        Provide justification for your response.
+        <ul>
+          <li>
+            <p>
+              <em>True/False</em> If <m>Q</m> is a quadratic form,
+              then there is exactly one matrix <m>A</m> such that <m>Q(\vx) = \vx^{\tr}A\vx</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The matrix of a quadratic form is unique.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If the matrix of a quadratic form is a diagonal matrix,
+              then the quadratic form has no cross-product terms.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The eigenvectors of the symmetric matrix <m>A</m> form the principal axes of the quadratic form <m>\vx^{\tr}A\vx</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> The principal axes of a quadratic form are orthogonal.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>a</m> and <m>c</m> are positive,
+              then the quadratic equation <m>ax^2 + bxy + cy^2 = 1</m> defines an ellipse.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If the entries of a symmetric matrix <m>A</m> are all positive,
+              then the quadratic form <m>\vx^{\tr}A\vx</m> is positive definite.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If a quadratic form
+              <m>\vx^{\tr}A \vx</m> defined by a symmetric matrix <m>A</m> is positive definite,
+              then the entries of <m>A</m> are all non-negative.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If a quadratic form <m>Q(\vx)</m> on <m>\R^2</m> is positive definite,
+              then the graph of <m>z=Q(\vx)</m> is a paraboloid opening upward.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If a quadratic form <m>Q(\vx)</m> on <m>\R^2</m> is negative definite,
+              then the graph of <m>z=Q(\vx)</m> is a paraboloid opening downward.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If a quadratic form <m>Q(\vx)</m> on <m>\R^2</m> is indefinite,
+              then there is a nonzero vector <m>\vx</m> such that <m>Q(\vx) = 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>Q(\vx)</m> is positive definite,
+              then so is the quadratic form <m>aQ(\vx)</m> for <m>a>0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If If <m>Q(\vx)=\vx^\tr A\vx</m> is indefinite,
+              then at least one of the eigenvalues of <m>A</m> is negative and at least one positive.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If <m>n \times n</m> symmetric matrices <m>A</m> and <m>B</m> define positive definite quadratic forms,
+              then so does <m>A+B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>True/False</em> If an invertible symmetric matrix <m>A</m> defines a positive definite quadratic form,
+              then so does <m>A^{-1}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ol>
+</section>

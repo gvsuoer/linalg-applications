@@ -1,0 +1,122 @@
+<section xml:id="sec_solve_systems">
+  <title>Solving Systems of Linear Equations</title>
+  <p>
+    In Preview <xref ref="pa_1_a">Activity</xref>,
+    we were introduced to linear systems and the method of elimination for a system of two or three variables.
+    Our goal now is to come up with a systematic method that will reduce any linear system to one that is easy to solve without changing the solution set of the system.
+    Two linear systems will be called
+    <em>equivalent</em><idx><h>system of linear equations</h><h>equivalent systems</h></idx> if they have the same solution set.
+  </p>
+  <p>
+    The operations we used in Preview <xref ref="pa_1_a">Activity</xref>
+    to systematically eliminate variables so that we can solve a linear system are called
+    <em>elementary operations on a system of linear equations</em>
+    or just <em>elementary operations</em>
+        <idx><h>elementary operations</h></idx>.
+        <idx><h>system of linear equations</h><h>operations</h></idx>
+    In the exercises you will argue that elementary operations do not change the solution set to a system of linear equations,
+    a fact that is summarized in the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        The <em>elementary operations</em>
+        on a system of linear equations:
+        <ol>
+          <li>
+            <p>
+              replacing one equation by the sum of that equation and a scalar multiple of another equation;
+            </p>
+          </li>
+          <li>
+            <p>
+              interchanging two equations;
+            </p>
+          </li>
+          <li>
+            <p>
+              replacing an equation by a nonzero scalar multiple of itself;
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        do not change the solution set to the system of equations.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    When we apply these elementary operations our ultimate goal is to produce a system of linear equations in a simplified form with the same solution set,
+    where the number of variables eliminated from the equations increase as we move from top to bottom.
+    This method is called the <em>elimination</em><idx><h>system of linear equations</h><h>elimination</h></idx> method.
+  </p>
+  <activity>
+    <p>
+      For systems of linear equations with a small number of variables,
+      many different methods could be used to find a solution.
+      However, when a system gets large,
+      ad-hoc methods become unwieldy.
+      One of our goals is to develop an algorithmic approach to solving systems of linear equations that can be programmed and applied to any linear system,
+      so we want to work in a very prescribed method as indicated in this activity.
+      Ultimately, once we understand how the algorithm works,
+      we will use calculators/computers to do the work.
+      Apply the elimination method as described to show that the solution set of the following system is <m>(2, -1, 1)</m>:
+      <md>
+        <mrow>{4} x_1 \amp {}+{}\amp  x_2 \amp {}-{}\amp  x_3 \amp = 0</mrow>
+        <mrow>2x_1 \amp {}+{}\amp  x_2 \amp {}-{}\amp  x_3 \amp = 2</mrow>
+        <mrow>x_1\amp {}-{}\amp x_2 \amp {}+{}\amp  2x_3 \amp = 5</mrow>
+      </md>.
+      <ul>
+        <li>
+          <p>
+            Use the first equation to eliminate the variable <m>x_1</m> in the second and third equations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the new second equation to eliminate the variable <m>x_2</m> in the third equation and find the value of <m>x_3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find values of <m>x_2</m> and then <m>x_1</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <em>Important Note:</em> Technically,
+    we don't really add two equations or multiply an equation by a scalar.
+    When we refer to a scalar multiple of an equation,
+    we mean the equation obtained by equating the scalar multiple of the expression on the left side of the equation and the same scalar multiple of the expression on the right side of the equation.
+    Similarly, when we refer to a sum of two equations,
+    we don't really add the equations themselves.
+    Instead, we mean the equation obtained by equating the sum of the expressions on the left sides of the equations to the sum of the expressions on the right sides of the equations.
+    We will use the terminology
+    <q>scalar multiple of an equation</q>
+    and
+    <q>sum of two equations</q>
+    as shorthand to mean what is described here.
+  </p>
+  <p>
+    <em>Another Important Note:</em>
+    There is an important and subtle point to consider here.
+    When we use these operations to find a solution to a system of equations,
+    we are assuming that the system has a solution.
+    The application of these operations then tells us what a solution must look like.
+    However, there is no guarantee that the outcome is actually a solution <mdash/> to be safe we should check to make sure that our result is a solution to the system.
+    In the case of linear systems, though,
+    every one of our operations on equations is reversible
+    (if applied correctly),
+    so the result will always be a solution
+    (but this is not true in general for non-linear systems).
+  </p>
+  <p>
+    <em>Terminology:</em> A system of equations is called
+    <em>consistent</em><idx><h>system of linear equations</h><h>consistent</h></idx> if the system has at least one solution.
+    If a system has no solutions,
+    then it is said to be <em>inconsistent</em>.
+        <idx><h>system of linear equations</h><h>inconsistent</h></idx>
+  </p>
+</section>

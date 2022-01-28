@@ -1,0 +1,404 @@
+<section xml:id="sec_proj_ehrenfest">
+  <title>Project: The Ehrenfest Model</title>
+  <p>
+    To realistically model the diffusion of gas molecules we would need to consider a system with a large number of balls as substitutes for the gas molecules.
+    However, the main idea can be seen in a model with a much smaller number of balls,
+    as we will do now.
+    Suppose we have two bins that contain a total of <m>4</m> balls between them.
+    Label the bins as Bin 1 and Bin 2.
+    In this case we can think of entropy as the number of different possible ways the balls can be arranged in the system.
+    For example,
+    there is only <m>1</m> way for all of the balls to be in Bin 1
+    (low entropy),
+    but there are <m>4</m> ways that we can have one ball in Bin 1
+    (choose any one of the four different balls,
+    which can be distinguished from each other)
+    and <m>3</m> balls in Bin 2
+    (higher entropy).
+    The highest entropy state has the balls equally distributed between the bins
+    (with <m>6</m> different ways to do this).
+  </p>
+  <p>
+    We assume that there is a way for balls to move from one bin to the other
+    (like having gas molecules pass through a permeable membrane).
+    A way to think about this is that we select a ball
+    (from ball 1 to ball 4, which are different balls)
+    and move that ball from its current bin to the other bin.
+    Consider a
+    <q>move</q>
+    to be any instance when a ball changes bins.
+    A <em>state</em> is any configuration of balls in the bins at a given time,
+    and the state changes when a ball is chosen at random and moved to the other bin.
+    The possible states are to have 0 balls in Bin 1 and 4 balls in Bin 2 (State 0, entropy 1), 1 ball in Bin 1 and 3 in Bin 2 (State 1, entropy 4), 2 balls in each Bin (State 2, entropy 6), 3 balls in Bin 1 and 1 ball in Bin 2 (State 3, entropy 4),
+    and 4 balls in Bin 1 and 0 balls in Bin 2 (State 4, entropy 1).
+    These states are shown in <xref ref="F_Ehrenfest">Figure</xref>.
+  </p>
+  <figure xml:id="F_Ehrenfest">
+    <caption>States</caption>
+    <image width="73%" source="4_b_states"/>
+  </figure>
+  <activity xml:id="act_Eherenfest_model">
+    <p>
+      To model the system of balls in bins we need to understand how the system can transform from one state to another.
+      It suffices to count the number of balls in Bin 1
+      (since the remaining balls will be in Bin 2).
+      Even though the balls are labeled,
+      our count only cares about how many balls are in each bin.
+      Let <m>\vx_0 = [x_0, x_1, x_2, x_3, x_4]^{\tr}</m>,
+      where <m>x_i</m> is the probability that Bin 1 contains <m>i</m> balls,
+      and let <m>\vx_1 = \left[ x_0^1, x_1^1, x_2^1, x_3^1, x_4^1 \right]^{\tr}</m>,
+      where <m>x_i^1</m> is the probability that Bin 1 contains <m>i</m> balls after the first move.
+      We will call the vectors <m>\vx_0</m> and <m>\vx_1</m>
+      <em>probability distributions</em> of balls in bins.
+      Note that since all four balls have to be placed in some bin,
+      the sum of the entries in our probability distribution vectors must be <m>1</m>.
+      Recall that a move is an instance when a ball changes bins.
+      We want to understand how <m>\vx_1</m> is obtained from <m>\vx_0</m>.
+      In other words,
+      we want to figure out what the probability that Bin 1 contains 0, 1, 2, 3, or 4 balls after one ball changes bins if our initial probability distribution of balls in bins is <m>\vx_0</m>.
+    </p>
+    <p>
+      We begin by analyzing the ways that a state can change.
+      For example,
+    </p>
+    <ul>
+      <li>
+        <p>
+          Suppose there are <m>0</m> balls in Bin 1. (In our probability distribution <m>\vx_0</m>,
+          this happens with probability <m>x_0</m>.) Then there are four balls in Bin 2.
+          The only way for a ball to change bins is if one of the four balls moves from Bin 2 to Bin 1, putting us in State 1.
+          Regardless of which ball moves,
+          we will always be put in State 1, so this happens with a probability of <m>1</m>.
+          In other words,
+          if the probability that Bin 1 contains <m>0</m> balls is <m>x_0</m>,
+          then there is a probability of <m>(1)x_0</m> that Bin 1 will contain 1 ball after the move.
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose we have 1 ball in Bin 1.
+          There are four ways this can happen
+          (since there are four balls,
+          and the one in Bin 1 is selected at random from the four balls),
+          so the probability of a given ball being in Bin 1 is <m>\frac{1}{4}</m>.
+        </p>
+        <ul>
+          <li>
+            <p>
+              If the ball in Bin 1 moves, that move puts us in State <m>0</m>.
+              In other words,
+              if the probability that Bin 1 contains 1 ball is <m>x_1</m>,
+              then there is a probability of
+              <m>\frac{1}{4}x_1</m> that Bin 1 will contain <m>0</m> balls after a move.
+            </p>
+          </li>
+          <li>
+            <p>
+              If any of the <m>3</m> balls in Bin 2 moves
+              (each moves with probability <m>\frac{3}{4}</m>),
+              that move puts us in State 2.
+              In other words,
+              if the probability that Bin 1 contains 1 ball is <m>x_1</m>,
+              then there is a probability of
+              <m>\frac{3}{4}x_1</m> that Bin 1 will contain <m>2</m> balls after a move.
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <p>
+          Complete this analysis to explain the probabilities if there are <m>2</m>,
+          <m>3</m>, or <m>4</m> balls in Bin 1.
+        </p>
+      </li>
+      <li>
+        <p>
+          Explain how the results of part (a) show that
+          <tabular>
+            <row>
+              <cell></cell>
+            </row>
+            <row>
+              <cell><m>x_0^1</m></cell>
+              <cell>=</cell>
+              <cell><m>0x_0</m></cell>
+              <cell>+</cell>
+              <cell><m>\frac{1}{4} x_1</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_2</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_3</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_4</m></cell>
+            </row>
+            <row>
+              <cell><m>x_1^1</m></cell>
+              <cell>=</cell>
+              <cell><m>1x_0</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_1</m></cell>
+              <cell>+</cell>
+              <cell><m>\frac{1}{2} x_2</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_3</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_4</m></cell>
+            </row>
+            <row>
+              <cell><m>x_2^1</m></cell>
+              <cell>=</cell>
+              <cell><m>0x_0</m></cell>
+              <cell>+</cell>
+              <cell><m>\frac{3}{4} x_1</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_2</m></cell>
+              <cell>+</cell>
+              <cell><m>\frac{3}{4} x_3</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_4</m></cell>
+            </row>
+            <row>
+              <cell><m>x_3^1</m></cell>
+              <cell>=</cell>
+              <cell><m>0x_0</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_1</m></cell>
+              <cell>+</cell>
+              <cell><m>\frac{1}{2} x_2</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_3</m></cell>
+              <cell>+</cell>
+              <cell><m>1 x_4</m></cell>
+            </row>
+            <row>
+              <cell><m>x_4^1</m></cell>
+              <cell>=</cell>
+              <cell><m>0x_0</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_1</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_2</m></cell>
+              <cell>+</cell>
+              <cell><m>\frac{1}{4} x_3</m></cell>
+              <cell>+</cell>
+              <cell><m>0 x_4</m></cell>
+            </row>
+          </tabular>
+        </p>
+      </li>
+    </ul>
+  </activity>
+  <p>
+    The system we developed in Project <xref ref="act_Eherenfest_model">Activity</xref> has matrix form
+    <me>
+      \vx_1 = T \vx_0
+    </me>,
+    where <m>T</m> is the <em>transition matrix</em>
+    <me>
+      T = \left[  \begin{array}{ccccc} 0 \amp  \frac{1}{4}  \amp  0       \amp  0       \amp  0 \\ 1 \amp  0       \amp  \frac{1}{2}  \amp  0       \amp  0 \\ 0 \amp  \frac{3}{4} \amp  0       \amp  \frac{3}{4}   \amp  0 \\ 0 \amp  0       \amp  \frac{1}{2}   \amp  0       \amp  1 \\ 0 \amp  0       \amp  0       \amp  \frac{1}{4}  \amp  0 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Subsequent moves give probability distribution vectors
+    <md>
+      <mrow>\vx_2 \amp = T\vx_1</mrow>
+      <mrow>\vx_3 \amp = T\vx_2</mrow>
+      <mrow>\vdots \amp   \vdots</mrow>
+      <mrow>\vx_k \amp = T\vx_{k-1} </mrow>
+    </md>.
+  </p>
+  <p>
+    This example is an example of a Markov process
+    (see <xref ref="def_Markov">Definition</xref>).
+    There are several questions we can ask about this model.
+    For example, what is the long-term behavior of this system,
+    and how does this model relate to entropy?
+    That is, given an initial probability distribution vector <m>\vx_0</m>,
+    the system will have probability distribution vectors <m>\vx_1</m>,
+    <m>\vx_2</m>, <m>\ldots</m> after subsequent moves.
+    What happens to the vectors <m>\vx_k</m> as <m>k</m> goes to infinity,
+    and what does this tell us about entropy?
+    To answer these questions,
+    we will first explore the sequence <m>\{\vx_k\}</m> numerically,
+    and then use the eigenvalues and eigenvectors of <m>T</m> to analyze the sequence <m>\{\vx_k\}</m>.
+  </p>
+  <activity xml:id="act_Ehrenfest_numeric">
+    <p>
+      Use appropriate technology to do the following.
+      <ul>
+        <li>
+          <p>
+            Suppose we begin with a probability distribution vector <m>\vx_0 = [1 \ 0 \ 0 \ 0 \ 0]^{\tr}</m>.
+            Calculate vectors <m>\vx_k</m> for enough values of <m>k</m> so that you can identify the long term behavior of the sequence.
+            Describe this behavior.
+          </p>
+        </li>
+        <li>
+          <p>
+            Repeat part (a) with
+            <ol label="i">
+              <li>
+                <p>
+                  <m>\vx_0 = \left[0 \ \frac{1}{2} \ \frac{1}{2} \ 0 \ 0\right]^{\tr}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\vx_0 = \left[0 \ \frac{1}{3} \ \frac{1}{3} \ 0 \ \frac{1}{3}\right]^{\tr}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\vx_0 = \left[\frac{1}{5} \ \frac{1}{5} \ \frac{1}{5} \ \frac{1}{5} \ \frac{1}{5}\right]^{\tr}</m>
+                </p>
+              </li>
+            </ol>
+          </p>
+          Describe the long term behavior of the sequence <m>\{\vx_k\}</m> in each case.
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    In what follows, we investigate the behavior of the sequence
+    <m>\{\vx_k\}</m> that we uncovered in Project <xref ref="act_Ehrenfest_numeric">Activity</xref>.
+  </p>
+  <activity xml:id="act_Ehrenfest_eigenvalues">
+    <p>
+      We use the characteristic polynomial to find the eigenvalues of <m>T</m>.
+      <ul>
+        <li>
+          <p>
+            Find the characteristic polynomial of <m>T</m>.
+            Factor the characteristic polynomial into a product of linear polynomials to show that the eigenvalues of <m>T</m> are <m>0</m>,
+            <m>1</m>,
+            <m>-1</m>, <m>\frac{1}{2}</m> and <m>-\frac{1}{2}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            As we will see a bit later,
+            certain eigenvectors for <m>T</m> will describe the end behavior of the sequence <m>\{\vx_k\}</m>.
+            Find eigenvectors for <m>T</m> corresponding to the eigenvalues <m>1</m> and <m>-1</m>.
+            Explain how the eigenvector for <m>T</m> corresponding to the eigenvalue <m>1</m> explains the behavior of one of the sequences was saw in Project <xref ref="act_Ehrenfest_numeric">Activity</xref>.
+            (Any eigenvector of <m>T</m> with eigenvalue <m>1</m> is called an <em>equilibrium</em>
+            or <em>steady state</em> vector.)
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Now we can analyze the behavior of the sequence <m>\{\vx_k\}</m>.
+  </p>
+  <activity xml:id="act_Ehrenfest_basis">
+    <p>
+      To make the notation easier,
+      we will let <m>\vv_1</m> be an eigenvector of <m>T</m> corresponding to the eigenvalue <m>0</m>,
+      <m>\vv_2</m> an eigenvector of <m>T</m> corresponding to the eigenvalue <m>1</m>,
+      <m>\vv_3</m> an eigenvector of <m>T</m> corresponding to the eigenvalue <m>-1</m>,
+      <m>\vv_4</m> an eigenvector of <m>T</m> corresponding to the eigenvalue <m>\frac{1}{2}</m>,
+      and <m>\vv_5</m> an eigenvector of <m>T</m> corresponding to the eigenvalue <m>-\frac{1}{2}</m>.
+      <ul>
+        <li>
+          <p>
+            Explain why <m>\{\vv_1, \vv_2, \vv_3, \vv_4, \vv_5\}</m> is a basis of <m>\R^5</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\vx_0</m> be any initial probability distribution vector.
+            Explain why we can write <m>\vx_0</m> as
+            <me>
+              \vx_0 = a_1 \vv_1 + a_2 \vv_2 + a_3 \vv_3 + a_4 \vv_4 + a_5 \vv_5 = \sum_{i=1}^5 a_i \vv_i
+            </me>
+            for some scalars <m>a_1</m>,
+            <m>a_2</m>, <m>a_3</m>, <m>a_4</m>, and <m>a_5</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    We can now use the eigenvalues and eigenvectors of <m>T</m> to write the vectors <m>\vx_k</m> in a convenient form.
+    Let <m>\lambda_1 = 0</m>, <m>\lambda_2=1</m>, <m>\lambda_3=-1</m>,
+    <m>\lambda_4=\frac{1}{2}</m>,
+    and <m>\lambda_5=-\frac{1}{2}</m>.
+    Notice that
+    <md>
+      <mrow>\vx_1 \amp = T \vx_0</mrow>
+      <mrow>\amp = T(a_1  \vv_1 + a_2 \vv_2 + a_3  \vv_3 + a_4  \vv_4 + a_5 \vv_5)</mrow>
+      <mrow>\amp = a_1  T\vv_1 + a_2 T\vv_2 + a_3  T\vv_3 + a_4 T\vv_4 + a_5 T\vv_5</mrow>
+      <mrow>\amp = a_1\lambda_1 \vv_1 + a_2\lambda_2 \vv_2 + a_3 \lambda_3 \vv_3 + a_4 \lambda_4 \vv_4 + a_5 \lambda_5 \vv_5</mrow>
+      <mrow>\amp = \sum_{i=1}^5 a_i \lambda_i \vv_i</mrow>
+    </md>.
+  </p>
+  <p>
+    Similarly
+    <me>
+      \vx_2 = T \vx_1 = T\left(\sum_{i=1}^5 a_i \lambda_i\vv_i\right) = \sum_{i=1}^5 a_i \lambda_i T\vv_i = \sum_{i=1}^5 a_i\lambda_i^2 \vv_i
+    </me>.
+  </p>
+  <p>
+    We can continue in this manner to ultimately show that for each positive integer <m>k</m> we have
+    <men xml:id="eq_Ehrenfest_sum">
+      \vx_k = \sum_{i=1}^5 a_i\lambda_i^k \vv_i
+    </men>
+    when <m>\vx_0 = \sum_{i=1}^5 a_i \vv_i</m>.
+  </p>
+  <activity xml:id="act_Ehrenfest_entropy">
+    <p>
+      Recall that we are interested in understanding the behavior of the sequence
+      <m>\{\vx_k\}</m> as <m>k</m> goes to infinity.
+    </p>
+    <ul>
+      <li>
+        <p>
+          Equation <xref ref="eq_Ehrenfest_sum"/> shows that we need to know
+          <m>\lim_{k \to \infty} \lambda_i^k</m> for each <m>i</m> in order to analyze <m>\lim_{k \to \infty} \vx_k</m>.
+          Calculate or describe these limits.
+        </p>
+      </li>
+      <li>
+        <p>
+          Use the result of part (a), Equation <xref ref="eq_Ehrenfest_sum"/>,
+          and Project <xref ref="act_Ehrenfest_eigenvalues">Activity</xref>
+          (b) to explain why the sequence
+          <m>\{\vx_k\}</m> is either eventually fixed or oscillates between two states.
+          Compare to the results from Project <xref ref="act_Ehrenfest_numeric">Activity</xref>.
+          How are these results related to entropy?
+          You may use the facts that
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>\vv_1 = [1 \ 0 \ -2 \ 0 \ 1]^{\tr}</m> is an eigenvector for <m>T</m> corresponding to the eigenvalue <m>0</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vv_2 = [1 \ 4 \ 6 \ 4 \ 1]^{\tr}</m> is an eigenvector for <m>T</m> corresponding to the eigenvalue <m>1</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vv_3 = [1 \ -4 \ 6 \ -4 \ 1]^{\tr}</m> is an eigenvector for <m>T</m> corresponding to the eigenvalue <m>-1</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vv_4 = [-1 \ -2 \ 0\ 2 \ 1]^{\tr}</m> is an eigenvector for <m>T</m> corresponding to the eigenvalue <m>\frac{1}{2}</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vv_5 = [-1 \ 2 \ 0 \ -2 \ 1]^{\tr}</m> is an eigenvector for <m>T</m> corresponding to the eigenvalue <m>-\frac{1}{2}</m>.
+            </p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </activity>
+</section>

@@ -1,0 +1,88 @@
+<section xml:id="sec_prop_mtx_cob">
+  <title>Properties of the Change of Basis Matrix</title>
+  <p>
+    The are many different bases for <m>\R^n</m>,
+    so it is natural to ask how change of bases matrices might be related to one another.
+  </p>
+  <activity xml:id="act_3_e_COB_properties">
+    <p>
+      The sets <m>\CB = \{[3 \ 0]^{\tr}, [4 \ -1]^{\tr}\}</m> and
+      <m>\CC = \{[1 \ 2]^{\tr}, [-1 \ 1]^{\tr}\}</m> are bases for <m>\R^2</m>.
+      <ul>
+        <li>
+          <p>
+            Find the change of basis matrix
+            <m>\underset{\CC \leftarrow \CB}{P}</m> from the basis <m>\CB</m> to the basis <m>\CC</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\vv= [2 \ 4]^{\tr}</m>.
+            Find <m>[\vv]_{\CB}</m> and <m>[\vv]_{\CC}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Verify by matrix multiplication that <m>[\vv]_{\CC} = \underset{\CC \leftarrow \CB}{P} [\vv]_{\CB}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the change of basis matrix
+            <m>\underset{\CB \leftarrow \CC}{P}</m> from the basis <m>\CC</m> to the basis <m>\CB</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Verify by matrix multiplication that <m>[\vv]_{\CB} = \underset{\CB \leftarrow \CC}{P} [\vv]_{\CC}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            How, specifically, are the matrices
+            <m>\underset{\CC \leftarrow \CB}{P}</m> and <m>\underset{\CB \leftarrow \CC}{P}</m> related?
+            <hint>
+              <p>
+                If you don't see a relationship right away,
+                what is the product of these two matrices?
+              </p>
+            </hint>
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_3_e_COB_properties">Activity</xref>
+    seems to indicate that the inverse of a change of basis matrix is also a change of basis matrix,
+    which assumes that a change of basis matrix is always invertible.
+    The following theorem provides some properties about change of basis matrices.
+    The proofs are left for the exercises.
+  </p>
+  <theorem xml:id="thm_3_e_COB_properties">
+    <statement>
+      <p>
+        Let <m>n</m> be a positive integer, and let <m>\CB</m>,
+        <m>\CC</m>, and <m>\CS</m> be bases for <m>\R^n</m>.
+        Then
+        <ol>
+          <li>
+            <p>
+              the change of basis matrix <m>\underset{\CC \leftarrow \CB}{P}</m> is invertible,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\underset{\CC \leftarrow \CB}{P}^{-1} = \underset{\CB \leftarrow \CC}{P}</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\underset{\CS \leftarrow \CC}{P} \ \underset{\CC \leftarrow \CB}{P} = \underset{\CS \leftarrow \CB}{P}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+</section>

@@ -1,0 +1,141 @@
+<section xml:id="sec_vec_span">
+  <title>The Span of a Set of Vectors</title>
+  <p>
+    As we saw in the previous section,
+    the question of whether a system of linear equations has a solution is equivalent to the question of whether the vector obtained by the non-coefficient constants in the system is a linear combination of the vectors obtained from the columns of the coefficient matrix of the system.
+    So if we were interested in finding for which constants the system has a solution,
+    we would look for the collection of all linear combinations of the columns.
+    We call this collection the <em>span</em> of these vectors.
+    In this section we investigate the concept of span both algebraically and geometrically.
+  </p>
+  <p>
+    Our work in Preview <xref ref="pa_1_d">Activity</xref>
+    seems to indicate that the span of a set of vectors,
+    i.e., the collection of all linear combinations of this set of vectors,
+    has a nice structure.
+    As we mentioned above,
+    the span of a set of vectors represents the collection of all constant vectors for which a linear system has a solution,
+    but we will also see that other important objects in linear algebra can be represented as the span of a set of vectors.
+  </p>
+  <definition xml:id="def_1_d_span">
+    <statement>
+      <p>
+        The <term>span</term>
+            <idx><h>span</h></idx>
+        of the vectors <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
+        <m>\vv_m</m> in <m>\R^n</m> is the collection of all linear combinations of the vectors <m>\vv_1</m>,
+        <m>\vv_2</m>, <m>\ldots</m>, <m>\vv_m</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    <em>Notation:</em> We denote the span of a set of vectors <m>\vv_1</m>,
+    <m>\vv_2</m>, <m>\ldots</m>, <m>\vv_m</m> as
+    <me>
+      \Span \{\vv_1, \vv_2, \ldots, \vv_m\}
+    </me>.
+  </p>
+  <p>
+    So
+    <me>
+      \Span \{\vv_1, \vv_2, \ldots, \vv_m\}  = \{c_1\vv_1+c_2\vv_2 + \cdots + c_m \vv_m : c_1, c_2, \ldots, c_m \text{ are scalars } \}
+    </me>.
+  </p>
+  <p>
+    The curly braces, <m>\{ \; \}</m>,
+    are used in denoting sets.
+    They represent the whole set formed by the objects included between them.
+    So <m>\{\vv_1, \vv_2, \ldots, \vv_m\}</m> represents the collection of the vectors formed by
+    <m>\vv_1, \vv_2, \ldots, \vv_m</m> for an arbitrary number <m>m</m>.
+    Note that <m>m</m> can be 1, meaning that the collection can contain only one vector <m>\vv_1</m>.
+  </p>
+  <p>
+    We now investigate what the span of a set of one or two vectors is,
+    both from an algebraic and geometric perspective,
+    and consider what happens for more general spanning sets.
+  </p>
+  <activity xml:id="act_A1_3_9">
+    <p>
+      <nbsp/>
+      <ul>
+        <li>
+          <p>
+            By definition,
+            <m>\Span\left\{\left[ \begin{array}{r} 1 \\ -2 \end{array} \right]\right\}</m> is the collection of all vectors which are scalar multiples of <m>\left[ \begin{array}{r} 1 \\ -2 \end{array} \right]</m>.
+            Determine which vectors are in this collection.
+            If we plot all these vectors with each vector being represented as a point in the plane,
+            what do they form?
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\vv_1 = \left[ \begin{array}{c} 1 \\ 0\\ 1 \end{array}  \right]</m> and <m>\vv_2 = \left[ \begin{array}{c} 0\\1 \\1 \end{array}  \right]</m> in <m>\R^3</m>.
+            By definition,
+            <me>
+              \Span\left\{\left[ \begin{array}{c} 1 \\ 0\\ 1 \end{array}  \right], \left[ \begin{array}{c} 0\\1 \\1 \end{array}  \right] \right\}
+            </me>
+            is the collection of all linear combinations of the form
+            <me>
+              x_1 \left[ \begin{array}{c} 1 \\ 0\\ 1 \end{array}  \right] + x_2 \left[ \begin{array}{c} 0\\1 \\1 \end{array}  \right]
+            </me>,
+            where <m>x_1</m> and <m>x_2</m> are any scalars.
+            <ol label="i">
+              <li>
+                <p>
+                  Find four different vectors in
+                  <m>\Span \{\vv_1, \vv_2\}</m> and indicate the weights
+                  (the values of <m>x_1</m> and <m>x_2</m>)
+                  for each linear combination.
+                  <hint>
+                    <p>
+                      It is really easy to find 3 vectors in
+                      <m>\Span \{\vv_1, \vv_2\}</m> for any <m>\vv_1, \vv_2</m>.
+                    </p>
+                  </hint>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Are there any vectors in <m>\R^3</m> that are not in <m>\Span\{\vv_1, \vv_2\}</m>?
+                  Explain.
+                  Verify your result.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Set up a linear system to determine which vectors
+                  <m>\vw= \left[ \begin{array}{c} w_1 \\ w_2\\ w_3 \end{array} \right]</m> are in <m>\Span\{\vv_1, \vv_2\}</m>.
+                  Specifically,
+                  which <m>\vw</m> can be expressed as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Geometrically, what shape do the vectors in
+                  <m>\Span\{\vv_1, \vv_2\}</m> form inside <m>\R^3</m>?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Is it possible for <m>\Span\{\vz_1, \vz_2\}</m> to be a line for two vectors <m>\vz_1, \vz_2</m> in <m>\R^3</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            What do you think are the possible geometric descriptions of a span of a set of vectors in <m>\R^2</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            What do you think are the possible spans of a set of vectors in <m>\R^3</m>?
+            Explain.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

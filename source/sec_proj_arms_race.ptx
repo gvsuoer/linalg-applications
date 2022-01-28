@@ -1,0 +1,345 @@
+<section xml:id="sec_proj_arms_race">
+  <title>Project: The Richardson Arms Race Model</title>
+  <p>
+    How and why a nation arms itself for defense depends on many factors.
+    Among these factors are the offensive military capabilities a nation deems its enemies have,
+    the resources available for creating military forces and equipment,
+    and many others.
+    To begin to analyze such a situation,
+    we will need some notation and background.
+    In this section we will consider a two nation scenario,
+    but the methods can be extended to any number of nations.
+    In fact, after World War I, Richardson collected data and created a model for the countries Czechoslovakia, China, France, Germany, England, Italy, Japan, Poland,
+    the USA, and the USSR.<fn>
+    The Union of Soviet Socialist Republics (USSR), headed by Russia,
+    was a confederation of socialist republics in Eurasia.
+    The USSR disbanded in 1991.
+    Czechoslovakia was a sovereign state in central Europe that peacefully split into the Czech Republic and Slovakia in 1993.
+    </fn>
+  </p>
+  <p>
+    Let <m>N_1</m> and <m>N_2</m> represent <m>2</m> different nations.
+    Each nation has some military capability
+    (we will call this the <em>armament</em> of the nation)
+    at time <m>n</m>
+    (think of <m>n</m> as representing the year).
+    Let <m>a_1(n)</m> represent the armament of nation <m>N_1</m> at time <m>n</m>,
+    and <m>a_2(n)</m> the armament of nation <m>N_2</m> at time <m>n</m>.
+    We could measure <m>a_i(n)</m> in weaponry or dollars or whatever units make sense for armaments.
+    The Richardson arms race model provides connections between the armaments of the two nations.
+  </p>
+  <activity xml:id="act_arms_race_1">
+    <p>
+      We continue to analyze a two nation scenario.
+      Let us suppose that our two nations are Iran
+      (nation <m>N_1</m>)
+      and Iraq
+      (nation <m>N_2</m>).
+      In 1980, Iraq invaded Iran resulting in a long and brutal 8 year war.
+      Richardson was interested in analyzing data to see if such wars could be predicted by the changes in armaments of each nation.
+      We construct the two nation model in this activity.
+    </p>
+    <p>
+      During each time period every nation adds or subtracts from its armaments.
+      In our model,
+      we will consider three main effects on the changes in armaments:
+      the defense effect, fatigue effect and the grievance effect.
+      In this activity we will discuss each effect in turn and then create a model to represent a two nation arms race.
+      <ul>
+        <li>
+          <p>
+            We first consider the defense effect.
+            In a two nation scenario,
+            each nation may react to the potential threat implied by an arms buildup of the other nation.
+            For example,
+            if nation <m>N_1</m> feels threatened by nation <m>N_2</m>
+            (think of South and North Korea,
+            or Ukraine and Russia, for example),
+            then nation <m>N_2</m>'s level of armament might cause nation <m>N_1</m> to increase its armament in response.
+            We will let <m>\delta_{12}</m> represent this effect of nation <m>N_2</m>'s armament on the armament of nation <m>N_1</m>.
+            Nation <m>N_1</m> will then increase
+            (or decrease)
+            its armament in time period <m>n</m> by the amount
+            <m>\delta_{12}a_2(n-1)</m> based on the armament of nation <m>N_2</m> in time period <m>n-1</m>.
+            We will call <m>\delta_{12}</m> a
+            <em>defense coefficient</em>.<fn>
+            Of course, there are many other factors that have not been taken into account in the analysis.
+            A nation may have heavily armed allies
+            (like the U.S.)
+            which may provide enough perceived security that this analysis is not relevant.
+            Also, a nation might be a neutral state,
+            such as Switzerland, and this analysis might not apply to such nations.
+            </fn>
+          </p>
+        </li>
+        <li>
+          <p>
+            Next we discuss the fatigue effect.
+            Keeping a strong defense is an expensive and taxing enterprise,
+            often exacting a heavy toll on the resources of a nation.
+            For example,
+            consider the fatigue that the U.S. experienced fighting wars in Iraq and Afghanistan,
+            losing much hardware and manpower in these conflicts.
+            Let <m>\delta_{ii}</m> represent this
+            <em>fatigue factor</em> on nation <m>i</m>.
+            Think of <m>\delta_{ii}</m> as a measure of how much the nation has to replace each year,
+            so a positive fatigue factor means that the nation is adding to its armament.
+            The fatigue factor produces an effect of
+            <m>\delta_{ii}a_i(n-1)</m> on the armament of nation <m>i</m> at time <m>t=n</m> that is the effect of the armament at time <m>t=n-1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The last factor we consider is what we will call a grievance factor.
+            This can be thought of as the set of ambitions and/or grievances against other nations
+            (such as the acquisition or reacquisition of territory currently belonging to another country).
+            As an example, Argentina and Great Britain both claim the Falkland Islands as territory.
+            In 1982 Argentina invaded the disputed Falkland Islands which resulted in a two-month long undeclared Falkland Islands war,
+            which returned control to the British.
+            It seems reasonable that one nation might want to have sufficient armament in place to support its claim if force becomes necessary.
+            Assuming that these grievances and ambitions have a constant impact on the armament of a nation from year to year,
+            let <m>g_i</m> be this
+            <q>grievance</q>
+            constant for nation <m>i</m>.<fn>
+            It might be possible for <m>g_i</m> to be negative if,
+            for example,
+            a nation feels that such disputes can and should only be settled by negotiation.
+            </fn> The effect a grievance factor <m>g_i</m> would have on the armament of nation <m>i</m> in year <m>n</m> would be to add <m>g_i</m> directly to <m>a_i(n-1)</m>,
+            since the factor <m>g_i</m> is constant from year to year
+            (paying for arms and soldier's wages, for example)
+            and does not depend on the amount of existing armament.
+          </p>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <p>
+            Taking the three effects discussed above into consideration,
+            explain why
+            <me>
+              a_1(n) = \delta_{11}a_1(n-1) + \delta_{12}a_2(n-1) + a_1(n-1) + g_1
+            </me>.
+            Then explain why
+            <men xml:id="eq_AR_1">
+              a_1(n) = \left(\delta_{11}+1\right)a_1(n-1) + \delta_{12}a_2(n-1) + g_1
+            </men>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Write an equation similar to equation <xref ref="eq_AR_1"/> that describes <m>a_2(n)</m> in terms of the three effects.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\va_n = \left[ \begin{array}{ccc} a_1(n) \\ a_2(n) \end{array}  \right]</m>.
+            Explain why
+            <me>
+              \va_n = (D+I_2)\va_{n-1} + \vg
+            </me>,
+            where <m>D = \left[ \begin{array}{cc} \delta_{11}\amp \delta_{12} \\ \delta_{21}\amp \delta_{22} \end{array}  \right]</m> and <m>\vg = [g_1 \ g_2]^{\tr}</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <table xml:id="T_Expenditures">
+    <title>Military Expenditures of Iran and Iraq 1966-1975</title>
+    <tabular>
+      <row>
+        <cell>Year</cell>
+        <cell>Iran</cell>
+        <cell>Iraq</cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1966</m></cell>
+        <cell><m>662</m></cell>
+        <cell><m>391</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1967</m></cell>
+        <cell><m>903</m></cell>
+        <cell><m>378</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1968</m></cell>
+        <cell><m>1090</m></cell>
+        <cell><m>495</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1969</m></cell>
+        <cell><m>1320</m></cell>
+        <cell><m>615</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1970</m></cell>
+        <cell><m>1470</m></cell>
+        <cell><m>600</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1971</m></cell>
+        <cell><m>1970</m></cell>
+        <cell><m>618</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1972</m></cell>
+        <cell><m>2500</m></cell>
+        <cell><m>589</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1973</m></cell>
+        <cell><m>2970</m></cell>
+        <cell><m>785</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1974</m></cell>
+        <cell><m>5970</m></cell>
+        <cell><m>2990</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell></cell>
+      </row>
+      <row>
+        <cell><m>1975</m></cell>
+        <cell><m>7100</m></cell>
+        <cell><m>1690</m></cell>
+      </row>
+    </tabular>
+  </table>
+  <activity xml:id="act_arms_race_2">
+    <p>
+      In order to analyze a specific arms race between nations,
+      we need some data to determine values of the <m>\delta_{ij}</m> and the <m>g_i</m>.
+      <xref ref="T_Expenditures">Table</xref>
+      shows the military expenditures of Iran and Iraq in the years leading up to their war in 1975. (The data is in millions of US dollars,
+      adjusted for inflation and is taken from ``World Military Expenditures and Arms Transfers 1966-1975" by the U.S. Arms Control and Disarmament Agency.) We can perform regression
+      (we will see how in a later section)
+      on this data to obtain the following linear approximations:
+      <md>
+        <mrow xml:id="eq_arms_race_regression_1" number="yes">a_1(n) \amp = 2.0780a_1(n-1) - 1.7081a_2(n-1) - 126.9954</mrow>
+        <mrow xml:id="eq_arms_race_regression_2" number="yes">a_2(n) \amp =  0.9419a_1(n-1) - 1.3283a_2(n-1) - 101.2980</mrow>
+      </md>.
+    </p>
+    <p>
+      (Of course, the data does not restrict itself to only factors between the two countries,
+      so our model will not be as precise as we might like.
+      However, it is a reasonable place to start.) Use the regression equations <xref ref="eq_arms_race_regression_1"/> and <xref ref="eq_arms_race_regression_2"/> to explain why
+      <me>
+        D = \left[ \begin{array}{cc} 1.0780\amp -1.7081 \\  0.94194\amp -2.3283 \end{array}  \right] \ \text{ and }  \ \ \vg = [ -126.9954 \ -101.2980]^{\tr}
+      </me>
+      for our Iran-Iraq arms race.
+    </p>
+  </activity>
+  <p>
+    <xref ref="act_arms_race_1">Activities</xref>
+    and <xref ref="act_arms_race_2"></xref>
+    provide the basics to describe the general arms race model due to Richardson.
+    If we have an <m>m</m> nation arms race with
+    <m>D = [\delta_{ij}]</m> and <m>\vg = [g_i]</m> , then
+    <men xml:id="eq_AR_model">
+      \va_n =  (D+I_m)\va_{n-1}+\vg
+    </men>.
+  </p>
+  <activity>
+    <p>
+      The idea of an arms race, theoretically,
+      is to reach a point at which all parties feel secure and no additional money needs to be spent on armament.
+      If such a situation ever arises,
+      then the armament of all nations is stable, or in equilibrium.
+      If we have an equilibrium solution,
+      then for large values of <m>n</m> we will have <m>\va_n = \va_{n-1}</m>.
+      So to find an equilibrium solution,
+      if it exists, we need to find a vector <m>\va_E</m> so that
+      <men xml:id="eq_AR_equilibrium">
+        \va_E = (D+I)\va_E + \vg
+      </men>
+      where <m>I</m> is the appropriate size identity matrix.
+      If <m>\va_{E}</m> exists,
+      we call <m>\va_E</m> an <em>equilibrium state</em>.
+    </p>
+    <p>
+      We can apply matrix algebra to find the equilibrium state vector <m>\va_E</m> under certain conditions.
+      <ul>
+        <li>
+          <p>
+            Assuming that <m>\va_E</m> exists,
+            use matrix algebra and <xref ref="eq_AR_equilibrium">Equation</xref> to show that
+            <men xml:id="eq_AR_equilibrium_2">
+              D\va_E + \vg = 0
+            </men>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Under what conditions can we be assured that there will always be a unique equilibrium state <m>\va_{E}</m>?
+            Explain.
+            Under these conditions, how can we find this unique equilibrium state?
+            Write this equilibrium state vector <m>\va_{E}</m> as a matrix-vector product.
+          </p>
+        </li>
+        <li>
+          <p>
+            Does the arms race model for Iran and Iraq have an equilibrium solution?
+            If so, find it.
+            If not, explain why not.
+            Use technology as appropriate.
+          </p>
+        </li>
+        <li>
+          <p>
+            Assuming an equilibrium exists and that both nations behave in a way that supports the equilibrium,
+            explain what the appropriate entry of the equilibrium state vector <m>\va_E</m> suggests about what Iran and Iraq's policies should be.
+            What does this model say about why there might have been war between these two nations?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>

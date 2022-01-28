@@ -1,0 +1,382 @@
+<section xml:id="sec_imt">
+  <title>The Invertible Matrix Theorem</title>
+  <p>
+    We have been introduced to many statements about existence and uniqueness of solutions to systems of linear equations,
+    linear independence of columns of coefficient matrices,
+    onto linear transformations, and many other items.
+    In this section we will analyze these statements in light of how they are related to invertible matrices,
+    with the main goal to understand the Invertible Matrix Theorem.
+  </p>
+  <p>
+    Recall that an <m>n \times n</m> matrix <m>A</m> is invertible if there is an
+    <m>n \times n</m> matrix <m>B</m> such that <m>AB = BA = I_n</m>,
+    where <m>I_n</m> is the <m>n \times n</m> identity matrix.
+    The Invertible Matrix Theorem is an important theorem in that it provides us with a wealth of statements that are all equivalent to the statement that an
+    <m>n \times n</m> matrix <m>A</m> is invertible,
+    and connects many of the topics we have been discussing so far this semester into one big picture.
+  </p>
+  <theorem>
+    <title>The Invertible Matrix Theorem</title>
+    <statement>
+      <p>
+            <idx><h>Invertible Matrix Theorem</h></idx>
+        Let <m>A</m> be an <m>n \times n</m> matrix.
+        The following statements are equivalent:
+        <ol>
+          <li>
+            <p>
+              <m>A</m> is an invertible matrix.
+            </p>
+          </li>
+          <li xml:id="item_trivial_soln">
+            <p>
+              The equation <m>A \vx = \vzero</m> has only the trivial solution.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A</m> has <m>n</m> pivot columns.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> span <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A</m> is row equivalent to the identity matrix <m>I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> are linearly independent.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> form a basis for <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^n</m> defined by <m>T(\vx) = A\vx</m> is one-to-one.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix equation <m>A \vx = \vb</m> has exactly one solution for each vector <m>\vb</m> in <m>\R^n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^n</m> defined by <m>T(\vx) = A\vx</m> is onto.
+            </p>
+          </li>
+          <li xml:id="item_AC_I">
+            <p>
+              There is an <m>n \times n</m> matrix <m>C</m> so that <m>AC = I_n</m>.
+            </p>
+          </li>
+          <li xml:id="item_DA_I">
+            <p>
+              There is an <m>n \times n</m> matrix <m>D</m> so that <m>DA = I_n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The scalar 0 is not an eigenvalue of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A^{\tr}</m> is invertible.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to a matrix being invertible.
+    As discussed in Preview <xref ref="pa_2_d">Activity</xref>,
+    two statements are said to be <em>equivalent</em> if,
+    whenever one of the statements is true,
+    then the other is also true.
+    So to demonstrate, say,
+    statements I and II are equivalent, we need to argue that
+    <ul>
+      <li>
+        <p>
+          if statement I is true, then so is statement II, and
+        </p>
+      </li>
+      <li>
+        <p>
+          if statement II is true then so is statement I.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    The Invertible Matrix Theorem, however,
+    provides a long list of statements that are equivalent.
+    It would be inefficient to prove,
+    one by one, that each pair of statements is equivalent.
+    (There are <m>\binom{14}{2} = 91</m> such pairs.)
+    Fortunately, there is a shorter method that we can use.
+  </p>
+  <activity xml:id="act_2_d_1">
+    <p>
+      In this activity,
+      we will consider certain parts of the Invertible Matrix Theorem and show that one implies another in a specific order.
+      For all parts in this activity,
+      we assume <m>A</m> is an <m>n\times n</m> matrix.
+      <ul>
+        <li>
+          <p>
+            Consider the following implication:
+            <m>(2) \implies (6)</m>:<fn>
+            The symbol <m>\implies</m> is the implication symbol,
+            so <m>(1) \implies (12)</m> is read to mean that statement <m>(1)</m> of the theorem implies statement <m>(12)</m>.
+            </fn>  If the equation
+            <m>A \vx = \vzero</m> has only the trivial solution,
+            then the columns of <m>A</m> are linearly independent.
+            This shows that part 2 of the IMT implies part 6 of the IMT. Justify this implication as if it is a T/F problem.
+          </p>
+        </li>
+        <li>
+          <p>
+            Justify the following implication:
+            <m>(6) \implies (9)</m>: If the columns of <m>A</m> are linearly independent,
+            then the matrix equation <m>A\vx =\vb</m> has exactly one solution for each vector <m>\vb</m> in <m>\R^n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Justify the following implication:
+            <m>(9) \implies (4)</m>: If the equation
+            <m>A \vx = \vb</m> has exactly one solution for every vector <m>\vb</m> in <m>\R^n</m>,
+            then the columns of <m>A</m> span <m>\R^n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Justify the following implication:
+            <m>(4) \implies (2)</m>: If the columns of <m>A</m> span <m>\R^n</m>,
+            then the equation <m>A \vx = \vzero</m> has only the trivial solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the above implications you proved,
+            explain why we can conclude the following implication must also be true:
+            <m>(2) \implies (9)</m>: If the equation
+            <m>A \vx = \vzero</m> has only the trivial solution,
+            then the matrix equation <m>A\vx =\vb</m> has exactly one solution for each vector <m>\vb</m> in <m>\R^n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the above implications you proved,
+            explain why any one of the implications <m>(2)</m>, <m>(6)</m>,
+            <m>(9)</m>, and <m>(4)</m> implies any of the others.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Using a similar ordering of circular implications as in <xref ref="act_2_d_1">Activity</xref>,
+    we can prove the Invertible Matrix Theorem by showing that each statement in the list implies the next statement,
+    and that the last statement implies the first.
+  </p>
+  <p>
+    <em>Proof of the Invertible Matrix Theorem</em>
+    <ul>
+      <li>
+        <title>Statement (1) implies Statement (2)</title>
+        <p>
+          This follows from work done in <xref ref="act_2_d_1">Activity</xref>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (2) implies Statement (3)</title>
+        <p>
+          This was done in <xref ref="act_2_d_1">Activity</xref>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (3) implies Statement (4)</title>
+        <p>
+          Suppose that every column of <m>A</m> is a pivot column.
+          The fact that <m>A</m> is square means that every row of <m>A</m> contains a pivot,
+          and hence the columns of <m>A</m> span <m>\R^n</m>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (4) implies Statement (5)</title>
+        <p>
+          Since the columns of <m>A</m> span <m>\R^n</m>,
+          it must be the case that every row of <m>A</m> contains a pivot.
+          This means that <m>A</m> must be row equivalent to <m>I_n</m>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (5) implies Statement (6)</title>
+        <p>
+          If <m>A</m> is row equivalent to <m>I_n</m>,
+          there must be a pivot in every column,
+          which means that the columns of <m>A</m> are linearly independent.
+        </p>
+      </li>
+      <li>
+        <title>Statement (6) implies Statement (7)</title>
+        <p>
+          If the columns of <m>A</m> are linearly independent,
+          then there is a pivot in every column.
+          Since <m>A</m> is a square matrix,
+          there is a pivot in every row as well.
+          So the columns of <m>A</m> span <m>\R^n</m>.
+          Since they are also linearly independent,
+          the columns form a minimal spanning set,
+          which is a basis of <m>\R^n</m>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (7) implies Statement (8)</title>
+        <p>
+          If the columns form a basis of <m>\R^n</m>,
+          then the columns are linearly independent.
+          This means that each column is a pivot column,
+          which also implies <m>A\vx=\vzero</m> has a unique solution and that <m>T</m> is one-to-one.
+        </p>
+      </li>
+      <li>
+        <title>Statement (8) implies Statement (9)</title>
+        <p>
+          If <m>T</m> is one-to-one, then <m>A</m> has a pivot in every column.
+          Since <m>A</m> is square, every row of <m>A</m> contains a pivot.
+          Therefore, the system <m>A \vx = \vb</m> is consistent for every
+          <m>\vb \in \R^n</m> and has a unique solution.
+        </p>
+      </li>
+      <li>
+        <title>Statement (9) implies Statement (10)</title>
+        <p>
+          If <m>A\vx=\vb</m> has a unique solution for every <m>\vb</m>,
+          then the transformation <m>T</m> is onto since
+          <m>T(\vx)=\vb</m> has a solution for every <m>\vb</m>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (10) implies Statement (11)</title>
+        <p>
+          Assume that <m>T</m> defined by <m>T(\vx) = A\vx</m> is onto.
+          For each <m>i</m>, let <m>\ve_i</m> be the <m>i</m>th column of the
+          <m>n \times n</m> identity matrix <m>I_n</m>.
+          That is, <m>\ve_i</m> is the vector in <m>\R^n</m> with 1 in the <m>i</m>th component and 0 everywhere else.
+          Since <m>T</m> is onto,
+          for each <m>i</m> there is a vector <m>\vc_i</m> such that <m>T(\vc_i) = A \vc_i = \ve_i</m>.
+          Let <m>C = [\vc_1  \ \vc_2 \ \cdots \ \vc_n]</m>.
+          Then
+          <me>
+            AC = A[\vc_1  \ \vc_2 \ \cdots \ \vc_n] = [A\vc_1 \ A\vc_2 \ \cdots \ A\vc_n] = [\ve_1 \ \ve_2 \ \cdots \ \ve_n] = I_n
+          </me>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (11) implies Statement (12)</title>
+        <p>
+          Assume <m>C</m> is an <m>n \times n</m> matrix so that <m>AC = I_n</m>.
+          First we show that the matrix equation
+          <m>C \vx = \vzero</m> has only the trivial solution.
+          Suppose <m>C \vx = \vzero</m>.
+          Then multiplying both sides on the left by <m>A</m> gives us
+          <me>
+            A(C \vx) = A \vzero
+          </me>.
+          Simplifying this equation using <m>AC=I_n</m>,
+          we find <m>\vx = \vzero</m>.
+          Since <m>C \vx = \vzero</m> has only the trivial solution,
+          every column of <m>C</m> must be a pivot column.
+          Since <m>C</m> is an <m>n \times n</m> matrix,
+          it follows that every row of <m>C</m> contains a pivot position.
+          Thus, the matrix equation <m>C \vx = \vb</m> is consistent and has a unique solution for every <m>\vb</m> in <m>\R^n</m>.
+          Let <m>\vv_i</m> be the vector in <m>\R^n</m> satisfying
+          <m>C \vv_i = \ve_i</m> for each <m>i</m> between 1 and <m>n</m> and let <m>M = [\vv_1 \ \vv_2 \ \cdots \ \vv_n]</m>.
+          Then <m>CM = I_n</m>.
+          Now we show that <m>CA = I_n</m>.
+          Since
+          <me>
+            AC = I_n
+          </me>
+          we can multiply both sides on the left by <m>C</m> to see that
+          <me>
+            C(AC) = CI_n
+          </me>.
+          Now we multiply both sides on the right by <m>M</m> and obtain
+          <me>
+            (C(AC))M = CM
+          </me>.
+          Using the associative property of matrix multiplication and the fact that <m>CM = I_n</m> shows that
+          <md>
+            <mrow>(CA)(CM) \amp = CM</mrow>
+            <mrow>CA = I_n</mrow>
+          </md>.
+          Thus, if <m>A</m> and <m>C</m> are <m>n \times n</m> matrices and
+          <m>AC = I_n</m>, then <m>CA = I_n</m>.
+          So we have proved our implication with <m>D = C</m>
+        </p>
+      </li>
+      <li>
+        <title>Statement (12) implies Statement (13)</title>
+        <p>
+          Assume that there is an <m>n \times n</m> matrix <m>D</m> so that <m>DA = I_n</m>.
+          Suppose <m>A \vx = \vzero</m>.
+          Then multiplying both sides by <m>A</m> on the left, we find that
+          <md>
+            <mrow>D(A\vx) \amp = D\vzero</mrow>
+            <mrow>(DA) \vx \amp = \vzero</mrow>
+            <mrow>\vx \amp = \vzero</mrow>
+          </md>.
+          So the equation <m>A \vx = \vzero</m> has only the trivial solution and <m>0</m> is not an eigenvalue for <m>A</m>.
+        </p>
+      </li>
+      <li>
+        <title>Statement (13) implies Statement (14)</title>
+        <p>
+          If 0 is not an eigenvalue of <m>A</m>,
+          then the equation <m>A \vx = \vzero</m> has only the trivial solution.
+          Since <xref ref="item_trivial_soln">statement</xref>
+          implies <xref ref="item_AC_I">statement</xref>,
+          there is an <m>n \times n</m> matrix <m>C</m> such that <m>AC = I_n</m>.
+          The proof that <xref ref="item_AC_I">statement</xref>
+          implies <xref ref="item_DA_I">statement</xref>
+          shows that <m>CA = I_n</m> as well.
+          So <m>A</m> is invertible.
+          By taking the transpose of both sides of the equation
+          <m>AA^{-1}=A^{-1}A=I_n</m> (remembering <m>(AB)^{\tr}= B^{\tr}A^{\tr}</m>) we find
+          <me>
+            (A^{-1})^{\tr} A^{\tr} = A^{\tr} (A^{-1})^{\tr} = I_n^{\tr}=I_n \,
+          </me>.
+          Therefore, <m>(A^{-1})^{\tr}</m> is the inverse of <m>A^{\tr}</m> by definition of the inverse.
+        </p>
+      </li>
+      <li>
+        <title>Statement (14) implies Statement (1)</title>
+        <p>
+          Since statement (1) implies statement (14),
+          we proved <sq>If <m>A</m> is invertible,
+          then <m>A^{\tr}</m> is invertible.</sq>' Using this implication with <m>A^{\tr}</m> replaced by <m>A</m>,
+          we find that <sq>If <m>A^{\tr}</m> is invertible,
+          then <m>(A^{\tr})^{\tr}</m> is invertible.</sq>' But <m>(A^{\tr})^{\tr}=A</m>,
+          which proves that statement (14) implies statement (1).
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    This concludes our proof of the Invertible Matrix Theorem.
+  </p>
+</section>

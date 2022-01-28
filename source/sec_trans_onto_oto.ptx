@@ -1,0 +1,264 @@
+<section xml:id="sec_trans_onto_oto">
+  <title>Onto and One-to-One Transformations</title>
+  <p>
+    The problems we have been asking about solutions to systems of linear equations can be rephrased in terms of matrix transformations.
+    The question about whether a system
+    <m>A \vx = \vb</m> is consistent for any vector <m>\vb</m> is also a question about the existence of a vector <m>\vx</m> so that <m>T(\vx) = \vb</m>,
+    where <m>T</m> is the matrix transformation defined by <m>T(\vx) = A \vx</m>.
+  </p>
+  <activity xml:id="act_1_g_4">
+    <p>
+      Let <m>T</m> be the matrix transformation defined by <m>T(\vx) = A\vx</m> where <m>A</m> is
+      <me>
+        \left[ \begin{array}{rc} 1\amp 0 \\ 0\amp 1 \\ 0\amp 2 \end{array}  \right]
+      </me>.
+      <ul>
+        <li>
+          <p>
+            Find <m>T\left(\left[\begin{array}{c} 1\\1 \end{array} \right]\right)</m> and <m>T\left(\left[\begin{array}{c} 1\\1\\1 \end{array} \right]\right)</m>.
+            If it is not possible to find one or both of the output vectors,
+            indicate why.
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the domain and codomain of <m>T</m>?
+            Why? (Recall that the domain is the space of all input vectors,
+            while the codomain is the space in which the output vectors are contained.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Can you find a vector <m>\vx</m> for which <m>T(\vx)= \left[\begin{array}{c} 2\\3\\6 \end{array} \right]</m>?
+            Can you find a vector <m>\vx</m> for which <m>T(\vx)=\left[\begin{array}{c} 2\\3\\1 \end{array} \right]</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Which <m>\vb=\left[\begin{array}{c} a\\b\\c \end{array} \right]</m> are the image vectors for this transformation?
+            Is the range of <m>T</m> equal to the codomain of <m>T</m>?
+            Explain.
+          </p>
+        </li>
+        <li>
+          <p>
+            The previous question can be rephrased as a matrix equation question.
+            We are asking whether <m>A \vx = \vb</m> is consistent for every <m>\vb</m>.
+            How is the answer to this question related to the pivots of <m>A</m>?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    If <m>T</m> is a matrix transformation,
+    <xref ref="act_1_g_4">Activity</xref>
+    illustrates that the range of a matrix transformation <m>T</m> may not equal its codomain.
+    In other words,
+    there may be vectors <m>\vb</m> in the codomain of <m>T</m> that are not the image of any vector in the domain of <m>T</m>.
+    If it is the case for a matrix transformation <m>T</m> that there is always a vector <m>\vx</m> in the domain of <m>T</m> such that
+    <m>T(\vx) = \vb</m> for any vector <m>\vb</m> in the codomain of <m>T</m>,
+    then <m>T</m> is given a special name.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> is <term>onto</term>
+            <idx><h>onto</h></idx>
+        if each <m>\vb</m> in <m>\R^m</m> is the image of <term>at least one</term>
+        <m>\vx</m> in <m>\R^n</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    So the matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> defined by
+    <m>T(\vx) = A\vx</m> is onto if the equation
+    <m>A \vx = \vb</m> has a solution for each vector <m>\vb</m> in <m>\R^m</m>.
+    Since the vectors <m>A\vx</m> are linear combinations of the columns of <m>A</m>,
+    <m>T</m> is onto exactly when the span of the columns of <m>A</m> is all of <m>\R^m</m>.
+    <xref ref="act_1_g_4">Activity</xref>
+    shows us that <m>T</m> is onto if every row of <m>A</m> contains a pivot.
+  </p>
+  <p>
+    Another question to ask about matrix transformations is how many vectors there can be that map onto a given output vector.
+  </p>
+  <activity xml:id="act_1_g_5">
+    <p>
+      Let <m>T</m> be the matrix transformation defined by <m>T(\vx) = A \vx</m> where <m>A</m> is
+      <me>
+        \left[ \begin{array}{ccc} 1 \amp  3 \amp  0 \\ 0 \amp  0 \amp  1 \end{array}  \right]
+      </me>.
+      <ul>
+        <li>
+          <p>
+            Find <m>T\left(\left[\begin{array}{c} 1\\1 \end{array} \right]\right)</m> and <m>T\left(\left[\begin{array}{c} 1\\1\\1 \end{array} \right]\right)</m>.
+            If it is not possible to find one or both of the output vectors,
+            indicate why.
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the domain and codomain of <m>T</m>?
+            Why?
+          </p>
+        </li>
+        <li>
+          <p>
+            Find <m>T\left(\left[\begin{array}{c} 1\\1\\2 \end{array} \right]\right)</m>.
+            Are there any other <m>\vx</m>'s for which <m>T(\vx)</m> is this same output vector?
+            <hint>
+              <p>
+                Set up an equation to solve for such <m>\vx</m>'s.
+              </p>
+            </hint>
+          </p>
+        </li>
+        <li>
+          <p>
+            Assume more generally that for some vector <m>\vb</m>,
+            there is a vector <m>\vx</m> so that <m>T(\vx) = \vb</m>.
+            Write this as a matrix equation to determine how many solutions this equation has.
+            Explain.
+            How is the answer to this question related to the pivots of <m>A</m>?
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The uniqueness of a solution to
+    <m>A \vx = \vb</m> is the same as saying that the matrix transformation <m>T</m> defined by
+    <m>T(\vx) = A\vx</m> maps exactly one vector to <m>\vb</m>.
+    A matrix transformation <m>T</m> that has the property that every image vector is an image in exactly one way is also a special type of transformation.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> is <term>one-to-one</term>
+            <idx><h>one-to-one</h></idx>
+        if each <m>\vb</m> in <m>\R^m</m> is the image of <term>at most</term>
+        one <m>\vx</m> in <m>\R^n</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    So the matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> defined by
+    <m>T(\vx) = A\vx</m> is one-to-one if the equation
+    <m>A \vx = \vb</m> has a unique solution whenever <m>A \vx = \vb</m> is consistent.
+    Since the vectors <m>A\vx</m> are linear combinations of the columns of <m>A</m>,
+    the unique solution requirement indicates that any output vector can be written in exactly one way as a linear combination of the columns of <m>A</m>.
+    This implies that the columns of <m>A</m> are linearly independent.
+    <xref ref="act_1_g_5">Activity</xref>
+    indicates that this happens when every column of <m>A</m> is a pivot column.
+  </p>
+  <p>
+    To summarize,
+    if <m>T</m> is a matrix transformation defined by <m>T(\vx) = A \vx</m>,
+    then <m>T</m> is onto if every row of <m>A</m> contains a pivot,
+    and <m>T</m> is one-to-one if every column of <m>A</m> is a pivot column.
+    It is important to note the difference:
+    being one-to-one depends on the rows of <m>A</m> and being onto depends on the columns of <m>A</m>.
+  </p>
+  <p>
+    Having a matrix transformation from <m>\R^n</m> to <m>\R^m</m> can tell us things about <m>m</m> and <m>n</m>.
+    For example,
+    when a matrix transformation from <m>\R^n</m> to <m>\R^m</m> is one-to-one,
+    it means that there is a unique input vector for every output vector.
+    Since a matrix transformation preserves the algebraic structure of <m>\R^n</m>,
+    this implies that the collection of the images of the vectors in the domain of <m>T</m> form a copy of <m>\R^n</m> inside of <m>\R^m</m>.
+    If we think of <m>T</m> as a one-to-one matrix transformation with
+    <m>T(\vx) = A \vx</m> for some <m>m \times n</m> matrix,
+    then every column of <m>A</m> will have to be a pivot column.
+    It follows that if there is a one-to-one matrix transformation from <m>\R^n</m> to <m>\R^m</m>,
+    we must have <m>m \geq n</m>.
+    Similarly, if a matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> is onto,
+    then for each <m>\vb</m> in <m>\R^m</m>,
+    if we select one vector in the domain of <m>T</m> whose image is <m>\vb</m>,
+    then the collection of these vectors in the domain of <m>T</m> is a copy of <m>\R^m</m> inside of <m>\R^n</m>.
+    So if there is an onto matrix transformation from <m>\R^n</m> to <m>\R^m</m>,
+    then <m>n \geq m</m>.
+    As a consequence,
+    the only way a matrix transformation from <m>\R^n</m> to <m>\R^m</m> is both one-to-one and onto is if <m>n = m</m>.
+  </p>
+  <p>
+    We conclude this section by adding new equivalent conditions to <xref ref="thm_IMT_1_e">Theorems</xref>
+    and <xref ref="thm_IMT_1_f"></xref>
+    from <xref ref="sec_matrix_vector">Sections</xref>
+    and <xref ref="sec_independence"></xref>.
+  </p>
+  <theorem xml:id="thm_IMT_1_g_a">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix.
+        The following statements are equivalent.
+        <ol>
+          <li>
+            <p>
+              The matrix equation <m>A \vx = \vb</m> has a solution for every vector <m>\vb</m> in <m>\R^m</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every vector <m>\vb</m> in <m>\R^m</m> can be written as a linear combination of the columns of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The span of the columns of <m>A</m> is <m>\R^m</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A</m> has a pivot position in each row.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> defined by <m>T(\vx) = A\vx</m> is onto.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <theorem xml:id="thm_IMT_1_g_b">
+    <statement>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix.
+        The following statements are equivalent.
+        <ol>
+          <li>
+            <p>
+              The matrix equation <m>A \vx = \vb</m> has a unique solution for every vector <m>\vb</m> in the span of the columns of <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix equation <m>A \vx = \vzero</m> has the unique solution <m>\vx = \vzero</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The columns of <m>A</m> are linearly independent.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix <m>A</m> has a pivot position in each column.
+            </p>
+          </li>
+          <li>
+            <p>
+              The matrix transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> defined by <m>T(\vx) = A\vx</m> is one-to-one.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We will continue to add to these theorems,
+    which will eventually give us many different but equivalent perspectives to look at a linear algebra problem.
+    Please keep these equivalent criteria in mind when considering the best possible approach to a problem.
+  </p>
+</section>

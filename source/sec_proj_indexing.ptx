@@ -1,0 +1,378 @@
+<section xml:id="sec_proj_indexing">
+  <title>Project: Latent Semantic Indexing</title>
+  <p>
+    As an elementary example to illustrate the idea behind Latent Semantic Indexing (LSI), consider the problem of creating a program to search a collection of documents for words,
+    or words related to a given word.
+    Document collections are usually very large,
+    but we use a small example for illustrative purposes.
+    A standard example that is given in several publications<fn>
+    e.g., Deerwester, S., Dumais, S. T., Fumas, G. W., Landauer, T. K. and Harshman, R. Indexing by latent semantic analysis.
+    <em>Journal of the American Society for Information Science</em>, 1990, 41: 391?407,
+    and Landauer, T. and Dutnais, S. A Solution to Plato's Problem: The Latent Semantic Analysis Theory of Acquisition, Induction,
+    and Representation of Knowledge.
+    <em>Psychological Review</em>, 1997.
+    Vol. 1M. No. 2, 211-240.
+    </fn> is the following.
+    Suppose we have nine documents <m>c_1</m> through <m>c_5</m>
+    (titles of documents about human-computer interaction)
+    and <m>m_1</m> through <m>m_4</m>
+    (titles of graph theory papers)
+    that make up our library:
+    <ul>
+      <li>
+        <p>
+          <m>c_1</m>: <em>Human</em> machine <em>interface</em>
+          for ABC <em>computer</em> applications
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>c_2</m>: A <em>survey</em> of <em>user</em>
+          opinion of <em>computer system response time</em>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>c_3</m>: The <em>EPS user interface</em>
+          management <em>system</em>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>c_4</m>: <em>System</em> and <em>human system</em>
+          engineering testing of <em>EPS</em>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>c_5</m>: Relation of <em>user</em>
+          perceived <em>response time</em> to error measurement
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>m_1</m>: The generation of random,
+          binary, ordered <em>trees</em>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>m_2</m>: The intersection <em>graph</em>
+          of paths in <em>trees</em>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>m_3</m>: <em>Graph minors</em>
+          IV: Widths of <em>trees</em> and well-quasi-ordering
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>m_4</m>: <em>Graph minors</em>: A <em>survey</em>
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    To make a searchable database,
+    one might start by creating a list of key terms that appear in the documents
+    (generally removing common words such as
+    <q>a</q>,
+    <q>the</q>,
+    <q>of</q>, etc., called <em>stop words</em>
+    <mdash/> these words contribute little, if any, context).
+    In our documents we identify the key words that are shown in italics.
+    (Note that we are just selecting key words to make our example manageable,
+    not necessarily identifying the most important words.)
+    Using the key words we create a
+    <em>term-document</em> matrix.
+    The term-document matrix is the matrix in which the terms form the rows and the documents the columns.
+    If <m>A = [a_{ij}]</m> is the term-document matrix,
+    then <m>a_{ij}</m> counts the number of times word <m>i</m> appears in document <m>j</m>.
+    The term-document matrix <m>A</m> for our library is
+    <men xml:id="eq_LSI_A">
+      \begin{tabular}{cc} \amp $   \begin{array}{ccccccccc}c_1\amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array} $ \\ $\begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array} $  \amp $\left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]$. \end{tabular}
+    </men>
+  </p>
+  <p>
+    One of our goals is to rate the pages in our library for relevance if we search for a query.
+    For example, suppose we want to rate the pages for the query
+    <em>survey, computer</em>.
+    This query can be represented by the vector <m>\vq= [0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 ]^{\tr}</m>.
+  </p>
+  <activity xml:id="act_LSI_standard">
+    <p>
+      In a standard term-matching search with
+      <m>m \times n</m> term-document matrix <m>A</m>,
+      a query vector <m>\vq</m> would be matched with the terms to determine the number of matches.
+      The matching counts the number of times each document agrees with the query.
+      <ul>
+        <li>
+          <p>
+            Explain why this matching is accomplished by the matrix-vector product <m>A^{\tr} \vq</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\vy = [y_1 \ y_2 \ \ldots \ y_n]^{\tr} = A^{\tr} \vq</m>.
+            Explain why <m>y_i = \cos(\theta_i) ||\va_i|| ||\vq||</m>,
+            where <m>\va_i</m> is the <m>i</m>th column of <m>A</m> and
+            <m>\theta_i</m> is the angle between <m>\va_i</m> and <m>\vq</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            We can use the cosine calculation from part (b) to compare matches to our query <mdash/> the closer the cosine is to <m>1</m>,
+            the better the match
+            (dividing by the product of the norms is essentially converting all vectors to unit vectors for comparison purposes).
+            This is often referred to as the cosine distance.
+            Calculate the cosines of the
+            <m>\theta_i</m> for our example of the query <m>\vq= [0 \ 0 \ 1 \ 0  \ 0 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 ]^{\tr}</m>.
+            Order the documents from best to worst match for this query.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Though we were able to rate the documents in Project <xref ref="act_LSI_standard">Activity</xref> using the cosine distance,
+    the result is less than satisfying.
+    Documents <m>c_3</m>, <m>c_4</m>,
+    and <m>c_5</m> are all related to computers but do not appear at all in or results.
+    This is a problem with language searches <mdash/> we don't want to compare just words,
+    but we also need to compare the concepts the words represent.
+    The fact that words can represent different things implies that a random choice of word by different authors can introduce noise into the word-concept relationship.
+    To filter out this noise,
+    we can apply the singular value decomposition to find a smaller set of concepts to better represent the relationships.
+    Before we do so,
+    we examine some useful properties of the term-document matrix.
+  </p>
+  <activity xml:id="act_LSI_tt_dd">
+    <p>
+      Let <m>A = [ \va_1 \ \va_2 \ \cdots \ \va_9]</m>,
+      where <m>\va_1</m>, <m>\va_2</m>,
+      <m>\ldots</m>, <m>\va_9</m> are the columns of <m>A</m>.
+      <ul>
+        <li>
+          <p>
+            In Project <xref ref="act_LSI_standard">Activity</xref>
+            you should have seen that <m>b_{ij} = \va_i^{\tr} \va_j = \va_i \cdot \va_j</m>.
+            Assume for the moment that all of the entries in <m>A</m> are either <m>0</m> or <m>1</m>.
+            Explain why in this case the dot product
+            <m>\va_i \cdot \va_j</m> tells us how many terms documents <m>i</m> and <m>j</m> have in common.
+            Also, the matrix <m>A^{\tr}A</m> takes dot products of the columns of <m>A</m>,
+            which refer to what's happening in each document and so is looking at document-document interactions.
+            For these reasons, we call
+            <m>A^{\tr}A</m> the document-document matrix.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use appropriate technology to calculate the entries of the matrix <m>C = [c_{ij}] = AA^{\tr}</m>.
+            This matrix is the term-term matrix.
+            Assume for the moment that all of the entries in <m>A</m> are either <m>0</m> or <m>1</m>.
+            Explain why if terms <m>i</m> and <m>j</m> occur together in <m>k</m> documents,
+            then <m>c_{ij} =k</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    The nature of the term-term and document-document matrices makes it realistic to think about a SVD.
+  </p>
+  <activity xml:id="act_LSI_ATA_AAT">
+    <p>
+      To see why a singular value decomposition might be useful,
+      suppose our term-document matrix <m>A</m> has singular value decomposition
+      <m>A = U \Sigma V^{\tr}</m>. (Don't actually calculate the SVD yet).
+      <ul>
+        <li>
+          <p>
+            Show that the document-document matrix
+            <m>A^{\tr}A</m> satisfies <m>A^{\tr}A = \left(V \Sigma^{\tr}\right) \left(V\Sigma^{\tr}\right)^{\tr}</m>.
+            This means that we can compare document <m>i</m> and document <m>j</m> using the dot product of row <m>i</m> and column <m>j</m> of the matrix product <m>V\Sigma^{\tr}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that the term-term matrix
+            <m>AA^{\tr}</m> satisfies <m>AA^{\tr} = \left(U \Sigma\right) \left(U\Sigma\right)^{\tr}</m>.
+            Thus we can compare term <m>i</m> and term <m>j</m> using the dot product of row <m>i</m> and column <m>j</m> of the matrix product <m>U\Sigma</m>.
+            (<xref ref="ex_7_c_AAT">Exercise</xref>
+            shows that the columns of <m>U</m> are orthogonal eigenvectors of <m>AA^{\tr}</m>.)
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As we will see,
+    the connection of the matrices <m>U</m> and <m>V</m> to documents and terms that we saw in Project <xref ref="act_LSI_ATA_AAT">Activity</xref>
+    will be very useful when we use the SVD of the term-document matrix to reduce dimensions to a
+    <q>concept</q>
+    space.
+    We will be able to interpret the rows of the matrices <m>U</m> and <m>V</m> as providing coordinates for terms and documents in this space.
+  </p>
+  <activity xml:id="act_LSI_SVD">
+    <p>
+      The singular value decomposition (SVD) allows us to produce new,
+      improved term-document matrices.
+      For this activity,
+      use the term-document matrix <m>A</m> in <xref ref="eq_LSI_A"/>.
+      <ul>
+        <li>
+          <p>
+            Use appropriate technology to find a singular value decomposition of <m>A</m> so that <m>A = U \Sigma V^{\tr}</m>.
+            Print your entries to two decimal places
+            (but keep as many as possible for computational purposes).
+          </p>
+        </li>
+        <li>
+          <p>
+            Each singular value tells us how important its semantic dimension is.
+            If we remove the smaller singular values
+            (the less important dimensions),
+            we retain the important information but eliminate minor details and noise.
+            We produce a new term-document matrix <m>A_k</m> by keeping the largest <m>k</m> of the singular values and discarding the rest.
+            This gives us an approximation
+            <me>
+              A_k = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \cdots + \sigma_k \vu_k\vv_k^{\tr}
+            </me>
+            using the outer product decomposition,
+            where <m>\sigma_1</m>, <m>\sigma_2</m>, <m>\ldots</m>,
+            <m>\sigma_k</m> are the <m>k</m> largest singular values of <m>A</m>.
+            Note that if <m>A</m> is an <m>m \times n</m> matrix,
+            letting <m>U_k = [\vu_1 \ \vu_2 \ \cdots \ \vu_k]</m>
+            (an <m>m \times k</m> matrix),
+            <m>\Sigma_k</m> the <m>k \times k</m> matrix with the first <m>k</m> singular values along the diagonal,
+            and <m>V^{\tr} = [\vv_1 \ \vv_2 \ \cdots \ \vv_k ]^{\tr}</m> (a <m>k \times n</m> matrix),
+            then we can also write <m>A_k = U_k \Sigma_k V_k^{\tr}</m>.
+            This is sometimes referred to as a reduced SVD.  Find <m>U_2</m>,
+            <m>\Sigma_2</m>,
+            and <m>V_2^{\tr}</m>, and find the new term-document matrix <m>A_2</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Once we have our term-document matrix,
+    there are three basic comparisons to make:
+    comparing terms, comparing documents,
+    and comparing terms and documents.
+    Term-document matrices are usually very large,
+    with dimension being the number of terms.
+    By using a reduced SVD we can create a much smaller approximation.
+    In our example,
+    the matrix <m>A_k</m> in Project <xref ref="act_LSI_SVD">Activity</xref>
+    reduces our problem to a <m>k</m>-dimensional space.
+    Intuitively,
+    we can think of LSI as representing terms as averages of all of the documents in which they appear and documents as averages of all of the terms they contain.
+    Through this process, LSI attempts to combine the surface information in our library into a deeper abstraction (the
+    <q>concept</q>
+    space) that captures the mutual relationships between terms and documents.
+  </p>
+  <p>
+    We now need to understand how we can represent documents and terms in this smaller space where <m>A_k = U_k \Sigma_k V_k^{\tr}</m>.
+    Informally, we can consider the rows of <m>U_k</m> as representing the coordinates of each term in the lower dimensional concept space and the columns of
+    <m>V_k^{\tr}</m> as the coordinates of the documents,
+    while the entries of <m>\Sigma_k</m> tell us how important each semantic dimension is.
+    The dot product of two row vectors of <m>A_k</m> indicates how terms compare across documents.
+    This product is <m>A_kA_k^{\tr}</m>.
+    Just as in Project <xref ref="act_LSI_ATA_AAT">Activity</xref>,
+    we have <m>A_kA_k^{\tr} = \left(U_k \Sigma_k\right) \left(U_k\Sigma_k\right)^{\tr}</m>.
+    In other words, if we consider the rows of
+    <m>U_k\Sigma_k</m> as coordinates for terms,
+    then the dot products of these rows give us term to term comparisons.
+    (Note that multiplying <m>U</m> by <m>\Sigma</m> just stretches the rows of <m>U</m> by the singular values according to the importance of the concept represented by that singular value.)
+    Similarly, the dot product between columns of <m>A</m> provide a comparison of documents.
+    This comparison is given by <m>A_k^{\tr}A_k^ = \left(V_k \Sigma_k^{\tr}\right) \left(V_k\Sigma_k^{\tr}\right)^{\tr}</m>
+    (again by Project <xref ref="act_LSI_ATA_AAT">Activity</xref>).
+    So we can consider the rows of
+    <m>V\Sigma^{\tr}</m> as providing coordinates for documents.
+  </p>
+  <activity xml:id="act_LSI_term_document">
+    <p>
+      We have seen how to compare terms to terms and documents to documents.
+      The matrix <m>A_k</m> itself compares terms to documents.
+      Show that <m>A_k = \left(U_k \Sigma_k^{1/2}\right) \left(V_k\Sigma_k^{1/2}\right)^{\tr}</m>,
+      where <m>\Sigma_k^{1/2}</m> is the diagonal matrix of the same size as
+      <m>\Sigma_k</m> whose diagonal entries are the square roots of the corresponding diagonal entries in <m>\Sigma_k</m>.
+      Thus, all useful comparisons of terms and documents can be made using the rows of the matrices <m>U</m> and <m>V</m>,
+      scaled in some way by the singular values in <m>\Sigma</m>.
+    </p>
+  </activity>
+  <p>
+    To work in this smaller concept space,
+    it is important to be able to find appropriate comparisons to objects that appeared in the original search.
+    For example,
+    to complete the latent structure view of the system,
+    we must also convert the original query to a representation within the new term-document system represented by <m>A_k</m>.
+    This new representation is called a
+    <em>pseudo-document</em>.
+    <men xml:id="eq_LSI_newterms">
+      \begin{tabular}{ccc} \amp     $\begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array} $  \amp $\left[ \begin{array}{rr}  - 0.22\amp - 0.11\\ - 0.20\amp - 0.07\\ - 0.24\amp  0.04\\ - 0.40\amp 0.06\\ - 0.64\amp - 0.17\\ - 0.27\amp 0.11\\ - 0.27\amp  0.11\\ - 0.30\amp -0.14\\ - 0.21\amp  0.27\\ - 0.01\amp 0.49\\ - 0.04\amp  0.62\\ - 0.03\amp 0.45 \end{array}    \right]$ \end{tabular}
+    </men>
+  </p>
+  <p>
+    Terms in the reduced concept space.
+    <men xml:id="eq_LSI_newdocs">
+      \begin{tabular}{cc} \amp   $    \begin{array}{ccccccccc}c_1\amp   c_2\amp  \ \  c_3\amp  \ \  c_4\amp  \ c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array} $ \\ \amp  $ \left[   \begin{array}{rrrrrrrrr} - 0.20\amp - 0.61\amp - 0.46\amp - 0.54\amp - 0.28\amp - 0.00\amp - 0.01\amp - 0.02\amp - 0.08\\ - 0.06\amp  0.17\amp - 0.13\amp - 0.23\amp  0.11\amp  0.19\amp  0.44\amp  0.62\amp  0.53 \end{array}  \right]$ \end{tabular}
+    </men>
+  </p>
+  <p>
+    Documents in the reduced concept space.
+  </p>
+  <activity xml:id="act_LSI_concept_space">
+    <p>
+      For an original query <m>\vq</m>,
+      we start with its term vector
+      <m>\va_{\vq}</m> (a vector in the coordinate system determined by the columns of <m>A</m>) and find a representation
+      <m>\vv_{\vq}</m> that we can use as a column of <m>V^{\tr}</m> in the document-document comparison matrix.
+      If this representation was perfect,
+      then it would take a real document in the original system given by <m>A</m> and produce the corresponding column of <m>U</m> if we used the full SVD. In other words,
+      we would have <m>\va_{\vq} = U \Sigma \vv_{\vq}^{\tr}</m>.
+      <ul>
+        <li>
+          <p>
+            Use the fact that <m>A_k = U_k \Sigma_k V_k^{\tr}</m>,
+            to show that <m>V_k = A_k^{\tr} U_k \Sigma_k^{-1}</m>.
+            It follows that <m>\vq</m> is transformed into the query <m>\vq_k = \vq^{\tr}U_k \Sigma_k^{-1}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            In our example, using <m>k=2</m>,
+            the terms can now be represented as <m>2</m>-dimensional vectors
+            (the rows of <m>U_2</m>, see <xref ref="eq_LSI_newterms"/>),
+            or as points in the plane.
+            More specifically, <em>human</em>
+            is represented by the vector
+            (to two decimal places)
+            <m>[-0.22 \ -0.11]^{\tr}</m>,
+            <em>interface</em> by <m>[- 0.20 \ - 0.07]^{\tr}</m>, etc.
+            Similarly, the documents are represented by columns of <m>V_2</m>
+            (see <xref ref="eq_LSI_newdocs"/>),
+            so that the document <m>c_1</m> is represented by <m>[-0.20 \ -0.06]^{\tr}</m>,
+            <m>c_2</m> by <m>[-0.61 \ 0.17]^{\tr}</m>, etc.
+            From this perspective we can visualize these documents in the plane.
+            Plot the documents and the query in the 2-dimensional concept space.
+            Then calculate the cosine distances from the query to the documents in this space.
+            Which documents now give the best three matches to the query?
+            Compare the matches to your plot.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    As we can see from Project <xref ref="act_LSI_concept_space">Activity</xref>,
+    the original query had no match at all with any documents except <m>c_1</m>,
+    <m>c_2</m>, and <m>m_4</m>.
+    In the new concept space,
+    the query now has some connection to every document,. So LSI has made semantic connections between the terms and documents that were not present in the original term-document matrix,
+    which gives us better results for our search.
+  </p>
+</section>

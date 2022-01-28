@@ -1,0 +1,190 @@
+<section xml:id="sec_img_conpress">
+  <title>Image Compression</title>
+  <p>
+    The digital age has brought many new opportunities for the collection,
+    analysis,
+    and dissemination of information.
+    Along with these opportunities come new difficulties as well.
+    All of this digital information must be stored in some way and be retrievable in an efficient manner.
+    A singular value decomposition of digitally stored information can be used to compress the information or clean up corrupted information.
+    In this section we will see how a singular value decomposition can be used in image compression.
+    While a singular value decomposition is normally used with very large matrices,
+    we will restrict ourselves to small examples so that we can more clearly see how a singular value decomposition is applied.
+  </p>
+  <activity xml:id="pa_7_d_1">
+    <p>
+      Let <m>A = \frac{1}{4}\left[ \begin{array}{ccrr} 67\amp 29\amp -31\amp -73 \\ 29\amp 67\amp -73\amp -31 \\ 31\amp 73\amp -67\amp -29  \\ 73\amp 31\amp -29\amp -67 \end{array}  \right]</m>.
+      A singular value decomposition for <m>A</m> is <m>U \Sigma V^{\tr}</m>, where
+      <md>
+        <mrow>U \amp = [\vu_1 \ \vu_2 \ \vu_3 \ \vu_4] = \frac{1}{2} \left[ \begin{array}{crrr} 1\amp -1\amp 1\amp -1</mrow>
+        <mrow>1\amp 1\amp 1\amp 1</mrow>
+        <mrow>1\amp 1\amp -1\amp -1</mrow>
+        <mrow>1\amp -1\amp -1\amp 1 \end{array} \right],</mrow>
+        <mrow>\Sigma \amp =  \left[ \begin{array}{cccc} 50\amp 0\amp 0\amp 0</mrow>
+        <mrow>0\amp 20\amp 0\amp 0</mrow>
+        <mrow>0\amp 0\amp 2\amp 0</mrow>
+        <mrow>0\amp 0\amp 0\amp 1 \end{array} \right],</mrow>
+        <mrow>V \amp = [\vv_1 \ \vv_2 \ \vv_3 \ \vv_4] = \frac{1}{2} \left[ \begin{array}{rrrr} 1\amp 1\amp -1\amp 1</mrow>
+        <mrow>1\amp -1\amp -1\amp -1</mrow>
+        <mrow>-1\amp 1\amp -1\amp -1</mrow>
+        <mrow>-1\amp -1\amp -1\amp 1 \end{array} \right]</mrow>
+      </md>.
+      <ol>
+        <li>
+          <p>
+            Write the summands in the corresponding outer product decomposition of <m>A</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The outer product decomposition of <m>A</m> writes <m>A</m> as a sum of rank 1 matrices (the summands <m>\sigma_i \vu_i \vv_i^{\tr})</m>.
+            Each summand contains some information about the matrix <m>A</m>.
+            Since <m>\sigma_1</m> is the largest of the singular values,
+            it is reasonable to expect that the summand
+            <m>A_1 = \sigma_1 \vu_1  \vv_1^{\tr}</m> contains the most information about <m>A</m> among all of the summands.
+            To get a measure of how much information <m>A_1</m> contains of <m>A</m>,
+            we can think of <m>A</m> as simply a long vector in <m>\R^{mn}</m> where we have folded the data into a rectangular array
+            (we will see later why taking the norm as the norm of the vector in <m>\R^{nm}</m> makes sense,
+            but for now, just use this definition).
+            If we are interested in determining the error in approximating an image by a compressed image,
+            it makes sense to use the standard norm in <m>\R^{mn}</m> to determine length and distance,
+            which is really just the Frobenius norm that comes from the Frobenius inner product defined by
+            <men xml:id="eq_7_d_Frobenius_ip">
+              \langle U,V \rangle = \sum u_{ij}v_{ij}
+            </men>,
+            where <m>U = [u_{ij}]</m> and
+            <m>V = [v_{ij}]</m> are <m>m \times n</m> matrices.
+            (That <xref ref="eq_7_d_Frobenius_ip"/> defines an inner product on the set of all
+            <m>n \times n</m> matrices is left to discuss in a later section.)
+            So in this section all the norms for matrices will refer to the Frobenius norm.
+            Rather than computing the distance between <m>A_1</m> and <m>A</m> to measure the error,
+            we are more interested in the relative error
+            <me>
+              \frac{||A-A_1||}{||A||}
+            </me>.
+            <ul>
+              <li>
+                <p>
+                  Calculate the relative error in approximating <m>A</m> by <m>A_1</m>.
+                  What does this tell us about how much information <m>A_1</m> contains about <m>A</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>A_2 = \sum_{k=1}^2 \sigma_k \vu_k \vv_k^{\tr}</m>.
+                  Calculate the relative error in approximating <m>A</m> by <m>A_2</m>.
+                  What does this tell us about how much information <m>A_2</m> contains about <m>A</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>A_3 = \sum_{k=1}^3 \sigma_k \vu_k \vv_k^{\tr}</m>.
+                  Calculate the relative error in approximating <m>A</m> by <m>A_3</m>.
+                  What does this tell us about how much information <m>A_3</m> contains about <m>A</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>A_4 = \sum_{k=1}^4 \sigma_k \vu_k \vv_k^{\tr}</m>.
+                  Calculate the relative error in approximating <m>A</m> by <m>A_4</m>.
+                  What does this tell us about how much information <m>A_4</m> contains about <m>A</m>?
+                  Why?
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </activity>
+  <p>
+    The first step in compressing an image is to digitize the image.
+    There are many ways to do this and we will consider one of the simplest ways and only work with gray-scale images,
+    with the scale from 0 (black) to 255
+    (white).
+    A digital image can be created by taking a small grid of squares
+    (called pixels)
+    and coloring each pixel with some shade of gray.
+    The resolution of this grid is a measure of how many pixels are used per square inch.
+    As an example,
+    consider the 16 by 16 pixel picture of a flower shown in <xref ref="Fig_7_c_Flower">Figure</xref>.
+  </p>
+  <figure xml:id="Fig_7_c_Flower">
+    <caption>A 16 by 16 pixel image</caption>
+    <image width="73%" source="7_c_Flower"/>
+  </figure>
+  <p>
+    To store this image pixel by pixel would require
+    <m>16 \times 16 = 256</m> units of storage space (1 for each pixel).
+    If we let <m>M</m> be the matrix whose <m>i,j</m>th entry is the scale of the <m>i,j</m>th pixel,
+    then <m>M</m> is the matrix
+    <me>
+      \tiny{ \left[ \begin{array}{cccccccccccccccc} 240\amp 240\amp 240\amp 240\amp 130\amp 130\amp 240\amp 130\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\\ 240\amp 240\amp 240\amp 130\amp 175\amp 175\amp 130\amp 175\amp 175\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240 \\ 240\amp 240\amp 130\amp 130\amp 175\amp 175\amp 130\amp 175\amp 175\amp 130\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240\\ 240\amp 130\amp 175\amp 175\amp 130\amp 175\amp 175\amp 175\amp 130\amp 175\amp 175\amp 130\amp 240\amp 240\amp 240\amp 240\\ 240\amp 240\amp 130\amp 175\amp 175\amp 130\amp 175\amp 130\amp 175\amp 175\amp 130\amp 240\amp 240\amp 240\amp 240\amp 240\\ 255\amp 240\amp 240\amp 130\amp 130\amp 175\amp 175\amp 175\amp 130\amp 130\amp 240\amp 240\amp 225\amp 240\amp 240\amp 240 \\ 240\amp 240\amp 130\amp 175\amp 175\amp 130\amp 130\amp 130\amp 175\amp 175\amp 130\amp 240\amp 225\amp 255\amp 240\amp 240\\ 240\amp 240\amp 130\amp 175\amp 130\amp 240\amp 130\amp 240\amp 130\amp 175\amp 130\amp 240\amp 255\amp 255\amp 255\amp 240\\ 240\amp 240\amp 240\amp 130\amp 240\amp 240\amp 75\amp 240\amp 240\amp 130\amp 240\amp 255\amp 255\amp 255\amp 255\amp 255\\ 240 \amp 240\amp 240\amp 240\amp 240\amp 240\amp 75\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240 \\ 240\amp 240\amp 240\amp 75\amp 75\amp 240\amp 75\amp 240\amp 75\amp 75\amp 240\amp 240\amp 240\amp 240\amp 240\amp 240\\ 50\amp 240\amp 240\amp 240\amp 75\amp 240\amp 75\amp 240\amp 75\amp 240\amp 240\amp 240\amp 240\amp 50\amp 240\amp 240\\ 240\amp 75\amp 240\amp 240\amp 240\amp 75\amp 75\amp 75 \amp 240\amp 240\amp 50\amp 240\amp 50\amp 240\amp 240\amp 50\\ 240\amp 240\amp 75\amp 240\amp 240\amp 240\amp 75\amp 240\amp 240\amp 50\amp 240\amp 50\amp 240\amp 240\amp 50\amp 240\\ 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\\ 75\amp 75\amp 75\amp 75 \amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75\amp 75 \end{array}  \right]}
+    </me>.
+  </p>
+  <p>
+    Recall that if <m>U \Sigma V^{\tr}</m> is a singular value decomposition for <m>M</m>,
+    then we can also write <m>M</m> in the form
+    <me>
+      M=\sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{16} \vu_{16}\vv_{16}^{\tr}
+    </me>.
+    given in <xref ref="eq_7_c_SVD"/>.
+    For this <m>M</m>, the singular values are approximately
+    <men xml:id="eq_7_c_Flower_sing_values">
+      \left[ \begin{array}{c}  3006.770088367795 \\ 439.13109000200205 \\ 382.1756550649652 \\ 312.1181752764884 \\ 254.45105800344953 \\ 203.36470770057494 \\ 152.8696215072527 \\ 101.29084240890717 \\ 63.80803769229468 \\ 39.6189181773536 \\ 17.091891798245463 \\ 12.304589419140656 \\ 4.729898943556077 \\ 2.828719409809012 \\ 6.94442317024232 \times 10^{-15} \\2.19689952047833 \times 10^{-15} \end{array}  \right]
+    </men>.
+  </p>
+  <p>
+    Notice that some of these singular values are very small compared to others.
+    As in Preview <xref ref="pa_7_d_1">Activity</xref>,
+    the terms with the largest singular values contain most of the information about the matrix.
+    Thus, we shouldn't lose much information if we eliminate the small singular values.
+    In this particular example,
+    the last 4 singular values are significantly smaller than the rest.
+    If we let
+    <me>
+      M_{12} = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{12} \vu_{12}\vv_{12}^{\tr}
+    </me>,
+    then we should expect the image determined by <m>M_{12}</m> to be close to the image made by <m>M</m>.
+    The two images are presented side by side in <xref ref="F_7_c_Compress">Figure</xref>.
+  </p>
+  <figure xml:id="F_7_c_Compress">
+    <caption>A 16 by 16 pixel image and a compressed image using a singular value decomposition.</caption>
+    <image width="73%" source="7_c_Flower"/>   <image width="73%" source="7_c_CFlower"/>
+  </figure>
+  <p>
+    This small example illustrates the general idea.
+    Suppose we had a satellite image that was
+    <m>1000 \times 1000</m> pixels and we let <m>M</m> represent this image.
+    If we have a singular value decomposition of this image <m>M</m>, say
+    <me>
+      M = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{r} \vu_{r}\vv_{r}^{\tr}
+    </me>,
+    if the rank of <m>M</m> is large,
+    it is likely that many of the singular values will be very small.
+    If we only keep <m>s</m> of the singular values,
+    we can approximate <m>M</m> by
+    <me>
+      M_s = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{s} \vu_{s}\vv_{s}^{\tr}
+    </me>
+    and store the image with only the vectors <m>\sigma_1 \vu_1</m>,
+    <m>\sigma_2 \vu_2</m>, <m>\ldots</m>, <m>\sigma_{s}\vu_s</m>,
+    <m>\vv_1</m>, <m>\vv_1</m>, <m>\ldots</m>, <m>\vv_s</m>.
+    For example,
+    if we only need 10 of the singular values of a satellite image (<m>s = 10</m>),
+    then we can store the satellite image with only 20 vectors in <m>\R^{1000}</m> or with
+    <m>20 \times 1000 = 20,000</m> numbers instead of <m>1000 \times 1000 = 1,000,000</m> numbers.
+  </p>
+  <p>
+    A similar process can be used to denoise data.<fn>
+    For example,
+    as stated in \url{http://www2.imm.dtu.dk/<nbsp/>pch/Projekter/tsvd.html},
+    <q>The SVD [singular value decomposition] has also applications in digital signal processing,
+    e.g., as a method for noise reduction.
+    The central idea is to let a matrix <m>A</m> represent the noisy signal,
+    compute the SVD, and then discard small singular values of <m>A</m>.
+    It can be shown that the small singular values mainly represent the noise,
+    and thus the rank-<m>k</m> matrix <m>A_k</m> represents a filtered signal with less noise.</q>
+    </fn>
+  </p>
+</section>

@@ -1,0 +1,70 @@
+<section xml:id="sec_appl_elec_circuits">
+  <title>Application: Electrical Circuits</title>
+  <p>
+    Linear algebra is concerned with the study of systems of linear equations.
+    There are two important aspects to linear systems.
+    One is to use given information to set up a system of equations that represents the information
+    (this is called <em>modeling</em>),
+    and the other is to solve the system.
+    As an example of modeling,
+    we consider the application to the very simple electrical circuit.
+    An electrical circuit consists of
+    <ul>
+      <li>
+        <p>
+          one or more electrical sources,
+          denoted by <nbsp/> <image width="73%" source="1_a_pa_source"/>
+        </p>
+      </li>
+      <li>
+        <p>
+          one or more resistors,
+          denoted by <nbsp/> <image width="73%" source="1_a_pa_resistor"/> .
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    A source
+        <idx><h>circuits</h><h>source</h></idx>
+    is a power supply like a battery, and a resistor
+        <idx><h>circuits</h><h>resistor</h></idx>
+    is an object that consumes the electricity,
+    like a lamp or a computer.
+    A simple circuit consists of one or more sources connected to resistors,
+    like the one shown in <xref ref="F_circuit1">Figure</xref>.
+    The straight lines in the circuit indicate wires through which current flows.
+    The points labeled P and Q are called
+    <em>junctions</em> or <em>nodes</em>.
+        <idx><h>circuits</h><h>junctions</h></idx>
+  </p>
+  <figure xml:id="F_circuit1">
+    <caption>A circuit.</caption>
+    <image width="73%" source="1_a_pa_circuit1.eps"/>
+  </figure>
+  <p>
+    The source creates a charge that produces potential energy <m>E</m> measured in volts (V).
+    Current flows out of the positive terminal of a source and runs through each branch of the circuit.
+    Let <m>I_1</m>, <m>I_2</m>,
+    and <m>I_3</m> be the currents as illustrated in <xref ref="F_circuit1">Figure</xref>.
+    The goal is to find the current flowing in each branch of the circuit.
+  </p>
+  <p>
+    Linear algebra comes into play when analyzing a circuit based on the relationship between current <m>I</m>,
+    resistance <m>R</m>, and voltage <m>E</m>.
+    There are laws governing electrical circuits that state that <m>E = IR</m> across a resistor.
+    Additionally, Kirchoff's Current and Voltage Laws indicate how current behaves within the whole circuit.
+    Using all these laws together, we derive the system
+    <md>
+      <mrow>{4} {}I_1 \  \amp - \  \amp {}I_2 \  \amp + \  \amp {}I_3 \  \amp = 0</mrow>
+      <mrow>5I_1 \  \amp + \  \amp 2I_2 \    \amp {} \   \amp {}  \    \amp = 8</mrow>
+      <mrow>\  \amp {} \   \amp 2I_2 \    \amp + \  \amp 4I_3 \    \amp = 5</mrow>
+    </md>,
+    where <m>I_1</m>, <m>I_2</m>,
+    and <m>I_3</m> are the currents at the points indicated in <xref ref="F_circuit1">Figure</xref>.
+    To finish analyzing the circuit,
+    we now need to solve this system.
+    In this section we will begin to learn systematic methods for solving systems of linear equations.
+    More details about the derivation of these circuit equations can be found at the end of this section.
+  </p>
+</section>

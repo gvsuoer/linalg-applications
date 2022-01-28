@@ -1,0 +1,197 @@
+<section xml:id="sec_lin_trans_exam">
+  <title>Examples</title>
+  <p>
+    What follows are worked examples that use the concepts from this section.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>T : \pol_2 \to \pol_3</m> be defined by <m>T(p(t)) = tp(t)+p(0)</m>.
+        <ul>
+          <li>
+            <p>
+              Show that <m>T</m> is a linear transformation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>T</m> one-to-one?
+              Justify your answer.
+            </p>
+          </li>
+          <li>
+            <ol label="i">
+              <li>
+                <p>
+                  Find three different polynomials in <m>\Range(T)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Find, if possible, a polynomial that is not in <m>\Range(T)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe <m>\Range(T)</m>.
+                  What is <m>\dim(\Range(T))</m>?
+                  Is <m>T</m> an onto transformation?
+                  Explain.
+                </p>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </p>
+      <p>
+        <em>Example Solution. </em>
+        <ul>
+          <li>
+            <p>
+              To show that <m>T</m> is a linear transformation we must show that <m>T(p(t)+q(t)) = T(p(t)) + T(q(t))</m> and
+              <m>T(cp(t)) = cT(p(t))</m> for every <m>p(t)</m>,
+              <m>q(t)</m> in <m>\pol_2</m> and any scalar <m>c</m>.
+              Let <m>p(t)</m> and <m>q(t)</m> be in <m>\pol_2</m>.
+              Then
+              <md>
+                <mrow>T(p(t)+q(t)) \amp = t(p(t)+q(t)) + (p(0)+q(0))</mrow>
+                <mrow>\amp = \left(tp(t) + p(0)\right) + \left( tq(t) + q(0) \right)</mrow>
+                <mrow>\amp = T(p(t)) + T(q(t))</mrow>
+              </md>
+              and
+              <me>
+                T(cp(t)) = tcp(t) + cp(0) = c\left(tp(t)+p(0)\right) = cT(p(t))
+              </me>.
+              Therefore, <m>T</m> is a linear transformation.
+            </p>
+          </li>
+          <li>
+            <p>
+              To determine if <m>T</m> is one-to-one, we find <m>\Ker(T)</m>.
+              Suppose <m>p(t) = a_0+a_1t+a_2t^2  \in \Ker(T)</m>.
+              Then
+              <me>
+                0 = T(p(t)) = tp(t) + p(0) =  a_0t+a_1t^2 +a_2t^3 + a_0
+              </me>.
+              Equating coefficients on like powers of <m>t</m> shows that <m>a_0 = a_1 = a_2 = 0</m>.
+              Thus, <m>p(t) = 0</m> and <m>\Ker(T) = \{0\}</m>.
+              Thus, <m>T</m> is one-to-one.
+            </p>
+          </li>
+          <li>
+            <ol label="i">
+              <li>
+                <p>
+                  We can find three polynomials in
+                  <m>\Range(T)</m> by applying <m>T</m> to three different polynomials in <m>\pol_2</m>.
+                  So three polynomials in <m>\Range(T)</m> are
+                  <md>
+                    <mrow>T(1) \amp = t+1</mrow>
+                    <mrow>T(t) \amp = t^2</mrow>
+                    <mrow>T\left(t^2\right) \amp = t^3</mrow>
+                  </md>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  A polynomial <m>q(t) = b_0+b_1t+b_2t^2+b_3t^3</m> is in <m>\Range(T)</m> if
+                  <m>q(t) = T(p(t))</m> for some polynomial <m>p(t) = a_0+a_1t+a_2t^2</m> in <m>\pol_2</m>.
+                  This would require that
+                  <me>
+                    b_0+b_1t+b_2t^2+b_3t^3 = a_0t+a_1t^2+a_2t^3+a_0
+                  </me>.
+                  But this would mean that <m>b_0 = a_0 = b_1</m>.
+                  So the polynomial <m>1+2t+t^2+t^3</m> is not in <m>\Range(T)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Let <m>q(t)</m> be in <m>\Range(T)</m>.
+                  Then <m>q(t) = T(p(t))</m> for some polynomial <m>p(t) = a_0+a_1t+a_2t^2 \in \pol_2</m>.
+                  Thus,
+                  <md>
+                    <mrow>q(t) \amp = T(p(t))</mrow>
+                    <mrow>\amp = tp(t) + p(0)</mrow>
+                    <mrow>\amp = a_0t+a_1t^2+a_2t^3 + a_0</mrow>
+                    <mrow>\amp = a_0(t+1) + a_1t^2 +a_2t^3</mrow>
+                  </md>.
+                  Therefore, <m>\Range(T) = \Span\{t+1, t^2, t^3\}</m>.
+                  Since the reduced row echelon form of
+                  <m>\left[ \begin{array}{ccc} 1\amp 0\amp 0\\1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array}  \right]</m> is <m>\left[ \begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1\\0\amp 0\amp 0 \end{array}  \right]</m>,
+                  we conclude that the set <m>\{t+1, t^2, t^3\}</m> is linearly independent.
+                  Thus, <m>\dim(\Range(T)) = 3</m>.
+                  Since <m>\Range(T)</m> is a three-dimensional subspace of the four-dimensional space <m>\pol_3</m>,
+                  it follows that <m>T</m> is not onto.
+                </p>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>T: \M_{2 \times 2} \to \pol_3</m> be defined by
+        <me>
+          T\left( \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right] \right) = a+bt+ct^2+dt^3
+        </me>.
+      </p>
+      <p>
+        Show that <m>T</m> is an isomorphism from <m>\M_{2 \times 2}</m> to <m>\pol_3</m>.
+      </p>
+      <p>
+        <em>Example Solution. </em>
+      </p>
+      <p>
+        We need to show that <m>T</m> is a linear transformation,
+        and that <m>T</m> is both one-to-one and onto.
+        We start by demonstrating that <m>T</m> is a linear transformation.
+        Let <m>A = [a_{ij}]</m> and
+        <m>B = [b_{ij}]</m> be in <m>\M_{2 \times 2}</m>.
+        Then
+        <md>
+          <mrow>T(A+B) \amp = T\left([a_{ij}+b_{ij}]\right)</mrow>
+          <mrow>\amp = \left(a_{11}+b_{11}\right) + \left(a_{12}+b_{12}\right)t + \left(a_{21}+b_{21}\right)t^2 + \left(a_{22}+b_{22}\right)t^3</mrow>
+          <mrow>\amp = \left(a_{11}+a_{12}t+a_{21}t^2+a_{22}t^3\right)  +  \left(b_{11}+b_{12}t+b_{21}t^2+b_{22}t^3\right)</mrow>
+          <mrow>\amp = T(A) + T(B)</mrow>
+        </md>.
+      </p>
+      <p>
+        Now let <m>c</m> be a scalar.
+        Then
+        <md>
+          <mrow>T(cA) \amp = T\left([ca_{ij}]\right)</mrow>
+          <mrow>\amp = \left(ca_{11}\right)+\left(ca_{12}\right)t+\left(ca_{21}\right)t^2+\left(ca_{22}\right)t^3</mrow>
+          <mrow>\amp = c\left(a_{11}+a_{12}t+a_{21}t^2+a_{22}t^3\right)</mrow>
+          <mrow>\amp = cT(A)</mrow>
+        </md>.
+      </p>
+      <p>
+        Therefore, <m>T</m> is a linear transformation.
+      </p>
+      <p>
+        Next we determine <m>\Ker(T)</m>.
+        Suppose <m>A \in \Ker(T)</m>.
+        Then
+        <me>
+          0 = T(A) = a_{11}+a_{12}t+a_{21}t^2+a_{22}t^3
+        </me>.
+      </p>
+      <p>
+        Equating coefficients of like powers of <m>T</m> shows that
+        <m>a_{ij} = 0</m> for each <m>i</m> and <m>j</m>.
+        Thus, <m>A = 0</m> and <m>\Ker(T) = \{0\}</m>.
+        It follows that <m>T</m> is one-to-one.
+      </p>
+      <p>
+        Finally, we show that <m>\Range(T) = \pol_3</m>.
+        If <m>q(t) = a+bt+ct^2+dt^3 \in \pol_3</m>,
+        then <m>T\left( \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array} \right] \right) = q(t)</m>.
+        So every polynomial in <m>\pol_3</m> is the image of some matrix in <m>\M_{2 \times 2}</m>.
+        It follows that <m>T</m> is onto and also that <m>T</m> is an isomorphism.
+      </p>
+    </statement>
+  </example>
+</section>

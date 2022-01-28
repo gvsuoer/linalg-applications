@@ -1,0 +1,72 @@
+<section xml:id="sec_sim_mtx_trans">
+  <title>Similarity and Matrix Transformations</title>
+  <p>
+    When a matrix is similar to a diagonal matrix,
+    we can gain insight into the action of the corresponding matrix transformation.
+    As an example,
+    consider the matrix transformation <m>T</m> from <m>\R^2</m> to <m>\R^2</m> defined by <m>T(\vx) = A \vx</m>, where
+    <men xml:id="eq_4_c_1">
+      A = \left[ \begin{array}{cc} 3\amp 1\\1\amp 3 \end{array}  \right]
+    </men>.
+  </p>
+  <p>
+    We are interested in understanding what this matrix transformation does to vectors in <m>\R^2</m>.
+    First we note that <m>A</m> has eigenvalues <m>\lambda_1 = 2</m> and
+    <m>\lambda_2 = 4</m> with corresponding eigenvectors
+    <m>\vv_1 = \left[ \begin{array}{r} -1\\1 \end{array}  \right]</m> and <m>\vv_2 = \left[ \begin{array}{c} 1\\1 \end{array}  \right]</m>.
+    If we let <m>P = [\vv_1 \ \vv_2]</m>, then you can check that
+    <me>
+      P^{-1}AP = D
+    </me>
+    and
+    <me>
+      A = PDP^{-1}
+    </me>,
+    where
+    <me>
+      D = \left[ \begin{array}{cc} 2 \amp  0 \\ 0 \amp  4 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Thus,
+    <me>
+      T(\vx) = PDP^{-1}\vx
+    </me>.
+  </p>
+  <p>
+    A simple calculation shows that
+    <me>
+      P^{-1} = \frac{1}{2}\left[ \begin{array}{rc} -1\amp 1 \\ 1\amp 1 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Let us apply <m>T</m> to the unit square whose sides are formed by the vectors <m>\ve_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]</m> and
+    <m>\ve_2 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]</m> as shown in the first picture in <xref ref="F_4_c_1">Figure</xref>.
+  </p>
+  <p>
+    To apply <m>T</m> we first multiply <m>\ve_1</m> and <m>\ve_2</m> by <m>P^{-1}</m>.
+    This gives us
+    <me>
+      P^{-1}\ve_1 = \frac{1}{2}\left[ \begin{array}{r} -1\\1 \end{array}  \right] \text{ and }  \ P^{-1}\ve_2 = \frac{1}{2}\left[ \begin{array}{c} 1\\1 \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    So <m>P^{-1}</m> transforms the standard coordinate system into a coordinate system in which columns of <m>P^{-1}</m> determine the axes,
+    as illustrated in the second picture in <xref ref="F_4_c_1">Figure</xref>.
+    Applying <m>D</m> to the output scales by 2 in the first component and by <m>4</m> in the second component as depicted in the third picture in <xref ref="F_4_c_1">Figure</xref>.
+    Finally, we apply <m>P</m> to translate back into the standard <m>xy</m> coordinate system as shown in the last picture in <xref ref="F_4_c_1">Figure</xref>.
+    In this case,
+    we can visualize that when we apply the transformation <m>T</m> to a vector in this system it is just scaled in the
+    <m>P^{-1}\ve_1-P^{-1}\ve_2</m> system by the matrix <m>D</m>.
+    Then the matrix <m>P</m> translates everything back to the standard <m>xy</m> coordinate system.
+  </p>
+  <figure xml:id="F_4_c_1">
+    <caption>The matrix transformation.</caption>
+    <image width="73%" source="4_c_Transformation_1"/>    <image width="73%" source="4_c_Transformation_2"/>
+    <image width="73%" source="4_c_Transformation_3"/>   <image width="73%" source="4_c_Transformation_4"/>
+  </figure>
+  <p>
+    This geometric perspective provides another example of how having a matrix similar to a diagonal matrix informs us about the situation.
+    In what follows we determine the conditions that determine when a matrix is similar to a diagonal matrix.
+  </p>
+</section>

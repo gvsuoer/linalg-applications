@@ -1,0 +1,92 @@
+<section xml:id="sec_vec_length">
+  <title>The Length of a Vector</title>
+  <p>
+    We can use inner products to define the length of any vector in an inner product space and the distance between two vectors in an inner product space.
+    The idea comes right from the relationship between lengths of vectors in <m>\R^n</m> and inner products on <m>\R^n</m>
+    (compare to <xref ref="def_6_a_length_Rn">Definition</xref>).
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\vv</m> be a vector in an inner product space.
+        The <term>length</term><idx><h>length of a vector in an inner product space</h></idx> of <m>\vv</m> is the real number
+        <me>
+          ||\vv|| = \sqrt{\langle \vv, \vv \rangle}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The length of a vector in a vector space is also called
+    <em>magnitude</em> or <em>norm</em>.
+    Just as with inner products on <m>\R^n</m> we can use the notion of length to define unit vectors in inner product spaces
+    (compare to <xref ref="def_6_a_unit_vector">Definition</xref>).
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A vector <m>\vv</m> in an inner product space is a
+        <term>unit vector</term><idx><h>unit vector in an inner product space</h></idx> if <m>||\vv|| = 1</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We can find a unit vector in the direction of a nonzero vector <m>\vv</m> in an inner product space by dividing by the norm of the vector.
+    That is, the vector <m>\ds \frac{\vv}{||\vv||}</m> is a unit vector in the direction of the vector <m>\vv</m>,
+    provided that <m>\vv</m> is not zero.
+  </p>
+  <p>
+    We define the distance between vectors <m>\vu</m> and <m>\vv</m> in an inner product space in the same way we defined distance using the dot product
+    (compare to <xref ref="def_6_a_distance">Definition</xref>).
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\vu</m> and <m>\vv</m> be vectors in an inner product space.
+        The <term>distance between</term><idx><h>distance between vectors in an inner product space</h></idx> <m>\vu</m> and <m>\vv</m> is the length of the difference <m>\vu - \vv</m> or
+        <me>
+          || \vu - \vv ||
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <activity xml:id="act_6_c_Frobenius">
+    <p>
+      The <em>trace</em>
+      (see <xref ref="def_trace">Definition</xref>)
+      of an <m>n \times n</m> matrix
+      <m>A = [a_{ij}]</m> is the sum of the diagonal entries of <m>A</m>.
+      That is,
+      <me>
+        \trace(A) = a_{11} + a_{22} + \cdots + a_{nn}
+      </me>.
+    </p>
+    <p>
+      If <m>A</m> and <m>B</m> are in the space <m>\M_{n \times n}</m> of
+      <m>n \times n</m> matrices with real entries,
+      we define the mapping <m>\langle  \ , \ \rangle</m> from <m>\M_{n \times n} \times \M_{n \times n}</m> to <m>\R</m> by
+      <me>
+        \langle A, B \rangle = \trace\left(AB^{\tr}\right)
+      </me>.
+    </p>
+    <p>
+      This mapping is an inner product on the space <m>\M_{n \times n}</m> called the
+      <em>Frobenius</em> inner product
+      (details are in the exercises).
+      Let <m>A = \left[ \begin{array}{cc} 1\amp 0\\2\amp 2 \end{array} \right]</m> and
+      <m>B = \left[ \begin{array}{rc} -3\amp 4\\-2\amp 1 \end{array} \right]</m> in <m>\M_{2 \times 2}</m>
+      <ul>
+        <li>
+          <p>
+            Find the length of the vectors <m>A</m> and <m>B</m> using the Frobenius inner product.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the distance between <m>A</m> and <m>B</m> using the Frobenius inner product.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+</section>
