@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_proj_back_face">
   <title>Project: Back-Face Culling</title>
   <p>
@@ -10,18 +11,18 @@
   </p>
   <activity xml:id="act_bf_normal">
     <p>
-      Consider the polygon <m>ABCD</m> in <xref ref="F_Normal_vector">Figure</xref>.
+      Consider the polygon <m>ABCD</m> in <xref ref="F_Normal_vector"></xref>.
       Since a polygon is flat,
       every vector in the polygon is perpendicular to a fixed vector
       (which we call a <em>normal vector</em> to the polygon).
-      A normal vector <m>\vn</m> for the polygon <m>ABCD</m> in <xref ref="F_Normal_vector">Figure</xref> is shown.
+      A normal vector <m>\vn</m> for the polygon <m>ABCD</m> in <xref ref="F_Normal_vector"></xref> is shown.
       In this activity we learn how to find a normal vector to a polygon.
     </p>
     <p>
       Let <m>\vx = [x_1 \ x_2 \ x_3]^{\tr}</m> and
       <m>\vy = [y_1 \ y_2 \ y_3]^{\tr}</m> be two vectors in <m>\R^3</m>.
       If <m>\vx</m> and <m>\vy</m> are linearly independent,
-      then <m>\vx</m> and <m>\vy</m> determine a polygon as shown in <xref ref="F_Normal_vector">Figure</xref>.
+      then <m>\vx</m> and <m>\vy</m> determine a polygon as shown in <xref ref="F_Normal_vector"></xref>.
       Our goal is to find a vector <m>\vn</m> that is orthogonal to both <m>\vx</m> and <m>\vy</m>.
       Let <m>\vw = [w_1 \ w_2 \ w_3]^{\tr}</m> be another vector in <m>\R^3</m> and let
       <m>C = \left[ \begin{array}{c} \vw^{\tr} \\ \vx^{\tr} \\ \vy^{\tr} \end{array}  \right]</m> be the matrix whose rows are <m>\vw</m>,
@@ -91,7 +92,7 @@
     shows that the cross product is anticommutative,
     so we get different directions if we switch the order in which we calculate the cross product.
     To fix a direction,
-    we establish the convention that we always label the vertices of our parallelogram in the counterclockwise direction as shown in <xref ref="F_Normal_vector">Figure</xref>.
+    we establish the convention that we always label the vertices of our parallelogram in the counterclockwise direction as shown in <xref ref="F_Normal_vector"></xref>.
     This way we always use <m>\vx</m> as the vector from vertex <m>A</m> to vertex <m>B</m> rather than the reverse.
     With this convention established,
     we can now define the direction of a parallelogram as the direction of its normal vector.
@@ -99,7 +100,7 @@
   <p>
     Once we have a normal vector established for each polygon,
     we can now determine which polygons are back-face and which are front-face.
-    <xref ref="F_Hidden">Figure</xref>
+    <xref ref="F_Hidden"></xref>
     at left provides the gist of the idea,
     where we represent the polygons with line segments to illustrate.
     If the viewer's eye is at point <m>P</m> and views the figures,
@@ -114,7 +115,7 @@
   </figure>
   <activity xml:id="act_bf_dot_product">
     <p>
-      Consider the situation as depicted at right in <xref ref="F_Hidden">Figure</xref>.
+      Consider the situation as depicted at right in <xref ref="F_Hidden"></xref>.
       Assume that <m>AB</m> and <m>RS</m> are polygons
       (rendered one dimensionally here)
       with normal vectors <m>\vn</m> at their centers as shown.

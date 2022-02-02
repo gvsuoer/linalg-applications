@@ -1,20 +1,25 @@
-<section xml:id="sec_notation">
+<?xml version="1.0" encoding="UTF-8" ?>
+<subsection xml:id="sec_notation">
   <title>Notation and Terminology</title>
   <p>
     To study linear algebra,
     we will need to agree on some general notation and terminology to represent our systems.
   </p>
   <p>
-    An equation like <m>4x_1 + x_2 = 8</m> is called a linear equation because the variables (<m>x_1</m> and <m>x_2</m> in this case) are raised to the first power,
+    An equation like <m>4x_1 + x_2 = 8</m> is called a linear equation because the variables 
+    (<m>x_1</m> and <m>x_2</m> in this case) are raised to the first power,
     and there are no products of variables.
     The equation <m>4x_1 + x_2 = 8</m> is a linear equation in two variables,
     but we can make a linear equation with any number of variables we like.
   </p>
+
   <definition>
+  <idx><h>linear equation</h></idx>
+  <idx><h>linear equation</h><h>coefficients</h></idx>
     <statement>
       <p>
         A <term>linear equation</term>
-            <idx><h>linear equation</h></idx>
+            
         in the variables <m>x_1</m>, <m>x_2</m>,
         <m>\ldots</m>, <m>x_n</m> is an equation of the form
         <me>
@@ -23,10 +28,11 @@
         where <m>n</m> is a positive integer and <m>a_1</m>, <m>a_2</m>,
         <m>\ldots</m>, <m>a_n</m> and <m>b</m> are constants.
         The constants <m>a_1</m>, <m>a_2</m>, <m>\ldots</m>,
-        <m>a_n</m> are called the <term>coefficients</term><idx><h>linear equation</h><h>coefficients</h></idx> of the equation.
+        <m>a_n</m> are called the <term>coefficients</term> of the equation.
       </p>
     </statement>
   </definition>
+
   <p>
     We can use any labels for the variables in a linear equation that we like,
     e.g., <m>I_1</m>, <m>x_1</m>, <m>t_1</m>,
@@ -36,48 +42,60 @@
     to represent the variables as this notation allows us to have any number of variables.
     Other examples of linear equations are
     <me>
-      x+2y=4  \text{ and }   \sqrt{2}x_1-3x_2=\frac{1}{4}x_3+\pi \,
+      x+2y=4 \qquad \text{ and } \qquad \sqrt{2}x_1-3x_2=\frac{1}{4}x_3+\pi \,
     </me>.
   </p>
   <p>
     On the other hand, the equations
     <me>
-      \frac{1}{x}+y-z=0  \text{ and }   2x_1=\sqrt{x_2}-5
+      \frac{1}{x}+y-z=0 \qquad \text{ and } \qquad 2x_1=\sqrt{x_2}-5
     </me>
     are non-linear equations.
   </p>
+
   <definition>
+    <idx><h>system of linear equations</h></idx>
     <statement>
       <p>
-        A <term>system of linear equations</term><idx><h>system of linear equations</h></idx> is a collection of one or more linear equations in the same variables.
+        A <term>system of linear equations</term> is a collection of one or more linear equations 
+        in the same variables.
       </p>
     </statement>
   </definition>
+
   <p>
     For example, the two equations
-    <men xml:id="eq_1_a_PA_1">
-      \begin{alignedat}{4} x_1   \amp {}-{}  \amp x_2  \amp = 1  \\ 2x_1   \amp {}+{}   \amp x_2  \amp = 5 \end{alignedat}
-    </men>
+    <mdn alignment="alignat">
+      <mrow number="no">x_1   \amp {}-{}  \amp x_2  \amp = 1</mrow>
+      <mrow xml:id="eq_1_a_PA_1">2x_1   \amp {}+{}   \amp x_2  \amp = 5</mrow>
+    </mdn>
+
     form a system of two linear equations in variables <m>x_1</m>,
     <m>x_2</m>.
   </p>
+
   <definition>
+    <idx><h>system of linear equations</h><h>solution</h></idx>
     <statement>
       <p>
-        A <term>solution</term><idx><h>system of linear equations</h><h>solution</h></idx> to a system of linear equations is an ordered <m>n</m>-tuple
+        A <term>solution</term> to a system of linear equations is an ordered <m>n</m>-tuple
         <m>(s_1, s_2, \ldots,
-        s_n)</m> of numbers so that we obtain all true statements in the system when we replace the variable in order with <m>s_1</m>,
+        s_n)</m> of numbers so that we obtain all true statements in the system when we replace the 
+        variable in order with <m>s_1</m>,
         <m>s_2</m>, <m>\ldots</m>, and <m>s_n</m>.
       </p>
     </statement>
   </definition>
+
   <p>
+   <idx><h>system of linear equations</h><h>solution set</h></idx>
     For example, <m>x_1=2, x_2=1</m>, or simply <m>(2,1)</m>,
-    is a solution to the above system of linear equations in <xref ref="eq_1_a_PA_1"/> as can be checked by substituting the variables into each equation.
+    is a solution to the above system of linear equations in <xref ref="eq_1_a_PA_1"/> as can be 
+    checked by substituting the variables into each equation.
     In solving a system of linear equations,
     we are interested in finding the set of all solutions,
-    which we will call the <em>solution set of the system</em>.
-        <idx><h>system of linear equations</h><h>solution set</h></idx>
+    which we will call the <term>solution set of the system</term>.
+       
     For the above system in <xref ref="eq_1_a_PA_1"/>,
     the solution set is the set containing the single point <m>(2,1)</m>,
     denoted <m>\{(2,1)\}</m>, because there is only one solution.
@@ -91,4 +109,4 @@
     and <m>\R^3</m> is the set of all ordered triples,
     or the three-dimensional space.
   </p>
-</section>
+</subsection>

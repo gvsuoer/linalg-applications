@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_proj_fractals">
   <title>Project: Fractals via Iterated Function Systems</title>
   <p>
     In this project we will see how to use linear transformations to create iterated functions systems to generate fractals.
     We illustrate the idea with the Sierpinski triangle,
-    an approximate picture of which is shown at left in <xref ref="F_Striangle">Figure</xref>.
+    an approximate picture of which is shown at left in <xref ref="F_Striangle"></xref>.
   </p>
   <figure xml:id="F_Striangle">
     <caption>Left: An approximation of the Sierpinski triangle. Right: A triangle.</caption>
@@ -20,7 +21,7 @@
     <p>
       Let <m>\vv_1 = [0 \ 0]^{\tr}</m>,
       <m>\vv_2 = [1 \ 0]^{\tr}</m>,
-      and <m>\vv_3 = \left[ \frac{1}{2} \ \frac{\sqrt{3}}{4}\right]^{\tr}</m> be three vectors in the plane whose endpoints form the vertices of a triangle <m>P_0</m> as shown at right in <xref ref="F_Striangle">Figure</xref>.
+      and <m>\vv_3 = \left[ \frac{1}{2} \ \frac{\sqrt{3}}{4}\right]^{\tr}</m> be three vectors in the plane whose endpoints form the vertices of a triangle <m>P_0</m> as shown at right in <xref ref="F_Striangle"></xref>.
       Let <m>T : \R^2 \to \R^2</m> be the linear transformation defined by <m>T(\vx) = A \vx</m>,
       where <m>A = \frac{1}{2} I_2 = \frac{1}{2} \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 1 \end{array} \right]</m>.
       <ul>
@@ -64,7 +65,7 @@
       <m>P_{1,2} = C_2(P_0)</m>, and <m>P_{1,3} = C_3(P_0)</m>.
       So <m>P_{1,i}</m> is a triangle half the size of the original translated to the <m>i</m>th vertex of the original.
       Let <m>P_1 = \bigcup_{i=1}^3 P_{1,i}</m>.
-      That is, <m>P_1</m> is the union of the shaded triangles in <xref ref="F_IFS_2">Figure</xref>.
+      That is, <m>P_1</m> is the union of the shaded triangles in <xref ref="F_IFS_2"></xref>.
     </p>
     <figure xml:id="F_IFS_2">
       <caption><m>C_1(P_0)</m>, <m>C_2(P_0)</m>, and <m>C_3(P_0)</m>.</caption>
@@ -102,10 +103,10 @@
     In other words,
     for <m>i</m> = 1, 2, and 3, let <m>P_{2,i} = C_i(P_1)</m>.
     Then let <m>P_2 = \bigcup_{i=1}^3 P_{2,i}</m>.
-    A picture of <m>P_2</m> is shown at left in <xref ref="F_Striangle_2">Figure</xref>.
+    A picture of <m>P_2</m> is shown at left in <xref ref="F_Striangle_2"></xref>.
     We can continue this procedure,
     each time replacing <m>P_{j-1}</m> with <m>P_j</m>.
-    A picture of <m>P_9</m> is shown at right in <xref ref="F_Striangle_2">Figure</xref>.
+    A picture of <m>P_9</m> is shown at right in <xref ref="F_Striangle_2"></xref>.
   </p>
   <figure xml:id="F_Striangle_2">
     <caption>Left: <m>P_2</m>. Right: <m>P_9</m>.</caption>
@@ -115,7 +116,7 @@
     If we continue this process, taking the limit as <m>i</m> approaches infinity,
     the resulting sequence of sets converges to a fixed set,
     in this case the famous Sierpinski triangle.
-    So the picture of <m>P_9</m> in <xref ref="F_Striangle_2">Figure</xref>
+    So the picture of <m>P_9</m> in <xref ref="F_Striangle_2"></xref>
     is a close approximation of the Sierpinski triangle.
     This algorithm for building the Sierpinski triangle is called the
     <em>deterministic algorithm</em>.
@@ -165,7 +166,7 @@
   </p>
   <activity xml:id="IFS_carpet">
     <p>
-      A picture of an emerging Sierpinski carpet is shown at left in <xref ref="F_Scarpet">Figure</xref>.
+      A picture of an emerging Sierpinski carpet is shown at left in <xref ref="F_Scarpet"></xref>.
       A Sage cell to illustrate this algorithm for producing approximations to the Sierpinski carpet can be found at \url{http://faculty.gvsu.edu/schlicks/SCarpet_Sage.html}. In this activity we will see how to find an iterated function system that will generate this fractal.
     </p>
     <figure xml:id="F_Scarpet">
@@ -177,7 +178,7 @@
         <p>
           To create an IFS to generate this fractal,
           we need to understand how many self-similar pieces make up this figure.
-          Use the image at right in <xref ref="F_Scarpet">Figure</xref>
+          Use the image at right in <xref ref="F_Scarpet"></xref>
           to determine how many pieces we need.
         </p>
       </li>
@@ -229,7 +230,7 @@
   </p>
   <activity xml:id="act_Fractal_reflection">
     <p>
-      Consider the fractal represented in <xref ref="F_Fractal_reflection">Figure</xref>.
+      Consider the fractal represented in <xref ref="F_Fractal_reflection"></xref>.
       Find an IFS that generates this fractal.
       Explain your reasoning.
     </p>
@@ -252,13 +253,13 @@
   </p>
   <activity xml:id="act_Fractal_dragon">
     <p>
-      Consider the L&#xe9;vy Dragon fractal shown at left in <xref ref="F_Fractal_rotation">Figure</xref>.
+      Consider the L&#xe9;vy Dragon fractal shown at left in <xref ref="F_Fractal_rotation"></xref>.
       Find an IFS that generates this fractal.
       Explain your reasoning.
     </p>
     <hint>
       <p>
-        Two rotations are involved <mdash/> think of the fractal as contained in a blue triangle as shown at right in <xref ref="F_Fractal_rotation">Figure</xref>.
+        Two rotations are involved <mdash/> think of the fractal as contained in a blue triangle as shown at right in <xref ref="F_Fractal_rotation"></xref>.
       </p>
     </hint>
     <p>
@@ -283,7 +284,7 @@
     A square is slightly different.
     We can partition a square into 4 non-overlapping squares,
     or 9 non-overlapping squares,
-    or <m>n^2</m> non-overlapping squares for any positive integer <m>n</m> as shown in <xref ref="F_Squares">Figure</xref>.
+    or <m>n^2</m> non-overlapping squares for any positive integer <m>n</m> as shown in <xref ref="F_Squares"></xref>.
   </p>
   <figure xml:id="F_Squares">
     <caption>Self-similar squares.</caption>
@@ -311,7 +312,7 @@
   <p>
     We can then take this as our definition of the dimension of a self-similar object,
     when the scaling factors are all the same
-    (the fern fractal in <xref ref="F_Fern">Figure</xref>
+    (the fern fractal in <xref ref="F_Fern"></xref>
     is an example of a fractal generated by an iterated function system in which the scaling factors are not all the same).
   </p>
   <definition>
