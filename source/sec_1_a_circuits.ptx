@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<section xml:id="sec_1_a_circuits">
+<subsection xml:id="sec_1_a_circuits">
   <title>Project: Modeling an Electrical Circuit and the Wheatstone Bridge Circuit</title>
+  <idx><h>Ohm's Law</h></idx>
+  <idx><h>Kirchoff's Current Law</h></idx>
+  <idx><h>Kirchoff's Voltage Law</h></idx>
   <p>
     Mathematical modeling,
     or the act of creating equations to model given information,
     is an important part of problem solving.
     In this section we will see how we derived the system of equations
-    <md>
-      <mrow>{4} {}I_1 \  \amp - \  \amp {}I_2 \  \amp + \  \amp {}I_3 \  \amp = 0</mrow>
+    <md alignment="alignat">
+      <mrow> {}I_1 \  \amp - \  \amp {}I_2 \  \amp + \  \amp {}I_3 \  \amp = 0</mrow>
       <mrow>5I_1 \  \amp + \  \amp 2I_2 \    \amp {} \   \amp {}  \    \amp = 8</mrow>
       <mrow>\  \amp {} \   \amp 2I_2 \    \amp + \  \amp 4I_3 \    \amp = 5</mrow>
     </md>
@@ -18,14 +21,14 @@
         <p>
           one or more electrical sources
           (like a battery),
-          denoted by <nbsp/> <image width="73%" source="1_a_pa_source"/>
+          denoted by <image width="50%" source="1_a_pa_source"/>
         </p>
       </li>
       <li>
         <p>
           one or more resistors
           (like any appliance that you plug into a wall outlet),
-          denoted by <image width="73%" source="1_a_pa_resistor"/> .
+          denoted by <image width="50%" source="1_a_pa_resistor"/> .
         </p>
       </li>
     </ul>
@@ -50,12 +53,13 @@
     <ol>
       <li>
         <p>
-          Resistance <m>R</m> in ohms (<m>\Omega</m>) can be thought of as a measure of how difficult it is to move a charge along a circuit.
+          Resistance <m>R</m> in ohms (<m>\Omega</m>) can be thought of as a measure of how difficult 
+          it is to move a charge along a circuit.
           When a current flows through a resistor,
           it must expend some energy, called a <em>voltage drop</em>.
           Ohm's Law
-            <idx><h>Ohm's Law</h></idx>
-          states that the voltage drop <m>E</m> across a resistor is the product of the current <m>I</m> passing through the resistor and the resistance <m>R</m>.
+          states that the voltage drop <m>E</m> across a resistor is the product of the current 
+          <m>I</m> passing through the resistor and the resistance <m>R</m>.
           That is,
           <me>
             E = IR
@@ -65,15 +69,14 @@
       <li>
         <p>
           Kirchoff's Current Law
-            <idx><h>Kirchoff's Current Law</h></idx>
           states that at any point in an electrical circuit,
-          the sum of currents flowing into that point is equal to the sum of currents flowing out of that point.
+          the sum of currents flowing into that point is equal to the sum of currents flowing out 
+          of that point.
         </p>
       </li>
       <li>
         <p>
           Kirchoff's Voltage Law
-            <idx><h>Kirchoff's Voltage Law</h></idx>
           says that around any closed loop the sum of the voltage drops is equal to the sum of the voltage rises.
         </p>
       </li>
@@ -90,13 +93,13 @@
       I_1 - I_2 + I_3 = 0
     </me>.
   </p>
-  <activity>
+  <project>
     <p>
       Apply Kirchoff's Current Law to the point <m>Q</m> to obtain an equation in <m>I_1</m>,
       <m>I_2</m>, and <m>I_3</m>.
       What do you notice?
     </p>
-  </activity>
+  </project>
   <p>
     We have three variables to determine,
     so we still need two more equations in <m>I_1</m>,
@@ -106,21 +109,25 @@
     <ul>
       <li>
         <p>
-          A current passing through a resistor produces a voltage drop if it flows in the direction of loop
+          A current passing through a resistor produces a voltage drop if it flows in the 
+          direction of loop
           (and a voltage rise if the current passes in the opposite direction of the loop).
         </p>
       </li>
       <li>
         <p>
-          A current passing through a source in the direction of the loop produces a voltage drop if it flows from <m>+</m> to <m>-</m> and a voltage rise if it flows from <m>-</m> to <m>+</m>,
-          while a current passing through a source in the opposite direction of the loop produces a voltage rise if it flows from <m>+</m> to <m>-</m> and a voltage drop if it flows from <m>-</m> to <m>+</m>.
+          A current passing through a source in the direction of the loop produces a voltage drop 
+          if it flows from <m>+</m> to <m>-</m> and a voltage rise if it flows from <m>-</m> to <m>+</m>,
+          while a current passing through a source in the opposite direction of the loop produces a 
+          voltage rise if it flows from <m>+</m> to <m>-</m> and a voltage drop if it flows from <m>-</m> to <m>+</m>.
         </p>
       </li>
     </ul>
   </p>
   <p>
     (The directions chosen in <xref ref="F_circuit1"></xref>
-    for the voltage flow are arbitrary <mdash/> if we reverse the flow then we just replace voltage drops with voltage rises and obtain the same equations.
+    for the voltage flow are arbitrary <mdash/> if we reverse the flow then we just replace 
+    voltage drops with voltage rises and obtain the same equations.
     If a solution shows that a current is negative,
     then that current flows in the direction opposite of what is shown.)
   </p>
@@ -138,26 +145,32 @@
       5I_1 + 2I_2 = 8
     </me>.
   </p>
-  <activity>
+
+  <project>
     <p>
       Apply Kirchoff's Voltage Law to the bottom loop in the circuit in <xref ref="F_circuit1"></xref>
       to obtain an equation in <m>I_1</m>,
       <m>I_2</m>, and <m>I_3</m>.
       Compare the three equations we have found to those in the introduction.
     </p>
-  </activity>
+  </project>
+
   <figure xml:id="F_Wheatstone">
     <caption>A Wheatstone bridge circuit.</caption>
     <image width="73%" source="Wheatstone"/>
   </figure>
-  <activity>
+  
+  <project>
+    <introduction>
     <p>
       Consider the circuit as shown in <xref ref="F_Wheatstone"></xref>,
       with a single source and five resistors with resistances <m>R_1</m>,
       <m>R_2</m>, <m>R_3</m>, <m>R_4</m>,
       and <m>R_5</m> as labeled.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Assume the following information.
             The voltage <m>E</m> is <m>13</m> volts,
@@ -166,33 +179,41 @@
             Follow the directions given to find the currents <m>I_0</m>,
             <m>I_1</m>, <m>I_2</m>, <m>I_3</m>,
             <m>I_4</m>, and <m>I_5</m>.
-            <ol label="i">
-              <li>
+          </p>
+          </statement>
+            <task>
+              <statement>
                 <p>
                   Use Kirchoff's Current Law to show that <m>I_0 = I_1+I_2</m>,
                   <m>I_3 = I_1-I_5</m>, and <m>I_4 = I_2 + I_5</m>.
                   Thus, we reduce the problem to three variables.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
-                  Apply Kirchoff's Voltage Law to three loops to show that the currents must satisfy the linear system
-                  <md>
+                  Apply Kirchoff's Voltage Law to three loops to show that the currents must satisfy 
+                  the linear system
+                  <md alignment="alignat">
                     <mrow xml:id="eq_Wheatstone_1" number="yes">{4} {2}I_1  \amp {}{}    \amp {}     \amp {}-{}  \amp {}I_5   \amp = \amp  \ 13\amp {}</mrow>
                     <mrow xml:id="eq_Wheatstone_2" number="yes">{}     \amp {}{}    \amp {3}I_2   \amp {}+{}  \amp {2}I_5   \amp = \amp  \ 13\amp {}</mrow>
                     <mrow xml:id="eq_Wheatstone_3" number="yes">{}I_1   \amp {}-{}  \amp {}I_2   \amp {}+{}  \amp {}I_5   \amp = \amp  \ 0\amp {.}</mrow>
                   </md>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Solve the system to find the unknown currents.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+          
+        </task>
+        <task>
+          <statement>
           <p>
             The circuit pictured in <xref ref="F_Wheatstone"></xref>
             is called a <em>Wheatstone bridge</em>
@@ -209,8 +230,8 @@
             (which is how we calculate the unknown resistance <m>R_4</m>).
             Do this in general and do not use any specific values for the resistances or the voltage.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
-</section>
+        </statement>
+      </task>
+    
+  </project>
+</subsection>
