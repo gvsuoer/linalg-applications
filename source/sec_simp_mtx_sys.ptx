@@ -26,13 +26,14 @@
     </ol>
   </p>
   <p>
+  <idx><h>row operations</h></idx>
     Recall that we use these elementary operations to transform a system,
     with the ultimate goal of finding a simpler,
     equivalent system that we can solve.
     Since each row of an augmented matrix corresponds to an equation,
-    we can translate these operations on equations to corresponding operations on rows (called <em>row operations</em>
-        <idx><h>row operations</h></idx>
-    or <em>elementary row operations</em>):
+    we can translate these operations on equations to corresponding operations on rows 
+    (called <term>row operations</term>
+    or <term>elementary row operations</term>):
     <ol>
       <li>
         <p>
@@ -51,10 +52,12 @@
       </li>
     </ol>
   </p>
+
   <activity xml:id="act_A1_2_1">
+    <introduction>
     <p>
       Consider the system
-      <md>
+      <md alignment="alignat">
         <mrow> {}a_2  \amp {}-{}   \amp {}a_1   \amp {}+{}  \amp {}a_0   \amp = 2</mrow>
         <mrow>{}a_2   \amp {}+{}  \amp {}a_1   \amp {}+{}  \amp {}a_0  \amp = 6</mrow>
         <mrow>4a_2     \amp {}+{}   \amp 2a_1   \amp {}+{}   \amp {}a_0   \amp = 5</mrow>
@@ -63,149 +66,185 @@
       <me>
         \left[ \begin{array}{crc|c} 1   \amp -1    \amp 1   \amp 2 \\ 1  \amp 1    \amp 1  \amp 6 \\ 4  \amp 2    \amp 1  \amp 5 \end{array}  \right]
       </me>
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             As a first step in solving our system,
             we might eliminate <m>a_2</m> from the second equation.
-            This means that the corresponding entry in the second row and first column of the augmented matrix will become 0.
-            Find a row operation that adds a multiple of the first row to the second row to achieve this goal.
+            This means that the corresponding entry in the second row and first column of the 
+            augmented matrix will become 0.
+            Find a row operation that adds a multiple of the first row to the second row to achieve 
+            this goal.
             Then write the system of equations that corresponds to this new augmented matrix.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now that we have eliminated the <m>a_2</m> terms from the second equation,
             we eliminate the <m>a_2</m> term from the third equation.
             Find an appropriate row operation that does that,
-            and write the corresponding system of linear equations that corresponds to the new augmented matrix.
+            and write the corresponding system of linear equations that corresponds to the new 
+            augmented matrix.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            Now you should have a system in which the last two rows correspond to a system of 2 linear equations in two unknowns.
-            Use a row operation that adds a multiple of the second row to the third row to turn the coefficient of <m>a_1</m> in the third row to 0.
+            Now you should have a system in which the last two rows correspond to a system of 2 
+            linear equations in two unknowns.
+            Use a row operation that adds a multiple of the second row to the third row to turn the 
+            coefficient of <m>a_1</m> in the third row to 0.
             Then write the corresponding system of linear equations.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Your simplified system and its augment matrix are in
-            <em>row echelon form</em>
+            <term>row echelon form</term>
             and this system is solvable using
-            <em>back-substitution</em>
-            (substituting the known variable values into the previous equation to find the value of another variable).
+            <term>back-substitution</term>
+            (substituting the known variable values into the previous equation to find the value 
+            of another variable).
             Solve the system.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
   </activity>
+
+  <remark>
   <p>
-    \begin{reflect}Do you see how this standard elimination process can be generalized to any linear system with any number of variables to produce a simplified system?
+    Do you see how this standard elimination process can be generalized to any linear system with 
+    any number of variables to produce a simplified system?
     Do you see why the process does not change the solutions of the system?
-    If needed, can you modify the standard elimination process to obtain a simplified system in which the last equation contains only the variable <m>a_2</m>,
+    If needed, can you modify the standard elimination process to obtain a simplified system in which 
+    the last equation contains only the variable <m>a_2</m>,
     the next to last equation contains only the variables <m>a_1, a_2</m>,
     etc.? Understanding the standard process will enable you to be able to modify it,
-    if needed, in a problem. \end{reflect}
+    if needed, in a problem.
   </p>
+  </remark>
+
   <p>
     <xref ref="act_A1_2_1"></xref>
-    illustrates how we can perform all of the operations on equations with operations on the rows of augmented matrices to reduce a system to a solvable form.
+    illustrates how we can perform all of the operations on equations with operations on the rows of 
+    augmented matrices to reduce a system to a solvable form.
     Each time we perform an operation on the system of equations
     (or on the rows of an augmented matrix)
     we obtain an equivalent system
     (or an augmented matrix corresponding to an equivalent system).
     For completeness,
-    we list the operations on equations and the corresponding row operations below that can be used to solve our polynomial fitting system.
+    we list the operations on equations and the corresponding row operations below that can be used 
+    to solve our polynomial fitting system.
     Throughout the process we will let <m>E_1</m>, <m>E_2</m>,
     and <m>E_3</m> be the first, second,
     and third equations in the system and <m>R_1</m>, <m>R_2</m>,
     and <m>R_3</m> the first, second,
     and third rows of the augmented matrices.
-    The notation <m>E_1+E_2</m> placed next to equation <m>E_2</m> means means that we replace the second equation in the system with the sum of the first two equations.
+    The notation <m>E_1+E_2</m> placed next to equation <m>E_2</m> means means that we replace the 
+    second equation in the system with the sum of the first two equations.
     We start with the system
-    <md>
+    <md alignment="alignat">
       <mrow> {}a_2  \amp {}-{}   \amp {}a_1   \amp {}+{}  \amp {}a_0   \amp = 2</mrow>
       <mrow>{}a_2   \amp {}+{}  \amp {}a_1   \amp {}+{}  \amp {}a_0  \amp = 6</mrow>
       <mrow>4a_2     \amp {}+{}   \amp 2a_1   \amp {}+{}   \amp {}a_0   \amp = 5</mrow>
     </md>
   </p>
   <p>
-    On the left we demonstrate the operations on equations and on the right the corresponding operations on rows of the augmented matrix.
+    On the left we demonstrate the operations on equations and on the right the corresponding 
+    operations on rows of the augmented matrix.
   </p>
-  <sidebyside>
-    { <m>E_2-E_1\to E_2</m>}
-    <md>
-      <mrow>
-      {}a_2  \amp {}-{}   \amp {}a_1   \amp {}+{}  \amp {}a_0   \amp {}= 2</mrow>
-      <mrow>{}     \amp {}    \amp 2a_1   \amp {}    \amp {}     \amp {}= 4</mrow>
-      <mrow>4a_2   \amp {}+{}   \amp 2a_1   \amp {}+{}   \amp {}a_0   \amp {}= 5</mrow>
-    </md>
-    <tabular>
-      <row>
-        <cell></cell>
-      </row>
-      <row>
-        <cell>{ <m>R_2-R_1\to R_2</m>}</cell>
-      </row>
-    </tabular>
-    <m>\left[ \begin{array}{rrr|r} 1 \amp -1 \amp 1 \amp 2 \\ 0 \amp 2 \amp 0 \amp 4 \\ 4 \amp 2\amp 1 \amp 5
-    \end{array}  \right]</m>
-    { <m>E_3-4E_1\to E_3</m>}
-    <md>
-      <mrow>
-      {}a_2  \amp {}-{}   \amp {}a_1     \amp {}+{}  \amp {}a_0   \amp {}= \amp  \ {}\amp 2</mrow>
-      <mrow>{}       \amp {}    \amp 2a_1     \amp {}    \amp {}     \amp {}= \amp  \ {}\amp 4</mrow>
-      <mrow>{}     \amp {}     \amp 6a_1     \amp {}-{}   \amp 3a_0   \amp {}= \amp  \ {-}\amp 3</mrow>
-    </md>
-    <tabular>
-      <row>
-        <cell></cell>
-      </row>
-      <row>
-        <cell></cell>
-      </row>
-      <row>
-        <cell>{ <m>R_3-4R_1\to R_3</m>}</cell>
-      </row>
-    </tabular>
-    <m>\left[ \begin{array}{rrr|r} 1    \amp -1   \amp 1 \amp 2   \\ 0  \amp 2    \amp 0 \amp 4  \\ 0  \amp 6    \amp -3 \amp -3
-    \end{array}  \right]</m>
-    { <m>E_3-3E_2\to E_3</m>}
-    <md>
-      <mrow>
-      {}a_2  \amp {}-{}   \amp {}a_1     \amp {}+{}  \amp {}a_0   \amp {}= \amp  \ {}\amp \amp {}2</mrow>
-      <mrow>{}       \amp {}    \amp 2a_1     \amp {}    \amp {}     \amp {}= \amp  \ {}\amp \amp {}4</mrow>
-      <mrow>{}     \amp {}     \amp {}       \amp {}-{}  \amp 3a_0   \amp {}= \amp  \ {-}\amp \amp {15}</mrow>
-    </md>
-    <tabular>
-      <row>
-        <cell></cell>
-      </row>
-      <row>
-        <cell></cell>
-      </row>
-      <row>
-        <cell>{ <m>R_3-3R_2\to R_3</m>}</cell>
-      </row>
-    </tabular>
-    <m>\left[ \begin{array}{rrr|r} 1    \amp -1   \amp 1 \amp 2   \\ 0  \amp 2    \amp 0 \amp 4  \\ 0  \amp 0    \amp -3 \amp -15
-    \end{array}  \right]</m>
-  </sidebyside>
+
+  <sbsgroup widths="5% 30% 5% 25%" margins="1% 10%" valign="middle">
+    <sidebyside>
+      <p>
+        <m>\scriptstyle{E_2-E_1\to E_2}</m>
+      </p>
+      <p>
+      <md alignment="alignat">
+        <mrow>
+        {}a_2  \amp {}-{}   \amp {}a_1   \amp {}+{}  \amp {}a_0   \amp {}= 2</mrow>
+        <mrow>{}     \amp {}    \amp 2a_1   \amp {}    \amp {}     \amp {}= 4</mrow>
+        <mrow>4a_2   \amp {}+{}   \amp 2a_1   \amp {}+{}   \amp {}a_0   \amp {}= 5</mrow>
+      </md>
+      </p>
+      <p>
+        <m>\scriptstyle{R_2-R_1\to R_2}</m>
+      </p>
+      <p>
+
+      <me>\left[ \begin{array}{rrr|r} 1 \amp -1 \amp 1 \amp 2 \\ 0 \amp 2 \amp 0 \amp 4 \\ 4 \amp 2\amp 1 \amp 5
+      \end{array}  \right]</me>
+      </p>
+    </sidebyside>
+
+    <sidebyside>
+      <p>
+        <m>\scriptstyle{E_3-4E_1\to E_3}</m>
+      </p>
+      <p>
+      <md alignment="alignat">
+        <mrow>
+        {}a_2  \amp {}-{}   \amp {}a_1     \amp {}+{}  \amp {}a_0   \amp {}= \amp  \ {}\amp 2</mrow>
+        <mrow>{}       \amp {}    \amp 2a_1     \amp {}    \amp {}     \amp {}= \amp  \ {}\amp 4</mrow>
+        <mrow>{}     \amp {}     \amp 6a_1     \amp {}-{}   \amp 3a_0   \amp {}= \amp  \ {-}\amp 3</mrow>
+      </md>
+      </p>
+      <p>
+        <m>\scriptstyle{R_3-4R_1\to R_3}</m>
+      </p>
+      <p>
+
+      <me>\left[ \begin{array}{rrr|r} 1    \amp -1   \amp 1 \amp 2   \\ 0  \amp 2    \amp 0 \amp 4  \\ 0  \amp 6    \amp -3 \amp -3
+      \end{array}  \right]</me>
+      </p>
+    </sidebyside>
+
+    <sidebyside>
+      <p>
+        <m>\scriptstyle{E_3-3E_2\to E_3}</m>
+      </p>
+      <p>
+      <md alignment="alignat">
+        <mrow>
+        {}a_2  \amp {}-{}   \amp {}a_1     \amp {}+{}  \amp {}a_0   \amp {}= \amp  \ {}\amp \amp {}2</mrow>
+        <mrow>{}       \amp {}    \amp 2a_1     \amp {}    \amp {}     \amp {}= \amp  \ {}\amp \amp {}4</mrow>
+        <mrow>{}     \amp {}     \amp {}       \amp {}-{}  \amp 3a_0   \amp {}= \amp  \ {-}\amp \amp {15}</mrow>
+      </md>
+      </p>
+      <p>
+        <m>\scriptstyle{R_3-3R_2\to R_3}</m>
+      </p>
+      <p>
+
+      <me>\left[ \begin{array}{rrr|r} 1    \amp -1   \amp 1 \amp 2   \\ 0  \amp 2    \amp 0 \amp 4  \\ 0  \amp 0    \amp -3 \amp -15
+      \end{array}  \right]</me>
+      </p>
+    </sidebyside>
+  </sbsgroup>
+
   <p>
     Now we can solve the last equation for <m>a_0</m> to find that <m>a_0=5</m>.
     The second equation gives us <m>a_1 = 2</m>.<fn>
     If there had been an <m>a_0</m> term in the second equation,
     we could have substituted <m>a_0=5</m> and solved for <m>a_1</m>
     </fn> Finally,
-    using the first equation with the already determined values of <m>a_0</m> and <m>a_1</m> gives us <m>a_2=-1</m>.
+    using the first equation with the already determined values of <m>a_0</m> and <m>a_1</m> gives 
+    us <m>a_2=-1</m>.
     Thus we have found the solution to the polynomial fitting system to be <m>a_2=-1</m>,
     <m>a_1=2</m>, and <m>a_0=5</m>.
   </p>
   <p>
-    We summarize the steps of the (partial) elimination on matrices we used above to solve a general linear system in the variables <m>x_1</m>,
+    We summarize the steps of the (partial) elimination on matrices we used above to solve a general 
+    linear system in the variables <m>x_1</m>,
     <m>x_2</m>, <m>\ldots</m>, <m>x_n</m>.
+
     <ol>
       <li>
         <p>
@@ -236,16 +275,18 @@
       </li>
     </ol>
   </p>
+
   <p>
+    <idx><h>forward elimination</h></idx>
+    <idx><h>back substitution</h></idx>
     This elimination method where the variables are eliminated from lower equations is called the
-    <em>forward elimination phase</em>
-        <idx><h>forward elimination</h></idx>
+    <term>forward elimination phase</term>
     as it eliminates variables in the forward direction.
     Solving for variables using substitution into upper equations is called
-    <em>back substitution</em>.
-        <idx><h>back substitution</h></idx>
+    <term>back substitution</term>.
     The matrix representation of a linear system after the forward elimination process is said to be in
-    <em>row echelon form</em>.
-    We will define this form and the elimination process on the matrices more precisely in the next section.
+    <term>row echelon form</term>.
+    We will define this form and the elimination process on the matrices more precisely in the next 
+    section.
   </p>
 </section>
