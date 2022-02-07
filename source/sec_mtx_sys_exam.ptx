@@ -5,80 +5,46 @@
     What follows are worked examples that use the concepts from this section.
   </p>
   <example>
-    <statement>
+    <introduction>
       <p>
         Consider the linear system
-        <md>
+        <md alignment="alignat">
           <mrow> {}x_1    \amp {}-{}   \amp { }x_2    \amp {}{}    \amp {}    \amp {}+{}  \amp {2}x_4   \amp {}= \amp  \ 1\amp {}</mrow>
           <mrow>{2}x_1  \amp {}+{}   \amp {3}x_2    \amp {}-{}  \amp {2}x_3  \amp {}+{}  \amp {5}x_4   \amp {}= \amp  \ 4\amp {}</mrow>
           <mrow>{}x_1    \amp {}-{}   \amp {}x_2    \amp {}+{}  \amp {}x_3  \amp {}-{}  \amp { }x_4   \amp {}= \amp  \ 0\amp {}</mrow>
           <mrow>x_1  \amp {}+{}   \amp {}x_2    \amp {}-{}  \amp {}x_3  \amp {}+{}  \amp {6}x_4   \amp {}= \amp  \ 5\amp {.}</mrow>
         </md>
-        <ul>
-          <li>
+      </p>
+    </introduction>
+
+        <task>
+          <statement>
             <p>
               Set up the augmented matrix for this linear system.
             </p>
-          </li>
-          <li>
-            <p>
-              Find all solutions to the system using forward elimination.
-            </p>
-          </li>
-          <li>
-            <p>
-              Suppose, after forward elimination,
-              the augmented matrix of the system
-              <md>
-                <mrow> {}x_1    \amp {}-{}   \amp { }x_2    \amp {}{}    \amp {}    \amp {}+{}  \amp {2}x_4   \amp {}= \amp  \ 1\amp {}</mrow>
-                <mrow>{2}x_1  \amp {}+{}   \amp {3}x_2    \amp {}-{}  \amp {2}x_3  \amp {}+{}  \amp {5}x_4   \amp {}= \amp  \ 4\amp {}</mrow>
-                <mrow>{}x_1    \amp {}-{}   \amp {}x_2    \amp {}+{}  \amp {}x_3  \amp {}-{}  \amp { }x_4   \amp {}= \amp  \ 0\amp {}</mrow>
-                <mrow>x_1  \amp {}+{}   \amp {}x_2    \amp {}-{}  \amp {}x_3  \amp {}+{}  \amp {6}x_4   \amp {}= \amp  \ h\amp {.}</mrow>
-              </md>
-              has the form
-              <me>
-                \left[ \begin{array}{crrr|c} 1\amp -1\amp 0\amp 2\amp 1 \\ 0\amp 5\amp -2\amp 1\amp 2 \\ 0\amp 0\amp 1\amp -3\amp -1 \\ 0\amp 0\amp 0\amp 0\amp h-5 \end{array}  \right]
-              </me>.
-              For which values of <m>h</m> does this system have:
-              <ol label="i">
-                <li>
-                  <p>
-                    No solutions?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    A unique solution?
-                    Find the solution.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Infinitely many solution?
-                    Determine all solutions?
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               The augmented matrix for this system is
               <me>
                 \left[ \begin{array}{crrr|c} 1\amp -1\amp 0\amp 2\amp 1 \\ 2\amp 3\amp -2\amp 5\amp 4 \\ 1\amp -1\amp 1\amp -1\amp 0 \\ 4\amp 1\amp -1\amp 6\amp 5 \end{array}  \right]
               </me>.
+            
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find all solutions to the system using forward elimination.
+            </p>
+          </statement>
+          <solution>
             <p>
               We apply forward elimination,
               first making the entries below the 1 in the upper left all 0.
-              We do this by replacing row two with row two minus 2 times row 1, row three with row three minus row 1, and row four with row four minus 4 row one.
+              We do this by replacing row two with row two minus 2 times row 1, row three with row 
+              three minus row 1, and row four with row four minus 4 row one.
               This produces the augmented matrix
               <me>
                 \left[ \begin{array}{crrr|r} 1\amp -1\amp 0\amp 2\amp 1 \\ 0\amp 5\amp -2\amp 1\amp 2 \\ 0\amp 0\amp 1\amp -3\amp -1 \\ 0\amp 5\amp -1\amp -2\amp 1 \end{array}  \right]
@@ -101,7 +67,7 @@
                 <mrow>x_3 \amp = 3x_4 - 1</mrow>
               </md>.
               The second row tells us that
-              <md>
+              <md alignment="alignat">
                 <mrow>5x_2 - 2x_3 + x_4 \amp = 2</mrow>
                 <mrow>5x_2 \amp = 2x_3 - x_4 + 2</mrow>
                 <mrow>5x_2 \amp = 2(3x_4-1) - x_4 + 2</mrow>
@@ -109,7 +75,7 @@
                 <mrow>x_2 \amp = x_4</mrow>
               </md>.
               Finally, the first row gives us
-              <md>
+              <md alignment="alignat">
                 <mrow>x_1-x_2+2x_4 \amp = 1</mrow>
                 <mrow>x_1 \amp = x_2 - 2x_4 + 1</mrow>
                 <mrow>x_1 \amp = x_4 - 2x_4 + 1</mrow>
@@ -125,39 +91,81 @@
               and so this solution satisfies the first equation in our system.
               You should check to verify that it also satisfies the other three equations.
             </p>
-          </li>
-          <li>
-            <ol label="i">
-              <li>
-                <p>
-                  The system has no solutions when there is an equation of the form <m>0 = b</m> for some nonzero number <m>b</m>.
-                  The last row will correspond to an equation of the form <m>0 = h-5</m>.
-                  So our system will have no solutions when <m>h \neq 5</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  When <m>h \neq 5</m>, the system has no solutions.
-                  When <m>h = 5</m>,
-                  the variable <m>x_4</m> is a free variable and the system has infinitely many solutions.
-                  So there are no values of <m>h</m> for which the system has exactly one solution.
-                </p>
-              </li>
-              <li>
-                <p>
-                  When <m>h = 5</m>,
-                  the variable <m>x_4</m> is a free variable and the system has infinitely many solutions.
-                  The solutions were already found in part (a).
-                </p>
-              </li>
-            </ol>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+        <task>
+          <introduction>
+            <p>
+              Suppose, after forward elimination,
+              the augmented matrix of the system
+              <md alignment="alignat">
+                <mrow> {}x_1    \amp {}-{}   \amp { }x_2    \amp {}{}    \amp {}    \amp {}+{}  \amp {2}x_4   \amp {}= \amp  \ 1\amp {}</mrow>
+                <mrow>{2}x_1  \amp {}+{}   \amp {3}x_2    \amp {}-{}  \amp {2}x_3  \amp {}+{}  \amp {5}x_4   \amp {}= \amp  \ 4\amp {}</mrow>
+                <mrow>{}x_1    \amp {}-{}   \amp {}x_2    \amp {}+{}  \amp {}x_3  \amp {}-{}  \amp { }x_4   \amp {}= \amp  \ 0\amp {}</mrow>
+                <mrow>x_1  \amp {}+{}   \amp {}x_2    \amp {}-{}  \amp {}x_3  \amp {}+{}  \amp {6}x_4   \amp {}= \amp  \ h\amp {.}</mrow>
+              </md>
+              has the form
+              <me>
+                \left[ \begin{array}{crrr|c} 1\amp -1\amp 0\amp 2\amp 1 \\ 0\amp 5\amp -2\amp 1\amp 2 \\ 0\amp 0\amp 1\amp -3\amp -1 \\ 0\amp 0\amp 0\amp 0\amp h-5 \end{array}  \right]
+              </me>.
+              For which values of <m>h</m> does this system have:
+            </p>
+          </introduction>
+              <task>
+                <statement>
+                  <p>
+                    No solutions?
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    The system has no solutions when there is an equation of the form <m>0 = b</m> for 
+                    some nonzero number <m>b</m>.
+                    The last row will correspond to an equation of the form <m>0 = h-5</m>.
+                    So our system will have no solutions when <m>h \neq 5</m>.
+                  </p>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    A unique solution?
+                    Find the solution.
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    When <m>h \neq 5</m>, the system has no solutions.
+                    When <m>h = 5</m>,
+                    the variable <m>x_4</m> is a free variable and the system has infinitely many 
+                    solutions.
+                    So there are no values of <m>h</m> for which the system has exactly one solution.
+                  </p>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Infinitely many solution?
+                    Determine all solutions?
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    When <m>h = 5</m>,
+                    the variable <m>x_4</m> is a free variable and the system has infinitely many 
+                    solutions.
+                    The solutions were already found in part (a).
+                  </p>
+                </solution>
+              </task>
+
+        </task>
+      
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         After applying row operations to the augmented matrix of a system of linear equations,
         each of which describes a plane in 3-space,
@@ -165,44 +173,30 @@
         <me>
           \left[ \begin{array}{ccc|r} 1\amp a\amp 0\amp 2 \\ 0\amp 2-2a\amp b\amp -4 \\ 0\amp 0\amp 3-\frac{1}{2}b\amp 1 \end{array}  \right]
         </me>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Describe, algebraically and geometrically, all solutions
               (if any),
               to this system when <m>a=0</m> and <m>b=2</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
             <p>
-              Describe, algebraically and geometrically, all solutions
-              (if any),
-              to this system when <m>a=0</m> and <m>b=6</m>.
+              Throughout,
+              we will let the variables <m>x</m>,
+              <m>y</m>, and <m>z</m> correspond to the first, second,
+              and third columns, respectively, of our augmented matrix.
             </p>
-          </li>
-          <li>
-            <p>
-              Describe, algebraically and geometrically, all solutions
-              (if any),
-              to this system when <m>a=1</m> and <m>b=12</m>.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em> Throughout,
-        we will let the variables <m>x</m>,
-        <m>y</m>, and <m>z</m> correspond to the first, second,
-        and third columns, respectively, of our augmented matrix.
-        <ul>
-          <li>
             <p>
               When <m>a=0</m> and <m>b=2</m> our augmented matrix has the form
               <me>
                 \left[ \begin{array}{ccc|r} 1\amp 0\amp 0\amp 2 \\ 0\amp 2\amp 2\amp -4 \\ 0\amp 0\amp 2\amp 1 \end{array}  \right]
               </me>.
               This matrix corresponds to the system
-              <md>
+              <md alignment="alignat">
                 <mrow> {}x  \amp {}{}     \amp {}    \amp {}{}    \amp {}     \amp {}= \amp  \ 2\amp {}</mrow>
                 <mrow>{}  \amp {}{}     \amp {2}y  \amp {}+{}  \amp {2}z   \amp {}= \amp  \ -4\amp {}</mrow>
                 <mrow>{}  \amp {}{}     \amp {}    \amp {}{}    \amp {2}z  \amp {}= \amp  \ 1\amp {.}</mrow>
@@ -215,8 +209,23 @@
               Geometrically,
               this tells us that the three planes given by the original system intersect in a single point.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Describe, algebraically and geometrically, all solutions
+              (if any),
+              to this system when <m>a=0</m> and <m>b=6</m>.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Throughout,
+              we will let the variables <m>x</m>,
+              <m>y</m>, and <m>z</m> correspond to the first, second,
+              and third columns, respectively, of our augmented matrix.
+            </p>
             <p>
               When <m>a=0</m> and <m>b=6</m> our augmented matrix has the form
               <me>
@@ -227,8 +236,23 @@
               Geometrically,
               this tells us that the three planes given by the original system do not all intersect at any common points.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Describe, algebraically and geometrically, all solutions
+              (if any),
+              to this system when <m>a=1</m> and <m>b=12</m>.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Throughout,
+              we will let the variables <m>x</m>,
+              <m>y</m>, and <m>z</m> correspond to the first, second,
+              and third columns, respectively, of our augmented matrix.
+            </p>
             <p>
               When <m>a=1</m> and <m>b=12</m> our augmented matrix reduces to
               <me>
@@ -244,9 +268,8 @@
               this tells us that the three planes given by the original system intersect in the line with <m>z = -\frac{1}{3}</m>,
               and <m>x = 2-y</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+
   </example>
 </section>
