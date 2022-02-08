@@ -4,53 +4,70 @@
   <p>
     In this part,
     we consider the formal process of creating the row and reduced row echelon forms of matrices.
-    The process of creating the row echelon form is the equivalent of the elimination method on systems of linear equations.
+    The process of creating the row echelon form is the equivalent of the elimination method on 
+    systems of linear equations.
   </p>
+
   <activity>
+    <introduction>
     <p>
       Each of the following matrices is at most a few steps away from being in the requested echelon form.
       Determine what row operations need to be completed to turn the matrix into the required form.
-      <ul>
-        \begin{minipage}{2.4in}
-        <li>
-          <p>
-            Turn into REF: <m>\left[ \begin{array}{cc} 0 \amp 2 \\ 2 \amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-          </p>
-        </li>
-        <li>
-          <p>
-            Turn into REF: <m>\left[ \begin{array}{cc} 1 \amp 2 \\ 2 \amp 5 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.4in}
-          </p>
-        </li>
-        <li>
-          <p>
-            Turn into RREF: <m>\left[ \begin{array}{ccc} 2 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-          </p>
-        </li>
-        <li>
-          <p>
-            Turn into RREF: <m>\left[ \begin{array}{cr} 1\amp -1 \\ 0 \amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.4in}
-          </p>
-        </li>
-        <li>
-          <p>
-            Turn into RREF: <m>\left[ \begin{array}{cc} 1\amp 1 \\ 0 \amp 2 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-          </p>
-        </li>
-        <li>
-          <p>
-            Turn into RREF: <m>\left[ \begin{array}{ccr} 1\amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \\ 0\amp 0\amp 2 \end{array} \right]</m> \end{minipage}
-          </p>
-        </li>
-      </ul>
     </p>
+    </introduction>
+      <task>
+        <statement>
+          <p>
+            Turn into REF: <m>\left[ \begin{array}{cc} 0 \amp 2 \\ 2 \amp 1 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Turn into REF: <m>\left[ \begin{array}{cc} 1 \amp 2 \\ 2 \amp 5 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Turn into RREF: <m>\left[ \begin{array}{ccc} 2 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Turn into RREF: <m>\left[ \begin{array}{cr} 1\amp -1 \\ 0 \amp 1 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Turn into RREF: <m>\left[ \begin{array}{cc} 1\amp 1 \\ 0 \amp 2 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Turn into RREF: <m>\left[ \begin{array}{ccr} 1\amp 0 \amp -1 \\ 0 \amp 1 \amp 3 \\ 0\amp 0\amp 2 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+
   </activity>
+
   <p>
-    The complete process of applying row operations to reduce an augmented matrix to a row or reduced row echelon form can be expressed as a recursive process in an algorithmic fashion,
+    The complete process of applying row operations to reduce an augmented matrix to a row or reduced 
+    row echelon form can be expressed as a recursive process in an algorithmic fashion,
     making it possible to program computers to solve linear systems.
     Here are the steps to do so:
-    <ul>
+    <dl>
       <li>
+        <title>Step 1</title>
         <p>
           Begin with the leftmost nonzero column
           (if there is one).
@@ -58,6 +75,7 @@
         </p>
       </li>
       <li>
+        <title>Step 2</title>
         <p>
           Select a nonzero entry in this pivot column as a pivot.
           If necessary,
@@ -66,45 +84,50 @@
         </p>
       </li>
       <li>
+        <title>Step 3</title>
         <p>
           Use row operations to create zeros in all positions below the pivot.
         </p>
       </li>
       <li>
-        <title>Step 4:</title>
+        <title>Step 4</title>
         <p>
           Cover (or ignore) the row containing the pivot position and cover all rows, if any,
           above it.
           Apply steps 1-3 to the submatrix that remains.
           Repeat the process until there are no more nonzero rows to modify.
         </p>
+        <p>
+          To obtain the reduced row echelon form we need one more step.
+        </p>
       </li>
-    </ul>
-  </p>
-  <p>
-    To obtain the reduced row echelon form we need one more step.
-    <ul>
       <li>
-        <title>Step 5:</title>
+        <title>Step 5</title>
         <p>
           Beginning with the rightmost pivot and working upward and to the left,
           create zeros above each pivot.
           If a pivot is not 1, make it 1 by an appropriate row multiplication.
         </p>
       </li>
-    </ul>
+    </dl>
   </p>
+
   <p>
     The algorithm described in steps 1-4 will produce the row echelon form of the matrix.
-    This algorithm is called <em>Gaussian elimination</em>.
+    This algorithm is called <term>Gaussian elimination</term>.
     When we add step 5 to produce the reduced row echelon form,
-    the algorithm is called <em>Gauss-Jordan elimination</em>.
+    the algorithm is called <term>Gauss-Jordan elimination</term>.
   </p>
+
   <activity xml:id="act_1_c_3">
+    <introduction>
     <p>
-      Consider the matrix <m>\left[ \begin{array}{rrcr} 0\amp 2\amp 4\amp 1\\ -1\amp 3\amp 0\amp 6 \\ 0\amp 4\amp 8\amp 2\\ 1\amp -3\amp 0\amp -2 \end{array} \right]</m>.
-      <ul>
-        <li>
+      Consider the matrix 
+      <m>\left[ \begin{array}{rrcr} 0\amp 2\amp 4\amp 1\\ -1\amp 3\amp 0\amp 6 \\ 0\amp 4\amp 8\amp 2\\ 1\amp -3\amp 0\amp -2 \end{array} \right]</m>.
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Perform Gaussian elimination to reduce the matrix to row echelon form.
             Clearly identify each step used.
@@ -112,8 +135,10 @@
             Do your results agree?
             If not, who is right?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now continue applying row operations to obtain the reduced row echelon form of the matrix.
             Clearly identify each step.
@@ -121,10 +146,11 @@
             Do your results agree?
             If not, who is right?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+
   </activity>
+
   <p>
     If we compare row echelon forms from <xref ref="act_1_c_3"></xref>,
     it is likely that different groups or individuals produced different row echelon forms.
@@ -136,19 +162,19 @@
     <me>
       \left[ \begin{array}{cccc} 1\amp 0\amp 6\amp 0\\ 0\amp 1\amp 2\amp 0 \\ 0\amp 0\amp 0\amp 1\\ 0\amp 0\amp 0\amp 0 \end{array}   \right]
     </me>.
-  </p>
-  <p>
+
     It turns out that the reduced row echelon form of a matrix is unique.
   </p>
   <p>
     Two matrices who are connected by row operations are said to be
-    <em>row equivalent</em>.
+    <term>row equivalent</term>.
   </p>
+
   <definition>
+  <idx><h>row equivalent matrices</h></idx>
     <statement>
       <p>
         A matrix <m>B</m> is <term>row equivalent</term>
-            <idx><h>row equivalent matrices</h></idx>
         to a matrix <m>A</m> if <m>B</m> can be obtained by applying elementary row operations to <m>A</m>.
       </p>
     </statement>
@@ -161,6 +187,7 @@
     While the row echelon form of a matrix is not unique,
     it is the case that the reduced row echelon form of a matrix is unique.
   </p>
+
   <theorem>
     <statement>
       <p>
@@ -168,10 +195,12 @@
       </p>
     </statement>
   </theorem>
+  
   <p>
-    The reduced row echelon form of a matrix that corresponds to a system of linear equations provides us with an equivalent system whose solutions are easy to find.
+    The reduced row echelon form of a matrix that corresponds to a system of linear equations 
+    provides us with an equivalent system whose solutions are easy to find.
     As an example, consider the system
-    <md>
+    <md alignment="alignat">
       <mrow> {}     \amp {}     \amp {2}x_2  \amp {}+{}  \amp {4}x_3  \amp {}+{}  \amp {}x_4  \amp {}={}  \amp  \ 0</mrow>
       <mrow>{-}x_1  \amp {}+{}  \amp {3}x_2  \amp {}    \amp {}    \amp {}+{}  \amp {6}x_4  \amp {}={}   \amp  \ 0</mrow>
       <mrow>{}      \amp {}    \amp {4}x_2  \amp {}+{}   \amp {8}x_3  \amp {}+{}  \amp {2}x_4  \amp {}={}   \amp  \ 0</mrow>
@@ -181,8 +210,7 @@
     <me>
       \left[ \begin{array}{rrcr|c} 0\amp 2\amp 4\amp 1\amp 0 \\ -1\amp 3\amp 0\amp 6\amp 0 \\ 0\amp 4\amp 8\amp 2\amp 0 \\ 1\amp -3\amp 0\amp -2\amp 0 \end{array}   \right]
     </me>.
-  </p>
-  <p>
+
     Notice that the coefficient matrix
     (the left hand side portion of the augmented matrix)
     of this system is same as the matrix we considered in <xref ref="act_1_c_3"></xref>.
@@ -212,15 +240,19 @@
     </me>.
   </p>
   <p>
-    The fact that <m>x_3</m> is free means that we can choose any value for <m>x_3</m> that we like and obtain a specific solution to the system.
+    The fact that <m>x_3</m> is free means that we can choose any value for <m>x_3</m> that we 
+    like and obtain a specific solution to the system.
     For example, if <m>x_3=-1</m>,
     then we have the solution <m>x_1 = 6</m>,
     <m>x_2 = 2</m>, <m>x_3 = -1</m>, and <m>x_4 = 0</m>.
     Check this to be sure.
   </p>
+
   <activity>
+    <introduction>
     <p>
-      Each matrix below is an augmented matrix for a linear system after elimination with variables <m>x_1, x_2, \ldots</m> in that order.
+      Each matrix below is an augmented matrix for a linear system after elimination with 
+      variables <m>x_1, x_2, \ldots</m> in that order.
       Identify the basic variables
       (if any)
       and free variables
@@ -228,36 +260,47 @@
       Then find the general solution
       (if there is a solution)
       expressing all variables in terms of the free variables.
-      <ul>
-        \begin{minipage}{1.5in}
-        <li>
-          <p>
-            <m>\left[ \begin{array}{ccc|c} 1\amp 0\amp 2\amp 1 \\ 0\amp 3\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{ccr|c} 1\amp 1\amp 0\amp 1 \\ 0\amp 0\amp 1\amp 2 \\ 0\amp 0\amp 0\amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{ccrc|c} 1\amp 2\amp -1\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{ccr|c} 1\amp 0\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 2 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{cc|c} 1\amp 0\amp 1 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 0 \end{array} \right]</m> \end{minipage}
-          </p>
-        </li>
-      </ul>
     </p>
+    </introduction>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{ccc|c} 1\amp 0\amp 2\amp 1 \\ 0\amp 3\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{ccr|c} 1\amp 1\amp 0\amp 1 \\ 0\amp 0\amp 1\amp 2 \\ 0\amp 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{ccrc|c} 1\amp 2\amp -1\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{ccr|c} 1\amp 0\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 2 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{cc|c} 1\amp 0\amp 1 \\ 0\amp 1\amp 0 \\ 0\amp 0\amp 0 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      
+
   </activity>
+
   <p>
     Recall that in the previous section,
     we determined the criteria for when a system has a unique solution,
@@ -265,25 +308,28 @@
     With the use of the row echelon form of the augmented matrix,
     we can rewrite these criteria as follows:
   </p>
+
   <theorem>
     <statement>
       <p>
-        <nbsp/>
         <ol>
           <li>
             <p>
-              A linear system is consistent if in the row echelon form of the augmented matrix representing the system no pivot is in the rightmost column.
+              A linear system is consistent if in the row echelon form of the augmented matrix 
+              representing the system no pivot is in the rightmost column.
             </p>
           </li>
           <li>
             <p>
-              If a linear system is consistent and the row echelon form of the coefficient matrix does not have a pivot in every column,
+              If a linear system is consistent and the row echelon form of the coefficient matrix 
+              does not have a pivot in every column,
               then the system has infinitely many solutions.
             </p>
           </li>
           <li>
             <p>
-              If a linear system is consistent and there is a pivot in every column of the row echelon form of the coefficient matrix,
+              If a linear system is consistent and there is a pivot in every column of the row 
+              echelon form of the coefficient matrix,
               then the system has a unique solution.
             </p>
           </li>
@@ -291,56 +337,68 @@
       </p>
     </statement>
   </theorem>
+
   <figure xml:id="F_1_c_1">
     <caption>Figures for <xref ref="act_1_c_4"></xref>.</caption>
     <sidebyside>
-      <image width="73%" source="1_c_echelon_plot_1"/>
-      <image width="73%" source="1_c_echelon_plot_2"/>
-      <image width="73%" source="1_c_echelon_plot_3"/>
+      <image width="50%" source="1_c_echelon_plot_1"/>
+      <image width="50%" source="1_c_echelon_plot_2"/>
+      <image width="50%" source="1_c_echelon_plot_3"/>
     </sidebyside>
   </figure>
+
   <activity xml:id="act_1_c_4">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+    
+      <task>
+        <introduction>
           <p>
             For each part,
-            the reduced row echelon form of the augmented matrix of a system of equations in variables <m>x</m>,
+            the reduced row echelon form of the augmented matrix of a system of equations in 
+            variables <m>x</m>,
             <m>y</m>,
             and <m>z</m>
             (in that order)
             is given.
-            Use the reduced row echelon form to find the solution set to the original system of equations.
-            <ol label="i">
-              \begin{minipage}{1.4in}
-              <li>
+            Use the reduced row echelon form to find the solution set to the original system of 
+            equations.
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
-                  <m>\left[ \begin{array}{ccc|r} 1 \amp 0 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.55in}
+                  <m>\left[ \begin{array}{ccc|r} 1 \amp 0 \amp 0 \amp -1 \\ 0 \amp 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]</m> 
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
-                  <m>\left[ \begin{array}{ccr|r} 1 \amp 0 \amp 2 \amp -1 \\ 0 \amp 1 \amp -1 \amp 3 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.4in}
+                  <m>\left[ \begin{array}{ccr|r} 1 \amp 0 \amp 2 \amp -1 \\ 0 \amp 1 \amp -1 \amp 3 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]</m>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
-                  <m>\left[ \begin{array}{ccc|r} 1 \amp 0 \amp 0 \amp 2 \\ 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 3 \end{array} \right]</m> \end{minipage}
+                  <m>\left[ \begin{array}{ccc|r} 1 \amp 0 \amp 0 \amp 2 \\ 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 3 \end{array} \right]</m>  
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Each of the three systems above is represented as one of the graphs in <xref ref="F_1_c_1"></xref>.
                   Match each figure with a system.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+       
+        </task>
+        <task>
+        <statement>
           <p>
-            The reduced row echelon form of the augmented matrix of a system of equations in variables <m>x</m>,
+            The reduced row echelon form of the augmented matrix of a system of equations in 
+            variables <m>x</m>,
             <m>y</m>, <m>z</m>, and <m>t</m>
             (in that order)
             is given.
@@ -349,8 +407,7 @@
               \left[ \begin{array}{cccc|r} 1 \amp  3 \amp  0 \amp  0 \amp  -1 \\ 0 \amp  0 \amp  1 \amp  2 \amp  4 \\ 0 \amp  0 \amp  0 \amp  0 \amp  1 \end{array}  \right]
             </me>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
   </activity>
 </section>
