@@ -2,31 +2,39 @@
 <section xml:id="sec_mtx_ech_forms">
   <title>The Echelon Forms of a Matrix</title>
   <p>
-    In the previous sections we saw how to simplify a linear system and its matrix representation via the elimination method without changing the solution set.
-    This process is more efficient when performed on the matrix representation rather than on the system itself.
+    In the previous sections we saw how to simplify a linear system and its matrix representation via 
+    the elimination method without changing the solution set.
+    This process is more efficient when performed on the matrix representation rather than on the 
+    system itself.
     Furthermore,
     the process of applying row operations to any augmented matrix is one that can be automated.
-    In order to write an algorithm that can be used with any size augmented matrix to the extent that it can be applied even by a computer program,
+    In order to write an algorithm that can be used with any size augmented matrix to the extent 
+    that it can be applied even by a computer program,
     it is necessary to have a consistent procedure and a stopping point for the simplification process.
-    The two main properties that we want the simplified augmented matrix to satisfy are that it should be easy to see if the system has solutions from the simplified matrix,
+    The two main properties that we want the simplified augmented matrix to satisfy are that it should 
+    be easy to see if the system has solutions from the simplified matrix,
     and in cases when there are solutions,
     the general form of the solutions can be easily found.
     Hence the topic of this section is to define the process of elimination completely and generally.
   </p>
   <p>
-    We begin by discussing the <em>row echelon</em> or, simply,
-    <em>echelon</em> form of a matrix.
+    We begin by discussing the <term>row echelon</term> or, simply,
+    <term>echelon</term> form of a matrix.
     We know that the forward phase of the elimination on a linear system produces a system which can be solved by back substitution.
-    The matrix representation of such a simplified system is said to be in <em>row echelon</em>
-    or simply <em>echelon</em> form.
-    Note that matrices in this form have the first nonzero entry in each row to the right of and below the first nonzero entry in the preceding row.
-    Our next step is to formally describe this form <mdash/> one that you tried to explain in problem 3 of <xref ref="pa_1_c"></xref>.
+    The matrix representation of such a simplified system is said to be in <term>row echelon</term>
+    or simply <term>echelon</term> form.
+    Note that matrices in this form have the first nonzero entry in each row to the right of and 
+    below the first nonzero entry in the preceding row.
+    Our next step is to formally describe this form <mdash/> one that you tried to explain in 
+    problem 3 of <xref ref="pa_1_c"></xref>.
   </p>
+
   <definition>
+  <idx><h>row echelon form</h></idx>
+  <idx><h>pivot</h></idx>
     <statement>
       <p>
         A rectangular matrix is in <term>row echelon form</term>
-            <idx><h>row echelon form</h></idx>
         (or simply <term>echelon form</term>) if it has the following properties:
         <ol>
           <li>
@@ -36,42 +44,52 @@
           </li>
           <li>
             <p>
-              Each <em>pivot</em>
-                <idx><h>pivot</h></idx>
-              (the first non-zero entry reading from left to right) in a row is in a column to the right of the pivot of the row above it.
+              Each <term>pivot</term>
+              (the first non-zero entry reading from left to right) in a row is in a column to the 
+              right of the pivot of the row above it.
             </p>
           </li>
         </ol>
       </p>
     </statement>
   </definition>
+
   <p>
-    A pivot is also called a <em>leading entry</em>
-        <idx><h>leading entry of a row</h></idx>
+  <idx><h>leading entry of a row</h></idx>
+  <idx><h>pivot positions</h></idx>
+  <idx><h>pivot column</h></idx>
+    A pivot is also called a <term>leading entry</term>
     of a row.
     Note that properties (1) and (2) above imply that all entries in a column below a pivot are zeros.
     It can be shown that the positions of these pivots,
-    called <em>pivot positions</em>,
-        <idx><h>pivot positions</h></idx>
-    are unique and tell us quite a bit about a matrix and the solutions of the linear system it corresponds to.
+    called <term>pivot positions</term>,
+    are unique and tell us quite a bit about a matrix and the solutions of the linear system it 
+    corresponds to.
     The columns that the pivots are in,
-    called <em>pivot columns</em>,
-        <idx><h>pivot column</h></idx>
+    called <term>pivot columns</term>,
     will also have useful properties as we will see soon.
   </p>
+
+  <remark>
   <p>
-    \begin{reflect} Compare the row echelon form of an augmented matrix to the corresponding system.
-    Do you clearly see the correspondence between the requirements of the row echelon form and the properly eliminated variables in the system?
-    Can you quickly come up with a system which will be in row echelon form when represented in augmented matrix form?
-    Can you modify the standard row echelon form definition to cover cases where the elimination process eliminates the variables from last to first?
+    Compare the row echelon form of an augmented matrix to the corresponding system.
+    Do you clearly see the correspondence between the requirements of the row echelon form and the
+     properly eliminated variables in the system?
+    Can you quickly come up with a system which will be in row echelon form when represented in 
+    augmented matrix form?
+    Can you modify the standard row echelon form definition to cover cases where the elimination 
+    process eliminates the variables from last to first?
     For example,
     in a system with three equations in three unknowns,
     the last variable, say <m>x_3</m>,
     can be eliminated from the second equation,
     and the last two variables,
     say <m>x_2, x_3</m> can be eliminated from the last equation.
-    How would you define this modified row echelon form for a general system with this modified elimination process? \end{reflect}
+    How would you define this modified row echelon form for a general system with this modified 
+    elimination process?
   </p>
+  </remark>
+
   <p>
     Once an augmented matrix is in row echelon form,
     we can use back substitution to solve the corresponding system.
@@ -90,8 +108,7 @@
     <me>
       \begin{array}{c} \text{ } \\ \text{ } \\ \text{\scriptsize \(\frac{1}{2} R_3 \to R_3\)} \end{array}  \left[ \begin{array}{crcr|r} 2\amp -1\amp 2\amp 2\amp 7 \\ 0\amp 1\amp 3\amp -1\amp -1 \\ 0\amp 0\amp 0\amp 1\amp 2 \end{array}  \right]
     </me>.
-  </p>
-  <p>
+
     Then we use the third row to eliminate entries above the third pivot:
     <me>
       \begin{array}{c} \text{ \scriptsize \(R_1-2R_3 \to R_1\) } \\ \text{ \scriptsize \(R_2+R_3 \to R_2\) }  \\ \text{ } \end{array}   \left[ \begin{array}{crcr|r} 2\amp -1\amp 2\amp 0\amp 3 \\ 0\amp 1\amp 3\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 1\amp 2 \end{array}  \right]
@@ -99,7 +116,7 @@
   </p>
   <p>
     We can continue in this manner
-    (we call this process <em>backward elimination</em>)
+    (we call this process <term>backward elimination</term>)
     to make 0 all of the entries above the pivots
     (one in the second column, and one in the fourth)
     with the pivots being 1, to ultimately obtain the equivalent augmented matrix
@@ -109,7 +126,7 @@
   </p>
   <p>
     The system corresponding to this augmented matrix is
-    <md>
+    <md alignment="alignat">
       <mrow> {}x_1   \amp {}     \amp {}    \amp {}+{}  \amp {}x_3    \amp {}    \amp {}     \amp {}={}  \amp  \ 2</mrow>
       <mrow>{}      \amp {}     \amp {}x_2   \amp {}+{}  \amp {3}x_3    \amp { }              \amp {}     \amp {}={}   \amp  \ 1</mrow>
       <mrow>{}      \amp {}    \amp {}    \amp {}     \amp {}      \amp { }              \amp {}x_4  \amp {}={}   \amp  \ 2</mrow>
@@ -117,23 +134,23 @@
     so we can just directly read off the solution to the system:
     <m>x_3</m> free and <m>x_1=2-x_3, x_2=1-3x_3, x_4=2</m>.
     This final row reduced form makes solving the system very easy,
-    and this form is called the <em>reduced row echelon</em> form.
+    and this form is called the <term>reduced row echelon</term> form.
   </p>
+
   <definition>
+  <idx><h>row echelon form</h><h>reduced</h></idx>
     <statement>
       <p>
-        A rectangular matrix is in <term>reduced row echelon form</term><idx><h>row echelon form</h><h>reduced</h></idx>
+        A rectangular matrix is in <term>reduced row echelon form</term>
         (or <term>reduced echelon form</term>)
         if the matrix is in row echelon form and
         <ol>
           <li>
-            <title>(3)</title>
             <p>
               The pivot in each nonzero row is 1.
             </p>
           </li>
           <li>
-            <title>(4)</title>
             <p>
               Each pivot is the only nonzero entry in its column.
             </p>
@@ -142,8 +159,10 @@
       </p>
     </statement>
   </definition>
+
   <p>
-    In short, the reduced row echelon form of a matrix is a row echelon form in which all the pivots are 1 and any entries
+    In short, the reduced row echelon form of a matrix is a row echelon form in which all the 
+    pivots are 1 and any entries
     <em>below and above</em> the pivots are 0.
   </p>
   <p>
@@ -151,16 +170,24 @@
     solving the original system becomes straightforward and,
     as a result,
     these matrix forms are stopping points for the row operation algorithm to solve a system.
-    It is also very easy to write a computer program to perform row operations to obtain and row echelon or reduced row echelon form of the matrix,
+    It is also very easy to write a computer program to perform row operations to obtain and row 
+    echelon or reduced row echelon form of the matrix,
     making hand computations unnecessary.
     We will discuss this shortly.
   </p>
+
+  <remark>
   <p>
-    \begin{reflect}Compare the reduced row echelon form of an augmented matrix to the corresponding system.
-    Do you clearly see the correspondence between the requirements of the reduced row echelon form and the way the variables appear in the equations in the system?
-    Can you quickly come up with a system which will be in reduced row echelon form when represented in augmented matrix form? \end{reflect}
+    Compare the reduced row echelon form of an augmented matrix to the corresponding system.
+    Do you clearly see the correspondence between the requirements of the reduced row echelon form 
+    and the way the variables appear in the equations in the system?
+    Can you quickly come up with a system which will be in reduced row echelon form when represented 
+    in augmented matrix form?
   </p>
-  <note>
+  </remark>
+
+  <paragraphs>
+    <title>Note</title>
     <p>
       We have used the elimination method on augmented matrices so far.
       However, the elimination method can be applied on just the coefficient matrix,
@@ -170,42 +197,54 @@
       <em>any matrix</em>, and from now on,
       a matrix will be a general matrix unless explicitly specified to be an augmented matrix.
     </p>
-  </note>
+  </paragraphs>
+
   <activity xml:id="act_1_c_1">
+    <introduction>
     <p>
-      Identify which of the following matrices is in row echelon form (REF) and/or reduced row echelon form (RREF).
+      Identify which of the following matrices is in row echelon form (REF) and/or reduced row 
+      echelon form (RREF).
       For those in row and/or reduced row echelon form,
       identify the pivots clearly by circling them.
       For those that are not in a given form,
       state which properties the matrix fails to satisfy.
-      <ul>
-        \begin{minipage}{1.75in}
-        <li>
-          <p>
-            <m>\left[ \begin{array}{ccrc} 2 \amp 4 \amp -3 \amp 6 \\ 0 \amp 0 \amp 0 \amp 7 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{cc} 1 \amp 0 \\ 0 \amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{cccc} 0 \amp 1 \amp 2 \amp 3 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 1 \amp 0 \amp 5 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.75in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-          </p>
-        </li>
-        <li>
-          <p>
-            <m>\left[ \begin{array}{cc} 0 \amp 0 \\ 0 \amp 0 \end{array} \right]</m> \end{minipage}
-          </p>
-        </li>
-      </ul>
     </p>
+    </introduction>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{ccrc} 2 \amp 4 \amp -3 \amp 6 \\ 0 \amp 0 \amp 0 \amp 7 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{cc} 1 \amp 0 \\ 0 \amp 1 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{cccc} 0 \amp 1 \amp 2 \amp 3 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 1 \amp 0 \amp 5 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            <m>\left[ \begin{array}{cc} 0 \amp 0 \\ 0 \amp 0 \end{array} \right]</m>
+          </p>
+        </statement>
+      </task>
+
   </activity>
 </section>

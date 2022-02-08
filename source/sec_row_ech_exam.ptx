@@ -1,66 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_row_ech_exam">
   <title>Examples</title>
+  <introduction>
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+  </introduction>
+  
   <example>
-    <statement>
+    <introduction>
       <p>
         Consider the linear system
-        <md>
+        <md alignment="alignat">
           <mrow>2x_1 + 6x_3 \amp = x_2 + 2</mrow>
           <mrow>2x_3 - 4x_1  \amp =  2x_2</mrow>
           <mrow>x_2 + 4x_3 - 2 \amp = 2x_1 + 6</mrow>
         </md>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Find the augmented matrix for this system.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
             <p>
-              Use row operations to find a row echelon form of the augmented matrix of this system.
+              Before we can find the augmented matrix of this system,
+              we need to rewrite the system so that the variables are all on one side and the constant 
+              terms are on the other side of the equations.
+              Doing so yields the equivalent system
+              <md alignment="alignat">
+                <mrow> {2}x_1   \amp {}-{}    \amp {}x_2    \amp {}+{}  \amp {6}x_3  \amp {}={}  \amp  \ 2\amp {}</mrow>
+                <mrow>{-4}x_1  \amp {}-{}     \amp {2}x_2     \amp {}+{}  \amp {2}x_3   \amp {}={}   \amp  \ 0\amp {}</mrow>
+                <mrow>{-2}x_1  \amp {}+{}    \amp {}x_2    \amp {}+{}   \amp {4}x_3  \amp {}={}   \amp  \ 8\amp {.}</mrow>
+              </md>
             </p>
-          </li>
-          <li>
             <p>
-              Use row operations to find the reduced row echelon form of the augmented matrix of this system.
+              Note that this is not the only way to rearrange the system.
+              For example, for the second equation,
+              could be written instead as
+              <m>4x_1+2x_2-2x_3=0</m> to minimize the number of negative signs in the equation.
             </p>
-          </li>
-          <li>
-            <p>
-              Find the solution(s), if any, to the system.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em> Before we can find the augmented matrix of this system,
-        we need to rewrite the system so that the variables are all on one side and the constant terms are on the other side of the equations.
-        Doing so yields the equivalent system
-        <md>
-          <mrow> {2}x_1   \amp {}-{}    \amp {}x_2    \amp {}+{}  \amp {6}x_3  \amp {}={}  \amp  \ 2\amp {}</mrow>
-          <mrow>{-4}x_1  \amp {}-{}     \amp {2}x_2     \amp {}+{}  \amp {2}x_3   \amp {}={}   \amp  \ 0\amp {}</mrow>
-          <mrow>{-2}x_1  \amp {}+{}    \amp {}x_2    \amp {}+{}   \amp {4}x_3  \amp {}={}   \amp  \ 8\amp {.}</mrow>
-        </md>
-      </p>
-      <p>
-        Note that this is not the only way to rearrange the system.
-        For example, for the second equation,
-        could be written instead as
-        <m>4x_1+2x_2-2x_3=0</m> to minimize the number of negative signs in the equation.
-        <ul>
-          <li>
             <p>
               The augmented matrix for this system is
               <me>
                 \left[ \begin{array}{rrc|c} 2\amp -1\amp 6\amp 2 \\ -4\amp -2\amp 2\amp 0 \\ -2\amp 1\amp 4\amp 8 \end{array}  \right]
               </me>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use row operations to find a row echelon form of the augmented matrix of this system.
+            </p>
+          </statement>
+          <solution>
             <p>
               Our first steps to row echelon form are to eliminate the entries below the leading entry in the first row.
               To do this we replace row two with row two plus 2 times row 1 and we replace row three with row three plus row one.
@@ -70,8 +66,16 @@
               </me>.
               This matrix is now in row echelon form.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use row operations to find the reduced row echelon form of the augmented matrix of 
+              this system.
+            </p>
+          </statement>
+          <solution>
             <p>
               To continue to find the reduced row echelon form,
               we replace row two with row two times
@@ -81,9 +85,11 @@
               <me>
                 \left[ \begin{array}{crr|r} 2\amp -1\amp 6\amp 2 \\ 0\amp 1\amp -\frac{7}{2}\amp -1 \\ 0\amp 0\amp 1\amp 1 \end{array}  \right]
               </me>.
-              Now we perform backwards elimination to make the entries above the leading <m>1</m>s equal to <m>0</m>,
+              Now we perform backwards elimination to make the entries above the leading <m>1</m>s 
+              equal to <m>0</m>,
               starting with the third column and working backwards.
-              Replace row one with row one minus <m>6</m> times row three and replace row two with row two plus
+              Replace row one with row one minus <m>6</m> times row three and replace row two with 
+              row two plus
               <m>\frac{7}{2}</m> row three to obtain the row equivalent matrix
               <me>
                 \left[ \begin{array}{crc|r} 2\amp -1\amp 0\amp -4 \\ 0\amp 1\amp 0\amp \frac{5}{2} \\ 0\amp 0\amp 1\amp 1 \end{array}  \right]
@@ -101,81 +107,78 @@
                 \left[ \begin{array}{ccc|r} 1\amp 0\amp 0\amp -\frac{3}{4} \\ 0\amp 1\amp 0\amp \frac{5}{2} \\ 0\amp 0\amp 1\amp 1 \end{array}  \right]
               </me>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find the solution(s), if any, to the system.
+            </p>
+          </statement>
+          <solution>
             <p>
               We can read off the solution to the system from the reduced row echelon form:
               <m>x_1 = -\frac{3}{4}</m>, <m>x_2 = \frac{5}{2}</m>, and <m>x_3 = 1</m>.
               You should check in the original equations to make sure we have the correct solution.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+  
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         In this example, <m>a</m> and <m>b</m> are unknown scalars.
         Consider the system with augmented matrix
         <me>
           \left[ \begin{array}{ccc|c} 1\amp 2\amp a\amp 3 \\ 1\amp 0\amp 0\amp b \\ 0\amp 1\amp 1\amp 0 \end{array}  \right]
         </me>.
-      </p>
-      <p>
+      
+      
         Find all values of <m>a</m> and <m>b</m> so that the system has:
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Exactly one solution (and find the solution)
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
             <p>
-              No solutions
+              Let <m>x_1</m>, <m>x_2</m>,
+              and <m>x_3</m> be the variables corresponding to the first, second,
+              and third columns, respectively, of the augmented matrix.
+              To answer these questions, we row reduce the augmented matrix.
+              We interchange rows one and two and then also rows two and three to obtain the matrix
+              <me>
+                \left[ \begin{array}{ccc|c} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 1\amp 2\amp a\amp 3 \end{array}  \right]
+              </me>.
             </p>
-          </li>
-          <li>
             <p>
-              Infinitely many solutions (and find all solutions)
+              Now we replace row three with row three minus row one to produce the row equivalent matrix
+              <me>
+                \left[ \begin{array}{crc|r} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 2\amp a\amp 3-b \end{array}  \right]
+              </me>.
             </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em> Let <m>x_1</m>, <m>x_2</m>,
-        and <m>x_3</m> be the variables corresponding to the first, second,
-        and third columns, respectively, of the augmented matrix.
-        To answer these questions, we row reduce the augmented matrix.
-        We interchange rows one and two and then also rows two and three to obtain the matrix
-        <me>
-          \left[ \begin{array}{ccc|c} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 1\amp 2\amp a\amp 3 \end{array}  \right]
-        </me>.
-      </p>
-      <p>
-        Now we replace row three with row three minus row one to produce the row equivalent matrix
-        <me>
-          \left[ \begin{array}{crc|r} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 2\amp a\amp 3-b \end{array}  \right]
-        </me>.
-      </p>
-      <p>
-        Next, replace row three with row three minus <m>2</m> times row two.
-        This yields the row equivalent matrix
-        <me>
-          \left[ \begin{array}{ccc|c} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 0\amp a-2\amp 3-b \end{array}  \right]
-        </me>.
-      </p>
-      <p>
-        We now have a row echelon form.
-        <ul>
-          <li>
+            <p>
+              Next, replace row three with row three minus <m>2</m> times row two.
+              This yields the row equivalent matrix
+              <me>
+                \left[ \begin{array}{ccc|c} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 0\amp a-2\amp 3-b \end{array}  \right]
+              </me>.
+            </p>
+            <p>
+              We now have a row echelon form.
+            </p>
             <p>
               The system will have exactly one solution when the last row has the form
               <m>[0 \ 0 \ u \ v]</m> where <m>u</m> is not zero.
               Thus, the system has exactly one solution when
               <m>a-2 \neq 0</m>, or when <m>a \neq 2</m>.
               In this case, the solution is
-              <md>
+              <md alignment="alignat">
                 <mrow>x_3 \amp = \frac{3-b}{a-2},</mrow>
                 <mrow>x_2 \amp = -x_3 = \frac{b-3}{a-2}</mrow>
                 <mrow>x_1 \amp = b</mrow>
@@ -183,8 +186,15 @@
               You should check to ensure that this solution is correct.
               The other cases occur when <m>a = 2</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              No solutions
+            </p>
+          </statement>
+          <solution>
             <p>
               When <m>a=2</m> and <m>3-b \neq 0</m>
               (or <m>b \neq 3</m>),
@@ -192,8 +202,15 @@
               where <m>t</m> is not <m>0</m>.
               In these cases there are no solutions.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Infinitely many solutions (and find all solutions)
+            </p>
+          </statement>
+          <solution>
             <p>
               When <m>a=2</m> and <m>b = 3</m>,
               then the last row is a row of all zeros.
@@ -201,16 +218,14 @@
               the system is consistent and <m>x_3</m> is a free variable,
               so the system has infinitely many solutions.
               The solutions are
-              <md>
+              <md alignment="alignat">
                 <mrow>x_1 \amp = b</mrow>
                 <mrow>x_2 \amp = -x_3</mrow>
                 <mrow>x_3 \amp \text{ is free. }</mrow>
               </md>
               You should check to ensure that this solution is correct.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
   </example>
 </section>
