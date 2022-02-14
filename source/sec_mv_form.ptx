@@ -4,18 +4,20 @@
   <introduction>
     <p>
       As we saw in <xref ref="pa_1_e"></xref>,
-      the matrix-vector product provides us with a short hand way of representing a system of linear equations.
+      the matrix-vector product provides us with a short hand way of representing a 
+      system of linear equations.
       In general, every linear system can be written in matrix-vector form as follows.
     </p>
     <p>
       The linear system
-      <md>
+      <md alignment="alignat">
         <mrow> {a_{11}}x_1   \amp {}+{}   \amp {a_{12}}x_2   \amp {}+{}  \amp \cdots       \amp {}+{}  \amp {a_{1n}}x_n    \amp {}={}  \amp b_1</mrow>
         <mrow>{a_{21}}x_1   \amp {}+{}   \amp {a_{22}}x_2    \amp {}+{}  \amp \cdots      \amp {}+{}  \amp {a_{2n}}x_n    \amp {}={}  \amp b_2</mrow>
         <mrow>{}         \amp {}     \amp {}          \amp {}    \amp \vdots \ \    \amp {}    \amp {}          \amp {}    \amp {}</mrow>
         <mrow>{a_{m1}}x_1   \amp {}+{}   \amp {a_{2m}}x_2  \amp {}+{}  \amp \cdots      \amp {}+{}  \amp {a_{mn}}x_n  \amp {}={}  \amp b_m</mrow>
       </md>
-      of <m>m</m> equations in <m>n</m> unknowns can be written in matrix-vector form as <m>A\vx = \vb</m>, where
+      of <m>m</m> equations in <m>n</m> unknowns can be written in matrix-vector form as 
+      <m>A\vx = \vb</m>, where
       <me>
         A = \left[ \begin{array}{cccc} a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \\ a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \\ \vdots \amp         \amp  \ddots    \amp  \vdots \\ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn} \end{array}  \right],  \ \ \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right],  \ \ \ \text{ and }  \ \ \ \vb = \left[ \begin{array}{c} b_1 \\ b_2 \\ \vdots \\ b_m \end{array}  \right]
       </me>.
@@ -33,11 +35,13 @@
       in vector equation form, and in matrix-vector equation form),
       and it is important to be able to translate between them.
       As an example, the system
-      <md>
+
+      <md alignment="alignat">
         <mrow> x_1     \amp {}+{}   \amp {4}x_2   \amp {}+{}  \amp {2}x_3   \amp {}+{}  \amp {4}x_4  \amp {}={}  \amp 1</mrow>
         <mrow>{2}x_1   \amp {}-{}   \amp {}x_2     \amp {}-{}  \amp {5}x_3   \amp {}-{}  \amp {}x_4  \amp {}={}  \amp 2</mrow>
         <mrow>{3}x_1   \amp {}+{}   \amp {7}x_2   \amp {}+{}  \amp {}x_3     \amp {}+{}  \amp {7}x_4  \amp {}={}  \amp 3</mrow>
       </md>
+
       from the introduction to this section has corresponding augmented matrix
       <me>
         \left[ \begin{array}{crrr|c} 1\amp 4\amp 2\amp 4\amp 1 \\ 2\amp -1\amp -5\amp -1\amp 2 \\ 3\amp 7\amp 1\amp 7\amp 3 \end{array}  \right]
@@ -51,12 +55,17 @@
         \left[ \begin{array}{crrr} 1\amp 4\amp 2\amp 4 \\ 2\amp -1\amp -5\amp -1 \\ 3\amp 7\amp 1\amp 7 \end{array}  \right] \left[ \begin{array}{c} x_1 \\x_2 \\ x_3 \\ x_4 \end{array}  \right] = \left[ \begin{array}{c} 1 \\ 2 \\ 3 \end{array}  \right]
       </me>.
     </p>
+
     <activity>
+      <introduction>
       <p>
         In this activity,
-        we will use the equivalence of the different representations of a system to make useful observations about when a system represented as <m>A\vx=\vb</m> has a solution.
-        <ul>
-          <li>
+        we will use the equivalence of the different representations of a system to 
+        make useful observations about when a system represented as <m>A\vx=\vb</m> has a solution.
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Consider the system
               <me>
@@ -66,8 +75,10 @@
               Find weights that make the vector
               <m>\left[ \begin{array}{c} 2 \\ 6 \end{array}  \right]</m> a linear combination of the columns of the coefficient matrix.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               From this point on we consider the general case where <m>A</m> is an <m>m \times n</m> matrix.
               Use the vector equation representation to explain why the system
@@ -76,31 +87,36 @@
               then the other side must also be true.)
               (Hint: Compare to what you did in part (a).)
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Use part (b) and the definition of span to explain why the system
               <m>A \vx = \vb</m> has a solution if and only if the vector <m>\vb</m> is in the span of the columns of <m>A</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Use part (c) to explain why the system
               <m>A \vx = \vb</m> always has a solution for any vector <m>\vb</m> in <m>\R^m</m> if and only if the span of the columns of <m>A</m> is all of <m>\R^m</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Use the augmented matrix representation and the criterion for a consistent system to explain why the system
               <m>A \vx = \vb</m> is consistent for all vectors <m>\vb</m> if and only if <m>A</m> has a pivot position in every row.
             </p>
-          </li>
-        </ul>
-      </p>
+          </statement>
+        </task>
     </activity>
+
     <p>
       We summarize our observations from the above activity in the following theorem.
-    </p>
     <theorem>
       <statement>
         <p>
@@ -109,12 +125,14 @@
           <ol>
             <li>
               <p>
-                The matrix equation <m>A \vx = \vb</m> has a solution for every vector <m>\vb</m> in <m>\R^m</m>.
+                The matrix equation <m>A \vx = \vb</m> has a solution for every vector 
+                <m>\vb</m> in <m>\R^m</m>.
               </p>
             </li>
             <li>
               <p>
-                Every vector <m>\vb</m> in <m>\R^m</m> can be written as a linear combination of the columns of <m>A</m>.
+                Every vector <m>\vb</m> in <m>\R^m</m> can be written as a linear combination 
+                of the columns of <m>A</m>.
               </p>
             </li>
             <li>
@@ -131,12 +149,13 @@
         </p>
       </statement>
     </theorem>
-    <p>
+
       In the future,
       if we need to determine whether a system has a solution for every <m>\vb</m>,
       we can refer to this theorem without having to argue our reasoning from scratch.
     </p>
   </introduction>
+
   <subsection>
     <title>Properties of the Matrix-Vector Product</title>
     <p>
@@ -144,7 +163,9 @@
       (the matrix-vector product),
       so we should wonder what properties it has.
     </p>
+
     <activity xml:id="act_A1_4_8">
+      <statement>
       <p>
         In this activity,
         we consider whether the matrix-vector product distributes vector addition.
@@ -159,14 +180,17 @@
         (note that each <m>\vc_i</m> represents a column of <m>A</m>),
         <m>\vu = \left[ \begin{array}{c} u_1 \\ u_2 \\ u_3 \end{array}  \right]</m>,
         and <m>\vv = \left[ \begin{array}{c} v_1 \\ v_2 \\ v_3 \end{array}  \right]</m>.
-        Use the definition of the matrix-vector product along with the properties of vector operations to show that
+        Use the definition of the matrix-vector product along with the properties of vector 
+        operations to show that
         <me>
           A(\vu + \vv)= A\vu + A\vv
         </me>.
       </p>
+      </statement>
     </activity>
     <p>
-      Similar arguments using the definition of matrix-vector product along with the properties of vector operations can be used to show the following theorem:
+      Similar arguments using the definition of matrix-vector product along with the properties 
+      of vector operations can be used to show the following theorem:
     </p>
     <theorem xml:id="thm_IMT_1_e">
       <statement>
