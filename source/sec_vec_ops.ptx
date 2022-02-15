@@ -5,8 +5,10 @@
     As discussed in <xref ref="pa_1_d"></xref>,
     a vector is simply a list of numbers.
     We can add vectors of like size and multiply vectors by scalars.
-    These operations define a structure on the set of all vectors with the same number of components that will be our major object of study in linear algebra.
-    Ultimately we will expand our idea of vectors to a more general context and study what we will call <em>vector spaces</em>.
+    These operations define a structure on the set of all vectors with the same number of 
+    components that will be our major object of study in linear algebra.
+    Ultimately we will expand our idea of vectors to a more general context and study what we 
+    will call <term>vector spaces</term>.
   </p>
   <p>
     In <xref ref="pa_1_d"></xref>
@@ -15,16 +17,19 @@
     Before we do so,
     one thing we didn't address in <xref ref="pa_1_d"></xref>
     is what it means for two vectors to be equal.
-    It should seem reasonable that two vectors are equal if and only if they have the same corresponding components.
+    It should seem reasonable that two vectors are equal if and only if they have the same 
+    corresponding components.
     More formally, if we let
     <me>
       \vu = \left[ \begin{array}{c} u_1 \\ u_2 \\ \vdots \\ u_n \end{array}  \right] \ \text{ and }  \ \vv = \left[ \begin{array}{c} v_1 \\ v_2 \\ \vdots \\ v_n \end{array}  \right]
     </me>
     be vectors in <m>\R^n</m>,
     then <m>\vu = \vv</m> if <m>u_i = v_i</m> for every <m>i</m> between 1 and <m>n</m>.
-    Note that this statement implies that a vector in <m>\R^2</m> cannot equal a vector in <m>\R^3</m> because they don't have the same number of components.
+    Note that this statement implies that a vector in <m>\R^2</m> cannot equal a vector in 
+    <m>\R^3</m> because they don't have the same number of components.
     With this in mind we can now define the sum
-    <m>\vu + \vv</m> of the vectors <m>\vu</m> and <m>\vv</m> to be the vector in <m>\R^n</m> defined by
+    <m>\vu + \vv</m> of the vectors <m>\vu</m> and <m>\vv</m> to be the vector in <m>\R^n</m> 
+    defined by
     <me>
       \vu + \vv = \left[ \begin{array}{c} u_1+v_1 \\ u_2+v_2 \\ \vdots \\ u_n+v_n \end{array}  \right]
     </me>.
@@ -36,14 +41,16 @@
   <p>
     Similarly, we can define scalar multiplication of a vector.
     If <m>c</m> is a scalar,
-    then the scalar multiple <m>c \vv</m> of the vector <m>\vv</m> is the vector in <m>\R^n</m> defined by
+    then the scalar multiple <m>c \vv</m> of the vector <m>\vv</m> is the vector in <m>\R^n</m> 
+    defined by
     <me>
       c\vv = \left[ \begin{array}{c} cv_1 \\ cv_2 \\ \vdots \\ cv_n \end{array}  \right]
     </me>.
   </p>
   <p>
     In other words,
-    the scalar multiple <m>c\vv</m> of the vector <m>\vv</m> is the vector obtained by multiplying each component of the vector <m>\vv</m> by the scalar <m>c</m>.
+    the scalar multiple <m>c\vv</m> of the vector <m>\vv</m> is the vector obtained by 
+    multiplying each component of the vector <m>\vv</m> by the scalar <m>c</m>.
     Since we can add vectors and multiply vectors by scalars,
     we can then add together scalar multiples of vectors.
     For completeness,
@@ -53,7 +60,8 @@
     </me>.
   </p>
   <p>
-    This definition is equivalent to defining subtraction of <m>\vu</m> from <m>\vv</m> by subtracting components of <m>\vu</m> from the corresponding components of <m>\vv</m>.
+    This definition is equivalent to defining subtraction of <m>\vu</m> from <m>\vv</m> by 
+    subtracting components of <m>\vu</m> from the corresponding components of <m>\vv</m>.
   </p>
   <p>
     After defining operations on objects,
@@ -74,7 +82,9 @@
     we know that multiplication is distributive over addition.
     Is that true with vectors as well?
   </p>
+
   <activity xml:id="act_A1_3_1">
+    <statement>
     <p>
       We work with vectors in <m>\R^2</m> to make the notation easier.
     </p>
@@ -85,10 +95,14 @@
       Is <m>a(\vu + \vv)</m> equal to <m>a\vu + a\vv</m>?
       What property does this imply about the scalar multiplication and addition operations on vectors?
     </p>
+    </statement>
   </activity>
+
   <p>
-    Similar arguments can be used to show the following properties of vector addition and multiplication by scalars.
+    Similar arguments can be used to show the following properties of vector addition and
+    multiplication by scalars.
   </p>
+
   <theorem xml:id="thm_vector_properties">
     <statement>
       <p>
@@ -108,15 +122,16 @@
           </li>
           <li>
             <p>
-              The vector <m>\vz = \left[ \begin{array}{c} 0 \\ 0 \\ \vdots \\ 0 \end{array} \right]</m> has the property that <m>\vv + \vz = \vv</m>.
-              The vector <m>\vz</m> is called the <em>zero vector</em>.
+              The vector <m>\vz = \left[ \begin{array}{c} 0 \\ 0 \\ \vdots \\ 0 \end{array} \right]</m> 
+              has the property that <m>\vv + \vz = \vv</m>.
+              The vector <m>\vz</m> is called the <term>zero vector</term>.
             </p>
           </li>
           <li>
             <p>
               <m>(-1)\vv + \vv = \vz</m>.
               The vector <m>(-1)\vv = -\vv</m> is called the
-              <em>additive inverse</em>
+              <term>additive inverse</term>
               of the vector <m>\vv</m>.
             </p>
           </li>
@@ -144,8 +159,9 @@
       </p>
     </statement>
   </theorem>
+
   <p>
-    We will later see that the above properties make the set <m>\R^n</m> a <em>vector space</em>.
+    We will later see that the above properties make the set <m>\R^n</m> a <term>vector space</term>.
     These properties just say that, for the most part,
     we can manipulate vectors just as we do real numbers.
     Please note, though,

@@ -3,7 +3,7 @@
   <title>Introduction</title>
   <p>
     So far we learned of a convenient method to represent a linear system using matrices.
-    We now consider another representation of a linear system using <em>vectors</em>.
+    We now consider another representation of a linear system using <term>vectors</term>.
     Vectors can represent concepts in the physical world like velocity,
     acceleration,
     and force <mdash/> but we will be interested in vectors as algebraic objects in this class.
@@ -11,21 +11,24 @@
     For now, the following definition will suffice.
   </p>
   <definition>
+  <idx><h>vector</h></idx>
+  <idx><h>vector</h><h>entry</h></idx>
+  <idx><h>vector</h><h>component</h></idx>
     <statement>
       <p>
         A (real) <term>vector</term>
-            <idx><h>vector</h></idx>
         is a finite list of real numbers in a specified order.
         Each number in the list is referred to as an <term>entry</term>
-            <idx><h>vector</h><h>entry</h></idx>
         or <term>component</term>
-            <idx><h>vector</h><h>component</h></idx>
         of the vector.
       </p>
     </statement>
   </definition>
+
+  <paragraphs>
+    <title>Note</title>
   <p>
-    <em>Note</em>: For the majority of this text,
+    For the majority of this text,
     we will work with real vectors.
     However, a vector does not need to be restricted to have real entries.
     At times we will use complex vectors and even vectors in other types of sets.
@@ -36,10 +39,13 @@
     or otherwise
     (irrational numbers).
     We can add and multiply real numbers as we have done throughout our mathematical careers,
-    and the real numbers have a certain structure given in the following theorem that we will treat as an axiom <mdash/> that is,
+    and the real numbers have a certain structure given in the following theorem that we will treat 
+    as an axiom <mdash/> that is,
     we assume these properties without proof.
     We denote the set of real numbers with the symbol <m>\R</m>.
   </p>
+  </paragraphs>
+
   <theorem xml:id="thm_1_d_reals">
     <statement>
       <p>
@@ -48,64 +54,66 @@
         <ul>
           <li>
             <p>
-              <m>x + y \in \R</m> and <m>xy \in \R</m> (<em>The name given to this property is closure.
-              That is, the set <m>\R</m> is closed under addition and multiplication.</em>)
+              <m>x + y \in \R</m> and <m>xy \in \R</m> (The name given to this property is closure.
+              That is, the set <m>\R</m> is closed under addition and multiplication.)
             </p>
           </li>
           <li>
             <p>
-              <m>x + y = y + x</m> and <m>xy=yx</m> (<em>The name given to this property is commutativity.
-              That is addition and multiplication are commutative operations in <m>\R</m>.</em>)
+              <m>x + y = y + x</m> and <m>xy=yx</m> (The name given to this property is commutativity.
+              That is addition and multiplication are commutative operations in <m>\R</m>.)
             </p>
           </li>
           <li>
             <p>
               <m>(x + y) + z = x + (y + z)</m> and
-              <m>(xy)z = x(yz)</m> (<em>The name given to this property is associativity.
-              That is, addition and multiplication is associative operations in <m>\R</m>.</em>)
+              <m>(xy)z = x(yz)</m> (The name given to this property is associativity.
+              That is, addition and multiplication is associative operations in <m>\R</m>.)
             </p>
           </li>
           <li>
             <p>
               There is an element <m>0</m> in <m>\R</m> such that
-              <m>x+ 0 = x</m> (<em>The element <m>0</m> is called the additive identity in <m>\R</m>.</em>)
+              <m>x+ 0 = x</m> (The element <m>0</m> is called the additive identity in <m>\R</m>.)
             </p>
           </li>
           <li>
             <p>
               There is an element <m>1</m> in <m>\R</m> such that
-              <m>(1)x = x</m> (<em>The element <m>1</m> is called the multiplicative identity in <m>\R</m>.</em>)
+              <m>(1)x = x</m> (The element <m>1</m> is called the multiplicative identity in <m>\R</m>.)
             </p>
           </li>
           <li>
             <p>
               There is an element <m>-x</m> in <m>\R</m> such that
-              <m>x+(-x) = 0</m> (<em>The element <m>-x</m> is the additive inverse of <m>x</m> in <m>\R</m>.</em>)
+              <m>x+(-x) = 0</m> (The element <m>-x</m> is the additive inverse of <m>x</m> in <m>\R</m>.)
             </p>
           </li>
           <li>
             <p>
               If <m>x \neq 0</m>, there is an element
-              <m>\frac{1}{x}</m> in <m>\R</m> such that <m>x\left(\frac{1}{x}\right) = 1</m> (<em>The element
-              <m>\frac{1}{x}</m> is the multiplicative inverse of the nonzero element <m>x</m> in <m>\R</m>.</em>)
+              <m>\frac{1}{x}</m> in <m>\R</m> such that <m>x\left(\frac{1}{x}\right) = 1</m> (The element
+              <m>\frac{1}{x}</m> is the multiplicative inverse of the nonzero element <m>x</m> in <m>\R</m>.)
             </p>
           </li>
           <li>
             <p>
-              <m>x (y + z) = (x y) + (x z)</m> (<em>The is the distributive property.
-              That is, multiplication distributes over addition in <m>\R</m>.</em>)
+              <m>x (y + z) = (x y) + (x z)</m> (The is the distributive property.
+              That is, multiplication distributes over addition in <m>\R</m>.)
             </p>
           </li>
         </ul>
       </p>
     </statement>
   </theorem>
+
   <p>
-    Any set that satisfies the properties listed in <xref ref="thm_1_d_reals">Theorem</xref> is called a <em>field</em>.
-        <idx><h>field</h></idx>
+  <idx><h>field</h></idx>
+  <idx><h>scalars</h></idx>
+    Any set that satisfies the properties listed in <xref ref="thm_1_d_reals"></xref> is 
+    called a <term>field</term>.
     Our vectors are made from elements of a field,
-    we call those elements of the field <em>scalars</em>.
-        <idx><h>scalars</h></idx>
+    we call those elements of the field <term>scalars</term>.
   </p>
   <p>
     We will algebraically represent a vector as a matrix with one column.
@@ -114,7 +122,8 @@
     and we say that <m>\vv</m> is a vector in 2-space.
     By 2-space we mean <m>\R^2</m>,
     which can be geometrically modeled as the plane.
-    Here the symbol <m>\R</m> indicates that the entries of <m>\vv</m> are real numbers and the superscript 2 tells us that <m>\vv</m> has two entries.
+    Here the symbol <m>\R</m> indicates that the entries of <m>\vv</m> are real numbers and the 
+    superscript 2 tells us that <m>\vv</m> has two entries.
     Similarly, vectors in <m>\R^3</m> have three entries,
     e.g., <m>\left[ \begin{array}{r} 1\\ 3\\ -1 \end{array} \right]</m>.
     The collection of column vectors with three entries can be geometrically modeled as three-dimensional space.
@@ -127,17 +136,20 @@
     We will use boldface letters to represent vectors.
   </p>
   <p>
-    A vector like <m>\left[ \begin{array}{c} 1\\ 2 \end{array}  \right]</m> is called a <em>column vector</em>
-        <idx><h>vector</h><h>column</h></idx>
+  <idx><h>vector</h><h>column</h></idx>
+    A vector like <m>\left[ \begin{array}{c} 1\\ 2 \end{array}  \right]</m> is called a 
+    <term>column vector</term>
     of <em>size</em> <m>2 \times 1</m>
     (two rows, one column).
-    We can define an addition operation on two vectors of the same size by adding corresponding components, such as
+    We can define an addition operation on two vectors of the same size by adding corresponding 
+    components, such as
     <me>
       \left[ \begin{array}{r} 1 \\ -2 \end{array}  \right] + \left[ \begin{array}{c} 3 \\ 4 \end{array}  \right] = \left[ \begin{array}{c} 4 \\ 2 \end{array}  \right]
     </me>.
   </p>
   <p>
-    Similarly, we can define scalar multiplication of a vector by multiplying each component of the vector by the scalar.
+    Similarly, we can define scalar multiplication of a vector by multiplying each component of the 
+    vector by the scalar.
     For example,
     <me>
       3\left[ \begin{array}{c} 1\\ 2 \end{array}  \right] = \left[ \begin{array}{c} 3\\ 6 \end{array}  \right]
@@ -153,13 +165,13 @@
     </me>.
   </p>
   <p>
-    This definition is equivalent to defining subtraction of <m>\vu</m> from <m>\vv</m> by subtracting components of <m>\vu</m> from the corresponding components of <m>\vv</m>.
+    This definition is equivalent to defining subtraction of <m>\vu</m> from <m>\vv</m> by 
+    subtracting components of <m>\vu</m> from the corresponding components of <m>\vv</m>.
   </p>
-  <activity xml:id="pa_1_d">
-    <p>
-      <nbsp/>
-      <ol>
-        <li>
+
+  <exploration xml:id="pa_1_d">
+      <task>
+        <statement>
           <p>
             Given vectors
             <me>
@@ -168,35 +180,48 @@
             determine the components of the vector
             <m>3\vv + \vu - 2\vw</m> using the operations defined above.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             In mathematics, any time we define operations on objects,
             such as addition of vectors, we ask which properties the operation has.
             For example, one might wonder if
             <m>\vu+\vv=\vv+\vu</m> for any two vectors <m>\vu, \vv</m> of the same size.
             If this property holds, we say that the
-            <em>addition of vectors is a commutative operation</em>.
-            However, to verify this property we cannot use examples since the property must hold for any two vectors.
+            <term>addition of vectors is a commutative operation</term>.
+            However, to verify this property we cannot use examples since the property must hold 
+            for any two vectors.
             For simplicity, we focus on two-dimensional vectors
-            <m>\vu = \left[ \begin{array}{c} u_1\\ u_2 \end{array} \right]</m> and <m>\vv = \left[ \begin{array}{c} v_1\\ v_2 \end{array} \right]</m>.
+            <m>\vu = \left[ \begin{array}{c} u_1\\ u_2 \end{array} \right]</m> and 
+            <m>\vv = \left[ \begin{array}{c} v_1\\ v_2 \end{array} \right]</m>.
             Using these arbitrary vectors,
             can we say that <m>\vu+\vv=\vv+\vu</m>?
             If so, justify.
             If not, give a counterexample.
-            (Note: Giving a counterexample is the best way to justify why a general statement is not true.)
+            (Note: Giving a counterexample is the best way to justify why a general statement 
+            is not true.)
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
-            One way to geometrically represent vectors with two components uses a point in the plane to correspond to a vector.
+            One way to geometrically represent vectors with two components uses a point in the 
+            plane to correspond to a vector.
             Specifically,
-            the vector <m>\left[ \begin{array}{c} x \\ y \end{array} \right]</m> corresponds to the point <m>(x, y)</m> in the plane.
+            the vector <m>\left[ \begin{array}{c} x \\ y \end{array} \right]</m> corresponds 
+            to the point <m>(x, y)</m> in the plane.
             As a specific example, the vector
-            <m>\left[ \begin{array}{c} 1 \\ 2 \end{array} \right]</m> corresponds to the point <m>(1, 2)</m> in the plane.
-            This representation will be especially handy when we consider infinite collections of vectors as we will do in this problem.
-            <ul>
-              <li>
+            <m>\left[ \begin{array}{c} 1 \\ 2 \end{array} \right]</m> corresponds to the point 
+            <m>(1, 2)</m> in the plane.
+            This representation will be especially handy when we consider infinite collections 
+            of vectors as we will do in this problem.
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   On the same set of axes,
                   plot the points that correspond to 5-6 scalar multiples of the vector <m>\left[ \begin{array}{c} 1 \\ 2 \end{array} \right]</m>.
@@ -205,27 +230,35 @@
                   If we consider the collection of all possible scalar multiples of this vector,
                   what do we obtain?
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   What would the collection of all scalar multiples of the vector <m>\left[ \begin{array}{c} 0 \\ 0 \end{array} \right]</m> form in the plane?
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   What would the collection of all scalar multiples of the vector
                   <m>\left[ \begin{array}{c} 1 \\ 1\\ 1 \end{array} \right]</m> form in the three-dimensional space?
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+      </task>
+      <task>
+        <introduction>
           <p>
-            Let <m>\vu=\left[ \begin{array}{c} 1\\ 2 \end{array} \right]</m> and <m>\vv=\left[ \begin{array}{r} 1\\ -1 \end{array} \right]</m> in <m>\R^2</m>.
-            We are interested in finding all vectors that can be formed as a sum of scalar multiples of <m>\vu</m> and <m>\vv</m>.
-            <ul>
-              <li>
+            Let <m>\vu=\left[ \begin{array}{c} 1\\ 2 \end{array} \right]</m> and 
+            <m>\vv=\left[ \begin{array}{r} 1\\ -1 \end{array} \right]</m> in <m>\R^2</m>.
+            We are interested in finding all vectors that can be formed as a sum of scalar 
+            multiples of <m>\vu</m> and <m>\vv</m>.
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   On the same set of axes,
                   plot the points that correspond to the vectors <m>\vu, \vv, \vu+\vv, 1.5\vu, 2\vv, -\vu, -\vv, -\vu+2\vv</m>.
@@ -233,18 +266,18 @@
                   (that is, find other vectors of the form
                   <m>a\vu + b\vv</m> where <m>a</m> and <m>b</m> are any scalars.).
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   If we considered sums of all scalar multiples of <m>\vu, \vv</m>,
                   which vectors will we obtain?
                   Can we obtain any vector in <m>\R^2</m> in this form?
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+              </statement>
+            </task>
+      </task>
+   
+  </exploration>
 </section>

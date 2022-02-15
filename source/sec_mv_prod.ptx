@@ -4,25 +4,31 @@
   <p>
     The matrix-vector product we defined in <xref ref="pa_1_e"></xref>
     for a specific example generalizes in a very straightforward manner,
-    and provides a convenient way to represent a system of linear equations of any size using matrices and vectors.
-    In addition to providing us with an algebraic approach to solving systems via matrices and vectors <mdash/> leading to a powerful geometric relationship between solution sets of homogeneous and non-homogeneous systems <mdash/> this representation allows us to think of a linear system from a dynamic perspective,
+    and provides a convenient way to represent a system of linear equations of any size 
+    using matrices and vectors.
+    In addition to providing us with an algebraic approach to solving systems via matrices 
+    and vectors <mdash/> leading to a powerful geometric relationship between solution sets of 
+    homogeneous and non-homogeneous systems <mdash/> this representation allows us to think 
+    of a linear system from a dynamic perspective,
     as we will see later in the section on matrix transformations.
   </p>
   <p>
-    The matrix-vector product <m>A \vx</m> is a linear combination of the columns of <m>A</m> with weights from <m>\vx</m>.
+    <idx><h>matrix</h><h>rows</h></idx>
+    <idx><h>matrix</h><h>columns</h></idx>
+    <idx><h>matrix</h><h>size</h></idx>
+    The matrix-vector product <m>A \vx</m> is a linear combination of the columns of 
+    <m>A</m> with weights from <m>\vx</m>.
     To define this product in general,
     we will need a little notation.
-    Recall that a matrix is made of rows and columns <mdash/> the entries reading from left to right form the <em>rows</em>
-        <idx><h>matrix</h><h>rows</h></idx>
-    of the matrix and the entries reading from top to bottom form the <em>columns</em>.
-        <idx><h>matrix</h><h>columns</h></idx>
+    Recall that a matrix is made of rows and columns <mdash/> the entries reading from 
+    left to right form the <term>rows</term>
+    of the matrix and the entries reading from top to bottom form the <term>columns</term>.
     For example, the matrix
     <me>
       A = \left[ \begin{array}{cccc} 1 \amp  2 \amp  3 \amp  4 \\ 5 \amp  6 \amp  7 \amp  8  \\ 9 \amp  10 \amp  11 \amp  12 \end{array}  \right]
     </me>.
     has three rows and four columns.
-    The number of rows and columns of a matrix is called the <em>size</em>
-        <idx><h>matrix</h><h>size</h></idx>
+    The number of rows and columns of a matrix is called the <term>size</term>
     of the matrix, so <m>A</m> is a 3 by 4 matrix
     (also written as <m>3 \times 4</m>).
     We often need to have a way to reference the individual entries of a matrix <m>A</m>,
@@ -37,7 +43,8 @@
       A = \left[ \begin{array}{ccccc} a_{11} \amp  a_{12}  \amp  \cdots    \amp  a_{1n-1} \amp  a_{1n} \\ a_{21} \amp  a_{22}  \amp  \cdots    \amp  a_{2n-1} \amp  a_{2n} \\ \vdots \amp          \amp  \ddots    \amp      \amp \vdots \\ a_{m1} \amp  a_{m2}  \amp  \cdots    \amp  a_{mn-1} \amp  a_{mn} \end{array}  \right]
     </me>
     or, if we let <m>\vr_1, \vr_2, \ldots, \vr_m</m> denote the rows of the matrix <m>A</m>,
-    then we can write <m>A</m> as<fn>
+    then we can write <m>A</m> as
+    <fn>
     Technically,
     the rows of <m>A</m> are made from the entries of the row vectors,
     but we use this notation as a shorthand.
@@ -56,14 +63,15 @@
   <p>
     In general, the product of a matrix with a vector is defined as follows.
   </p>
+
   <definition>
+    <idx><h>matrix-vector product</h></idx>
     <statement>
       <p>
         Let <m>A</m> be an <m>m \times n</m> matrix with columns <m>\vc_1</m>,
         <m>\vc_2</m>, <m>\ldots</m>, <m>\vc_n</m>,
         and let <m>\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]</m> be a vector in <m>\R^n</m>.
         The <term>matrix-vector product</term>
-            <idx><h>matrix-vector product</h></idx>
         <m>A\vx</m> is
         <me>
           A \vx = x_1 \vc_1 + x_2 \vc_2 + \cdots + x_n \vc_n
@@ -71,9 +79,14 @@
       </p>
     </statement>
   </definition>
+
+  <paragraphs>
+    <title>Important Note</title>
   <p>
-    <em>Important Note:</em> The matrix-vector product <m>A \vx</m> is defined only when the number of entries of the vector <m>\vx</m> is equal to the number of columns of the matrix <m>A</m>.
+    The matrix-vector product <m>A \vx</m> is defined only when the number of entries of 
+    the vector <m>\vx</m> is equal to the number of columns of the matrix <m>A</m>.
     That is, if <m>A</m> is an <m>m \times n</m> matrix,
     then <m>A\vx</m> is defined only if <m>\vx</m> is a column vector with <m>n</m> entries.
   </p>
+  </paragraphs>
 </section>
