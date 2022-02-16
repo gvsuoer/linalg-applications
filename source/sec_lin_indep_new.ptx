@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<section xml:id="lin_indep_intro_new">
+  <title>Linear Independence</title>
+
+  <p>
+    In this section we will investigate the concepts of linear independence of a set of vectors.
+    Our goal is to be able to efficiently determine when a given set of vectors forms a
+    <term>minimal spanning set</term>. This will involve the concepts of span and linear 
+    independence. Minimal spanning sets are important in that they provide the most efficient
+    way to represent vectors in a space, and will later allow us to define the dimension of
+    a vector space.
+  </p>
+
+  <p>
+    In <xref ref="pa_1_f"/> we considered the case where we had a set
+    <m>\{ \vv_1, \vv_2, \vv_3 \}</m> of three vectors, and the vector <m>\vv_3</m> was
+    in the span of <m>\{ \vv_1, \vv_2 \}</m>. So the vector <m>\vv_3</m> did not add anything
+    to the span of <m>\{ \vv_1, \vv_2 \}</m>. In other words, the set <m>\{ \vv_1, \vv_2, \vv_3 \}</m>
+    was larger than it needed to be in order to generate the vectors in its span <mdash/> that is,
+    <m>\Span \{ \vv_1, \vv_2, \vv_3 \} = \Span \{ \vv_1, \vv_2 \}</m>. However, neither of the
+    vectors in the set <m>\{ \vv_1, \vv_2 \}</m> could be removed without changing its span.
+    In this case, the set <m>\{ \vv_1, \vv_2 \}</m> is what we will call a 
+    <term>minimal spanning set</term> or <term>basis</term> for <m>\Span S</m>. There are two
+    important properties that make <m>\{ \vv_1, \vv_2 \}</m> a basis for <m>\Span S</m>. The
+    first is that every vector in <m>\Span S</m> can be written as linear combinations of
+    <m>\vv_1</m> and <m>\vv_2</m> (we also use the terminology that the vectors <m>\vv_1</m>
+    and <m>\vv_2</m> span <m>\Span S</m>), and the second is that every vector in <m>\Span S</m>
+    can be written in exactly one way as a linear combination of <m>\vv_1</m> and <m>\vv_2</m>.
+    This second property is the property of linear independence, and it is the property that
+    makes the spanning set <term>minimal</term>.
+  </p>
+
+  <p>
+    To make a spanning set minimal, we want to be able to write every vector in the span in a 
+    unique way in terms of the spanning vectors. Notice that the zero vector can always be
+    written as a linear combination of any set of vectors using 0 for all of the weights. So to
+    have a <term>minimal</term> or <term>linearly independent</term> spanning set, that is,
+    to have a unique representation for each vector in the span, it will need to be the case
+    that the <term>only</term> way we can write the zero vector as a linear combination of a set
+    of vectors is if all of the weights are 0. This leads us to the definition of a linearly
+    independent set of vectors.
+  </p>
+
+  <definition xml:id="def_linear_independence_Rn">
+    <idx><h>linear independence</h></idx>
+    <idx><h>independence</h><h>linear</h></idx>
+    <idx><h>linear dependence</h></idx>
+    <idx><h>dependence</h><h>linear</h></idx>
+    <statement>
+      <p>
+        A set <m>\{ \vv_1, \vv_2, \cdots, \vv_k \}</m> of vectors in <m>\R^n</m> is
+        <term>linearly independent</term> if the vector equation
+        <me>
+          x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k = \vzero
+        </me>
+        for the scalars <m>x_1, x_2, \cdots, x_k</m> has only the trivial solution
+        <me>
+          x_1 = x_2 = x_3 = \cdots x_k = 0
+        </me>.
+        If a set is not linearly independent, then the set is <term>linearly dependent</term>.
+        
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Alternatively, we say that the vectors <m> \vv_1, \vv_2, \cdots, \vv_k</m> are linearly
+    independent (or dependent) if the set <m>\{ \vv_1, \vv_2, \cdots, \vv_k \}</m> is linearly
+    independent (or dependent).
+  </p>
+
+  <p>
+    Note that the definition tells us that a set <m>\{ \vv_1, \vv_2, \cdots, \vv_k \}</m> of vectors
+    in <m>\R^n</m> is linearly dependent if there are scalars <m>x_1, x_2, \cdots, x_n</m>, not all
+    of which are 0 so that
+    <me>
+      x_1 \vv_1 + x_2 \vv_s + \cdots + x_k \vv_k = \vzero
+    </me>.
+    
+  </p>
+
+  <activity xml:id="act_1_f_1">
+    <introduction>
+      <p>
+        Which of the following sets in <m>\R^2</m> or <m>\R^3</m> is linearly independent and which
+        is linearly dependent? Why? For the linearly dependent sets, write one of the vectors as a
+        linear combination of the others, if possible.
+      </p>
+    </introduction>
+
+    <task xml:id="act_1_f_1a">
+      <statement>
+        <p>
+          <m>S_1 = \left\{\left[\begin{array}{c} 2 \\ 0 \\ 1 \end{array}\right], \left[\begin{array}{r} -2 \\ 8 \\ 1 \end{array}\right], \left[\begin{array}{r} -4 \\ 8 \\ 0 \end{array}\right]\right\}</m>
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          <m>S_2 = \left\{\left[\begin{array}{c} 1 \\ 2 \\ 1 \end{array}\right], \left[\begin{array}{c} 0 \\ 2 \\ 3 \end{array}\right]\right\}</m>
+        </p>
+      </statement>
+      <hint>
+        <p>
+          What relationship must exist between two vectors if they are linearly dependent?
+        </p>
+      </hint>
+    </task>
+    <task xml:id="act_1_f_1c">
+      <statement>
+        <p>
+          The vectors <m>\vu</m>, <m>\vv</m>, and <m>\vw</m> as shown in <xref ref="F_1_f_1"/>.
+        </p>
+        <figure xml:id="F_1_f_1">
+          <caption>Vectors <m>\vu</m>, <m>\vv</m>, and <m>\vw</m>.</caption>
+          <image source="1_f_lin_dependence" width="50%">
+            
+          </image>
+        </figure>
+      </statement>
+    </task>
+  </activity>
+
+  <p>
+    <xref ref="act_1_f_1a"/> and <xref ref="act_1_f_1c"/> illustrate how we can write one of the
+    vectors in a linearly dependent set as a linear combination of the others. This would allow
+    us to write at least one of the vectors in the span of the set in more than one way as a
+    linear combination of vectors in this set. We prove this result in general in the following
+    theorem.
+  </p>
+
+  <theorem xml:id="thm_dependence">
+    <statement>
+      <p>
+        A set <m>\{ \vv_1, \vv_2, \cdots, \vv_k \}</m> of vectors in <m>\R^n</m> is linearly
+        dependent if and only if at least one of the vectors in the set can be written as a
+        linear combination of the remaining vectors in the set.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    The next activity is intended to help set the stage for the proof of <xref ref="thm_dependence"/>.
+  </p>
+
+  <activity xml:id="act_1_f_1b">
+    <introduction>
+      <p>
+        The statement of <xref ref="thm_dependence"/> is a bi-conditional statement (an if and
+        only if statement). To prove this statement about the set <m>S</m> we need to show two
+        things about <m>S</m>. One: we must demonstrate that if <m>S</m> is a linearly dependent
+        set, then at least one vector in <m>S</m> is a linear combination of the other vectors
+        (this is the <q>only if</q> part ofthe biconditional statement) and Two: if at least one
+        vector in <m>S</m> is a linear combination of the others, then <m>S</m> is linearly
+        dependent (this is the <q>if</q> part of the biconditional statement). We illustrate the
+        main idea of the proof using a three vector set <m>S = \{ \vv_1, \vv_2, \vv_3 \}</m>.
+      </p>
+    </introduction>
+
+    <task>
+      <statement>
+        <p>
+          First let us assume that <m>S</m> is a linearly dependent set and show that at least
+          one vector in <m>S</m> is a linear combination of the other vectors. Since <m>S</m> is
+          linearly dependent we can write the zero vector as a linear combination of
+          <m>\vv_1</m>, <m>\vv_2</m>, and <m>\vv_3</m> with at least one nonzero weight. For
+          example, suppose
+          <men xml:id="eq_1_f_dependence_thm_1">
+            2 \vv_1 + 3 \vv_2 + 4 \vv_3 = \vzero
+          </men>
+          Solve Equation <xref ref="eq_1_f_dependence_thm_1"/> for the vector <m>\vv_2</m> to show
+          that <m>\vv_2</m> can be written as a linear combination of <m>\vv_1</m> and <m>\vv_3</m>.
+          Conclude that <m>\vv_2</m> is a linear combination of the other vectors in the set <m>S</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Now we assume that at least one of the vectors in <m>S</m> is a linear combination of
+          the others. For example, suppose that 
+          <men xml:id="eq_1_f_dependence_thm_2">
+            \vv_3 = \vv_1 + 5 \vv_2
+          </men>.
+          Use vector algebra to rewrite Equation <xref ref="eq_1_f_dependence_thm_2"/> so that 
+          <m>\vzero</m> is expressed as a linear combination of <m>\vv_1</m>, <m>\vv_2</m>,
+          and <m>\vv_3</m> such that the weight on <m>\vv_3</m> is not zero. Conclude that the
+          set <m>S</m> is linearly dependent.
+        </p>
+      </statement>
+    </task>
+  </activity>
+
+  <p>
+    Now we provide a formal prof of <xref ref="thm_dependence"/>, using the ideas from
+    <xref ref="act_1_f_1b"/>.
+  </p>
+
+  <proof>
+    <title>Proof of <xref ref="thm_dependence"/></title>
+    <p>
+      Let <m>s = \{ \vv_1, \vv_2, \cdots, \vv_k \}</m> be a set of vectors in <m>\R^n</m>. We will
+      begin by verifying the first statement.
+    </p>
+    <p>
+      We assume that <m>S</m> is a linearly dependent set and show that at least one vector in
+      <m>S</m> is a linear combination of the others. Since <m>S</m> is linearly dependent, there
+      are scalarc <m>x_1, x_2, \cdots, x_n</m>, not all of which are 0, so that 
+      <men xml:id="eq_1_f_dependence_1">
+        x_1\vv_1 + x_2\vv_2 + \cdots +  x_{k}\vv_{k} = \vzero
+      </men>.
+      We don't know which scalar(s) are not zero, but there is at least one. So let us assume
+      that <m>x_i</m> is not zero for some <m>i</m> between 1 and <m>k</m>. we can then subtract
+      <m>x_i \vv_i</m> from both sides of Equation <xref ref="eq_1_f_dependence_1"/> and divide
+      by <m>x_i</m> to obtain
+      <me>
+        \vv_i = \frac{x_1}{x_i}\vv_1 + \frac{x_2}{x_i}\vv_2 + \cdots + \frac{x_{i-1}}{x_i}\vv_{i-1} +  \frac{x_{i+1}}{x_i}\vv_{i+1} + \frac{x_{i+2}}{x_i}\vv_{i+2} + \cdots + \frac{x_{k}}{x_i}\vv_{k}
+      </me>.
+      Thus, the vector <m>\vv_i</m> is a linear combination of <m>\vv_1</m>, <m>\vv_2</m>, 
+      <m>\cdots</m>, <m>\vv_{i-1}</m>, <m>\vv_{i+1}</m>, <m>\cdots</m>, <m>\vv_k</m>, and at
+      least one of the vectors in <m>S</m>is a linear combination of the other vectors in <m>S</m>.
+    </p>
+    <p>
+      To verify the second statement, we assume that at least one of the vectors in <m>S</m> can
+      be written as a linear combination of the others and show that <m>S</m> is then a linearly
+      dependent set. We don't know which vector(s) in <m>S</m> can be written as a linear
+      combination of the others, but there is at least one. Let us suppose that <m>\vv_i</m> is a 
+      linear combination of the others, but there is at least one. Let us suppose that <m>\vv_i</m>
+      is a linear combination of the vectors <m>\vv_1</m>, <m>\vv_2</m>, 
+      <m>\cdots</m>, <m>\vv_{i-1}</m>, <m>\vv_{i+1}</m>, <m>\cdots</m>, <m>\vv_k</m>, for some
+      <m>i</m> between 1 and <m>k</m>. Then there exist scalars <m>x_1</m>, <m>x_2</m>, 
+      <m>\cdots</m>, <m>x_{i-1}</m>, <m>x_{i+1}</m>, <m>\cdots</m>, <m>x_n</m> so that 
+      <me>
+        \vv_i = x_1\vv_1 + x_2\vv_2 + \cdots + x_{i-1}\vv_{i-1} +  x_{i+1}\vv_{i+1} + x_{i+2}\vv_{i+2} + \cdots + x_{k}\vv_{k}
+      </me>.
+      It follows that
+      <me>
+        \vzero = x_1\vv_1 + x_2\vv_2 + \cdots + x_{i-1}\vv_{i-1} +  (-1)\vv_i + x_{i+1}\vv_{i+1} + x_{i+2}\vv_{i+2} + \cdots + x_{k}\vv_{k}
+      </me>.
+      So there are scalars <m>x_1</m>, <m>x_2</m>, <m>\cdots</m>, <m>x_n</m> (with <m>x_i = -1</m>),
+      not all of which are 0, so that
+      <me>
+        x_1\vv_1 + x_2\vv_2 + \cdots +  x_{k}\vv_{k} = \vzero
+      </me>.
+      This makes <m>S</m> a linearly dependent set.
+    </p>
+  </proof>
+
+  <p>
+    With a linearly dependent set, at least one of the vectors in the set is a linear combination
+    of the others. With a linearly independent set, this cannot happen <mdash/> no vector in the
+    set can be written as a linear combination of the others. This result is given in the next
+    theorem. You may be able to see how <xref ref="thm_dependence"/> and 
+    <xref ref="thm_Independence"/> are 
+    logically equivalent.
+  </p>
+
+  <theorem xml:id="thm_Independence">
+    <statement>
+      <p>
+        A set <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> of vectors in <m>\R^n</m> is 
+        linearly independent if and only if no vector in the set can be written as a linear 
+        combination of the remaining vectors in the set.
+      </p>
+    </statement>
+  </theorem>
+
+  <activity xml:id="act_1_f_2">
+    <introduction>
+      <p>
+        As was hinted at in <xref ref="pa_1_f"/>, an important consequence of a linearly
+        independent set is that every vector in the span of the set can be written in one
+        and only one way as a linear combination of vectors in the set. It is this uniqueness
+        that makes linearly independent sets so useful. We explore this idea in this activity 
+        for a linearly independent set of three vectors. Let <m>S = \{ \vv_1, \vv_2, \vv_3 \}</m>
+        be a linearly independent set of vectors in <m>\R^n</m> for some <m>n</m>, and let 
+        <m>\vb</m> be a vector in <m>\Span S</m>. To show that <m>\vb</m> can be written in 
+        exactly one way as a linear combination of vectors in <m>S</m>, we assume that
+        <me>
+          \vb = x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3 \ \ \text{ and } \ \ \vb = y_1\vv_1 + y_2 \vv_2 + y_3 \vv_3
+        </me>
+        for some scalars <m>x_1</m>, <m>x_2</m>, <m>x_3</m>, <m>y_1</m>, <m>y_2</m>, and <m>y_3</m>.
+        We need to demonstrate that <m>x_1 = y_1</m>, <m>x_2 = y_2</m>, and <m>x_3 = y_3</m>.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          use the two different ways of writing <m>\vb</m> as a linear combination of <m>\vv_1</m>,
+          <m>\vv_2</m>, and <m>\vv_3</m> to come up with a linear combination expressing <m>\vzero</m>
+          as a linear combination of these vectors.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Use the linear independence of the vectors <m>\vv_1</m>, <m>\vv_2</m>, and <m>\vv_3</m>
+          to explain why <m>x_1 = y_1</m>, <m>x_2 = y_2</m>, and <m>x_3 = y_3</m>.
+        </p>
+      </statement>
+    </task>
+  </activity>
+  
+  <p>
+    <xref ref="act_1_f_2"/> contains the general ideas to show that any vector in the span of a 
+    linearly independent set can be written in one and only one way as a linear combination of the
+    vectors in the set. The weights of such a linear combination provide us a 
+    <term>coordinate system</term> for the vectors in terms of the basis. Two familiar concepts
+    of coordinate systems are the Cartesian coordinates and <m>xy</m>-plane, and <m>xyz</m>-space.
+    We will revisit the coordinate system idea in a later chapter.
+  </p>
+
+  <p>
+    In the next theorem we state and prove the general case of any number of linearly independent
+    vectors productin unique representations as linear combinations.
+  </p>
+
+  <theorem xml:id="thm_1_f_unique_representation">
+    <statement>
+      <p>
+        Let <m>S = \{\vv_1, \vv_2, \ldots, \vv_k\}</m> be a linearly independent set of vectors
+        in <m>\R^n</m>. Any vector in <m>\Span S</m> can be written in one and only one way as 
+        as linear combination of the vectors <m>\vv_1</m>, <m>\vv_2</m>, and <m>\vv_3</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Let <m>S = \{\vv_1, \vv_2, \ldots, \vv_k\}</m> be a linearly independent set of vectors
+        in <m>\R^n</m> and let <m>\vb</m> be a vector in <m>\Span S</m>. By definition, it follows
+        that <m>\vb</m> can be written as a linear combination of the vectors in <m>S</m>.
+        It remains for us to show that this representation is unique. So assume that 
+        <men xml:id="eq_1_f_1">
+          \vb = x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k \ \ \text{ and } \ \ \vb = y_1\vv_1 + y_2 \vv_2 + \cdots + y_k \vv_k
+        </men>
+        for some scalars <m>x_1</m>, <m>x_2</m>, <m>\cdots</m>, <m>x_k</m> and <m>y_1</m>,
+        <m>y_2</m>, <m>\cdots</m>, <m>y_k</m>. Then
+        <me>
+          x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k = y_1\vv_1 + y_2 \vv_2 + \cdots + y_k \vv_k
+        </me>.
+        Subtracting all terms from the right side and using a little vector algebra gives us
+        <me>
+          (x_1-y_1) \vv_1 + (x_2-y_2) \vv_2 + \cdots + (x_k-y_k) \vv_k = \vzero
+        </me>.
+        The fact that <m>S</m> is a linearly independent set implies that
+        <me>
+           x_1-y_1=0, \ x_2-y_2 = 0, \ \ldots, \ x_k-y_k=0
+        </me>,
+        showing that <m>x_i = y_i</m> for every <m>i</m> between 1 and <m>k</m>. We conclude
+        that the representation of <m>\vb</m> as a linear combination of the linearly independent
+        vectors in <m>S</m> is unique.
+      </p>
+    </proof>
+  </theorem>
+  
+  
+</section>
