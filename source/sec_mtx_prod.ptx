@@ -4,13 +4,15 @@
   <introduction>
     <p>
       As we saw in <xref ref="pa_2_a"></xref>,
-      a matrix-matrix product can be found in a way which makes use of and also generalizes the matrix-vector product.
+      a matrix-matrix product can be found in a way which makes use of and also generalizes
+       the matrix-vector product.
     </p>
+
     <definition>
+    <idx><h>matrix</h><h>product</h></idx>
       <statement>
         <p>
           The <term>matrix product</term>
-              <idx><h>matrix</h><h>product</h></idx>
           of a <m>k \times m</m> matrix <m>A</m> and an <m>m \times n</m> matrix
           <m>B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]</m> with columns <m>\vb_1</m>,
           <m>\vb_2</m>,
@@ -21,17 +23,25 @@
         </p>
       </statement>
     </definition>
+
     <p>
-      We now consider the motivation behind this definition by thinking about the matrix transformations corresponding to each of the matrices <m>A, B</m> and <m>AB</m>.
+      We now consider the motivation behind this definition by thinking about the matrix 
+      transformations corresponding to each of the matrices <m>A, B</m> and <m>AB</m>.
       Recall that left multiplication by an
-      <m>m \times n</m> matrix <m>B</m> defines a transformation <m>T</m> from <m>\R^n</m> to <m>\R^m</m> by <m>T(\vx)=B\vx</m>.
-      The domain of <m>T</m> is <m>\R^n</m> because the number of components of <m>\vx</m> have to match the number of entries in each of row of <m>B</m> in order for the matrix-vector product <m>B\vx</m> to be defined.
-      Similarly, a <m>k \times m</m> matrix <m>A</m> defines a transformation <m>A</m> from <m>\R^m</m> to <m>\R^k</m>.
+      <m>m \times n</m> matrix <m>B</m> defines a transformation <m>T</m> from <m>\R^n</m>
+       to <m>\R^m</m> by <m>T(\vx)=B\vx</m>.
+      The domain of <m>T</m> is <m>\R^n</m> because the number of components of <m>\vx</m> 
+      have to match the number of entries in each of row of <m>B</m> in order for the 
+      matrix-vector product <m>B\vx</m> to be defined.
+      Similarly, a <m>k \times m</m> matrix <m>A</m> defines a transformation <m>A</m> from 
+      <m>\R^m</m> to <m>\R^k</m>.
       Since transformations are functions,
-      we can compose them as long as the output vectors of the inside transformation lie in the domain of the outside transformation.
+      we can compose them as long as the output vectors of the inside transformation 
+      lie in the domain of the outside transformation.
       Therefore if <m>T</m> is the inside transformation and <m>S</m> is the outside transformation,
       the composition <m>S\circ T</m> is defined.
       So a natural question to ask is if we are given
+
       <ul>
         <li>
           <p>
@@ -46,14 +56,15 @@
           </p>
         </li>
       </ul>
-    </p>
-    <p>
+
       is there a matrix that represents the transformation
       <m>S \circ T</m> defined by <m>(S\circ T)(\vx)=S(T(\vx))</m>?
       We investigate this question in the next activity in the special case of a
       <m>2\times 3</m> matrix <m>A</m> and a <m>3\times 2</m> matrix <m>B</m>.
     </p>
+
     <activity xml:id="act_A2_1_1">
+      <introduction>
       <p>
         In this activity,
         we look for the meaning of the matrix product from a transformation perspective.
@@ -65,46 +76,60 @@
         <me>
           A = \left[ \begin{array}{ccc} 1\amp 2\amp 0 \\ 0\amp 1\amp 1 \end{array}  \right]  \ \ \ \text{ and }  \ \ \ B = \left[ \begin{array}{cr} 3\amp 0\\5\amp -2 \\ 0\amp 1 \end{array}  \right]
         </me>.
-        <ul>
-          <li>
+      </p>
+      </introduction>
+        <task>
+          <statement>
             <p>
               What are the domains and codomains of <m>S</m> and <m>T</m>?
               Why is the composite transformation <m>S \circ T</m> defined?
               What is the domain of <m>S\circ T</m>?
               What is the codomain of <m>S\circ T</m>? (Recall that
               <m>S \circ T</m> is defined by <m>(S \circ T)(\vx) = S(T(\vx))</m>,
-              i.e., we substitute the output <m>T(\vx)</m> as the input into the transformation <m>S</m>.)
+              i.e., we substitute the output <m>T(\vx)</m> as the input into the 
+              transformation <m>S</m>.)
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Let <m>\vx = \left[ \begin{array}{c} x \\ y \end{array} \right]</m>.
               Determine the components of <m>T(\vx)</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Find the components of <m>S\circ T(\vx)=S(T(\vx))</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Find a matrix <m>C</m> so that <m>S(T(\vx)) = C\vx</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
-              Use the definition of composition of transformations and the definitions of the <m>S</m> and <m>T</m> transformations to explain why it is reasonable to define <m>AB</m> to be the matrix <m>C</m>.
+              Use the definition of composition of transformations and the definitions 
+              of the <m>S</m> and <m>T</m> transformations to explain why it is reasonable 
+              to define <m>AB</m> to be the matrix <m>C</m>.
               Does the matrix <m>C</m> agree with the
               <me>
                 AB = \left[ \begin{array}{cr} 13 \amp  -4 \\ 5 \amp  -1 \end{array}  \right]
               </me>
               you found in <xref ref="pa_2_a"></xref> using technology?
             </p>
-          </li>
-        </ul>
-      </p>
+          </statement>
+        </task>
+  
     </activity>
+
     <p>
       We now consider this result in the general case of a
       <m>k\times m</m> matrix <m>A</m> and an <m>m \times n</m> matrix <m>B</m>,
@@ -115,24 +140,30 @@
       <m>S(\vx) = A\vx</m> and <m>T(\vx) = B\vx</m>.
       The domain of <m>S</m> is <m>\R^m</m> and the codomain is <m>\R^k</m>.
       The domain of <m>T</m> is <m>\R^n</m> and the codomain is <m>\R^m</m>.
-      The composition <m>S\circ T</m> is defined because the output vectors of <m>T</m> are in <m>\R^m</m> and they lie in the domain of <m>S</m>.
-      The domain of <m>S\circ T</m> is the same as the domain of <m>T</m> since the input vectors first go through the <m>T</m> transformation.
-      The codomain of <m>S\circ T</m> is the same as the codomain of <m>S</m> since the final output vectors are produced by applying the <m>S</m> transformation.
+      The composition <m>S\circ T</m> is defined because the output vectors of <m>T</m> 
+      are in <m>\R^m</m> and they lie in the domain of <m>S</m>.
+      The domain of <m>S\circ T</m> is the same as the domain of <m>T</m> since the input 
+      vectors first go through the <m>T</m> transformation.
+      The codomain of <m>S\circ T</m> is the same as the codomain of <m>S</m> since the 
+      final output vectors are produced by applying the <m>S</m> transformation.
     </p>
     <p>
       Let us see how we can obtain the matrix corresponding to the transformation <m>S\circ T</m>.
       Let <m>B = \left[ \vb_1 \ \vb_2  \  \cdots \ \vb_n  \right]</m>,
       where <m>\vb_j</m> is the <m>j</m>th column of <m>B</m>,
       and let <m>\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]</m>.
-      Recall that the matrix vector product <m>B\vx</m> is the linear combination of the columns of <m>B</m> with the corresponding weights from <m>\vx</m>.
+      Recall that the matrix vector product <m>B\vx</m> is the linear combination of the 
+      columns of <m>B</m> with the corresponding weights from <m>\vx</m>.
       So
       <me>
         T(\vx) = B\vx = x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n
       </me>.
     </p>
     <p>
-      Note that each of the <m>\vb_j</m> vectors are in <m>\R^m</m> since <m>B</m> is an <m>m\times n</m> matrix.
-      Therefore, each of these vectors can be multiplied by matrix <m>A</m> and we can evaluate <m>S(B\vx)</m>.
+      Note that each of the <m>\vb_j</m> vectors are in <m>\R^m</m> since <m>B</m> is an 
+      <m>m\times n</m> matrix.
+      Therefore, each of these vectors can be multiplied by matrix <m>A</m> and we can 
+      evaluate <m>S(B\vx)</m>.
       Therefore, <m>S\circ T</m> is defined and
       <men xml:id="eq_2_a_1">
         (S \circ T)(\vx) = S(T(\vx))= A(B\vx) = A\left( x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n\right)
@@ -145,7 +176,8 @@
       </men>.
     </p>
     <p>
-      This expression is a linear combination of <m>A\vb_i</m>'s with <m>x_i</m>'s being the weights.
+      This expression is a linear combination of <m>A\vb_i</m>'s with <m>x_i</m>'s 
+      being the weights.
       Therefore, if we let <m>C</m> be the matrix with columns <m>A \vb_1</m>,
       <m>A\vb_2</m>, <m>\ldots</m>, <m>A\vb_n</m>, that is
       <me>
@@ -177,74 +209,93 @@
       where <m>\vb_1</m>, <m>\vb_2</m>,
       <m>\ldots</m>,
       <m>\vb_n</m> are the columns of the matrix <m>B</m>,
-      it is natural to define <m>AB</m> to be this matrix in light of equation <xref ref="eq_2_a_4"/>.
+      it is natural to define <m>AB</m> to be this matrix in light of equation 
+      <xref ref="eq_2_a_4"/>.
     </p>
     <p>
-      Matrix multiplication has some properties that are unfamiliar to us as the next activity illustrates.
+      Matrix multiplication has some properties that are unfamiliar to us as the next
+       activity illustrates.
     </p>
+
     <activity xml:id="act_A2_1_2">
+      <introduction>
       <p>
         Let <m>A~=~\left[ \begin{array}{rr} 3 \amp -1 \\ -2 \amp 6 \end{array} \right]</m>,
         <m>B~=~\left[ \begin{array}{cc} 0 \amp 2 \\ 1 \amp 3 \end{array} \right]</m>,
         <m>C~=~\left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]</m>,
         <m>D~=~\left[ \begin{array}{rr} 3 \amp -3 \\ -3 \amp 3 \end{array} \right]</m> and <m>E~=~\left[ \begin{array}{cc} 1 \amp 0 \\ 0 \amp 1 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+      </introduction>
+        <task>
+          <statement>
             <p>
               Find the indicated products
               (by hand or using a calculator).
-              <m>AB</m> <m>BA</m> <m>DC</m> <m>AC</m> <m>BC</m> <m>AE</m> <m>EB</m>
+              <me>AB \qquad BA \qquad DC \qquad AC \qquad BC \qquad AE \qquad EB</me>
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Is matrix multiplication commutative?
               Explain.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Is there an identity element for matrix multiplication?
               In other words,
               is there a matrix <m>I</m> for which <m>AI=IA=A</m> for any matrix <m>A</m>?
               Explain.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               If <m>a</m> and <m>b</m> are real numbers with <m>ab=0</m>,
               then we know that either <m>a=0</m> or <m>b=0</m>.
               Is this same property true with matrix multiplication?
               Explain.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               If <m>a</m>, <m>b</m>, and <m>c</m> are real numbers with
               <m>c \neq 0</m> and <m>ac = bc</m>, we know that <m>a=b</m>.
               Is this same property true with matrix multiplication?
               Explain.
             </p>
-          </li>
-        </ul>
-      </p>
+          </statement>
+        </task>
+      
     </activity>
+
     <p>
       As we saw in <xref ref="act_A2_1_2"></xref>,
       there are matrices <m>A, B</m> for which <m>AB\neq BA</m>.
       On the other hand, there are matrices for which <m>AB=BA</m>.
       For example,
-      this equality will always hold for a square matrix <m>A</m> and if <m>B</m> is the identity matrix of the same size.
+      this equality will always hold for a square matrix <m>A</m> and if <m>B</m> is the 
+      identity matrix of the same size.
       It also holds if <m>A=B</m>.
       If the equality <m>AB=BA</m> holds,
-      we say that matrices <m>A</m> and <m>B</m> <em>commute</em>.
-      So the identity matrix commutes with all square matrices of the same size and every matrix <m>A</m> commutes with <m>A^k</m> for any power <m>k</m>.
+      we say that matrices <m>A</m> and <m>B</m> <term>commute</term>.
+      So the identity matrix commutes with all square matrices of the same size and every 
+      matrix <m>A</m> commutes with <m>A^k</m> for any power <m>k</m>.
     </p>
     <p>
-      There is an alternative method of calculating a matrix product that we will often use that we illustrate in the next activity.
+      There is an alternative method of calculating a matrix product that we will often use 
+      that we illustrate in the next activity.
       This alternate version depends on the product of a row matrix with a vector.
       Suppose <m>A = [a_1 \ a_2 \ \cdots \ a_n]</m> is a <m>1 \times n</m> matrix and
-      <m>\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]</m> is an <m>n \times 1</m> vector.
+      <m>\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]</m> 
+      is an <m>n \times 1</m> vector.
       Then the product <m>A \vx</m> is the <m>1 \times 1</m> vector
       <me>
         [a_1 \ a_2 \ \cdots \ a_n]\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right] = [a_1x_1+a_2x_2 + \cdots + a_nx_n]
@@ -258,34 +309,42 @@
       </men>.
     </p>
     <p>
+      <idx><h>dot product</h></idx>
       The product <m>\cdot</m> in <xref ref="eq_2_a_5"/> is called the
-      <em>scalar</em> or <em>dot</em>
-          <idx><h>dot product</h></idx>
-      product of <m>[a_1 \ a_2 \ \cdots \ a_n]</m> with <m>\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right]</m>.
+      <term>scalar</term> or <term>dot</term>
+      product of <m>[a_1 \ a_2 \ \cdots \ a_n]</m> with 
+      <m>\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right]</m>.
     </p>
     <activity xml:id="act_A2_1_3">
+      <statement>
       <p>
         Let <m>A = \left[ \begin{array}{crr} 1\amp -1\amp 2 \\ 3\amp 0\amp -4 \\ 2\amp -5\amp 1 \end{array} \right]</m> and <m>B = \left[ \begin{array}{cr} 4\amp -2 \\ 6\amp 0 \\ 1\amp 3 \end{array} \right]</m>.
       </p>
       <p>
-        Let <m>\va_i</m> be the <m>i</m>th row of <m>A</m> and <m>\vb_j</m> the <m>j</m>th column of <m>B</m>.
+        Let <m>\va_i</m> be the <m>i</m>th row of <m>A</m> and <m>\vb_j</m> the 
+        <m>j</m>th column of <m>B</m>.
         For example,
-        <m>\va_1=[ \, 1 \; -1 \; 2 \, ]</m> and <m>\vb_2 = \left[ \begin{array}{r} -2 \\ 0 \\ 3 \end{array} \right]</m>.
+        <m>\va_1=[ \, 1 \; -1 \; 2 \, ]</m> and 
+        <m>\vb_2 = \left[ \begin{array}{r} -2 \\ 0 \\ 3 \end{array} \right]</m>.
       </p>
       <p>
         Calculate the entries of the matrix <m>C</m>, where
         <me>
           C = \left[ \begin{array}{cc} \va_1 \cdot \vb_1 \amp  \va_1 \cdot \vb_2 \\ \va_2 \cdot \vb_1 \amp  \va_2 \cdot \vb_2 \\ \va_3 \cdot \vb_1 \amp  \va_3 \cdot \vb_2 \end{array}  \right]\,
         </me>,
-        where <m>\va_i \cdot \vb_j</m> refers to the scalar product of row <m>i</m> of <m>A</m> with column <m>j</m> of <m>B</m>.<fn>
+        where <m>\va_i \cdot \vb_j</m> refers to the scalar product of row 
+        <m>i</m> of <m>A</m> with column <m>j</m> of <m>B</m>.<fn>
         Recall from <xref ref="ex_1_e_scalar_product"></xref>
         of <xref ref="sec_matrix_vector"></xref>
         that the scalar product <m>\vu \cdot \vv</m> of a <m>1 \times n</m> matrix
         <m>\vu = [u_1 \ u_2 \ \ldots \ u_n]</m> and an <m>n \times 1</m> vector
         <m>\vv=\left[ \begin{array}{c} v_1\\ v_2\\ \vdots \\ v_n \end{array}  \right]</m> is <m>\vu \cdot \vv = u_1v_1 + u_2v_2 + u_3v_3 + \cdots + u_nv_n</m>.
-        </fn> Compare your result with the result of <m>AB</m> calculated via the product of <m>A</m> with the columns of <m>B</m>.
+        </fn> Compare your result with the result of <m>AB</m> calculated via the product 
+        of <m>A</m> with the columns of <m>B</m>.
       </p>
+      </statement>
     </activity>
+
     <p>
       <xref ref="act_A2_1_3"></xref>
       shows that these is an alternate way to calculate a matrix product.
@@ -299,19 +358,21 @@
     </p>
     <p>
       Now let <m>\vr_1</m>, <m>\vr_2</m>, <m>\ldots</m>,
-      <m>\vr_k</m> be the rows of <m>A</m> so that <m>A = \left[ \begin{array}{c} \vr_1 \\ \vr_2 \\ \vdots \\ \vr_k \end{array}  \right]</m>.
+      <m>\vr_k</m> be the rows of <m>A</m> so that 
+      <m>A = \left[ \begin{array}{c} \vr_1 \\ \vr_2 \\ \vdots \\ \vr_k \end{array}  \right]</m>.
       First we argue that if <m>\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_m \end{array}  \right]</m>, then
       <me>
         A \vx = \left[ \begin{array}{c} \vr_1 \cdot \vx \\ \vr_2 \cdot \vx \\ \vdots \\ \vr_k \cdot \vx \end{array}  \right]
       </me>.
     </p>
     <p>
-      This is the <em>scalar product</em>
-      (or <em>dot product</em>)
+      This is the <term>scalar product</term>
+      (or <term>dot product</term>)
       definition of the matrix-vector product.
     </p>
     <p>
-      To show that this definition gives the same result as the linear combination definition of matrix-vector product,
+      To show that this definition gives the same result as the linear combination 
+      definition of matrix-vector product,
       we first let <m>A = [\vc_1 \ \vc_2 \ \cdots \ \vc_m]</m>,
       where <m>\vc_1</m>, <m>\vc_2</m>,
       <m>\ldots</m>, <m>\vc_m</m> are the columns of <m>A</m>.
@@ -340,7 +401,8 @@
       </md>.
     </p>
     <p>
-      Therefore, the above work shows that both linear combination and scalar product definitions give the same matrix-vector product.
+      Therefore, the above work shows that both linear combination and scalar product 
+      definitions give the same matrix-vector product.
     </p>
     <p>
       Applying this to the matrix product <m>AB</m> defined in terms of the matrix-vector product,
@@ -350,25 +412,29 @@
       </me>.
     </p>
     <p>
-      So the <m>i,j</m>th entry of the matrix product <m>AB</m> is found by taking the scalar product of the <m>i</m>th row of <m>A</m> with the <m>j</m>th column of <m>B</m>.
+      So the <m>i,j</m>th entry of the matrix product <m>AB</m> is found by taking the 
+      scalar product of the <m>i</m>th row of <m>A</m> with the <m>j</m>th column of <m>B</m>.
       In other words,
       <me>
         (AB)_{ij} = \vr_i \cdot \vb_j
       </me>
-      where <m>\vr_i</m> is the <m>i</m>th row of <m>A</m> and <m>\vb_j</m> is the <m>j</m>th column of <m>B</m>.
+      where <m>\vr_i</m> is the <m>i</m>th row of <m>A</m> and <m>\vb_j</m> is the 
+      <m>j</m>th column of <m>B</m>.
     </p>
   </introduction>
+
   <subsection>
     <title>Properties of Matrix Multiplication</title>
     <p>
       <xref ref="act_A2_1_2"></xref>
-      shows that we must be very careful not to assume that matrix multiplication behaves like multiplication of real numbers.
+      shows that we must be very careful not to assume that matrix multiplication behaves 
+      like multiplication of real numbers.
       However, matrix multiplication does satisfy some familiar properties.
       For example,
       we now have an addition and multiplication of matrices under certain conditions,
       so we might ask if matrix multiplication distributes over matrix addition.
-      To answer this question we take two <em>arbitrary</em>
-      <m>k \times m</m> matrices <m>A</m> and <m>B</m> and an <em>arbitrary</em>
+      To answer this question we take two <term>arbitrary</term>
+      <m>k \times m</m> matrices <m>A</m> and <m>B</m> and an <term>arbitrary</term>
       <m>m \times n</m> matrix <m>C =  [\vc_1 \ \vc_2 \ \cdots \ \vc_n]</m>.
       Then
       <md>
@@ -381,28 +447,33 @@
     <p>
       Similar arguments can be used to show the following properties of matrix multiplication.
     </p>
+
     <theorem xml:id="thm_matrix_product_properties">
       <statement>
         <p>
           Let <m>A</m>, <m>B</m>,
-          and <m>C</m> be matrices of the appropriate sizes for all sums and products to be defined and let <m>a</m> be a scalar.
+          and <m>C</m> be matrices of the appropriate sizes for all sums and products to be 
+          defined and let <m>a</m> be a scalar.
           Then
           <ol>
             <li>
               <p>
-                <m>(AB)C = A(BC)</m> (this property tells us that matrix multiplication is <em>associative</em>)
+                <m>(AB)C = A(BC)</m> (this property tells us that matrix multiplication is 
+                <term>associative</term>)
               </p>
             </li>
             <li>
               <p>
-                <m>(A+B)C = AC + BC</m> (this property tells us that matrix multiplication on the right
-                <em>distributes over matrix addition</em>)
+                <m>(A+B)C = AC + BC</m> (this property tells us that matrix multiplication on 
+                the right
+                <term>distributes over matrix addition</term>)
               </p>
             </li>
             <li>
               <p>
-                <m>A(B+C) = AB + AC</m> (this property tells us that matrix multiplication on the left
-                <em>distributes over matrix addition</em>)
+                <m>A(B+C) = AB + AC</m> (this property tells us that matrix multiplication 
+                on the left
+                <term>distributes over matrix addition</term>)
               </p>
             </li>
             <li>
@@ -420,24 +491,30 @@
         </p>
       </statement>
     </theorem>
+
     <p>
-      We verified the second part of this theorem and will assume that all of the properties of this theorem hold.
+      We verified the second part of this theorem and will assume that all of the 
+      properties of this theorem hold.
       The matrix <m>I_n</m> introduced in <xref ref="thm_matrix_product_properties"></xref>
-      is called the <em>(multiplicative) identity matrix</em>.
-      We usually omit the word multiplicative and refer to the <m>I_n</m> simply as the identity matrix.
-      This does not cause any confusion since we refer to the additive identity matrix as simply the zero matrix.
+      is called the <term>(multiplicative) identity matrix</term>.
+      We usually omit the word multiplicative and refer to the <m>I_n</m> simply as the 
+      identity matrix.
+      This does not cause any confusion since we refer to the additive identity matrix as 
+      simply the zero matrix.
     </p>
+
     <definition>
+      <idx><h>identity matrix</h></idx>
       <statement>
         <p>
           Let <m>n</m> be a positive integer.
           The <m>n \times n</m> <term>identity matrix</term>
-              <idx><h>identity matrix</h></idx>
           <m>I_n</m> is the matrix <m>I_n = [a_{ij}]</m>,
           where <m>a_{ii} = 1</m> for each <m>i</m> and <m>a_{ij} = 0</m> if <m>i \neq j</m>.
         </p>
       </statement>
     </definition>
+
     <p>
       We also write the matrix <m>I_n</m> as
       <me>
