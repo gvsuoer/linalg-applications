@@ -2,65 +2,82 @@
 <section xml:id="sec_proj_geom_mtx">
   <title>Project: The Geometry of Matrix Transformations</title>
   <p>
-    In this section we will consider certain types of matrix transformations and analyze their geometry.
+    In this section we will consider certain types of matrix transformations and analyze their 
+    geometry.
     Much more would be needed for real computer graphics,
     but the essential ideas are contained in our examples.
-    A GeoGebra applet is available at \url{https://www.geogebra.org/m/rh4bzxee} for you to use to visualize the transformations in this project.
+    A GeoGebra applet is available at <url ref="https://www.geogebra.org/m/rh4bzxee" visual="geogebra.org/m/rh4bzxee"/>
+    for you to use to visualize the transformations in this project.
   </p>
-  <activity xml:id="act_1_g_rotation">
+
+  <project xml:id="act_1_g_rotation">
+  <idx><h>rotation matrix</h></idx>
+    <introduction>
     <p>
-      We begin with transformations that produce the rotated dancing image in <xref ref="F_Rotate_dance"></xref>.
+      We begin with transformations that produce the rotated dancing image in 
+      <xref ref="F_Rotate_dance"></xref>.
       Let <m>R</m> be the matrix transformation from <m>\R^2</m> to <m>\R^2</m> defined by
       <me>
         R\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right) = \left[\begin{array}{lr} \cos(\theta) \amp  -\sin(\theta) \\ \sin(\theta) \amp  \cos(\theta) \end{array}  \right]\left[ \begin{array}{c} x \\ y \end{array}  \right]
       </me>.
-    </p>
-    <p>
       These matrices are the rotation matrices.
-          <idx><h>rotation matrix</h></idx>
-      <ul>
-        <li>
+    </p>
+    </introduction>
+          
+      <task>
+        <introduction>
           <p>
             Suppose <m>\theta = \frac{\pi}{2}</m>.
             Then
             <me>
               R\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right) = \left[ \begin{array}{cr} 0\amp -1 \\ 1\amp 0 \end{array}  \right] \left[ \begin{array}{c} x \\ y \end{array}  \right]
             </me>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Find the images of <m>\vu_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]</m>,
                   <m>\vu_2 = \left[ \begin{array}{c} \frac{\sqrt{2}}{2} \\ \frac{\sqrt{2}}{2} \end{array} \right]</m>,
-                  and <m>\vu_3 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]</m> under <m>R</m>.
+                  and <m>\vu_3 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]</m> under 
+                  <m>R</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Plot the points determined by the vectors from part i.
                   The matrix transformation <m>R</m> performs a rotation.
                   Based on this small amount of data,
                   what would you say the angle of rotation is for this transformation <m>R</m>?
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+     
+        </task>
+      <task>
+        <introduction>>
           <p>
             Now let <m>R</m> be the general matrix transformation defined by the matrix
             <me>
               \left[\begin{array}{lr} \cos(\theta) \amp  -\sin(\theta) \\ \sin(\theta) \amp  \cos(\theta) \end{array}  \right]
             </me>.
-            Follow the steps indicated to show that <m>R</m> performs a counterclockwise rotation of an angle <m>\theta</m> around the origin.
+            Follow the steps indicated to show that <m>R</m> performs a counterclockwise 
+            rotation of an angle <m>\theta</m> around the origin.
             Let <m>P</m> be the point defined by the vector
-            <m>\left[ \begin{array}{c} x\\y \end{array}  \right] = \left[ \begin{array}{c}\cos(\alpha) \\ \sin(\alpha) \end{array}  \right]</m> and <m>Q</m> the point defined by the vector
-            <m>\left[ \begin{array}{c} w\\z \end{array}  \right] = \left[ \begin{array}{c} \cos(\alpha+\theta) \\ \sin(\alpha+\theta) \end{array}  \right]</m> as illustrated in <xref ref="fig_Rotation_matrix"></xref>.
+            <m>\left[ \begin{array}{c} x\\y \end{array}  \right] = \left[ \begin{array}{c}\cos(\alpha) \\ \sin(\alpha) \end{array}  \right]</m> and <m>Q</m> 
+            the point defined by the vector
+            <m>\left[ \begin{array}{c} w\\z \end{array}  \right] = \left[ \begin{array}{c} \cos(\alpha+\theta) \\ \sin(\alpha+\theta) \end{array}  \right]</m> 
+            as illustrated in <xref ref="fig_Rotation_matrix"></xref>.
             <figure xml:id="fig_Rotation_matrix">
               <caption>A rotation in the plane.</caption>
               <image width="50%" source="Rotation_matrix"/>
             </figure>
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Use the angle sum trigonometric identities
                   <md>
@@ -73,66 +90,81 @@
                     <mrow>z \amp =  \sin(\theta)x + \cos(\theta)y</mrow>
                   </md>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
-                  Now explain why the counterclockwise rotation around the origin by an angle <m>\theta</m> can be represented by left multiplication by the matrix
+                  Now explain why the counterclockwise rotation around the origin by an angle
+                  <m>\theta</m> can be represented by left multiplication by the matrix
                   <me>
                     \left[ \begin{array}{rr} \cos(\theta) \amp  -\sin(\theta) \\ \sin(\theta) \amp  \cos(\theta) \end{array}  \right]
                   </me>.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+              </statement>
+            </task>
+          
+        </task>
+
+  </project>
+
   <p>
     <xref ref="act_1_g_rotation"></xref>
     presented the rotation matrices.
     Other matrices have different effects.
   </p>
-  <activity xml:id="act_1_g_shear">
+
+  <project xml:id="act_1_g_shear">
+    <introduction>
     <p>
       Different matrix transformations
-      <ul>
-        <li>
+    </p>
+    </introduction>
+
+      <task>
+      <idx><h>shear</h></idx>
+        <statement>
           <p>
             Let <m>S</m> be the matrix transformation from <m>\R^2</m> to <m>\R^2</m> defined by
             <me>
               S\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right) = \left[ \begin{array}{cr} 1\amp 0.5 \\ 0\amp 1 \end{array}  \right]\left[ \begin{array}{c} x \\ y \end{array}  \right]
             </me>.
             Determine the entries of the output vector
-            <m>S\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right)</m> and explain the action of the transformation <m>S</m> on the dancing figure as illustrated in <xref ref="F_Shear_x_Dance"></xref>.
-            (The transformation <m>S</m> is called a <em>shear</em>
-              <idx><h>shear</h></idx>
+            <m>S\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right)</m> 
+            and explain the action of the transformation <m>S</m> on the dancing figure as 
+            illustrated in <xref ref="F_Shear_x_Dance"></xref>.
+            (The transformation <m>S</m> is called a <term>shear</term>
             in the <m>x</m> direction.)
             <figure xml:id="F_Shear_x_Dance">
               <caption>A dancing figure and a sheared dancing figure.</caption>
               <image width="50%" source="1_g_shear_x"/>
             </figure>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+      <idx><h>contraction</h></idx>
+        <statement>
           <p>
             Let <m>C</m> be the matrix transformation from <m>\R^2</m> to <m>\R^2</m> defined by
             <me>
               C\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right) = \left[ \begin{array}{cr} 0.65\amp 0 \\ 0\amp 0.65 \end{array}  \right]\left[ \begin{array}{c} x \\ y \end{array}  \right]
             </me>.
             Determine the entries of the output vector
-            <m>C\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right)</m> and explain the action of the transformation <m>C</m> on the dancing figure as illustrated in <xref ref="F_Contract_Dance"></xref>. (The transformation <m>C</m> is called a <em>contraction</em>.
-              <idx><h>contraction</h></idx>
-          ) How would your response change if each <m>0.65</m> was changed to <m>2</m> in the matrix <m>C</m>?
+            <m>C\left(\left[ \begin{array}{c} x \\ y \end{array}  \right] \right)</m> and 
+            explain the action of the transformation <m>C</m> on the dancing figure as 
+            illustrated in <xref ref="F_Contract_Dance"></xref>. (The transformation <m>C</m> 
+            is called a <term>contraction</term>.) How would your response change if 
+            each <m>0.65</m> was changed to <m>2</m> in the matrix <m>C</m>?
             <figure xml:id="F_Contract_Dance">
               <caption>A dancing figure and a contracted dancing figure.</caption>
               <image width="50%" source="1_g_dancer_contract"/>
             </figure>
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
   <p>
     So far we have seen specific matrix transformations perform a rotations, shears,
     and contractions.
@@ -142,8 +174,5 @@
     combining transformations needs to be done carefully in order to obtain the result we want.
     For example, if we want to first rotate then translate,
     in what order should the matrices be applied?)
-  </p>
-  <p>
-    \part{Matrices}
   </p>
 </section>
