@@ -3,18 +3,21 @@
   <title>The Transpose of a Matrix</title>
   <p>
     One additional operation on matrices is the transpose.
-    The transpose of a matrix occurs in many useful formulas in linear algebra and in applications of linear algebra.
+    The transpose of a matrix occurs in many useful formulas in linear algebra and in 
+    applications of linear algebra.
   </p>
+
   <definition>
+    <idx><h>matrix</h><h>transpose</h></idx>
     <statement>
       <p>
         The <term>transpose</term>
-            <idx><h>matrix</h><h>transpose</h></idx>
         of an <m>m \times n</m> matrix <m>A = [a_{ij}]</m> is the
         <m>n \times m</m> matrix <m>A^{\tr}</m> whose <m>i,j</m>th entry is <m>a_{ji}</m>.
       </p>
     </statement>
   </definition>
+
   <p>
     Written out, the transpose of the <m>m \times n</m> matrix
     <me>
@@ -26,96 +29,112 @@
     </me>.
   </p>
   <p>
+  <idx><h>diagonal of a matrix</h></idx>
     In other words,
-    the transpose of a matrix <m>A</m> is the matrix <m>A^{\tr}</m> whose rows are the columns of <m>A</m>.
+    the transpose of a matrix <m>A</m> is the matrix <m>A^{\tr}</m> whose rows are the 
+    columns of <m>A</m>.
     Alternatively,
     the transpose of <m>A</m> is the matrix <m>A^{\tr}</m> whose columns are the rows of <m>A</m>.
-    We can also view the transpose of <m>A</m> as the reflection of <m>A</m> across its main diagonal,
-    where the <em>diagonal</em>
-        <idx><h>diagonal of a matrix</h></idx>
+    We can also view the transpose of <m>A</m> as the reflection of <m>A</m> across its 
+    main diagonal,
+    where the <term>diagonal</term>
     of a matrix <m>A = [a_{ij}]</m> consists of the entries of the form <m>[a_{ii}]</m>.
   </p>
+
   <activity xml:id="act_A2_1_4">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+      <task>
+        <statement>
           <p>
             Find the transpose of each of the indicated matrices.
-            <m>\!\!\!\!\!\!\! \left[ \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 5 \amp 6 \amp 7 \amp 8 \end{array} \right]</m>
-            <m>\left[ \begin{array}{r} 1 \\ -1 \\ 0 \end{array} \right]</m> <m>\left[ \begin{array}{cr} 1 \amp 2 \\ 4 \amp -3 \\ 0 \amp -1 \end{array} \right]</m>
+            <me> \left[ \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 5 \amp 6 \amp 7 \amp 8 \end{array} \right] \qquad
+            \left[ \begin{array}{r} 1 \\ -1 \\ 0 \end{array} \right] \qquad \left[ \begin{array}{cr} 1 \amp 2 \\ 4 \amp -3 \\ 0 \amp -1 \end{array} \right]</me>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the transpose of the new matrix for each part above.
             What can you conjecture based on your results?
             There are certain special types of matrices that are given names.
           </p>
-        </li>
-      </ul>
-    </p>
-    <definition xml:id="def_special_matrices">
+        </statement>
+      </task>
+      <task>
+        <introduction>
+          <p>
+            There are certain special types of matrices that are given names.
+          </p>
+   
+          <definition xml:id="def_special_matrices">
+            <statement>
+              <p>
+                Let <m>A</m> be a square matrix whose <m>ij</m>th entry is <m>a_{ij}</m>.
+                <ol>
+                  <li>
+                    <p>
+                      The matrix <m>A</m> is a <em>diagonal matrix</em>
+                        <idx><h>diagonal matrix</h></idx>
+                      if <m>a_{ij} = 0</m> whenever <m>i \neq j</m>.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The matrix <m>A</m> is a <em>symmetric</em>
+                        <idx><h>symmetric matrix</h></idx>
+                      matrix if <m>A^{\tr} = A</m>.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The matrix <m>A</m> is an <em>upper triangular</em>
+                        <idx><h>upper triangular matrix</h></idx>
+                      if <m>a_{ij} = 0</m> whenever <m>i > j</m>.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The matrix <m>A</m> is a <em>lower triangular</em>
+                        <idx><h>lower triangular matrix</h></idx>
+                      if <m>a_{ij} = 0</m> whenever <m>i \lt j</m>.
+                    </p>
+                  </li>
+                </ol>
+              </p>
+            </statement>
+          </definition>
+        </introduction>
+    <task>
       <statement>
-        <p>
-          Let <m>A</m> be a square matrix whose <m>ij</m>th entry is <m>a_{ij}</m>.
-          <ol>
-            <li>
-              <p>
-                The matrix <m>A</m> is a <em>diagonal matrix</em>
-                  <idx><h>diagonal matrix</h></idx>
-                if <m>a_{ij} = 0</m> whenever <m>i \neq j</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                The matrix <m>A</m> is a <em>symmetric</em>
-                  <idx><h>symmetric matrix</h></idx>
-                matrix if <m>A^{\tr} = A</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                The matrix <m>A</m> is an <em>upper triangular</em>
-                  <idx><h>upper triangular matrix</h></idx>
-                if <m>a_{ij} = 0</m> whenever <m>i > j</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                The matrix <m>A</m> is a <em>lower triangular</em>
-                  <idx><h>lower triangular matrix</h></idx>
-                if <m>a_{ij} = 0</m> whenever <m>i \lt j</m>.
-              </p>
-            </li>
-          </ol>
-        </p>
-      </statement>
-    </definition>
-    <ol label="i">
-      <li>
         <p>
           Find an example of a diagonal matrix <m>A</m>.
           What can you say about <m>A^{\tr}</m>?
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Find an example of a non-diagonal symmetric matrix <m>B</m>.
           If <m>B^{\tr} = B</m>, must <m>B</m> be a square matrix?
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Find an example of an upper triangular matrix <m>C</m>.
           What kind of a matrix is <m>C^{\tr}</m>?
         </p>
-      </li>
-    </ol>
+      </statement>
+    </task>
+    </task>
   </activity>
   <p>
-    We will see later that diagonal matrices are important in that their powers are easy to calculate.
-    Symmetric matrices arise frequently in applications such as in graph theory as adjacency matrices and in quantum mechanics as observables,
+    We will see later that diagonal matrices are important in that their powers are easy to 
+    calculate.
+    Symmetric matrices arise frequently in applications such as in graph theory as 
+    adjacency matrices and in quantum mechanics as observables,
     and have many useful properties including being diagonalizable and having real eigenvalues,
     as we will also see later.
   </p>

@@ -4,19 +4,23 @@
   <p>
     A vector is a list of numbers in a specified order and a matrix is an ordered array of objects.
     In fact, a vector can be thought of as a matrix of size <m>n \times 1</m>.
-    Vectors and matrices are so alike in this way that it would seem natural that we can define operations on matrices just as we did with vectors.
+    Vectors and matrices are so alike in this way that it would seem natural that we can 
+    define operations on matrices just as we did with vectors.
   </p>
   <p>
-    Recall that a matrix is made of rows and columns <mdash/> the entries reading from left to right form the <em>rows</em>
-    of the matrix and the entries reading from top to bottom form the <em>columns</em>.
+    Recall that a matrix is made of rows and columns <mdash/> the entries reading from 
+    left to right form the <em>rows</em>
+    of the matrix and the entries reading from top to bottom form the <term>columns</term>.
     The number of rows and columns of a matrix is called the
-    <em>size</em> of the matrix,
+    <term>size</term> of the matrix,
     so an <m>m \times n</m> matrix has <m>m</m> rows and <m>n</m> columns.
-    If we label the entry in the <m>i</m>th row and <m>j</m>th column of a matrix <m>A</m> as <m>a_{ij}</m>,
+    If we label the entry in the <m>i</m>th row and <m>j</m>th column of a matrix 
+    <m>A</m> as <m>a_{ij}</m>,
     then we write <m>A = [a_{ij}]</m>.
   </p>
   <p>
-    We can generalize the operations of addition and scalar multiplication on vectors to matrices similarly.
+    We can generalize the operations of addition and scalar multiplication on vectors to 
+    matrices similarly.
     Given two matrices <m>A=[a_{ij}]</m> and <m>B=[b_{ij}]</m> of the same size,
     we define the sum <m>A+B</m> by
     <me>
@@ -24,18 +28,20 @@
     </me>
     when the sizes of the matrices <m>A</m> and <m>B</m> match.
     In other words,
-    for matrices of the same size the matrix addition is defined by adding corresponding entries in the matrices.
+    for matrices of the same size the matrix addition is defined by adding 
+    corresponding entries in the matrices.
     For example,
     <me>
       \left[ \begin{array}{rc} 1 \amp  2 \\ -2 \amp  3 \end{array}  \right] + \left[ \begin{array}{cc} 1 \amp  3 \\ 2 \amp  4 \end{array}  \right] = \left[ \begin{array}{cc} 2 \amp  5 \\ 0 \amp  7 \end{array}  \right]  \,
     </me>.
   </p>
   <p>
+  <idx><h>matrix</h><h>scalar multiple</h></idx>
     We define the scalar multiple of a matrix
     <m>A=[a_{ij}]</m> by scalar <m>c</m> to be the matrix <m>cA</m> defined by
     <me>
-      cA= [ ca_{ij}] \, .\knownindex{\lt h>matrix\lt /h>\lt h>scalar multiple\lt /h>}
-    </me>
+      cA= [ ca_{ij}]
+    </me>,
   </p>
   <p>
     This means that we multiply each entry of the matrix <m>A</m> by the scalar <m>c</m>.
@@ -48,7 +54,8 @@
     Even though we did not have a multiplication operation on vectors,
     we had a matrix-vector product,
     which is a special case of a matrix-matrix product since a vector is a matrix with one column.
-    However, generalizing the matrix-vector product to a matrix-matrix product is not immediate as it is not immediately clear what we can do with the other columns.
+    However, generalizing the matrix-vector product to a matrix-matrix product is not 
+    immediate as it is not immediately clear what we can do with the other columns.
     We will consider this question in this section.
   </p>
   <p>
@@ -58,113 +65,145 @@
     (Just for fun,
     try using <m>\div</m> with matrices to see if it will work.)
   </p>
-  <activity xml:id="pa_2_a">
-    <p>
-      <nbsp/>
-      <ol>
-        <li>
+
+  <exploration xml:id="pa_2_a">
+   
+      <task>
+        <introduction>
           <p>
             Pick three different varying sizes of pairs of <m>A, B</m> matrices which can be added.
             For each pair:
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Find the matrices <m>A+B</m> and <m>B+A</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   How are the two matrices <m>A+B</m> and <m>B+A</m> related?
                   What does this tell us about matrix addition?
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>A = \left[ \begin{array}{rc} 1 \amp 0 \\ -2 \amp 8 \end{array} \right]</m>,
             <m>B = \left[ \begin{array}{cc} 1 \amp 1 \\ 3 \amp 4 \end{array} \right]</m>,
             and <m>C = \left[ \begin{array}{cr} 0 \amp -5 \\ 1 \amp 6 \end{array} \right]</m>.
             Determine the entries of the matrix <m>A + 2B - 7C</m>.
           </p>
-        </li>
-        <li xml:id="p_matrix_multiplication">
+        </statement>
+      </task>
+      <task xml:id="p_matrix_multiplication">
+        <introduction>
           <p>
             Now we turn to multiplication of matrices.
-            Our first goal is to find out what conditions we need on the sizes of matrices <m>A</m> and <m>B</m> if the matrix-matrix product <m>AB</m> is defined and what the size of the resulting product matrix is.
-            We know the condition and the size of the result in the special case of <m>B</m> being a vector,
+            Our first goal is to find out what conditions we need on the sizes of 
+            matrices <m>A</m> and <m>B</m> if the matrix-matrix product <m>AB</m> is 
+            defined and what the size of the resulting product matrix is.
+            We know the condition and the size of the result in the special case of <m>B</m> 
+            being a vector,
             i.e., a matrix with one column.
             So our conjectures for the general case should match what we know in the special case.
             In each part of this problem,
-            use any appropriate tool (e.g., your calculator, Maple, Mathematica, Wolfram<m>|</m>Alpha) to determine the matrix product <m>AB</m>,
+            use any appropriate tool (e.g., your calculator, Maple, Mathematica, 
+            Wolfram<m>|</m>Alpha) to determine the matrix product <m>AB</m>,
             if it exists.
             If you obtain a product,
             write it down and explain how its size is related to the sizes of <m>A</m> and <m>B</m>.
             If you receive an error,
             write down the error and guess why the error occurred and/or what it means.
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   <m>A = \left[ \begin{array}{ccc} 1\amp 2\amp 0 \\ 0\amp 1\amp 1 \end{array} \right] \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{crc} 3\amp 5\amp 0\\0\amp -2\amp 1 \end{array} \right]</m>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   <m>A = \left[ \begin{array}{ccc} 1\amp 2\amp 0 \\ 0\amp 1\amp 1 \end{array} \right] \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{crc} 3\amp 0\\5\amp -2 \\ 0\amp 1 \end{array} \right]</m>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   <m>A = \left[ \begin{array}{cc} 1 \amp 2 \\ 3 \amp 4 \end{array} \right] \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{ccc} 1 \amp 1 \amp 1 \\1 \amp 0 \amp 1 \\ 0 \amp 2 \amp 0 \end{array} \right]</m>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   <m>A = \left[ \begin{array}{cc} 1 \amp 2 \\ 3 \amp 4 \\ 5 \amp 6 \\ 7 \amp 8 \end{array} \right] \ \ \ \text{ and } \ \ \ B = \left[ \begin{array}{rcc} 1 \amp 2 \amp 3 \\ -1 \amp 1 \amp 1 \end{array} \right]</m>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Make a guess for the condition on the sizes of two matrices <m>A, B</m> for which the product <m>AB</m> is defined.
                   How is the size of the product matrix related to the sizes of <m>A</m> and <m>B</m>?
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+
+      </task>
+      <task>
+        <introduction>
           <p>
             The final matrix products, when defined,
             in <xref ref="p_matrix_multiplication">problem</xref>
             might seem unrelated to the individual matrices at first.
             In this problem,
             we will uncover this relationship using our knowledge of the matrix-vector product.
-            Let <m>A = \left[ \begin{array}{rr} 3 \amp -1 \\ -2 \amp 3 \end{array} \right]</m> and <m>B = \left[ \begin{array}{ccc} 0 \amp 2 \amp 1 \\ 1 \amp 3 \amp 2 \end{array} \right]</m>.
-            <ul>
-              <li>
+            Let <m>A = \left[ \begin{array}{rr} 3 \amp -1 \\ -2 \amp 3 \end{array} \right]</m> 
+            and <m>B = \left[ \begin{array}{ccc} 0 \amp 2 \amp 1 \\ 1 \amp 3 \amp 2 \end{array} \right]</m>.
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Calculate <m>AB</m> using any tool.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Using the matrix-vector product,
-                  calculate <m>A \vx</m> where <m>\vx</m> is the first column (i.e., calculate <m>A\begin{bmatrix}0 \\ 1 \end{bmatrix}</m>),
-                  and then the second column of <m>B</m> (i.e., calculate <m>A\begin{bmatrix}2 \\ 3 \end{bmatrix}</m>),
-                  and then the third column of <m>B</m> (i.e., calculate <m>A\begin{bmatrix}1 \\ 2 \end{bmatrix}</m>).
+                  calculate <m>A \vx</m> where <m>\vx</m> is the first column 
+                  (i.e., calculate <m>A\begin{bmatrix}0 \\ 1 \end{bmatrix}</m>),
+                  and then the second column of <m>B</m> 
+                  (i.e., calculate <m>A\begin{bmatrix}2 \\ 3 \end{bmatrix}</m>),
+                  and then the third column of <m>B</m> 
+                  (i.e., calculate <m>A\begin{bmatrix}1 \\ 2 \end{bmatrix}</m>).
                   Do you notice these output vectors within <m>AB</m>?
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
-                  Describe as best you can a definition of <m>AB</m> using the matrix-vector product.
+                  Describe as best you can a definition of <m>AB</m> using the matrix-vector 
+                  product.
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+              </statement>
+            </task>
+          
+        </task>
+
+  </exploration>
 </section>
