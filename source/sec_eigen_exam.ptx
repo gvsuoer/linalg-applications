@@ -4,30 +4,23 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Find all of the eigenvalues of <m>A</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
             <p>
-              Find a corresponding eigenvector for each eigenvalue found in part (a).
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-      </p>
-      <ul>
-        <li>
-          <p>
-            Recall that a scalar <m>\lambda</m> is a eigenvalue for <m>A</m> if there is a nonzero vector <m>\vx</m> such that
+              Recall that a scalar <m>\lambda</m> is a eigenvalue for <m>A</m> if there is a 
+            nonzero vector <m>\vx</m> such that
             <m>A \vx = \lambda \vx</m> or <m>(A-\lambda I_2) \vx = \vzero</m>.
             For this matrix <m>A</m>, we have
             <me>
@@ -35,13 +28,16 @@
             </me>.
             To solve the homogeneous system <m>(A-\lambda I_2) \vx = \vzero</m>,
             we row reduce <m>A - \lambda I_2</m>.
-            To do this, we first interchange rows to get the following matrix that is row equivalent to
-            <m>A - \lambda I_2</m> (we do this to ensure that we have a nonzero entry in the first row and column)
+            To do this, we first interchange rows to get the following matrix that is row 
+            equivalent to
+            <m>A - \lambda I_2</m> (we do this to ensure that we have a nonzero entry in the 
+            first row and column)
             <me>
               \left[ \begin{array}{cc} 2\amp 4-\lambda \\ 1-\lambda\amp 2 \end{array}  \right]
             </me>.
             Next we replace row two with
-            <m>\frac{1}{2}(1-\lambda)</m> times row one minus row two to obtain the row equivalent matrix
+            <m>\frac{1}{2}(1-\lambda)</m> times row one minus row two to obtain the row 
+            equivalent matrix
             <me>
               \left[  \begin{array}{cc} 2\amp 4-\lambda \\ 0\amp \frac{1}{2}(4-\lambda)(1-\lambda)-2 \end{array}  \right]
             </me>.
@@ -60,58 +56,73 @@
             </md>.
             So the eigenvalues of <m>A</m> are
             <m>\lambda = 0</m> and <m>\lambda = 5</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Recall that an eigenvector for the eigenvalue <m>\lambda</m> is a nonzero vector <m>\vx</m> such that <m>(A - \lambda I_2) \vx = \vzero</m>.
-            We consider each eigenvalue in turn.
-          </p>
-          <ul>
-            <li>
-              <p>
-                When <m>\lambda = 0</m>,
-                <me>
-                  A - 0 I_2 = A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array}  \right]
-                </me>.
-                Technology shows that the reduced row echelon form of <m>A</m> is
-                <me>
-                  \left[ \begin{array}{cc} 1\amp 2 \\ 0\amp 0 \end{array}  \right]
-                </me>.
-                If <m>\vx = \left[ \begin{array}{c} x_1\\x_2 \end{array}  \right]</m>,
-                then <m>A \vx = \vzero</m> implies that <m>x_2</m> is free and <m>x_1 = -2x_2</m>.
-                Choosing <m>x_2 = 1</m> gives us the eigenvector <m>\left[ \begin{array}{r} -2\\1 \end{array}  \right]</m>.
-                As a check, note that
-                <me>
-                  \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array}  \right] \left[ \begin{array}{r} -2\\1 \end{array}  \right] = \left[ \begin{array}{c} 0\\0 \end{array}  \right]
-                </me>.
-              </p>
-            </li>
-            <li>
-              <p>
-                When <m>\lambda = 5</m>,
-                <me>
-                  A - 5 I_2 = \left[ \begin{array}{rr} -4\amp 2\\2\amp -1 \end{array}  \right]
-                </me>.
-                Technology shows that the reduced row echelon form of <m>A-5I_2</m> is
-                <me>
-                  \left[  \begin{array}{cr} 1\amp -\frac{1}{2} \\ 0\amp 0 \end{array}  \right]
-                </me>.
-                If <m>\vx = \left[ \begin{array}{c} x_1\\x_2 \end{array}  \right]</m>,
-                then <m>(A - 5I_2)\vx = \vzero</m> implies that <m>x_2</m> is free and <m>x_1 = \frac{1}{2}x_2</m>.
-                Choosing <m>x_2 = 2</m> gives us the eigenvector <m>\left[ \begin{array}{c} 1\\2 \end{array}  \right]</m>.
-                As a check, note that
-                <me>
-                  \left[  \begin{array}{cr} 1\amp -\frac{1}{2} \\ 0\amp 0 \end{array}  \right] \left[ \begin{array}{c} 1\\2 \end{array}  \right] = \left[ \begin{array}{c} 0\\0 \end{array}  \right]
-                </me>.
-              </p>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </statement>
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find a corresponding eigenvector for each eigenvalue found in part (a).
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Recall that an eigenvector for the eigenvalue <m>\lambda</m> is a nonzero vector 
+              <m>\vx</m> such that <m>(A - \lambda I_2) \vx = \vzero</m>.
+              We consider each eigenvalue in turn.
+          
+              <ul>
+                <li>
+                  <p>
+                    When <m>\lambda = 0</m>,
+                    <me>
+                      A - 0 I_2 = A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array}  \right]
+                    </me>.
+                    Technology shows that the reduced row echelon form of <m>A</m> is
+                    <me>
+                      \left[ \begin{array}{cc} 1\amp 2 \\ 0\amp 0 \end{array}  \right]
+                    </me>.
+                    If <m>\vx = \left[ \begin{array}{c} x_1\\x_2 \end{array}  \right]</m>,
+                    then <m>A \vx = \vzero</m> implies that <m>x_2</m> is free and <m>x_1 = -2x_2</m>.
+                    Choosing <m>x_2 = 1</m> gives us the eigenvector <m>\left[ \begin{array}{r} -2\\1 \end{array}  \right]</m>.
+                    As a check, note that
+                    <me>
+                      \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array}  \right] \left[ \begin{array}{r} -2\\1 \end{array}  \right] = \left[ \begin{array}{c} 0\\0 \end{array}  \right]
+                    </me>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    When <m>\lambda = 5</m>,
+                    <me>
+                      A - 5 I_2 = \left[ \begin{array}{rr} -4\amp 2\\2\amp -1 \end{array}  \right]
+                    </me>.
+                    Technology shows that the reduced row echelon form of <m>A-5I_2</m> is
+                    <me>
+                      \left[  \begin{array}{cr} 1\amp -\frac{1}{2} \\ 0\amp 0 \end{array}  \right]
+                    </me>.
+                    If <m>\vx = \left[ \begin{array}{c} x_1\\x_2 \end{array}  \right]</m>,
+                    then <m>(A - 5I_2)\vx = \vzero</m> implies that <m>x_2</m> is free and <m>x_1 = \frac{1}{2}x_2</m>.
+                    Choosing <m>x_2 = 2</m> gives us the eigenvector <m>\left[ \begin{array}{c} 1\\2 \end{array}  \right]</m>.
+                    As a check, note that
+                    <me>
+                      \left[  \begin{array}{cr} 1\amp -\frac{1}{2} \\ 0\amp 0 \end{array}  \right] \left[ \begin{array}{c} 1\\2 \end{array}  \right] = \left[ \begin{array}{c} 0\\0 \end{array}  \right]
+                    </me>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </solution>
+        </task>
+         
   </example>
+
   <example>
+  <idx><h>transition matrix</h></idx>
+  <idx><h>Markov process</h></idx>
+  <idx><h>Markov chain</h></idx>
+  <idx><h>transition matrix</h></idx>
+    <introduction>
     <p>
       Accurately predicting the weather has long been an important task.
       Meteorologists use science, mathematics,
@@ -120,92 +131,164 @@
       but we will consider only a simple model.
       Suppose, for example,
       we want to learn something about whether it will be wet or dry in Grand Rapids, Michigan.
-      To do this, we might begin by collecting some data about weather conditions in Grand Rapids and then use that to make predictions.
-      Information taken over the course of 2017 from the National Weather Service Climate Data shows that if it was dry
+      To do this, we might begin by collecting some data about weather conditions in 
+      Grand Rapids and then use that to make predictions.
+      Information taken over the course of 2017 from the National Weather Service Climate 
+      Data shows that if it was dry
       (meaning no measurable precipitation, either rain or snow)
       on a given day in Grand Rapids,
       it would be dry the next day with a probability of 64% and wet with a probability of 36%. Similarly,
-      if it was wet on a given day it would be dry the next day with a probability of 47% and dry with a probability of 53%. Assuming that this pattern is one that continues in the long run,
+      if it was wet on a given day it would be dry the next day with a probability of 47% and 
+      dry with a probability of 53%. Assuming that this pattern is one that continues in the 
+      long run,
       we can develop a mathematical model to make predictions about the weather.
     </p>
     <p>
       This data tells us how the weather transitions from one day to the next,
       and we can succinctly represent this data in a
-      <em>transition matrix</em>:
-          <idx><h>transition matrix</h></idx>
+      <term>transition matrix</term>:
       <men xml:id="eq_weather_transition">
         T = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right]
       </men>.
     </p>
     <p>
       Whether it is dry or wet on a given day is called the
-      <em>state</em> of that day.
+      <term>state</term> of that day.
       So our transition matrix tells us about the transition between states.
       Notice that if <m>T = [t_{ij}]</m>,
-      then the probability of moving from state <m>j</m> to state <m>i</m> is given by <m>t_{ij}</m>.
+      then the probability of moving from state <m>j</m> to state <m>i</m> is given by 
+      <m>t_{ij}</m>.
       We can represent a state by a vector:
-      the vector <m>\left[ \begin{array}{c} 1\\0 \end{array} \right]</m> represents the dry state and the vector
+      the vector <m>\left[ \begin{array}{c} 1\\0 \end{array} \right]</m> represents the 
+      dry state and the vector
       <m>\left[ \begin{array}{c} 0\\1 \end{array} \right]</m> represents the wet state.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Calculate <m>T\left[ \begin{array}{c} 1\\0 \end{array} \right]</m>.
             Interpret the meaning of this output.
           </p>
-        </li>
-        <li>
+        </statement>
+        <solution>
+          <p>
+            Here we have
+            <me>
+              T\left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]
+            </me>.
+            This output tells us the different probabilities of whether it will be dry or wet 
+            the day following a dry day.
+          </p>
+          
+        </solution>
+      </task>
+      <task>
+        <statement>
           <p>
             Calculate <m>T\left[ \begin{array}{c} 0\\1 \end{array} \right]</m>.
             Interpret the meaning of this output.
           </p>
-        </li>
-        <li>
+        </statement>
+        <solution>
+          <p>
+            Here we have
+            <me>
+              T\left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{c} 0.47\\0.53 \end{array} \right]
+            </me>.
+            This output tells us the different probabilities of whether it will be dry or 
+            wet the day following a wet day.
+          </p>
+        </solution>
+      </task>
+      <task>
+        <statement>
           <p>
             Calculate <m>T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]</m>.
             Interpret the meaning of this output.
           </p>
-        </li>
-        <li>
+        </statement>
+        <solution>
+          <p>
+            Here we have
+            <me>
+              T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  \approx \left[ \begin{array}{c} 0.52\\0.48 \end{array} \right]
+            </me>.
+            This output tells us there is a 52% chance of it being dry and a 48% chance of it 
+            being wet following a day when there is a 30% chance of it being dry and a 70% 
+            chance of it being wet.
+          </p>
+        </solution>
+      </task>
+      <task>
+        <introduction>
           <p>
             We can use the transition matrix to build a chain of probability vectors.
             We begin with an initial state,
             say it is dry on a given day.
-            This initial state is represented by the initial state vector <m>\vx_0 = \left[ \begin{array}{c} 1\\0 \end{array} \right]</m>.
+            This initial state is represented by the initial state vector 
+            <m>\vx_0 = \left[ \begin{array}{c} 1\\0 \end{array} \right]</m>.
             The probabilities that it will be dry or wet the following day are given by the vector
             <me>
               \vx_1 = T\vx_0 = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]
             </me>.
-            This output vector tells us that the next day will be dry with a 64% probability and wet with a 36% probability.
+            This output vector tells us that the next day will be dry with a 64% 
+            probability and wet with a 36% probability.
             For each <m>k \geq 1</m>, we let
             <men xml:id="eq_weather_chain">
               \vx_{k} = T\vx_{k-1}
             </men>.
-            Thus we create a sequence of vectors that tell us the probabilities of it being dry or wet on subsequent days.
-            The vector <m>\vx_k</m> is called the <em>state vector</em>
+            Thus we create a sequence of vectors that tell us the probabilities of it 
+            being dry or wet on subsequent days.
+            The vector <m>\vx_k</m> is called the <term>state vector</term>
             of the system at time <m>k</m>,
             because it describes the state of the whole system at time <m>k</m>.
-            We can rewrite the system of equations in <xref ref="eq_PA5_1_3"/> as a matrix-vector equation in terms of the state vectors at time <m>k</m> and <m>k+1</m>.
+            We can rewrite the system of equations in <xref ref="eq_PA5_1_3"/> as a 
+            matrix-vector equation in terms of the state vectors at time <m>k</m> and <m>k+1</m>.
             More specifically, the equation will be of the form
-            <men xml:id="eq_weather_chain">
+            <men xml:id="eq_weather_chain2">
               \vx_{k+1} = T\vx_k
             </men>
             for <m>k \geq 0</m>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Starting with <m>\vx_0 = \left[ \begin{array}{c} 1\\0 \end{array} \right]</m>,
                   use appropriate technology to calculate <m>\vx_k</m> for <m>k</m> values up to 10.
                   Round to three decimal places.
                   What do you notice about the entries?
                 </p>
-              </li>
-              <li>
+              </statement>
+              <solution>
+                <p>
+                  Technology shows that
+                  <me>
+                    \begin{array}{ll} \vx_1 = \left[ \begin{array}{c} 0.640\\0.360 \end{array}  \right] \amp \vx_2 = \left[ \begin{array}{c} 0.579\\0.421 \end{array}  \right]  \\ \vx_3 = \left[ \begin{array}{c} 0.568\\0.432 \end{array}  \right] \amp \vx_4 = \left[ \begin{array}{c} 0.567\\0.433 \end{array}  \right]    \\ \vx_5 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_6 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_7 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_8 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_9 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_{10} = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]. \end{array}
+                  </me>
+                  We can see that our vectors <m>\vx_k</m> are essentially the same as we 
+                  let <m>k</m> increase.
+                </p>
+              </solution>
+            </task>
+            <task>
+              <statement>
                 <p>
                   What does the result of the previous part tell us about eigenvalues of <m>T</m>?
                   Explain.
                 </p>
-              </li>
-              <li>
+              </statement>
+              <solution>
+                <p>
+                  Since our sequence seems to be converging to a vector <m>\vx</m> 
+                  satisfying <m>T \vx = \vx</m>,
+                  we conclude that 1 is an eigenvalue of <m>T</m>.
+                </p>
+              </solution>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Rewrite <m>T</m> as
                   <me>
@@ -214,88 +297,38 @@
                   We do this so we can use exact arithmetic.
                   Let <m>\vx = \left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right]</m>.
                   What is <m>T\vx</m>? (Use exact arithmetic,
-                  no decimals.) Explain how <m>\vx</m> is related to the previous two parts of this problem.
+                  no decimals.) Explain how <m>\vx</m> is related to the previous 
+                  two parts of this problem.
                   What does the vector <m>\vx</m> tells us about weather in Grand Rapids?
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
-    <p>
-      <em>Example Solution. </em>
-      <ul>
-        <li>
-          <p>
-            Here we have
-            <me>
-              T\left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]
-            </me>.
-            This output tells us the different probabilities of whether it will be dry or wet the day following a dry day.
-          </p>
-        </li>
-        <li>
-          <p>
-            Here we have
-            <me>
-              T\left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{c} 0.47\\0.53 \end{array} \right]
-            </me>.
-            This output tells us the different probabilities of whether it will be dry or wet the day following a wet day.
-          </p>
-        </li>
-        <li>
-          <p>
-            Here we have
-            <me>
-              T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  \approx \left[ \begin{array}{c} 0.52\\0.48 \end{array} \right]
-            </me>.
-            This output tells us there is a 52% chance of it being dry and a 48% chance of it being wet following a day when there is a 30% chance of it being dry and a 70% chance of it being wet.
-          </p>
-        </li>
-        <li>
-          <ol label="i">
-            <li>
-              <p>
-                Technology shows that
-                <me>
-                  \begin{array}{ll} \vx_1 = \left[ \begin{array}{c} 0.640\\0.360 \end{array}  \right] \amp \vx_2 = \left[ \begin{array}{c} 0.579\\0.421 \end{array}  \right]  \\ \vx_3 = \left[ \begin{array}{c} 0.568\\0.432 \end{array}  \right] \amp \vx_4 = \left[ \begin{array}{c} 0.567\\0.433 \end{array}  \right]    \\ \vx_5 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_6 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_7 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_8 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_9 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_{10} = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]. \end{array}
-                </me>
-                We can see that our vectors <m>\vx_k</m> are essentially the same as we let <m>k</m> increase.
-              </p>
-            </li>
-            <li>
-              <p>
-                Since our sequence seems to be converging to a vector <m>\vx</m> satisfying <m>T \vx = \vx</m>,
-                we conclude that 1 is an eigenvalue of <m>T</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                A matrix vector multiplication shows that
-                <me>
-                  T \vx = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right] = \left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right]
-                </me>.
-                In other words,
-                <m>\vx</m> is an eigenvector for <m>T</m> with eigenvalue 1.
-                Notice that
-                <me>
-                  \frac{47}{83} \approx 0.566 \ \text{ and }  \ \frac{36}{83} \approx 0.434
-                </me>,
-                so these fractions give the same results we obtained with our sequence of vectors <m>\vx_k</m>.
-                These vectors provide a steady-state vector for Grand Rapids weather.
-                In other words,
-                if there is a <m>56.6\%</m> chance of it being dry on a given day in Grand Rapids,
-                then there is a <m>56.6\%</m> chance it will be dry again the next day.
-              </p>
-            </li>
-          </ol>
-        </li>
-      </ul>
-    </p>
+              </statement>
+              <solution>
+                <p>
+                  A matrix vector multiplication shows that
+                  <me>
+                    T \vx = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right] = \left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right]
+                  </me>.
+                  In other words,
+                  <m>\vx</m> is an eigenvector for <m>T</m> with eigenvalue 1.
+                  Notice that
+                  <me>
+                    \frac{47}{83} \approx 0.566 \ \text{ and }  \ \frac{36}{83} \approx 0.434
+                  </me>,
+                  so these fractions give the same results we obtained with our 
+                  sequence of vectors <m>\vx_k</m>.
+                  These vectors provide a steady-state vector for Grand Rapids weather.
+                  In other words,
+                  if there is a <m>56.6\%</m> chance of it being dry on a given day 
+                  in Grand Rapids,
+                  then there is a <m>56.6\%</m> chance it will be dry again the next day.
+                </p>
+              </solution>
+            </task>
+         
+        </task>
+  <conclusion>
     <p>
       This is an example of a Markov process.
-          <idx><h>Markov process</h></idx>
       Markov processes
       (named after Andrei Andreevich Markov)
       are widely used to model phenomena in biology, chemistry,
@@ -303,32 +336,33 @@
       physics, engineering, the social sciences, and much more.
       More specifically,
     </p>
+
     <definition xml:id="def_Markov">
+    <idx><h>Markov process</h></idx>
       <statement>
         <p>
           A <term>Markov process</term>
-              <idx><h>Markov process</h></idx>
-          is a process in which the probability of the system being in a given state depends only on the previous state.
+          is a process in which the probability of the system being in a given state 
+          depends only on the previous state.
         </p>
       </statement>
     </definition>
     <p>
       If <m>\vx_0</m> is a vector which represents the initial state of a Markov process,
       then there is a matrix <m>T</m> (the
-      <em>transition matrix</em>)
-          <idx><h>transition matrix</h></idx>
+      <term>transition matrix</term>)
       such that the state of the system after one iteration is given by the vector <m>T\vx_0</m>.
       This produces a chain of state vectors <m>T\vx_0</m>,
       <m>T^2 \vx_0</m>, <m>T^3 \vx_0</m>,
       etc., where the state of the system after <m>n</m> iterations is given by <m>T^n \vx_0</m>.
-      Such a chain of vectors is called a <em>Markov chain</em>.
-          <idx><h>Markov chain</h></idx>
+      Such a chain of vectors is called a <term>Markov chain</term>.
       A Markov process is characterized by two properties:
       <ul>
         <li>
           <p>
             the total number of observations remains fixed
-            (this is reflected in the fact that the sum of the entries in each column of the matrix <m>T</m> is 1),
+            (this is reflected in the fact that the sum of the entries in each column of 
+            the matrix <m>T</m> is 1),
             and
           </p>
         </li>
@@ -340,5 +374,6 @@
         </li>
       </ul>
     </p>
+    </conclusion>
   </example>
 </section>
