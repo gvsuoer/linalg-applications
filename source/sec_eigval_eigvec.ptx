@@ -4,11 +4,13 @@
   <p>
     Eigenvectors are especially useful in understanding the long-term behavior of dynamical systems,
     an example of which we will see shortly.
-    The long-term behavior of a dynamical system is quite simple when the initial state vector is an eigenvector and this fact helps us analyze the system in general.
+    The long-term behavior of a dynamical system is quite simple when the initial state vector 
+    is an eigenvector and this fact helps us analyze the system in general.
   </p>
   <p>
     To find eigenvectors,
-    we are interested in determining the vectors <m>\vx</m> for which <m>A\vx</m> has the same direction as <m>\vx</m>.
+    we are interested in determining the vectors <m>\vx</m> for which <m>A\vx</m> has the same 
+    direction as <m>\vx</m>.
     This will happen when
     <me>
       A\vx = \lambda \vx
@@ -19,12 +21,13 @@
     but that is uninteresting.
     So we really want to consider when there is a <em>non-zero</em>
     vector <m>\vx</m> so that <m>A\vx = \lambda \vx</m>.
-    This prompts the definition of eigenvectors and eigenvalues as in <xref ref="def_eigenvector">Definition</xref>
+    This prompts the definition of eigenvectors and eigenvalues as in 
+    <xref ref="def_eigenvector"></xref>
   </p>
   <p>
+  <idx><h>matrix</h><h>square</h></idx>
     In order for a matrix <m>A</m> to have an eigenvector,
     one condition <m>A</m> must satisfy is that <m>A</m> has to be a square matrix,
-        <idx><h>matrix</h><h>square</h></idx>
     i.e. an <m>n \times n</m> matrix.
     We will find that each <m>n\times n</m> matrix has only finitely many eigenvalues.
   </p>
@@ -35,8 +38,8 @@
     (roughly translated as
     <q>own</q>,
     <q>proper</q>, or
-    <q>characteristic</q>
-    ) to emphasize how eigenvectors and eigenvalues are connected to their matrices.
+    <q>characteristic</q>)
+    to emphasize how eigenvectors and eigenvalues are connected to their matrices.
     To find the eigenvalues and eigenvectors of an <m>n \times n</m> matrix <m>A</m>,
     we need to find the solutions to the equation
     <me>
@@ -53,7 +56,8 @@
     </me>.
   </p>
   <p>
-    To see the relationship between this homogeneous matrix equation and the eigenvalue-eigenvector equation better,
+    To see the relationship between this homogeneous matrix equation and the 
+    eigenvalue-eigenvector equation better,
     let us consider the eigenvector equation using matrix algebra:
     <md>
       <mrow>A\vx \amp = \lambda\vx</mrow>
@@ -62,76 +66,96 @@
       <mrow>(A-\lambda I_n)\vx \amp = \vzero</mrow>
     </md>,
     where <m>I_n</m> is the <m>n \times n</m> identity matrix.
-    Notice that this description matches the homogenous equation matrix example above since we simply subtracted 5 from the diagonal terms of the matrix <m>A</m>.
+    Notice that this description matches the homogenous equation matrix example above since we 
+    simply subtracted 5 from the diagonal terms of the matrix <m>A</m>.
     Hence, to find eigenvalues,
     we need to find the values of <m>\lambda</m> so that the homogeneous equation
     <m>(A - \lambda I_n)\vx=\vzero</m> has non-trivial solutions.
   </p>
+
   <activity>
-    <ul>
-      <li>
+    <task>
+      <statement>
         <p>
           Under what conditions on <m>A-\lambda I_n</m> will the matrix equation
           <m>(A-\lambda I_n)\vx=\vzero</m> have non-trivial solutions?
           Describe at least two different but equivalent conditions.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
-          The real number 0 is an eigenvalue of <m>A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 4 \end{array} \right]</m>.
+          The real number 0 is an eigenvalue of 
+          <m>A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 4 \end{array} \right]</m>.
           Check that your criteria in the previous part agrees with this result.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Determine if 5 is an eigenvalue of the matrix
-          <m>A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 4 \end{array} \right]</m> using your criterion above.
+          <m>A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 4 \end{array} \right]</m> 
+          using your criterion above.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
-          What are the two eigenvalues of the matrix <m>A = \left[ \begin{array}{cc} 3\amp 2\\4\amp 5 \end{array} \right]</m>?
+          What are the two eigenvalues of the matrix 
+          <m>A = \left[ \begin{array}{cc} 3\amp 2\\4\amp 5 \end{array} \right]</m>?
         </p>
-      </li>
-    </ul>
+      </statement>
+    </task>
   </activity>
+
   <p>
-    Since an eigenvector of <m>A</m> corresponding to eigenvalue <m>\lambda</m> is a non-trivial solution to the homogeneous equation <m>(A - \lambda I_n)\vx = \vzero</m>,
+    Since an eigenvector of <m>A</m> corresponding to eigenvalue <m>\lambda</m> is a 
+    non-trivial solution to the homogeneous equation <m>(A - \lambda I_n)\vx = \vzero</m>,
     the eigenvalues <m>\lambda</m> which work are those for which the matrix
     <m>A-\lambda I_n</m> has linearly dependent columns,
     or for which the row echelon form of the matrix
     <m>A-\lambda I_n</m> does not have a pivot in every column.
     When we need to test if a specific <m>\lambda</m> is an eigenvalue,
     this method works fine.
-    However, finding which <m>\lambda</m>'s will work in general involves row reducing a matrix with <m>\lambda</m>'s subtracted on the diagonal algebraically.
+    However, finding which <m>\lambda</m>'s will work in general involves row 
+    reducing a matrix with <m>\lambda</m>'s subtracted on the diagonal algebraically.
     For certain types of matrices,
     this method still provides us the eigenvalues quickly.
     For general matrices though, row reducing algebraically is not efficient.
     We will later see an algebraic method which uses the determinants to find the eigenvalues.
   </p>
+
   <activity>
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+      <task>
+        <statement>
           <p>
             For <m>\lambda</m> to be an eigenvalue of <m>A</m>,
             we noted that <m>A-\lambda I_n</m> must have a non-pivot column.
-            Use this criterion to explain why <m>A=\left[ \begin{array}{rc} -2\amp 2\\0\amp 4 \end{array} \right]</m> has eigenvalues
+            Use this criterion to explain why 
+            <m>A=\left[ \begin{array}{rc} -2\amp 2\\0\amp 4 \end{array} \right]</m> has eigenvalues
             <m>\lambda=-2</m> and <m>\lambda=4</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            Determine the eigenvalues of <m>A = \left[ \begin{array}{ccrc} 3\amp 0\amp 1\amp 0 \\ 0\amp 2\amp -1\amp 0 \\ 0\amp 0\amp 2\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]</m>.
+            Determine the eigenvalues of 
+            <m>A = \left[ \begin{array}{ccrc} 3\amp 0\amp 1\amp 0 \\ 0\amp 2\amp -1\amp 0 \\ 0\amp 0\amp 2\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            Generalize your results from the above parts in the form of a theorem in the most general <m>n\times n</m> case.
+            Generalize your results from the above parts in the form of a theorem in the
+            most general <m>n\times n</m> case.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+  
   </activity>
 </section>

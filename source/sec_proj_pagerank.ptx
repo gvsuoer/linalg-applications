@@ -3,26 +3,33 @@
   <title>Project: Understanding the PageRank Algorithm</title>
   <p>
     Sergey Brin and Lawrence Page, the founders of Google,
-    decided that the importance of a web page can be judged by the number of links to it as well as the importance of those pages.
+    decided that the importance of a web page can be judged by the number of links to 
+    it as well as the importance of those pages.
     It is this idea that leads to the PageRank algorithm.<fn>
-    Information for this project was taken from the websites \url{http://www.ams.org/samplings/feature-column/fcarc-pagerank} and \url{http://faculty.winthrop.edu/polaskit/spring11/math550/chapter.pdf}.
+    Information for this project was taken from the websites 
+    <url ref="http://www.ams.org/samplings/feature-column/fcarc-pagerank" visual="ams.org/samplings/feature-column/fcarc-pagerank"/> 
+    and <url ref="http://faculty.winthrop.edu/polaskit/spring11/math550/chapter.pdf" visual="faculty.winthrop.edu/polaskit/spring11/math550/chapter.pdf"/>.
     </fn> Google uses this algorithm
     (and others)
     to order search engine results.
     According to Google:<fn>
-    \url{http://web.archive.org/web/20111104131332/http://www.google.com/competition/howgooglesearchworks.html}
+    <url ref="http://web.archive.org/web/20111104131332/http://www.google.com/competition/howgooglesearchworks.html" visual="web.archive.org/web/20111104131332/http://www.google.com/competition/howgooglesearchworks.html"/>
     </fn>
   </p>
   <blockquote>
-    PageRank works by counting the number and quality of links to a page to determine a rough estimate of how important the website is. The underlying assumption is that more important websites are likely to receive more links from other websites.
+    PageRank works by counting the number and quality of links to a page to determine 
+    a rough estimate of how important the website is. The underlying assumption is that more 
+    important websites are likely to receive more links from other websites.
   </blockquote>
   <p>
     To rank how
     <q>important</q>
     a website is, we need to make some assumptions.
-    We assume that a person visits a page and then surfs the web by selecting a link from that page <mdash/> all links on a given page are assigned the same probability of being chosen.
+    We assume that a person visits a page and then surfs the web by selecting a link from 
+    that page <mdash/> all links on a given page are assigned the same probability of being chosen.
     As an example,
-    assume a small set of seven pages 1, 2, 3, 4, 5, 6, and 7 with links between the pages given by the arrows as shown in <xref ref="F_seven_page"></xref>.<fn>
+    assume a small set of seven pages 1, 2, 3, 4, 5, 6, and 7 with links between the pages 
+    given by the arrows as shown in <xref ref="F_seven_page"></xref>.<fn>
     The Internet is very large and has upwards of 25 billion pages.
     This would leave us with an enormous transition matrix,
     even though most of its entries are 0.
@@ -54,16 +61,18 @@
     <q>Back</q>
     key.
     This information for our seven page internet example can be summarized in a
-    <em>transition matrix</em>
-    <m>T</m> whose <m>i,j</m>th entry is the probability that a surfer lands on page <m>i</m> from page <m>j</m>.
+    <term>transition matrix</term>
+    <m>T</m> whose <m>i,j</m>th entry is the probability that a surfer lands on page 
+    <m>i</m> from page <m>j</m>.
     <me>
       T= \left[  \begin{array}{ccccccc} 0\amp \frac{1}{2}\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp \frac{1}{2}\amp 0\amp \frac{1}{3}\amp 0 \\ 0\amp \frac{1}{2}\amp 0\amp 0\amp \frac{1}{2}\amp 0\amp 0 \\ 0\amp 0\amp 0\amp \frac{1}{2}\amp 0\amp \frac{1}{3}\amp 1 \\ 0\amp 0\amp 0\amp 0\amp \frac{1}{2}\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp \frac{1}{3}\amp 0 \end{array}  \right]
     </me>.
   </p>
   <p>
     Let us assume in our seven page internet that a user starts on page 6.
-    That is, the probability that the user is initially on page 6 is 1, and so the probability that the user is on some other page is 0.
-    This information can be encapsulated in a <em>state vector</em>
+    That is, the probability that the user is initially on page 6 is 1, and so the 
+    probability that the user is on some other page is 0.
+    This information can be encapsulated in a <term>state vector</term>
     <me>
       \vx_0 = \left[ 0 \ 0 \ 0 \ 0 \ 0 \ 1 \ 0  \right]^{\tr}
     </me>.
@@ -76,14 +85,12 @@
     <me>
       \vx_1 = \left[ 0 \ 0 \ \frac{1}{3} \ 0 \ \frac{1}{3} \ 0 \ \frac{1}{3} \right]^{\tr}
     </me>.
-  </p>
-  <p>
+
     Note that
     <me>
       \vx_1 = T\vx_0
     </me>.
-  </p>
-  <p>
+
     As the user continues to surf the internet,
     the probabilities that the surfer is on a given page after the second,
     third, and fourth steps are given in the state vectors
@@ -92,51 +99,59 @@
     </me>.
   </p>
   <p>
-    In general, the probabilities that the surfer is on a given page after the <m>n</m>th step is given by the state vector
+    In general, the probabilities that the surfer is on a given page after the 
+    <m>n</m>th step is given by the state vector
     <me>
       \vx_n = T \vx_{n-1} = T^n \vx_0
     </me>.
   </p>
   <p>
-    This example illustrates the general nature of what is called a <em>Markov process</em>
-    (see <xref ref="def_Markov">Definition</xref>).
+    This example illustrates the general nature of what is called a <term>Markov process</term>
+    (see <xref ref="def_Markov"></xref>).
     The two properties of the transition matrix <m>T</m> make <m>T</m> a special kind of matrix.
   </p>
   <definition>
+  <idx><h>stochastic matrix</h></idx>
     <statement>
       <p>
         A <term>stochastic</term> matrix
-            <idx><h>stochastic matrix</h></idx>
-        is a matrix in which entries are nonnegative and the sum of the entries in every column is one.
+        is a matrix in which entries are nonnegative and the sum of the entries in every
+        column is one.
       </p>
     </statement>
   </definition>
   <p>
     In a Markov process,
-    each generation depends only on the preceding generation and there may be a limiting value as we let the process continue indefinitely.
-    We can test to see if that happens for this Markov process defined by <m>T</m> by doing some experimentation.
+    each generation depends only on the preceding generation and there may be a 
+    limiting value as we let the process continue indefinitely.
+    We can test to see if that happens for this Markov process defined by <m>T</m> 
+    by doing some experimentation.
   </p>
-  <activity xml:id="act_limit">
+  <project xml:id="act_limit">
     <p>
       Use appropriate technology to do the following.
-      Choose several different initial state vectors <m>\vx_0</m> and calculate the vectors in the sequence
+      Choose several different initial state vectors <m>\vx_0</m> and calculate the 
+      vectors in the sequence
       <m>\{T^n\vx_0\}</m> for large values of <m>n</m>.
       (Note that, as state vectors,
-      the entries of <m>\vx_0</m> cannot be negative and the sum of the entries of <m>\vx_0</m> must be <m>1</m>.)
+      the entries of <m>\vx_0</m> cannot be negative and the sum of the entries of 
+      <m>\vx_0</m> must be <m>1</m>.)
       Explain the behavior of the sequence
       <m>\{\vx_n\}</m> as <m>n</m> gets large.
       Do you notice anything strange?
       What aspects of our seven page internet do you think explain this behavior?
       Clearly communicate all of the experimentation that you do.
-      You may use the GeoGebra applet at \url{https://www.geogebra.org/m/b3dybnux}.
+      You may use the GeoGebra applet at 
+      <url ref="https://www.geogebra.org/m/b3dybnux" visual="geogebra.org/m/b3dybnux"/>.
     </p>
-  </activity>
+  </project>
+
   <p>
     If there is a limit of the sequence <m>\{T^n\vx_0\}</m>
     (in other words,
     if there is a vector <m>\vv</m> such that <m>\vv = \ds \lim_{n \to \infty} T^n \vx_0</m>),
-    we call this limit a <em>steady-state</em>
-    or <em>equilibrium</em> vector.
+    we call this limit a <term>steady-state</term>
+    or <term>equilibrium</term> vector.
     Such a steady-state vector has another important property.
     Since <m>T</m> is independent of <m>n</m> we have
     <men xml:id="eq_Google_evector">
@@ -144,37 +159,47 @@
     </men>.
   </p>
   <p>
-    Equation <xref ref="eq_Google_evector"/> shows that a steady state vector <m>\vv</m> is an eigenvector for <m>T</m> with eigenvalue 1.
+    Equation <xref ref="eq_Google_evector"/> shows that a steady state vector 
+    <m>\vv</m> is an eigenvector for <m>T</m> with eigenvalue 1.
     We can interpret the steady-state vector for <m>T</m> in an important way.
-    Let <m>t_j</m> be the fraction of time we spend on page <m>j</m> and let <m>l_j</m> be the number of links on page <m>j</m>.
-    Then the fraction of the time that we end up on page <m>i</m> coming from page <m>j</m> is <m>\frac{t_j}{l_j}</m>.
+    Let <m>t_j</m> be the fraction of time we spend on page <m>j</m> and let 
+    <m>l_j</m> be the number of links on page <m>j</m>.
+    Then the fraction of the time that we end up on page <m>i</m> coming from 
+    page <m>j</m> is <m>\frac{t_j}{l_j}</m>.
     If we sum over all the pages linked to page <m>i</m> we have that
     <me>
       t_i = \sum \frac{t_j}{l_j}
     </me>.
   </p>
   <p>
-    Notice that this is essentially the same process we used to obtain <m>\vx_n</m> from <m>\vx_{n-1}</m>,
-    and so we can interpret the steady-state vector <m>\vv</m> as telling us what fraction of a random web surfer's time was spent at each web page.
+    Notice that this is essentially the same process we used to obtain <m>\vx_n</m> 
+    from <m>\vx_{n-1}</m>,
+    and so we can interpret the steady-state vector <m>\vv</m> as telling us what 
+    fraction of a random web surfer's time was spent at each web page.
     If we assume that the time spent at a web page is a measure of its importance,
     then the steady-state vector tells us the relative importance of each web page.
     So this steady-state vector provides the page rankings for us.
     In other words,
-  </p>
+  
   <blockquote>
-    The importance of a webpage may be measured by the relative size of the corresponding entry in the steady-state vector for an appropriately chosen Markov chain.
+    The importance of a webpage may be measured by the relative size of the 
+    corresponding entry in the steady-state vector for an appropriately chosen Markov chain.
   </blockquote>
-  <activity>
+  </p>
+
+  <project>
     <p>
       Show that the limiting vector you found in <xref ref="act_limit"></xref>
       is an eigenvector of <m>T</m> with eigenvalue 1.
     </p>
-  </activity>
+  </project>
+
   <p>
     <xref ref="act_limit"></xref>
     illustrates one problem with our seven page internet.
     The steady-state vector shows that page 3 is the only important page,
-    but that hardly seems reasonable in the example since there are other pages that must have some importance.
+    but that hardly seems reasonable in the example since there are other pages that 
+    must have some importance.
     The problem is that page 3 is a
     <q>dangling</q>
     page and does not lead anywhere.
@@ -187,24 +212,29 @@
     (one with no links emanating from it),
     the surfer will jump to any page on the web with equal probability.
     So in our seven page example,
-    once a surfer reaches page 3 the surfer will jump to any page on the web with probability <m>\frac{1}{7}</m>.
+    once a surfer reaches page 3 the surfer will jump to any page on the web with 
+    probability <m>\frac{1}{7}</m>.
   </p>
-  <activity xml:id="LQ_G2">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+
+  <project xml:id="LQ_G2">
+    
+      <task>
+        <statement>
           <p>
             Determine the transition matrix for our seven page internet with this adjustment.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Approximate the steady-state vector for this adjusted matrix so that the entries are accurate to four decimal places.
             Use any appropriate technology to row reduce matrices.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             According to this adjusted model,
             which web page is now the most important?
@@ -212,23 +242,25 @@
             Does this seem reasonable?
             Why?
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+  
+  </project>
+
   <p>
     There is one more issue to address before we can consider ourselves ready to rank web pages.
     Consider the example of the five page internet shown in <xref ref="F_five_page"></xref>.
   </p>
+
   <figure xml:id="F_five_page">
     <caption>A five page internet</caption>
     <image width="50%" source="five_page_1"/>
   </figure>
-  <activity xml:id="Q_no_limit">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+
+  <project xml:id="Q_no_limit">
+    
+      <task>
+        <statement>
           <p>
             Explain why
             <me>
@@ -237,32 +269,44 @@
             is the transition matrix for this five page internet.
             (Keep in mind the adjustment we made for dangling pages.)
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            Start with different initial state vectors <m>\vx_0</m> and determine if there is a limit to the Markov chain.
+            Start with different initial state vectors <m>\vx_0</m> 
+            and determine if there is a limit to the Markov chain.
             Explain.
-            You may use the GeoGebra applet at \url{https://www.geogebra.org/m/b3dybnux}.
+            You may use the GeoGebra applet at 
+            <url ref="https://www.geogebra.org/m/b3dybnux" visual="geogebra.org/m/b3dybnux"/>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     <xref ref="Q_no_limit"></xref>
-    shows that it is possible to construct an internet so that the corresponding Markov chain does not have a limit,
+    shows that it is possible to construct an internet so that the corresponding Markov 
+    chain does not have a limit,
     even after adjusting for dangling pages.
-    This is a significant problem if we want to provide a relative ranking of all web pages regardless of where a surfer starts.
-    To fix this problem we need to make one final adjustment to arrive at a type of transition matrix that always provides a limit for our Markov chain.
+    This is a significant problem if we want to provide a relative ranking of all web pages 
+    regardless of where a surfer starts.
+    To fix this problem we need to make one final adjustment to arrive at a type of transition
+    matrix that always provides a limit for our Markov chain.
   </p>
+
   <definition>
+  <idx><h>stochastic matrix</h><h>regular</h></idx>
     <statement>
       <p>
-        A stochastic matrix is <term>regular</term><idx><h>stochastic matrix</h><h>regular</h></idx> if its transition matrix <m>T</m> has the property that for some power <m>k</m>,
+        A stochastic matrix is <term>regular</term> 
+        if its transition matrix <m>T</m> has the property that for some power <m>k</m>,
         all the entries of <m>T^k</m> are positive.
       </p>
     </statement>
   </definition>
+
   <p>
     Note that the transition matrix from <xref ref="Q_no_limit"></xref> is not regular.
     Regular matrices have some especially nice properties,
@@ -273,6 +317,7 @@
     then there will a limit of the state vectors <m>\vx_n</m>,
     and that this limit has a very interesting property.
   </p>
+
   <theorem xml:id="thm_Google_1">
     <statement>
       <p>
@@ -304,7 +349,8 @@
           </li>
           <li>
             <p>
-              If <m>\lambda</m> is an eigenvalue of <m>T</m> not equal to 1, then <m>|\lambda| \lt 1</m>.
+              If <m>\lambda</m> is an eigenvalue of <m>T</m> not equal to 1, 
+              then <m>|\lambda| \lt 1</m>.
             </p>
           </li>
         </ol>
@@ -312,29 +358,37 @@
     </statement>
   </theorem>
   <p>
-    Having a regular transition matrix <m>T</m> ensures that there is always the same limit <m>\vv</m> to the sequence
+    Having a regular transition matrix <m>T</m> ensures that there is always the same 
+    limit <m>\vv</m> to the sequence
     <m>T^k \vx_0</m> for any starting vector <m>\vx_0</m>.
     As mentioned before, the entries in
-    <m>\vv = \ds \lim_{n \to \infty} T^n \vx_0</m> can be interpreted as telling us what fraction of the random surfer's time was spent at each webpage.
-    If we interpret the amount of time a surfer spends at a page as a measure of the page's importance,
-    then this steady-state vector <m>\vv</m> provides a ranking of the relative importance of each page in the web.
+    <m>\vv = \ds \lim_{n \to \infty} T^n \vx_0</m> can be interpreted as telling us what 
+    fraction of the random surfer's time was spent at each webpage.
+    If we interpret the amount of time a surfer spends at a page as a measure of the page's 
+    importance,
+    then this steady-state vector <m>\vv</m> provides a ranking of the relative importance 
+    of each page in the web.
     This is the essence of Google's PageRank.
   </p>
   <p>
-    To make our final adjustment in the transition matrix to be sure that we obtain a regular matrix,
+    To make our final adjustment in the transition matrix to be sure that we obtain a 
+    regular matrix,
     we need to deal with the problems of
     <q>loops</q>
     in our internet.
     Loops, as illustrated in <xref ref="Q_no_limit"></xref>,
-    can act as sinks just like the dangling pages we saw earlier and condemn a user that enters such a loop to spend his/her time only on those pages in the loop.
+    can act as sinks just like the dangling pages we saw earlier and condemn a 
+    user that enters such a loop to spend his/her time only on those pages in the loop.
     Quite boring!
     To account for this problem, we make a second adjustment.
   </p>
   <p>
     Let <m>p</m> be a number between 0 and 1 (Google supposedly uses <m>p=0.85</m>).
     Suppose a surfer is on page <m>i</m>.
-    We assume with probability <m>p</m> that the surfer will chose any link on page <m>i</m> with equal probability.
-    We make the additional assumption with probability <m>1-p</m> that the surfer will select with equal probability any page on the web.
+    We assume with probability <m>p</m> that the surfer will chose any link on 
+    page <m>i</m> with equal probability.
+    We make the additional assumption with probability <m>1-p</m> that the surfer 
+    will select with equal probability any page on the web.
   </p>
   <p>
     If <m>T</m> is a transition matrix,
@@ -351,44 +405,55 @@
     Since all of the entries of <m>G</m> are positive,
     <m>G</m> is a regular stochastic matrix.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       Return to the seven page internet in <xref ref="F_seven_page"></xref>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find the Google matrix <m>G</m> for this internet.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Approximate, to four decimal places,
             the steady-state vector for this internet.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What is the relative rank of each page in this internet,
             and approximately what percentage of time does a random user spend on each page.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     We conclude with two observations.
     Consider the role of the parameter <m>p</m> in our final adjustment.
     Notice that if <m>p=1</m>,
     then <m>G = T</m> and we have the original hyperlink structure of the web.
     However, if <m>p=0</m>, then <m>G = \frac{1}{n} I_n</m>,
-    where <m>I_n</m> is the <m>n \times n</m> identity matrix with <m>n</m> as the number of pages in the web.
+    where <m>I_n</m> is the <m>n \times n</m> identity matrix with <m>n</m> as the 
+    number of pages in the web.
     In this case,
     every page is linked to every other page and a random surfer spends equal time on any page.
     Here we have lost all of the character of the linked structure of the web.
     Choosing <m>p</m> close to 1 retains much of the original hyperlink structure of the web.
   </p>
   <p>
-    Finally, the matrices that model the web are HUGE, and so the methods we used in this project to approximate the steady-state vectors are not practical.
+    Finally, the matrices that model the web are HUGE, and so the methods we used in 
+    this project to approximate the steady-state vectors are not practical.
     There are many methods for approximating eigenvectors that are often used in these situations,
     some of which we discuss in a later section.
   </p>

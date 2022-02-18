@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_dynam_sys">
   <title>Dynamical Systems</title>
+  <idx><h>dynamical system</h></idx>
   <p>
-    One real-life application of eigenvalues and eigenvectors is in analyzing the long-term behavior of
-    <em>discrete dynamical systems</em>.
-    A <em>dynamical system</em>
-        <idx><h>dynamical system</h></idx>
+    One real-life application of eigenvalues and eigenvectors is in analyzing the long-term 
+    behavior of
+    <term>discrete dynamical systems</term>.
+    A <term>dynamical system</term>
     is a system of variables whose values change with time.
     In discrete systems,
-    the change is described by defining the values of the variables at time <m>t+1</m> in terms of the values at time <m>t</m>.
+    the change is described by defining the values of the variables at time <m>t+1</m> 
+    in terms of the values at time <m>t</m>.
     For example, the discrete dynamical system
     <me>
       y_{t+1} = y_t + t
@@ -20,10 +22,12 @@
     <me>
       \frac{dy}{dt} = y+t
     </me>,
-    which describes the instantaneous rate of change of <m>y(t)</m> in terms of <m>y</m> and <m>t</m>.
+    which describes the instantaneous rate of change of <m>y(t)</m> in terms of <m>y</m> 
+    and <m>t</m>.
   </p>
   <p>
-    Discrete dynamical systems can be used in population modeling to provide a simplified model of predator-prey interactions in biology
+    Discrete dynamical systems can be used in population modeling to provide a simplified 
+    model of predator-prey interactions in biology
     (see <xref ref="pa_2_b_2"></xref>).
     Other applications include Markov chains
     (see <xref ref="ex_2_b_Markov"></xref>),
@@ -35,59 +39,74 @@
   <p>
     Eigenvectors can be used to analyze the long-term behavior of dynamical systems.
   </p>
+
   <activity xml:id="pa_2_b_2">
-    <p>
-      <nbsp/>
-      <ol>
-        <li>
+  
+      <task>
+        <introduction>
           <p>
-            Consider a discrete dynamical system providing a simplified model of predator-prey interactions in biology,
+            Consider a discrete dynamical system providing a simplified model of predator-prey 
+            interactions in biology,
             such as the system describing the populations of rabbits and foxes in a certain area.
             Suppose, for example,
             for a specific area the model is given by the following equations:
             <men xml:id="eq_PA5_1_3">
               \begin{alignedat}{4} r_{k+1}  \amp {}={}   \amp {1.14}r_k   \amp {}-{}  \amp {0.12}f_k \\ f_{k+1}  \amp {}={}   \amp {0.08}r_k   \amp {}+{}  \amp {0.86}f_k \end{alignedat}
             </men>
-            where <m>r_i</m> represents the number of rabbits in the area <m>i</m> years after a starting time value,
+            where <m>r_i</m> represents the number of rabbits in the area <m>i</m> years after 
+            a starting time value,
             and <m>f_i</m> represents the number of foxes in year <m>i</m>.
             We use <m>r_0, f_0</m> to denote the initial population values.
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Suppose <m>r_k=300</m> and <m>f_k=100</m> for one year.
                   Calculate rabbit and fox population values for the next year.
                   In other words, find <m>r_{k+1}, f_{k+1}</m> values.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Consider the coefficients of the variables
                   <m>r_k, f_k</m> in the the system of equations in <xref ref="eq_PA5_1_3"/>.
-                  Can you explain the reasoning behind the signs and absolute sizes of the coefficients from the story that it models?
+                  Can you explain the reasoning behind the signs and absolute sizes of 
+                  the coefficients from the story that it models?
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Let <m>\vx_k=\left[ \begin{array}{c} r_k \\ f_k \end{array}  \right]</m>.
-                  The vector <m>\vx_k</m> is called the <em>state vector</em>
+                  The vector <m>\vx_k</m> is called the <term>state vector</term>
                   of the system at time <m>k</m>,
                   because it describes the state of the whole system at time <m>k</m>.
-                  We can rewrite the system of equations in <xref ref="eq_PA5_1_3"/> as a matrix-vector equation in terms of the state vectors at time <m>k</m> and <m>k+1</m>.
+                  We can rewrite the system of equations in <xref ref="eq_PA5_1_3"/> as 
+                  a matrix-vector equation in terms of the state vectors at time <m>k</m> 
+                  and <m>k+1</m>.
                   More specifically, the equation will be of the form
                   <men xml:id="eq_PA5_1_4">
                     \vx_{k+1} = A\vx_k
                   </men>
                   where <m>A = \left[ \begin{array}{cr} 1.14 \amp  -0.12 \\ 0.08 \amp  0.86 \end{array}  \right]</m>.
-                  We will call this matrix the <em>transition matrix</em> of the system.
-                  Check that <m>A \left[ \begin{array}{c} 300\\100 \end{array}  \right]</m> gives us the population values you calculated in the first part above.
+                  We will call this matrix the <term>transition matrix</term> of the system.
+                  Check that <m>A \left[ \begin{array}{c} 300\\100 \end{array}  \right]</m> 
+                  gives us the population values you calculated in the first part above.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   The transition matrix will help us simplify calculations of the population values.
                   Note that equation <xref ref="eq_PA5_1_4"/> implies that <m>\vx_1 = A\vx_0</m>,
                   <m>\vx_2=A\vx_1</m>, <m>\vx_3=A\vx_2</m>, and so on.
-                  This is a recursive method to find the population values as each year's population values depend on the previous year's population values.
+                  This is a recursive method to find the population values as each year's 
+                  population values depend on the previous year's population values.
                   Using this approach,
                   calculate <m>\vx_k</m> for <m>k</m> values up to 5 corresponding to the following
                   <em>three different</em>
@@ -107,37 +126,41 @@
                   One increasing, one decreasing?
                   How do the rabbit and fox populations compare?
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-      </ol>
-    </p>
+              </statement>
+            </task>
+          
+        </task>
+
   </activity>
+
   <p>
     A dynamical system is a system of variables whose values change with time.
     In <xref ref="pa_2_b_2"></xref>,
     we considered the discrete dynamical system modeling the rabbit and fox population in an area,
     which is an example of a predator-prey system.
     The system was given by the equations from <xref ref="eq_PA5_1_3"/>,
-    where <m>r_i</m> represented the number of rabbits in the area <m>i</m> years after a starting time value,
+    where <m>r_i</m> represented the number of rabbits in the area <m>i</m> years after a 
+    starting time value,
     and <m>f_i</m> represented the number of foxes in year <m>i</m>.
     In this notation,
     <m>r_0, f_0</m> corresponded to the initial population values.
   </p>
   <p>
+  <idx><h>state vector</h></idx>
     As we saw in <xref ref="pa_2_b_2"></xref>,
     if we define the state vector
-        <idx><h>state vector</h></idx>
     as <m>\vx_k=\begin{bmatrix}r_k \\ f_k \end{bmatrix}</m>,
     the system of equations representing the dynamical system can be expressed as
     <men xml:id="eq_state_vector_recursive_formula">
       \vx_{k+1} = A \vx_k
     </men>
-    where <m>A=\left[ \begin{array}{cr} 1.14 \amp  -0.12 \\ 0.08 \amp  0.86 \end{array}  \right]</m> represents the transition matrix.
-    Note that equation <xref ref="eq_state_vector_recursive_formula"/> encodes infinitely many equations including <m>\vx_1 = A\vx_0</m>,
+    where <m>A=\left[ \begin{array}{cr} 1.14 \amp  -0.12 \\ 0.08 \amp  0.86 \end{array}  \right]</m> 
+    represents the transition matrix.
+    Note that equation <xref ref="eq_state_vector_recursive_formula"/> encodes 
+    infinitely many equations including <m>\vx_1 = A\vx_0</m>,
     <m>\vx_2=A\vx_1</m>, <m>\vx_3=A\vx_2</m>, and so on.
-    This is a recursive formula for the population values as each year's population values are expressed in terms of the previous year's population values.
+    This is a recursive formula for the population values as each year's population values 
+    are expressed in terms of the previous year's population values.
     If we want to calculate <m>\vx_{10}</m>,
     this formula requires first finding the population values for years 1-9.
     However, we can obtain a non-recursive formula using matrix algebra.
@@ -163,64 +186,87 @@
     we only need to know the initial state vector <m>\vx_0</m>.
   </p>
   <activity xml:id="act_dynamical_system">
+    <introduction>
     <p>
-      In this activity the matrix <m>A</m> is the transition matrix for the rabbit and fox population model,
+      In this activity the matrix <m>A</m> is the transition matrix for the rabbit and 
+      fox population model,
       <me>
         A = \left[ \begin{array}{cr} 1.14 \amp  -0.12 \\ 0.08 \amp  0.86 \end{array}  \right]
       </me>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
-            Suppose that the initial state vector <m>\vx_0</m> is an eigenvector of <m>A</m> corresponding to eigenvalue <m>\lambda</m>.
+            Suppose that the initial state vector <m>\vx_0</m> is an eigenvector of <m>A</m> 
+            corresponding to eigenvalue <m>\lambda</m>.
             In this case,
             explain why <m>\vx_1=\lambda \vx_0</m> and <m>\vx_2=\lambda^2 \vx_0</m>.
             Find the formula for <m>\vx_k</m> in terms of
             <m>\lambda,
-            k</m> and <m>\vx_0</m> by applying equation <xref ref="eq_state_vector_recursive_formula"/> iteratively.
+            k</m> and <m>\vx_0</m> by applying equation 
+            <xref ref="eq_state_vector_recursive_formula"/> iteratively.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            The initial state vector <m>\vx_0=\left[ \begin{array}{c} 300\\100 \end{array} \right]</m> is an eigenvector of <m>A</m>.
+            The initial state vector 
+            <m>\vx_0=\left[ \begin{array}{c} 300\\100 \end{array} \right]</m> is an 
+            eigenvector of <m>A</m>.
             Find the corresponding eigenvalue and,
             using your formula from (a) for <m>\vx_k</m> in terms of
             <m>\lambda,
             k</m> and <m>\vx_0</m>, find the state vector <m>\vx_k</m> in this case.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            The initial state vector <m>\vx_0=\left[ \begin{array}{c} 100\\200 \end{array} \right]</m> is an eigenvector of <m>A</m>.
+            The initial state vector 
+            <m>\vx_0=\left[ \begin{array}{c} 100\\200 \end{array} \right]</m> 
+            is an eigenvector of <m>A</m>.
             Find the corresponding eigenvalue and,
             using your formula from (a) for <m>\vx_k</m> in terms of
             <m>\lambda,
             k</m> and <m>\vx_0</m>, find the state vector <m>\vx_k</m> in this case.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Consider now an initial state vector of the form
             <m>\vx_0=a\vv_0+b\vw_0</m> where <m>a, b</m> are constants,
             <m>\vv_0</m> is an eigenvector corresponding to eigenvalue
             <m>\lambda_1</m> and <m>\vw_0</m> corresponding to eigenvalue
-            <m>\lambda_2</m> (<m>\vv_0</m> and <m>\vw_0</m> are not necessarily the eigenvectors from parts (b) and (c)).
-            Use matrix algebra and equation <xref ref="eq_state_vector_closed_formula"/> to explain why <m>\vx_k=a\lambda_1^k\vv_0+b\lambda_2^k\vw_0</m>.
+            <m>\lambda_2</m> (<m>\vv_0</m> and <m>\vw_0</m> are not necessarily the 
+            eigenvectors from parts (b) and (c)).
+            Use matrix algebra and equation <xref ref="eq_state_vector_closed_formula"/> 
+            to explain why <m>\vx_k=a\lambda_1^k\vv_0+b\lambda_2^k\vw_0</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Express the initial state vector
-            <m>\vx_0=\left[ \begin{array}{c} 1200 \\ 750 \end{array} \right]</m> as a linear combination of the eigenvectors
+            <m>\vx_0=\left[ \begin{array}{c} 1200 \\ 750 \end{array} \right]</m> 
+            as a linear combination of the eigenvectors
             <m>\vv_0=\left[ \begin{array}{c}300\\ 100 \end{array} \right], \vw_0=\left[ \begin{array}{c} 100\\200 \end{array} \right]</m> and use your result from the previous part to find a formula for <m>\vx_k</m>.
             What happens to the population values as <m>k\to \infty?</m>
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+ 
   </activity>
   <p>
     As you discovered in <xref ref="act_dynamical_system"></xref>,
-    we can use linearly independent eigenvectors of the transition matrix to find a closed formula for the state vector of a dynamical system,
-    as long as the initial state vector can be expressed as a linear combination of the eigenvectors.
+    we can use linearly independent eigenvectors of the transition matrix to find a 
+    closed formula for the state vector of a dynamical system,
+    as long as the initial state vector can be expressed as a linear combination of 
+    the eigenvectors.
   </p>
 </section>
