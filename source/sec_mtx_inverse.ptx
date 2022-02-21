@@ -2,10 +2,12 @@
 <section xml:id="sec_mtx_inverse">
   <title>Finding the Inverse of a Matrix</title>
   <p>
-    The next questions for us to address are how to tell when a matrix is invertible and how to find the inverse of an invertible matrix.
+    The next questions for us to address are how to tell when a matrix is invertible 
+    and how to find the inverse of an invertible matrix.
     Consider a <m>2 \times 2</m> matrix <m>A</m>.
     To find the inverse matrix <m>B = [\vb_1 \ \vb_2]</m> of <m>A</m>,
-    we have to solve the two matrix-vector equations <m>A \vb_1 = \begin{bmatrix}1 \\ 0 \end{bmatrix}</m> and
+    we have to solve the two matrix-vector equations 
+    <m>A \vb_1 = \begin{bmatrix}1 \\ 0 \end{bmatrix}</m> and
     <m>A \vb_2= \begin{bmatrix}0 \\1 \end{bmatrix}</m> to find the columns of <m>B</m>.
     Since <m>A</m> is the coefficient matrix for both systems,
     we apply the same row operations on both systems to reduce <m>A</m> to RREF. Thus,
@@ -22,9 +24,11 @@
     <m>[A \ | \ I_2]</m> must be <m>[I_2 \ | \ A^{-1}]</m>.
     You should be able to see that this same process works in any dimension.
   </p>
+
+  <paragraphs>
+    <title>How to find the inverse of an
+    <m>n \times n</m> matrix <m>A</m></title>
   <p>
-    <em>How to find the inverse of an
-    <m>n \times n</m> matrix <m>A</m>:</em>
     <ul>
       <li>
         <p>
@@ -51,35 +55,46 @@
       </li>
     </ul>
   </p>
+  </paragraphs>
+
   <activity xml:id="act_2_c_3">
+    <introduction>
     <p>
       Find the inverse of each matrix
       <em>using the method above</em>, if it exists.
-      Compare the result with the inverse that you get from using appropriate technology to directly calculate the inverse.
-      <ul>
-        <li>
+      Compare the result with the inverse that you get from using appropriate technology 
+      to directly calculate the inverse.
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             <m>\left[ \begin{array}{crr} 1\amp 1\amp 1\\ 1\amp 1\amp -1\\ 1\amp -1\amp 0 \end{array} \right]</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>\left[ \begin{array}{cccc} 1\amp 1\amp 1\\ 2\amp 2\amp 2\\ 0\amp 0\amp 1 \end{array} \right]</m>
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+   
   </activity>
+
   <p>
-    We can use this method of finding the inverse of a matrix to derive a concrete formula for the inverse of a <m>2 \times 2</m> matrix:
+    We can use this method of finding the inverse of a matrix to derive a concrete
+    formula for the inverse of a <m>2 \times 2</m> matrix:
     <men xml:id="eq_2_c_1">
       \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]^{-1} = \frac{1}{ad-bc} \left[ \begin{array}{rr} d\amp -b \\ -c\amp a \end{array}  \right]
     </men>,
     provided that <m>ad-bc \neq 0</m>
     (see <xref ref="ex_2_c_2by2_inverse"></xref>).
     Hence, any <m>2\times 2</m> matrix
-    <m>\left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]</m> has an inverse if and only if <m>ad-bc\neq 0</m>.
-    We call this quantity <em>determinant of <m>A</m></em>,
+    <m>\left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]</m> has an 
+    inverse if and only if <m>ad-bc\neq 0</m>.
+    We call this quantity <term>determinant of <m>A</m></term>,
     <m>\det(A)</m>.
     We will see that the determinant of a general
     <m>n\times n</m> matrix will be essential in determining invertibility of the matrix.

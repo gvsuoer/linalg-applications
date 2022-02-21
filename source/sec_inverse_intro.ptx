@@ -4,76 +4,97 @@
   <p>
     To this point we have solved systems of linear equations with matrix forms
     <m>A \vx = \vb</m> by row reducing the augmented matrices <m>[A \ | \ \vb]</m>.
-    These linear matrix-vector equations should remind us of linear algebraic equations of the form <m>ax = b</m>,
+    These linear matrix-vector equations should remind us of linear algebraic equations 
+    of the form <m>ax = b</m>,
     where <m>a</m> and <m>b</m> are real numbers.
     Recall that we solved an equation of the form <m>ax=b</m> by dividing both sides by <m>a</m>
     (provided <m>a \neq 0</m>),
     giving the solution <m>x = \frac{b}{a}</m>,
     or equivalently <m>x = a^{-1}b</m>.
-    The important property that the number <m>a^{-1}</m> has that allows us to solve a linear equation in this way is that <m>a^{-1}a = 1</m>,
+    The important property that the number <m>a^{-1}</m> has that allows us to solve a 
+    linear equation in this way is that <m>a^{-1}a = 1</m>,
     so that <m>a^{-1}</m> is the multiplicative inverse of <m>a</m>.
     We can solve certain types of matrix equations <m>A \vx = \vb</m> in the same way,
     provided we can find a matrix <m>A^{-1}</m> with similar properties.
     We investigate this situation in this section.
   </p>
-  <activity xml:id="pa_2_c">
-    <ol>
-      <li>
+
+  <exploration xml:id="pa_2_c">
+    <task>
+      <introduction>
         <p>
           Before we define the inverse matrix,
-          recall that the identity matrix <m>I_n</m> (with 1's along the diagonal and 0's everywhere else) is a multiplicative identity in the set of <m>n \times n</m> matrices
+          recall that the identity matrix <m>I_n</m> (with 1's along the diagonal 
+          and 0's everywhere else) is a multiplicative identity in the set of 
+          <m>n \times n</m> matrices
           (just like the real number 1 is the multiplicative identity in the set of real number).
           In particular,
           <m>I_nA = AI_n = A</m> for any <m>n \times n</m> matrix <m>A</m>.
           Now we can generalize the inverse operation to matrices.
           For an <m>n\times n</m> matrix <m>A</m>,
-          we define <m>A^{-1}</m> to be the matrix which when multiplied by <m>A</m> gives us the identity matrix.
+          we define <m>A^{-1}</m> to be the matrix which when multiplied by <m>A</m> gives 
+          us the identity matrix.
           In other words, <m>AA^{-1}=A^{-1}A=I_n</m>.
           We can find the inverse of a matrix in a calculator by using the <m>x^{-1}</m> button.
+        </p>
+        <p>
           For each of the following matrices,
           determine if the inverse exists using your calculator or other appropriate technology.
           If the inverse does exist,
-          write down the inverse and check that it satisfies the defining property of the inverse matrix,
+          write down the inverse and check that it satisfies the defining property of the 
+          inverse matrix,
           that is <m>AA^{-1}=A^{-1}A=I_n</m>.
           If the inverse doesn't exist,
           write down any error you received from the technology.
           Can you guess why the inverse does not exist for these matrices?
-          <ul>
-            \begin{minipage}{2.0in}
-            <li>
-              <p>
-                <m>A = \left[ \begin{array}{cc} 1\amp 3 \\ 0\amp 4 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>A = \left[ \begin{array}{cc} 2\amp 3 \\ 4\amp 6 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>A = \left[ \begin{array}{rrc} 1\amp 2\amp 3 \\ -1\amp -1\amp 2\\1\amp 2\amp 2 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>A = \left[ \begin{array}{rrc} 1\amp 2\amp 3 \\ 2\amp 4\amp 6\\1\amp 2\amp 2 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>A = \left[ \begin{array}{rrc} 1\amp 0\amp 0 \\ 0\amp 2\amp 0\\0\amp 0\amp 3 \end{array} \right]</m> \end{minipage} \begin{minipage}{2.0in}
-              </p>
-            </li>
-            <li>
-              <p>
-                <m>A = \left[ \begin{array}{rrc} 1\amp 2\amp 3 \\ -1\amp -1\amp 2\\0\amp 1\amp 5 \end{array} \right]</m> \end{minipage}
-              </p>
-            </li>
-          </ul>
         </p>
-      </li>
-      <li>
+      </introduction>
+          <task>
+            
+            <statement>
+              <p>
+                <m>A = \left[ \begin{array}{cc} 1\amp 3 \\ 0\amp 4 \end{array} \right]</m>  
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>A = \left[ \begin{array}{cc} 2\amp 3 \\ 4\amp 6 \end{array} \right]</m>  
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>A = \left[ \begin{array}{rrc} 1\amp 2\amp 3 \\ -1\amp -1\amp 2\\1\amp 2\amp 2 \end{array} \right]</m>  
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>A = \left[ \begin{array}{rrc} 1\amp 2\amp 3 \\ 2\amp 4\amp 6\\1\amp 2\amp 2 \end{array} \right]</m>  
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>A = \left[ \begin{array}{rrc} 1\amp 0\amp 0 \\ 0\amp 2\amp 0\\0\amp 0\amp 3 \end{array} \right]</m>  
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                <m>A = \left[ \begin{array}{rrc} 1\amp 2\amp 3 \\ -1\amp -1\amp 2\\0\amp 1\amp 5 \end{array} \right]</m> 
+              </p>
+            </statement>
+          </task>
+    </task>
+    <task>
+      <introduction>
         <p>
           Now we turn to the question of how to find the inverse of a matrix in general.
           With this approach,
@@ -84,13 +105,18 @@
           If such a matrix exists,
           we will call <m>B</m> the inverse,
           <m>A^{-1}</m>, of <m>A</m>.
-          <ul>
-            <li>
+        </p>
+      </introduction>
+          <task>
+            <statement>
               <p>
-                What does the equation <m>AB = I_2</m> tell us about the size of the matrix <m>B</m>?
+                What does the equation <m>AB = I_2</m> tell us about the size of the 
+                matrix <m>B</m>?
               </p>
-            </li>
-            <li>
+            </statement>
+          </task>
+          <task>
+            <introduction>
               <p>
                 Now let <m>A = \left[ \begin{array}{cc} 1\amp 2 \\ 1\amp 3 \end{array}  \right]</m>.
                 We want to find a  matrix <m>B</m> so that <m>AB = I_2</m>.
@@ -100,50 +126,63 @@
                 <me>
                   AB = [A\vb_1 \ A\vb_2]
                 </me>.
-                <ol label="i">
-                  <li>
+              </p>
+            </introduction>
+                <task>
+                  <statement>
                     <p>
                       If <m>AB = I_2</m>, what must <m>A\vb_1</m> and <m>A \vb_2</m> equal?
                     </p>
-                  </li>
-                  <li>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
                     <p>
-                      Use the result from part (a) to set up two matrix equations to solve to find <m>\vb_1</m> and <m>\vb_2</m>.
+                      Use the result from part (a) to set up two matrix equations to solve 
+                      to find <m>\vb_1</m> and <m>\vb_2</m>.
                       Then find <m>\vb_1</m> and <m>\vb_2</m>.
                       As a result, find the matrix <m>B</m>.
                     </p>
-                  </li>
-                  <li>
+                  </statement>
+                </task>
+                <task>
+                  <statement>
                     <p>
                       When we solve the two systems we have found a matrix <m>B</m> so that <m>AB = I_2</m>.
                       Is this enough to say that <m>B</m> is the inverse of <m>A</m>?
                       If not, what else do we need to know to verify that <m>B</m> is in fact <m>A^{-1}</m>?
                       Verify that <m>B</m> is <m>A^{-1}</m>.
                     </p>
-                  </li>
-                </ol>
-              </p>
-            </li>
-          </ul>
-        </p>
-      </li>
-      <li>
+                  </statement>
+               
+            </task>
+        
+    </task>
+    <task>
+      <introduction>
         <p>
-          A matrix inverse is extremely useful in solving matrix equations and can help us in solving systems of equations.
+          A matrix inverse is extremely useful in solving matrix equations and can help us 
+          in solving systems of equations.
           Suppose that <m>A</m> is an invertible matrix,
           i.e., there exists <m>A^{-1}</m> such that <m>AA^{-1}=A^{-1}A=I_n</m>.
-          <ul>
-            <li>
+        </p>
+      </introduction>
+          <task>
+            <statement>
               <p>
                 Consider the system <m>A\vx=\vb</m>.
-                Use the inverse of <m>A</m> to show that this system has a solution for every <m>\vb</m> and find an expression for this solution in terms of <m>\vb</m> and <m>A^{-1}</m>.
+                Use the inverse of <m>A</m> to show that this system has a solution
+                for every <m>\vb</m> and find an expression for this solution in terms of 
+                <m>\vb</m> and <m>A^{-1}</m>.
                 (Note that since matrix multiplication is not commutative,
                 we have to pay attention to the order in which we multiply matrices.
                 For example, <m>A^{-1}AB=B</m> while we cannot simplify
                 <m>ABA^{-1}</m> to <m>B</m> unless <m>A</m> and <m>B</m> commute.)
               </p>
-            </li>
-            <li>
+            </statement>
+          </task>
+          <task>
+            <statement>
               <p>
                 If <m>A</m>,
                 <m>B</m>, and <m>C</m> are matrices and <m>A+C = B+C</m>,
@@ -156,10 +195,9 @@
                 (Note: When simplifying the product of matrices,
                 again keep in mind that matrix multiplication is not commutative.)
               </p>
-            </li>
-          </ul>
-        </p>
-      </li>
-    </ol>
-  </activity>
+            </statement>
+          </task>
+       </task>
+    </task>
+  </exploration>
 </section>
