@@ -6,10 +6,11 @@
     subtract, and multiply matrices of the correct sizes.
     But what about division?
     In our early mathematics education we learned about
-    <em>multiplicative inverses</em>
+    <term>multiplicative inverses</term>
     (or reciprocals)
     of real numbers.
-    The multiplicative inverse of a number <m>a</m> is the real number which when multiplied by <m>a</m> produces 1, the multiplicative identity of real numbers.
+    The multiplicative inverse of a number <m>a</m> is the real number which when 
+    multiplied by <m>a</m> produces 1, the multiplicative identity of real numbers.
     This inverse is denoted <m>a^{-1}</m>.
     For example,
     the multiplicative inverse of <m>2</m> is <m>2^{-1}=\frac{1}{2}</m> because
@@ -18,13 +19,16 @@
     </me>.
   </p>
   <p>
-    Of course, we didn't have to write both products because multiplication of real numbers is a commutative operation.
-    There are a couple of important things to note about multiplicative inverses <mdash/> we can use the inverses of the number <m>a</m> to solve the simple linear equation
+    Of course, we didn't have to write both products because multiplication 
+    of real numbers is a commutative operation.
+    There are a couple of important things to note about multiplicative inverses 
+    <mdash/> we can use the inverses of the number <m>a</m> to solve the simple linear equation
     <m>ax+b = c</m> for <m>x</m> (<m>x = a^{-1}(c-b)</m>),
     and not every real number has an inverse.
     The latter means that the inverse is not defined on the entire set of real numbers.
     We can extend the idea of inverses to matrices,
-    although we will see that there are many more matrices than just the zero matrix that do not have inverses.
+    although we will see that there are many more matrices than just the zero matrix 
+    that do not have inverses.
   </p>
   <p>
     To define matrix inverses<fn>
@@ -34,22 +38,23 @@
     </fn> we make an analogy with the property of inverses in the real numbers:
     <m>x\cdot x^{-1}=1=x^{-1}\cdot x</m>.
   </p>
+
   <definition>
+  <idx><h>matrix</h><h>invertible</h></idx>
+  <idx><h>matrix</h><h>inverse</h></idx>
     <statement>
       <p>
         Let <m>A</m> be an <m>n \times n</m> matrix.
         <ol>
           <li>
             <p>
-              <m>A</m> is <em>invertible</em>
-                <idx><h>matrix</h><h>invertible</h></idx>
+              <m>A</m> is <term>invertible</term>
               if there is an <m>n \times n</m> matrix <m>B</m> so that <m>AB = BA = I_n</m>.
             </p>
           </li>
           <li>
             <p>
-              If <m>A</m> is invertible, an <em>inverse</em>
-                <idx><h>matrix</h><h>inverse</h></idx>
+              If <m>A</m> is invertible, an <term>inverse</term>
               of <m>A</m> is a matrix <m>B</m> such that <m>AB = BA = I_n</m>.
             </p>
           </li>
@@ -57,97 +62,118 @@
       </p>
     </statement>
   </definition>
+
   <p>
+  <idx><h>matrix</h><h>non-singular</h></idx>
+  <idx><h>matrix</h><h>singular</h></idx>
     If an <m>n \times n</m> matrix <m>A</m> is invertible,
     its inverse will be unique
     (see <xref ref="ex_2_c_unique_inverse"></xref>),
     and we denote the inverse of <m>A</m> as <m>A^{-1}</m>.
     We also call an invertible matrix a
-    <em>non-singular</em><idx><h>matrix</h><h>non-singular</h></idx> matrix
-    (with <em>singular</em>
-        <idx><h>matrix</h><h>singular</h></idx>
+    <term>non-singular</term> matrix
+    (with <term>singular</term>
     meaning non-invertible).
   </p>
+  
   <activity xml:id="act_2_c_1">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+   
+      <task>
+        <statement>
           <p>
             Let <m>A = \left[ \begin{array}{cc} 1 \amp 0 \\ 0 \amp 0 \end{array} \right]</m>.
-            Calculate <m>AB</m> where <m>B = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]</m>.
+            Calculate <m>AB</m> where 
+            <m>B = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]</m>.
             Using your result,
             explain why it is not possible to have <m>AB=I_2</m>,
             showing that <m>A</m> is non-invertible.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            Calculate <m>AB</m> where <m>A = \left[ \begin{array}{cc} 1 \amp 2 \\ 2 \amp 4 \end{array} \right]</m> and <m>B = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]</m>.
+            Calculate <m>AB</m> where 
+            <m>A = \left[ \begin{array}{cc} 1 \amp 2 \\ 2 \amp 4 \end{array} \right]</m> and 
+            <m>B = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]</m>.
             Using your result, explain why the inverse of <m>A</m> doesn't exist.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+    </task>
   </activity>
+  
   <p>
     We saw in <xref ref="act_2_c_1"></xref>
     why the inverse does not exist for two specific matrices.
     We will find in the next section an easy criterion for determining when a matrix has an inverse.
     In short, when the RREF of the matrix has a pivot in every column and row,
     then the matrix will be invertible.
-    We know that this condition relates to quite a few other linear algebra concepts we have seen so far,
+    We know that this condition relates to quite a few other linear algebra concepts 
+    we have seen so far,
     such as linear independence of columns and the columns spanning <m>\R^n</m>.
     We will put these criteria together in one big theorem in the next section.
   </p>
+
   <activity xml:id="act_2_c_2">
+    <introduction>
     <p>
       Suppose that <m>A</m> is an invertible <m>n \times n</m> matrix.
       Hence we have an inverse matrix <m>A^{-1}</m> for which <m>AA^{-1}=A^{-1}A=I_n</m>.
       We will see how the inverse is useful in solving matrix equations involving <m>A</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain why the matrix expressions
             <me>
               \ A^{-1}(AB) , \ A^{-1}(A(BA)A^{-1}) \ \text{ and }  \ BA^{-1}BAA^{-1}B^{-1}A
             </me>
             can all be simplified to <m>B</m>.
-            <hint>
-              <p>
-                Use the associative property of matrix multiplication.
-              </p>
-            </hint>
           </p>
-        </li>
-        <li>
+        </statement>
+        <hint>
+          <p>
+            Use the associative property of matrix multiplication.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
           <p>
             Suppose the system <m>A \vx = \vb</m> has a solution.
             Explain why then <m>A^{-1}(A\vx)= A^{-1}\vb</m>.
             What does this equation simplify to?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            Since we found one single expression for the solution <m>\vx</m> in equation <m>A\vx=\vb</m>,
+            Since we found one single expression for the solution <m>\vx</m> in 
+            equation <m>A\vx=\vb</m>,
             this implies that the equation has a unique solution.
             What does this imply about the matrix <m>A</m>?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     As we saw in <xref ref="act_2_c_1"></xref>,
     if the <m>n \times n</m> matrix <m>A</m> is invertible,
-    then the equation <m>A \vx = \vb</m> is consistent for all <m>\vb</m> in <m>\R^n</m> and has the unique solution <m>\vx = A^{-1} \vb</m>.
+    then the equation <m>A \vx = \vb</m> is consistent for all <m>\vb</m> in <m>\R^n</m> 
+    and has the unique solution <m>\vx = A^{-1} \vb</m>.
     This means that <m>A</m> has a pivot in every row and column,
     which is equivalent to the criterion that <m>A</m> reduces to <m>I_n</m>,
     as we noted above.
   </p>
   <p>
-    Even though <m>\vx=A^{-1}\vb</m> is an explicit expression for the solution of the system <m>A\vx=\vb</m>,
-    using the inverse of a matrix is usually not a computationally efficient way to solve a matrix equation.
+    Even though <m>\vx=A^{-1}\vb</m> is an explicit expression for the solution of the 
+    system <m>A\vx=\vb</m>,
+    using the inverse of a matrix is usually not a computationally efficient way to solve a 
+    matrix equation.
     Finding the RREF of a matrix computationally takes fewer steps to solve the matrix equation.
   </p>
 </section>
