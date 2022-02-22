@@ -16,14 +16,15 @@
     <m>n \times n</m> matrix <m>A</m> is invertible,
     and connects many of the topics we have been discussing so far this semester into one big picture.
   </p>
+
   <theorem>
     <title>The Invertible Matrix Theorem</title>
+    <idx><h>Invertible Matrix Theorem</h></idx>
     <statement>
-      <p>
-            <idx><h>Invertible Matrix Theorem</h></idx>
+      <p>   
         Let <m>A</m> be an <m>n \times n</m> matrix.
         The following statements are equivalent:
-        <ol>
+        <ol label="(1)">
           <li>
             <p>
               <m>A</m> is an invertible matrix.
@@ -98,10 +99,11 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to a matrix being invertible.
     As discussed in <xref ref="pa_2_d"></xref>,
-    two statements are said to be <em>equivalent</em> if,
+    two statements are said to be <term>equivalent</term> if,
     whenever one of the statements is true,
     then the other is also true.
     So to demonstrate, say,
@@ -119,6 +121,7 @@
       </li>
     </ul>
   </p>
+
   <p>
     The Invertible Matrix Theorem, however,
     provides a long list of statements that are equivalent.
@@ -127,14 +130,18 @@
     (There are <m>\binom{14}{2} = 91</m> such pairs.)
     Fortunately, there is a shorter method that we can use.
   </p>
+
   <activity xml:id="act_2_d_1">
+    <introduction>
     <p>
       In this activity,
       we will consider certain parts of the Invertible Matrix Theorem and show that one implies another in a specific order.
       For all parts in this activity,
       we assume <m>A</m> is an <m>n\times n</m> matrix.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Consider the following implication:
             <m>(2) \implies (6)</m>:<fn>
@@ -145,30 +152,38 @@
             then the columns of <m>A</m> are linearly independent.
             This shows that part 2 of the IMT implies part 6 of the IMT. Justify this implication as if it is a T/F problem.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Justify the following implication:
             <m>(6) \implies (9)</m>: If the columns of <m>A</m> are linearly independent,
             then the matrix equation <m>A\vx =\vb</m> has exactly one solution for each vector <m>\vb</m> in <m>\R^n</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Justify the following implication:
             <m>(9) \implies (4)</m>: If the equation
             <m>A \vx = \vb</m> has exactly one solution for every vector <m>\vb</m> in <m>\R^n</m>,
             then the columns of <m>A</m> span <m>\R^n</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Justify the following implication:
             <m>(4) \implies (2)</m>: If the columns of <m>A</m> span <m>\R^n</m>,
             then the equation <m>A \vx = \vzero</m> has only the trivial solution.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Using the above implications you proved,
             explain why we can conclude the following implication must also be true:
@@ -176,25 +191,31 @@
             <m>A \vx = \vzero</m> has only the trivial solution,
             then the matrix equation <m>A\vx =\vb</m> has exactly one solution for each vector <m>\vb</m> in <m>\R^n</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Using the above implications you proved,
             explain why any one of the implications <m>(2)</m>, <m>(6)</m>,
             <m>(9)</m>, and <m>(4)</m> implies any of the others.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     Using a similar ordering of circular implications as in <xref ref="act_2_d_1"></xref>,
     we can prove the Invertible Matrix Theorem by showing that each statement in the list implies the next statement,
     and that the last statement implies the first.
   </p>
+
+  <proof>
+ 
+    <title>Proof of the Invertible Matrix Theorem</title>
   <p>
-    <em>Proof of the Invertible Matrix Theorem</em>
-    <ul>
+    <dl>
       <li>
         <title>Statement (1) implies Statement (2)</title>
         <p>
@@ -375,8 +396,10 @@
           which proves that statement (14) implies statement (1).
         </p>
       </li>
-    </ul>
+    </dl>
   </p>
+  </proof>
+  
   <p>
     This concludes our proof of the Invertible Matrix Theorem.
   </p>
