@@ -5,27 +5,18 @@
     What follows are worked examples that use the concepts from this section.
   </p>
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>W = \left\{\left[ \begin{array}{c} 2r+s+t \\ r+t \\ r+s \end{array} \right] : r,s,t \in \R \right\}</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>W</m> is a subspace of <m>\R^3</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              Describe in detail the geometry of the subspace <m>W</m> (e.g., is it a line,
-              a union of lines, a plane, a union of planes, etc.)
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Every vector in <m>W</m> has the form
               <me>
@@ -39,8 +30,16 @@
               As a span of a set of vectors,
               we know that <m>W</m> is a subspace of <m>\R^3</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Describe in detail the geometry of the subspace <m>W</m> (e.g., is it a line,
+              a union of lines, a plane, a union of planes, etc.)
+            </p>
+          </statement>
+          <solution>
             <p>
               Let <m>\vv_1 = \left[ \begin{array}{c} 2 \\ 1 \\ 1 \end{array} \right]</m>,
               <m>\vv_2 = \left[ \begin{array}{c} 1 \\ 0 \\ 1 \end{array} \right]</m>,
@@ -50,17 +49,15 @@
               The pivot columns of <m>[\vv_1 \ \vv_2 \ \vv_3]</m> form a linearly independent set with the same span as <m>\{\vv_1, \vv_2, \vv_3\}</m>, So
               <m>W = \Span\{\vv_1, \vv_2\}</m> and <m>W</m> forms the plane in <m>\R^3</m> through the origin and the points <m>(2,1,1)</m> and <m>(1,0,1)</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
+
   <example>
-    <statement>
-      <p>
-        <nbsp/>
-        <ul>
-          <li>
+  
+        <task>
+          <introduction>
             <p>
               Let <m>X = \Span\left\{ \left[ \begin{array}{c} 1\\0\\0 \end{array}  \right] \right\}</m> and let <m>Y = \Span\left\{ \left[ \begin{array}{c} 0\\1\\0 \end{array}  \right] \right\}</m>.
               That is, <m>X</m> is the <m>x</m>-axis and <m>Y</m> the <m>y</m>-axis in three-space.
@@ -68,52 +65,19 @@
               <me>
                 X+Y = \{\vx+\vy : \vx \in X \text{ and }  \vy \in Y\}
               </me>.
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     Is <m>\left[ \begin{array}{c} 2\\3\\0 \end{array} \right]</m> in <m>X+Y</m>?
                     Justify your answer.
                   </p>
-                </li>
-                <li>
+                </statement>
+                <solution>
                   <p>
-                    Is <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right]</m> in <m>X+Y</m>?
-                    Justify your answer.
+                    We let <m>X = \Span\left\{ \left[ \begin{array}{c} 1\\0\\0 \end{array} \right] \right\}</m> and <m>Y = \Span\left\{ \left[ \begin{array}{c} 0\\1\\0 \end{array} \right] \right\}</m>. T
                   </p>
-                </li>
-                <li>
-                  <p>
-                    Assume that <m>X+Y</m> is a subspace of <m>\R^3</m>.
-                    Describe in detail the geometry of this subspace.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
-            <p>
-              Now let <m>W_1</m> and <m>W_2</m> be arbitrary subspaces of <m>\R^n</m> for some positive integer <m>n</m>.
-              Let
-              <me>
-                W_1+W_2 = \{\vw_1+\vw_2 : \vw_1 \in W_1 \text{ and }  \vw_2 \in W_2\}
-              </me>.
-              Show that <m>W_1+W_2</m> is a subspace of <m>\R^n</m>.
-              The set <m>W_1+W_2</m> is called the <em>sum</em>
-                <idx><h>subspace</h><h>sum</h></idx>
-              of the subspaces <m>W_1</m> and <m>W_2</m>.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
-            <p>
-              We let <m>X = \Span\left\{ \left[ \begin{array}{c} 1\\0\\0 \end{array} \right] \right\}</m> and <m>Y = \Span\left\{ \left[ \begin{array}{c} 0\\1\\0 \end{array} \right] \right\}</m>.
-              T
-              <ol label="i">
-                <li>
                   <p>
                     Let <m>\vw = \left[ \begin{array}{c} 2\\3\\0 \end{array} \right]</m>,
                     <m>\vx = 2\left[ \begin{array}{c} 1\\0\\0 \end{array} \right]</m>,
@@ -121,8 +85,19 @@
                     Since <m>\vw = \vx+\vy</m> with <m>\vx \in X</m> and
                     <m>\vy \in Y</m> we conclude that <m>\vw \in X + Y</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Is <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right]</m> in <m>X+Y</m>?
+                    Justify your answer.
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    We let <m>X = \Span\left\{ \left[ \begin{array}{c} 1\\0\\0 \end{array} \right] \right\}</m> and <m>Y = \Span\left\{ \left[ \begin{array}{c} 0\\1\\0 \end{array} \right] \right\}</m>. T
+                  </p>
                   <p>
                     Every vector in <m>X</m> has the form <m>a \ve_1</m> for some scalar <m>a</m> (where <m>\ve_1 = \left[ \begin{array}{c} 1\\0\\0 \end{array} \right]</m>,
                     and every vector in <m>Y</m> has the form <m>b \ve_2</m> for some scalar <m>b</m>
@@ -131,19 +106,43 @@
                     Since the vector <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right]</m> does not have a <m>0</m> in the third component,
                     we conclude that in <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right]</m> is not in <m>X+Y</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Assume that <m>X+Y</m> is a subspace of <m>\R^3</m>.
+                    Describe in detail the geometry of this subspace.
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    We let <m>X = \Span\left\{ \left[ \begin{array}{c} 1\\0\\0 \end{array} \right] \right\}</m> and <m>Y = \Span\left\{ \left[ \begin{array}{c} 0\\1\\0 \end{array} \right] \right\}</m>. T
+                  </p>
                   <p>
                     As we just argued,
                     every vector in <m>X+Y</m> has the form <m>a\ve_1+b\ve_2</m>.
                     So <m>X+Y = \Span\{\ve_1,\ve_2\}</m>,
                     which is the <m>xy</m>-plane in <m>\R^3</m>.
                   </p>
-                </li>
-              </ol>
+                </solution>
+              </task>
+        </task>
+        <task>
+          <idx><h>subspace</h><h>sum</h></idx>
+          <statement>
+            <p>
+              Now let <m>W_1</m> and <m>W_2</m> be arbitrary subspaces of <m>\R^n</m> for some positive integer <m>n</m>.
+              Let
+              <me>
+                W_1+W_2 = \{\vw_1+\vw_2 : \vw_1 \in W_1 \text{ and }  \vw_2 \in W_2\}
+              </me>.
+              Show that <m>W_1+W_2</m> is a subspace of <m>\R^n</m>.
+              The set <m>W_1+W_2</m> is called the <term>sum</term>
+              of the subspaces <m>W_1</m> and <m>W_2</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
             <p>
               To see why the set <m>W_1+W_2</m> is a subspace of <m>\R^3</m>,
               suppose that <m>\vx</m> and <m>\vy</m> are in <m>W_1+W_2</m>.
@@ -169,9 +168,8 @@
               it follows that <m>\vzero</m> is an element of <m>W_1+W_2</m>.
               We conclude that <m>W_1+W_2</m> is a subspace of <m>\R^3</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+     
   </example>
 </section>
