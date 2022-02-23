@@ -5,38 +5,18 @@
     What follows are worked examples that use the concepts from this section.
   </p>
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{rrr} 4\amp -3\amp -3\\-3\amp 4\amp 3\\3\amp -3\amp -2 \end{array} \right]</m> and let <m>T</m> be the matrix transformation defined by <m>T(\vx) = A\vx</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>4</m> is an eigenvalue for <m>A</m> and find a basis for the corresponding eigenspace of <m>A</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              Geometrically describe the eigenspace of <m>A</m> corresponding to the eigenvalue <m>4</m>.
-              Explain what the transformation <m>T</m> does to this eigenspace.
-            </p>
-          </li>
-          <li>
-            <p>
-              Show that <m>1</m> is an eigenvalue for <m>A</m> and find a basis for the corresponding eigenspace of <m>A</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Geometrically describe the eigenspace of <m>A</m> corresponding to the eigenvalue <m>1</m>.
-              Explain what the transformation <m>T</m> does to this eigenspace.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Recall that <m>\lambda</m> is an eigenvalue of <m>A</m> if <m>A-\lambda I_3</m> is not invertible.
               To show that <m>4</m> is an eigenvalue for <m>A</m> we row reduce the matrix
@@ -57,8 +37,16 @@
               </me>.
               Therefore, <m>\left\{\left[ \begin{array}{r} 1\\-1\\1 \end{array}  \right]\right\}</m> is a basis for the eigenspace of <m>A</m> corresponding to the eigenvalue <m>4</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Geometrically describe the eigenspace of <m>A</m> corresponding to the eigenvalue <m>4</m>.
+              Explain what the transformation <m>T</m> does to this eigenspace.
+            </p>
+          </statement>
+          <solution>
             <p>
               Since the eigenspace of <m>A</m> corresponding to the eigenvalue <m>4</m> is the span of a single nonzero vector <m>\vv = \left[ \begin{array}{r} 1\\-1\\1 \end{array}  \right]</m>,
               this eigenspace is the line in <m>\R^3</m> through the origin and the point <m>(1,-1,1)</m>.
@@ -69,8 +57,15 @@
               </me>,
               so <m>T</m> expands any vector in this eigenspace by a factor of 4.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Show that <m>1</m> is an eigenvalue for <m>A</m> and find a basis for the corresponding eigenspace of <m>A</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               To show that <m>1</m> is an eigenvalue for <m>A</m> we row reduce the matrix
               <me>
@@ -90,8 +85,16 @@
               </me>.
               Therefore, <m>\left\{\left[ \begin{array}{c} 1\\1\\0 \end{array}  \right], \left[ \begin{array}{c} 1\\0\\1 \end{array}  \right]\right\}</m> is a basis for the eigenspace of <m>A</m> corresponding to the eigenvalue <m>1</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Geometrically describe the eigenspace of <m>A</m> corresponding to the eigenvalue <m>1</m>.
+              Explain what the transformation <m>T</m> does to this eigenspace.
+            </p>
+          </statement>
+          <solution>
             <p>
               Since the eigenspace of <m>A</m> corresponding to the eigenvalue <m>1</m> is the span of two linearly independent vectors
               <m>\vv_1 = \left[ \begin{array}{r} 1\\1\\0 \end{array}  \right]</m> and <m>\vv_2 = \left[ \begin{array}{c} 1\\0\\1 \end{array}  \right]</m>,
@@ -104,106 +107,31 @@
               </me>,
               so <m>T</m> fixes every vector in this plane.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+     
   </example>
+
   <example>
-    <statement>
-      <p>
-        <nbsp/>
-        <ul>
-          <li>
+    
+        <task>
+          <introduction>
             <p>
               Let <m>A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 1 \end{array} \right]</m>.
               Note that the vector <m>\vv = \left[ \begin{array}{c}1\\1 \end{array} \right]</m> satisfies <m>A \vv = 3\vv</m>.
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     Show that <m>\vv</m> is an eigenvector of <m>A^2</m>.
                     What is the corresponding eigenvalue?
                   </p>
-                </li>
-                <li>
+                </statement>
+                <solution>
                   <p>
-                    Show that <m>\vv</m> is an eigenvector of <m>A^3</m>.
-                    What is the corresponding eigenvalue?
+                    We use the fact that <m>\vv</m> is an eigenvector of the matrix <m>A</m> with eigenvalue <m>3</m>.
                   </p>
-                </li>
-                <li>
-                  <p>
-                    Show that <m>\vv</m> is an eigenvector of <m>A^4</m>.
-                    What is the corresponding eigenvalue?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    If <m>k</m> is a positive integer,
-                    do you expect that <m>\vv</m> is an eigenvector of <m>A^k</m>?
-                    If so, what do you think is the corresponding eigenvalue?
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
-            <p>
-              The result of part (a) is true in general.
-              Let <m>M</m> be an <m>n \times n</m> matrix with eigenvalue <m>\lambda</m> and corresponding eigenvector <m>\vx</m>.
-              <ol label="i">
-                <li>
-                  <p>
-                    Show that <m>\lambda^2</m> is an eigenvalue of <m>M^2</m> with eigenvector <m>\vx</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that <m>\lambda^3</m> is an eigenvalue of <m>M^3</m> with eigenvector <m>\vx</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Suppose that <m>\lambda^k</m> is an eigenvalue of <m>M^k</m> with eigenvector <m>\vx</m> for some integer <m>k \geq 1</m>.
-                    Show then that <m>\lambda^{k+1}</m> is an eigenvalue of <m>M^{k+1}</m> with eigenvector <m>\vx</m>.
-                    This argument shows that <m>\lambda^k</m> is an eigenvalue of <m>M^k</m> with eigenvector <m>\vx</m> for any positive integer <m>k</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
-            <p>
-              We now investigate the eigenvalues of a special type of matrix.
-              <ol label="i">
-                <li>
-                  <p>
-                    Let <m>B = \left[ \begin{array}{ccc} 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \end{array} \right]</m>.
-                    Show that <m>B^3 = 0</m>. (A square matrix <m>M</m> is <em>nilpotent</em>
-                <idx><h>matrix</h><h>nilpotent</h></idx>
-                    ) if <m>M^k = 0</m> for some positive integer <m>k</m>,
-                    so <m>B</m> is an example of a nilpotent matrix.) What are the eigenvalues of <m>B</m>?
-                    Explain.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Show that the only eigenvalue of a nilpotent matrix is <m>0</m>.
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
-            <p>
-              We use the fact that <m>\vv</m> is an eigenvector of the matrix <m>A</m> with eigenvalue <m>3</m>.
-              <ol label="i">
-                <li>
                   <p>
                     We have that
                     <me>
@@ -211,8 +139,19 @@
                     </me>.
                     So <m>\vv</m> is an eigenvector of <m>A^2</m> with eigenvalue <m>9 = 3^2</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Show that <m>\vv</m> is an eigenvector of <m>A^3</m>.
+                    What is the corresponding eigenvalue?
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    We use the fact that <m>\vv</m> is an eigenvector of the matrix <m>A</m> with eigenvalue <m>3</m>.
+                  </p>
                   <p>
                     We have that
                     <me>
@@ -220,8 +159,19 @@
                     </me>.
                     So <m>\vv</m> is an eigenvector of <m>A^3</m> with eigenvalue <m>27 = 3^3</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Show that <m>\vv</m> is an eigenvector of <m>A^4</m>.
+                    What is the corresponding eigenvalue?
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    We use the fact that <m>\vv</m> is an eigenvector of the matrix <m>A</m> with eigenvalue <m>3</m>.
+                  </p>
                   <p>
                     We have that
                     <me>
@@ -229,21 +179,45 @@
                     </me>.
                     So <m>\vv</m> is an eigenvector of <m>A^4</m> with eigenvalue <m>81 = 3^4</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    If <m>k</m> is a positive integer,
+                    do you expect that <m>\vv</m> is an eigenvector of <m>A^k</m>?
+                    If so, what do you think is the corresponding eigenvalue?
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    We use the fact that <m>\vv</m> is an eigenvector of the matrix <m>A</m> with eigenvalue <m>3</m>.
+                  </p>
                   <p>
                     The results of the previous parts of this example indicate that <m>A^k \vv = 3^k \vv</m>,
                     or that <m>\vv</m> is an eigenvector of <m>A^k</m> with corresponding eigenvalue <m>3^k</m>.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
+                </solution>
+              </task>
+            
+          </task>
+        <task>
+          <introduction>
             <p>
+              The result of part (a) is true in general.
               Let <m>M</m> be an <m>n \times n</m> matrix with eigenvalue <m>\lambda</m> and corresponding eigenvector <m>\vx</m>.
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
+                  <p>
+                    Show that <m>\lambda^2</m> is an eigenvalue of <m>M^2</m> with eigenvector <m>\vx</m>.
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Let <m>M</m> be an <m>n \times n</m> matrix with eigenvalue <m>\lambda</m> and corresponding eigenvector <m>\vx</m>.
+                  </p>
                   <p>
                     We have that
                     <me>
@@ -251,8 +225,18 @@
                     </me>.
                     So <m>\vx</m> is an eigenvector of <m>M^2</m> with eigenvalue <m>\lambda^2</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Show that <m>\lambda^3</m> is an eigenvalue of <m>M^3</m> with eigenvector <m>\vx</m>.
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Let <m>M</m> be an <m>n \times n</m> matrix with eigenvalue <m>\lambda</m> and corresponding eigenvector <m>\vx</m>.
+                  </p>
                   <p>
                     We have that
                     <me>
@@ -260,8 +244,20 @@
                     </me>.
                     So <m>\vx</m> is an eigenvector of <m>M^3</m> with eigenvalue <m>\lambda^3</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Suppose that <m>\lambda^k</m> is an eigenvalue of <m>M^k</m> with eigenvector <m>\vx</m> for some integer <m>k \geq 1</m>.
+                    Show then that <m>\lambda^{k+1}</m> is an eigenvalue of <m>M^{k+1}</m> with eigenvector <m>\vx</m>.
+                    This argument shows that <m>\lambda^k</m> is an eigenvalue of <m>M^k</m> with eigenvector <m>\vx</m> for any positive integer <m>k</m>.
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Let <m>M</m> be an <m>n \times n</m> matrix with eigenvalue <m>\lambda</m> and corresponding eigenvector <m>\vx</m>.
+                  </p>
                   <p>
                     Assume that <m>M^k \vx = \lambda^k \vx</m>.
                     Then
@@ -270,23 +266,46 @@
                     </me>.
                     So <m>\vx</m> is an eigenvector of <m>M^{k+1}</m> with eigenvalue <m>\lambda^{k+1}</m>.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
+                </solution>
+              </task>
+            
+          </task>
+          <task>
+          <introduction>
             <p>
-              Now we investigate a special type of matrix.
-              <ol label="i">
-                <li>
+              We now investigate the eigenvalues of a special type of matrix.
+            </p>
+          </introduction>
+              <task>
+              <idx><h>matrix</h><h>nilpotent</h></idx>
+                <statement>
+                  <p>
+                    Let <m>B = \left[ \begin{array}{ccc} 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \end{array} \right]</m>.
+                    Show that <m>B^3 = 0</m>. (A square matrix <m>M</m> is <term>nilpotent</term>
+                    ) if <m>M^k = 0</m> for some positive integer <m>k</m>,
+                    so <m>B</m> is an example of a nilpotent matrix.) What are the eigenvalues of <m>B</m>?
+                    Explain.
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Now we investigate a special type of matrix.
+                  </p>
                   <p>
                     Straightforward calculations show that <m>B^3 = 0</m>.
                     Since <m>B</m> is an upper triangular matrix,
                     the eigenvalues of <m>B</m> are the entries on the diagonal.
                     That is, the only eigenvalue of <m>B</m> is <m>0</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    Show that the only eigenvalue of a nilpotent matrix is <m>0</m>.
+                  </p>
+                </statement>
+                <solution>
                   <p>
                     Assume that <m>M</m> is a nilpotent matrix.
                     Suppose that <m>\lambda</m> is an eigenvalue of <m>M</m> with corresponding eigenvector <m>\vv</m>.
@@ -297,12 +316,10 @@
                     This implies that <m>\lambda = 0</m>.
                     We conclude that the only eigenvalue of a nilpotent matrix is <m>0</m>.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+                </solution>
+              </task>
+           
+        </task>
+      
   </example>
 </section>
