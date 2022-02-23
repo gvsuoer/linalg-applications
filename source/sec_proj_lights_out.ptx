@@ -5,7 +5,7 @@
     The Lights Out game starts with a
     <m>5 \times 5</m> grid on which some of the squares are lit (on) and some are not lit
     (off).
-    We will call such a state a <em>configuration</em>.
+    We will call such a state a <term>configuration</term>.
     Pressing a square that is on turns it off and changes the state of all adjacent
     (vertically and horizontally)
     squares, and pressing a square that is off turns it on and changes the state of all adjacent
@@ -62,11 +62,13 @@
       </li>
     </ul>
   </p>
+
   <figure xml:id="F_LO">
     <caption>Two representations of the Lights Out game.</caption>
     <image width="50%" source="LO"/>
     <image width="50%" source="LO_vector"/>
   </figure>
+
   <p>
     We will take the latter perspective and view the Lights Out game as if it is played on a
     <m>25 \times 1</m> board with entries in <m>\Z_2</m>.
@@ -96,26 +98,33 @@
       \vm_{2} = [ 1 \ 1 \ 1 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0\  0 \ 0 \ 0 \ 0 \ 0 ]^{\tr}
     </me>.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       Let <m>\vm_i</m> be the move of pressing the <m>i</m>th square for <m>i</m> from 1 to 25.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find vector representations for <m>\vm_9</m> and <m>\vm_{22}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>M = [m_{ij}] = \left[\vm_1 | \vm_2 | \cdots | \vm_{25} \right]</m>.
             Explain why <m>m_{ij} = m_{ji}</m> for each <m>i</m> and <m>j</m>.
             In other words, explain why <m>M^{\tr} = M</m>.
             (Such a matrix is called a <em>symmetric</em> matrix.)
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     The goal of the Lights Out game is to begin with an initial configuration <m>\vc</m> (a vector in
     <m>\Z_2^{25}</m>) and determine if we can apply a sequence of moves to obtain the configuration in which all the entries are 0
@@ -132,32 +141,37 @@
     then we obtain the new configuration <m>\vc_1 = \vm_i + \vc</m>
     (where each move <m>\vm_i</m> is also in <m>\Z_2^{25}</m>).
   </p>
-  <activity xml:id="act_LO_1">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+
+  <project xml:id="act_LO_1">
+   
+      <task>
+        <statement>
           <p>
             What happens if we press the <m>i</m>th square twice in a row?
             Explain in terms of the action and the game and verify using vector addition.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain why applying move <m>\vm_i</m> then move <m>\vm_j</m> is the same as applying move <m>\vm_j</m>,
             then <m>\vm_i</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain how the answers to the previous two questions show that to play the game we only need to determine which buttons to press
             (and only once each)
             without worrying about the order in which the buttons are pressed.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     What we have seen is that to play the game we are really looking for scalars <m>x_1</m>,
     <m>x_2</m>, <m>\ldots</m>, <m>x_{25}</m> in <m>\Z_2</m>
@@ -167,7 +181,9 @@
       x_1\vm_1 + x_2\vm_2 + \cdots + x_{25}\vm_{25} + \vc = \vzero
     </men>.
   </p>
-  <activity>
+
+  <project>
+    <statement>
     <p>
       Explain why <xref ref="eq_LO1"/> has the equivalent matrix equation
       <men xml:id="eq_LO2">
@@ -182,34 +198,43 @@
       Explicitly identify the vector <m>\vx</m>.
       Also, explain why <m>\vc</m> is on the right side of this equation.
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     To solve a Lights Out game now,
     all we need do is determine a solution,
     if one exists, to the matrix equation <xref ref="eq_LO2"/>.
   </p>
-  <activity xml:id="act_LO_2">
+
+  <project xml:id="act_LO_2">
+    <introduction>
     <p>
       For this activity you may use the fact that the reduced row echelon form of the matrix <m>M</m>
       (using algebra in <m>\Z_2</m>)
       is as shown below.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find a basis for the column space of <m>M</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain why not every Lights Out puzzle can be solved.
             That is, explain why there are some initial configurations of lights on and off for which it is not possible to turn out all the lights
             (without turning off the game).
             Relate this to the column space of <m>M</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     The reduced row echelon form of the matrix <m>M</m> (using algebra in <m>\Z_2</m>):
     <me>
@@ -249,12 +274,13 @@
     In other words, the scalar product of any vector in
     <m>\Nul A^{\tr}</m> with any column of <m>A</m> is <m>\vzero</m>.
     (When the scalar product of two vectors is <m>\vzero</m>,
-    we call the vectors <em>orthogonal</em>
+    we call the vectors <term>orthogonal</term>
     <mdash/> a fancy word for
     <q>perpendicular</q>.)
     Since scalar products are linear,
     we can extend this result to the following.
   </p>
+
   <theorem xml:id="thm_LO_Nul_Col">
     <statement>
       <p>
@@ -264,24 +290,27 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     With <xref ref="thm_LO_Nul_Col"></xref>
     in mind we can return to our analysis of the Lights Out game,
     applying this result to the matrix <m>M</m>.
   </p>
-  <activity>
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+
+  <project>
+    
+      <task>
+        <statement>
           <p>
             Find a basis for the null space of <m>M^{\tr}</m>. (Recall that <m>M^{\tr} = M</m>,
             so you can use the reduced row echelon form of <m>M</m>
             (using algebra in <m>\Z_2</m>)
             given earlier.)
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use  <xref ref="thm_LO_Nul_Col"></xref>
             to show that if <m>\vc = [c_1 \  c_2 \  \ldots \  c_{25}]^{\tr}</m> is an initial Lights Out configuration that is solvable,
@@ -298,11 +327,13 @@
             </me>.
             Be very specific in your explanation.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
-  <activity>
+        </statement>
+      </task>
+    
+  </project>
+
+  <project>
+    <statement>
     <p>
       Now that we know which Lights Out games can be solved,
       let <m>\vc</m> be an initial configuration to a solvable Lights Out game.
@@ -310,9 +341,11 @@
       Will the solution be unique?
       Explain.
     </p>
-  </activity>
+    </statement>
+  </project>
   <p>
     Now that we have a strategy for solving the Lights Out game,
-    use it to solve random puzzles at \url{https://www.geogebra.org/m/wcmctahp}, or create your own game to solve.
+    use it to solve random puzzles at 
+    <url ref="https://www.geogebra.org/m/wcmctahp" visual="geogebra.org/m/wcmctahp"/>, or create your own game to solve.
   </p>
 </section>
