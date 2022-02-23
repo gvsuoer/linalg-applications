@@ -11,7 +11,9 @@
     that the set is linearly independent,
     and that the set spans the subspace.
   </p>
+
   <activity xml:id="act_3_b_3">
+    <introduction>
     <p>
       In this activity we see how to find a basis for <m>\Col A</m> and <m>\Nul A</m> for a specific matrix <m>A</m>.
       Let
@@ -24,53 +26,66 @@
       <me>
         R= \left[ \begin{array}{rrrrr} 1\amp 0\amp 1\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 2 \\ 0\amp 0\amp 0\amp 1\amp -1 \\ 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]
       </me>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+
+      <task>
+        <introduction>
           <p>
             First we examine <m>\Col A</m>.
             Recall that to find a minimal spanning set of a set of vectors
             <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> in <m>\R^n</m> we just select the pivot columns of the matrix <m>[\vv_1 \ \vv_2 \ \cdots \ \vv_k]</m>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Find a basis for <m>\Col A</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Does <m>\Col A</m> equal <m>\Col R</m>?
                   Explain.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+      </task>
+      <task>
+        <introduction>
           <p>
             Now we look at <m>\Nul A</m>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Write the general solution to the homogeneous system <m>A \vx = \vzero</m> in vector form.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Find a spanning set for <m>\Nul A</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Find a basis for <m>\Nul A</m>.
                   Explain how you know you have a basis.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
+              </statement>
+            </task>
+      </task>
+      
+    
   </activity>
+  
   <p>
     You should have noticed that <xref ref="act_3_b_3"></xref>
     (a) provides a process for finding a basis for <m>\Col A</m> <mdash/> the pivot columns of <m>A</m> form a basis for <m>\Col A</m>.
@@ -86,8 +101,8 @@
     Suppose <m>R</m> has <m>k</m> non-pivot columns and <m>n-k</m> pivot columns.
     We can rearrange the columns so that the non-pivot columns of <m>R</m> are the last <m>k</m> columns
     (this just amounts to relabeling the unknowns in the system).
-    <ul>
-      <li>
+  </p>
+    <paragraphs>
         <title>Basis for <m>\Nul A</m></title>
         <p>
           Here we argue that the method described following <xref ref="act_3_b_3"></xref>
@@ -118,8 +133,8 @@
           the method we have developed to find the general solution to
           <m>A \vx = \vzero</m> always produces a basis for <m>\Nul A</m>.
         </p>
-      </li>
-      <li>
+      </paragraphs>
+      <paragraphs>
         <title>Basis for <m>\Col A</m></title>
         <p>
           Here we explain why the pivot columns of <m>A</m> form a basis for <m>\Col A</m>.
@@ -163,17 +178,22 @@
           and <m>\va_i</m> is a linear combination of the pivot columns of <m>A</m>.
           So every non-pivot column of <m>A</m> is in the span of <m>A</m> and we conclude that the pivot columns of <m>A</m> form a basis for <m>\Col A</m>.
         </p>
-      </li>
-    </ul>
-  </p>
+      </paragraphs>
+    
+  <paragraphs>
+  <title>IMPORTANT POINT</title>
+  
+  
   <p>
-    <em>IMPORTANT POINT:</em> It is the pivot columns of <m>A</m> that form a basis for <m>\Col A</m>,
+    It is the pivot columns of <m>A</m> that form a basis for <m>\Col A</m>,
     not the pivot columns of the reduced row echelon form <m>R</m> of <m>A</m>.
     In general, <m>\Col R \neq \Col A</m>.
   </p>
+  </paragraphs>
   <p>
     We can incorporate the ideas of this section to expand the Invertible Matrix Theorem.
   </p>
+  
   <theorem>
     <title>The Invertible Matrix Theorem</title>
     <statement>
