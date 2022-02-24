@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<section xml:id="sec_diag_exer">
-  <title>Exercises</title>
-  <ol>
-    <li>
+<exercises xml:id="sec_diag_exer">
+  
+  <exercise>
+    <introduction>
       <p>
         Determine if each of the following matrices is diagonalizable or not.
         For diagonalizable matrices,
         clearly identify a matrix <m>P</m> which diagonalizes the matrix,
         and what the resulting diagonal matrix is.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               <m>A=\left[ \begin{array}{cr} 2\amp -1\\ 1\amp 4 \end{array} \right]</m>
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               <m>A=\left[ \begin{array}{rcr} -1 \amp 4 \amp -2 \\ -3 \amp 4 \amp 0 \\ -3 \amp 1 \amp 3 \end{array} \right]</m>
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         The <m>3\times 3</m> matrix <m>A</m> has two eigenvalues
         <m>\lambda_1=2</m> and <m>\lambda_2=3</m>.
@@ -32,64 +37,80 @@
         while the vectors <m>\left[ \begin{array}{c} 1\\1\\1 \end{array} \right], \left[ \begin{array}{c} 2\\2\\2 \end{array} \right]</m> are eigenvectors for <m>\lambda_2=3</m>.
         Find the matrix <m>A</m>.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Find a <m>2\times 2</m> non-diagonal matrix <m>A</m> and two different pairs of <m>P</m> and <m>D</m> matrices for which <m>A=PDP^{-1}</m>.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Find a <m>2\times 2</m> non-diagonal matrix <m>A</m> and two different <m>P</m> matrices for which
         <m>A=PDP^{-1}</m> with the same <m>D</m>.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Suppose a <m>4\times 4</m> matrix <m>A</m> has eigenvalues 2, 3 and 5 and the eigenspace for the eigenvalue 3 has dimension 2.
         Do we have enough information to determine if <m>A</m> is diagonalizable?
         Explain.
       </p>
-    </li>
-    <li xml:id="ex_4_c_diagonal_converse">
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex_4_c_diagonal_converse">
+    <statement>
       <p>
         Let <m>A</m> be a diagonalizable <m>n \times n</m> matrix.
         Show that <m>A</m> has <m>n</m> linearly independent eigenvectors.
       </p>
-    </li>
-    <li>
-      <p>
-        <nbsp/>
-        <ul>
-          <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    
+        <task>
+          <statement>
             <p>
               Let <m>A = \left[ \begin{array}{cc} 1\amp 1\\0\amp 1 \end{array} \right]</m> and <m>B = \left[ \begin{array}{cc} 1\amp 2\\0\amp 1 \end{array} \right]</m>.
               Find the eigenvalues and eigenvectors of <m>A</m> and <m>B</m>.
               Conclude that it is possible for two different
               <m>n \times n</m> matrices <m>A</m> and <m>B</m> to have exactly the same eigenvectors and corresponding eigenvalues.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               A natural question to ask is if there are any conditions under which
               <m>n \times n</m> matrices that have exactly the same eigenvectors and corresponding eigenvalues must be equal.
               Determine the answer to this question if <m>A</m> and <m>B</m> are both diagonalizable.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
-      <p>
-        <nbsp/>
-        <ul>
-          <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    
+        <task>
+          <statement>
             <p>
               Show that if <m>D</m> and <m>D'</m> are
               <m>n \times n</m> diagonal matrices, then <m>DD' = D'D</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Show that if <m>A</m> and <m>B</m> are
               <m>n \times n</m> matrices and <m>P</m> is an invertible
@@ -97,11 +118,12 @@
               <m>P^{-1}BP = D'</m> with <m>D</m> and <m>D'</m> diagonal matrices,
               then <m>AB = BA</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li xml:id="ex_trace_eigenvalues">
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise xml:id="ex_trace_eigenvalues">
+    <introduction>
       <p>
         <xref ref="ex_determinant_eigenvalues"></xref>
         in <xref ref="sec_characteristic_equation"></xref>
@@ -110,11 +132,12 @@
         This result is true for any matrix,
         but the argument is more complicated.
         </fn> First we define the trace of a matrix.
+        </p>
         <definition xml:id="def_trace">
+        <idx><h>trace</h></idx>
           <statement>
             <p>
               The <term>trace</term>
-    <idx><h>trace</h></idx>
               of an <m>n \times n</m> matrix
               <m>A = [a_{ij}]</m> is the sum of the diagonal entries of <m>A</m>.
               That is,
@@ -124,15 +147,19 @@
             </p>
           </statement>
         </definition>
-        <ul>
-          <li>
+        </introduction>
+
+        <task>
+          <statement>
             <p>
               Show that if <m>R = [r_{ij}]</m> and
               <m>S = [s_{ij}]</m> are <m>n \times n</m> matrices,
               then <m>\trace(RS) = \trace(SR)</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <introduction>
             <p>
               Let <m>A</m> be a diagonalizable <m>n \times n</m> matrix,
               and let <m>p(\lambda) = \det(A - \lambda I_n)</m> be the characteristic polynomial of <m>A</m>.
@@ -141,30 +168,36 @@
               <m>\lambda_2</m>, <m>\ldots</m>,
               <m>\lambda_n</m>, the eigenvalues of <m>A</m>
               (note that these eigenvalues may not all be distinct).
-              <ol label="i">
-                <li>
+            </p>
+            </introduction>
+              <task>
+                <statement>
                   <p>
                     Explain why <m>\trace(A) = \trace(D)</m>.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+              <task>
+                <statement>
                   <p>
                     Show that the trace of an <m>n \times n</m> diagonalizable matrix is the sum of the eigenvalues of the matrix.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li xml:id="ex_4_c_matrix_exponential">
+                </statement>
+              </task>
+         
+        </task>
+  </exercise>
+
+  <exercise xml:id="ex_4_c_matrix_exponential">
+    <introduction>
       <p>
         In this exercise we generalize the result of <xref ref="ex_2_a_matrix_exponential"></xref>
         in <xref ref="sec_matrix_operations"></xref>
         to arbitrary diagonalizable matrices.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that if
               <me>
@@ -175,42 +208,54 @@
                 e^D =  \left[ \begin{array}{ccccc} e^{\lambda_1}\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  e^{\lambda_2}\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  e^{\lambda_n} \end{array}  \right]
               </me>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Now suppose that an <m>n \times n</m> matrix <m>A</m> is diagonalizable,
               with <m>P^{-1}AP</m> equal to a diagonal matrix <m>D</m>.
               Show that <m>e^A = Pe^DP^{-1}</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li xml:id="ex_4_c_matrix_exponential_examples">
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise xml:id="ex_4_c_matrix_exponential_examples">
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{cc} 1\amp 1\\0\amp 0 \end{array} \right]</m> and let <m>B = \left[ \begin{array}{cr} 0\amp -1 \\ 0\amp 0 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Use the result of <xref ref="ex_4_c_matrix_exponential"></xref> to calculate <m>e^A</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Calculate <m>e^B</m>.
-              <hint>
-                <p>
-                  Explain why <m>B</m> is not diagonalizable.
-                </p>
-              </hint>
+              
             </p>
-          </li>
-          <li>
+          </statement>
+          <hint>
+            <p>
+              Explain why <m>B</m> is not diagonalizable.
+            </p>
+          </hint>
+        </task>
+        <task>
+          <statement>
             <p>
               Use the result of <xref ref="ex_4_c_matrix_exponential"></xref> to calculate <m>e^{A+B}</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The real exponential function satisfies some familiar properties.
               For example, <m>e^xe^y = e^ye^x</m> and
@@ -220,61 +265,71 @@
               must <m>e^Xe^Y = e^Ye^X</m> and <m>e^{X+Y} = e^X e^Y</m>?
               Explain.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         In <xref ref="ex_4_c_matrix_exponential_examples"></xref>
         we see that we cannot conclude that <m>e^{X+Y} = e^X e^Y</m> for
         <m>n \times n</m> matrices <m>X</m> and <m>Y</m>.
         However, a more limited property is true.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <introduction>>
             <p>
               Follow the steps indicated to show that if <m>A</m> is an
               <m>n \times n</m> matrix and <m>s</m> and <m>t</m> are any scalars,
               then <m>e^{As} e^{At} = e^{A(s+t)}</m>.
               (Although we will not use it,
               you may assume that the series for <m>e^A</m> converges for any square matrix <m>A</m>.)
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     Use the definition to show that
                     <me>
                       e^{As}e^{At} = \sum_{k \geq 0} \sum_{m \geq 0} \frac{s^kt^m}{k!}m! A^{k+m}
                     </me>.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+              <task>
+                <statement>
                   <p>
                     Relabel and reorder terms with <m>n = k+m</m> to show that
                     <me>
                       e^{As}e^{At} = sum_{n \geq 0} \frac{1}{n!} A^n \sum_{m = 0}^n \frac{n!}{(n-m)!m!} s^{n-m}t^m
                     </me>.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+              <task>
+                <statement>
                   <p>
                     Complete the problem using the Binomial Theorem that says
                     <me>
                       (s+t)^n =  \sum_{m = 0}^n \frac{n!} {(n-m)!m!} s^{n-m}t^m
                     </me>.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
+                </statement>
+              </task>
+        </task>
+        <task>
+          <statement>
             <p>
               Use the result of part (a) to show that <m>e^A</m> is an invertible matrix for any <m>n \times n</m> matrix <m>A</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         There is an interesting connection between the determinant of a matrix exponential and the trace of the matrix.
         Let <m>A</m> be a diagonalizable
@@ -283,48 +338,58 @@
         where <m>D</m> is the diagonal matrix with entries <m>\lambda_1</m>,
         <m>\lambda_2</m>,
         <m>\ldots</m>, <m>\lambda_n</m> the eigenvalues of <m>A</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>e^A = Pe^DP^{-1}</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Use <xref ref="ex_trace_eigenvalues"></xref> to show that
               <me>
                 \det\left(e^A\right) = e^{\trace(A)}
               </me>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li xml:id="ex_Cayley-Hamilton">
+          </statement>
+        </task>
+  </exercise>
+
+  <!-- <exercise xml:id="ex_Cayley-Hamilton">
+    <introduction>
       <p>
         There is interesting relationship between a matrix and its characteristic equation that we explore in this exercise.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <introduction>
             <p>
               We first illustrate with an example.
               Let <m>B = \left[ \begin{array}{cr} 1\amp 2\\ 1\amp -2 \end{array} \right]</m>.
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     Show that <m>\lambda^2 + \lambda - 4</m> is the characteristic polynomial for <m>B</m>.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+                <statement>
                   <p>
                     Calculate <m>B^2</m>.
                     Then compute <m>B^2 + B - 4I_2</m>.
                     What do you get?
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
+                </statement>
+              </task>
+          </task>
+        </task>
+          <statement>
             <p>
               The first part of this exercise presents an example of a matrix that satisfies its own characteristic equation.
               Show that if <m>A</m> is an
@@ -339,76 +404,103 @@
               show that <m>p(A) = Pp(D)P^{-1}</m>.
               Then determine <m>p(D)</m>.)
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise> -->
+
+  <exercise>
+    <introduction>
       <p>
         Label each of the following statements as True or False.
         Provide justification for your response.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If matrix <m>A</m> is diagonalizable,
+              If matrix <m>A</m> is diagonalizable,
               then so is <m>A^T</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If matrix <m>A</m> is diagonalizable,
+              If matrix <m>A</m> is diagonalizable,
               then <m>A</m> is invertible.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If an <m>n\times n</m> matrix <m>A</m> is diagonalizable,
+              If an <m>n\times n</m> matrix <m>A</m> is diagonalizable,
               then <m>A</m> has <m>n</m> distinct eigenvalues.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If matrix <m>A</m> is invertible and diagonalizable,
+              If matrix <m>A</m> is invertible and diagonalizable,
               then so is <m>A^{-1}</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If an <m>n \times n</m> matrix <m>C</m> is diagonalizable,
+              If an <m>n \times n</m> matrix <m>C</m> is diagonalizable,
               then there exists a basis of <m>\R^n</m> consisting of the eigenvectors of <m>C</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> An <m>n\times n</m> matrix with <m>n</m> distinct eigenvalues is diagonalizable.
+              An <m>n\times n</m> matrix with <m>n</m> distinct eigenvalues is diagonalizable.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If <m>A</m> is an
+              If <m>A</m> is an
               <m>n\times n</m> diagonalizable matrix,
               then there is a unique diagonal matrix such that
               <m>P^{-1}AP = D</m> for some invertible matrix <m>P</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If <m>A</m> is an
+              If <m>A</m> is an
               <m>n\times n</m> matrix with eigenvalue <m>\lambda</m>,
               then the dimension of the eigenspace of <m>A</m> corresponding to the eigenvalue <m>\lambda</m> is <m>n - \rank(A - \lambda I_n)</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If <m>\lambda</m> is an eigenvalue of an <m>n \times n</m> matrix <m>A</m>,
+              If <m>\lambda</m> is an eigenvalue of an <m>n \times n</m> matrix <m>A</m>,
               then <m>e^\lambda</m> is an eigenvalue of <m>e^A</m>.
               (See <xref ref="ex_2_a_matrix_exponential"></xref>
               in <xref ref="sec_matrix_operations"></xref>
               for information on the matrix exponential.)
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-  </ol>
-</section>
+          </statement>
+        </task>
+      
+  </exercise>
+</exercises>
