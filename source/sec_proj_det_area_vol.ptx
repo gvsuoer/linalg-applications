@@ -57,7 +57,7 @@
   </p>
   <figure xml:id="F_parallelograms">
     <caption>A parallelogram and a translated, rotated parallelogram.</caption>
-    <image width="50%" source="4_a_parallelogram_rotated"/>
+    <image width="70%" source="4_a_parallelogram_rotated"/>
   </figure>
   <p>
     If <m>\vu = [u_1 \ u_2]^{\tr}</m> and <m>\vv = [v_1 \ v_2]^{\tr}</m>,
@@ -75,7 +75,8 @@
     and <m>\vv</m> in standard position.
     Now we can investigate how to calculate the area of a parallelogram.
   </p>
-  <activity xml:id="act_parallelogram_area">
+  <project xml:id="act_parallelogram_area">
+    <introduction>
     <p>
       There are two situations to consider when we want to find the area of a parallelogram determined by vectors <m>\vu</m> and <m>\vv</m>,
       both shown in <xref ref="F_parallelogram_area"></xref>.
@@ -83,30 +84,37 @@
     </p>
     <figure xml:id="F_parallelogram_area">
       <caption>Parallelograms formed by <m>\vu</m> and <m>\vv</m></caption>
-      <image width="50%" source="4_a_parallelogram_area"/>
+      <image width="70%" source="4_a_parallelogram_area"/>
     </figure>
-    <ul>
-      <li>
+   
+    </introduction>
+
+    <task>
+      <statement>
         <p>
           In the situation depicted at left in <xref ref="F_parallelogram_area"></xref>,
           use geometry to explain why <m>\Area(P(\vu,\vv)) = h |\vu|</m>.
-          <hint>
-            <p>
-              What can we say about the triangles <m>ODB</m> and <m>EAC</m>?
-            </p>
-          </hint>
+          
         </p>
-      </li>
-      <li>
+      </statement>
+      <hint>
+        <p>
+          What can we say about the triangles <m>ODB</m> and <m>EAC</m>?
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
         <p>
           In the situation depicted at right in <xref ref="F_parallelogram_area"></xref>,
           use geometry to again explain why
           <m>\Area(P(\vu,\vv)) = h |\vu|</m>. (Hint: What can we say about
           <m>\Area(AEC)</m> and <m>\Area(ODB)</m>?)
         </p>
-      </li>
-    </ul>
-  </activity>
+      </statement>
+    </task>
+  </project>
+
   <p>
     The result of <xref ref="act_parallelogram_area"></xref>
     is that the area of <m>P(\vu,\vv)</m> is given by <m>h |\vu|</m>,
@@ -116,24 +124,31 @@
     Now we turn to the question of how the determinant is related to area of a parallelogram.
     Our approach will use some properties of the area of <m>P(\vu, \vv)</m>.
   </p>
-  <activity xml:id="act_P_area_properties">
+
+  <project xml:id="act_P_area_properties">
+    <introduction>
     <p>
       Let <m>\vu</m> and <m>\vv</m> be vectors that determine a parallelogram in <m>\R^2</m>.
     </p>
     <figure xml:id="F_area_propertities">
       <caption>Parallelograms formed by <m>k\vu</m> and <m>\vv</m> and by <m>\vu</m> and <m>\vv+k\vu</m>.</caption>
-      <image width="50%" source="4_a_parallelogram_shear"/>
+      <image width="70%" source="4_a_parallelogram_shear"/>
     </figure>
-    <ul>
-      <li>
+    
+    </introduction>
+
+    <task>
+      <statement>
         <p>
           Explain why
           <men xml:id="eq_P_area_properties_1">
             \Area(P(\vu,\vv)) = \Area(P(\vv,\vu))
           </men>
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           If <m>k</m> is any scalar,
           then <m>k\vu</m> either stretches or compresses <m>\vu</m>.
@@ -147,8 +162,10 @@
           A representative picture of this situation is shown at left in <xref ref="F_parallelogram_area"></xref> for a value of <m>k > 1</m>.
           You will also need to consider what happens when <m>k \lt  0</m>.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Finally, use the result of <xref ref="act_parallelogram_area"></xref> to explain why
           <men xml:id="eq_P_area_properties_3">
@@ -157,13 +174,16 @@
           for any real number <m>k</m>.
           A representative picture is shown at right in <xref ref="F_area_propertities"></xref>.
         </p>
-      </li>
-    </ul>
-  </activity>
+      </statement>
+    </task>
+  </project>
+
   <p>
     Properties <xref ref="eq_P_area_properties_2"/> and <xref ref="eq_P_area_properties_3"/> will allow us to calculate the area of the parallelogram determined by vectors <m>\vu</m> and <m>\vv</m>.
   </p>
-  <activity xml:id="act_det_area">
+
+  <project xml:id="act_det_area">
+    <introduction>
     <p>
       Let <m>\vu = [u_1 \ u_2]^{\tr}</m> and <m>\vv = [v_1 \ v_2]^{\tr}</m>.
       We will now demonstrate that
@@ -185,16 +205,20 @@
       <m>v_1</m> is not <m>0</m>.
       Since <m>P(\vu, \vv) = P(\vv, \vu)</m>,
       we can assume without loss of generality that <m>u_1 \neq 0</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain using properties <xref ref="eq_P_area_properties_2"/> and  <xref ref="eq_P_area_properties_3"/> as appropriate why
             <me>
               \Area(P(\vu,\vv)) =\Area\left(P\left(\vu, \left[0 \ v_2-\frac{v_1}{u_1}u_2\right] \right) \right)
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
             Let <m>\vv_1 = \left[0 \ v_2-\frac{v_1}{u_1}u_2\right]^{\tr}</m>.
             Recall that our alternate representation of <m>P(\vu,\vv))</m> allows us to write
@@ -207,15 +231,20 @@
             The matrix form should indicate the next step <mdash/>  applying an operation to eliminate the entry in the first row and second column.
             To do this, we need to consider what happens if
             <m>v_2-\frac{v_1}{u_1}u_2 = 0</m> and if <m>v_2-\frac{v_1}{u_1}u_2 \neq 0</m>.
-            <ol label="i">
-              <li>
+          </p>
+          </introduction>
+
+            <task>
+              <statement>
                 <p>
                   Assume that <m>v_2-\frac{v_1}{u_1}u_2 = 0</m>.
                   Explain why <m>\Area(P(\vu,\vv)) = 0</m>.
                   Then explain why <m>\Area(P(\vu,\vv)) = 0 = \det\left(\left[ \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array} \right]\right)</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Now we consider the case when <m>v_2-\frac{v_1}{u_1}u_2 \neq 0</m>.
                   Complete the process as in part (a),
@@ -228,13 +257,13 @@
                     \Area(P(\vu,\vv)) = \left| \det\left(\left[ \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array}  \right]\right)\right|
                   </me>.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+              </statement>
+            </task>
+         
+        </task>
+
+  </project>
+
   <p>
     We can apply the same arguments as above using rotations,
     translations,
@@ -256,10 +285,10 @@
     <m>P(\vu_1, \vu_2, \ldots,\vu_n)</m> are called parallelotopes,
     and we use the notation <m>\Vol(P(\vu_1, \vu_2, \ldots,\vu_n))</m> for their volume.
     The <m>n</m>-dimensional volumes of these paralleotopes satisfy the following properties:
-    <md>
-      <mrow>\Vol\amp (P(\vu_1, \vu_2, \ldots, \vu_{i-1}, \vu_i, \vu_{i+1}, \ldots, \vu_{j-1}, \vu_j, \vu_{j+1}, \ldots,\vu_n))</mrow>
-      <mrow xml:id="eq_vol_property_1" number="yes">\amp = \Vol(P(\vu_1, \vu_2, \ldots, \vu_{i-1}, \vu_j, \vu_{i+1}, \ldots, \vu_{j-1}, \vu_i, \vu_{j+1}, \ldots,\vu_n))</mrow>
-    </md>
+    <mdn>
+      <mrow number="no">\Vol\amp (P(\vu_1, \vu_2, \ldots, \vu_{i-1}, \vu_i, \vu_{i+1}, \ldots, \vu_{j-1}, \vu_j, \vu_{j+1}, \ldots,\vu_n))</mrow>
+      <mrow xml:id="eq_vol_property_1">\amp = \Vol(P(\vu_1, \vu_2, \ldots, \vu_{i-1}, \vu_j, \vu_{i+1}, \ldots, \vu_{j-1}, \vu_i, \vu_{j+1}, \ldots,\vu_n))</mrow>
+    </mdn>
     for any <m>i</m> and <m>j</m>.
     <men xml:id="eq_vol_property_2">
       \Vol(P(\vu_1,\vu_2, \ldots, \vu_{i-1}, k\vu_i, \vu_{i+1}, \ldots, \vu_n)) = |k| \Vol(P(\vu_1,\vu_2, \ldots, \vu_n))
@@ -270,7 +299,9 @@
     </men>
     for any real number <m>k</m> and any distinct <m>i</m> and <m>j</m>.
   </p>
-  <activity xml:id="act_det_vol">
+
+  <project xml:id="act_det_vol">
+    <introduction>
     <p>
       We now show that <m>\Vol(P(\vu_1, \vu_2, \vu_3))</m> is the absolute value of the determinant of <m>\left[ \begin{array}{c} \vu_1 \\ \vu_2 \\ \vu_3 \end{array}  \right]</m>.
       For easier notation, let <m>\vu = [u_1 \ u_2 \ u_3]^{\tr}</m>,
@@ -279,21 +310,26 @@
       As we argued in the 2-dimensional case,
       we can assume that all terms that we need to be nonzero are nonzero,
       and we can do so without verification.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain how property <xref ref="eq_vol_property_2"/> shows that <m>\Vol(P(\vu, \vv, \vw))</m> is equal to
             <me>
               \Vol\left(P\left( \left[ \begin{array}{ccc} u_{1}\amp u_{2}\amp u_{3} \\ 0\amp \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2})\amp \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\\ 0\amp \frac{1}{u_1}(w_{2}u_1-w_{1}u_{2})\amp \frac{1}{u_1}(w_{3}u_1-w_{1}u_{3}) \end{array}  \right] \right)\right)
             </me>.
-            <hint>
-              <p>
-                Think about how these properties are related to row operations.
-              </p>
-            </hint>
+            
           </p>
-        </li>
-        <li>
+        </statement>
+        <hint>
+          <p>
+            Think about how these properties are related to row operations.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
           <p>
             Now let <m>\vv_1 = \left[ 0 \ \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2}) \ \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\right]^{\tr}</m> and  <m>\vw_1 = \left[ 0 \ \frac{1}{u_1}(w_{2}u_1-w_{1}u_{2}) \ \frac{1}{u_1}(w_{3}u_1-w_{1}u_{3})\right]^{\tr}</m>.
             Explain how property <xref ref="eq_vol_property_2"/> shows that <m>\Vol(P(\vu, \vv, \vw))</m> is equal to
@@ -305,8 +341,10 @@
               d = \frac{1}{u_1v_2-u_2v_1}(u_1(v_2w_3-v_3w_2)-u_2(v_1w_3-v_{3}w_1)+u_3(v_1w_2-v_2w_1))
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Just as we saw in the 2-dimensional case,
             we can proceed to use the diagonal entries to eliminate the entries above the diagonal without changing the volume to see that
@@ -322,10 +360,11 @@
             find a specific expression for
             <m>\Vol(P(\vu, \vv, \vw))</m> involving a determinant.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+   
+  </project>
+
   <p>
     Properties <xref ref="eq_vol_property_1"/>, <xref ref="eq_vol_property_2"/>,
     and <xref ref="eq_vol_property_3"/> involve the analogs of row operations on matrices,
