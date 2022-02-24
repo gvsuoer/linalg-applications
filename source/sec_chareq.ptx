@@ -10,9 +10,9 @@
     (or approximate)
     the corresponding eigenvectors.
     The tool we will use is a polynomial equation,
-    the <em>characteristic equation</em>,
+    the <temr>characteristic equation</temr>,
     of a square matrix whose roots are the eigenvalues of the matrix.
-    The characteristic equation will then provide us with an <em>algebraic</em>
+    The characteristic equation will then provide us with an <temr>algebraic</temr>
     way of finding the eigenvalues of a square matrix.
   </p>
   <p>
@@ -33,16 +33,17 @@
     and the equation <xref ref="eq_4_b_1"/> are given special names.
   </p>
   <definition>
+    <idx><h>characteristic polynomial</h></idx>
+    <idx><h>characteristic equation</h></idx>
     <statement>
       <p>
         Let <m>A</m> be an <m>n \times n</m> matrix.
-        The <term>characteristic polynomial</term><idx><h>characteristic polynomial</h></idx> of <m>A</m> is the polynomial
+        The <term>characteristic polynomial</term> of <m>A</m> is the polynomial
         <me>
           \det(A-\lambda I_n)
         </me>,
         where <m>I_n</m> is the <m>n \times n</m> identity matrix.
         The <term>characteristic equation</term>
-            <idx><h>characteristic equation</h></idx>
         of <m>A</m> is the equation
         <me>
           \det(A-\lambda I_n) = 0
@@ -50,27 +51,31 @@
       </p>
     </statement>
   </definition>
+
   <p>
     So the characteristic equation of <m>A</m> gives us an algebraic way of finding the eigenvalues of <m>A</m>.
   </p>
+
   <activity xml:id="act_4_b_1">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+    
+      <task>
+        <statement>
           <p>
             Find the characteristic polynomial of the matrix <m>A = \left[ \begin{array}{crc} 3\amp -2\amp 5 \\ 1\amp 0\amp 7 \\ 0\amp 0\amp 1 \end{array} \right]</m>,
             and use the characteristic polynomial to find all of the eigenvalues of <m>A</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Verify that 1 and 2 are the only eigenvalues of the matrix <m>\left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 1\\ 1\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     As we argued in <xref ref="pa_4_b"></xref>,
     a <m>2 \times 2</m> matrix can have at most 2 eigenvalues.
@@ -84,17 +89,20 @@
     Note that one of these eigenvalues,
     the eigenvalue 1, appears three times as a root of the characteristic polynomial of the matrix.
     The number of times an eigenvalue appears as a root of the characteristic polynomial is called the
-    <em>(algebraic) multiplicity</em> of the eigenvalue.
+    <term>(algebraic) multiplicity</term> of the eigenvalue.
     More formally:
   </p>
+
   <definition>
+    <idx><h>multiplicity</h><h>algebraic</h></idx>
     <statement>
       <p>
-        The <term>(algebraic) multiplicity</term><idx><h>multiplicity</h><h>algebraic</h></idx> of an eigenvalue <m>\lambda</m> of a matrix <m>A</m> is the largest integer <m>m</m> so that
+        The <term>(algebraic) multiplicity</term> of an eigenvalue <m>\lambda</m> of a matrix <m>A</m> is the largest integer <m>m</m> so that
         <m>(x-\lambda)^m</m> divides the characteristic polynomial of <m>A</m>.
       </p>
     </statement>
   </definition>
+
   <p>
     Thus, in <xref ref="act_4_b_1"></xref>
     (b) the eigenvalue 1 has multiplicity 3 and the eigenvalue 2 has multiplicity 1.
@@ -118,6 +126,7 @@
   <p>
     We now summarize the information we have so far about eigenvalues of an <m>n\times n</m> real matrix:
   </p>
+
   <theorem>
     <statement>
       <p>
@@ -154,4 +163,5 @@
       </p>
     </statement>
   </theorem>
+  
 </section>
