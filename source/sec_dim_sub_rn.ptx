@@ -9,7 +9,7 @@
     More specifically,
     is it possible to have two bases for a given subspace of <m>\R^n</m> that contain different numbers of vectors?
     As we will see the answer is no,
-    which will lead us to the concept of <em>dimension</em>.
+    which will lead us to the concept of <term>dimension</term>.
   </p>
   <p>
     Let <m>W</m> be a subspace of <m>\R^n</m> that has a basis <m>\B = \{\vv_1, \vv_2, \ldots, \vv_k\}</m> of <m>k</m> vectors.
@@ -33,14 +33,14 @@
   </p>
   <p>
     Substituting into <xref ref="eq_3_d_1"/> yields
-    <md>
-      <mrow>\vzero \amp = x_1 \vu_1 + x_2 \vu_2 + \cdots + x_m \vu_m</mrow>
-      <mrow>\amp = x_1( a_{11}\vv_1 + a_{21}\vv_2 + \cdots + a_{k1}\vv_k ) + x_2 ( a_{12}\vv_1 + a_{22}\vv_2</mrow>
-      <mrow>\amp \qquad + \cdots  + a_{k2}\vv_k ) + \cdots + x_m ( a_{1m}\vv_1 + a_{2m}\vv_2 + \cdots + a_{km}\vv_k )</mrow>
-      <mrow>\amp = (x_1a_{11}+x_2a_{12}+x_3a_{13} + \cdots + x_ma_{1m})\vv_1</mrow>
-      <mrow>\amp \qquad + (x_1a_{21}+x_2a_{22}+x_3a_{23} + \cdots + x_ma_{2m})\vv_2</mrow>
-      <mrow xml:id="eq_3_d_2" number="yes">\amp \qquad + \cdots  + (x_1a_{k1}+x_2a_{k2}+x_3a_{k3} + \cdots + x_ma_{km})\vv_k</mrow>
-    </md>.
+    <mdn>
+      <mrow number="no">\vzero \amp = x_1 \vu_1 + x_2 \vu_2 + \cdots + x_m \vu_m</mrow>
+      <mrow number="no">\amp = x_1( a_{11}\vv_1 + a_{21}\vv_2 + \cdots + a_{k1}\vv_k ) + x_2 ( a_{12}\vv_1 + a_{22}\vv_2</mrow>
+      <mrow number="no">\amp \qquad + \cdots  + a_{k2}\vv_k ) + \cdots + x_m ( a_{1m}\vv_1 + a_{2m}\vv_2 + \cdots + a_{km}\vv_k )</mrow>
+      <mrow number="no">\amp = (x_1a_{11}+x_2a_{12}+x_3a_{13} + \cdots + x_ma_{1m})\vv_1</mrow>
+      <mrow number="no">\amp \qquad + (x_1a_{21}+x_2a_{22}+x_3a_{23} + \cdots + x_ma_{2m})\vv_2</mrow>
+      <mrow xml:id="eq_3_d_2">\amp \qquad + \cdots  + (x_1a_{k1}+x_2a_{k2}+x_3a_{k3} + \cdots + x_ma_{km})\vv_k</mrow>
+    </mdn>.
   </p>
   <p>
     Since <m>\B</m> is a basis, the vectors <m>\vv_1</m>, <m>\vv_2</m>,
@@ -56,6 +56,7 @@
     <m>\ldots</m>, <m>\vu_m</m> are linearly dependent.
     We summarize this in the following theorem.
   </p>
+
   <theorem xml:id="thm_3_d_1">
     <statement>
       <p>
@@ -65,46 +66,57 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     One consequence of <xref ref="thm_3_d_1"></xref> is that,
     in addition to being a minimal spanning set,
     a basis is also a maximal linearly independent set.
   </p>
+
   <activity xml:id="act_3_d_1">
+    <introduction>
     <p>
       Now let's return to the question of the number of elements in a basis for a subspace of <m>\R^n</m>.
       Recall that we are assuming that <m>W</m> has a basis
       <m>\B = \{\vv_1, \vv_2, \ldots, \vv_k\}</m> of <m>k</m> vectors in <m>\R^n</m>.
       Suppose that <m>\B'</m> is another basis for <m>W</m> containing <m>m</m> vectors.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Given the fact that <m>\B</m> is a basis for <m>W</m>,
             what does <xref ref="thm_3_d_1"></xref>
             tell us about the relationship between <m>m</m> and <m>k</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Given the fact that <m>\B'</m> is a basis for <m>W</m>,
             what does <xref ref="thm_3_d_1"></xref>
             tell us about the relationship between <m>m</m> and <m>k</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What do the results of (a) and (b) tell us about the relationship between <m>m</m> and <m>k</m>?
             What can we conclude about any basis for <m>W</m>?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     The result of <xref ref="act_3_d_1"></xref>
     is summarized in the following theorem.
     Recall that the trivial space is the single element set <m>\{\vzero\}</m>.
   </p>
+
   <theorem xml:id="thm_3_d_basis">
     <statement>
       <p>
@@ -113,53 +125,67 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     This last theorem states that the number of vectors in a basis for a subspace space is a well-defined number.
     In other words, the number of vectors in a basis is an
-    <em>invariant</em> of the subspace.
+    <term>invariant</term> of the subspace.
     This important number is given a name.
   </p>
+
   <definition>
+    <idx><h>dimension</h><h>subspace of <m>\R^n</m></h></idx>
     <statement>
       <p>
-        The <term>dimension</term><idx><h>dimension</h><h>subspace of <m>\R^n</m></h></idx> of a subspace <m>W</m> of <m>\R^n</m> is the number of vectors in a basis for <m>W</m>.
+        The <term>dimension</term> of a subspace <m>W</m> of <m>\R^n</m> is the number of vectors in a basis for <m>W</m>.
         The dimension of the trivial subspace
         <m>\{\vzero\}</m> of <m>\R^n</m> is defined to be 0.
       </p>
     </statement>
   </definition>
+
   <p>
     We denote the dimension of a subspace <m>W</m> of <m>\R^n</m> by <m>\dim(W)</m>.
     As we will see later,
     any two vector spaces of the same dimension are basically the same vector space.
     So the dimension of a vector space is an important number that essentially tells us all we need to know about the structure of the space.
   </p>
+
   <activity xml:id="act_3_d_2">
+    <introduction>
     <p>
       Find the dimensions of each of the indicated subspaces of <m>\R^n</m> for the appropriate <m>n</m>.
       Explain your method.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             <m>\Span\left\{ \left[ \begin{array}{c} 1 \\ 0 \\ 0 \end{array} \right], \left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array} \right], \left[ \begin{array}{c} 2 \\ 3 \\ 0 \end{array} \right] \right\}</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>xy</m>-plane in <m>\R^3</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>\R^3</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>\R^n</m>
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>
