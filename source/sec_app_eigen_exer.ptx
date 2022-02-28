@@ -1,79 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<section xml:id="sec_app_eigen_exer">
-  <title>Exercises</title>
-  <ol>
-    <li>
+<exercises xml:id="sec_app_eigen_exer">
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 1 \end{array} \right]</m>.
         Let <m>\vx_0 = [1 \ 0]^{\tr}</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Find the eigenvalues and corresponding eigenvectors for <m>A</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Use appropriate technology to calculate
               <m>\vx_k = A^k \vx_0</m> for <m>k</m> up to 10.
               Compare to a dominant eigenvector for <m>A</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Use the eigenvectors from part (b) to approximate the dominant eigenvalue for <m>A</m>.
               Compare to the exact value of the dominant eigenvalue of <m>A</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Assume that the other eigenvalue for <m>A</m> is close to <m>0</m>.
               Apply the inverse power method and compare the results to the remaining eigenvalue and eigenvectors for <m>A</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Let <m>A = \left[ \begin{array}{rcc} 1\amp 2\amp 0\\-2\amp 1\amp 2 \\ 1\amp 3\amp 1 \end{array} \right]</m>.
         Use the power method to approximate a dominant eigenvector for <m>A</m>.
         Use <m>\vx_0 = [1 \ 1 \ 1]^{\tr}</m> as the seed.
         Then approximate the dominant eigenvalue of <m>A</m>.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Let <m>A = \left[ \begin{array}{rr} 3\amp -1\\-1\amp 3 \end{array} \right]</m>.
         Use the power method starting with <m>\vx_0 = [1 \ 1]^{\tr}</m>.
         Explain why the method fails in this case to approximate a dominant eigenvector,
         and how you could adjust the seed to make the process work.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Find the eigenvalues and an eigenvector for each eigenvalue.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Apply the power method with an initial starting vector <m>\vx_0 = [0 \ 1]^{\tr}</m>.
               What is the resulting sequence?
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Use equation <xref ref="eq_4_e_3"/> to explain the sequence you found in part (b).
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Let <m>A = \left[ \begin{array}{cc} 2\amp 6 \\ 5\amp 3 \end{array} \right]</m>.
         Fill in the entries in <xref ref="T_4_e_1"></xref>,
@@ -93,7 +115,7 @@
               <cell><m>\vx_4</m></cell>
               <cell><m>\vx_5</m></cell>
             </row>
-            <row>
+            <row bottom="minor">
               <cell><m>\frac{\vv^{\tr}A\vv}{\vv^{\tr}\vv}</m></cell>
               <cell></cell>
               <cell></cell>
@@ -102,26 +124,17 @@
               <cell></cell>
               <cell></cell>
             </row>
-            <row bottom="minor">
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-            </row>
+            
           </tabular>
           <tabular>
-            <row bottom="minor">
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-              <cell></cell>
-            </row>
+            <col top="minor"/>
+            <col top="minor"/>
+            <col top="minor"/>
+            <col top="minor"/>
+            <col top="minor"/>
+            <col top="minor"/>
+            <col top="minor"/>
+
             <row>
               <cell><m>\vv</m></cell>
               <cell><m>\vx_6</m></cell>
@@ -143,37 +156,47 @@
           </tabular>
         </table>
       </p>
-    </li>
-    <li>
+      </statement>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{cr} 4\amp -5 \\ 2\amp 15 \end{array} \right]</m>.
         The power method will approximate the dominant eigenvalue <m>\lambda = 14</m>.
         In this exercise we explore what happens if we apply the power method to <m>A^{-1}</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Apply the power method to <m>A^{-1}</m> to approximate the dominant eigenvalue of <m>A^{-1}</m>.
               Use <m>[1 \ 1]^{\tr}</m> as the seed.
               How is this eigenvalue related to an eigenvalue of <m>A</m>?
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Explain in general why applying the power method to the inverse of an invertible matrix <m>B</m> might give an approximation to an eigenvalue of <m>B</m> of smallest magnitude.
               When might this not work?
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         There are other algebraic methods that do not rely on the determinant of a matrix that can be used to find eigenvalues of a matrix.
         We examine one such method in this exercise.
         Let <m>A</m> be any <m>n \times n</m> matrix,
         and let <m>\vv</m> be any vector in <m>\R^n</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Explain why the vectors
               <me>
@@ -181,8 +204,10 @@
               </me>
               are linearly dependent.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Let <m>c_0</m>, <m>c_1</m>,
               <m>\ldots</m>, <m>c_n</m> be scalars, not all 0, so that
@@ -196,8 +221,10 @@
                 a_0 \vv + a_1 A\vv + a_2 A^2 \vv + \cdots + a_k A^k \vv = \vzero
               </me>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Let
               <me>
@@ -218,40 +245,48 @@
               Explain why, if <m>Q(A) \vv</m> is non-zero,
               <m>\lambda</m> is an eigenvalue of <m>A</m> with eigenvector <m>Q(A) \vv</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <introduction>
             <p>
               This method allows us to find certain eigenvalues and eigenvectors,
               the roots of the polynomial <m>q(t)</m>.
               Any other eigenvector must lie outside the eigenspaces we have already found,
               so repeating the process with a vector <m>\vv</m> not in any of the known eigenspaces will produce different eigenvalues and eigenvectors.
               Let <m>A = \left[ \begin{array}{ccr} 2\amp 2\amp -1 \\ 2\amp 2\amp 2 \\ 0\amp 0\amp 6 \end{array} \right]</m>.
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     Find the polynomial <m>q(t)</m>.
                     Use <m>\vv = [1 \ 1 \ 1]^{\tr}</m>.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+              <task>
+                <statement>
                   <p>
                     Find all of the roots of <m>q(t)</m>.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+              <task>
+                <statement>
                   <p>
                     For each root <m>\lambda</m> of <m>q(t)</m>,
                     find the polynomial <m>Q(t)</m> and use this polynomial to determine an eigenvector of <m>A</m>.
                     Verify your work.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li xml:id="ex_4_d_dominant_eigenvalue">
+                </statement>
+              </task>
+          
+        </task>
+  </exercise>
+
+  <!-- <exercise xml:id="ex_4_d_dominant_eigenvalue">
+    <introduction>
       <p>
         We have seen that the Rayleigh quotients approximate the dominant eigenvalue of a matrix <m>A</m>.
         As an alternative to using Rayleigh quotients,
@@ -262,63 +297,105 @@
         so let <m>\alpha_0</m> be the component of <m>\vv_0</m> with largest absolute value and let <m>\vx_0 = \frac{1}{\alpha_0}\vv_0</m>.
         For <m>k \geq 0</m>, let <m>\vv_k = A\vx_{k-1}</m>,
         let <m>\alpha_k</m> be the component of <m>\vv_k</m> with largest absolute value and let <m>\vx_k = \frac{1}{\alpha_k}\vv_k</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Let <m>A = \left[ \begin{array}{rc} 0\amp 1 \\ -8\amp 6 \end{array} \right]</m>.
               Use <m>\vx_0 = [1 \ 1]^{\tr}</m> as the seed and calculate
               <m>\alpha_k</m> for <m>k</m> from <m>1</m> to <m>10</m>.
               Compare to the dominant eigenvalue of <m>A</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Assume that for large <m>k</m> the vectors <m>\vx_k</m> approach a dominant eigenvector with dominant eigenvalue <m>\lambda</m>.
               Show now in general that the sequence of scaling factors
               <m>\alpha_k</m> approaches <m>\lambda</m>.
             </p>
-          </li>
-        </ul>
+          </statement>
+        </task>
+  </exercise> -->
+
+  <exercise>
+    <introduction>
+      <p>
+        We don't need to use the Rayleigh quotients to approximate the dominant eigenvalue of a matrix <m>A</m> if we instead keep track of the scaling factors. Recall that the scaling in the power method can be used to make the magnitudes of the successive approximations smaller and easier to work with. Let <m>A</m> be an <m>n \times n</m> matrix and begin with a non-zero seed <m>\vv_0</m>. We now want to keep track of the scaling factors, so let <m>\alpha_0</m> be the component of <m>\vv_0</m> with largest absolute value and let <m>\vx_0 = \frac{1}{\abs{\alpha_0}} \vv_0</m>. For <m>k \ge 0</m>, let <m>\vv_k = A \vx_{k-1}</m>, let <m>\alpha_k</m> be the component of <m>\vv_k</m> with largest absolute value and let <m>\vx_l = \frac{1}{\abs{\alpha_k}} \vv_k</m>
       </p>
-    </li>
-    <li>
+    </introduction>
+
+    <task>
+      <statement>
+        <p>
+          Let <m>A = \left[ \begin{array}{cr} 0\amp 1 \\ -8\amp 6 \end{array} \right]</m>. Use <m>\vx_0 = [1 \ 1]^{\tr}</m> as the seed and calculate <m>\alpha_k</m> for <m>k</m> from 1 to 10. Compare to the dominant eigenvalue of <m>A</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Assume that for large <m>k</m> the vectors <m>\vx_k</m> approach a dominant eigenvector with dominant eigenvalue <m>\lambda</m>. Show now in general that the sequence of scaling factors <m>\alpha_k</m> approaches <m>\lambda</m>.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Let <m>A</m> be an <m>n \times n</m> matrix and let <m>\alpha</m> be a scalar that is not an eigenvalue of <m>A</m>.
         Suppose that <m>\vx</m> is an eigenvector of
         <m>B = (A-\alpha I_n)^{-1}</m> with eigenvalue <m>\beta</m>.
         Find an eigenvalue of <m>A</m> in terms of <m>\beta</m> and <m>\alpha</m> with corresponding eigenvector <m>\vx</m>.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Label each of the following statements as True or False.
         Provide justification for your response.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> The largest eigenvalue of a matrix is a dominant eigenvalue.
+              The largest eigenvalue of a matrix is a dominant eigenvalue.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If an <m>n \times n</m> matrix <m>A</m> has <m>n</m> linearly independent eigenvectors and a dominant eigenvalue,
+              If an <m>n \times n</m> matrix <m>A</m> has <m>n</m> linearly independent eigenvectors and a dominant eigenvalue,
               then the sequence <m>\{A^k \vx_0\}</m> converges to a dominant eigenvector of <m>A</m> for any initial vector <m>\vx_0</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If <m>\lambda</m> is an eigenvalue of an
+              If <m>\lambda</m> is an eigenvalue of an
               <m>n \times n</m> matrix <m>A</m> and <m>\alpha</m> is not an eigenvalue of <m>A</m>,
               then <m>\lambda - \alpha</m> is an eigenvalue of <m>A - \alpha I_n</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> Every square matrix has a dominant eigenvalue.
+              Every square matrix has a dominant eigenvalue.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-  </ol>
-</section>
+          </statement>
+        </task>
+
+  </exercise>
+</exercises>

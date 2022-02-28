@@ -5,14 +5,19 @@
     We have used the characteristic polynomial to find the eigenvalues of a matrix,
     and for each eigenvalue row reduced a corresponding matrix to find the eigenvectors This method is only practical for small matrices <mdash/> for more realistic applications approximation techniques are used.
     We investigate one such technique in this section,
-    the <em>power method</em>.
+    the <term>power method</term>.
   </p>
-  <activity xml:id="pa_4_d">
+
+  <exploration xml:id="pa_4_d">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{cc} 2\amp 6 \\ 5\amp 3 \end{array} \right]</m>.
       Our goal is to find a scalar <m>\lambda</m> and a nonzero vector <m>\vv</m> so that <m>A \vv = \lambda \vv</m>.
-      <ol>
-        <li>
+    </p>
+    </introduction>
+
+      <task>
+        <statement>
           <p>
             If we have no prior knowledge of the eigenvalues and eigenvectors of this matrix,
             we might just begin with a guess.
@@ -21,8 +26,10 @@
             Is <m>\vx_0</m> an eigenvector of <m>A</m>?
             Explain.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>\vx_0</m> is not a good approximation to an eigenvector of <m>A</m>,
             then we need to make a better guess.
@@ -32,8 +39,10 @@
             Is <m>\vx_1</m> an eigenvector for <m>A</m>?
             Explain.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             In parts (a) and (b) you might have noticed that in some sense <m>\vx_1</m> is closer to being an eigenvector of <m>A</m> than <m>\vx_0</m> was.
             So maybe continuing this process will get us closer to an eigenvector of <m>A</m>.
@@ -53,16 +62,18 @@
             and <m>\vx_2 = [1 \ 25/34]^{\tr}</m>.
             Explain why scaling our vectors will not affect our search for an eigenvector.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use an appropriate technological tool to find the vectors <m>\vx_k</m> up to <m>k=10</m>.
             What do you think the limiting vector <m>\lim_{k \to \infty} \vx_k</m> is?
             Is this limiting vector an eigenvector of <m>A</m>?
             If so, what is the corresponding eigenvalue?
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </exploration>
 </section>
