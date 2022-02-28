@@ -39,7 +39,7 @@
   </p>
   <p>
     The complex number <m>a-bi</m> is called the
-    <em>complex conjugate</em>
+    <term>complex conjugate</term>
     of <m>z=a+bi</m> and is denoted as <m>\overline{z}</m>.
     A few important properties of real numbers and their conjugates are the following.
     Let <m>z = a+bi</m> and <m>w = c+di</m> be complex numbers.
@@ -138,7 +138,9 @@
     which gives conditions that guarantee that a matrix is invertible.
     We illustrate with an example in the following activity.
   </p>
-  <activity xml:id="act_Gershgorin_1">
+
+  <project xml:id="act_Gershgorin_1">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{rc} 3\amp 2 \\ -1\amp 4 \end{array}  \right]</m>.
       Since <m>\det(A) \neq 0</m>, we know that <m>A</m> is an invertible matrix.
@@ -157,28 +159,34 @@
       Note that if one of <m>v_1</m>,
       <m>v_2</m> is zero, the so is the other.
       So we can assume that <m>v_1</m> and <m>v_2</m> are nonzero.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Use the fact that <m>3v_1+2v_2 = 0</m> to show that <m>|v_2| > |v_1|</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the fact that <m>-v_1 + 4v_2 = 0</m> to show that <m>|v_1| > |v_2|</m>.
             What conclusion can we draw about whether 0 is an eigenvalue of <m>A</m>?
             Why does this mean that <m>A</m> is invertible?
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     What makes the arguments work in <xref ref="act_Gershgorin_1"></xref>
     is that <m>|3| > |2|</m> and <m>|4| > |-1|</m>.
     This argument can be extended to larger matrices,
     as described in the following theorem.
   </p>
+
   <theorem>
     <title>Levy-Desplanques Theorem</title>
     <statement>
@@ -187,7 +195,7 @@
         <m>|a_{ii}| > \sum_{j \neq i} |a_{ij}|</m> for all <m>i</m> is invertible.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       Let <m>A = [a_{ij}]</m> be an
@@ -231,17 +239,22 @@
       We conclude that 0 is not an eigenvalue for <m>A</m> and <m>A</m> is invertible.
     </p>
   </proof>
+  </theorem>
+
   <p>
     Any matrix <m>A = [a_{ij}]</m> satisfying the condition of the Levy-Desplanques Theorem is given a special name.
   </p>
+
   <definition>
+    <idx><h>strictly diagonally dominant matrix</h></idx>
     <statement>
       <p>
         A square matrix <m>A = [a_{ij}]</m> is
-        <term>strictly diagonally dominant</term><idx><h>strictly diagonally dominant matrix</h></idx> if <m>|a_{ii}| > \sum_{j \neq i} |a_{ij}|</m> for all <m>i</m>.
+        <term>strictly diagonally dominant</term> if <m>|a_{ii}| > \sum_{j \neq i} |a_{ij}|</m> for all <m>i</m>.
       </p>
     </statement>
   </definition>
+
   <p>
     So any strictly diagonally dominant matrix is invertible.
     A quick glance can show that a matrix is strictly diagonally dominant.
@@ -260,22 +273,30 @@
   <p>
     Now we can address the Gershgorin Disk Theorem.
   </p>
+
   <activity xml:id="act_Gershgorin_2">
+  <idx><h>Gershgorin Disk Theorem</h></idx>
+    <introduction>
     <p>
-          <idx><h>Gershgorin Disk Theorem</h></idx>
       Let <m>A</m> be an arbitrary <m>n \times n</m> matrix and assume that <m>\lambda</m> is an eigenvalue of <m>A</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain why the matrix <m>A - \lambda I</m> is singular.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What does the Levy-Desplanques Theorem tell us about the matrix <m>A - \lambda I</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain how we can conclude the Gershgorin Disk Theorem.
             <theorem xml:id="thm_Gershgorin">
@@ -296,18 +317,22 @@
             we define a Gershgorin disk to be <m>D(a_{ii}, r_i)</m>,
             where <m>r_i =  \sum_{j \neq i} |a_{ij}|</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the Gershgorin Disk Theorem to give estimates on the locations of the eigenvalues of the matrix <m>A = \left[ \begin{array}{rr} -1\amp 2 \\ -3\amp 2 \end{array} \right]</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     The Gershgorin Disk Theorem has a consequence that gives additional information about the eigenvalues if some of the Gershgorin disks do not overlap.
   </p>
+  
   <theorem xml:id="thm_Gersgorin_consequence">
     <statement>
       <p>
@@ -317,7 +342,7 @@
         of <m>A</m>.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       Most proofs of this theorem require some results from topology.
@@ -376,4 +401,5 @@
       Thus, <m>\lambda(t)</m> is in <m>S</m> for every value of <m>t</m> in <m>[0,1]</m>.
     </p>
   </proof>
+  </theorem>
 </section>

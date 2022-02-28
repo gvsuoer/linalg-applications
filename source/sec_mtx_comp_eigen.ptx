@@ -7,37 +7,46 @@
     (both in a linear algebra and a colloquial meaning)
     to a rotation-scaling matrix.
   </p>
+
   <activity xml:id="act_4e_3">
+    <introduction>
     <p>
       Let <m>B=\left[ \begin{array}{cr} 1\amp -5\\2\amp 3 \end{array} \right]</m>.
       The eigenvalues of <m>B</m> are <m>2\pm 3i</m>.
       An eigenvector for the eigenvalue <m>2-3i</m> is <m>\vv=\left[ \begin{array}{c} -5 \\ 1-3i \end{array} \right]</m>.
       We will use this eigenvector to show that <m>B</m> is similar to a rotation-scaling matrix.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Any complex vector <m>\vv</m> can be written as
             <m>\vv=\vu+i\vw</m> where both <m>\vu</m> and <m>\vw</m> are real vectors.
             What are these real vectors <m>\vu</m> and <m>\vw</m> for the eigenvector <m>\vv</m> above?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>P=[ \vu \ \vw ]</m> be the matrix whose first column is the real part of <m>\vv</m> and whose second column is the imaginary part of <m>\vv</m>
             (without the <m>i</m>).
             Find <m>R=P^{-1}BP</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Express <m>R</m> as a product of a rotation and a scaling matrix.
             What is the factor of scaling?
             What is the rotation angle?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     In <xref ref="act_4e_3"></xref>,
     we saw that the matrix <m>B</m> with complex eigenvalues <m>2\pm 3i</m> is similar to a rotation-scaling matrix.
@@ -51,24 +60,31 @@
     <m>2\times 2</m> matrix with complex eigenvalues?
     We investigate this question in the next activity.
   </p>
+
   <activity xml:id="act_4e_4">
+    <introduction>
     <p>
       Let <m>A</m> be a <m>2\times 2</m> matrix with complex eigenvalue <m>\lambda=a-bi</m>,
       <m>b\neq 0</m>,
       and corresponding complex eigenvector <m>\vv=\vu+i\vw</m>.
     </p>
-    <ul>
-      <li>
+    </introduction>
+    <task>
+      <statement>
         <p>
           Explain why <m>A\vv = A\vu+iA\vw</m>.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Explain why <m>\lambda\vv = (a\vu+b\vw)+i (a\vw-b\vu)</m>.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Use the previous two results to explain why
         </p>
@@ -84,21 +100,27 @@
             </p>
           </li>
         </ul>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <introduction>
         <p>
           Let <m>P=[ \vu \ \vw ]</m>.
           We will now show that <m>AP=PR</m> where <m>R=\left[ \begin{array}{cr} a\amp -b \\ b\amp a \end{array}  \right]</m>.
-          <ol label="i">
-            <li>
+        </p>
+      </introduction>
+          <task>
+            <statement>
               <p>
                 Without any calculation, explain why
                 <me>
                   AP = [ A\vu \  A\vw ]
                 </me>.
               </p>
-            </li>
-            <li>
+            </statement>
+          </task>
+          <task>
+            <statement>
               <p>
                 Recall that if <m>M</m> is an
                 <m>m \times n</m> matrix and <m>\vx</m> is an <m>n \times 1</m> vector,
@@ -108,23 +130,28 @@
                   PR = [ a\vu + b\vw \  -b\vu + a\vw ]
                 </me>.
               </p>
-            </li>
-            <li>
+            </statement>
+          </task>
+          <task>
+            <statement>
               <p>
                 Now explain why <m>AP = PR</m>.
               </p>
-            </li>
-            <li>
+            </statement>
+          </task>
+          <task>
+            <statement>
               <p>
                 Assume for the moment that <m>P</m> is an invertible matrix.
                 Show that <m>A = PRP^{-1}</m>.
               </p>
-            </li>
-          </ol>
-        </p>
-      </li>
-    </ul>
+            </statement>
+          </task>
+        
+      </task>
+    
   </activity>
+
   <p>
     Your work in <xref ref="act_4e_4"></xref>
     shows that any <m>2\times 2</m> matrix is similar to a rotation-scaling matrix with a factor of scaling by
@@ -135,6 +162,7 @@
     Multiplying by <m>P^{-1}</m> and <m>P</m> simply provides the change of basis from the standard basis to the basis <m>\B</m>,
     as we will see in detail when we learn about linear transformations.
   </p>
+
   <theorem>
     <statement>
       <p>
@@ -146,6 +174,7 @@
       </p>
     </statement>
   </theorem>
+  
   <p>
     The one fact that we have not yet addressed is why the matrix <m>P = [ \vu \ \vw ]</m> is invertible.
     We do that now to complete the argument.
