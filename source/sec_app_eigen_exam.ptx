@@ -4,31 +4,21 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Approximate the dominant eigenvalue of <m>A</m> accurate to two decimal places using the power method.
               Use technology as appropriate.
             </p>
-          </li>
-          <li>
-            <p>
-              Find the characteristic polynomial <m>p(\lambda)</m> of <m>A</m>.
-              Then find the the root of <m>p(\lambda)</m> farthest from the origin.
-              Compare to the result of part (a).
-              Use technology as appropriate.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               We use technology to calculate the scaled vectors
               <m>A^k \vx_0</m> for values of <m>k</m> until the components don't change in the second decimal place.
@@ -49,8 +39,18 @@
               </me>,
               which is not far off from <m>16.12 [0.28 \ 0.64 \ 1.00]^{\tr}</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find the characteristic polynomial <m>p(\lambda)</m> of <m>A</m>.
+              Then find the the root of <m>p(\lambda)</m> farthest from the origin.
+              Compare to the result of part (a).
+              Use technology as appropriate.
+            </p>
+          </statement>
+          <solution>
             <p>
               The characteristic polynomial of <m>A</m> is
               <me>
@@ -63,45 +63,27 @@
               The roots farthest from the origin is approximately <m>16.12</m>,
               as was also calculated in part (a).
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+  
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 1\amp 3\amp 1 \\ 0\amp 1\amp 2 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+      </introduction>
+        <task>
+          <statement>
             <p>
               Use the power method to approximate the dominant eigenvalue and a corresponding eigenvector
               (using scaling)
               accurate to two decimal places.
               Use <m>\vx_0 = [1 \ 1 \ 1]^{\tr}</m> as the seed.
             </p>
-          </li>
-          <li>
-            <p>
-              Determine the exact value of the dominant eigenvalue of <m>A</m> and compare to your result from part (a).
-            </p>
-          </li>
-          <li>
-            <p>
-              Approximate the remaining eigenvalues of <m>A</m> using the inverse power method.
-              <hint>
-                <p>
-                  Try <m>\alpha = 0.5</m> and <m>\alpha = 1.8</m>.
-                </p>
-              </hint>
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               We use technology to calculate the scaled vectors
               <m>A^k \vx_0</m> for values of <m>k</m> until the components don't change in the second decimal place.
@@ -121,8 +103,15 @@
               </me>
               to see that <m>\left[ \frac{1}{2} \ 1 \ \frac{1}{2} \right]^{\tr}</m> is a dominant eigenvector for <m>A</m> with eigenvalue <m>4</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Determine the exact value of the dominant eigenvalue of <m>A</m> and compare to your result from part (a).
+            </p>
+          </statement>
+          <solution>
             <p>
               Technology shows that the characteristic polynomial of <m>A - \lambda I_3</m> is
               <me>
@@ -130,8 +119,20 @@
               </me>.
               We can see from the characteristic polynomial that <m>4</m> is the dominant eigenvalue of <m>A</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Approximate the remaining eigenvalues of <m>A</m> using the inverse power method.
+            </p>
+          </statement>
+          <hint>
+            <p>
+              Try <m>\alpha = 0.5</m> and <m>\alpha = 1.8</m>.
+            </p>
+          </hint>
+          <solution>
             <p>
               Applying the power method to <m>B = (A-0.5I_3)^{-1}</m> with seed
               <m>\vx_0 = [1 \ 1 \ 1]^{\tr}</m> gives <m>\vx_k \approx [ 0.50 \ 1.00 \ 0.50]^{\tr}</m> for <m>k \geq 5</m>,
@@ -154,9 +155,8 @@
               Finding good choices for <m>\alpha</m> often depends on having some information about the eigenvalues of <m>A</m>.
               Choosing <m>\alpha</m> close to an eigenvalue provides the best chance of obtaining that eigenvalue.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+     
   </example>
 </section>
