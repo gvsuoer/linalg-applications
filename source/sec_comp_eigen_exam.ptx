@@ -4,28 +4,21 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{rcr} 0\amp 1\amp 0 \\ -1\amp 0\amp -1 \\ 1\amp 1\amp 1 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Without doing any computations,
               explain why not all of the eigenvalues of <m>A</m> can be complex.
             </p>
-          </li>
-          <li>
-            <p>
-              Find all of the eigenvalues of <m>A</m>.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Since complex eigenvalues occur in conjugate pairs,
               the complex eigenvalues with nonzero imaginary parts occur in pairs.
@@ -33,8 +26,15 @@
               at most two of them can have nonzero imaginary parts.
               So at least one eigenvalue of <m>A</m> is real.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find all of the eigenvalues of <m>A</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               For this matrix <m>A</m> we have <m>A - \lambda I_3 = \left[ \begin{array}{rrc} -\lambda\amp 1\amp 0 \\ -1\amp -\lambda\amp -1 \\ 1\amp 1\amp -\lambda+1 \end{array}  \right]</m>.
               Using a cofactor expansion along the first row gives us
@@ -49,11 +49,11 @@
                 \lambda = \frac{1 \pm \sqrt{1-4(2)}}{2} = \frac{1}{2}(1 \pm \sqrt{7}i)
               </me>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
+
   <example>
     <statement>
       <p>
@@ -61,8 +61,10 @@
         Find a rotation scaling matrix <m>R</m> that is similar to <m>A</m>.
         Identify the rotation and scaling factor.
       </p>
+    </statement>
+    <solution>
       <p>
-        <em>Example Solution. </em> The eigenvalues of <m>A</m> are the roots of the characteristic polynomial
+        The eigenvalues of <m>A</m> are the roots of the characteristic polynomial
         <md>
           <mrow>p(\lambda) \amp = \det(A - \lambda I_2)</mrow>
           <mrow>\amp = \det\left(\left[ \begin{array}{rc} 1-\lambda\amp 2</mrow>
@@ -105,6 +107,6 @@
         and the angle <m>\theta</m> of rotation satisfies <m>\sin(\theta) = \frac{1}{5}</m>.
         This makes <m>\theta \approx 0.2014</m> radians or approximately <m>11.5370^{\circ}</m> counterclockwise.
       </p>
-    </statement>
+    </solution>
   </example>
 </section>
