@@ -8,15 +8,19 @@
     As the next activity shows,
     rotation matrices in 3D are also orthogonal matrices.
   </p>
-  <activity xml:id="act_rot_det">
+
+  <project xml:id="act_rot_det">
+    <introduction>
     <p>
       Let <m>R</m> be a rotation matrix in 3D. A rotation does not change lengths of vectors,
       nor does it change angles between vectors.
       Let <m>\ve_1 = [ 1 \ 0 \ 0]^{\tr}</m>,
       <m>\ve_2 = [0 \ 1 \ 0]^{\tr}</m>,
       and <m>\ve_3 = [0 \ 0 \ 1]^{\tr}</m> be the standard unit vectors in <m>\R^3</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain why the columns of <m>R</m> form an orthonormal set.
             <hint>
@@ -26,16 +30,19 @@
               </p>
             </hint>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain why <m>R</m> is an orthogonal matrix.
             What must be true about <m>\det(R)</m>? (Hint: What is <m>R^{\tr}</m> and what is <m>\det(R^{\tr}R)</m>?)
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     By <xref ref="act_rot_det"></xref>
     we know that the determinant of any rotation matrix is either <m>1</m> or <m>-1</m>.
@@ -65,7 +72,7 @@
   <p>
     In this notation in <xref ref="eq_rot_z"/>,
     the subscript gives the direction of the line fixed by the rotation and the angle provides the counterclockwise rotation in the plane perpendicular to this vector.
-    This vector is called a <em>normal</em> vector for the rotation.
+    This vector is called a <term>normal</term> vector for the rotation.
     Note also that the columns of
     <m>R_{\ve_3}(\theta)</m> form an orthogonal set such that each column vector has norm <m>1</m>.
   </p>
@@ -78,12 +85,16 @@
     We can accomplish this by using the rotation around the <m>z</m> axis and change of basis matrices to find rotation matrices around other axes.
     Let <m>\CS = \{\ve_1, \ve_2, \ve_3\}</m> be the standard basis for <m>\R^3</m>
   </p>
-  <activity xml:id="act_rot_x">
+
+  <project xml:id="act_rot_x">
+    <introduction>
     <p>
       In this activity we see how to determine the rotation matrix around the <m>x</m> axis using the matrix
       <m>R_{\ve_3}(\theta)</m> and a change of basis.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Define a new ordered basis <m>\CB</m> so that our axis of rotation is the third vector.
             So in this case the third vector in <m>\CB</m> will be <m>\ve_1</m>.
@@ -93,14 +104,18 @@
             Find the change of basis matrix
             <m>\underset{\CS \leftarrow \CB}{P}</m> from <m>\CB</m> to <m>\CS</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the change of basis matrix from part (a) to find the change of basis matrix
             <m>\underset{\CB \leftarrow \CS}{P}</m> from <m>\CS</m> to <m>\CB</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             To find our rotation matrix around the <m>x</m> axis,
             we can first change basis from <m>\CS</m> to <m>\CB</m>,
@@ -112,12 +127,15 @@
             </me>.
             Find the entries of this matrix <m>R_{\ve_1}(\theta)</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
+  <paragraphs>
+    <title>IMPORTANT NOTE</title>
   <p>
-    <em>IMPORTANT NOTE:</em> We could have considered using
+    We could have considered using
     <m>\CB_1 = \{\ve_3, \ve_2, \ve_1\}</m> in <xref ref="act_rot_x"></xref>
     instead of <m>\CB = \{\ve_2, \ve_3, \ve_1\}</m>.
     Then we would have
@@ -125,6 +143,8 @@
       \underset{\CS \leftarrow \CB_1}{P} = \left[ \begin{array}{ccc} 0\amp 0\amp 1 \\ 0\amp 1\amp 0 \\ 1\amp 0\amp 0 \end{array}  \right]
     </me>.
   </p>
+  </paragraphs>
+
   <p>
     The difference between the two options is that,
     in the first we have <m>\det\left(\underset{\CS \leftarrow \CB_1}{P}\right) = -1</m> while <m>\det\left(\underset{\CS \leftarrow \CB}{P} \right) = 1</m> in the second.
@@ -132,34 +152,46 @@
     (this is the difference between a left hand system and a right hand system).
     So it is important to ensure that our change of basis matrix is one with determinant <m>1</m>.
   </p>
-  <activity xml:id="act_rot_y">
+
+  <project xml:id="act_rot_y">
+    <statement>
     <p>
       Repeat <xref ref="act_rot_y"></xref>
       to find the 3D rotation around the <m>y</m> axis.
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     We do one more example to illustrate the process before tackling the general case.
   </p>
-  <activity xml:id="act_rot_ex">
+
+  <project xml:id="act_rot_ex">
+    <introduction>
     <p>
       In this activity we find the rotation around the axis given by the line <m>x=y/2=z</m>.
       This line is in the direction of the vector <m>\vn = [1 \ 2 \ 1]^{\tr}</m>.
       So we start with making a unit vector in the direction of <m>\vn</m> as the third vector in an ordered basis <m>\CB</m>.
       The other two vectors need to make <m>\CB</m> an orthonormal set with <m>\det\left(\underset{\CS \leftarrow \CB}{P} \right) = 1</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find a unit vector <m>\vw</m> in the direction of <m>\vn</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Show that <m>[2 \ -1 \ 0]^{\tr}</m> is orthogonal to the vector <m>\vw</m> from part (a).
             Then find a unit vector <m>\vv</m> that is in the same direction as <m>[2 \ -1 \ 0]^{\tr}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>\vv</m> be as in the previous part.
             Now the trick is to find a third unit vector <m>\vu</m> so that
@@ -173,39 +205,50 @@
             (You can check that <m>\{\va \times \vb, \va, \vb\}</m> is an orthogonal set that gives the correct determinant for the change of basis matrix.) Use the cross product to find a unit vector <m>\vu</m> so that
             <m>\CB = \{\vu, \vv, \vw\}</m> is an orthonormal set.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the entries of the matrix <m>R_{\vw}(\theta)</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     In the next activity we summarize the general process to find a 3D rotation matrix
     <m>R_{\vn}(\theta)</m> for any normal vector <m>\vn</m>.
-    There is a GeoGebra applet at \url{https://www.geogebra.org/m/n9gbjhfx} that allows you to visualize rotation matrices in 3D.
+    There is a GeoGebra applet at 
+    <url href="https://www.geogebra.org/m/n9gbjhfx" visual="geogebra.org/m/n9gbjhfx"/> that allows you to visualize rotation matrices in 3D.
   </p>
-  <activity xml:id="act_rot_general">
+
+  <project xml:id="act_rot_general">
+    <introduction>
     <p>
       Let <m>\vn = [n_1 \ n_2 \ n_3]^{\tr}</m> be a normal vector (nonzero) for our rotation.
       We need to create an orthonormal basis
       <m>\CB = \{\vu, \vv, \vw\}</m> where <m>\vw</m> is a unit vector in the direction of <m>\vn</m> so that the change of basis matrix
       <m>\underset{\CS \leftarrow \CB}{P}</m> has determinant <m>1</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find, by inspection,
             a vector <m>\vy</m> that is orthogonal to <m>\vn</m>.
-            <hint>
-              <p>
-                You may need to consider some cases to ensure that <m>\vv</m> is not the zero vector.
-              </p>
-            </hint>
+            
           </p>
-        </li>
-        <li>
+        </statement>
+        <hint>
+          <p>
+            You may need to consider some cases to ensure that <m>\vv</m> is not the zero vector.
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
           <p>
             Once we have a normal vector <m>\vn</m> and a vector <m>\vy</m> orthogonal to <m>\vn</m>,
             the vector <m>\vz = \vy \times \vn</m> gives us an orthogonal set <m>\{\vz, \vy, \vn\}</m>.
@@ -213,8 +256,8 @@
             Use this process to find the matrix that produces a
             <m>45^{\circ}</m> counterclockwise rotation around the normal vector <m>[1 \ 0 \ -1]^{\tr}</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+  
+  </project>
 </section>
