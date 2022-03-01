@@ -10,25 +10,32 @@
     A consequence of the formula we develop is Cramer's Rule,
     which can be used to provide formulas that give solutions to certain linear systems.
   </p>
+
   <p>
     We begin with an interesting connection between a square matrix and the matrix of its cofactors that we explore in the next activity.
   </p>
+
   <activity xml:id="act_4_f_4">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{crc} 2\amp 1\amp 3 \\ 1\amp 4\amp 5 \\ 2\amp -1\amp 2 \end{array}  \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Calculate the <m>(1,1)</m>,
             <m>(1,2)</m>, and <m>(1,3)</m> cofactors of <m>A</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+      <idx><h>matrix</h><h>adjugate</h></idx>
+        <statement>
           <p>
             If <m>C_{ij}</m> represents the <m>(i,j)</m> cofactor of <m>A</m>,
             then the cofactor matrix <m>C</m> is the matrix <m>C = [C_{ij}]</m>.
-            The <em>adjugate</em>
-              <idx><h>matrix</h><h>adjugate</h></idx>
+            The <term>adjugate</term>
             matrix of <m>A</m> is the transpose of the cofactor matrix.
             In our example, the adjugate matrix of <m>A</m> is
             <me>
@@ -40,16 +47,19 @@
               A \ \adj(A)
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What do you notice about the product <m>A \ \adj(A)</m>?
             How is this product related to <m>\det(A)</m>?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     The result of <xref ref="act_4_f_4"></xref> is rather surprising,
     but it is valid in general.
@@ -101,40 +111,49 @@
     One consequence of the formula <m>A^{-1} = \frac{1}{\det(A)} \adj(A)</m> is Cramer's rule,
     which describes the solution to the equation <m>A \vx = \vb</m>.
   </p>
+
   <activity xml:id="act_4_f_5">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{cc} 3\amp 1 \\ 4\amp 2 \end{array} \right]</m>,
       and let <m>\vb = \left[ \begin{array}{c}2\\6 \end{array} \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Solve the equation <m>A \vx = \vb</m> using the inverse of <m>A</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>A_1 = \left[ \begin{array}{cc} 2\amp 1 \\ 6\amp 2 \end{array} \right]</m>,
             the matrix obtained by replacing the first column of <m>A</m> with <m>\vb</m>.
             Calculate <m>\frac{\det(A_1)}{\det(A)}</m> and compare to your solution from part (a).
             What do you notice?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now let <m>A_2 = \left[ \begin{array}{cc} 3\amp 2 \\ 4\amp 6 \end{array} \right]</m>,
             the matrix obtained by replacing the second column of <m>A</m> with <m>\vb</m>.
             Calculate <m>\frac{\det(A_2)}{\det(A)}</m> and compare to your solution from part (a).
             What do you notice?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
   <p>
     The result from <xref ref="act_4_f_5"></xref> may seem a bit strange,
     but turns out to be true in general.
     The result is called <em>Cramer's Rule</em>.
   </p>
+
   <theorem>
     <title>Cramer's Rule</title>
     <statement>
@@ -150,6 +169,7 @@
       </p>
     </statement>
   </theorem>
+  
   <p>
     To see why Cramer's Rule works in general,
     let <m>A</m> be an <m>n \times n</m> invertible matrix and <m>\vb = [b_1 \ b_2 \ \cdots \ b_n]^{\tr}</m>.

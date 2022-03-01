@@ -4,76 +4,45 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
-      <p>
-        <nbsp/>
-        <ul>
-          <li>
+    
+        <task>
+          <introduction>
             <p>
               If <m>A</m>, <m>B</m> are <m>n\times n</m> matrices with
               <m>\det(A)=3</m> and <m>\det(B)=2</m>,
               evaluate the following determinant values.
               Briefly justify.
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     <m>\det(A^{-1})</m>
                   </p>
-                </li>
-                <li>
+                </statement>
+                <solution>
                   <p>
-                    <m>\det(ABA^{\mathsf{T}})</m>
+                    Assume that <m>\det(A)=3</m> and <m>\det(B)=2</m>.
                   </p>
-                </li>
-                <li>
-                  <p>
-                    <m>\det(A^3(BA)^{-1}(AB)^2)</m>
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
-            <p>
-              If the determinant of <m>\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array} \right]</m> is <m>m</m>,
-              find the determinant of each of the following matrices.
-              <ol label="i">
-                <li>
-                  <p>
-                    <m>\left[ \begin{array}{ccc} a\amp b\amp c\\2d\amp 2e\amp 2f\\g\amp h\amp i \end{array} \right]</m>
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>\left[ \begin{array}{ccc} d\amp e\amp f\\g\amp h\amp i\\a\amp b\amp c \end{array} \right]</m>
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <m>\left[ \begin{array}{ccc} a\amp b\amp c\\g-2d\amp h-2e\amp i-2f\\a+d\amp b+e\amp c+f \end{array} \right]</m>
-                  </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
-            <p>
-              Assume that <m>\det(A)=3</m> and <m>\det(B)=2</m>.
-              <ol label="i">
-                <li>
                   <p>
                     Since <m>\det(A) \neq 0</m>, we know that <m>A</m> is invertible.
                     Since <m>1 = \det(I_n) = \det(AA^{-1}) = \det(A) \det(A^{-1})</m>,
                     it follows that <m>\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{3}</m>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    <m>\det(ABA^{\mathsf{T}})</m>
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Assume that <m>\det(A)=3</m> and <m>\det(B)=2</m>.
+                  </p>
                   <p>
                     We know that <m>\det(A^{\tr}) = \det(A)</m>, so
                     <md>
@@ -83,8 +52,18 @@
                       <mrow>\amp = 18</mrow>
                     </md>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    <m>\det(A^3(BA)^{-1}(AB)^2)</m>
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Assume that <m>\det(A)=3</m> and <m>\det(B)=2</m>.
+                  </p>
                   <p>
                     Using properties of determinants gives us
                     <md>
@@ -95,23 +74,45 @@
                       <mrow>\amp = 162</mrow>
                     </md>.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
+                </solution>
+              </task>
+        </task>
+
+        <task>
+          <introduction>
             <p>
-              Assume that <m>\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m</m>.
-              <ol label="i">
-                <li>
+              If the determinant of <m>\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array} \right]</m> is <m>m</m>,
+              find the determinant of each of the following matrices.
+            </p>
+          </introduction>
+              <task>
+                <statement>
+                  <p>
+                    <m>\left[ \begin{array}{ccc} a\amp b\amp c\\2d\amp 2e\amp 2f\\g\amp h\amp i \end{array} \right]</m>
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Assume that <m>\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m</m>.
+                  </p>
                   <p>
                     Multiplying a row by a scalar multiples the determinant by that scalar, so
                     <me>
                       \det\left( \left[ \begin{array}{ccc} a\amp b\amp c\\2d\amp 2e\amp 2f\\g\amp h\amp i \end{array}  \right] \right) = 2m
                     </me>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    <m>\left[ \begin{array}{ccc} d\amp e\amp f\\g\amp h\amp i\\a\amp b\amp c \end{array} \right]</m>
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Assume that <m>\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m</m>.
+                  </p>
                   <p>
                     Interchanging two rows multiples the determinant by <m>-1</m>.
                     It takes two row swaps in the original matrix to obtain this one, so
@@ -119,8 +120,18 @@
                       \det\left( \left[ \begin{array}{ccc} d\amp e\amp f\\g\amp h\amp i\\a\amp b\amp c \end{array}  \right] \right) = (-1)^2m = m
                     </me>.
                   </p>
-                </li>
-                <li>
+                </solution>
+              </task>
+              <task>
+                <statement>
+                  <p>
+                    <m>\left[ \begin{array}{ccc} a\amp b\amp c\\g-2d\amp h-2e\amp i-2f\\a+d\amp b+e\amp c+f \end{array} \right]</m>
+                  </p>
+                </statement>
+                <solution>
+                  <p>
+                    Assume that <m>\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m</m>.
+                  </p>
                   <p>
                     Adding a multiple of a row to another does not change the determinant of the matrix.
                     Since there is a row swap needed to get this matrix from the original we have
@@ -128,35 +139,26 @@
                       \det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\g-2d\amp h-2e\amp i-2f\\a+d\amp b+e\amp c+f \end{array}  \right]\right) = -m
                     </me>.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+                </solution>
+              </task>
+        
+        </task>
+      
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>A = \left[ \begin{array}{ccr} 2\amp 8\amp 0\\2\amp 2\amp -3\\1\amp 2\amp 7 \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Find an LU factorization for <m>A</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              Use the LU factorization with forward substitution and back substitution to solve the system <m>A \vx = [18 \ 3 \ 12]^{\tr}</m>.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               We row reduce <m>A</m> to an upper triangular matrix by applying elementary matrices.
               First notice that if <m>E_1 = \left[ \begin{array}{rcc} 1\amp 0\amp 0 \\-1\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{array}  \right]</m>, then
@@ -176,8 +178,15 @@
                 L = E_1^{-1}E_2^{-1}E_3^{-1} =  \left[ \begin{array}{ccc} 1\amp 0\amp 0 \\1\amp 1\amp 0 \\ \frac{1}{2}\amp \frac{1}{3}\amp 1 \end{array}  \right]
               </me>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use the LU factorization with forward substitution and back substitution to solve the system <m>A \vx = [18 \ 3 \ 12]^{\tr}</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               To solve the system <m>A \vx = \vb</m>,
               where <m>\vb = [18 \ 3 \ 12]^{\tr}</m>,
@@ -199,9 +208,8 @@
               or <m>x_1 = 1</m>.
               So the solution to <m>A \vx = \vb</m> is <m>\vx = [1 \ 2 \ 1]^{\tr}</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
 </section>
