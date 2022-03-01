@@ -6,20 +6,26 @@
     and <xref ref="def_6_b_orthogonal_basis_Rn"></xref>.
     We saw that the standard basis in <m>\R^3</m> is an orthogonal set and an orthogonal basis of <m>\R^3</m> <mdash/> there are many other examples as well.
   </p>
+
   <activity xml:id="act_6_b_orthog">
+    <introduction>
     <p>
       Let <m>\vw_1 = \left[ \begin{array}{r} -2 \\ 1 \\ -1 \end{array} \right]</m>,
       <m>\vw_2 = \left[ \begin{array}{r} 0 \\ 1 \\ 1 \end{array} \right]</m>,
       and <m>\vw_3 = \left[ \begin{array}{r} 1 \\ 1 \\ -1 \end{array} \right]</m>.
       In the same manner as in <xref ref="pa_6_b"></xref>,
       we can show that the set <m>S_1 = \left\{ \vw_1, \vw_2, \vw_3 \right\}</m> is an orthogonal subset of <m>\R^3</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Is the set <m>S_2 = \left\{ \left[ \begin{array}{r} -2 \\ 1 \\ -1 \end{array} \right], \left[ \begin{array}{r} 0 \\ 1 \\ 1 \end{array} \right], \left[ \begin{array}{r} 1 \\ 1 \\ -1 \end{array} \right], \left[ \begin{array}{r} 1 \\ 2 \\ 0 \end{array} \right] \right\}</m> an orthogonal subset of <m>\R^3</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Suppose a vector <m>\vv</m> is a vector so that
             <m>S_1 \cup \{\vv\}</m> is an orthogonal subset of <m>\R^3</m>.
@@ -27,17 +33,20 @@
             Explain why this implies that <m>\vv</m> is in <m>\Nul A</m>,
             where <m>A = \left[ \begin{array}{rcr} -2\amp 1\amp -1 \\ 0\amp 1\amp 1 \\ 1\amp 1\amp -1 \end{array} \right]</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Assuming that the reduced row echelon form of the matrix <m>A</m> is <m>I_3</m>,
             explain why it is not possible to find a nonzero vector <m>\vv</m> so that
             <m>S_1 \cup \{\vv\}</m> is an orthogonal subset of <m>\R^3</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     The example from <xref ref="act_6_b_orthog"></xref>
     suggests that we can have three orthogonal nonzero vectors in <m>\R^3</m>,
@@ -47,6 +56,7 @@
     So we might expect that there is no linear relationship between orthogonal vectors.
     The following theorem makes this clear.
   </p>
+
   <theorem xml:id="thm_6_b_Orth_li">
     <statement>
       <p>
@@ -54,7 +64,7 @@
         Then the vectors <m>\vv_1, \vv_2, \ldots, \vv_m</m> are linearly independent.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       Let <m>S = \{\vv_1, \vv_2, \ldots, \vv_m\}</m> be a set of nonzero orthogonal vectors in <m>\R^n</m>.
@@ -70,11 +80,11 @@
       we know that <m>\vv_i \cdot \vv_j = 0</m> whenever <m>i \neq j</m>.
       Fix an index <m>k</m> between 1 and <m>m</m>.
       We evaluate the dot product of both sides of <xref ref="eq_6_b_orthog"/> with <m>\vv_k</m> and simplify using the dot product properties:
-      <md>
-        <mrow>\vv_k \cdot (x_1\vv_1 + x_2\vv_2 + \cdots + x_m \vv_m) \amp = \vv_k \cdot \vzero</mrow>
-        <mrow>(\vv_k \cdot x_1\vv_1) + (\vv_k \cdot x_2\vv_2) + \cdots + (\vv_k \cdot x_m \vv_m) \amp = 0</mrow>
-        <mrow xml:id="eq_6_b_orthog2" number="yes">x_1(\vv_k \cdot \vv_1) + x_2(\vv_k \cdot \vv_2) + \cdots + x_m(\vv_k \cdot  \vv_m) \amp = 0</mrow>
-      </md>.
+      <mdn>
+        <mrow number="no">\vv_k \cdot (x_1\vv_1 + x_2\vv_2 + \cdots + x_m \vv_m) \amp = \vv_k \cdot \vzero</mrow>
+        <mrow number="no">(\vv_k \cdot x_1\vv_1) + (\vv_k \cdot x_2\vv_2) + \cdots + (\vv_k \cdot x_m \vv_m) \amp = 0</mrow>
+        <mrow xml:id="eq_6_b_orthog2">x_1(\vv_k \cdot \vv_1) + x_2(\vv_k \cdot \vv_2) + \cdots + x_m(\vv_k \cdot  \vv_m) \amp = 0</mrow>
+      </mdn>.
     </p>
     <p>
       Now all of the dot products on the left are 0 except for <m>\vv_k \cdot \vv_k</m>,
@@ -92,4 +102,5 @@
       <m>x_1 = x_2 = \cdots = x_m = 0</m> and the set <m>S</m> is linearly independent.
     </p>
   </proof>
+  </theorem>
 </section>

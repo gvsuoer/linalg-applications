@@ -7,7 +7,9 @@
     but if the columns form an orthonormal set,
     then the calculation is very straightforward.
   </p>
+
   <activity xml:id="act_6_b_orthogonal_inverse">
+    <introduction>
     <p>
       Let <m>\vu_1 = \frac{1}{3}[2 \ 1 \ 2]^{\tr}</m>,
       <m>\vu_2 = \frac{1}{3}[-2 \ 2 \ 1]^{\tr}</m>,
@@ -17,36 +19,44 @@
       Let
       <me>
         A = [\vu_1 \ \vu_2 \ \vu_3] = \frac{1}{3} \left[ \begin{array}{crr} 2\amp -2\amp 1\\1\amp 2\amp 2\\2\amp 1\amp -2 \end{array}  \right]
-      </me>.
-      <ul>
-        <li>
+      </me>. 
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Use the definition of the matrix-matrix product to find the entries of the second row of the matrix product <m>A^{\tr}A</m>.
             Why should you have expected the result?
-            <hint>
-              <p>
-                How are the rows of <m>A^{\tr}</m> related to the columns of <m>A</m>?
-              </p>
-            </hint>
+            
           </p>
-        </li>
-        <li>
+        </statement>
+        <hint>
+          <p>
+            How are the rows of <m>A^{\tr}</m> related to the columns of <m>A</m>?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
           <p>
             With the result of part (a) in mind,
             what is the matrix product <m>A^{\tr}A</m>?
             What does this tell us about the relationship between <m>A^{\tr}</m> and <m>A^{-1}</m>?
             Use technology to calculate <m>A^{-1}</m> and confirm your answer.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Suppose <m>P</m> is an <m>n \times n</m> matrix whose columns form an orthonormal basis for <m>\R^n</m>.
             Explain why <m>P^{\tr}P = I_n</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     The result of <xref ref="act_6_b_orthogonal_inverse"></xref>
     is that if the columns of a square matrix <m>P</m> form an orthonormal set,
@@ -59,11 +69,12 @@
     then the columns of <m>P</m> must form an orthonormal set.
     Matrices like this appear quite often and are given a special name.
   </p>
+
   <definition>
+  <idx><h>matrix</h><h>orthogonal</h></idx>
     <statement>
       <p>
         An <term>orthogonal</term>
-            <idx><h>matrix</h><h>orthogonal</h></idx>
         matrix is an <m>n \times n</m> matrix <m>P</m> such that <m>P^{\tr}P = I_n</m>.<fn>
         It isn't clear why such matrices are called orthogonal since the columns are actually orthonormal,
         but that is the standard terminology in mathematics.
@@ -71,26 +82,33 @@
       </p>
     </statement>
   </definition>
+
   <activity>
+    <introduction>
     <p>
       As a special case,
       we apply the result of <xref ref="act_6_b_orthogonal_inverse"></xref>
       to a <m>2 \times 2</m> rotation matrix <m>P = \left[ \begin{array}{cr} \cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta) \end{array} \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Show that the columns of <m>P</m> form an orthonormal set.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the fact that <m>P^{-1} = P^{\tr}</m> to find <m>P^{-1}</m>.
             Explain how this shows that the inverse of a rotation matrix by an angle <m>\theta</m> is just another rotation matrix but by the angle <m>-\theta</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     Orthogonal matrices are useful because they satisfy some special properties.
     For example, if <m>P</m> is an orthogonal
@@ -100,6 +118,7 @@
     </me>.
   </p>
   <p>
+  <idx><h>isometry</h></idx>
     This property tells us that the matrix transformation <m>T</m> defined by
     <m>T(\vx) = P\vx</m> preserves dot products and, hence,
     orthogonality.
@@ -109,8 +128,7 @@
     </me>,
     so <m>||P\vx|| = ||\vx||</m>.
     This means that <m>T</m> preserves length.
-    Such a transformation is called an <em>isometry</em>
-        <idx><h>isometry</h></idx>
+    Such a transformation is called an <term>isometry</term>
     and it is convenient to work with functions that don't expand or contract things.
     Moreover, if <m>\vx</m> and <m>\vy</m> are nonzero vectors, then
     <me>
@@ -122,6 +140,7 @@
     Transformations defined by orthogonal matrices are very well behaved transformations.
     To summarize,
   </p>
+
   <theorem>
     <statement>
       <p>
@@ -147,6 +166,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     We have discussed orthogonal and orthonormal bases for subspaces of <m>\R^n</m> in this section.
     There are reasonable questions that follow, such as
@@ -165,8 +185,7 @@
         </p>
       </li>
     </ul>
-  </p>
-  <p>
+
     We will answer these questions in subsequent sections.
   </p>
 </section>
