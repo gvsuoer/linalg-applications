@@ -16,22 +16,26 @@
     which is computationally intensive for large <m>n</m> values due to it being a recursive method.
     Finally, we will derive a geometrical interpretation of the determinant.
   </p>
-  <activity xml:id="pa_4_f">
-    <p>
-      <nbsp/>
-      <ol>
-        <li>
+
+  <exploration xml:id="pa_4_f">
+    
+      <task>
+        <introduction>
           <p>
             We first consider how the determinant changes if we multiply a row of the matrix by a constant.
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Let <m>A = \left[ \begin{array}{cc} 2\amp 3 \\ 1\amp 4 \end{array} \right]</m>.
                   Pick a few different values for the constant <m>k</m> and compare the determinant of <m>A</m> and that of <m>\left[ \begin{array}{cc} 2k\amp 3k \\ 1\amp 4 \end{array} \right]</m>.
                   What do you conjecture that the effect of multiplying a row by a constant on the determinant is?
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   If we want to make sure our conjecture is valid for any <m>2\times 2</m> matrix,
                   we need to show that for <m>A = \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array} \right]</m>,
@@ -41,78 +45,94 @@
                   <m>\left[ \begin{array}{cc} a\amp b\\c\cdot k\amp d\cdot k \end{array} \right]</m> follows our conjecture.
                   Verify this.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Make a similar conjecture for what happens to the determinant when a row of a
                   <m>3\times 3</m> matrix <m>A</m> is multiplied by a constant <m>k</m>,
                   and explain why your conjecture is true using the cofactor expansion definition of the determinant.
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+          
+      </task>
+      <task>
+        <introduction>
           <p>
             The second type of elementary row operation we consider is row swapping.
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Take a general <m>2\times 2</m> matrix
                   <m>A = \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array} \right]</m> and determine how row swapping effects the determinant.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Now choose a few different
                   <m>3\times 3</m> matrices and see how row swapping changes the determinant in these matrices by evaluating the determinant with a calculator or any other appropriate technology.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Based on your results so far,
                   conjecture how row swapping changes the determinant in general.
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+      </task>
+      <task>
+        <statement>
           <p>
             The last type of elementary row operation is adding a multiple of a row to another.
             Determine the effect of this operation on a
             <m>2\times 2</m> matrix by evaluating the determinant of a general
             <m>2\times 2</m> matrix after a multiple of one row is added to the other row.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
             All of the elementary row operations we discussed above can be achieved by matrix multiplication with
-            <em>elementary matrices</em>.
+            <term>elementary matrices</term>.
             For each of the following elementary matrices,
             determine what elementary operation it corresponds to by calculating the product <m>EA</m>,
             where <m>A = \left[ \begin{array}{ccc} a_{11}\amp a_{12}\amp a_{13}\\a_{21}\amp a_{22}\amp a_{23}\\a_{31}\amp a_{32}\amp a_{33} \end{array} \right]</m> is a general <m>3\times 3</m> matrix.
-            <ul>
-              \begin{minipage}{1.5in}
-              <li>
-                <p>
-                  <m>E = \left[ \begin{array}{ccc} 0\amp 1\amp 0\\ 1\amp 0\amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>E = \left[ \begin{array}{ccc} 1\amp 0\amp 0\\ 0\amp 3\amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m> \end{minipage} \begin{minipage}{1.5in}
-                </p>
-              </li>
-              <li>
-                <p>
-                  <m>E = \left[ \begin{array}{ccc} 1\amp 0\amp 0\\ 0\amp 1\amp 2 \\ 0\amp 0\amp 1 \end{array} \right]</m> \end{minipage}
-                </p>
-              </li>
-            </ul>
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </introduction>
+            <task>
+              
+              <statement>
+                <p>
+                  <m>E = \left[ \begin{array}{ccc} 0\amp 1\amp 0\\ 1\amp 0\amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m>  
+                </p>
+              </statement>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  <m>E = \left[ \begin{array}{ccc} 1\amp 0\amp 0\\ 0\amp 3\amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m>  
+                </p>
+              </statement>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  <m>E = \left[ \begin{array}{ccc} 1\amp 0\amp 0\\ 0\amp 1\amp 2 \\ 0\amp 0\amp 1 \end{array} \right]</m> 
+                </p>
+              </statement>
+            </task>
+          
+        </task>
+     
+  </exploration>
 </section>

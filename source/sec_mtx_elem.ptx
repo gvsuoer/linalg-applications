@@ -4,17 +4,19 @@
   <p>
     As we saw in <xref ref="pa_4_f"></xref>,
     elementary row operations can be achieved by multiplication by
-    <em>elementary matrices</em>.
+    <term>elementary matrices</term>.
   </p>
+
   <definition>
+  <idx><h>matrix</h><h>elementary</h></idx>
     <statement>
       <p>
         An <term>elementary matrix</term>
-            <idx><h>matrix</h><h>elementary</h></idx>
         is a matrix obtained by performing a single elementary row operation on an identity matrix.
       </p>
     </statement>
   </definition>
+
   <p>
     The following elementary matrices correspond, respectively,
     to an elementary row operation which swaps rows 2 and 4;
@@ -36,6 +38,7 @@
     We first rewrite <xref ref="thm_4_f_1"></xref>
     in terms of elementary matrices:
   </p>
+
   <theorem xml:id="thm_4_f_2">
     <statement>
       <p>
@@ -48,8 +51,10 @@
       </p>
     </statement>
   </theorem>
+
+  <paragraphs>
+  <title>Notes on <xref ref="thm_4_f_2"></xref></title>
   <p>
-    <em>Notes on <xref ref="thm_4_f_2"></xref>.</em>
     An elementary matrix <m>E</m> obtained by multiplying a row by <m>r</m> is a diagonal matrix with one <m>r</m> along the diagonal and the rest 1s, so <m>\det(E) = r</m>.
     Similarly, an elementary matrix <m>E</m> obtained by adding a multiple of a row to another is a triangular matrix with 1s along the diagonal,
     so <m>\det(E) = 1</m>.
@@ -58,7 +63,10 @@
     depends on the fact that the cofactor expansion of a matrix is the same along any two rows.
     A proof of this can also be found later in this section.
   </p>
+  </paragraphs>
+
   <proof>
+    <title>Proof of <xref ref="thm_4_f_2"></xref></title>
     <p>
       We will prove the result by induction on <m>n</m>,
       the size of the matrix <m>A</m>.
@@ -115,10 +123,12 @@
       the claim is true for every <m>n\geq 2</m>.
     </p>
   </proof>
+
   <p>
     As a corollary of this theorem,
     we can prove the multiplicativity of determinants:
   </p>
+
   <theorem xml:id="thm_determinant_product">
     <statement>
       <p>
@@ -129,7 +139,7 @@
         </me>.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       If <m>A</m> is non-invertible,
@@ -176,28 +186,36 @@
       which finishes the proof of the theorem.
     </p>
   </proof>
+  </theorem>
+
   <p>
     We can use the multiplicative property of the determinant and the determinants of elementary matrices to calculate the determinant of a matrix in a more efficient way than using the cofactor expansion.
     The next activity provides an example.
   </p>
+
   <activity xml:id="act_4_f_2">
+    <introduction>
     <p>
       Let <m>A=\left[ \begin{array}{rcc} 1\amp 1\amp 2\\ 2\amp 2\amp 6\\ -1\amp 2\amp 1 \end{array} \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Use elementary row operations to reduce <m>A</m> to a row echelon form.
             Keep track of the elementary row operation you use.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Taking into account how elementary row operations affect the determinant,
             use the row echelon form of <m>A</m> to calculate <m>\det(A)</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+  
   </activity>
   <p>
     Your work in <xref ref="act_4_f_2"></xref>
@@ -224,7 +242,9 @@
     if we keep track of how the row operations affect the determinant,
     we can calculate the determinant of a matrix <m>A</m> using row operations.
   </p>
+
   <activity xml:id="act_4_f_2_b">
+    <introduction>
     <p>
       <xref ref="thm_4_f_2"></xref>
       and <xref ref="thm_determinant_product"></xref>
@@ -239,8 +259,10 @@
       <me>
         R = E_1E_2 \cdots E_kA
       </me>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Suppose <m>A</m> is invertible.
             What, then, is <m>R</m>?
@@ -248,23 +270,29 @@
             Can the determinant of an elementary matrix ever be <m>0</m>?
             How do we conclude that <m>\det(A) \neq 0</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now suppose that <m>\det(A) \neq 0</m>.
             What can we conclude about <m>\det(R)</m>?
             What, then, must <m>R</m> be?
             How do we conclude that <m>A</m> is invertible?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+  
   </activity>
+
+  <paragraphs>
+  <title>Summary</title>
   <p>
-    <em>Summary: </em> Let <m>A</m> be an <m>n\times n</m> matrix.
+    Let <m>A</m> be an <m>n\times n</m> matrix.
     Suppose we swap rows <m>s</m> times and divide rows by constants
     <m>k_1, k_2, \ldots,
     k_r</m> while computing a row echelon form <m>\text{ REF } (A)</m> of <m>A</m>.
     Then <m>\det(A)=(-1)^s k_1 k_2\cdots k_r \det(\text{ REF } (A))</m>.
   </p>
+  </paragraphs>
 </section>
