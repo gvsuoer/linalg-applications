@@ -26,39 +26,48 @@
     the QR algorithm stands out.
     For example,
     the power method is useful when a matrix is large and contains a lot of zero entries
-    (such matrices are called <em>sparse</em>).
+    (such matrices are called <term>sparse</term>).
     When most of the entries of a matrix are nonzero,
     the power method is not recommended.
     The better, more sophisticated,
     alternative in these situations is to use the QR decomposition.
     The QR factorization has applications to solving least squares problems and approximating eigenvalues of matrices.
   </p>
+
   <activity xml:id="act_6_e_QR">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \\ 0\amp 2 \end{array} \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find an orthonormal basis <m>\CB</m> for <m>\Col A</m>.
             Let <m>Q</m> be the matrix whose columns are these orthonormal basis vectors.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Write the columns of <m>A</m> as linear combinations of the columns of <m>Q</m>.
             That is, if <m>A = [\va_1 \ \va_2]</m>,
             find <m>[\va_1]_{\CB}</m> and <m>[\va_2]_{\CB}</m>.
             Let <m>R = [[\va_1]_{\CB} \ [\va_2]_{\CB}]</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the product <m>QR</m> and compare to <m>A</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     <xref ref="act_6_e_QR"></xref>
     contains the main ideas to find the QR factorization of a matrix.
@@ -108,7 +117,9 @@
     Note that <m>Q</m> is an <m>m \times n</m> matrix and <m>R = [r_{ij}]</m> is an
     <m>n \times n</m> matrix with <m>r_{ii} \neq 0</m> for each <m>i</m>.
   </p>
+
   <activity>
+    <statement>
     <p>
       The set <m>\{\vu_1, \vu_2\}</m>,
       where <m>\vu_1 = [1 \ 1 \ 1 \ 1]^{\tr}</m> and
@@ -117,7 +128,9 @@
       Moreover, <m>\va_1 = 2\vu_1</m> and <m>\va_2 = 3\vu_2+4\vu_2</m>.
       What is <m>A</m>?
     </p>
+    </statement>
   </activity>
+
   <p>
     The QR factorization provides a widely used algorithm
     (the QR algorithm)
