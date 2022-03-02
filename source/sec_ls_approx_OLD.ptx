@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<section xml:id="sec_ls_approx">
+  <title>Least Squares Approximations</title>
+  <p>
+    The pseudoinverse of a matrix is also connected to least squares solutions of linear systems as we encountered in <xref ref="sec_orthogonal_basis"></xref>.
+    Recall from <xref ref="sec_orthogonal_basis"></xref>,
+    that if the columns of <m>A</m> are linearly independent,
+    then the least squares solution to
+    <m>A\vx = \vb</m> is <m>\vx = \left(A^{\tr}A\right)^{-1}A^{\tr} \vb</m>.
+    In this section we will see how to use a pseudoinverse to solve a least squares problem,
+    and verify that if the columns of <m>A</m> are linearly dependent,
+    then <m>\left(A^{\tr}A\right)^{-1}A^{\tr}</m> is in fact the pseudoinverse of <m>A</m>.
+  </p>
+  <p>
+    Let <m>U \Sigma V^{\tr}</m> be a singular value decomposition for an
+    <m>m \times n</m> matrix <m>A</m> of rank <m>r</m>.
+    Then the columns of
+    <me>
+      U = [\vu_1 \ \vu_2  \ \cdots  \ \vu_m]
+    </me>
+    form an orthonormal basis for <m>\R^m</m> and
+    <m>\{\vu_1, \vu_2, \ldots, \vu_r\}</m> is a basis for <m>\Col A</m>.
+    Remember from <xref ref="sec_gram_schmidt"></xref>
+    that if <m>\vb</m> is any vector in <m>\R^m</m>, then
+    <me>
+      \proj_{\Col A} \vb = (\vb \cdot \vu_1) \vu_1 + (\vb \cdot \vu_2) \vu_2 + \cdots + (\vb \cdot \vu_r) \vu_r
+    </me>
+    is the least squares approximation of the vector <m>\vb</m> by a vector in <m>\Col A</m>.
+    We can extend this sum to all of columns of <m>U</m> as
+    <me>
+      \proj_{\Col A} \vb = (\vb \cdot \vu_1) \vu_1 + (\vb \cdot \vu_2) \vu_2 + \cdots + (\vb \cdot \vu_r) \vu_r + 0 \vu_{r+1} + 0 \vu_{r+2} + \cdots + 0 \vu_m
+    </me>.
+  </p>
+  <p>
+    It follows that
+    <md>
+      <mrow>\proj_{\Col A} \vb \amp = \sum_{i=1}^r \vu_i (\vu_i \cdot \vb)</mrow>
+      <mrow>\amp = \sum_{i=1}^r \vu_i (\vu_i^{\tr}\vb)</mrow>
+      <mrow>\amp = \sum_{i=1}^r (\vu_i\vu_i^{\tr}) \vb</mrow>
+      <mrow>\amp = \left(\sum_{i=1}^r (1)(\vu_i\vu_i^{\tr})\right)\vb + \left(\sum_{i=r+1}^m 0(\vu_i\vu_i^{\tr})\right) \vb</mrow>
+      <mrow>\amp = (UDU^{\tr}) \vb</mrow>
+    </md>,
+    where
+    <me>
+      D = \left[ \begin{array}{c|c} I_r \amp  \vzero \\ \hline \vzero \amp  \vzero \end{array}  \right]
+    </me>.
+  </p>
+  <p>
+    Now, if <m>\vz = A^{+} \vb</m>, then
+    <me>
+      A\vz = (U\Sigma V^{\tr})(V \Sigma^+ U^{\tr} \vb) = (U \Sigma \Sigma^+ U^{\tr})\vb = (UDU^{\tr})\vb = \proj_{\Col A} \vb
+    </me>,
+    and hence the vector <m>A \vz = AA^+ \vb</m> is the vector <m>A\vx</m> in <m>\Col A</m> that minimizes <m>||A \vx - \vb||</m>.
+    Thus, <m>A\vz</m> is in actuality the least squares approximation to <m>\vb</m>.
+    So a singular value decomposition allows us to construct the pseudoinverse of a matrix <m>A</m> and then directly solve the least squares problem.
+  </p>
+  <p>
+    If the columns of <m>A</m> are linearly independent,
+    then we do not need to use an SVD to find the pseudoinverse,
+    as the next activity illustrates.
+  </p>
+  <activity xml:id="act_7_b_lin_indep_cols">
+    <p>
+      Having to calculate eigenvalues and eigenvectors for a matrix to produce a singular value decomposition to find pseudoinverse can be computationally intense.
+      As we demonstrate in this activity,
+      the process is easier if the columns of <m>A</m> are linearly independent.
+      More specifically, we will prove the following theorem.
+    </p>
+    <theorem xml:id="thm_7_d_SVD_cols_lin_indep">
+      <statement>
+        <p>
+          If the columns of a matrix <m>A</m> are linearly independent,
+          then <m>A^{+} = \left(A^{\tr}A\right)^{-1}A^{\tr}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      To see how, suppose that <m>A</m> is an
+      <m>m \times n</m> matrix with linearly independent columns.
+      <ul>
+        <li>
+          <p>
+            Given that the columns of <m>A</m> are linearly independent,
+            what must be the relationship between <m>n</m> and <m>m</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            Since the columns of <m>A</m> are linearly independent,
+            it follows that <m>A^{\tr}A</m> is invertible
+            (see <xref ref="act_LS_invertible"></xref>).
+            So the eigenvalues of <m>A^{\tr}A</m> are all non-zero.
+            Let <m>\sigma_1</m>, <m>\sigma_2</m>, <m>\ldots</m>,
+            <m>\sigma_r</m> be the singular values of <m>A</m>.
+            How is <m>r</m> related to <m>n</m>,
+            and what do <m>\Sigma</m> and <m>\Sigma^{+}</m> look like?
+          </p>
+        </li>
+        <li>
+          <p>
+            Let us now investigate the form of the invertible matrix <m>A^{\tr}A</m>
+            (note that neither <m>A</m> nor <m>A^{\tr}</m> is necessarily invertible).
+            If a singular value decomposition of <m>A</m> is <m>U \Sigma V^{\tr}</m>,
+            show that
+            <me>
+              A^{\tr}A = V \Sigma^{\tr} \Sigma V^{\tr}
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>\lambda_i = \sigma_i^2</m> for <m>i</m> from 1 to <m>n</m>.
+            It is straightforward to see that <m>\Sigma^{\tr} \Sigma</m> is an
+            <m>n \times n</m> diagonal matrix <m>D</m>, where
+            <me>
+              D = \Sigma^{\tr} \Sigma = \left[ \begin{array}{ccccc} \lambda_1\amp \amp \amp \amp  \\ \amp  \lambda_2\amp \amp 0\amp  \\ \amp \amp  \lambda_3\amp \amp  \\ \amp   \amp  \amp  \ddots \amp    \\ \amp 0\amp \amp \amp  \lambda_n \end{array}  \right]
+            </me>.
+            Then <m>(A^{\tr}A)^{-1} = VD^{-1}V^{\tr}</m>.
+            Recall that <m>A^{+} = V \Sigma^{+} U^{\tr}</m>,
+            so to relate <m>A^{\tr}A</m> to <m>A^{+}</m> we need a product that is equal to <m>\Sigma^{+}</m>.
+            Explain why
+            <me>
+              D^{-1} \Sigma^{\tr} = \Sigma^{+}
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Complete the activity by showing that
+            <me>
+              \left(A^{\tr}A\right)^{-1} A^{\tr} = A^{+}
+            </me>.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </activity>
+  <p>
+    Therefore, to calculate <m>A^{+}</m> and solve a least squares problem,
+    <xref ref="thm_7_d_SVD_cols_lin_indep"></xref>
+    shows that as long as the columns of <m>A</m> are linearly independent,
+    we can avoid using a singular value decomposition of <m>A</m> in finding <m>A^{+}</m>.
+  </p>
+</section>

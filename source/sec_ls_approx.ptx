@@ -2,143 +2,183 @@
 <section xml:id="sec_ls_approx">
   <title>Least Squares Approximations</title>
   <p>
-    The pseudoinverse of a matrix is also connected to least squares solutions of linear systems as we encountered in <xref ref="sec_orthogonal_basis"></xref>.
-    Recall from <xref ref="sec_orthogonal_basis"></xref>,
-    that if the columns of <m>A</m> are linearly independent,
-    then the least squares solution to
-    <m>A\vx = \vb</m> is <m>\vx = \left(A^{\tr}A\right)^{-1}A^{\tr} \vb</m>.
-    In this section we will see how to use a pseudoinverse to solve a least squares problem,
-    and verify that if the columns of <m>A</m> are linearly dependent,
-    then <m>\left(A^{\tr}A\right)^{-1}A^{\tr}</m> is in fact the pseudoinverse of <m>A</m>.
+  In <xref ref="sec_gram_schmidt"/> we saw that the projection of a vector <m>\vv</m> in <m>\R^n</m> onto a subspace <m>W</m> of <m>\R^n</m> is the best approximation to <m>\vv</m> of all the vectors in <m>W</m>. In fact, if <m>\vv = [v_1 \ v_2 \ \ldots \ v_n]^{\tr}</m> and <m>\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}</m>, then the error in approximating <m>\vv</m> by <m>\vw</m> is given by 
+  <me>|| \vv - \proj_W \vv ||^2 = \sum_{i=1}^m (v_i - w_i)^2</me>.
+  
+  In the context of <xref ref="pa_LS_1"/>, we projected the vector <m>\vb</m> onto the span of  the vectors <m>\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}</m> and <m>\vv_2 = [0 \ 4 \ 8 \ 12]^{\tr}</m>. The projection   minimizes the distance between the vectors in <m>W</m> and the vector <m>\vb</m> (as shown in <xref ref="F_6_f_proj"/>), and also produces a line which minimizes the sums of the squares of the vertical  distances from the line to the data set as illustrated in <xref ref="F_LS_Olympics2"/> with the olympics data. This is why these approximations are called least squares approximations. 
+  </p>
+
+  <figure xml:id="F_LS_Olympics2">
+    <caption>Least squares linear approximation</caption>
+    <image width="50%" source="Regression1"/>
+  </figure>
+
+  <p>
+    While we can always solve least squares problems using projections, we can often avoid having to create an orthogonal basis when fitting functions to data. We work in a more general setting, showing how to fit a polynomial of degree <m>n</m> to a set of data points. Our goal is to fit a polynomial <m>p(x) = a_0+a_1x+a_2x^2+ \cdots + 
+    a_nx^n</m> of degree <m>n</m> to <m>m</m> data points <m>(x_1,y_1)</m>, <m>(x_2,y_2)</m>, <m>\ldots</m>, <m>(x_m,y_m)</m>, no two of which have the same <m>x</m> coordinate. In the unlikely event that the polynomial <m>p(x)</m> actually passes through the <m>m</m> points, then we would have the <m>m</m> equations
+
+    <mdn alignment="alignat">
+      <mrow>y_1 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_1 \amp{}+{} \amp{a_2}x_1^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_1^{n-1} \amp{}+{} \amp{a_n}x_1^n</mrow>
+      <mrow>y_2 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_2 \amp{}+{} \amp{a_2}x_2^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_2^{n-1} \amp{}+{} \amp{a_n}x_2^n</mrow>
+      <mrow>y_3 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_3 \amp{}+{} \amp{a_2}x_3^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_3^{n-1} \amp{}+{} \amp{a_n}x_3^n</mrow>
+      <mrow>{}   \amp{}     \amp{}       \amp{}      \amp{}          \amp{}      \amp{}             \amp{}       \amp\vdots \amp{}     \amp{}                            \amp{}       \amp{}</mrow>          
+      <mrow>y_m \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_m \amp{}+{} \amp{a_2}x_m^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_m^{n-1} \amp{}+{} \amp{a_n}x_m^n</mrow>
+
+    </mdn>
+    in the <m>n+1</m> unknowns <m>a_0</m>, <m>a_1</m>, <m>\ldots</m>, <m>a_{n-1}</m>, and <m>a_n</m>.
+  </p>
+
+  <p>
+    The <m>m</m> data points are known in this situation and the coefficients <m>a_0</m>, <m>a_1</m>, <m>\ldots</m>, <m>a_n</m> are the unknowns. To write the system in matrix-vector form, the coefficient matrix <m>M</m> is
+    <me>M = \left[ \begin{array}{cccccc} 1 \amp x_1 \amp x_1^2\amp \cdots  \amp x_1^{n-1} \amp x_1^{n} \\ 1 \amp x_2 \amp x_2^2\amp \cdots  \amp x_2^{n-1} \amp x_2^{n} \\ 1 \amp x_3 \amp x_3^2\amp \cdots  \amp x_3^{n-1} \amp x_3^{n} \\ \vdots \amp \vdots \amp \vdots \amp \cdots \amp\vdots \amp\vdots \\ 1 \amp x_m \amp x_m^2\amp \cdots  \amp x_m^{n-1} \amp x_m^{n} \end{array} \right]</me>,
+    while the vectors <m>\va</m> and <m>\vy</m> are
+    <me>\va = \left[ \begin{array}{c} a_{0} \\ a_{1} \\ a_{2} \\ \vdots \\ a_{n-1} \\a_{n} \end{array} \right] \text{ and } \vy = \left[ \begin{array}{c} y_{1} \\ y_{2} \\ y_{3} \\ \vdots \\ y_{m-1} \\ y_{m} \end{array} \right]</me>.
+    Letting <m>\vy = [y_1 \ y_2 \ \ldots \ y_m]^{\tr}</m> and <m>\vv_i = [x_1^{i-1} \ x_2^{i-1} \ \ldots \ x_m^{i-1}]^{\tr}</m> for <m>1 \leq i \leq n+1</m>, the vector form of the system is 
+    <me>\vy = a_0\vv_1 + a_1 \vv_2 +  \cdots + a_n \vv_{n+1}</me>.
+  </p>
+
+  <p>
+    Of course, it is unlikely that the <m>m</m> data points already lie on a polynomial of degree <m>n</m>, so the system will usually have no solution. So instead of attempting to find coefficients <m>a_0</m>, <m>a_1</m>, <m>\ldots</m>, <m>a_n</m> that give a solution to this system, which may be impossible, we instead look for a vector that is ``close" to a solution. As we have seen, the vector <m>\proj_{W} \vy</m>, where <m>W</m> is the span of the columns of <m>M</m>, minimizes the sum of the squares of the differences of the components. That is, our desired approximation to a solution to <m>M \vx = \vy</m> is the projection of <m>\vy</m> onto <m>\Col M</m>. Now <m>\proj_W \vy</m> is a linear combination of the columns of <m>M</m>, so <m>\proj_W \vy = M \va^*</m> for some vector <m>\va^*</m>. This vector <m>\va^*</m> then minimizes <m>|| \proj_{\perp W} \vy|| = ||\vy - M \va ||</m>. That is, if we let <m>(M\va)^{\tr} = [b_1 \ b_2 \ b_3 \ \cdots \ b_m]</m>, we are minimizing 
+    <men xml:id="eq_ls_1">
+      ||\vy - M\va||^2 = (y_1-b_1)^2 + (t_2-b_2)^2 + \cdots + (y_m-b_m)^2
+    </men>.
+    The expression <m>||\vy - M\va||^2</m> measures the error in our approximation.
   </p>
   <p>
-    Let <m>U \Sigma V^{\tr}</m> be a singular value decomposition for an
-    <m>m \times n</m> matrix <m>A</m> of rank <m>r</m>.
-    Then the columns of
-    <me>
-      U = [\vu_1 \ \vu_2  \ \cdots  \ \vu_m]
-    </me>
-    form an orthonormal basis for <m>\R^m</m> and
-    <m>\{\vu_1, \vu_2, \ldots, \vu_r\}</m> is a basis for <m>\Col A</m>.
-    Remember from <xref ref="sec_gram_schmidt"></xref>
-    that if <m>\vb</m> is any vector in <m>\R^m</m>, then
-    <me>
-      \proj_{\Col A} \vb = (\vb \cdot \vu_1) \vu_1 + (\vb \cdot \vu_2) \vu_2 + \cdots + (\vb \cdot \vu_r) \vu_r
-    </me>
-    is the least squares approximation of the vector <m>\vb</m> by a vector in <m>\Col A</m>.
-    We can extend this sum to all of columns of <m>U</m> as
-    <me>
-      \proj_{\Col A} \vb = (\vb \cdot \vu_1) \vu_1 + (\vb \cdot \vu_2) \vu_2 + \cdots + (\vb \cdot \vu_r) \vu_r + 0 \vu_{r+1} + 0 \vu_{r+2} + \cdots + 0 \vu_m
-    </me>.
+    The question we want to answer is how we can find the vector <m>\va^*</m> that minimizes <m>||\vy -M\va||</m> in a way that is more convenient than computing a projection. We answer this question in a general setting in the next activity. 
+
   </p>
-  <p>
-    It follows that
-    <md>
-      <mrow>\proj_{\Col A} \vb \amp = \sum_{i=1}^r \vu_i (\vu_i \cdot \vb)</mrow>
-      <mrow>\amp = \sum_{i=1}^r \vu_i (\vu_i^{\tr}\vb)</mrow>
-      <mrow>\amp = \sum_{i=1}^r (\vu_i\vu_i^{\tr}) \vb</mrow>
-      <mrow>\amp = \left(\sum_{i=1}^r (1)(\vu_i\vu_i^{\tr})\right)\vb + \left(\sum_{i=r+1}^m 0(\vu_i\vu_i^{\tr})\right) \vb</mrow>
-      <mrow>\amp = (UDU^{\tr}) \vb</mrow>
-    </md>,
-    where
-    <me>
-      D = \left[ \begin{array}{c|c} I_r \amp  \vzero \\ \hline \vzero \amp  \vzero \end{array}  \right]
-    </me>.
-  </p>
-  <p>
-    Now, if <m>\vz = A^{+} \vb</m>, then
-    <me>
-      A\vz = (U\Sigma V^{\tr})(V \Sigma^+ U^{\tr} \vb) = (U \Sigma \Sigma^+ U^{\tr})\vb = (UDU^{\tr})\vb = \proj_{\Col A} \vb
-    </me>,
-    and hence the vector <m>A \vz = AA^+ \vb</m> is the vector <m>A\vx</m> in <m>\Col A</m> that minimizes <m>||A \vx - \vb||</m>.
-    Thus, <m>A\vz</m> is in actuality the least squares approximation to <m>\vb</m>.
-    So a singular value decomposition allows us to construct the pseudoinverse of a matrix <m>A</m> and then directly solve the least squares problem.
-  </p>
-  <p>
-    If the columns of <m>A</m> are linearly independent,
-    then we do not need to use an SVD to find the pseudoinverse,
-    as the next activity illustrates.
-  </p>
-  <activity xml:id="act_7_b_lin_indep_cols">
-    <p>
-      Having to calculate eigenvalues and eigenvectors for a matrix to produce a singular value decomposition to find pseudoinverse can be computationally intense.
-      As we demonstrate in this activity,
-      the process is easier if the columns of <m>A</m> are linearly independent.
-      More specifically, we will prove the following theorem.
-    </p>
-    <theorem xml:id="thm_7_d_SVD_cols_lin_indep">
+
+  <activity xml:id="act_LS_matrices">
+    <introduction>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix and let <m>\vb</m> be in <m>\R^m</m>. Let <m>W = \Col A</m>. Then <m>\proj_W \vb</m> is in <m>\Col A</m>, so let <m>\vx^*</m> be in <m>\R^{n}</m> such that <m>A\vx^* = \proj_W \vb</m>. 
+      </p>
+    </introduction>
+    <task>
       <statement>
         <p>
-          If the columns of a matrix <m>A</m> are linearly independent,
-          then <m>A^{+} = \left(A^{\tr}A\right)^{-1}A^{\tr}</m>.
+          Explain why <m>\vb - A\vx^*</m> is orthogonal to every vector of the form <m>A\vx</m>, for any <m>\vx</m> in <m>\R^{n}</m>. That is, <m>\vb - A\vx^*</m> is orthogonal to <m>\Col A</m>. 
         </p>
       </statement>
-    </theorem>
-    <p>
-      To see how, suppose that <m>A</m> is an
-      <m>m \times n</m> matrix with linearly independent columns.
-      <ul>
-        <li>
-          <p>
-            Given that the columns of <m>A</m> are linearly independent,
-            what must be the relationship between <m>n</m> and <m>m</m>?
-          </p>
-        </li>
-        <li>
-          <p>
-            Since the columns of <m>A</m> are linearly independent,
-            it follows that <m>A^{\tr}A</m> is invertible
-            (see <xref ref="act_LS_invertible"></xref>).
-            So the eigenvalues of <m>A^{\tr}A</m> are all non-zero.
-            Let <m>\sigma_1</m>, <m>\sigma_2</m>, <m>\ldots</m>,
-            <m>\sigma_r</m> be the singular values of <m>A</m>.
-            How is <m>r</m> related to <m>n</m>,
-            and what do <m>\Sigma</m> and <m>\Sigma^{+}</m> look like?
-          </p>
-        </li>
-        <li>
-          <p>
-            Let us now investigate the form of the invertible matrix <m>A^{\tr}A</m>
-            (note that neither <m>A</m> nor <m>A^{\tr}</m> is necessarily invertible).
-            If a singular value decomposition of <m>A</m> is <m>U \Sigma V^{\tr}</m>,
-            show that
-            <me>
-              A^{\tr}A = V \Sigma^{\tr} \Sigma V^{\tr}
-            </me>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Let <m>\lambda_i = \sigma_i^2</m> for <m>i</m> from 1 to <m>n</m>.
-            It is straightforward to see that <m>\Sigma^{\tr} \Sigma</m> is an
-            <m>n \times n</m> diagonal matrix <m>D</m>, where
-            <me>
-              D = \Sigma^{\tr} \Sigma = \left[ \begin{array}{ccccc} \lambda_1\amp \amp \amp \amp  \\ \amp  \lambda_2\amp \amp 0\amp  \\ \amp \amp  \lambda_3\amp \amp  \\ \amp   \amp  \amp  \ddots \amp    \\ \amp 0\amp \amp \amp  \lambda_n \end{array}  \right]
-            </me>.
-            Then <m>(A^{\tr}A)^{-1} = VD^{-1}V^{\tr}</m>.
-            Recall that <m>A^{+} = V \Sigma^{+} U^{\tr}</m>,
-            so to relate <m>A^{\tr}A</m> to <m>A^{+}</m> we need a product that is equal to <m>\Sigma^{+}</m>.
-            Explain why
-            <me>
-              D^{-1} \Sigma^{\tr} = \Sigma^{+}
-            </me>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Complete the activity by showing that
-            <me>
-              \left(A^{\tr}A\right)^{-1} A^{\tr} = A^{+}
-            </me>.
-          </p>
-        </li>
-      </ul>
-    </p>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Let <m>\va_i</m> be the <m>i</m>th column of <m>A</m>. Explain why <m>\va_i \cdot \left(\vb - A\vx^*\right) = 0</m>. From this, explain why <m>A^{\tr}\left(\vb - A\vx^*\right) = 0</m>. 
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          From the previous part, show that <m>\vx^*</m> satisfies the equation
+          <me>
+            A^{\tr}A\vx^* = A^{\tr}\vb
+          </me>.
+          
+        </p>
+      </statement>
+    </task>
   </activity>
+
   <p>
-    Therefore, to calculate <m>A^{+}</m> and solve a least squares problem,
-    <xref ref="thm_7_d_SVD_cols_lin_indep"></xref>
-    shows that as long as the columns of <m>A</m> are linearly independent,
-    we can avoid using a singular value decomposition of <m>A</m> in finding <m>A^{+}</m>.
+    The result of <xref ref="act_LS_matrices"/> is that we can now do least squares polynomial approximations with just matrix operations. We summarize this in the following theorem.
+  </p>
+  
+  <theorem xml:id="thm_6_f_least_squares_1">
+    <statement>
+      <p>
+        The least squares solutions to the system <m>A \vx = \vb</m> are the solutions to the corresponding system 
+        <men xml:id="eq_6_f_normal_equations">
+          A^{\tr}A\vx = A^{\tr}\vb
+        </men>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    The equations in the system <xref ref="eq_6_f_normal_equations"/> are called the <term>normal equations</term> for <m>A \vx = \vb</m>. To illustrate, with the Olympics data, our data points are <m>(0, 894)</m>, <m>(4, 1180)</m>, <m>(8, 1226)</m>, <m>(12,1418)</m> with <m>\vy = [894 \ 1180 \ 1226 \ 1418]^{\tr}</m>. So <m>M = \left[ \begin{array}{cc} 1\amp0 \\ 1\amp4 \\ 1\amp8 \\ 1\amp12 \end{array} \right]</m>. Notice that <m>M^{\tr}M</m> is invertible, to find the degree 1 approximation to the data, technology shows that 
+    <me>\va^* = \left(M^{\tr}M\right)^{-1}M^{\tr}\vy = \left[ \frac{4684}{5} \ \frac{809}{20}\right]</me>
+    just as in <xref ref="pa_LS_1"/>. 
+  </p>
+  
+  <activity>
+    <statement>
+      <p>
+        Now use the least squares method to find the best polynomial approximations (in the least squares sense) of degrees 2 and 3 for the Olympics data set in <xref ref="T_LS_Olympics"/>. Which polynomial seems to give the <q>best</q> fit? Explain why. Include a discussion of the errors in your approximations. Use your <q>best</q> least squares approximation to estimate how much NBC might pay for the television rights to the 2024 Olympic games. Use technology as appropriate.
+      </p>
+    </statement>
+  </activity>
+
+  <p>
+    The solution with our Olympics data gave us the situation where <m>M^{\tr}M</m> was invertible. This corresponded to a unique least squares solution <m>\left(M^{\tr}M\right)^{-1}M^{\tr}\vy</m>. It is reasonable to ask when this happens in general. To conclude this section, we will demonstrate that if the columns of a matrix <m>A</m> are linearly independent, then <m>A^{\tr}A</m> is invertible.
+  </p>
+
+  <activity xml:id="act_LS_invertible">
+    <introduction>
+      <p>
+        Let <m>A</m> be an <m>m \times n</m> matrix with linearly independent columns.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          What must be the relationship between <m>m</m> and <m>n</m>? Explain. 
+        </p>
+      </statement>
+    </task>
+    <task>
+      <introduction>
+        <p>
+          We know that an <m>n \times n</m> matrix <m>M</m> is invertible if and only if the only solution to the homogeneous system <m>M \vx = \vzero</m> is <m>\vx = \vzero</m>. Note that <m>A^{\tr}A</m> is an <m>n \times n</m> matrix. Suppose that <m>A^{\tr}A \vx = \vzero</m> for some <m>\vx</m> in <m>\R^n</m>. 
+        </p>
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            Show that <m>||A\vx|| = 0</m>.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            What is <m>\vx^{\tr} (A^{\tr}A \vx)</m>?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What does <m>||A\vx|| = 0</m> tell us about <m>\vx</m> in relation to <m>\Nul A</m>? Why?
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What is <m>\Nul A</m>? Why? What does this tell us about <m>\vx</m> and then about <m>A^{\tr}A</m>?
+          </p>
+        </statement>
+      </task>
+    </task>
+  </activity>
+
+  <p>
+    We summarize the result of <xref ref="act_LS_invertible"/> in the following theorem.
+  </p>
+
+  <theorem xml:id="thm_6_f_least_squares_2">
+    <statement>
+      <p>
+        If the columns of <m>A</m> are linearly independent, then the least squares solution <m>\vx^*</m> to the system <m>A \vx = \vb</m> is
+        <me>\vx^* = \left(A^{\tr}A\right)^{-1}A^{\tr}\vb</me>.
+      </p>
+    </statement>
+  </theorem>
+  
+  <p>
+    If the columns of <m>A</m> are linearly dependent, we can still solve the normal equations, but will obtain more than one solution. In a later section we will see that we can also use a pseudoinverse in these situations. 
   </p>
 </section>
