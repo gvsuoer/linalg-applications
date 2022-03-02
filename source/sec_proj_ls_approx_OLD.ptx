@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<section xml:id="sec_proj_ls_approx">
+<section xml:id="sec_proj_ls_approx_other">
   <title>Project: Other Least Squares Approximations</title>
   <p>
     In this section we learned how to fit a polynomial function to a set of data in the least squares sense.
@@ -7,11 +7,12 @@
     so it is important to be able to fit other types of functions to data sets.
     We investigate three different types of regression problems in this project.
   </p>
+
   <project>
     <introduction>
     <p>
-      The length of a species of fish is to be represented as a function of the age and water temperature as shown in the table on the next page.<fn>
-      Data from <em>Mathematical Algorithms for Linear Regression</em>, Helmut Spaeth, Academic Press, 1991, page 305, ISBN 0-12-656460-4.
+      The length of a species of fish is to be represented as a function of the age and water temperature as shown in the table on the next page.<fn> <!-- Except it might not be -->
+      Data from <pubtitle>Mathematical Algorithms for Linear Regression</pubtitle>, Helmut Spaeth, Academic Press, 1991, page 305, ISBN 0-12-656460-4.
       </fn> The fish are kept in tanks at 25, 27, 29 and 31 degrees Celsius.
       After birth,
       a test specimen is chosen at random every 14 days and its length measured.
@@ -51,8 +52,10 @@
       This is an example of what is called multiple linear regression.
       A scatterplot of the data, along with the best fit plane,
       is also shown.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             As we did when we fit polynomials to data,
             we start by considering what would happen if all of our data points satisfied our model function.
@@ -62,14 +65,18 @@
             (You don't need to write 44 different equations,
             just explain the general form of the system.)
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Write the system from (a) in the form <m>M \va = \vz</m>,
             and specifically identify the matrix <m>M</m> and the vectors <m>\va</m> and <m>\vz</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The same derivation as with the polynomial regression models shows that the vector <m>\va^*</m> that minimizes <m>||\vz - M\va||</m> is found by
             <me>
@@ -77,30 +84,28 @@
             </me>,
             Use this to find the least squares fit of the form <m>f(x,y) = ax+by+c</m> to the data.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Provide a numeric measure of how well this model function fits the data.
             Explain.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </project>
+
   <sidebyside>
-    <tabular>
-      <row>
+    <tabular halign="center">
+      <row bottom="medium">
         <cell>Index</cell>
         <cell>Age</cell>
         <cell>Temp (<m>^\circ</m>C)</cell>
         <cell>Length</cell>
       </row>
-      <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-      </row>
+      
       <row>
         <cell>1</cell>
         <cell>14</cell>
@@ -368,7 +373,9 @@
     </tabular>
     <image width="50%" source="Multi_linear.png"/>
   </sidebyside>
+
   <project>
+    <statement>
     <p>
       Population growth is typically not well modeled by polynomial functions.
       Populations tend to grow at rates proportional to the population,
@@ -379,67 +386,44 @@
     </p>
     <table xml:id="T_7_d_US_population">
       <title>U.S. population</title>
-      <tabular>
+      <tabular left="minor">
+        <col top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+        <col halign="center" top="minor"/>
+
         <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
+          <cell right="medium">Year</cell>
+          <cell right="minor">1920</cell>
+          <cell right="minor">1930</cell>
+          <cell right="minor">1940</cell>
+          <cell right="minor">1950</cell>
+          <cell right="minor">1960</cell>
+          <cell right="minor">1970</cell>
+          <cell right="minor">1980</cell>
+          <cell right="minor">1990</cell>
+          <cell right="minor">2000</cell>
         </row>
-        <row>
-          <cell>Year</cell>
-          <cell>1920</cell>
-          <cell>1930</cell>
-          <cell>1940</cell>
-          <cell>1950</cell>
-          <cell>1960</cell>
-          <cell>1970</cell>
-          <cell>1980</cell>
-          <cell>1990</cell>
-          <cell>2000</cell>
-        </row>
+        
         <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
+          <cell right="medium">Population</cell>
+          <cell right="minor">106</cell>
+          <cell right="minor">123</cell>
+          <cell right="minor">142</cell>
+          <cell right="minor">161</cell>
+          <cell right="minor">189</cell>
+          <cell right="minor">213</cell>
+          <cell right="minor">237</cell>
+          <cell right="minor">259</cell>
+          <cell right="minor">291</cell>
         </row>
-        <row>
-          <cell>Population</cell>
-          <cell>106</cell>
-          <cell>123</cell>
-          <cell>142</cell>
-          <cell>161</cell>
-          <cell>189</cell>
-          <cell>213</cell>
-          <cell>237</cell>
-          <cell>259</cell>
-          <cell>291</cell>
-        </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
+        
       </tabular>
     </table>
     <p>
@@ -459,12 +443,16 @@
       If your prediction is not very close,
       give some plausible explanations for the difference.
     </p>
+    </statement>
   </project>
+
   <figure xml:id="F_ellipse">
     <caption>Best fit ellipse.</caption>
     <image width="50%" source="ellipse_plot"/>
   </figure>
+
   <project>
+    <introduction>
     <p>
       Carl Friedrich Gauss is often credited with inventing the method of least squares.
       He used the method to find a best-fit ellipse which allowed him to correctly predict the orbit of the asteroid Ceres as it passed behind the sun in 1801. (Adrien-Marie Legendre appears to be the first to publish the method,
@@ -484,31 +472,35 @@
     </p>
     <p>
       A picture of the best fit ellipse is shown in <xref ref="F_ellipse"></xref>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find the system of linear equations that would result if the ellipse <xref ref="eq_ellipse"/> were to exactly pass through the given points.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Write the linear system from part (a) in the form <m>A \vx = \vb</m>,
             where the vector <m>\vx</m> contains the unknowns in the system.
             Clearly identify <m>A</m>, <m>\vx</m>, and <m>\vb</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the least squares ellipse to this set of points.
             Make sure your method is clear. (Note that we are really fitting a surface of the form
             <m>f(x,y) = x^2 + By^2 + Cxy + Dx + Ey + F</m> to a set of data points in the <m>xy</m>-plane.
             So the error is the sum of the vertical distances from the points in the <m>xy</m>-plane to the surface.)
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </project>
-  <p>
-    \part{Applications of Orthogonality}
-  </p>
+ 
 </section>
