@@ -26,7 +26,9 @@
       The goal is to reproduce the original signal <m>\vx</m> from the received signal <m>\vy</m>.
       This is where the QR decomposition comes into play.
     </p>
-    <activity xml:id="act_QR_example_1">
+
+    <project xml:id="act_QR_example_1">
+      <introduction>
       <p>
         To see why and how the QR decomposition is used in MIMO systems,
         we begin with an example.
@@ -35,13 +37,17 @@
         From this point,
         to simplify the situation we assume that noise is negligible and consider the system <m>\vy = H\vx</m>.
         Assume that the received signal is <m>\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]</m>.
-        <ul>
-          <li>
+      </p>
+      </introduction>
+        <task>
+          <statement>
             <p>
               Show that the system <m>H \vx = \vy</m> is inconsistent.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               When we receive a signal, we need to interpret it,
               and that is difficult if we cannot find a solution.
@@ -58,8 +64,10 @@
                 Q^{\tr} \vy = R\vx
               </men>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Return to our example of <m>H = \left[ \begin{array}{cc} 2\amp 1\\2\amp 1\\1\amp 5 \end{array}  \right]</m>.
               Assume that
@@ -68,10 +76,11 @@
               </me>.
               Use <xref ref="eq_QR_system_example"/> to find <m>\vx</m> if <m>\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </activity>
+          </statement>
+        </task>
+      
+    </project>
+
     <p>
       In <xref ref="act_QR_example_1"></xref>
       we saw that a QR decomposition allows us to replace the system
@@ -82,6 +91,7 @@
       This is the focus of the remainder of this project.
     </p>
   </introduction>
+
   <subsection>
     <title>Householder Transformations and the QR Decomposition</title>
     <p>
@@ -116,9 +126,10 @@
         </li>
       </ul>
     </p>
+
     <p>
       The first step in a QR decomposition using Householder matrices is to create a matrix that is upper triangular.
-      To get to this form, we use a <em>Householder transformation</em>.
+      To get to this form, we use a <term>Householder transformation</term>.
       A Householder transformation
       (or matrix)
       is a matrix of the form
@@ -127,11 +138,15 @@
       </me>,
       where <m>\vv</m> is a vector in <m>\R^n</m> and <m>I</m> is the <m>n \times n</m> identity matrix.
     </p>
-    <activity>
+
+    <project>
+      <introduction>
       <p>
         We will discover some properties of Householder transformations in this activity.
-        <ul>
-          <li>
+      </p>
+      </introduction>
+        <task>
+          <statement>
             <p>
               Let <m>\vx</m> be any vector and let <m>\vy</m> be a unit vector.
               In this part of the exercise we show that,
@@ -142,14 +157,7 @@
                 H \vx = -\sigma \vy
               </me>
               for some scalar <m>\sigma</m>.
-              <hint>
-                <p>
-                  Let <m>\sigma = ||\vx||</m>, and let <m>\vv = \vx + \sigma \vy</m>.
-                  Apply <m>H</m> to <m>\vx</m>,
-                  factor out <m>\vx + \sigma \vy</m>,
-                  and ultimately show that <m>H \vx = -\sigma \vy</m>.
-                </p>
-              </hint>
+              
               A similar argument shows that <m>H (\vx - \sigma \vy) = \sigma \vy</m>.
               Letting <m>\vy = \ve_1</m> gives us the following result.
               <lemma xml:id="lem_Householder">
@@ -162,16 +170,27 @@
                 </statement>
               </lemma>
             </p>
-          </li>
-          <li>
+          </statement>
+          <hint>
+            <p>
+              Let <m>\sigma = ||\vx||</m>, and let <m>\vv = \vx + \sigma \vy</m>.
+              Apply <m>H</m> to <m>\vx</m>,
+              factor out <m>\vx + \sigma \vy</m>,
+              and ultimately show that <m>H \vx = -\sigma \vy</m>.
+            </p>
+          </hint>
+        </task>
+        <task>
+          <statement>
             <p>
               The Householder matrix <m>H</m> has two other important properties.
               Show that <m>H</m> is symmetric and orthogonal.
             </p>
-          </li>
-        </ul>
-      </p>
-    </activity>
+          </statement>
+        </task>
+      
+    </project>
+
     <p>
       There are many advantages to using Householder matrices.
       One is that instead of having to store all entries of the matrix <m>H = I - 2 \frac{\vv \vv^{\tr}}{||\vv||^2}</m>,
@@ -180,7 +199,9 @@
       The next project activity shows how to use <xref ref="lem_Householder">Lemma</xref>
       and Householder transformations to compute a QR decomposition through an example.
     </p>
-    <activity xml:id="act_MIMO_Householder">
+
+    <project xml:id="act_MIMO_Householder">
+      <introduction>
       <p>
         Assume that we have five receiving antennas and three transmitting antennas, and that
         <me>
@@ -190,8 +211,10 @@
       <p>
         (We use <m>A</m> now instead of <m>H</m> so as to avoid confusion with Householder matrices.) The calculations in this activity can get rather messy,
         so use appropriate technology and round entries to four decimal places to the right of the decimal.
-        <ul>
-          <li>
+      </p>
+      </introduction>
+        <task>
+          <statement>
             <p>
               Let <m>\vx_1</m> be the first column of <m>A</m>.
               Identify an appropriate Householder transformation <m>H_1</m> so that <m>H_1 \vx</m> is a constant multiple of <m>[1 \ 0 \ 0 \ 0 \ 0]^{\tr}</m>.
@@ -203,20 +226,26 @@
               We won't go into the details,
               but this helps prevent problems due to cancellation,)
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <introduction>
             <p>
               Next we consider just the bottom right <m>4 \times 2</m> portion
               <m>\hat{A}_2</m> of the matrix <m>A_1</m> found in part (a).
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     Repeat the process on <m>\hat{A}_2</m> to find a Householder matrix
                     <m>\hat{H}_2</m> that will make the first column of
                     <m>\hat{A}_2</m> have all zeros below its first entry.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+              <task>
+                <statement>
                   <p>
                     Let
                     <me>
@@ -224,22 +253,26 @@
                     </me>.
                     Explain what the matrix <m>A_2 = H_2H_1A</m> is.
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
+                </statement>
+              </task>
+        </task>
+        <task>
+          <introduction>
             <p>
               As a final step,
               we consider just the bottom right <m>3 \times 1</m> portion
               <m>\hat{A}_3</m> of the matrix <m>A_2</m> and repeat the process.
-              <ol label="i">
-                <li>
+            </p>
+          </introduction>
+              <task>
+                <statement>
                   <p>
                     Find a matrix <m>\hat{H}_3</m> that produces zeros below the first entry.
                   </p>
-                </li>
-                <li>
+                </statement>
+              </task>
+              <task>
+                <statement>
                   <p>
                     Let
                     <me>
@@ -248,19 +281,20 @@
                     What matrix is <m>H_3H_2H_1A</m>?
                     Why?
                   </p>
-                </li>
-              </ol>
-            </p>
-          </li>
-          <li>
+                </statement>
+              </task>
+        </task>
+        <task>
+          <statement>
             <p>
               Explain why <m>Q = H_1H_2H_3</m> is an orthogonal matrix.
               Then find an upper triangular matrix <m>R</m> such that <m>A = QR</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </activity>
+          </statement>
+        </task>
+      
+    </project>
+
     <p>
       <xref ref="act_MIMO_Householder"></xref>
       illustrates the general method for finding a QR decomposition of a matrix <m>A</m> by using Householder transformations to reduce <m>A</m> to an upper triangular matrix <m>R</m>.
@@ -274,7 +308,7 @@
       <m>3 \times 3</m> from the work we did in <xref ref="act_MIMO_Householder"></xref>,
       we can simply delete the last two columns of the matrix <m>Q</m> and the last two rows of the matrix <m>R</m> we calculated.
       This smaller QR decomposition is often referred to as a
-      <em>thin</em> QR decomposition.
+      <term>thin</term> QR decomposition.
     </p>
   </subsection>
 </section>

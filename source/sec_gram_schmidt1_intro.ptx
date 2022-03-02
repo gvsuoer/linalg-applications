@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<section xml:id="sec_gram_schmidt_intro">
+  <title>Introduction</title>
+  <p>
+    In many situations (least squares approximations, for example) want to find a vector <m>\vw</m> in a subspace <m>W</m> of <m>\R^n</m> that is the <q>best</q> approximation to a vector <m>\vv</m> not in the subspace. A natural measure of <q>best</q> is to find a vector <m>\vw</m>in <m>W</m> if one exists, such that the distance from <m>\vw</m> to <m>\vu</m> is a minimum. This means we want to find <m>\vw</m> so that the quantity
+    <me>
+      ||\vw - \vu ||
+    </me>
+    is as small as possible over all vectors <m>\vw</m> in <m>W</m> To do this, we will need to find a suitable projection of the vector <m>\vv</m> onto the subspace <m>W</m> We have already done this in the case that <m>W = \Span\{\vw_1\}</m> is the span of a single vector -- we can project the vector <m>\vv</m> in the direction of <m>\vw_1</m>. Our goal is to generalize this to project a vector <m>\vv</m> onto an entire subspace in a useful way. 
+  </p>
+
+  <exploration xml:id="pa_6_e_1">
+    <introduction>
+      <p>
+        Let <m>\CB = \{\vw_1, \vw_2\}</m> be a basis for a subspace <m>W</m> of <m>\R^3</m> where <m>\vw_1 = [1 \ 0 \ 0]^{\tr}</m> and <m>\vw_2 = [0 \ 1 \ 0]^{\tr}</m> Note that <m>\CB</m> is an orthonormal basis for <m>W</m> Let <m>\vv = [1 \ 2 \ 1]^{\tr}</m> Note that <m>W</m> is the <m>xy</m>plane and that <m>\vv</m> is not in <m>W</m> as illustrated in <xref ref="F_6_d_o_proj"/>.
+      </p>
+      <figure xml:id="F_6_d_o_proj">
+        <caption>The space <m>W</m> and vectors <m>\vw_1</m>, <m>\vw_2</m>, and <m>\vv</m>.</caption>
+        <image width="50%" source="6_d_O_proj"/>
+      </figure>
+    </introduction>
+
+    <task>
+      <statement>
+        <p>
+          Find the projection <m>\vu_1</m>of <m>\vv</m>onto <m>W_1 = \Span\{\vw_1\}</m> 
+        </p>
+      </statement>
+      <hint>
+        <p>
+           See Equation <xref ref="eq_6_a_projection"/>.
+        </p>
+      </hint>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Find the projection <m>\vu_2</m>of <m>\vv</m>onto <m>W_2 = \Span\{\vw_2\}</m>
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Calculate the distance between <m>\vv</m>and <m>\vu_1</m>and <m>\vv</m>and <m>\vu_2</m> Which of <m>\vu_1</m>and <m>\vu_2</m>is closer to <m>\vv</m>?
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Show that the vector <m>\frac{3}{4} [1 \ 2 \ 0]^{\tr}</m>is in <m>W</m>and find the distance between <m>\vv</m>and <m>\frac{3}{4} [1 \ 2 \ 0]^{\tr}</m>
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          Part (4) shows that neither vector <m>\vu_1 = \proj_{\vw_1} \vv</m>nor <m>\vu_2 = \proj_{\vw_2} \vv</m>is the vector in <m>W</m>that is closest to <m>\vv</m> We should probably expect this neither projection uses the fact that the other vector might contribute to the closest vector. Let us instead consider the sum <m>\vu_3 = \vu_1+\vu_2</m> Calculate the components of this vector <m>\vu_3</m>and determine the distance between <m>\vu_3</m>and <m>\vv</m> Which of the three vectors <m>\vu_1</m> <m>\vu_2</m> and <m>\vu_3</m>in <m>W</m>is closest to <m>\vv</m>?  
+        </p>
+      </statement>
+    </task>
+
+    <task>
+      <statement>
+        <p>
+          A picture of <m>\vw_1</m> <m>\vw_2</m> <m>W</m> and <m>\vv</m>is shown in <xref ref="F_6_d_o_proj"/>. Draw in <m>\vu_1</m> <m>\vu_2</m> and <m>\vu_3</m> Draw a picture of the vector <m>\vw</m>in <m>W</m>that appears to be closest to <m>\vv</m> Does this vector seem to have any relationship to <m>\vu_1</m> <m>\vu_2</m> or <m>\vu_3</m>? If yes, what relationship do you see?
+        </p>
+      </statement>
+    </task>
+  </exploration>
+</section>

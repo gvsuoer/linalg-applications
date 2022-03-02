@@ -4,31 +4,24 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>W</m> be the subspace of <m>\R^4</m> spanned by <m>\vw_1 = [1 \ 0 \ 0 \ 0]^{\tr}</m>,
         <m>\vw_2 = [1 \ 1 \ 1 \ 0]^{\tr}</m>,
         and <m>\vw_3 = [1 \ 2 \ 0 \ 1]^{\tr}</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Use the Gram-Schmidt process to find an orthonormal basis for the subspace <m>W</m> of <m>\R^4</m> spanned by <m>\vw_1 = [1 \ 0 \ 0 \ 0]^{\tr}</m>,
               <m>\vw_2 = [1 \ 1 \ 1 \ 0]^{\tr}</m>,
               and <m>\vw_3 = [1 \ 2 \ 0 \ 1]^{\tr}</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              Find a QR factorization of the matrix <m>A = \left[ \begin{array}{cccc} 1\amp 1\amp 1\amp 0 \\ 0\amp 1\amp 2\amp 0 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1 \end{array} \right]</m>.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               First note that <m>\vw_1</m>,
               <m>\vw_2</m>, and <m>\vw_3</m> are linearly independent.
@@ -51,8 +44,15 @@
               </me>
               is an orthonormal basis for <m>W</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find a QR factorization of the matrix <m>A = \left[ \begin{array}{cccc} 1\amp 1\amp 1\amp 0 \\ 0\amp 1\amp 2\amp 0 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1 \end{array} \right]</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               Technology shows that the reduced row echelon form of <m>A</m> is <m>I_4</m>,
               so the columns of <m>A</m> are linearly independent and <m>A</m> has rank <m>4</m>.
@@ -85,11 +85,11 @@
                 R = \left[  \begin{array}{cccc} 1\amp 1\amp 1\amp 0 \\ 0\amp \sqrt{2}\amp \sqrt{2}\amp 0 \\ 0\amp 0\amp \sqrt{3}\amp \frac{\sqrt{3}}{3} \\ 0\amp 0\amp 0\amp \frac{\sqrt{6}}{3} \end{array}  \right]
               </me>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
+
   <example>
     <statement>
       <p>
@@ -97,11 +97,10 @@
         Find the vector in <m>W</m> that is closest to the vector <m>[1 \ 1 \ 1 \ 1]^{\tr}</m>.
         Provide a numeric measure of the error in approximating <m>[1 \ 1 \ 1 \ 1]^{\tr}</m> by this vector.
       </p>
+    </statement>
+    <solution>
       <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
-            <p>
+     
               Our job is to find <m>\proj_{W} [1 \ 1 \ 1 \ 1]^{\tr}</m>.
               To do this, we need an orthogonal basis of <m>W</m>.
               Let <m>\vv_1 = [1  \ 0 \ 1 \ 0]^{\tr}</m>,
@@ -136,10 +135,8 @@
                 ||\proj_{W^{\perp}} \vz || = ||[1 \ 1 \ 1 \ 1]^{\tr} - [1 \ 0 \ 1 \ 1]^{\tr}|| = ||[0 \ 1 \ 0 \ 0]^{\tr}|| = 1
               </me>,
               so <m>[1 \ 0 \ 1 \ 1]^{\tr}</m> is one unit away from <m>\vz = [1 \ 1 \ 1 \ 1]^{\tr}</m>.
-            </p>
-          </li>
-        </ul>
+     
       </p>
-    </statement>
+    </solution>
   </example>
 </section>
