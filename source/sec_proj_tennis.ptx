@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_proj_tennis">
   <title>Project: The Tennis Racket Theorem</title>
+  <idx><h>moment of inertia</h></idx>
   <p>
     If a particle of mass <m>m</m> and velocity <m>v</m> is moving in a straight line,
     its kinetic energy <m>KE</m> is given by <m>KE = \frac{1}{2}mv^2</m>.
@@ -11,8 +12,7 @@
     where <m>r</m> is the radius of the particle's circular path.
     Substituting into the kinetic energy formula shows that the kinetic energy of the rotating particle is then <m>KE = \frac{1}{2}\left(mr^2\right) \omega^2</m>.
     The quantity <m>mr^2</m> is called the
-    <em>moment of inertia</em>
-        <idx><h>moment of inertia</h></idx>
+    <term>moment of inertia</term>
     of the particle and is denoted by <m>I</m>.
     So <m>KE = \frac{1}{2}I\omega^2</m> for a rotating particle.
     Notice that the larger the value of <m>r</m>, the larger the inertia.
@@ -28,8 +28,8 @@
     we are interested in rigid bodies as they move through space.
     Any rigid body in three space has three principal axes about which it likes to spin.
     These axes are at right angles to each other and pass through the center of mass.
-    Think of enclosing the object in an ellipsoid <mdash/> the longest axis is the <em>primary</em> axis,
-    the middle axis is the <em>intermediate</em> axis,
+    Think of enclosing the object in an ellipsoid <mdash/> the longest axis is the <term>primary</term> axis,
+    the middle axis is the <term>intermediate</term> axis,
     and the third axis is the third axis.
     As a rigid body moves through space,
     it rotates around these axes and there is inertia along each axis.
@@ -56,17 +56,19 @@
     and <m>\omega_3</m> are the components of the angular velocity along each axis.
     When there is no torque applied,
     using a principal orthogonal coordinates, Euler's equation tells us that
-    <md>
-      <mrow xml:id="eq_Euler_1" number="yes">I_1 \dot{\omega}_1 \amp = (I_2-I_3) \omega_2 \omega_3</mrow>
-      <mrow xml:id="eq_Euler_2" number="yes">I_2 \dot{\omega}_2 \amp = (I_3-I_1) \omega_3 \omega_1</mrow>
-      <mrow xml:id="eq_Euler_3" number="yes">I_3 \dot{\omega}_3 \amp = (I_1-I_2) \omega_1 \omega_2</mrow>
-    </md>.
+    <mdn>
+      <mrow xml:id="eq_Euler_1">I_1 \dot{\omega}_1 \amp = (I_2-I_3) \omega_2 \omega_3</mrow>
+      <mrow xml:id="eq_Euler_2">I_2 \dot{\omega}_2 \amp = (I_3-I_1) \omega_3 \omega_1</mrow>
+      <mrow xml:id="eq_Euler_3">I_3 \dot{\omega}_3 \amp = (I_1-I_2) \omega_1 \omega_2</mrow>
+    </mdn>.
   </p>
   <p>
     (The dots indicate a derivative with respect to time,
     which is common notation in physics.) We will use Euler's equations to understand the Tennis Racket Theorem.
   </p>
-  <activity xml:id="act_TRT_axes1">
+
+  <project xml:id="act_TRT_axes1">
+    <introduction>
     <p>
       To start, we consider rotation around the first principal axis.
       Our goal is to show that rotation around this axis is stable.
@@ -75,16 +77,20 @@
       In general, the product of two small quantities will be much smaller,
       so <xref ref="eq_Euler_1"/> implies that <m>\dot{\omega}_1</m> must be very small.
       So we can disregard <m>\dot{\omega}_1</m> in our calculations.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Differentiate <xref ref="eq_Euler_2"/> with respect to time to explain why
             <me>
               I_2 \ddot{\omega}_2 \approx (I_3-I_1)  \dot{\omega}_3 \omega_1
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Substitute for <m>\dot{\omega}_3</m> from <xref ref="eq_Euler_3"/> to show that
             <m>\omega_2</m> is an approximate solution to
@@ -93,8 +99,10 @@
             </men>
             for some positive constant <m>k</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The equation <xref ref="eq_TRT_de_1"/> is a differential equation because it is an equation that involves derivatives of a function.
             Show by differentiating twice that, if
@@ -106,12 +114,13 @@
             (In fact, <m>\omega_2</m> is the general solution to <xref ref="eq_TRT_de_1"/>,
             which is verified in just about any course in differential equations.)
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
-    <xref ref="eq_TRT_de_2">Equation</xref>
+    Equation <xref ref="eq_TRT_de_2"></xref>
     shows that <m>\omega_2</m> is is bounded,
     so that any slight perturbations in angular velocity have a limited effect on <m>\omega_2</m>.
     A similar argument can be made for <m>\omega_3</m>.
@@ -120,7 +129,9 @@
   <p>
     We can make a similar argument for rotation around the third principal axes.
   </p>
-  <activity xml:id="act_TRT_axes3">
+
+  <project xml:id="act_TRT_axes3">
+    <statement>
     <p>
       In this activity,
       repeat the process from Project Activity to show that rotation around the third principal axis is stable.
@@ -128,25 +139,33 @@
       which implies by <xref ref="eq_Euler_3"/> implies that
       <m>\dot{\omega}_3</m> must be very small and can be disregarded in calculations.
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     Now the issue is why is rotation around the second principal axis different.
   </p>
-  <activity xml:id="act_TRT_axes2">
+
+  <project xml:id="act_TRT_axes2">
+    <introduction>
     <p>
       Now assume that <m>\omega_1</m> and <m>\omega_3</m> are small.
       Thus, <m>\dot{\omega}_2</m> is very small by <xref ref="eq_Euler_2"/>,
       and we consider <m>\dot{\omega}_2</m> to be negligible.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Differentiate  <xref ref="eq_Euler_1"/> to show that
             <me>
               I_1 \ddot{\omega}_1 \approx (I_2-I_3)  \omega_2 \dot{\omega}_3
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Substitute for <m>\dot{\omega}_3</m> from <xref ref="eq_Euler_3"/> to show that
             <m>\omega_1</m> is an approximate solution to
@@ -155,8 +174,10 @@
             </men>
             for some positive scalar <m>k</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The fact that  the constant multiplier in <xref ref="eq_TRT_de_3"/> is positive instead of negative as in <xref ref="eq_TRT_de_1"/> completely changes the type of solution.
             Show that
@@ -167,8 +188,8 @@
             (and, in fact, is the general solution).
             Explain why this shows that rotation around the second principal axis is not stable.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
 </section>
