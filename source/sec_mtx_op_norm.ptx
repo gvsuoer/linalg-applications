@@ -23,16 +23,18 @@
     However, since <m>||A (c\vx)|| = |c| \ ||A\vx||</m> for any scalar <m>c</m>,
     scaling <m>\vx</m> by a large scalar will produce a large norm,
     so this is not a viable definition of a norm.
-    We could instead measure the <em>relative</em>
+    We could instead measure the <term>relative</term>
     effect that <m>A</m> has on a vector <m>\vx</m> as <m>\ds \frac{||A\vx||}{||\vx||}</m>,
     since this ratio does not change when <m>\vx</m> is multiplied by a scalar.
     The largest of all of these ratios would provide a good sense of how much <m>A</m> can change vectors.
     Thus, we define the operator norm of a matrix <m>A</m> as follows.
   </p>
+
   <definition>
+  <idx><h>operator norm of a matrix</h></idx>
     <statement>
       <p>
-        The <term>operator norm</term><idx><h>operator norm of a matrix</h></idx>
+        The <term>operator norm</term>
         <fn>
         Technically this definition should be in terms of a supremum,
         but because the equivalent definition restricts the <m>\vx</m>'s to a compact subset,
@@ -44,6 +46,7 @@
       </p>
     </statement>
   </definition>
+
   <p>
     Due to the linearity of matrix multiplication,
     we can restrict ourselves to unit vectors for an equivalent definition of the operator norm of the matrix <m>A</m> as
@@ -51,43 +54,51 @@
       ||A|| = \ds \max_{||\vx|| = 1}\{||A\vx||\}
     </me>.
   </p>
-  <activity xml:id="pa_7_c_1">
-    <p>
-      <nbsp/>
-      <ol>
-        <li>
+
+  <exploration xml:id="pa_7_c_1">
+    
+      <task>
+        <statement>
           <p>
             Determine <m>||A||</m> if <m>A</m> is the zero matrix.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Determine <m>||I_n||</m>,
             where <m>I_n</m> is the <m>n \times n</m> identity matrix.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>A = \left[ \begin{array}{cc} 1\amp 0\\0\amp 2 \end{array} \right]</m>.
             Find <m>||A||</m>.
             Justify your answer. (Hint: <m>x_1^2+4x_2^2 \leq 4(x_1^2 + x_2^2)</m>.)
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>P</m> is an orthogonal matrix, what is <m>||P||</m>?
             Why?
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </exploration>
+
   <p>
     The operator norm of a matrix tells us that how big the action of an
     <m>m \times n</m> matrix is can be determined by its action on the unit sphere in <m>\R^n</m>
     (the unit sphere is the set of terminal point of unit vectors).
     Let us consider two examples.
   </p>
+
   <example>
     <statement>
       <p>
@@ -95,10 +106,12 @@
         We can draw a graph to see the action of <m>A</m> on the unit circle.
         A picture of the set <m>\{A\vx \ : \ ||\vx|| = 1\}</m> is shown in <xref ref="F_7_c_Mat_norm1"></xref>.
       </p>
+
       <figure xml:id="F_7_c_Mat_norm1">
         <caption>The image of the unit circle under the action of <m>A</m>.</caption>
         <image width="50%" source="7_c_Mat_norm_a"/>
       </figure>
+
       <p>
         It appears that <m>A</m> transforms the unit circle into an ellipse.
         To find <m>||A||</m> we want to maximize
@@ -185,17 +198,23 @@
         <m>\vu_1, \vu_2</m> are the two unit eigenvectors of <m>A^{\tr}A</m>.
         The image also supports that <m>A\vx</m> assumes its maximum and minimum values for points on the unit circle at <m>\vu_1</m> and <m>\vu_2</m>.
       </p>
+
       <figure xml:id="F_7_c_Mat_norm1_b">
         <caption>The image of the unit circle under the action of <m>A</m>, and the vectors <m>A\vu_1</m> and <m>A\vu_2</m></caption>
         <image width="50%" source="7_c_Mat_norm_b"/>
       </figure>
     </statement>
   </example>
+
+  <paragraphs>
+  <title>IMPORTANTE NOTE 1</title>
   <p>
-    <em>IMPORTANT NOTE 1:</em> What we have just argued is that the maximum value of
+    What we have just argued is that the maximum value of
     <m>||A\vx||</m> for <m>\vx</m> on the unit sphere in <m>\R^n</m> is the square root of the largest eigenvalue of
     <m>A^{\tr}A</m> and occurs at a corresponding unit eigenvector.
   </p>
+  </paragraphs>
+
   <example>
     <statement>
       <p>
@@ -206,14 +225,16 @@
         The image of the unit sphere
         <m>\{\vx \in \R^3 : ||\vx|| = 1\}</m> under left multiplication by <m>A</m> is a filled ellipse as shown in <xref ref="F_7_c_Mat_norm_2"></xref>.
       </p>
+
       <figure xml:id="F_7_c_Mat_norm_2">
         <caption>The image of the unit circle under the action of <m>A</m>, and the vectors <m>A\vu_1</m> and <m>A\vu_2</m></caption>
         <image width="50%" source="7_c_Mat_norm_2"/>
       </figure>
+
       <p>
         As with the previous example,
         the norm of <m>A</m> is the square root of the maximum value of
-        <m>\vx^{\tr} (A^{\tr}A) \vx</m> and this maximum value is the dominant eigenvalue of <m>A^{\tr}A = \left[ \begin{array}{ccc} 200\amp 250\amp 100\\ \noalign{}250\amp 425\amp 350\\ \noalign{}100\amp 350\amp 500 \end{array} \right]</m>.
+        <m>\vx^{\tr} (A^{\tr}A) \vx</m> and this maximum value is the dominant eigenvalue of <m>A^{\tr}A = \left[ \begin{array}{ccc} 200\amp 250\amp 100\\ 250\amp 425\amp 350\\ 100\amp 350\amp 500 \end{array} \right]</m>.
         The eigenvalues of <m>A</m> are
         <m>\lambda_1 = 900</m>, <m>\lambda_2 = 225</m>,
         and <m>\lambda_3 = 0</m> with corresponding unit eigenvectors <m>\vu_1=\left[ \frac{1}{3} \ \frac{2}{3} \ \frac{2}{3} \right]^{\tr}</m>,
@@ -227,8 +248,11 @@
       </p>
     </statement>
   </example>
+
+  <paragraphs>
+  <title>IMPORTANT NOTE 2</title>
   <p>
-    <em>IMPORTANT NOTE 2:</em> We have just argued that the image of the unit <m>n</m>-sphere under the action of an
+    We have just argued that the image of the unit <m>n</m>-sphere under the action of an
     <m>m \times n</m> matrix is an ellipsoid in <m>\R^m</m> stretched the greatest amount,
     <m>\sqrt{\lambda_1}</m>,
     in the direction of an eigenvector for the largest eigenvalue (<m>\lambda_1</m>) of <m>A^{\tr}A</m>;
@@ -236,26 +260,33 @@
     in the direction of a unit vector for the second largest eigenvalue (<m>\lambda_2</m>) of <m>A^{\tr}A</m>;
     and so on.
   </p>
+  </paragraphs>
+
   <activity>
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{rc} 0\amp 5\\ 4\amp 3 \\ -2\amp 1 \end{array} \right]</m>.
       Then <m>A^{\tr}A = \left[ \begin{array}{cc} 20\amp 10\\ 10\amp 35 \end{array} \right]</m>.
       The eigenvalues of <m>A^{\tr}A</m> are <m>\lambda_1 = 40</m> and
       <m>\lambda_2 = 15</m> with respective eigenvectors
       <m>\vv_1 = \left[ \begin{array}{c} \frac{1}{2} \\ 1 \end{array} \right]</m> and <m>\vv_2 = \left[ \begin{array}{r} -2 \\ 1 \end{array} \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find <m>||A||</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find a unit vector <m>\vx</m> at which
             <m>||A\vx||</m> assumes its maximum value.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>
