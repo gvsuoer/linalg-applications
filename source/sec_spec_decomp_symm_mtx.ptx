@@ -17,32 +17,33 @@
     </me>.
   </p>
   <p>
+  <idx><h>spectral decomposition</h></idx>
     Since <m>A = PDP^{\tr}</m> we see that
-    <md>
-      <mrow>A \amp = [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_n] \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0</mrow>
-      <mrow>0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0</mrow>
-      <mrow>\vdots\amp \vdots\amp \vdots\amp \amp \vdots\amp \vdots</mrow>
-      <mrow>0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_n \end{array} \right] \left[ \begin{array}{c} \vu_1^{\tr}</mrow>
-      <mrow>\vu_2^{\tr}</mrow>
-      <mrow>\vu_3^{\tr}</mrow>
-      <mrow>\vdots</mrow>
-      <mrow>\vu_n^{\tr} \end{array} \right]</mrow>
-      <mrow>\amp = [ \lambda_1\vu_1 \ \lambda_2\vu_2 \ \lambda_3\vu_3 \ \cdots \ \lambda_n\vu_n] \left[ \begin{array}{c} \vu_1^{\tr}</mrow>
-      <mrow>\vu_2^{\tr}</mrow>
-      <mrow>\vu_3^{\tr}</mrow>
-      <mrow>\vdots</mrow>
-      <mrow>\vu_n^{\tr} \end{array} \right]</mrow>
-      <mrow xml:id="eq_spec_decomp" number="yes">\amp = \lambda_1 \vu_1\vu_1^{\tr} + \lambda_2 \vu_2\vu_2^{\tr} + \lambda_3 \vu_3\vu_3^{\tr} + \cdots + \lambda_n \vu_n\vu_n^{\tr}</mrow>
-    </md>,
+    <mdn>
+      <mrow number="no">A \amp = [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_n] \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0</mrow>
+      <mrow number="no">0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0</mrow>
+      <mrow number="no">\vdots\amp \vdots\amp \vdots\amp \amp \vdots\amp \vdots</mrow>
+      <mrow number="no">0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_n \end{array} \right] \left[ \begin{array}{c} \vu_1^{\tr}</mrow>
+      <mrow number="no">\vu_2^{\tr}</mrow>
+      <mrow number="no">\vu_3^{\tr}</mrow>
+      <mrow number="no">\vdots</mrow>
+      <mrow number="no">\vu_n^{\tr} \end{array} \right]</mrow>
+      <mrow number="no">\amp = [ \lambda_1\vu_1 \ \lambda_2\vu_2 \ \lambda_3\vu_3 \ \cdots \ \lambda_n\vu_n] \left[ \begin{array}{c} \vu_1^{\tr}</mrow>
+      <mrow number="no">\vu_2^{\tr}</mrow>
+      <mrow number="no">\vu_3^{\tr}</mrow>
+      <mrow number="no">\vdots</mrow>
+      <mrow number="no">\vu_n^{\tr} \end{array} \right]</mrow>
+      <mrow xml:id="eq_spec_decomp">\amp = \lambda_1 \vu_1\vu_1^{\tr} + \lambda_2 \vu_2\vu_2^{\tr} + \lambda_3 \vu_3\vu_3^{\tr} + \cdots + \lambda_n \vu_n\vu_n^{\tr}</mrow>
+    </mdn>,
     where the last product follows from <xref ref="ex_7_a_product"></xref>.
     The expression in <xref ref="eq_spec_decomp"/> is called a
-    <em>spectral decomposition</em>
-        <idx><h>spectral decomposition</h></idx>
+    <term>spectral decomposition</term>
     of the matrix <m>A</m>.
     Let <m>P_i = \vu_i\vu_i^{\tr}</m> for each <m>i</m>.
     The matrices <m>P_i</m> satisfy several special conditions given in the next theorem.
     The proofs are left to the exercises.
   </p>
+
   <theorem xml:id="thm_7_a_spectral_decomposition">
     <statement>
       <p>
@@ -96,6 +97,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     The consequence of <xref ref="thm_7_a_spectral_decomposition"></xref>
     is that any symmetric matrix can be written as the sum of symmetric,
@@ -104,7 +106,9 @@
     this kind of decomposition contains much information about the matrix product
     <m>A^{\tr}A</m> for any matrix <m>A</m>.
   </p>
+
   <activity xml:id="act_7_a_4">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{ccc} 4\amp 2\amp 2 \\ 2\amp 4\amp 2 \\ 2\amp 2\amp 4 \end{array} \right]</m>.
       Let <m>\lambda_1 = 2</m>, <m>\lambda_2 = 2</m>,
@@ -112,35 +116,46 @@
       A basis for the eigenspace <m>E_8</m> of <m>A</m> corresponding to the eigenvalue 8 is
       <m>\{[1 \ 1\ 1]^{\tr}\}</m> and a basis for the eigenspace <m>E_2</m> of <m>A</m> corresponding to the eigenvalue 2 is <m>\{[1 \ -1\ 0]^{\tr}, [1 \ 0 \ -1]^{\tr}\}</m>.
       (Compare to <xref ref="act_7_a_3"></xref>.)
-      <ul>
-        <li>
+    </p>
+    </introduction>
+
+      <task>
+        <statement>
           <p>
             Find orthonormal eigenvectors <m>\vu_1</m>, <m>\vu_2</m>,
             and <m>\vu_3</m> of <m>A</m> corresponding to <m>\lambda_1</m>,
             <m>\lambda_2</m>, and <m>\lambda_3</m>, respectively.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Compute <m>\lambda_1 \vu_1\vu_1^{\tr}</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Compute <m>\lambda_2 \vu_2\vu_2^{\tr}</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Compute <m>\lambda_3 \vu_3\vu_3^{\tr}</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Verify that <m>A = \lambda_1 \vu_1\vu_1^{\tr} + \lambda_2 \vu_2\vu_2^{\tr} + \lambda_3 \vu_3\vu_3^{\tr}</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>

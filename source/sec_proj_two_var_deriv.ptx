@@ -55,38 +55,46 @@
       <mrow>\amp + f_{xy}(a,b)(x-a)(y-b) + \frac{f_{yy}(a,b)}{2}(y-b)^2</mrow>
     </md>.
   </p>
-  <activity>
+
+  <project>
+    <statement>
     <p>
       To see that <m>P_2(x,y)</m> is the best approximation for <m>f</m> near <m>(a,b)</m>,
       we need to know that the first and second order partial derivatives of <m>P_2</m> agree with the corresponding partial derivatives of <m>f</m> at the point <m>(a,b)</m>.
       Verify that this is true.
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     We can rewrite this second order Taylor polynomial using matrices and vectors so that we can apply techniques from linear algebra to analyze it.
     Note that
-    <md>
-      <mrow>P_2(x,y) \amp = f(a,b) + \nabla f(a,b)^{\tr} \left[ \begin{array}{c} x-a</mrow>
-      <mrow>y-b \end{array} \right]</mrow>
-      <mrow>\amp \qquad + \frac{1}{2}\left[ \begin{array}{c} x-a</mrow>
-      <mrow>y-b \end{array} \right]^{\tr} \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b)</mrow>
-      <mrow>f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array} \right] \left[ \begin{array}{c} x-a</mrow>
-      <mrow xml:id="eq_Taylor_2_vector" number="yes">y-b \end{array} \right]</mrow>
-    </md>,
+    <mdn>
+      <mrow number="no">P_2(x,y) \amp = f(a,b) + \nabla f(a,b)^{\tr} \left[ \begin{array}{c} x-a</mrow>
+      <mrow number="no">y-b \end{array} \right]</mrow>
+      <mrow number="no">\amp \qquad + \frac{1}{2}\left[ \begin{array}{c} x-a</mrow>
+      <mrow number="no">y-b \end{array} \right]^{\tr} \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b)</mrow>
+      <mrow number="no">f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array} \right] \left[ \begin{array}{c} x-a</mrow>
+      <mrow xml:id="eq_Taylor_2_vector">y-b \end{array} \right]</mrow>
+    </mdn>,
     where <m>\nabla f(x,y) = \left[ \begin{array}{c} f_x(x,y)\\f_y(x,y) \end{array}  \right]</m> is the gradient of <m>f</m> and <m>H</m> is the
-    <em>Hessian</em> of <m>f</m>,
+    <term>Hessian</term> of <m>f</m>,
     where <m>H(x,y) = \left[ \begin{array}{cc} f_{xx}(x,y)\amp f_{xy}(x,y) \\ f_{yx}(x,y)\amp  f_{yy}(x,y) \end{array}  \right]</m>.<fn>
     Note that under reasonable conditions (e.g., that <m>f</m> has continuous second order mixed partial derivatives in some open neighborhood containing <m>(x,y)</m>) we have that <m>f_{xy}(x,y) = f_{yx}(x,y)</m> and
     <m>H(x,y) = \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b) \\ f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array}  \right]</m> is a symmetric matrix.
     We will only consider functions that satisfy these reasonable conditions.
     </fn>
   </p>
-  <activity xml:id="ex_example_1">
+
+  <project xml:id="ex_example_1">
+    <statement>
     <p>
       Use Equation <xref ref="eq_Taylor_2_vector"/> to compute <m>P_2(x,y)</m> for
       <m>f(x,y)=x^4+y^4-4xy+1</m> at <m>(a, b)=(2,3)</m>.
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     The important idea for us is that if <m>(a, b)</m> is a point at which <m>f_x</m> and <m>f_y</m> are zero,
     then <m>\nabla f</m> is the zero vector and Equation <xref ref="eq_Taylor_2_vector"/> reduces to
@@ -131,7 +139,7 @@
     Thus there exists an orthogonal matrix <m>P</m> and a diagonal matrix
     <m>D = \left[ \begin{array}{cc} \lambda_1\amp 0 \\ 0\amp \lambda_2 \end{array}  \right]</m> such that <m>P^{\tr}H(a,b)P=D</m>,
     or <m>H(a,b) = PDP^{\tr}</m>.
-    <xref ref="eq_evals_det">Equations</xref>
+    Equations <xref ref="eq_evals_det"></xref>
     and <xref ref="eq_evals_trace"></xref> show that
     <me>
       \lambda_1\lambda_2 = f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2 \ \text{ and  }  \ \lambda_1 + \lambda_2 = f_{xx}(a,b) + f_{yy}(a,b)
@@ -142,7 +150,9 @@
     We assume <m>(a,b)</m> is a point in the domain of a function <m>f</m> so that <m>\nabla f(a,b) = \vzero</m>.
     First we consider the case where <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0</m>.
   </p>
-  <activity>
+
+  <project>
+    <statement>
     <p>
       Explain why if <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0</m>, then
       <me>
@@ -153,41 +163,52 @@
       <q>saddle-shaped</q>
       near <m>(a,b)</m>.
     </p>
+    </statement>
     <hint>
       <p>
         Substitute <m>\vw = \left[ \begin{array}{c} w_1\\w_2 \end{array} \right] = P^{\tr}\left[ \begin{array}{c} x-a \\ y-b \end{array} \right]</m>.
         What does the graph of <m>f</m> look like in the <m>w_1</m> and <m>w_2</m> directions?
       </p>
     </hint>
-  </activity>
+  </project>
+
   <p>
     Now we examine the situation when <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0</m>.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       Assume that <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain why either both <m>f_{xx}(a,b)</m> and
             <m>f_{yy}(a,b)</m> are positive or both are negative.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>f_{xx}(a,b)>0</m> and <m>f_{yy}(a,b)>0</m>,
             explain why <m>\lambda_1</m> and <m>\lambda_2</m> must be positive.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain why, if <m>f_{xx}(a,b)>0</m> and <m>f_{yy}(a,b)>0</m>,
             then <m>f(a,b)</m> is a local minimum value for <m>f</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+  
+  </project>
+
   <p>
     When <m>f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2>0</m> and either
     <m>f_{xx}(a,b)</m> or <m>f_{yy}(a,b)</m> is negative,
@@ -195,11 +216,14 @@
     (the details are left to the reader).
     Therefore, we have proved the Second Derivative Test for functions of two variables!
   </p>
-  <activity>
+
+  <project>
+    <statement>
     <p>
       Use the Hessian to classify the local maxima,
       minima, and saddle points of <m>f(x,y)=x^4+y^4-4xy+1</m>.
       Draw a graph of <m>f</m> to illustrate.
     </p>
-  </activity>
+    </statement>
+  </project>
 </section>

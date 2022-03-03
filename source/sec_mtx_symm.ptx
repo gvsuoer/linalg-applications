@@ -35,35 +35,45 @@
     a few of which are given in the following activity
     (we will use some of these properties later in this section).
   </p>
+
   <activity xml:id="act_7_a_symmetric">
+    <introduction>
     <p>
       Let <m>A</m> be a symmetric
       <m>n \times n</m> matrix and let <m>\vx</m> and <m>\vy</m> be vectors in <m>\R^n</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Show that <m>\vx^{\tr} A \vy = (A\vx)^{\tr} \vy</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Show that <m>(A\vx) \cdot \vy = \vx \cdot (A\vy)</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Show that the eigenvalues of a
             <m>2 \times 2</m> symmetric matrix <m>A = \left[ \begin{array}{cc} a\amp b\\b\amp c \end{array} \right]</m> are real.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     <xref ref="act_7_a_symmetric"></xref>
     (c) shows that a <m>2 \times 2</m> symmetric matrix has real eigenvalues.
     This is a general result about real symmetric matrices.
   </p>
+
   <theorem xml:id="thm_7_a_symmetric_eigenvalues">
     <statement>
       <p>
@@ -71,7 +81,7 @@
         Then the eigenvalues of <m>A</m> are real.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       Let <m>A</m> be an <m>n\times n</m> symmetric matrix with real entries and let <m>\lambda</m> be an eigenvalue of <m>A</m> with eigenvector <m>\vv</m>.
@@ -105,34 +115,44 @@
       this implies that <m>\overline{\lambda} = \lambda</m> and <m>\lambda</m> is real.
     </p>
   </proof>
+  </theorem>
+
   <p>
     To orthogonally diagonalize a matrix,
     it must be the case that eigenvectors corresponding to different eigenvalues are orthogonal.
     This is an important property and it would be useful to know when it happens.
   </p>
+
   <activity xml:id="act_7_a_symmetric_eigenvalues">
+    <introduction>
     <p>
       Let <m>A</m> be a real symmetric matrix with eigenvalues <m>\lambda_1</m> and
       <m>\lambda_2</m> and corresponding eigenvectors <m>\vv_1</m> and <m>\vv_2</m>,
       respectively.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Use <xref ref="act_7_a_symmetric"></xref>
             (b) to show that <m>\lambda_1 \vv_1\cdot \vv_2 = \lambda_2 \vv_1 \cdot \vv_2</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain why the result of part (a) shows that <m>\vv_1</m> and <m>\vv_2</m> are orthogonal if <m>\lambda_1\neq \lambda_2</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+  
   </activity>
+
   <p>
     <xref ref="act_7_a_symmetric_eigenvalues"></xref> proves the following theorem.
   </p>
+
   <theorem>
     <statement>
       <p>
@@ -141,6 +161,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     Recall that the only matrices that can be orthogonally diagonalized are the symmetric matrices.
     Now we show that every real symmetric matrix can be orthogonally diagonalized,
@@ -148,6 +169,7 @@
     The proof of the following theorem proceeds by induction.
     A reader who has not yet encountered this technique of proof can safely skip the proof of this theorem without loss of continuity.
   </p>
+
   <theorem>
     <statement>
       <p>
@@ -155,7 +177,7 @@
         Then <m>A</m> is orthogonally diagonalizable.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       Let <m>A</m> be a real <m>n \times n</m> symmetric matrix.
@@ -238,11 +260,14 @@
       This completes our proof.
     </p>
   </proof>
+  </theorem>
+
   <p>
-    The set of eigenvalues of a matrix <m>A</m> is called the <em>spectrum</em>
-        <idx><h>spectrum of a matrix</h></idx>
+  <idx><h>spectrum of a matrix</h></idx>
+    The set of eigenvalues of a matrix <m>A</m> is called the <term>spectrum</term>
     of <m>A</m> and we have just proved the following theorem.
   </p>
+
   <theorem>
     <title>The Spectral Theorem for Real Symmetric Matrices</title>
     <statement>
@@ -274,6 +299,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     So <em>any</em> real symmetric matrix is orthogonally diagonalizable.
     We have seen examples of the orthogonal diagonalization of
@@ -281,17 +307,24 @@
     but how do we orthogonally diagonalize a symmetric matrix having eigenvalues of multiplicity greater than 1?
     The next activity shows us the process.
   </p>
+
   <activity xml:id="act_7_a_3">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{ccc} 4\amp 2\amp 2 \\ 2\amp 4\amp 2 \\ 2\amp 2\amp 4 \end{array} \right]</m>.
       The eigenvalues of <m>A</m> are 2 and 8, with eigenspace of dimension 2 and dimension 1, respectively.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+
+      <task>
+        <statement>
           <p>
             Explain why <m>A</m> can be orthogonally diagonalized.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Two linearly independent eigenvectors for <m>A</m> corresponding to the eigenvalue 2 are
             <m>\vv_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 1 \end{array} \right]</m> and <m>\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]</m>.
@@ -299,20 +332,24 @@
             so cannot be in an orthogonal basis of <m>\R^3</m> consisting of eigenvectors of <m>A</m>.
             So find a set <m>\{\vw_1, \vw_2\}</m> of orthogonal eigenvectors of <m>A</m> so that <m>\Span\{\vw_1, \vw_2\} = \Span\{\vv_1, \vv_2\}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The vector <m>\vv_3=\left[ \begin{array}{c} 1 \\ 1 \\ 1 \end{array} \right]</m> is an eigenvector for <m>A</m> corresponding to the eigenvalue 8.
             What can you say about the orthogonality relationship between <m>\vw_i</m>'s and <m>\vv_3</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find a matrix <m>P</m> that orthogonally diagonalizes <m>A</m>.
             Verify your work.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>
