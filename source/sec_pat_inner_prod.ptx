@@ -5,10 +5,11 @@
     We used the dot product to define lengths of vectors,
     to measure angles between vectors,
     and to define orthogonality in <m>\R^n</m>.
-    We can generalize the notion of orthogonality by using different types of products called <em>inner products</em>
+    We can generalize the notion of orthogonality by using different types of products called <term>inner products</term>
     that behave like the dot product.
   </p>
-  <activity xml:id="pa_7_b_inner_product">
+  <exploration xml:id="pa_7_b_inner_product">
+    <introduction>
     <p>
       Define a mapping from <m>\R^2 \times \R^2</m> to <m>\R</m> by
       <me>
@@ -16,13 +17,17 @@
       </me>
       for <m>\vu = [u_1 \ u_2]^{\tr}</m> and <m>\vv = [v_1 \ v_2]^{\tr}</m> in <m>\R^2</m>.
       (The brackets <m>\langle \ \rangle</m> provide a shorthand way of representing the function.)
-      <ol>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Calculate <m>\langle [1 \ 2]^{\tr}, [3,-4]^{\tr} \rangle</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>\vu</m> and <m>\vv</m> are in <m>\R^2</m>, is it true that
             <me>
@@ -30,8 +35,10 @@
             </me>
             Verify your answer.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>\vu</m>,
             <m>\vv</m>, and <m>\vw</m> are in <m>\R^2</m>, is it true that
@@ -40,8 +47,10 @@
             </me>
             Verify your answer.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>\vu</m> and <m>\vv</m> are in <m>\R^2</m> and <m>c</m> is a scalar,
             is it true that
@@ -50,35 +59,41 @@
             </me>
             Verify your answer.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>\vu</m> and <m>\vv</m> are in <m>\R^2</m>,
             must it be the case that <m>\langle \vu , \vu \rangle \geq 0</m>?
             When is <m>\langle \vu , \vu \rangle = 0</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             There is a matrix <m>A</m> such that <m>\langle \vu, \vv \rangle = \vu^{\tr} A \vv</m>.
             Find this matrix <m>A</m>.
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </exploration>
+
   <p>
     <xref ref="pa_7_b_inner_product"></xref>
     illustrates that there are functions from
     <m>\R^n \times \R^n</m> to <m>\R</m> other than the dot product that satisfy many of the properties in <xref ref="thm_6_a_dot_product"></xref>.
     Such functions allow us to broaden our ideas of what right angles look like.
-    These functions are called <em>inner products</em>.
+    These functions are called <term>inner products</term>.
   </p>
+
   <definition xml:id="def_7_b_inner_product">
+  <idx><h>inner product</h></idx>
     <statement>
       <p>
         An <term>inner product</term>
-            <idx><h>inner product</h></idx>
         <m>\langle \ , \ \rangle</m> on <m>\R^n</m> is a mapping from <m>\R^n \times \R^n \to \R</m> satisfying
         <ol>
           <li>
@@ -108,6 +123,7 @@
       </p>
     </statement>
   </definition>
+
   <p>
     The dot product and the example in <xref ref="pa_7_b_inner_product"></xref>
     provide two examples of inner products.
@@ -138,25 +154,33 @@
     every inner product on <m>\R^n</m> can be written in the form
     <m>\langle \vu, \vv \rangle = \vu^{\tr} A \vv</m> for some special type of matrix <m>A</m>.
   </p>
+
   <activity>
+    <introduction>
     <p>
       Let <m>A</m> be a symmetric <m>n \times n</m> matrix,
       and define <m>\langle \ , \ \rangle : \R^n \times \R^n \to \R</m> by
       <men xml:id="eq_7_b_PD_inner_product">
         \langle \vu, \vv \rangle = \vu^{\tr}A\vv
       </men>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain why it is necessary for <m>A</m> to be positive definite in order for <xref ref="eq_7_b_PD_inner_product"/> to define an inner product on <m>\R^n</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Show that <xref ref="eq_7_b_PD_inner_product"/> defines an inner product on <m>\R^n</m> if <m>A</m> is positive definite.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>\langle \ , \ \rangle</m> be the mapping from <m>\R^2\times \R^2\to \R</m> defined by
             <me>
@@ -165,8 +189,8 @@
             Find a matrix <m>A</m> so that <m>\langle \vx, \vy \rangle = \vx^{\tr} A \vy</m> and explain why
             <m>\langle \ , \ \rangle</m> defines an inner product.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>
