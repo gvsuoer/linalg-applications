@@ -5,7 +5,8 @@
     The Singular Value Decomposition (SVD) is essentially a concise statement of what we saw in the previous section that works for <em>any</em> matrix.
     We will uncover the SVD in this section.
   </p>
-  <activity xml:id="pa_7_c_2">
+  <exploration xml:id="pa_7_c_2">
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array}  \right]</m>.
       Since <m>A</m> is not square,
@@ -21,39 +22,48 @@
       </me>,
       respectively.
       Use appropriate technology to do the following.
-      <ol>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find an orthogonal matrix <m>V = [\vv_1 \ \vv_2 \ \vv_3]</m> that orthogonally diagonalizes <m>A^{\tr}A</m>, where
             <me>
               V^{\tr}\left(A^{\tr}A\right)V = \left[ \begin{array}{ccc} 3\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 0 \end{array}  \right]
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             For <m>i=1,2</m>, let <m>\vu_i = \frac{A \vv_i}{||A \vv_i||}</m>.
             Find each <m>\vu_i</m>.
             Why don't we define <m>\vu_3</m> in this way?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>U = [\vu_1 \ \vu_2]</m>.
             What kind of matrix is <m>U</m>?
             Explain.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Calculate the matrix product <m>U^{\tr}AV</m>.
             What do you notice?
             How is this similar to the eigenvector decomposition of a matrix?
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </exploration>
+
   <p>
     <xref ref="pa_7_c_2"></xref>
     contains the basic ideas behind the Singular Value Decomposition.
@@ -148,16 +158,18 @@
     The scalars <m>\sigma_1</m>, <m>\sigma_2</m>, <m>\ldots</m>,
     <m>\sigma_n</m> are called the <em>singular values</em> of <m>A</m>.
   </p>
+
   <definition>
+  <idx><h>singular values</h></idx>
     <statement>
       <p>
         Let <m>A</m> be an <m>m \times n</m> matrix.
         The <term>singular values</term>
-            <idx><h>singular values</h></idx>
         of <m>A</m> are the square roots of the eigenvalues of <m>A^{\tr}A</m>.
       </p>
     </statement>
   </definition>
+
   <p>
     The vectors <m>\vu_1</m>, <m>\vu_2</m>, <m>\ldots</m>,
     <m>\vu_r</m> are <m>r</m> orthonormal vectors in <m>\R^m</m>.
@@ -196,10 +208,10 @@
     <me>
       U \Sigma V^{\tr} = AV V^{\tr} = A
     </me>.
-  </p>
-  <p>
+
     This is the Singular Value Decomposition of <m>A</m>.
   </p>
+
   <theorem>
     <title>The Singular Value Decomposition</title>
     <statement>
@@ -216,8 +228,13 @@
       </p>
     </statement>
   </theorem>
+
+  <paragraphs>
+  <title>SVD Summary</title>
+  <idx><h>singular vectors</h><h>right</h></idx>
+  <idx><h>singular vectors</h><h>left</h></idx>
   <p>
-    <em>SVD Summary: </em> A Singular Value Decomposition of an
+    A Singular Value Decomposition of an
     <m>m \times n</m> matrix <m>A</m> of rank <m>r</m> can be found as follows.
     <ol>
       <li>
@@ -227,7 +244,7 @@
           <m>\lambda_1 \geq \lambda_{2} \geq \cdots \geq \lambda_n \geq 0</m> with the first <m>r</m> eigenvalues being positive.
           The vectors <m>\vv_1</m>, <m>\vv_2</m>,
           <m>\vv_3</m>, <m>\ldots</m>,
-          <m>\vv_n</m> are the <em>right singular vectors</em><idx><h>singular vectors</h><h>right</h></idx> of <m>A</m>.
+          <m>\vv_n</m> are the <term>right singular vectors</term> of <m>A</m>.
         </p>
       </li>
       <li>
@@ -268,7 +285,7 @@
             U = [\vu_1 \ \vu_2 \ \cdots \ \vu_m]
           </me>.
           The vectors <m>\vu_1</m>, <m>\vu_2</m>, <m>\ldots</m>,
-          <m>\vu_m</m> are the <em>left singular vectors</em><idx><h>singular vectors</h><h>left</h></idx> of <m>A</m>.
+          <m>\vu_m</m> are the <term>left singular vectors</term> of <m>A</m>.
         </p>
       </li>
       <li>
@@ -278,35 +295,46 @@
       </li>
     </ol>
   </p>
+  </paragraphs>
+
   <activity xml:id="ex_7_c_SVD">
+    <introduction>
     <p>
-      Let <m>A = \left[ \begin{array}{rc} 0\amp 5\\ \noalign{}4\amp 3 \\ \noalign{}-2\amp 1 \end{array}  \right]</m>.
-      Then <m>A^{\tr}A = \left[ \begin{array}{cc} 20\amp 10\\ \noalign{}10\amp 35 \end{array} \right]</m>.
+      Let <m>A = \left[ \begin{array}{rc} 0\amp 5\\ 4\amp 3 \\ -2\amp 1 \end{array}  \right]</m>.
+      Then <m>A^{\tr}A = \left[ \begin{array}{cc} 20\amp 10\\ 10\amp 35 \end{array} \right]</m>.
       The eigenvalues of <m>A^{\tr}A</m> are <m>\lambda_1 = 40</m> and
       <m>\lambda_2 = 15</m> with respective eigenvectors
       <m>\vw_1 = \left[ \begin{array}{c} 1 \\ 2 \end{array}  \right]</m> and <m>\vw_2 = \left[ \begin{array}{r} -2 \\ 1 \end{array}  \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find an orthonormal basis <m>\{\vv_1, \vv_2, \vv_3, \ldots, \vv_n\}</m> of eigenvectors of <m>A^{\tr}A</m>.
             What is <m>n</m>?
             Find the matrix <m>V</m> in a SVD for <m>A</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the singular values of <m>A</m>.
             What is the rank <m>r</m> of <m>A</m>?
             Why?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What are the dimensions of the matrix <m>\Sigma</m> in a SVD of <m>A</m>?
             Find <m>\Sigma</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the vectors <m>\vu_1</m>,
             <m>\vu_2</m>, <m>\ldots</m>, <m>\vu_r</m>.
@@ -316,16 +344,19 @@
             </me>
             of <m>\R^m</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the matrix <m>U</m> so that
             <m>A = U \Sigma V^{\tr}</m> is a SVD for <m>A</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     There is another way we can write this SVD of <m>A</m>.
     Let the <m>m \times n</m> matrix <m>A</m> have a singular value decomposition <m>U \Sigma V^{\tr}</m>, where
@@ -342,27 +373,28 @@
   </p>
   <p>
     Since <m>A = U \Sigma V^{\tr}</m> we see that
-    <md>
-      <mrow>A \amp = [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_m] \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp 0\amp</mrow>
-      <mrow>\amp  \sigma_2\amp \amp \amp \amp 0</mrow>
-      <mrow>\amp \amp  \sigma_3\amp \amp \amp</mrow>
-      <mrow>\amp   \amp  \amp  \ddots \amp  \amp</mrow>
-      <mrow>0\amp \amp \amp \amp  \sigma_r</mrow>
-      <mrow>\hline \amp \amp 0\amp \amp \amp 0 \end{array} \right] \left[  \begin{array}{c} \vv_1^{\tr}</mrow>
-      <mrow>\vv_2^{\tr}</mrow>
-      <mrow>\vv_3^{\tr}</mrow>
-      <mrow>\vdots</mrow>
-      <mrow>\vv_n^{\tr} \end{array} \right]</mrow>
-      <mrow>\amp = [ \sigma_1\vu_1 \ \sigma_2\vu_2 \ \sigma_3\vu_3 \ \cdots \ \sigma_r\vu_r \ \vzero \ \cdots \ \vzero] \left[  \begin{array}{c} \vv_1^{\tr}</mrow>
-      <mrow>\vv_2^{\tr}</mrow>
-      <mrow>\vv_3^{\tr}</mrow>
-      <mrow>\vdots</mrow>
-      <mrow>\vv_n^{\tr} \end{array} \right]</mrow>
-      <mrow xml:id="eq_7_c_SVD" number="yes">\amp = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_r \vu_r\vv_r^{\tr}</mrow>
-    </md>.
+    <mdn>
+      <mrow number="no">A \amp = [ \vu_1 \ \vu_2 \ \vu_3 \ \cdots \ \vu_m] \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp 0\amp</mrow>
+      <mrow number="no">\amp  \sigma_2\amp \amp \amp \amp 0</mrow>
+      <mrow number="no">\amp \amp  \sigma_3\amp \amp \amp</mrow>
+      <mrow number="no">\amp   \amp  \amp  \ddots \amp  \amp</mrow>
+      <mrow number="no">0\amp \amp \amp \amp  \sigma_r</mrow>
+      <mrow number="no">\hline \amp \amp 0\amp \amp \amp 0 \end{array} \right] \left[  \begin{array}{c} \vv_1^{\tr}</mrow>
+      <mrow number="no">\vv_2^{\tr}</mrow>
+      <mrow number="no">\vv_3^{\tr}</mrow>
+      <mrow number="no">\vdots</mrow>
+      <mrow number="no">\vv_n^{\tr} \end{array} \right]</mrow>
+      <mrow number="no">\amp = [ \sigma_1\vu_1 \ \sigma_2\vu_2 \ \sigma_3\vu_3 \ \cdots \ \sigma_r\vu_r \ \vzero \ \cdots \ \vzero] \left[  \begin{array}{c} \vv_1^{\tr}</mrow>
+      <mrow number="no">\vv_2^{\tr}</mrow>
+      <mrow number="no">\vv_3^{\tr}</mrow>
+      <mrow number="no">\vdots</mrow>
+      <mrow number="no">\vv_n^{\tr} \end{array} \right]</mrow>
+      <mrow xml:id="eq_7_c_SVD">\amp = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_r \vu_r\vv_r^{\tr}</mrow>
+    </mdn>.
   </p>
   <p>
-    This is called an <em>outer product decomposition</em><idx><h>outer product decomposition</h></idx> of <m>A</m> and tells us everything we learned above about the action of the matrix <m>A</m> as a linear transformation.
+  <idx><h>outer product decomposition</h></idx>
+    This is called an <term>outer product decomposition</term> of <m>A</m> and tells us everything we learned above about the action of the matrix <m>A</m> as a linear transformation.
     Each of the products <m>\vu_i\vv_i^{\tr}</m> is a rank 1 matrix
     (see <xref ref="ex_7_c_rank1"></xref>),
     and <m>||A\vv_1|| = \sigma_1</m> is the largest value <m>A</m> takes on the unit <m>n</m>-sphere,
