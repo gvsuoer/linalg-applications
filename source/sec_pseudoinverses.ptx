@@ -16,7 +16,9 @@
     <m>A^+ \vb</m> turns out to be the best approximation to a solution in the least squares sense.
     We will use the singular value decomposition to find the pseudoinverse of a matrix.
   </p>
-  <activity xml:id="pa_7_d_2">
+
+  <exploration xml:id="pa_7_d_2">
+    <introduction>
     <p>
       Let <m>A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array}  \right]</m>.
       The singular value decomposition of <m>A</m> is <m>U \Sigma V^{\tr}</m> where
@@ -29,19 +31,25 @@
         <mrow>2\sqrt{6}\amp 0\amp -2\sqrt{3}</mrow>
         <mrow>\sqrt{6}\amp 3\sqrt{2}\amp 2\sqrt{3} \end{array} \right]</mrow>
       </md>.
-      <ol>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain why <m>A</m> is not an invertible matrix.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain why the matrices <m>U</m> and <m>V</m> are invertible.
             How are <m>U^{-1}</m> and <m>V^{-1}</m> related to <m>U^{\tr}</m> and <m>V^{\tr}</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Recall that one property of invertible matrices is that the inverse of a product of invertible matrices is the product of the inverses in the reverse order.
             If <m>A</m> were invertible,
@@ -53,32 +61,38 @@
             Calculate the products <m>\Sigma \Sigma^+</m> and <m>\Sigma^+ \Sigma</m>.
             How are the results similar to that obtained with a matrix inverse?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
             The only matrix in the singular value decomposition of <m>A</m> that is not invertible is <m>\Sigma</m>.
             But the matrix <m>\Sigma^{+}</m> acts somewhat like an inverse of <m>\Sigma</m>,
             so let us define <m>A^+</m> as <m>V \Sigma^+ U^{\tr}</m>.
             Now we explore a few properties of the matrix <m>A^{+}</m>.
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Calculate <m>AA^+</m> and <m>A^+A</m> for <m>A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array} \right]</m>.
                   What do you notice?
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Calculate <m>A^+AA^+</m> and <m>AA^+A</m> for <m>A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array} \right]</m>.
                   What do you notice?
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+              </statement>
+            </task>
+          
+        </task>
+  
+  </exploration>
+
   <p>
     Only some square matrices have inverses.
     However, every matrix has a pseudoinverse.
@@ -138,6 +152,7 @@
     </me>
   </p>
   <p>
+  <idx><h>pseudoinverse</h></idx>
     The matrices <m>U</m> and <m>V</m> are invertible,
     but the matrix <m>\Sigma</m> is not if <m>A</m> is not invertible.
     If we let <m>\Sigma^+</m> be the <m>n \times m</m> matrix defined by
@@ -157,13 +172,13 @@
     <men xml:id="eq_pseudoinverse">
       A^{+} = V\Sigma^{+}U^{\tr}
     </men>
-    is a <em>pseudoinverse</em>
-        <idx><h>pseudoinverse</h></idx>
+    is a <term>pseudoinverse</term>
     of <m>A</m>.
   </p>
+
   <activity>
-    <ul>
-      <li>
+    <task>
+      <statement>
         <p>
           Find the pseudoinverse <m>A^+</m> of <m>A = \left[ \begin{array}{rc} 0\amp 5\\ 4\amp 3 \\ -2\amp 1 \end{array}  \right]</m>.
           Use the singular value decomposition <m>U \Sigma V^{\tr}</m> of <m>A</m>, where
@@ -171,17 +186,20 @@
             U =  \left[ \begin{array}{crc} \frac{\sqrt{2}}{2}\amp \frac{\sqrt{3}}{3}\amp 1 \\ \frac{\sqrt{2}}{2}\amp -\frac{\sqrt{3}}{3}\amp 0 \\ 0\amp \frac{\sqrt{3}}{3}\amp 0 \end{array}  \right], \ \Sigma =  \left[ \begin{array}{cc} \sqrt{40}\amp 0 \\ 0\amp \sqrt{15} \\ 0\amp 0 \end{array}  \right], \ V = \frac{1}{\sqrt{5}} \left[ \begin{array}{cr} 1\amp -2 \\ 2\amp 1 \end{array}  \right]
           </me>.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           The vector <m>\vb = \left[ \begin{array}{c} 0\\0\\1 \end{array} \right]</m> is not in <m>\Col A</m>.
           The vector <m>\vx^* = A^+ \vb</m> is an approximation to a solution of <m>A \vx = \vb</m>,
           and <m>AA^+\vb</m> is in <m>\Col A</m>.
           Find <m>A\vx^*</m> and determine how far <m>A\vx^*</m> is from <m>\vb</m>.
         </p>
-      </li>
-    </ul>
+      </statement>
+    </task>
   </activity>
+
   <p>
     Pseudoinverses satisfy several properties that are similar to those of inverses.
     For example,
@@ -189,24 +207,31 @@
     where <m>AA^{+}A = A</m> and <m>A^+AA^+ = A^+</m>.
     That <m>A^+</m> always satisfies these properties is the subject of the next activity.
   </p>
+
   <activity xml:id="act_7_d_Moore-Penrose">
+    <introduction>
     <p>
       Let <m>A</m> be an <m>m \times n</m> matrix with singular value decomposition <m>U \Sigma V^{\tr}</m>.
       Let <m>A^{+}</m> be defined as in <xref ref="eq_pseudoinverse"/>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Show that <m>AA^{+}A = A</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Show that <m>A^{+}AA^{+} = A^{+}</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     <xref ref="act_7_d_Moore-Penrose"></xref>
     shows that <m>A^{+}</m> satisfies properties that are similar to those of an inverse of <m>A</m>.
@@ -214,12 +239,13 @@
     (that together can be used as defining properties)
     as stated in the next theorem.
     The conditions of <xref ref="thm_7_d_pseudoinverse"></xref>
-    are called the <em>Penrose</em>
-    or <em>Moore-Penrose</em> conditions.<fn>
+    are called the <term>Penrose</term>
+    or <term>Moore-Penrose</term> conditions.<fn>
     <xref ref="thm_7_d_pseudoinverse"></xref>
     is often given as the definition of a pseudoinverse.
     </fn> Verification of the remaining parts of this theorem are left for the exercises.
   </p>
+  
   <theorem xml:id="thm_7_d_pseudoinverse">
     <title>The Moore-Penrose Conditions</title>
     <statement>

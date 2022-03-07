@@ -7,7 +7,9 @@
     To build a basic understanding of the system,
     we begin with a 2-dimensional example.
   </p>
-  <activity xml:id="act_GPS_plane_ex">
+
+  <project xml:id="act_GPS_plane_ex">
+    <introduction>
     <p>
       Suppose that there are three base stations <m>A</m>, <m>B</m>,
       and <m>C</m> in <m>\R^2</m> that can send and receive signals from your mobile phone.
@@ -43,22 +45,27 @@
       <me>
         \sqrt{(x-16)^2 + (y-35)^2} + z = 14
       </me>.
-      <ul>
-        <li>
+      </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain how these three equations can be written in the equivalent form
-            <md>
-              <mrow xml:id="eq_GPS_2D_1" number="yes">(x+1)^2+(y+2)^2\amp =(28-z)^2</mrow>
-              <mrow xml:id="eq_GPS_2D_2" number="yes">(x-36)^2 + (y-5)^2 \amp = (26-z)^2</mrow>
-              <mrow xml:id="eq_GPS_2D_3" number="yes">(x-16)^2 + (y-35)^2 \amp = (14-z)^2</mrow>
-            </md>.
+            <mdn>
+              <mrow xml:id="eq_GPS_2D_1">(x+1)^2+(y+2)^2\amp =(28-z)^2</mrow>
+              <mrow xml:id="eq_GPS_2D_2">(x-36)^2 + (y-5)^2 \amp = (26-z)^2</mrow>
+              <mrow xml:id="eq_GPS_2D_3">(x-16)^2 + (y-35)^2 \amp = (14-z)^2</mrow>
+            </mdn>.
+
             <figure xml:id="F_GPS_circles">
               <caption>Intersections of circles.</caption>
               <image width="50%" source="7_d_Ex2_D_circles"/>
             </figure>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If all measurements were accurate,
             your position would be at the intersection of the circles centered at <m>A</m> with radius <m>28</m> km,
@@ -80,8 +87,10 @@
             </me>
             in the unknowns <m>x</m>, <m>y</m>, and <m>z</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Repeat the process in part (b),
             subtracting <xref ref="eq_GPS_2D_1"/> from <xref ref="eq_GPS_2D_3"/> and show that we can obtain the linear equation
@@ -90,11 +99,13 @@
             </me>
             in <m>x</m>, <m>y</m>, and <m>z</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             We have reduced our system of three non-linear equations to the system
-            <md>
+            <md alignment="alignat">
               <mrow> {37}x   \amp {}+{}   \amp {7}y   \amp {}+{}  \amp {2}z   \amp = \amp {}   \amp 712</mrow>
               <mrow>{17}x    \amp {}+{}   \amp {37}y   \amp {}+{}   \amp {14}z  \amp = \amp {}  \amp 1032</mrow>
             </md>
@@ -104,10 +115,11 @@
             Use the pseudoinverse to find the least squares solution to this system.
             Does your solution correspond to an approximate point of intersection of the three circles?
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     <xref ref="act_GPS_plane_ex"></xref>
     provides the basic idea behind GPS. Suppose you receive a signal from a GPS satellite.
@@ -136,10 +148,15 @@
     So if we could receive perfect information from three satellites,
     then your location would be exactly determined.
   </p>
+
   <figure xml:id="F_Spheres">
     <caption>Intersections of spheres.</caption>
-    <image width="50%" source="7_d_two_spheres.jpg"/>   <image width="50%" source="7_d_three_spheres.jpg"/>
+    <sidebyside>
+    <image width="50%" source="7_d_two_spheres.jpg"/>   
+    <image width="50%" source="7_d_three_spheres.jpg"/>
+    </sidebyside>
   </figure>
+
   <p>
     There is a problem with the above analysis <mdash/> calculating the distances.
     These distances are determined by the time it takes for the signal to travel from the satellite to the GPS receiver.
@@ -150,7 +167,7 @@
     the rate at which the signal travels can change as the signal moves through the ionosphere and the troposphere.
     As a result,
     the calculated distance measurements are not exact,
-    and are referred to as <em>pseudoranges</em>.
+    and are referred to as <term>pseudoranges</term>.
     In our calculations we need to factor in the error related to the time discrepancy and other factors.
     We will incorporate these errors into our measure of <m>d</m> and treat <m>d</m> as an unknown.
     (Of course, this is all more complicated that is presented here,
@@ -175,14 +192,16 @@
     so this equation has the four unknowns <m>x</m>,
     <m>y</m>, <m>z</m>, and <m>d</m>.
     Using signals from four satellites produces the system of equations
-    <md>
-      <mrow xml:id="eq_GPS_1_sqrt" number="yes">\sqrt{(x-x_1)^2 + (y-y_1)^2 + (z-z_1)^2} \amp =  c(t_1-d)</mrow>
-      <mrow xml:id="eq_GPS_2_sqrt" number="yes">\sqrt{(x-x_2)^2 + (y-y_2)^2 + (z-z_2)^2}  \amp =  c(t_2-d)</mrow>
-      <mrow xml:id="eq_GPS_3_sqrt" number="yes">\sqrt{(x-x_3)^2 + (y-y_3)^2 + (z-z_3)^2} \amp =  c(t_3-d)</mrow>
-      <mrow xml:id="eq_GPS_4_sqrt" number="yes">\sqrt{(x-x_4)^2 + (y-y_4)^2 + (z-z_4)^2} \amp =  c(t_4-d)</mrow>
-    </md>.
+    <mdn>
+      <mrow xml:id="eq_GPS_1_sqrt">\sqrt{(x-x_1)^2 + (y-y_1)^2 + (z-z_1)^2} \amp =  c(t_1-d)</mrow>
+      <mrow xml:id="eq_GPS_2_sqrt">\sqrt{(x-x_2)^2 + (y-y_2)^2 + (z-z_2)^2}  \amp =  c(t_2-d)</mrow>
+      <mrow xml:id="eq_GPS_3_sqrt">\sqrt{(x-x_3)^2 + (y-y_3)^2 + (z-z_3)^2} \amp =  c(t_3-d)</mrow>
+      <mrow xml:id="eq_GPS_4_sqrt">\sqrt{(x-x_4)^2 + (y-y_4)^2 + (z-z_4)^2} \amp =  c(t_4-d)</mrow>
+    </mdn>.
   </p>
-  <activity xml:id="act_GPS_3D">
+
+  <project xml:id="act_GPS_3D">
+    <introduction>
     <p>
       The system of equations <xref ref="eq_GPS_1_sqrt"/>,
       <xref ref="eq_GPS_2_sqrt"/>, <xref ref="eq_GPS_3_sqrt"/>,
@@ -191,8 +210,10 @@
       We want a method that will provide at least an approximate solution as well as apply if we use more than four satellites.
       We choose a reference node (say
       <m>(x_1, y_1, z_1)</m>) and make calculations relative to that node as we did in <xref ref="act_GPS_plane_ex"></xref>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             First square both sides of the equations <xref ref="eq_GPS_1_sqrt"/>,
             <xref ref="eq_GPS_2_sqrt"/>, <xref ref="eq_GPS_3_sqrt"/>,
@@ -207,29 +228,32 @@
             (Note that the unknowns are <m>x</m>, <m>y</m>, <m>z</m>,
             and <m>d</m> <mdash/> all other quantities are known.)
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the result of part (a) to write a linear system that can be obtained by subtracting the first equation from the third and fourth equations as well.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The linearizations from part (b) determine a system <m>A \vx = \vb</m> of linear equations.
             Identify <m>A</m>, <m>\vx</m>, and <m>\vb</m>.
             Then explain how we can approximate a best solution to this system in the least squares sense.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     We conclude this project with a final note.
     At times a GPS receiver may only be able to receive signals from three satellites.
     In these situations,
     the receiver can substitute the surface of the Earth as a fourth sphere and continue the computation.
   </p>
-  <p>
-    \part{Vector Spaces}
-  </p>
+ 
 </section>
