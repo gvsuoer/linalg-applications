@@ -9,11 +9,12 @@
     the ideas that we introduced about subspaces of <m>\R^n</m> apply to vector spaces in general,
     so the material in this chapter should have a familiar feel.
   </p>
+
   <definition xml:id="def_vector_space">
+  <idx><h>vector space</h></idx>
     <statement>
       <p>
         A set <m>V</m> on which an operation of addition and a multiplication by scalars is defined is a <term>vector space</term>
-            <idx><h>vector space</h></idx>
         if for all <m>\vu</m>, <m>\vv</m>,
         and <m>\vw</m> in <m>V</m> and all scalars <m>a</m> and <m>b</m>:
         <ol>
@@ -25,26 +26,26 @@
           </li>
           <li>
             <p>
-              <m>\vu + \vv = \vv + \vu</m> (we say that the addition in <m>V</m> is <em>commutative</em>),
+              <m>\vu + \vv = \vv + \vu</m> (we say that the addition in <m>V</m> is <term>commutative</term>),
             </p>
           </li>
           <li>
             <p>
-              <m>(\vu + \vv) + \vw = \vu + (\vv + \vw)</m> (we say that the addition in <m>V</m> is <em>associative</em>),
+              <m>(\vu + \vv) + \vw = \vu + (\vv + \vw)</m> (we say that the addition in <m>V</m> is <term>associative</term>),
             </p>
           </li>
           <li>
             <p>
               there is a zero vector <m>\vzero</m> in <m>V</m> so that
               <m>\vu + \vzero = \vu</m> (we say that <m>V</m> contains an
-              <em>additive identity</em> <m>\vzero</m>),
+              <term>additive identity</term> <m>\vzero</m>),
             </p>
           </li>
           <li>
             <p>
               for each <m>\vx</m> in <m>V</m> there is an element <m>\vy</m> in <m>V</m> so that
               <m>\vx + \vy = \vzero</m> (we say that <m>V</m> contains an
-              <em>additive inverse</em>
+              <term>additive inverse</term>
               <m>\vy</m> for each element <m>\vx</m> in <m>V</m>),
             </p>
           </li>
@@ -57,13 +58,13 @@
           <li>
             <p>
               <m>(a+b) \vu = a\vu + b\vu</m> (we say that
-              <em>multiplication by scalars distributes over scalar addition</em>),
+              <term>multiplication by scalars distributes over scalar addition</term>),
             </p>
           </li>
           <li>
             <p>
               <m>a(\vu + \vv) = a\vu + a\vv</m> (we say that
-              <em>multiplication by scalars distributes over addition in <m>V</m></em>),
+              <term>multiplication by scalars distributes over addition in <m>V</m></term>),
             </p>
           </li>
           <li>
@@ -80,10 +81,13 @@
       </p>
     </statement>
   </definition>
-  <note>
+
+  <paragraphs>
+  <idx><h>scalars</h></idx>
+  <title>Note</title>
     <p>
       Unless otherwise stated, in this book the scalars
-          <idx><h>scalars</h></idx>
+          
       will refer to real numbers.
       However, we can define vector spaces where scalars are complex numbers,
       or rational numbers,
@@ -93,31 +97,35 @@
       Since we will focus on the real numbers as scalars,
       the reader is not required to be familiar with the concept of a field.
     </p>
-  </note>
+  </paragraphs>
+
   <p>
     Because of the similarity of the way elements in vector spaces behave compared to vectors in <m>\R^n</m>,
-    we call the elements in a vector space <em>vectors</em>.
+    we call the elements in a vector space <term>vectors</term>.
     There are many examples of vectors spaces,
     which is what makes this idea so powerful.
   </p>
+
   <example>
-    <statement>
-      <p>
-        <nbsp/>
-        <ol>
-          <li>
+    
+        <task>
+          <statement>
             <p>
               The space <m>\R^n</m> of all vectors with <m>n</m> components is a vector space using the standard vector addition and multiplication by scalars.
               The zero element is the zero vector <m>\vzero</m> whose components are all 0.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The set <m>\pol_1</m> of all polynomials of degree less than or equal to 1 with addition and scalar multiplication as defined earlier.
               Recall that <m>\pol_1</m> is essentially the same as <m>\R^2</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The properties listed in the introduction for <m>\pol_1</m> are equally true for the collection of all polynomials of degree less than or equal to some fixed number.
               We label as <m>\pol_n</m> this set of all polynomials of degree less than or equal to <m>n</m>,
@@ -126,40 +134,52 @@
               More generally,
               the space <m>\pol</m> of all polynomials is also a vector space with standard addition and scalar multiplication.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               As a subspace of <m>\R^n</m>,
               the eigenspace of an <m>n \times n</m> matrix corresponding to an eigenvalue <m>\lambda</m> is a vector space.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               As a subspace of <m>\R^n</m>,
               the null space of an <m>m \times n</m> matrix is a vector space.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               As a subspace of <m>\R^m</m>,
               the column space of an <m>m \times n</m> matrix is a vector space.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The span of a set of vectors in <m>\R^n</m> is a subspace of <m>\R^n</m>,
               and is therefore a vector space.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Let <m>V</m> be a vector space and let <m>\vzero</m> be the additive identity in <m>V</m>.
               The set <m>\{\vzero\}</m> is a vector space in which <m>\vzero + \vzero = \vzero</m> and
               <m>k\vzero = \vzero</m> for any scalar <m>k</m>.
               This space is called the <em>trivial</em> vector space.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The space <m>\M_{m \times n}</m> (or
               <m>\M_{m \times n}(\R)</m> when it is important to indicate that the entries of our matrices are real numbers) of all
@@ -167,8 +187,10 @@
               In this case,
               <m>\M_{m \times n}</m> is essentially the same vector space as <m>\R^{mn}</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The space <m>\F</m> of all functions from <m>\R</m> to <m>\R</m>,
               where we define the sum of two functions <m>f</m> and <m>g</m> in <m>\F</m> as the function <m>f+g</m> satisfying
@@ -183,8 +205,10 @@
               for all real numbers <m>x</m>.
               The verification of the vector space properties for this space is left to the reader.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The space <m>\R^\infty</m> of all infinite real sequences <m>(x_1, x_2, x_3, \ldots)</m>.
               We define addition and scalar multiplication termwise:
@@ -200,21 +224,27 @@
               (as we did in <m>\R^n</m>,
               we will call this set of convergent sequences a subspace of <m>\R^{\infty}</m>).
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               (For those readers who are familiar with differential equations).
               The set of solutions to a second order homogeneous differential equation forms a vector space under addition and scalar multiplication defined as in the space <m>\F</m> above.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The set of polynomials of positive degree in <m>\pol_1</m> is not a vector space using the standard addition and multiplication by scalars in <m>\pol_1</m> is not a vector space.
               Notice that <m>t + (-t)</m> is not a polynomial of positive degree,
               and so this set is not closed under addition.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The color space where each color is assigned an RGB (red, green,
               blue) coordinate between 0 and 255,
@@ -222,11 +252,11 @@
               does not define a vector space.
               The color space is not closed under either operation due to the color coordinates being integers ranging from 0 to 255.
             </p>
-          </li>
-        </ol>
-      </p>
-    </statement>
+          </statement>
+        </task>
+
   </example>
+
   <p>
     It is important to note that the set of defining properties of a vector space is intended to be a minimum set.
     Any other properties of a vector space must be verified or proved using the defining properties.
@@ -265,7 +295,9 @@
       \vzero = 0\vv
     </me>.
   </p>
+
   <activity xml:id="act_5_a_1">
+    <introduction>
     <p>
       Another property that will be useful is a cancellation property.
       In the set of real numbers we know that if <m>a+b = c+b</m>,
@@ -278,13 +310,17 @@
       <men xml:id="eq_5_a_1">
         \vu + \vw = \vv + \vw
       </men>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Why does our space contain an additive inverse <m>\vz</m> of <m>\vw</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now add the vector <m>\vz</m> to both sides of equation <xref ref="eq_5_a_1"/> to obtain
             <men xml:id="eq_5_a_2">
@@ -295,16 +331,19 @@
               \vu+(\vw+\vz) = \vv+(\vw+\vz)
             </men>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now use the properties of additive inverses and the additive identity to explain why <m>\vu = \vv</m>.
             Conclude that we have a cancellation law for addition in any vector space.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     We should also note that the definition of a vector space only states the existence of a zero vector and an additive inverse for each vector in the space,
     and does not say that there cannot be more than one zero vector or more than one additive inverse of a vector in the space.
@@ -314,6 +353,7 @@
     Verification of these properties are left for the exercises.
     We summarize the results of this section in the following theorem.
   </p>
+  
   <theorem>
     <statement>
       <p>

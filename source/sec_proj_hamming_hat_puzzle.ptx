@@ -17,7 +17,7 @@
     We want to develop an effective strategy that works for larger groups of players.
   </p>
   <p>
-    There is a strategy, based on <em>Hamming codes</em>
+    There is a strategy, based on <term>Hamming codes</term>
     that can be utilized when the number of players is of the form <m>2^k-1</m> with <m>k \geq 2</m>.
     This strategy will provide a winning probability of
     <me>
@@ -53,60 +53,79 @@
       <mrow>0 \cdot 0 \amp = 0,  \amp         0 \cdot 1 \amp = 1 \cdot 0 = 0, \amp    1 \cdot 1 \amp = 1</mrow>
     </md>.
   </p>
-  <activity xml:id="act_hat_1">
+  
+  <project xml:id="act_hat_1">
+    <introduction>
     <p>
       Show that <m>\mathbb{F}</m> has the same structure as <m>\R</m>.
       That is, show that for all <m>x</m>, <m>y</m>,
       and <m>z</m> in <m>\mathbb{F}</m>,
       the following properties are satisfied.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             <m>x + y \in \mathbb{F}</m> and <m>xy \in \mathbb{F}</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>x + y = y + x</m> and <m>xy=yx</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>(x + y) + z = x + (y + z)</m> and <m>(xy)z = x(yz)</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             There is an element <m>0</m> in
             <m>\mathbb{F}</m> such that <m>x+ 0 = x</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             There is an element <m>1</m> in
             <m>\mathbb{F}</m> such that <m>(1)x = x</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             There is an element <m>-x</m> in
             <m>\mathbb{F}</m> such that <m>x+(-x) = 0</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>x \neq 0</m>, there is an element <m>\frac{1}{x}</m> in
             <m>\mathbb{F}</m> such that <m>x\left(\frac{1}{x}\right) = 1</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>x (y + z) = (x y) + (x z)</m>
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     <xref ref="act_hat_1"></xref>
     shows that <m>\mathbb{F}</m> has the same properties as <m>\R</m> <mdash/> that is that <m>\mathbb{F}</m> is a field.
@@ -154,14 +173,17 @@
     Each distribution of hats can be seen as a linear combination of the vectors in <m>W</m>.
     Let <m>\vw_1</m>, <m>\vw_2</m>, <m>\ldots</m>,
     <m>\vw_{2^k-1}</m> be the nonzero vectors in <m>W</m>.
-    We then define a function <m>\phi : V \to W</m> as
+    We then define a function <m>\varphi : V \to W</m> as
     <me>
-      \phi([\alpha_1 \ \alpha_2 \ \cdots \ \alpha_n]^{\tr}) = \sum_{i=1}^{n} \alpha_i \vw_i
+      \varphi([\alpha_1 \ \alpha_2 \ \cdots \ \alpha_n]^{\tr}) = \sum_{i=1}^{n} \alpha_i \vw_i
     </me>
     that identifies a distribution of hats with a vector in <m>W</m>.
     The subspace that we need to devise our strategy is what is called a Hamming code.
   </p>
-  <activity xml:id="act_hat_2">
+
+  <project xml:id="act_hat_2">
+          <idx><h>Hamming code</h></idx>
+    <statement>
     <p>
       Let
       <me>
@@ -170,12 +192,13 @@
     </p>
     <p>
       Show that <m>H</m> is a subspace of <m>V</m>. (The subspace <m>H</m> is called the
-      <m>\left(2^k-1, 2^k-k-1\right)</m> <em>Hamming code</em>
-          <idx><h>Hamming code</h></idx>
+      <m>\left(2^k-1, 2^k-k-1\right)</m> <term>Hamming code</term>
       (where the first component is the number of elements in a basis for <m>V</m> and the second the number of elements in a basis for <m>H</m>).
       Hamming codes are examples of linear codes <mdash/> those codes that are subspaces of the larger vector space.)
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     Now for each <m>i</m> between 0 and <m>n</m> we define <m>H_i = \ve_i + H</m> as
     <me>
@@ -184,24 +207,31 @@
     where we let <m>\ve_0 = \vzero</m>.
     The sets <m>H_i</m> are called <em>cosets</em> of <m>H</m>.
   </p>
-  <activity xml:id="act_hat_3">
+
+  <project xml:id="act_hat_3">
+    <introduction>
     <p>
       To complete our strategy for the hat puzzle,
       we need to know some additional information about the sets <m>H_i</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Show that the sets <m>H_i</m> are disjoint.
             That is, show that <m>H_i \cap H_j = \emptyset</m> if <m>i \neq j</m>.
-            <hint>
-              <p>
-                If <m>\vv \in H_i</m> and <m>\vv \in H_j</m>,
-                what can we say about <m>\ve_i - \ve_j</m>?
-              </p>
-            </hint>
+            
           </p>
-        </li>
-        <li>
+        </statement>
+        <hint>
+          <p>
+            If <m>\vv \in H_i</m> and <m>\vv \in H_j</m>,
+            what can we say about <m>\ve_i - \ve_j</m>?
+          </p>
+        </hint>
+      </task>
+      <task>
+        <introduction>
           <p>
             Since <m>H_i \subseteq V</m> for each <m>i</m>,
             it follows that <m>\bigcup_{i=0}^n H_i \subseteq V</m>.
@@ -210,26 +240,30 @@
             We will need one fact for our argument.
             We will see in a later section that <m>H</m> has a basis of <m>n-k</m> elements,
             so the number of elements in <m>H</m> is <m>2^{n-k}</m>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Since the sets <m>H_i</m> are disjoint,
                   the number of elements in <m>\bigcup_{i=1}^n H_i</m> is equal to the sum of the number of elements in each <m>H_i</m>.
                   Show that each <m>H_i</m> has the same number of elements as <m>H</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Now use the fact that the number of elements in
                   <m>\bigcup_{i=0}^n H_i</m> is equal to the sum of the number of elements in each <m>H_i</m> to argue that <m>V = \bigcup_{i=0}^n H_i</m>.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+              </statement>
+            </task>
+          
+        </task>
+ 
+  </project>
+
   <p>
     The useful idea from <xref ref="act_hat_3"></xref>
     is that any hat distribution in <m>V</m> is in exactly one of the sets <m>H_i</m>.
@@ -255,37 +289,49 @@
       </li>
     </ul>
   </p>
-  <activity xml:id="act_hat_4">
+
+  <project xml:id="act_hat_4">
+    <introduction>
     <p>
       Let us analyze this strategy.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Explain why every player guesses wrong if <m>\vv</m> is in <m>H</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now we see determine that our strategy is a winning strategy for all hat distributions <m>\vv</m> that are not in <m>H</m>.
             First we need to know that these two options are the only ones.
             That is, show that it is not possible for
             <m>\vv_i + \beta_i \ve_i</m> to be in <m>H</m> for both choices of <m>\beta_i</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
             Now we want to demonstrate that this is a winning strategy if <m>\vv \notin H</m>.
             That is, at least one player guesses a correct hat color and no one else guesses incorrectly.
             So assume <m>\vv \notin H</m>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   We know that <m>\vv \in H_i</m> for some unique choice of <m>i</m>,
                   so let <m>\vv = \ve_i + h</m> for some <m>h \in H</m>.
                   Explain why player <m>i</m> can correctly choose color <m>1+ \alpha_i</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Finally, we need to argue that every player except player <m>i</m> must pass.
                   So consider player <m>j</m>, with <m>j \neq i</m>.
@@ -296,13 +342,13 @@
                   Analyze our strategy and the conditions under which player <m>j</m> does not pass.
                   Show that this leads to a contradiction.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+              </statement>
+            </task>
+          
+        </task>
+ 
+  </project>
+
   <p>
     <xref ref="act_hat_4"></xref>
     completes our analysis of this strategy and shows that our strategy results in a win with probability

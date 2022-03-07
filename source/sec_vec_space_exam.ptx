@@ -4,12 +4,15 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Determine if each of the following sets is a vector space.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               <m>V = \{(x,y,z) : x,y,z \in \R\}</m> with addition and multiplication by scalars defined by
               <me>
@@ -17,35 +20,8 @@
               </me>,
               where <m>(a,b,c)</m> and <m>(x,y,z)</m> are in <m>V</m> and <m>k \in \R</m>
             </p>
-          </li>
-          <li>
-            <p>
-              <m>V = \{x \in \R : x > 0\}</m> with addition <m>\oplus</m> and multiplication by scalars defined by
-              <me>
-                x \oplus y = xy  \ \text{ and }  \ kx = x^k
-              </me>,
-              where <m>x</m> and <m>y</m> are in <m>V</m>, <m>k \in \R</m>,
-              and <m>xy</m> is the standard product of <m>x</m> and <m>y</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              The set <m>W</m> of all <m>2 \times 2</m> matrices of the form
-              <m>\left[ \begin{array}{cc} a\amp 0\\b\amp 0 \end{array} \right]</m> where <m>a</m> and <m>b</m> are real numbers using the standard addition and multiplication by scalars on matrices.
-            </p>
-          </li>
-          <li>
-            <p>
-              The set <m>W</m> of all functions <m>f</m> from <m>\R</m> to <m>\R</m> such that
-              <m>f(0) \geq 0</m> using the standard addition and multiplication by scalars on functions.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               We consider the vector space properties in <xref ref="def_vector_space"></xref>.
               Let <m>(a,b,c)</m>, <m>(u,v,w)</m>,
@@ -70,8 +46,20 @@
               we see that addition is not associative and conclude that <m>V</m> is not a vector space.
               At this point we can stop since we have shown that <m>V</m> is not a vector space.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              <m>V = \{x \in \R : x > 0\}</m> with addition <m>\oplus</m> and multiplication by scalars defined by
+              <me>
+                x \oplus y = xy  \ \text{ and }  \ kx = x^k
+              </me>,
+              where <m>x</m> and <m>y</m> are in <m>V</m>, <m>k \in \R</m>,
+              and <m>xy</m> is the standard product of <m>x</m> and <m>y</m>
+            </p>
+          </statement>
+          <solution>
             <p>
               We consider the vector space properties in <xref ref="def_vector_space"></xref>.
               Let <m>x</m>, <m>y</m>,
@@ -112,8 +100,16 @@
               </md>.
               So <m>V</m> satisfies all of the properties of a vector space.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              The set <m>W</m> of all <m>2 \times 2</m> matrices of the form
+              <m>\left[ \begin{array}{cc} a\amp 0\\b\amp 0 \end{array} \right]</m> where <m>a</m> and <m>b</m> are real numbers using the standard addition and multiplication by scalars on matrices.
+            </p>
+          </statement>
+          <solution>
             <p>
               Recall that <m>\M_{2 \times 2}</m> is a vector space using the standard addition and multiplication by scalars on matrices.
               Any matrix of the form <m>\left[ \begin{array}{cc} a\amp 0\\b\amp 0 \end{array}  \right]</m>  can be written as
@@ -123,8 +119,16 @@
               So <m>W = \Span\left\{\left[ \begin{array}{cc} 1\amp 0\\0\amp 0 \end{array}  \right],  \left[ \begin{array}{cc} 0\amp 0\\1\amp 0 \end{array}  \right]\right\}</m> and <m>W</m> is a subspace of <m>\M_{2 \times 2}</m>.
               Thus, <m>W</m> is a vector space.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              The set <m>W</m> of all functions <m>f</m> from <m>\R</m> to <m>\R</m> such that
+              <m>f(0) \geq 0</m> using the standard addition and multiplication by scalars on functions.
+            </p>
+          </statement>
+          <solution>
             <p>
               We will show that <m>W</m> is not a vector space.
               Let <m>f: \R \to \R</m> be defined by <m>f(x) = 1</m>.
@@ -133,44 +137,28 @@
               then <m>h(0) = (-1)f(0) = -1</m> and <m>h \notin W</m>.
               It follows that <m>W</m> is not closed under multiplication by scalars and <m>W</m> is not a vector space.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>V</m> be a vector space and <m>\vu</m> and <m>\vv</m> vectors in <m>V</m>.
         Also, let <m>a</m> and <m>b</m> be scalars.
         You may use the result of <xref ref="ex_5_a_scalar_times_0"></xref>
         that <m>c \vzero = \vzero</m> for any scalar <m>c</m> in any vector space.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               If <m>a \vv = b \vv</m> and <m>\vv \neq \vzero</m>, must <m>a = b</m>?
               Use the properties of a vector space or provide a counterexample to justify your answer.
             </p>
-          </li>
-          <li>
-            <p>
-              If <m>a \vu = a \vv</m> and
-              <m>a \neq 0</m>, must <m>\vu = \vv</m>?
-              Use the properties of a vector space or provide a counterexample to justify your answer.
-            </p>
-          </li>
-          <li>
-            <p>
-              If <m>a\vu = b\vv</m>, must <m>a = b</m> and <m>\vu = \vv</m>?
-              Use the properties of a vector space or provide a counterexample to justify your answer.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               We will show that this statement is true.
               Suppose <m>a \vv = b \vv</m> and <m>\vv \neq \vzero</m>.
@@ -187,8 +175,17 @@
               But we assumed that <m>\vv \neq \vzero</m>,
               so we can conclude that <m>a = b</m> as desired.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              If <m>a \vu = a \vv</m> and
+              <m>a \neq 0</m>, must <m>\vu = \vv</m>?
+              Use the properties of a vector space or provide a counterexample to justify your answer.
+            </p>
+          </statement>
+          <solution>
             <p>
               We will show that this statement is true.
               Suppose <m>a \vu = a \vv</m> and <m>a \neq 0</m>.
@@ -202,8 +199,16 @@
                 <mrow>\vu \amp = \vv</mrow>
               </md>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              If <m>a\vu = b\vv</m>, must <m>a = b</m> and <m>\vu = \vv</m>?
+              Use the properties of a vector space or provide a counterexample to justify your answer.
+            </p>
+          </statement>
+          <solution>
             <p>
               We will demonstrate that this statement is false with a counterexample.
               Let <m>a = 1</m>, <m>b = 2</m>,
@@ -214,9 +219,8 @@
               </me>,
               but <m>a \neq b</m> and <m>\vu \neq \vv</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
 </section>
