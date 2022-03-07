@@ -14,11 +14,14 @@
     we can define linear independence of a finite set of vectors in any vector space as follows
     (compare to <xref ref="def_linear_independence_Rn"></xref>).
   </p>
+
   <definition xml:id="def_vs_linear_independence">
+  <idx><h>linearly independent vectors in a vector space</h></idx>
+  <idx><h>linear dependent vectors in a vector space</h></idx>
     <statement>
       <p>
         A set <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> of vectors in a vector space <m>V</m> is
-        <term>linearly independent</term><idx><h>linearly independent vectors in a vector space</h></idx> if the vector equation
+        <term>linearly independent</term> if the vector equation
         <me>
           x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k = \vzero
         </me>
@@ -31,10 +34,10 @@
       <p>
         If a set of vectors is not linearly independent,
         then the set is <term>linearly dependent</term>.
-            <idx><h>linear dependent vectors in a vector space</h></idx>
       </p>
     </statement>
   </definition>
+
   <p>
     Alternatively, we say that the vectors
     <m>\vv_1, \vv_2, \ldots, \vv_k</m> are linearly independent
@@ -42,11 +45,11 @@
     if the set <m>\{\vv_1, \vv_2, \ldots, \vv_k\}</m> is linearly independent
     (or dependent).
   </p>
-  <activity xml:id="pa_5_b">
-    <p>
-      <nbsp/>
-      <ol>
-        <li>
+
+  <exploration xml:id="pa_5_b">
+    
+      <task>
+        <introduction>
           <p>
             We can use the tools we developed to determine if a set of vectors in <m>\R^n</m> is linearly independent to answer the same questions for sets of vectors in other vector spaces.
             For example, consider the question of whether the set
@@ -59,31 +62,37 @@
             <me>
               (x_1+x_2) + (x_1-x_2)t = 0
             </me>.
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Recall that two polynomials are equal if all coefficients of like powers are the same.
                   By equating coefficients of like power terms,
                   rewrite equation <xref ref="eq_PA_5_b_1"/> as an equivalent system of two equations in the two unknowns <m>x_1</m> and <m>x_2</m>,
                   and solve for <m>x_1, x_2</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   What does your answer to the previous part tell you about the linear independence or dependence of the set <m>\{1+t, 1-t\}</m> in <m>\pol_1</m>?
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Recall that in <m>\R^n</m>,
                   a set of two vectors is linearly dependent if and only if one of the vectors in the set is a scalar multiple of the other and linearly independent if neither vector is a scalar multiple of the other.
                   Verify your answer to part (c) from a similar perspective in <m>\pol_1</m>.
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+      </task>
+      <task>
+        <introduction>
           <p>
             We can use the same type of method as in problem (1) to address the question of whether the set
             <me>
@@ -99,46 +108,54 @@
             <me>
               \left[ \begin{array}{cc} x_1+x_2+x_3\amp 3x_1-9x_2-x_3 \\ x_1+x_2+x_3\amp 2x_1+8x_2+4x_3 \end{array}  \right]
             </me>.
-            <ul>
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Recall that two matrices are equal if all corresponding entries are the same.
                   Equate corresponding entries of the matrices in equation <xref ref="eq_PA_5_b_2"/> to rewrite the equation as an equivalent system of four equations in the three unknowns <m>x_1</m>,
                   <m>x_2</m>, and <m>x_3</m>.
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Use appropriate matrix tools and techniques to find all solutions to the system from part (a).
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   What does the set of solutions to the system from part (a) tell you about the linear independence or dependence of the set
                   <me>
                     \left\{ \left[ \begin{array}{cc} 1\amp 3 \\ 1\amp 2 \end{array}  \right], \left[ \begin{array}{cr} 1\amp -9 \\ 1\amp 8 \end{array}  \right], \left[ \begin{array}{cr} 1\amp -1 \\ 1\amp 4 \end{array}  \right] \right\}?
                   </me>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Recall that in <m>\R^n</m>,
                   a set of vectors is linearly dependent if and only if one of the vectors in the set is a linear combination of the others and linearly independent if no vector in the set is a linear combination of the others.
                   Verify your answer to part (c) from a similar perspective in <m>\M_{2 \times 2}</m>.
                 </p>
-              </li>
-            </ul>
-          </p>
-        </li>
-        <li>
+              </statement>
+            </task>
+      </task>
+      <task>
+        <statement>
           <p>
             We will define a basis for a vector space to be a linearly independent spanning set.
             Which, if any,
             of the sets in parts (1) and (2) is a basis for its vector space?
             Explain.
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </statement>
+      </task>
+  
+  </exploration>
 </section>

@@ -4,34 +4,21 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>S = \{1, 1+t, 2-t^2, 1+t+t^2, t-t^2\}</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Does <m>S</m> span <m>\pol_2</m>?
               Explain.
             </p>
-          </li>
-          <li>
-            <p>
-              Explain why <m>S</m> is not a basis for <m>\pol_2</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Find a subset of <m>S</m> that is a basis for <m>\pol_2</m>.
-              Explain your reasoning.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Let <m>p(t) = a_0+a_1t+a_2t^2</m> be an arbitrary vector in <m>\pol_2</m>.
               If <m>p(t)</m> is in <m>\Span \ S</m>,
@@ -54,14 +41,29 @@
               the system <m>A \vx = \vb</m> is always consistent.
               We conclude that <m>S</m> does span <m>\pol_2</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Explain why <m>S</m> is not a basis for <m>\pol_2</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               The fact that the coefficient matrix <m>A</m> of our system has non-pivot columns means that each vector in <m>\pol_2</m> can be written in more than one way as a linear combination of vectors in <m>S</m>.
               This means that <m>S</m> is not linearly independent and so cannot be a basis for <m>\pol_2</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find a subset of <m>S</m> that is a basis for <m>\pol_2</m>.
+              Explain your reasoning.
+            </p>
+          </statement>
+          <solution>
             <p>
               That the first three columns of <m>A</m> are pivot columns implies that the polynomials <m>1</m>,
               <m>1+t</m>, and <m>2-t^2</m> are linearly independent.
@@ -70,35 +72,25 @@
               <m>1+t</m>, and <m>2-t^2</m> also span <m>\pol_2</m>.
               So <m>\{1, 1+t, 2-t^2\}</m> is a subset of <m>S</m> that is a basis for <m>\pol_2</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>U</m> be the set of all matrices of real numbers of the form
         <m>\left[ \begin{array}{cc} u \amp -u-x \\ 0 \amp x \end{array} \right]</m> and <m>W</m> be the set of all real matrices of the form <m>\left[ \begin{array}{cc} v \amp 0 \\ w \amp -v \end{array} \right]</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Find a basis for <m>U</m> and a basis for <m>W</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              Let <m>U + W = \{A+B : A \text{ is in } U \text{ and } B \text{ is in } W\}</m>.
-              Show that <m>U+W</m> is a subspace of
-              <m>\M_{2 \times 2}</m> and find a basis for <m>U + W</m>.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Every matrix in <m>U</m> has the form
               <me>
@@ -125,8 +117,17 @@
               then <m>c_1=c_2=0</m> and <m>S_W</m> is also linearly independent.
               This makes <m>S_W</m> a basis for <m>W</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Let <m>U + W = \{A+B : A \text{ is in } U \text{ and } B \text{ is in } W\}</m>.
+              Show that <m>U+W</m> is a subspace of
+              <m>\M_{2 \times 2}</m> and find a basis for <m>U + W</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               Every matrix in <m>U+W</m> has the form
               <md>
@@ -162,9 +163,8 @@
                 \left\{ \left[ \begin{array}{cr}   1 \amp   -1 \\ 0 \amp  0 \end{array}  \right], \left[ \begin{array}{cr}   0 \amp   -1 \\ 0 \amp  1 \end{array}  \right], \left[ \begin{array}{cc}   0 \amp   0 \\ 1 \amp  0 \end{array}  \right] \right\}
               </me>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
 </section>
