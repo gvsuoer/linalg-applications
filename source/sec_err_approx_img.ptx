@@ -9,7 +9,7 @@
     If we are interested in determining the error in approximating an image by a compressed image,
     it makes sense to use the standard norm in <m>\R^{mn}</m> to determine length and distance.
     This leads to what is called the
-    <em>Frobenius</em> norm of a matrix.
+    <term>Frobenius</term> norm of a matrix.
     The Frobenius norm <m>||M||_F</m> of an
     <m>m \times n</m> matrix <m>M = [m_{ij}]</m> is
     <me>
@@ -18,7 +18,7 @@
   </p>
   <p>
     There is a natural corresponding inner product on the set of <m>m \times n</m> matrices
-    (called the <em>Frobenius product</em>)
+    (called the <term>Frobenius product</term>)
     defined by
     <me>
       \langle A,B \rangle = \sum a_{ij}b_{ij}
@@ -64,11 +64,15 @@
       ||M||_F^2 = \sum \sigma_i^2 (\vu_i \cdot \vu_i)(\vv_i \cdot \vv_i) = \sum \sigma_i^2
     </men>.
   </p>
+
   <activity>
+    <statement>
     <p>
       Verify <xref ref="eq_7_c_SVD_norm"/> that <m>||M||_F^2 = \sum \sigma_i^2</m>.
     </p>
+    </statement>
   </activity>
+
   <p>
     When we used the singular value decomposition to approximate the image defined by <m>M</m>,
     we replaced <m>M</m> with a matrix of the form
@@ -112,110 +116,79 @@
   <p>
     Errors (rounded to 4 decimal places) for approximating <m>M</m> with some of the <m>M_k</m> are shown in <xref ref="T_7_c_Errors"></xref>
   </p>
+
   <table xml:id="T_7_c_Errors">
     <title>Errors in approximating <m>M</m> by <m>M_k</m></title>
-    <tabular>
+    <tabular left="minor" halign="center">
+      <col top="minor"/>
+      <col top="minor"/>
+      <col top="minor"/>
+      <col top="minor"/>
+      <col top="minor"/>
+      <col top="minor"/>
+
       <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
+        <cell right="minor"><m>k</m></cell>
+        <cell right="minor">10</cell>
+        <cell right="minor">9</cell>
+        <cell right="minor">8</cell>
+        <cell right="minor">7</cell>
+        <cell right="minor">6</cell>
       </row>
-      <row>
-        <cell><m>k</m></cell>
-        <cell>10</cell>
-        <cell>9</cell>
-        <cell>8</cell>
-        <cell>7</cell>
-        <cell>6</cell>
+      
+      <row bottom="medium">
+        <cell right="minor"><m>\frac{||E_k||}{||M||}</m></cell>
+        <cell right="minor">0.0070</cell>
+        <cell right="minor">0.0146</cell>
+        <cell right="minor">0.0252</cell>
+        <cell right="minor">0.0413</cell>
+        <cell right="minor">0.06426</cell>
       </row>
+      
+    
       <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
+        <cell right="minor"><m>k</m></cell>
+        <cell right="minor">5</cell>
+        <cell right="minor">4</cell>
+        <cell right="minor">3</cell>
+        <cell right="minor">2</cell>
+        <cell right="minor">1</cell>
       </row>
-      <row>
-        <cell><m>\frac{||E_k||}{||M||}</m></cell>
-        <cell>0.0070</cell>
-        <cell>0.0146</cell>
-        <cell>0.0252</cell>
-        <cell>0.0413</cell>
-        <cell>0.06426</cell>
-      </row>
+     
       <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
+        <cell right="minor"><m>\frac{||E_k||}{||M||}</m></cell>
+        <cell right="minor">0.0918</cell>
+        <cell right="minor">0.1231</cell>
+        <cell right="minor">0.1590</cell>
+        <cell right="minor">0.201</cell>
+        <cell right="minor">0.2460</cell>
       </row>
-    </tabular>
-    <tabular>
-      <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-      </row>
-      <row>
-        <cell><m>k</m></cell>
-        <cell>5</cell>
-        <cell>4</cell>
-        <cell>3</cell>
-        <cell>2</cell>
-        <cell>1</cell>
-      </row>
-      <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-      </row>
-      <row>
-        <cell><m>\frac{||E_k||}{||M||}</m></cell>
-        <cell>0.0918</cell>
-        <cell>0.1231</cell>
-        <cell>0.1590</cell>
-        <cell>0.201</cell>
-        <cell>0.2460</cell>
-      </row>
-      <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-      </row>
+     
     </tabular>
   </table>
+
   <activity>
+    <introduction>
     <p>
       Let <m>M</m> represent the flower image.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find the relative errors in approximating <m>M</m> by <m>M_{13}</m> and <m>M_{14}</m>.
             You may use the fact that <m>\sqrt{\sum_{i=1}^{16} \sigma_i^2} \approx 3102.0679</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             About how much of the information in the image is contained in the rank 1 approximation?
             Explain.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>

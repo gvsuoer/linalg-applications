@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<section xml:id="sec_ls_approx">
+<section xml:id="sec_ls_approx_SVD">
   <title>Least Squares Approximations</title>
   <p>
     The pseudoinverse of a matrix is also connected to least squares solutions of linear systems as we encountered in <xref ref="sec_orthogonal_basis"></xref>.
@@ -59,7 +59,9 @@
     then we do not need to use an SVD to find the pseudoinverse,
     as the next activity illustrates.
   </p>
+
   <activity xml:id="act_7_b_lin_indep_cols">
+    <introduction>
     <p>
       Having to calculate eigenvalues and eigenvectors for a matrix to produce a singular value decomposition to find pseudoinverse can be computationally intense.
       As we demonstrate in this activity,
@@ -77,14 +79,18 @@
     <p>
       To see how, suppose that <m>A</m> is an
       <m>m \times n</m> matrix with linearly independent columns.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Given that the columns of <m>A</m> are linearly independent,
             what must be the relationship between <m>n</m> and <m>m</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Since the columns of <m>A</m> are linearly independent,
             it follows that <m>A^{\tr}A</m> is invertible
@@ -95,8 +101,10 @@
             How is <m>r</m> related to <m>n</m>,
             and what do <m>\Sigma</m> and <m>\Sigma^{+}</m> look like?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let us now investigate the form of the invertible matrix <m>A^{\tr}A</m>
             (note that neither <m>A</m> nor <m>A^{\tr}</m> is necessarily invertible).
@@ -106,8 +114,10 @@
               A^{\tr}A = V \Sigma^{\tr} \Sigma V^{\tr}
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>\lambda_i = \sigma_i^2</m> for <m>i</m> from 1 to <m>n</m>.
             It is straightforward to see that <m>\Sigma^{\tr} \Sigma</m> is an
@@ -123,17 +133,19 @@
               D^{-1} \Sigma^{\tr} = \Sigma^{+}
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Complete the activity by showing that
             <me>
               \left(A^{\tr}A\right)^{-1} A^{\tr} = A^{+}
             </me>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+  
   </activity>
   <p>
     Therefore, to calculate <m>A^{+}</m> and solve a least squares problem,

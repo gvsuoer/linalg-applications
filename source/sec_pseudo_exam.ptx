@@ -5,7 +5,7 @@
     What follows are worked examples that use the concepts from this section.
   </p>
   <example>
-    <statement>
+    <introduction>
       <p>
         Let
         <me>
@@ -25,49 +25,17 @@
         <me>
           A \vw_1 = \left[ \begin{array}{c} 18\\18\\18\\18 \end{array}  \right] \ \text{ and }  A \vw_2 = \left[ \begin{array}{r} 9\\-9\\-9\\9 \end{array}  \right]
         </me>.
-        <ul>
-          <li>
+      </p>
+      </introduction>
+        <task>
+          <statement>
             <p>
               Find orthogonal matrices <m>U</m> and <m>V</m>,
               and the matrix <m>\Sigma</m>,
               so that <m>U \Sigma V^{\tr}</m> is a singular value decomposition of <m>A</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              Determine the best rank 1 approximation to <m>A</m>.
-              Give an appropriate numerical estimate as to how good this approximation is to <m>A</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Find the pseudoinverse <m>A^+</m> of <m>A</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Let <m>\vb = \left[ \begin{array}{c} 1\\0\\1\\0 \end{array}  \right]^{\tr}</m>.
-              Does the matrix equation
-              <me>
-                A \vx = \vb
-              </me>
-              have a solution?
-              If so, find the solution.
-              If not, find the best approximation you can to a solution to this matrix equation.
-            </p>
-          </li>
-          <li>
-            <p>
-              Use the orthogonal basis <m>\{\frac{1}{2}[1 \ 1 \ 1 \ 1]^{\tr}, \frac{1}{2}[1 \ -1 \ -1 \ 1]^{\tr}\}</m> of <m>\Col A</m> to find the projection of <m>\vb</m> onto <m>\Col A</m>.
-              Compare to your solution in part (c).
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Normalizing the eigenvectors <m>\vw_1</m>, <m>\vw_2</m>,
               and <m>\vw_3</m> to normal eigenvectors <m>\vv_1</m>, <m>\vv_2</m>,
@@ -112,11 +80,19 @@
               </me>.
               Therefore, a singular value decomposition of <m>A</m> is <m>U \Sigma V^{\tr}</m> of
               <me>
-                \left[ \begin{array}{crrr} \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{1}{\sqrt{2}} \amp  0 \\ \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  \frac{1}{\sqrt{2}} \\  \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  -\frac{1}{\sqrt{2}} \\ \frac{1}{2} \amp  \frac{1}{2} \amp  -\frac{1}{\sqrt{2}} \amp  0 \end{array}  \right] \begin{bmatrix}12\amp 0\amp 0 \\ 0\amp 6\amp 0 \\0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{bmatrix}  \left[ \begin{array}{rrc} \frac{2}{3}\amp \frac{2}{3}\amp \frac{1}{3}\\ \noalign{}-\frac{2}{3}\amp \frac{1}{3}\amp \frac{2}{3}\\ \noalign{} \frac{1}{3}\amp -\frac{2}{3}\amp \frac{2}{3} \end{array}  \right]
+                \left[ \begin{array}{crrr} \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{1}{\sqrt{2}} \amp  0 \\ \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  \frac{1}{\sqrt{2}} \\  \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  -\frac{1}{\sqrt{2}} \\ \frac{1}{2} \amp  \frac{1}{2} \amp  -\frac{1}{\sqrt{2}} \amp  0 \end{array}  \right] \begin{bmatrix}12\amp 0\amp 0 \\ 0\amp 6\amp 0 \\0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{bmatrix}  \left[ \begin{array}{rrc} \frac{2}{3}\amp \frac{2}{3}\amp \frac{1}{3}\\ -\frac{2}{3}\amp \frac{1}{3}\amp \frac{2}{3}\\  \frac{1}{3}\amp -\frac{2}{3}\amp \frac{2}{3} \end{array}  \right]
               </me>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Determine the best rank 1 approximation to <m>A</m>.
+              Give an appropriate numerical estimate as to how good this approximation is to <m>A</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               The outer product decomposition of <m>A</m> is
               <me>
@@ -124,15 +100,22 @@
               </me>.
               So the rank one approximation to <m>A</m> is
               <me>
-                \sigma_1 \vu_1 \vv_1^{\tr} = 12 \left(\frac{1}{2}\right) \left[ \begin{array}{c} 1\\1\\1\\1 \end{array}  \right] \left[ \begin{array}{ccc} \frac{2}{3} \amp  \frac{2}{3} \amp  \frac{1}{3} \end{array}  \right] = \left[ \begin{array}{ccc} 4\amp 4\amp 2\\ \noalign{}4\amp 4\amp 2 \\ \noalign{}4\amp 4\amp 2\\ \noalign{}4\amp 4\amp 2 \end{array}   \right]
+                \sigma_1 \vu_1 \vv_1^{\tr} = 12 \left(\frac{1}{2}\right) \left[ \begin{array}{c} 1\\1\\1\\1 \end{array}  \right] \left[ \begin{array}{ccc} \frac{2}{3} \amp  \frac{2}{3} \amp  \frac{1}{3} \end{array}  \right] = \left[ \begin{array}{ccc} 4\amp 4\amp 2\\ 4\amp 4\amp 2 \\ 4\amp 4\amp 2\\ 4\amp 4\amp 2 \end{array}   \right]
               </me>.
               The error in approximating <m>A</m> with this rank one approximation is
               <me>
                 \sqrt{\frac{\sigma_2^2}{\sigma_1^2+\sigma_2^2}} = \sqrt{\frac{36}{180}} = \sqrt{\frac{1}{5}} \approx 0.447
               </me>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find the pseudoinverse <m>A^+</m> of <m>A</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               Given that <m>A = U \Sigma V^{\tr}</m>,
               we use the pseudoinverse <m>\Sigma^+</m> of <m>\Sigma</m> to find the pseudoinverse <m>A^+</m> of <m>A</m> by
@@ -159,8 +142,22 @@
                 <mrow>5\amp -3\amp -3\amp 5 \end{array} \right]</mrow>
               </md>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Let <m>\vb = \left[ \begin{array}{c} 1\\0\\1\\0 \end{array}  \right]^{\tr}</m>.
+              Does the matrix equation
+              <me>
+                A \vx = \vb
+              </me>
+              have a solution?
+              If so, find the solution.
+              If not, find the best approximation you can to a solution to this matrix equation.
+            </p>
+          </statement>
+          <solution>
             <p>
               Augmenting <m>A</m> with <m>\vb</m> and row reducing shows that
               <me>
@@ -187,8 +184,16 @@
                 <mrow>2 \end{array} \right]</mrow>
               </md>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use the orthogonal basis <m>\{\frac{1}{2}[1 \ 1 \ 1 \ 1]^{\tr}, \frac{1}{2}[1 \ -1 \ -1 \ 1]^{\tr}\}</m> of <m>\Col A</m> to find the projection of <m>\vb</m> onto <m>\Col A</m>.
+              Compare to your solution in part (c).
+            </p>
+          </statement>
+          <solution>
             <p>
               The rank of <m>A</m> is 2 and an orthonormal basis for <m>\Col A</m> is <m>\{\vu_1, \vu_2\}</m>,
               where <m>\vu_1 = \frac{1}{2}[1 \ 1 \ 1 \ 1]^{\tr}</m> and <m>\vu_2 = \frac{1}{2}[1 \ -1 \ -1 \ 1]^{\tr}</m>.
@@ -200,23 +205,24 @@
               </md>
               as expected from part (c).
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+     
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         <xref ref="T_Debt_per_capita"></xref>
         shows the per capita debt in the U.S. in from 2014 to 2019
-        (source statistica.com at \url{https://www.statista.com/statistics/203064/national-debt-of-the-united-states-per-capita/}).
+        (source <url href="https://www.statista.com/statistics/203064/national-debt-of-the-united-states-per-capita/" visual="statista.com/statistics/203064/national-debt-of-the-united-states-per-capita/">statistica.com</url>).
       </p>
+
       <table xml:id="T_Debt_per_capita">
         <title>U.S. per capita debt</title>
-        <tabular>
+        <tabular halign="center">
           <row>
-            <cell>Year</cell>
+            <cell right="minor">Year</cell>
             <cell>2014</cell>
             <cell>2015</cell>
             <cell>2016</cell>
@@ -225,7 +231,7 @@
             <cell>2019</cell>
           </row>
           <row>
-            <cell>Debt</cell>
+            <cell right="minor">Debt</cell>
             <cell>55905</cell>
             <cell>56513</cell>
             <cell>60505</cell>
@@ -235,46 +241,35 @@
           </row>
         </tabular>
       </table>
-      <ul>
-        <li>
+      </introduction>
+      <task>
+        <statement>
           <p>
             Set up a linear system of the form
             <m>A \vx = \vb</m> whose least squares solution provides a linear fit to the data.
           </p>
-        </li>
-        <li>
+        </statement>
+        <solution>
+          <p>
+            A linear approximation <m>f(x) = a_0 + a_1x</m> to the system would satisfy the equation <m>A \vx = \vb</m>,
+              where <m>A = \left[ \begin{array}{cc} 1\amp 2014 \\ 1\amp 2015 \\ 1\amp 2016 \\ 1\amp 2017 \\ 1\amp 2018 \\ 1\amp 2019 \end{array} \right]</m>,
+              <m>\vx = \left[ \begin{array}{c} a_0 \\ a_1 \end{array} \right]</m>,
+              and <m>\vb = \left[ \begin{array}{c} 55905 \\ 56513 \\ 60505 \\ 62174 \\ 65697 \\ 69064 \end{array} \right]</m>.
+          </p>
+        </solution>
+      </task>
+      <task>
+        <statement>
           <p>
             Use technology to approximate a singular value decomposition
             (round to four decimal places).
             Use this svd to approximate the pseudoinverse of <m>A</m>.
             Then use this pseudoinverse to approximate the least squares linear approximation to the system.
           </p>
-        </li>
-        <li>
+        </statement>
+        <solution>
           <p>
-            Calculate <m>\left(A^{\tr}A\right)^{-1}A^{\tr}</m> directly and compare to the pseudoinverse you found in part (b).
-          </p>
-        </li>
-        <li>
-          <p>
-            Use your approximation to estimate the U.S. per capita debt in 2020.
-          </p>
-        </li>
-      </ul>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
-            <p>
-              A linear approximation <m>f(x) = a_0 + a_1x</m> to the system would satisfy the equation <m>A \vx = \vb</m>,
-              where <m>A = \left[ \begin{array}{cc} 1\amp 2014 \\ 1\amp 2015 \\ 1\amp 2016 \\ 1\amp 2017 \\ 1\amp 2018 \\ 1\amp 2019 \end{array} \right]</m>,
-              <m>\vx = \left[ \begin{array}{c} a_0 \\ a_1 \end{array} \right]</m>,
-              and <m>\vb = \left[ \begin{array}{c} 55905 \\ 56513 \\ 60505 \\ 62174 \\ 65697 \\ 69064 \end{array} \right]</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Technology shows that a singular value decomposition of <m>A</m> is approximately <m>U \Sigma V^{\tr}</m>, where
+            Technology shows that a singular value decomposition of <m>A</m> is approximately <m>U \Sigma V^{\tr}</m>, where
               <md>
                 <mrow>U \amp = \left[\begin{array}{rrrrrr} 0.4077 \amp  0.5980 \amp  -0.3997 \amp  -0.3615 \amp  -0.3233 \amp  -0.2851</mrow>
                 <mrow>0.4079 \amp  0.3589 \amp  -0.0621 \amp  0.1880 \amp  0.4381 \amp  0.6882</mrow>
@@ -304,24 +299,37 @@
               <me>
                 f(x) = -5412635.9714 + 2714.7429x
               </me>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Calculating <m>\left(A^{\tr}A\right)^{-1}A^{\tr}</m> gives the same matrix as <m>A^+</m>,
+          </p>
+        </solution>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Calculate <m>\left(A^{\tr}A\right)^{-1}A^{\tr}</m> directly and compare to the pseudoinverse you found in part (b).
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Calculating <m>\left(A^{\tr}A\right)^{-1}A^{\tr}</m> gives the same matrix as <m>A^+</m>,
               so we obtain the same linear approximation.
-            </p>
-          </li>
-          <li>
-            <p>
-              The approximate U.S. per capita debt in 2020 is
+          </p>
+        </solution>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Use your approximation to estimate the U.S. per capita debt in 2020.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The approximate U.S. per capita debt in 2020 is
               <me>
                 f(2020) = -5412635.9714 + 2714.7429(2020) = 71144.60
               </me>.
-            </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </p>
+        </solution>
+      </task>
+      
   </example>
 </section>

@@ -5,23 +5,30 @@
     A singular value decomposition for a matrix <m>A</m> can tell us a lot about how difficult it is to accurately solve a system <m>A \vx = \vb</m>.
     Solutions to systems of linear equations can be very sensitive to rounding as the next exercise demonstrates.
   </p>
+
   <activity xml:id="act_7_c_cond_num">
+    <introduction>
     <p>
       Find the solution to each of the systems.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             <m>\left[ \begin{array}{cc} 1.0000\amp 1.0000 \\ 1.0000\amp 1.0005 \end{array} \right] \left[ \begin{array}{c} x \\ y \end{array} \right] = \left[ \begin{array}{c} 2.0000 \\ 2.0050 \end{array} \right]</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>\left[ \begin{array}{cc} 1.000\amp 1.000 \\ 1.000\amp 1.001 \end{array} \right] \left[ \begin{array}{c} x \\ y \end{array} \right] = \left[ \begin{array}{c} 2.000 \\ 2.005 \end{array} \right]</m>
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     Notice that a simple rounding in the <m>(2,2)</m> entry of the coefficient matrix led to a significantly different solution.
     If there are rounding errors at any stage of the Gaussian elimination process,
@@ -30,6 +37,7 @@
     Finding ways of dealing with these kinds of errors is an area of on-going research in numerical linear algebra.
     This problem is given a name.
   </p>
+
   <definition>
     <statement>
       <p>
@@ -38,9 +46,10 @@
       </p>
     </statement>
   </definition>
+
   <p>
     A matrix that is not ill-conditioned is said to be
-    <em>well-conditioned</em>.
+    <term>well-conditioned</term>.
     Since small changes in entries of ill-conditioned matrices can lead to large errors in computations,
     it is an important problem in linear algebra to have a way to measure how ill-conditioned a matrix is.
     This idea will ultimately lead us to the condition number of a matrix.
@@ -103,14 +112,12 @@
     <me>
       ||A|| = \max_{||\vx|| \neq \vzero} \left\{\frac{||A\vx||}{||\vx||} \right\} = \max_{||\vx||=1} \{||A\vx||\}
     </me>.
-  </p>
-  <p>
+ 
     One important property that the norm has is that if the product <m>AB</m> is defined, then
     <me>
       ||AB|| \leq ||A|| \ ||B||
     </me>.
-  </p>
-  <p>
+
     To see why, notice that
     <me>
       \frac{||AB\vx||}{||\vx||} = \frac{||A(B\vx)||}{||B\vx||} \ \frac{||B\vx||}{||\vx||}
@@ -158,6 +165,7 @@
   <p>
     This constant <m>||A^{-1}|| \ ||A||</m> is the best bound and so is called the condition number of <m>A</m>.
   </p>
+
   <definition>
     <statement>
       <p>
@@ -165,6 +173,7 @@
       </p>
     </statement>
   </definition>
+
   <p>
     How does a singular value decomposition tell us about the condition number of a matrix?
     Recall that the maximum value of
@@ -192,7 +201,9 @@
       ||A^{-1}|| \ ||A|| = \frac{\sigma_1}{\sigma_n}
     </me>.
   </p>
+
   <activity>
+    <statement>
     <p>
       Let <m>A = \left[ \begin{array}{cc} 1.0000\amp 1.0000 \\ 1.0000\amp 1.0005 \end{array} \right]</m>.
       A computer algebra system gives the singular values of <m>A</m> as 2.00025003124999934 and 0.000249968750000509660.
@@ -200,40 +211,49 @@
       What does that tell us about <m>A</m>?
       Does this seem reasonable given the result of <xref ref="act_7_c_cond_num"></xref>?
     </p>
+    </statement>
   </activity>
+
   <activity>
-    <ul>
-      <li>
+    <task>
+      <statement>
         <p>
           What is the smallest the condition number of a matrix can be?
           Find an entire class of matrices with this smallest condition number.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           What is the condition number of an orthogonal matrix?
           Why does this make sense?
-          <hint>
-            <p>
-              If <m>P</m> is an orthogonal matrix,
-              what is <m>||P \vx||</m> for any vector <m>\vx</m>?
-              What does this make <m>||P||</m>?
-            </p>
-          </hint>
+          
         </p>
-      </li>
-      <li>
+      </statement>
+      <hint>
+        <p>
+          If <m>P</m> is an orthogonal matrix,
+          what is <m>||P \vx||</m> for any vector <m>\vx</m>?
+          What does this make <m>||P||</m>?
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
         <p>
           What is the condition number of an invertible symmetric matrix in terms of its eigenvalues?
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Why do we not define the condition number of a non-invertible matrix?
           If we did, what would the condition number have to be?
           Why?
         </p>
-      </li>
-    </ul>
+      </statement>
+    </task>
   </activity>
 </section>
