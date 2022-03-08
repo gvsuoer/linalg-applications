@@ -10,10 +10,22 @@
     is how we can extract from the data this important piece of information.
     Principal Component Analysis (PCA) is a tool for just this type of analysis.
   </p>
+
   <table xml:id="T_PCA_SAT_2">
     <title>SAT data</title>
     <tabular>
-      <row>
+      <col />
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <row bottom="minor">
         <cell>State</cell>
         <cell><m>1</m></cell>
         <cell><m>2</m></cell>
@@ -26,19 +38,7 @@
         <cell><m>9</m></cell>
         <cell><m>10</m></cell>
       </row>
-      <row bottom="minor">
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-        <cell></cell>
-      </row>
+     
       <row>
         <cell>EBRW</cell>
         <cell><m>595</m></cell>
@@ -96,15 +96,19 @@
     A plot of the data is shown at left in <xref ref="F_PCA_data_plot"></xref>,
     where the EBRW score is along the horizontal axis and the math score is along the vertical axis.
   </p>
+
   <figure xml:id="F_PCA_data_plot">
     <caption>Two views of the data set (EBRW horizontal, math vertical).</caption>
-    <image width="50%" source="PCA_data"/>
+    <image width="70%" source="PCA_data"/>
   </figure>
+
   <p>
     The question we want to answer is,
     how do we represent our data set so that the most important features in the data set are revealed?
   </p>
-  <activity xml:id="act_PCA_centering">
+
+  <project xml:id="act_PCA_centering">
+    <introduction>
     <p>
       Before analyzing a data set there is often some initial preparation that needs to be made.
       Issues that have to be dealt with include the problem that attributes might have different units and scales.
@@ -117,8 +121,10 @@
       (body mass index depends on height and weight).
       To simplify our work, we will not address these type of problems.
       The only preparation we will do with our data is to center it.
-      <ul>
-        <li>
+    </p>
+  </introduction>
+      <task>
+        <statement>
           <p>
             An important piece of information about a one-dimensional data set
             <m>\vx = [x_1 \ x_2 \ x_3 \ \cdots \ x_n]^{\tr}</m>  is the sample average or mean
@@ -128,17 +134,20 @@
             Calculate the means <m>\overline{\vx_1}</m> and
             <m>\overline{\vx_2}</m> for our SAT data from the matrix <m>X_0</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             We can use these sample means to center our data at the origin by translating the data so that each column of our data matrix has mean <m>0</m>.
             We do this by subtracting the mean for that row vector from each component of the vector.
             Determine the matrix <m>X</m> that contains the centered data for our SAT data set from matrix <m>X_0</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     A plot of the centered data for our SAT data is shown at right in <xref ref="F_PCA_data_plot"></xref>.
     Later we will see why centering the data is useful <mdash/> it will more easily allow us to project onto subspaces.
@@ -148,12 +157,16 @@
     Before we do so,
     we need to discuss a way to compare the one dimensional data vectors <m>\vx_1</m> and <m>\vx_2</m>.
   </p>
-  <activity xml:id="act_PCA_covariance">
+
+  <project xml:id="act_PCA_covariance">
+    <introduction>
     <p>
       To compare the two one dimensional data vectors,
       we need to consider variance and covariance.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             It is often useful to know how spread out a data set is,
             something the average doesn't tell us.
@@ -175,8 +188,10 @@
             </fn>  Determine the variances of the two data vectors <m>\vx_1</m> and <m>\vx_2</m>.
             Which is more spread out?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             In general, we will have more than one-dimensional data,
             as in our SAT data set.
@@ -195,8 +210,10 @@
             How are  <m>\cov(\vx_1,\vx_1)</m> and
             <m>\cov(\vx_2,\vx_2)</m> related to variances?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What is most important about covariance is its sign.
             Suppose <m>\vy = [y_1 \ y_2 \ \ldots \ y_n]^{\tr}</m>,
@@ -216,8 +233,11 @@
             what does <m>\cov(\vx_1,\vx_2)</m> tell us about the relationship between <m>\vx_1</m> and <m>\vx_2</m>?
             Why should we expect this from the context?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+      <idx><h>covariance matrix</h></idx>
+        <statement>
           <p>
             The covariance gives us information about the relationships between the attributes.
             So instead of working with the original data,
@@ -225,16 +245,16 @@
             If we have <m>m</m> data vectors <m>\vx_1</m>,
             <m>\vx_2</m>, <m>\ldots</m>,
             <m>\vx_m</m> in <m>\R^n</m>, the
-            <em>covariance matrix</em>
-              <idx><h>covariance matrix</h></idx>
+            <term>covariance matrix</term>
             <m>C = [c_{ij}]</m> satisfies <m>c_{ij} = \cov(\vx_i, \vx_j)</m>.
             Calculate the covariance matrix for our SAT data.
             Then explain why <m>C = \frac{1}{n-1}XX^{\tr}</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     Recall that the goal of PCA is to find a matrix <m>P</m> such that <m>PX = Y</m> where <m>P</m> transforms the data set to a coordinate system in which the important aspects of the data are revealed.
     We are now in a position to discuss what that means.
@@ -249,14 +269,18 @@
     That means that we would like a covariance matrix in which the non-diagonal entries are all zero.
     This will be possible if the covariance matrix is diagonalizable.
   </p>
-  <activity xml:id="act_PCA_diagonalize">
+
+  <project xml:id="act_PCA_diagonalize">
+    <statement>
     <p>
       Consider the covariance matrix <m>C = \left[ \begin{array}{cc} 1760.18\amp 1967.62\\ 1967.62\amp 2319.29 \end{array} \right]</m>.
       Explain why we can find a matrix <m>P</m> with determinant 1 whose columns are unit vectors that diagonalizes <m>C</m>.
       Then find such a matrix.
       Use technology as appropriate.
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     For our purposes, we want to diagonalize
     <m>XX^{\tr}</m> with <m>PXX^{\tr}P^{-1}</m>,
@@ -274,7 +298,9 @@
   <p>
     So the matrix <m>P</m> that we want is exactly the one that diagonalizes <m>XX^{\tr}</m>.
   </p>
-  <activity xml:id="act_PCA_max_min">
+
+  <project xml:id="act_PCA_max_min">
+    <introduction>
     <p>
       There are two useful ways we can interpret the results of our work so far.
       An eigenvector of <m>XX^{\tr}</m> that corresponds to the largest
@@ -284,7 +310,7 @@
       <m>E_{\lambda_1}</m> of <m>XX^{\tr}</m> spanned by
       <m>\vv_1 = [0.66 \ 0.76]^{\tr}</m> is shown at left in <xref ref="F_PCA_pc"></xref>.
       The eigenvector <m>\vv_1</m> is called the
-      <em>first principal component</em> of <m>X</m>.
+      <term>first principal component</term> of <m>X</m>.
       Notice that this line <m>E_{\lambda_1}</m> indicates the direction of greatest variation in the data.
       That is, the sum of the squares of the differences between the data points and the mean is as large as possible in this direction.
       In other words,
@@ -292,8 +318,10 @@
       as shown at right in <xref ref="F_PCA_pc"></xref>,
       the variation of the resulting points is larger than it is for any other line.
       In other words, the data is most spread out in this direction.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             There is another way we can interpret this result.
             If we drop a perpendicular from one of our data points to the space
@@ -303,27 +331,32 @@
             Use this idea to explain why maximizing the variation also minimizes the sum of the squares of the distances from the data points to this line.
             As a result,
             we have projected our two-dimensional data onto the one-dimensional space that maximizes the variance of the data.
-            <figure xml:id="F_PCA_pc">
-              <caption>The principal component.</caption>
-              <image width="50%" source="PCA_spread"/>
-            </figure>
+            
           </p>
-        </li>
-        <li>
+          <figure xml:id="F_PCA_pc">
+            <caption>The principal component.</caption>
+            <image width="70%" source="PCA_spread"/>
+          </figure>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Recall that the matrix
             (to two decimal places)
             <m>P = \left[ \begin{array}{rr} - 0.66\amp -0.76\\ 0.76\amp 0.66 \end{array} \right]</m> transforms the data set <m>X</m> to a new data set <m>Y=PX</m> whose covariance matrix is diagonal.
             Explain how the <m>x</m>-axis is related to the transformed data set <m>Y</m>.
-            <figure xml:id="F_PCA_P">
-              <caption>Applying <m>P</m>.</caption>
-              <image width="50%" source="PCA_P"/>
-            </figure>
+            
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+          <figure xml:id="F_PCA_P">
+            <caption>Applying <m>P</m>.</caption>
+            <image width="70%" source="PCA_P"/>
+          </figure>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     The result of <xref ref="act_PCA_max_min"></xref>
     is that we have reduced the problem from considering the data in a two-dimensional space to a one-dimensional space
@@ -341,10 +374,12 @@
     The second eigenvector of <m>XX^{\tr}</m> is orthogonal to the first,
     and the direction of the second eigenvector tells us the direction of the second most amount of variance as can be seen in <xref ref="F_PCA_second_pc"></xref>.
   </p>
+
   <figure xml:id="F_PCA_second_pc">
     <caption>The second principal component.</caption>
     <image width="50%" source="PCA_second"/>
   </figure>
+
   <p>
     To summarize, the unit eigenvector for the largest eigenvalue of
     <m>XX^{\tr}</m> indicates the direction in which the data has the greatest variance.
@@ -352,32 +387,40 @@
     This direction is also perpendicular to the first
     (indicating <m>0</m> covariance).
     The directions of the eigenvectors are called the
-    <em>principal components</em> of <m>X</m>.
+    <term>principal components</term> of <m>X</m>.
     The eigenvector with the highest eigenvalue is the first principal component of the data set and the other eigenvectors are ordered by the eigenvalues,
     highest to lowest.
     The principal components provide a new coordinate system from which to view our data <mdash/> one in which we can see the maximum variance and in which there is zero covariance.
   </p>
-  <activity xml:id="act_PCA_variances">
+
+  <project xml:id="act_PCA_variances">
+    <introduction>
     <p>
       We can use the eigenvalues of
       <m>XX^{\tr}</m> to quantify the amount of variance that is accounted for by our projections.
       Notice that the points along the <m>x</m>-axis at right in <xref ref="F_PCA_P"></xref>
       are exactly the numbers in the first row of <m>Y</m>.
       These numbers provide the projections of the data in <m>Y</m> onto the <m>x</m>-axis <mdash/> the axis along which the data has its greatest variance.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Calculate the variance of the data given by the first row of <m>Y</m>.
             This is the variance of the data i the direction of the eigenspace <m>E_{\lambda_1}</m>.
             How does the result compare to entries of the covariance matrix for <m>Y</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Repeat part (a) for the data along the second row of <m>Y</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The total variance of the data set is the sum of the variances.
             Explain why the amount of variance in the data that is accounted for in the direction of <m>E_{\lambda_1}</m> is
@@ -386,10 +429,11 @@
             </me>.
             Then calculate this amount for the SAT data.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     In general, PCA is most useful for larger data sets.
     The process is the same.
@@ -430,7 +474,9 @@
       </li>
     </ul>
   </p>
-  <activity xml:id="act_PCA_4D_SAT">
+
+  <project xml:id="act_PCA_4D_SAT">
+    <introduction>
     <p>
       Let us now consider a problem with more than two variables.
       We continue to keep the data set small so that we can conveniently operate with it.
@@ -441,8 +487,19 @@
     </p>
     <table xml:id="T_PCA_SAT">
       <title>SAT data</title>
+      <col/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
+      <col halign="center"/>
       <tabular>
-        <row>
+        <row bottom="minor">
           <cell>State</cell>
           <cell><m>1</m></cell>
           <cell><m>2</m></cell>
@@ -455,19 +512,7 @@
           <cell><m>9</m></cell>
           <cell><m>10</m></cell>
         </row>
-        <row bottom="minor">
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-          <cell></cell>
-        </row>
+       
         <row>
           <cell>Rate</cell>
           <cell><m>6</m></cell>
@@ -522,42 +567,54 @@
         </row>
       </tabular>
     </table>
-    <ul>
-      <li>
+    
+    </introduction>
+
+    <task>
+      <statement>
         <p>
           Determine the centered data matrix <m>X</m> for this data set.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Find the covariance matrix for this data set.
           Round to four decimal places.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Find the principal components of <m>X</m>.
           Include at least four decimal places accuracy.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           How much variation is accounted for in the data by the first principal component?
           In other words, if we reduce this data to one dimension,
           how much of the variation do we retain?
           Explain.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           How much variation is accounted for in the data by the first two principal components?
           In other words, if we reduce this data to two dimensions,
           how much of the variation do we retain?
           Explain.
         </p>
-      </li>
-    </ul>
-  </activity>
+      </statement>
+    </task>
+  </project>
+
   <p>
     We conclude with a comment.
     A reasonable question to ask is how we interpret the principal components.
