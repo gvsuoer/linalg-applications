@@ -38,7 +38,9 @@
   <p>
     Two facts will make these polynomials useful for our sums.
   </p>
-  <activity xml:id="act_hockey_stick">
+
+  <project xml:id="act_hockey_stick">
+    <statement>
     <p>
       Our polynomials <m>p_k(t)</m> are defined in terms of binomial coefficients.
       A useful identity will relate sums of binomial coefficients to other binomial coefficients.
@@ -51,21 +53,23 @@
       for positive integers <m>r</m>.
       Use the definition of the binomial coefficients and some algebra to verify the hockey-stick identity.
     </p>
-  </activity>
+    </statement>
+  </project>
   <p>
     The second useful fact about our polynomials <m>p_k(t)</m> is that they form a basis for <m>\pol_n</m>.
   </p>
-  <activity xml:id="act_binomial_basis">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+  <project xml:id="act_binomial_basis">
+    
+      <task>
+        <statement>
           <p>
             Let <m>k</m> be a positive integer.
             Explain why <m>p_k(0) = p_k(1) = p_k(2) = \cdots = p_k(k-1) = 0</m> and <m>p_k(k) = 1</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>\CP_n = \{p_0(t), p_1(t),
             p_2(t), \ldots, p_n(t)\}</m>.
@@ -78,10 +82,10 @@
             Evaluate this equation at <m>t=0</m>, <m>t=1</m>,
             <m>\ldots</m>, <m>t=n</m> and use the result of part (a).)
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
   <p>
     Now we have the tools we need to derive our formulas.
     To simplify computations,
@@ -105,54 +109,69 @@
     The cases for sums of higher powers work the same way,
     but we will need to do a little more work to write <m>t^n</m> in terms of the basis vectors in <m>\CP_n</m>.
   </p>
-  <activity xml:id="act_sum_2">
+
+  <project xml:id="act_sum_2">
+    <introduction>
     <p>
       Consider the sum <m>\sum_{t=0}^{n-1} t^2</m>.
       We want to write <m>t^2</m> as a linear combination of <m>p_0(t)</m>,
       <m>p_1(t)</m> and <m>p_2(t)</m>.
       To do so, we will use the coordinate vectors with respect to <m>\CS_2</m> and do our work in <m>\R^3</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find <m>[p_0(t)]_{\CS_2}</m>,
             <m>[p_1(t)]_{\CS_2}</m>, <m>[p_2(t)]_{\CS_2}</m>, and <m>[t^2]_{\CS_2}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the coordinate vectors from part (a) to write <m>t^2</m> as a linear combination of the vectors in <m>\CP_2</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the result of part (b) and,
             the hockey-stick identity,
             and the fact that <m>p_k(t) = \binom{t}{k}</m> to find a formula for <m>\sum_{t=0}^{n-1} t^2</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+  
   <p>
     Deriving formulas for higher powers involves the same process,
     just with more algebra.
   </p>
-  <activity xml:id="act_sums_higher">
+
+  <project xml:id="act_sums_higher">
+    <introduction>
     <p>
       Use the process outlined in <xref ref="act_sum_2"></xref>
       to derive formulas for the following sums.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             <m>\sum_{t=0}^{n-1} t^3</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>\sum_{t=0}^{n-1} t^4</m>
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
 </section>

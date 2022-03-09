@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_coord_trans">
   <title>The Coordinate Transformation</title>
+  <idx><h>coordinate transformation</h></idx>
   <p>
-        <idx><h>coordinate transformation</h></idx>
     We have seen that both <m>\R^2</m> and <m>\pol_1</m> are vector spaces of dimension 2.
     Moreover, we can pair the polynomial
     <m>a_0+a_1t</m> in <m>\pol_1</m> with the vector
@@ -26,13 +26,15 @@
     These coordinate vectors allow us to identify polynomials in <m>\pol_1</m> with vectors in <m>\R^2</m>.
     In this way,
     the coordinate vectors provide an identification between the vector space <m>\pol_1</m> and the vector space <m>\R^2</m> via a
-    <em>coordinate transformation</em>.
+    <term>coordinate transformation</term>.
   </p>
+
   <definition>
+  <idx><h>coordinate transformation</h></idx>
     <statement>
       <p>
         Let <m>V</m> be a vector space of dimension <m>n</m> with basis <m>\CB</m>.
-        The <term>coordinate transformation</term><idx><h>coordinate transformation</h></idx> <m>T</m> from <m>V</m> to <m>\R^n</m> with respect to the ordered basis <m>\CB</m> is the mapping defined by
+        The <term>coordinate transformation</term> <m>T</m> from <m>V</m> to <m>\R^n</m> with respect to the ordered basis <m>\CB</m> is the mapping defined by
         <me>
           T(\vx) = [\vx]_{\CB}
         </me>
@@ -40,50 +42,66 @@
       </p>
     </statement>
   </definition>
+
   <p>
     Coordinate transformations have several useful properties that allow us to use them to compare the structure of vector spaces.
   </p>
+
   <activity xml:id="act_5_d_2">
+    <introduction>
     <p>
       Let <m>a(t) = 8+2t</m> and <m>b(t) = -5+t</m> in <m>\pol_1</m>.
       Suppose we know <m>\CC = \{1 + t, 2 - t\}</m> is a basis of <m>\pol_1</m>.
       Let <m>T(\vx)=[\vx]_\CC</m> for <m>\vx</m> in <m>\pol_1</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             What are <m>T(a(t))</m> and <m>T(b(t))</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find <m>T(a(t)) + T(b(t))</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What is <m>T(a(t)+b(t))= [a(t)+b(t)]_{\CC}</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             What is the relationship between
             <m>T(a(t)) + T(b(t))</m> and <m>T(a(t)+b(t))</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Show that if <m>c</m> is any scalar,
             then <m>T(ca(t)) = cT(a(t))</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Where have we seen functions with these properties before?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     <xref ref="act_5_d_2"></xref>
     shows that coordinate transformations behave in ways similar to matrix transformations.
@@ -110,6 +128,7 @@
     for any vectors <m>\vu</m> and <m>\vw</m> in <m>V</m> and any scalar <m>c</m>.
     The fact that any coordinate transformation satisfies these properties is contained in the following theorem.
   </p>
+
   <theorem xml:id="thm_5_d_5">
     <statement>
       <p>
@@ -133,7 +152,7 @@
         for any vectors <m>\vu</m> and <m>\vw</m> in <m>V</m> and any scalar <m>c</m>.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       Let <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
@@ -181,6 +200,8 @@
       The proof of the second property is left for the exercises.
     </p>
   </proof>
+  </theorem>
+
   <p>
     <xref ref="thm_5_d_5"></xref>
     can be extended to any linear combination of vectors by mathematical induction.
@@ -220,7 +241,9 @@
     to understand any vector space with a basis of <m>n</m> vectors,
     it is enough to understand <m>\R^n</m>.
   </p>
+
   <activity xml:id="act_5_d_6">
+    <statement>
     <p>
       Let <m>V</m> be a vector space with an ordered basis <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}</m>.
       Then <m>T</m> maps <m>V</m> into <m>\R^n</m>.
@@ -232,6 +255,7 @@
       If so, find such a vector.
       If not, explain why not.
     </p>
+    </statement>
   </activity>
   <p>
     <xref ref="act_5_d_6"></xref>
@@ -240,6 +264,7 @@
     (the proof that <m>T</m> is one-to-one is left for the exercises).
     We summarize these results in the following theorem.
   </p>
+
   <theorem xml:id="thm_5_d_6">
     <statement>
       <p>
@@ -249,6 +274,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     <xref ref="thm_5_d_5"></xref>
     and <xref ref="thm_5_d_6"></xref>
@@ -258,18 +284,24 @@
     (linear dependence, independence, span)
     in <m>V</m> to <m>\R^n</m> where we can apply our knowledge of matrices to answer the questions.
   </p>
+
   <activity xml:id="act_5_d_7">
+    <introduction>
     <p>
       Let <m>V = \pol_3</m> and let <m>\CB = \{1,t,t^2,t^3\}</m>.
       Let <m>S = \{1+t+t^2+t^3, t-t^3, 1+2t^2, 1+5t-t^3\}</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find each of <m>[1+t+t^2+t^3]_{\CB}</m>, <m>[t-t^3]_{\CB}</m>,
             <m>[1+2t^2]_{\CB}</m>, and <m>[1+5t-t^3]_{\CB}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Are the vectors <m>[1+t+t^2+t^3]_{\CB}</m>,
             <m>[t-t^3]_{\CB}</m>, <m>[1+2t^2]_{\CB}</m>,
@@ -278,8 +310,10 @@
             If the vectors are linearly dependent,
             write one of the vectors as a linear combination of the others.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The coordinate transformation identifies the vectors in
             <m>S = \{1+t+t^2+t^3, t-t^3, 1+2t^2, 1+5t-t^3\}</m> with their coordinate vectors in <m>\R^4</m>.
@@ -287,8 +321,8 @@
             If dependent,
             write one of the vectors in <m>S</m> as a linear combination of the others.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>
