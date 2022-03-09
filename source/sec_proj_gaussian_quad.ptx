@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_proj_gaussian_quad">
   <title>Project: Gaussian Quadrature and Legendre Polynomials</title>
+  <idx><h>Gaussian quadrature</h></idx>
   <p>
     Simpson's rule is a reasonably accurate method for approximating definite integrals since it models the integrand on subintervals with quadratics.
     For that reason, Simpson's rule provides exact values for integrals of all polynomials of degree less than or equal to 2.
@@ -15,7 +16,6 @@
   </p>
   <p>
     The Gaussian quadrature
-        <idx><h>Gaussian quadrature</h></idx>
     approximation has the form
     <men xml:id="eq_GQ">
       \int_{-1}^1 f(t) \ dt \approx w_1f(t_1) + w_2 f(t_2) + \cdots + w_n f(t_n) = \sum_{i=1}^n w_if(t_i)
@@ -27,7 +27,9 @@
     Gaussian quadrature describes how to find the weights and the points in <xref ref="eq_GQ"/> to obtain suitable approximations.
     We begin to explore Gaussian quadrature with the simplest cases.
   </p>
-  <activity xml:id="act_GQ_1">
+
+  <project xml:id="act_GQ_1">
+    <introduction>
     <p>
       In this activity we find through direct calculation the node and weight with <m>n=1</m> so that
       <men xml:id="eq_GQ1">
@@ -37,32 +39,41 @@
     <p>
       There are two unknowns in this situation (<m>w_1</m> and <m>t_1</m>) and so we will need 2 equations to find these unknowns.
       Keep in mind that we want to have the approximation <xref ref="eq_GQ1"/> be exact for as large of degree polynomials as possible.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Assume equality in <xref ref="eq_GQ1"/> if we choose <m>f(t) = 1</m>.
             Use the resulting equation to find <m>w_1</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Assume equality in <xref ref="eq_GQ1"/> if we choose <m>f(t) = t</m>.
             Use the resulting equation to find <m>t_1</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Verify that <xref ref="eq_GQ1"/> is in fact an equality for any linear polynomial of the form <m>f(t) = a_0+a_1t</m>,
             using the values of <m>w_1</m> and <m>t_1</m> you found
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     We do one more specific case before considering the general case.
   </p>
-  <activity xml:id="act_GQ_2">
+
+  <project xml:id="act_GQ_2">
+    <introduction>
     <p>
       In this problem we find through direct calculation the nodes and weights with <m>n=2</m> so that
       <men xml:id="eq_GQ2">
@@ -75,51 +86,64 @@
       Keep in mind that we want to have the approximation <xref ref="eq_GQ2"/> be exact for as large of degree polynomials as possible.
       In this case we will use <m>f(t)=1</m>,
       <m>f(t)=t</m>, <m>f(t)=t^2</m>, and <m>f(t)=t^3</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Assume equality in <xref ref="eq_GQ2"/> if we choose <m>f(t) = 1</m>.
             This gives us an equation in <m>w_1</m> and <m>w_2</m>.
             Find this equation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Assume equality in <xref ref="eq_GQ2"/> if we choose <m>f(t) = t</m>.
             This gives us an equation in <m>w_1, w_2</m> and <m>t_1,t_2</m>.
             Find this equation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Assume equality in <xref ref="eq_GQ2"/> if we choose <m>f(t) = t^2</m>.
             This gives us an equation in <m>w_1, w_2</m> and <m>t_1,t_2</m>.
             Find this equation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Assume equality in <xref ref="eq_GQ2"/> if we choose <m>f(t) = t^3</m>.
             This gives us an equation in <m>w_1, w_2</m> and <m>t_1,t_2</m>.
             Find this equation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Solve this system of 4 equations in 4 unknowns.
             You can do this by hand or with any other appropriate tool.
             Show that <m>t_1</m> and <m>t_2</m> are the roots of the polynomial <m>t^2 - \frac{1}{3}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Verify that <xref ref="eq_GQ2"/> is in fact an equality with the values of <m>w_1, w_2</m> and
             <m>t_1, t_2</m> you found for any polynomial of the form <m>f(t) = a_0+a_1t+a_2t^2 + a_3t^3</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+  
   <p>
     Other than solving a system of linear equations as in <xref ref="act_GQ_2"></xref>,
     it might be reasonable to ask what the connection is between Gaussian quadrature and linear algebra.
@@ -149,18 +173,22 @@
       \int_{-1}^1 t^i \ dt = \frac{t^{i+1}}{i+1}\biggm|_{-1}^1 = \begin{cases}\frac{2}{i+1} \amp  \text{ if \(i\) is even } , \\ 0      \amp  \text{ if \(i\) is odd } . \end{cases}
     </me>
   </p>
-  <activity xml:id="act_GQ_n">
+
+  <project xml:id="act_GQ_n">
+    <introduction>
     <p>
       It is inefficient to always solve these systems of equations to find the nodes and weights,
       especially since there is a more elegant way to find the nodes.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Use appropriate technology to find the equations satisfied by the <m>t_i</m> for <m>n=3</m>,
             <m>n=4</m>, and <m>n=5</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+        <statement>
           <p>
             Now we will see the more elegant way to find the nodes.
             As we will show for some cases,
@@ -170,14 +198,15 @@
             t^n\}</m> of <m>\pol_n</m>.
             Use appropriate technology to find an orthogonal basis <m>B_5</m> for <m>\pol_5</m> obtained by applying the Gram-Schmidt process to <m>\CS_n</m>.
             The polynomials in this basis are called
-            <em>Legendre polynomials</em>.
+            <term>Legendre polynomials</term>.
             Check that the nodes are roots of the Legendre polynomials by finding roots of these polynomials using any method.
             Explain why the <m>t_i</m> appear to be roots of the Legendre polynomials.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     Although it would take us beyond the scope of this project to verify this fact,
     the nodes in the <m>n</m>th Gaussian quadrature approximation <xref ref="eq_GQ"/> are in fact the roots of the <m>n</m>th order Legendre polynomial.
@@ -201,7 +230,9 @@
     </men>,
     where <m>q_i(t)</m> is the <m>i</m>th order Legendre polynomial scaled so that <m>q_i(1)=1</m>.
   </p>
-  <activity xml:id="act_GQ_example">
+
+  <project xml:id="act_GQ_example">
+    <introduction>
     <p>
       Let us see now how good the integral estimates are with Gaussian quadrature method using an example.
       Use Gaussian quadrature with the indicated value of <m>n</m> to approximate <m>\displaystyle \int_{-1}^1 e^t\cos(t) \ dt</m>.
@@ -209,38 +240,46 @@
       (approximate the nodes and weights to 8 decimal places).
       Compare the approximations with the actual value of the integral.
       Use technology as appropriate to help with calculations.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             <m>n=3</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>n=4</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>n=5</m>
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     Our Gaussian quadrature formula was derived for integrals on the interval <m>[-1,1]</m>.
     We conclude by seeing how a definite integral on an interval can be converted to one on the interval <m>[-1,1]</m>.
   </p>
-  <activity>
+
+  <project>
+    <statement>
     <p>
       Consider the problem of approximating an integral of the form <m>I = \int_a^b g(x) \ dx</m>.
       Show that the change of variables <m>x = \frac{(b - a)t}{2} + \frac{a + b}{2}</m>,
       <m>f(t) = \frac{(b - a)g(x)}{2}</m> reduces the integral <m>I</m> to the form <m>I = \int_{-1}^1 f(t) \ dt</m>.
       (This change of variables can be derived by finding a linear function that maps the interval <m>[a,b]</m> to the interval <m>[-1,1]</m>.)
     </p>
-  </activity>
-  <p>
-    \part{Linear Transformations}
-  </p>
+    </statement>
+  </project>
+ 
 </section>

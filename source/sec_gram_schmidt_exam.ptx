@@ -4,6 +4,7 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
     <statement>
       <p>
@@ -15,8 +16,10 @@
       <p>
         Find an orthonormal basis for <m>W</m> using the Frobenius inner product <m>\langle A,B \rangle = \trace\left(AB^{\tr}\right)</m>.
       </p>
+    </statement>
+    <solution>
       <p>
-        <em>Example Solution. </em> Recall that the Frobenius inner product is just like a dot product for matrices.
+        Recall that the Frobenius inner product is just like a dot product for matrices.
         First note that <m>M_1</m>, <m>M_2</m>,
         <m>M_3</m>, and <m>M_4</m> are linearly independent.
         We let <m>N_1 = M_1</m> and the Gram-Schmidt process gives us
@@ -69,14 +72,17 @@
         </me>
         is an orthonormal basis for <m>W</m>.
       </p>
-    </statement>
+    </solution>
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Consider the space <m>V = C[0,1]</m> with inner product <m>\langle f,g \rangle = \int_0^1 f(x)g(x) \ dx</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Find the polynomial in <m>\pol_2</m>
               (considered as a subspace of <m>V</m>)
@@ -84,19 +90,8 @@
               Use technology to calculate any required integrals.
               Draw a graph of your approximation against the graph of <m>h</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              Provide a numeric measure of the error in approximating
-              <m>\sqrt{x}</m> by the polynomial you found in part (a).
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Our job is to find <m>\proj_{\pol_2} h(x)</m>.
               To do this, we need an orthogonal basis of <m>\pol_2</m>.
@@ -127,9 +122,18 @@
                 <caption>The graphs of <m>\sqrt{x}</m> and <m>-\frac{4}{7}x^2 + \frac{48}{35}x + \frac{6}{35}</m>.</caption>
                 <image width="50%" source="6_e_example_2"/>
               </figure>
+            
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Provide a numeric measure of the error in approximating
+              <m>\sqrt{x}</m> by the polynomial you found in part (a).
+            </p>
+          </statement>
+          <solution>
             <p>
               The norm of <m>\proj_{\pol_2^{\perp}} \sqrt{x} = \sqrt{x} - \left(-\frac{4}{7}x^2 + \frac{48}{35}x + \frac{6}{35}\right)</m> tells us how well our projection
               <m>-\frac{4}{7}x^2 + \frac{48}{35}x + \frac{6}{35}</m> approximates <m>\sqrt{x}</m>.
@@ -138,9 +142,8 @@
                 ||\proj_{\pol_2^{\perp}} \sqrt{x}|| = \sqrt{ \langle \proj_{\pol_2^{\perp}} \sqrt{x}, \proj_{\pol_2^{\perp}} \sqrt{x}\rangle } = \frac{\sqrt{2}}{70} \approx 0.02
               </me>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
 </section>
