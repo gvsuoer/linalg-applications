@@ -4,51 +4,20 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>T: \pol_1 \to \pol_2</m> be defined by <m>T(a+bt) = b+at+2at^2</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>T</m> is a linear transformation.
             </p>
-          </li>
-          <li>
-            <p>
-              Let <m>\CS_1 = \{1,t\}</m> and
-              <m>\CS_2 = \{1,t,t^2\}</m> be the standard bases for <m>\pol_1</m> and <m>\pol_2</m>,
-              respectively.
-              Find the matrix <m>[T]_{\CS_2}^{\CS_1}</m> for <m>T</m> with respect to <m>\CS_2</m> and <m>\CS_1</m>.
-              Use the matrix <m>[T]_{\CS_2}^{\CS_1}</m> to determine if <m>T</m> is one-to-one and/or onto.
-              Explain your reasoning.
-              Use technology as appropriate.
-            </p>
-          </li>
-          <li>
-            <p>
-              Use the matrix <m>[T]_{\CS_2}^{\CS_1}</m> to find <m>\Ker(T)</m> and <m>\Range(T)</m>.
-              If possible, find a basis for each.
-            </p>
-          </li>
-          <li>
-            <p>
-              Let <m>\CB = \{1+t,1-t\}</m> be a basis for <m>\pol_1</m> and
-              <m>\CC = \{t, 1-t^2, t+t^2\}</m> a basis for <m>\pol_2</m>.
-              Find the matrix <m>[T]_{\CB}^{\CC}</m> for <m>T</m> with respect to <m>\CC</m> and <m>\CB</m>.
-            </p>
-          </li>
-          <li>
-            <p>
-              Find <m>T(1-2t)</m> using the matrix <m>[T]_{\CB}^{\CC}</m>.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Let <m>p(t)=a+bt</m> and <m>q(t)=c+dt</m> be in <m>\pol_1</m>.
               Then
@@ -68,8 +37,21 @@
               </md>.
               We conclude that <m>T</m> is a linear transformation.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Let <m>\CS_1 = \{1,t\}</m> and
+              <m>\CS_2 = \{1,t,t^2\}</m> be the standard bases for <m>\pol_1</m> and <m>\pol_2</m>,
+              respectively.
+              Find the matrix <m>[T]_{\CS_2}^{\CS_1}</m> for <m>T</m> with respect to <m>\CS_2</m> and <m>\CS_1</m>.
+              Use the matrix <m>[T]_{\CS_2}^{\CS_1}</m> to determine if <m>T</m> is one-to-one and/or onto.
+              Explain your reasoning.
+              Use technology as appropriate.
+            </p>
+          </statement>
+          <solution>
             <p>
               Recall that
               <me>
@@ -84,8 +66,16 @@
               However, <m>[T]_{\CS_1}^{\CS_2}</m> does not have a pivot in every row,
               so <m>T</m> is not onto.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use the matrix <m>[T]_{\CS_2}^{\CS_1}</m> to find <m>\Ker(T)</m> and <m>\Range(T)</m>.
+              If possible, find a basis for each.
+            </p>
+          </statement>
+          <solution>
             <p>
               From part (b) we know that <m>T</m> is one-to-one,
               so <m>\Ker(T) = \{0\}</m>.
@@ -116,16 +106,32 @@
               the vectors <m>1</m> and <m>t+2t^2</m> are linearly independent.
               Thus, <m>\{1, t+2t^2\}</m> is a basis for <m>\Range(T)</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Let <m>\CB = \{1+t,1-t\}</m> be a basis for <m>\pol_1</m> and
+              <m>\CC = \{t, 1-t^2, t+t^2\}</m> a basis for <m>\pol_2</m>.
+              Find the matrix <m>[T]_{\CB}^{\CC}</m> for <m>T</m> with respect to <m>\CC</m> and <m>\CB</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               Recall that
               <me>
                 [T]_{\CB}^{\CC} = \left[ [T(1+t)]_{\CC} \ [T(1-t)]_{\CC} \right] = \left[ [1+2t+t^2]_{\CC} \ [1-t^2]_{\CC} \right] = \left[ \begin{array}{cc} 0\amp 0\\1\amp 1\\2\amp 0 \end{array}  \right]
               </me>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Find <m>T(1-2t)</m> using the matrix <m>[T]_{\CB}^{\CC}</m>.
+            </p>
+          </statement>
+          <solution>
             <p>
               To find <m>T(1-2t)</m> using the matrix <m>[T]_{\CB}^{\CC}</m>,
               recall that <m>[T(p(t))]_{\CC} = [T]_{\CB}^{\CC}[p(t)]_{\CB}</m>.
@@ -143,61 +149,28 @@
                 T(1-2t) = t(1-2t) + (1-2t) = 1-t-2t^2
               </me>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </statement>
+          </solution>
+        </task>
+      
   </example>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>T: V \to W</m> be a linear transformation.
         Let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}</m> be a basis for <m>V</m> and
         <m>\CC = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> a basis for <m>W</m>.
         Let <m>S: \R^n \to \R^m</m> be the matrix transformation defined by <m>S(\vx) = [T]_{\CB}^{\CC} \vx</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Let <m>\vw</m> be a vector in <m>\Range(T)</m>.
               Show that <m>[\vw]_{\CC}</m> is in <m>\Col \ [T]_{\CB}^{\CC}</m>.
             </p>
-          </li>
-          <li>
-            <p>
-              If <m>\vw \in \Range(T)</m>,
-              part (a) shows that <m>[\vw]_{\CC}</m> is in <m>\Col \ [T]_{\CB}^{\CC}</m>.
-              So the coordinate transformation <m>[ \ ]_{\CC}</m> maps
-              <m>\Range(T)</m> into <m>\Col \ [T]_{\CB}^{\CC}</m>.
-              Define <m>R: \Range(T) \to \Col \ [T]_{\CB}^{\CC}</m> to be this coordinate transformation.
-              That is, <m>R(\vw) = [\vw]_{\CC}</m>.
-              (As a coordinate transformation,
-              <m>R</m> is a linear transformation.)
-              We know that coordinate transformations are one-to-one.
-              Show that <m>R</m> is also an onto transformation.
-            </p>
-          </li>
-          <li>
-            <p>
-              What can we conclude about the relationship between the vector spaces
-              <m>\Range(T)</m> and <m>\Col \ [T]_{\CB}^{\CC}</m>?
-              What must then be true about
-              <m>\dim(\Range(T))</m> and <m>\dim(\Col \ [T]_{\CB}^{\CC})</m>?
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        When we connect the results of this example with the result of <xref ref="ex_8_b_Ker_Nul"></xref> in this section,
-        we obtain a linear transformation analog of the Rank-Nullity Theorem.
-        That is, if <m>T</m> is a linear transformation from a vector space <m>V</m> of dimension <m>n</m> with basis <m>\CB</m> to a vector space <m>W</m> of dimension <m>m</m> with basis <m>\CC</m>, then
-        <me>
-          \dim(\Ker(T)) + \dim(\Range(T)) = \dim(\Nul \ [T]_{\CB}^{\CC}) + \dim(\Col \ [T]_{\CB}^{\CC}) = n
-        </me>.
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               Let <m>\vw</m> be a vector in <m>\Range(T)</m>.
               Then there exists a vector <m>\vv</m> in <m>V</m> such that <m>T(\vv) = \vw</m>.
@@ -210,8 +183,24 @@
               (or <m>[\vw]_{\CC}</m>)
               is in <m>\Col \ [T]_{\CB}^{\CC}</m>.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              If <m>\vw \in \Range(T)</m>,
+              part (a) shows that <m>[\vw]_{\CC}</m> is in <m>\Col \ [T]_{\CB}^{\CC}</m>.
+              So the coordinate transformation <m>[ \ ]_{\CC}</m> maps
+              <m>\Range(T)</m> into <m>\Col \ [T]_{\CB}^{\CC}</m>.
+              Define <m>R: \Range(T) \to \Col \ [T]_{\CB}^{\CC}</m> to be this coordinate transformation.
+              That is, <m>R(\vw) = [\vw]_{\CC}</m>.
+              (As a coordinate transformation,
+              <m>R</m> is a linear transformation.)
+              We know that coordinate transformations are one-to-one.
+              Show that <m>R</m> is also an onto transformation.
+            </p>
+          </statement>
+          <solution>
             <p>
               Let <m>R: \Range(T) \to \Col \ [T]_{\CB}^{\CC}</m> be the coordinate transformation
               <m>R(\vw) = [\vw]_{\CC}</m> for each <m>\vw \in \Range(T)</m>.
@@ -227,8 +216,18 @@
               So if we let <m>\vw=T(\vv)</m> in <m>\Range(T)</m>,
               then <m>[\vw]_{\CC} = \vy</m> and <m>\vy</m> and <m>R</m> is onto.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              What can we conclude about the relationship between the vector spaces
+              <m>\Range(T)</m> and <m>\Col \ [T]_{\CB}^{\CC}</m>?
+              What must then be true about
+              <m>\dim(\Range(T))</m> and <m>\dim(\Col \ [T]_{\CB}^{\CC})</m>?
+            </p>
+          </statement>
+          <solution>
             <p>
               Since <m>R</m> is a one-to-one and onto linear transformation from
               <m>\Range(T)</m> to <m>\Col \ [T]_{\CB}^{\CC}</m>,
@@ -236,9 +235,18 @@
               <m>\Col \ [T]_{\CB}^{\CC}</m> are isomorphic vector spaces,
               and therefore we also have <m>\dim(\Range(T)) = \dim(\Col \ [T]_{\CB}^{\CC})</m>.
             </p>
-          </li>
-        </ul>
+          </solution>
+        </task>
+      <conclusion>
+      <p>
+        When we connect the results of this example with the result of <xref ref="ex_8_b_Ker_Nul"></xref> in this section,
+        we obtain a linear transformation analog of the Rank-Nullity Theorem.
+        That is, if <m>T</m> is a linear transformation from a vector space <m>V</m> of dimension <m>n</m> with basis <m>\CB</m> to a vector space <m>W</m> of dimension <m>m</m> with basis <m>\CC</m>, then
+        <me>
+          \dim(\Ker(T)) + \dim(\Range(T)) = \dim(\Nul \ [T]_{\CB}^{\CC}) + \dim(\Col \ [T]_{\CB}^{\CC}) = n
+        </me>.
       </p>
-    </statement>
+      </conclusion>
+     
   </example>
 </section>

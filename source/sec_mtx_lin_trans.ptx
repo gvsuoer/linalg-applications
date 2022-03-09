@@ -12,7 +12,9 @@
   <p>
     The general process for representing a linear transformation as a matrix transformation is as described in <xref ref="act_8_b_general_matrix_transformation"></xref>.
   </p>
+
   <activity xml:id="act_8_b_general_matrix_transformation">
+    <introduction>
     <p>
       Let <m>V</m> be an <m>n</m> dimensional vector space and <m>W</m> an <m>m</m> dimensional vector space and suppose
       <m>T : V \to W</m> is a linear transformation.
@@ -24,13 +26,17 @@
       </me>
       for some scalars <m>c_1</m>, <m>c_2</m>,
       <m>\ldots</m>, <m>c_n</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             What is <m>[\vv]_\CB</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Note that for <m>\vv</m> in <m>V</m>,
             <m>T(\vv)</m> is an element in <m>W</m>,
@@ -40,8 +46,10 @@
               [T(\vv)]_{\CC} = c_1[T(\vv_1)]_{\CC} + c_2 [T(\vv_2)]_{\CC} + \cdots + c_n [T(\vv_n)]_{\CC}
             </men>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now find a matrix <m>A</m> so that Equation <xref ref="eq_Matrix_linear_transformation"/> has the form <m>[T(\vv)]_{\CC} = A [\vv]_{\CB}</m>.
             We call the matrix <m>A</m> to be the
@@ -51,27 +59,31 @@
               [T(\vv)]_{\CC} = [T]_{\CB}^{\CC} [\vv]_{\CB}
             </me>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+  
   </activity>
+
   <p>
     <xref ref="act_8_b_general_matrix_transformation"></xref>
     shows us how to represent a linear transformation as a matrix transformation.
   </p>
+
   <definition>
+  <idx><h>linear transformation</h><h>matrix of</h></idx>
     <statement>
       <p>
         Let <m>T</m> be a linear transformation from a vector space <m>V</m> with basis <m>\CB = \{\vv_1</m>,
         <m>\vv_2</m>, <m>\ldots</m>,
         <m>\vv_n\}</m> to a vector space <m>W</m> with basis <m>\CC = \{\vw_1, \vw_2, \ldots, \vw_m\}</m>.
-        The <term>matrix for <m>T</m> with respect to the bases <m>\CB</m> and <m>\CC</m></term><idx><h>linear transformation</h><h>matrix of</h></idx> is the matrix
+        The <term>matrix for <m>T</m> with respect to the bases <m>\CB</m> and <m>\CC</m></term> is the matrix
         <me>
           [T]_{\CB}^{\CC} = \left[  [T(\vv_1)]_{\CC}  \ [T(\vv_2)]_{\CC}  \ [T(\vv_3)]_{\CC}  \ \cdots  \ [T(\vv_n)]_{\CC} \right]
         </me>.
       </p>
     </statement>
   </definition>
+
   <p>
     If <m>V=W</m> and <m>\CC = \CB</m>,
     then we use the notation <m>[T]_{\CB}</m> as a shorthand for <m>[T]_{\CB}^{\CC}</m>.
@@ -87,34 +99,45 @@
     then from <m>\R^n</m> to <m>\R^m</m>,
     then from <m>\R^m</m> to <m>W</m> as illustrated in <xref ref="F_matrix_transformation"></xref>.
   </p>
+
   <figure xml:id="F_matrix_transformation">
     <caption>Visualizing the matrix of a linear transformation.</caption>
     <image source="images/cbc23ec4ec4b606770ce03c4ecabff8970baf67d.png"/>
   </figure>
+
   <activity>
+    <introduction>
     <p>
       Let <m>T : \pol_2 \to \pol_1</m> be defined by <m>T(p(t))= p'(t)</m>.
       Let <m>\CB = \{1+t,1-t,t+t^2\}</m> be a basis for <m>\pol_2</m> and
       <m>\CC = \{1, t\}</m> be a basis for <m>\pol_1</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find the matrix <m>[T]_{\CB}^{\CC}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find <m>[1+t+t^2]_{\CB}</m>.
             Then use the matrix <m>[T]_{\CB}^{\CC}</m> to calculate
             <m>[T(1+t+t^2)]_{\CC}</m>. (Hint: Use the fact that <m>1+t+t^2 =\frac{1}{2}(1+t) + \frac{1}{2}(1-t) + (t+t^2)</m>.)
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Calculate <m>T(1+t+t^2)</m> directly from the definition of <m>T</m> and compare to your result from part (b).
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the matrix <m>[T]_{\CB}^{\CC'}</m> where <m>\CC'=\{1+t, 1-t\}</m>.
             Use the facts that
@@ -122,8 +145,8 @@
               -1 = -\frac{1}{2}(1+t) - \frac{1}{2}(1-t) \ \text{ and }  \ 1+2t = \frac{3}{2}(1+t) - \frac{1}{2}(1-t)
             </me>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
 </section>
