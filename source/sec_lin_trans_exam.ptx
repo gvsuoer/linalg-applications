@@ -4,50 +4,20 @@
   <p>
     What follows are worked examples that use the concepts from this section.
   </p>
+
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>T : \pol_2 \to \pol_3</m> be defined by <m>T(p(t)) = tp(t)+p(0)</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>T</m> is a linear transformation.
             </p>
-          </li>
-          <li>
-            <p>
-              Is <m>T</m> one-to-one?
-              Justify your answer.
-            </p>
-          </li>
-          <li>
-            <ol label="i">
-              <li>
-                <p>
-                  Find three different polynomials in <m>\Range(T)</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Find, if possible, a polynomial that is not in <m>\Range(T)</m>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Describe <m>\Range(T)</m>.
-                  What is <m>\dim(\Range(T))</m>?
-                  Is <m>T</m> an onto transformation?
-                  Explain.
-                </p>
-              </li>
-            </ol>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-        <ul>
-          <li>
+          </statement>
+          <solution>
             <p>
               To show that <m>T</m> is a linear transformation we must show that <m>T(p(t)+q(t)) = T(p(t)) + T(q(t))</m> and
               <m>T(cp(t)) = cT(p(t))</m> for every <m>p(t)</m>,
@@ -65,8 +35,16 @@
               </me>.
               Therefore, <m>T</m> is a linear transformation.
             </p>
-          </li>
-          <li>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Is <m>T</m> one-to-one?
+              Justify your answer.
+            </p>
+          </statement>
+          <solution>
             <p>
               To determine if <m>T</m> is one-to-one, we find <m>\Ker(T)</m>.
               Suppose <m>p(t) = a_0+a_1t+a_2t^2  \in \Ker(T)</m>.
@@ -78,10 +56,17 @@
               Thus, <m>p(t) = 0</m> and <m>\Ker(T) = \{0\}</m>.
               Thus, <m>T</m> is one-to-one.
             </p>
-          </li>
-          <li>
-            <ol label="i">
-              <li>
+          </solution>
+        </task>
+        <task>
+          <task>
+            
+              <statement>
+                <p>
+                  Find three different polynomials in <m>\Range(T)</m>.
+                </p>
+              </statement>
+              <solution>
                 <p>
                   We can find three polynomials in
                   <m>\Range(T)</m> by applying <m>T</m> to three different polynomials in <m>\pol_2</m>.
@@ -92,8 +77,15 @@
                     <mrow>T\left(t^2\right) \amp = t^3</mrow>
                   </md>.
                 </p>
-              </li>
-              <li>
+              </solution>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  Find, if possible, a polynomial that is not in <m>\Range(T)</m>.
+                </p>
+              </statement>
+              <solution>
                 <p>
                   A polynomial <m>q(t) = b_0+b_1t+b_2t^2+b_3t^3</m> is in <m>\Range(T)</m> if
                   <m>q(t) = T(p(t))</m> for some polynomial <m>p(t) = a_0+a_1t+a_2t^2</m> in <m>\pol_2</m>.
@@ -104,8 +96,18 @@
                   But this would mean that <m>b_0 = a_0 = b_1</m>.
                   So the polynomial <m>1+2t+t^2+t^3</m> is not in <m>\Range(T)</m>.
                 </p>
-              </li>
-              <li>
+              </solution>
+            </task>
+            <task>
+              <statement>
+                <p>
+                  Describe <m>\Range(T)</m>.
+                  What is <m>\dim(\Range(T))</m>?
+                  Is <m>T</m> an onto transformation?
+                  Explain.
+                </p>
+              </statement>
+              <solution>
                 <p>
                   Let <m>q(t)</m> be in <m>\Range(T)</m>.
                   Then <m>q(t) = T(p(t))</m> for some polynomial <m>p(t) = a_0+a_1t+a_2t^2 \in \pol_2</m>.
@@ -124,13 +126,12 @@
                   Since <m>\Range(T)</m> is a three-dimensional subspace of the four-dimensional space <m>\pol_3</m>,
                   it follows that <m>T</m> is not onto.
                 </p>
-              </li>
-            </ol>
-          </li>
-        </ul>
-      </p>
-    </statement>
+              </solution>
+            </task>
+          </task>
+    
   </example>
+  
   <example>
     <statement>
       <p>
@@ -142,9 +143,8 @@
       <p>
         Show that <m>T</m> is an isomorphism from <m>\M_{2 \times 2}</m> to <m>\pol_3</m>.
       </p>
-      <p>
-        <em>Example Solution. </em>
-      </p>
+    </statement>
+    <solution>
       <p>
         We need to show that <m>T</m> is a linear transformation,
         and that <m>T</m> is both one-to-one and onto.
@@ -193,6 +193,6 @@
         So every polynomial in <m>\pol_3</m> is the image of some matrix in <m>\M_{2 \times 2}</m>.
         It follows that <m>T</m> is onto and also that <m>T</m> is an isomorphism.
       </p>
-    </statement>
+    </solution>
   </example>
 </section>

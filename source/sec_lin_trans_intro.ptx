@@ -7,18 +7,19 @@
     e.g., matrix and coordinate transformations,
     that preserve the vector space structure.
     Any function that has the same properties as matrix and coordinate transformations is a
-    <em>linear transformation</em>.
+    <term>linear transformation</term>.
     Linear transformations are important in linear algebra in that we can study similarities and connections between vector spaces by examining transformations between them.
     Linear transformations model or approximately model certain real-life processes
     (like discrete dynamical systems,
     geometrical transformations, Google PageRank, etc.).
     Also, we can determine the behavior of an entire linear transformation by knowing how it acts on just a basis.
   </p>
+
   <definition>
+  <idx><h>linear transformation</h></idx>
     <statement>
       <p>
         A <term>linear transformation</term>
-            <idx><h>linear transformation</h></idx>
         from a vector space <m>V</m> to a vector space <m>W</m> is a function <m>T: V \to W</m> such that
         <ol>
           <li>
@@ -38,8 +39,9 @@
       </p>
     </statement>
   </definition>
+
   <p>
-    These transformations are called <em>linear</em>
+    These transformations are called <term>linear</term>
     because they respect linear combinations.
     We can combine both parts of this definition into one statement and say that a mapping <m>T</m> from a vector space <m>V</m> to a vector space <m>W</m> is a linear transformation if
     <me>
@@ -59,11 +61,11 @@
   <p>
     This is the property that <m>T</m> respects linear combinations.
   </p>
-  <activity xml:id="pa_8_a">
-    <p>
-      <nbsp/>
-      <ol>
-        <li>
+
+  <exploration xml:id="pa_8_a">
+    
+      <task>
+        <statement>
           <p>
             Consider the transformation <m>T: \R^3 \to \R^2</m> defined by
             <me>
@@ -72,8 +74,10 @@
             Check that <m>T</m> is not linear by finding two vectors
             <m>\vu, \vv</m> which violate the additive property of linear transformations.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Consider the transformation <m>T : \pol_2 \to \pol_3</m> defined by
             <me>
@@ -81,8 +85,10 @@
             </me>
             Check that <m>T</m> is a linear transformation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>\D</m> be the set of all differentiable functions from <m>\R</m> to <m>\R</m>.
             Since <m>\frac{d}{dx}(0) = 0</m>,
@@ -93,8 +99,10 @@
             Let <m>T: \D \to \F</m> be defined by <m>T(f) = f'</m>.
             Check that <m>T</m> is a linear transformation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Every matrix transformation is a linear transformation,
             so we might expect that general linear transformations share some of the properties of matrix transformations.
@@ -102,14 +110,15 @@
             Use the linearity properties to show that <m>T(\vzero_V) = \vzero_W</m>,
             where <m>\vzero_V</m> is the additive identity in <m>V</m> and
             <m>\vzero_W</m> is the additive identity in <m>W</m>.
-            <hint>
-              <p>
-                <m>0_V + 0_V = 0_V</m>.
-              </p>
-            </hint>
+            
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </statement>
+        <hint>
+          <p>
+            <m>0_V + 0_V = 0_V</m>.
+          </p>
+        </hint>
+      </task>
+    
+  </exploration>
 </section>

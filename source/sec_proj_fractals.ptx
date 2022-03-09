@@ -6,6 +6,7 @@
     We illustrate the idea with the Sierpinski triangle,
     an approximate picture of which is shown at left in <xref ref="F_Striangle"></xref>.
   </p>
+
   <figure xml:id="F_Striangle">
     <caption>Left: An approximation of the Sierpinski triangle. Right: A triangle.</caption>
     <sidebyside>
@@ -13,30 +14,37 @@
       <image width="50%" source="8_a_triangle"/>
     </sidebyside>
   </figure>
+
   <p>
     To make this figure,
     we need to identify linear transformations that can be put together to produce the Sierpinski triangle.
   </p>
-  <activity xml:id="act_IFS_1">
+
+  <project xml:id="act_IFS_1">
+    <introduction>
     <p>
       Let <m>\vv_1 = [0 \ 0]^{\tr}</m>,
       <m>\vv_2 = [1 \ 0]^{\tr}</m>,
       and <m>\vv_3 = \left[ \frac{1}{2} \ \frac{\sqrt{3}}{4}\right]^{\tr}</m> be three vectors in the plane whose endpoints form the vertices of a triangle <m>P_0</m> as shown at right in <xref ref="F_Striangle"></xref>.
       Let <m>T : \R^2 \to \R^2</m> be the linear transformation defined by <m>T(\vx) = A \vx</m>,
       where <m>A = \frac{1}{2} I_2 = \frac{1}{2} \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 1 \end{array} \right]</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             What are <m>T(\vv_1)</m>, <m>T(\vv_2)</m>, and <m>T(\vv_3)</m>?
             Draw a picture of the figure <m>T(P_0)</m> whose vertices are the endpoint of these three vectors.
             How is <m>T(P_0)</m> related to <m>P_0</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Since the transformation <m>T</m> shrinks objects, we call <m>T</m>
             (or <m>A</m>)
-            a <em>contraction mapping</em>).
+            a <term>contraction mapping</term>).
             Notice that when we apply <m>T</m> to <m>P_0</m> it creates a smaller version of <m>P_0</m>.
             The next step is to use <m>T</m> to make three smaller copies of <m>P_0</m>,
             and then translate these copies to the vertices of <m>P_0</m>.
@@ -48,16 +56,19 @@
             <m>C_3(P_0)</m> is a copy of <m>P_0</m> half the size and translated so that <m>C_3(\vv_3) = \vv_3</m>.
             Draw pictures of each to illustrate.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     <xref ref="act_IFS_1"></xref>
     contains the information we need to create an iterated function system to produce the Sierpinski triangle.
     One more step should help us understand the general process.
   </p>
-  <activity xml:id="act_IFS_2">
+
+  <project xml:id="act_IFS_2">
+    <introduction>
     <p>
       Using the results of <xref ref="act_IFS_1"></xref>,
       define <m>P_{1,i}</m> to be <m>C_i(P_0)</m> for each <m>i</m>.
@@ -71,32 +82,38 @@
       <caption><m>C_1(P_0)</m>, <m>C_2(P_0)</m>, and <m>C_3(P_0)</m>.</caption>
       <image width="50%" source="8_a_IFS_2"/>
     </figure>
-    <ul>
-      <li>
+    </introduction>
+    <task>
+      <statement>
         <p>
           Apply <m>C_1</m> from <xref ref="act_IFS_1"></xref> to <m>P_1</m>.
           What is the resulting figure?
           Draw a picture to illustrate.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Apply <m>C_2</m> from <xref ref="act_IFS_1"></xref> to <m>P_1</m>.
           What is the resulting figure?
           Draw a picture to illustrate.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           Apply <m>C_3</m> from <xref ref="act_IFS_1"></xref> to <m>P_1</m>.
           What is the resulting figure?
           Draw a picture to illustrate.
         </p>
-      </li>
-    </ul>
-  </activity>
+      </statement>
+    </task>
+  </project>
+
   <p>
-    The procedures from <xref ref="act_IFS_1">Activities</xref>
+    The procedures from <xref ref="act_IFS_1"></xref>
     and <xref ref="act_IFS_2"></xref> can be continued,
     replacing <m>P_0</m> with <m>P_1</m>,
     then <m>P_2</m>, and so on.
@@ -108,10 +125,15 @@
     each time replacing <m>P_{j-1}</m> with <m>P_j</m>.
     A picture of <m>P_9</m> is shown at right in <xref ref="F_Striangle_2"></xref>.
   </p>
+
   <figure xml:id="F_Striangle_2">
     <caption>Left: <m>P_2</m>. Right: <m>P_9</m>.</caption>
-    <image width="50%" source="8_a_Striangle_2"/>   <image width="50%" source="8_a_Striangle_9"/>
+    <sidebyside>
+    <image width="50%" source="8_a_Striangle_2"/>   
+    <image width="50%" source="8_a_Striangle_9"/>
+    </sidebyside>
   </figure>
+
   <p>
     If we continue this process, taking the limit as <m>i</m> approaches infinity,
     the resulting sequence of sets converges to a fixed set,
@@ -119,11 +141,13 @@
     So the picture of <m>P_9</m> in <xref ref="F_Striangle_2"></xref>
     is a close approximation of the Sierpinski triangle.
     This algorithm for building the Sierpinski triangle is called the
-    <em>deterministic algorithm</em>.
-    A Sage cell to illustrate this algorithm for producing approximations to the Sierpinski triangle can be found at \url{http://faculty.gvsu.edu/schlicks/STriangle_Sage.html}.
+    <term>deterministic algorithm</term>.
+    A Sage cell to illustrate this algorithm for producing approximations to the Sierpinski triangle can be found at <url href="http://faculty.gvsu.edu/schlicks/STriangle_Sage.html" visual="faculty.gvsu.edu/schlicks/STriangle_Sage.html"/>.
   </p>
   <p>
-    In general, an iterated function system (IFS)<idx><h>iterated function system</h></idx> is a finite set
+  <idx><h>iterated function system</h></idx>
+  <idx><h>attractor</h></idx>
+    In general, an iterated function system (IFS) is a finite set
     <m>\{f_1, f_2, \ldots,
     f_m\}</m> of contraction mappings from <m>\R^2</m> to <m>\R^2</m>.
     If we start with a set <m>S_0</m>,
@@ -134,19 +158,18 @@
     <q>nice</q>
     means here), the sequence <m>S_0</m>, <m>S_1</m>, <m>S_2</m>,
     <m>\ldots</m> converges in some sense to a fixed set.
-    That fixed set is called the <em>attractor</em>
-        <idx><h>attractor</h></idx>
+    That fixed set is called the <term>attractor</term>
     of the iterated function system.
     It is that attractor that is the fractal.
     It is fascinating to note that our starting set does not matter,
     the same attractor is obtained no matter which set we use as <m>S_0</m>.
   </p>
   <p>
+  <idx><h>self-similar set</h></idx>
     One aspect of a fractal is that fractals are self-similar,
     that is they are made up of constituent pieces that look just like the whole.
     More specifically,
-    a subset <m>S</m> of <m>\R^2</m> is <em>self-similar</em>
-        <idx><h>self-similar set</h></idx>
+    a subset <m>S</m> of <m>\R^2</m> is <term>self-similar</term>
     if it can be expressed in the form
     <me>
       S = S_1 \cup S_2 \cup \cdots \cup S_k
@@ -164,40 +187,48 @@
     given a self-similar figure,
     whether we can construct an IFS that has that figure as its attractor.
   </p>
-  <activity xml:id="IFS_carpet">
+
+  <project xml:id="IFS_carpet">
+    <introduction>
     <p>
       A picture of an emerging Sierpinski carpet is shown at left in <xref ref="F_Scarpet"></xref>.
-      A Sage cell to illustrate this algorithm for producing approximations to the Sierpinski carpet can be found at \url{http://faculty.gvsu.edu/schlicks/SCarpet_Sage.html}. In this activity we will see how to find an iterated function system that will generate this fractal.
+      A Sage cell to illustrate this algorithm for producing approximations to the Sierpinski carpet can be found at <url href="http://faculty.gvsu.edu/schlicks/SCarpet_Sage.html" visual="faculty.gvsu.edu/schlicks/SCarpet_Sage.html"/>. In this activity we will see how to find an iterated function system that will generate this fractal.
     </p>
     <figure xml:id="F_Scarpet">
       <caption>A Sierpinski carpet.</caption>
       <image width="50%" source="8_a_Scarpet_6"/>
     </figure>
-    <ul>
-      <li>
+    </introduction>
+    <task>
+      <statement>
         <p>
           To create an IFS to generate this fractal,
           we need to understand how many self-similar pieces make up this figure.
           Use the image at right in <xref ref="F_Scarpet"></xref>
           to determine how many pieces we need.
         </p>
-      </li>
-      <li>
+      </statement>
+    </task>
+    <task>
+      <statement>
         <p>
           For each of the self-similar pieces identified in part (a),
           find a linear transformation and a translation that maps the entire figure to the self-similar piece.
-          <hint>
-            <p>
-              You could assume that the carpet is embedded in the unit square.
-            </p>
-          </hint>
+          
         </p>
-      </li>
-      <li>
+      </statement>
+      <hint>
+        <p>
+          You could assume that the carpet is embedded in the unit square.
+        </p>
+      </hint>
+    </task>
+    <task>
+      <statement>
         <p>
           Test your IFS to make sure that it actually generates the Sierpinski carpet.
           There are many websites that allow you to do this,
-          one of which is \url{http://cs.lmu.edu/<nbsp/>ray/notes/ifs/}. In this program,
+          one of which is <url href="http://cs.lmu.edu/~ray/notes/ifs/" visual="cs.lmu.edu/~ray/notes/ifs/"/>. In this program,
           the mapping <m>f</m> defined by
           <me>
             f(\vx) = \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right] \vx + \left[ \begin{array}{c} e\\f \end{array} \ \right]
@@ -221,24 +252,23 @@
             \begin{array}{ccccccc} 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 1  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0.5  \amp 0.43  \amp 0.33 \end{array}
           </me>
         </p>
-      </li>
-    </ul>
-  </activity>
+      </statement>
+    </task>
+  </project>
+
   <p>
     The contraction mappings we have used so far only involve contractions and translations.
     But we do not have to restrict ourselves to just these types of contraction mappings.
   </p>
-  <activity xml:id="act_Fractal_reflection">
+
+  <project xml:id="act_Fractal_reflection">
+    <statement>
     <p>
       Consider the fractal represented in <xref ref="F_Fractal_reflection"></xref>.
       Find an IFS that generates this fractal.
       Explain your reasoning.
     </p>
-    <hint>
-      <p>
-        Two reflections are involved.
-      </p>
-    </hint>
+    
     <p>
       Check with a fractal generator to ensure that you have an appropriate IFS.
     </p>
@@ -246,30 +276,45 @@
       <caption>A fractal.</caption>
       <image width="50%" source="8_a_Reflection_fractal"/>
     </figure>
-  </activity>
+    </statement>
+    <hint>
+      <p>
+        Two reflections are involved.
+      </p>
+    </hint>
+  </project>
+
   <p>
     We conclude our construction of fractals with one more example.
     The contraction mappings in iterated function can also involve rotations.
   </p>
-  <activity xml:id="act_Fractal_dragon">
+
+  <project xml:id="act_Fractal_dragon">
+    <statement>
     <p>
       Consider the L&#xe9;vy Dragon fractal shown at left in <xref ref="F_Fractal_rotation"></xref>.
       Find an IFS that generates this fractal.
       Explain your reasoning.
     </p>
-    <hint>
-      <p>
-        Two rotations are involved <mdash/> think of the fractal as contained in a blue triangle as shown at right in <xref ref="F_Fractal_rotation"></xref>.
-      </p>
-    </hint>
+    
     <p>
       Check with a fractal generator to ensure that you have an appropriate IFS.
     </p>
     <figure xml:id="F_Fractal_rotation">
       <caption>The L&#xe9;vy Dragon.</caption>
-      <image width="50%" source="8_a_Rotation_fractal"/>   <image width="50%" source="8_a_Rotation_triangles"/>
+      <sidebyside>
+      <image width="50%" source="8_a_Rotation_fractal"/>   
+      <image width="50%" source="8_a_Rotation_triangles"/>
+      </sidebyside>
     </figure>
-  </activity>
+    </statement>
+    <hint>
+      <p>
+        Two rotations are involved <mdash/> think of the fractal as contained in a blue triangle as shown at right in <xref ref="F_Fractal_rotation"></xref>.
+      </p>
+    </hint>
+  </project>
+   
   <p>
     We end this project with a short discussion of fractal dimension.
     The fractals we have seen are very strange in many ways,
@@ -288,7 +333,7 @@
   </p>
   <figure xml:id="F_Squares">
     <caption>Self-similar squares.</caption>
-    <image width="50%" source="8_a_similar"/>
+    <image width="70%" source="8_a_similar"/>
   </figure>
   <p>
     Similarly, we can break up a cube into <m>n^3</m> non-overlapping congruent cubes.
@@ -315,11 +360,12 @@
     (the fern fractal in <xref ref="F_Fern"></xref>
     is an example of a fractal generated by an iterated function system in which the scaling factors are not all the same).
   </p>
+
   <definition>
+  <idx><h>Hausdorff dimension</h></idx>
     <statement>
       <p>
         The <term>fractal</term> or <term>Hausdorff</term>
-            <idx><h>Hausdorff dimension</h></idx>
         dimension <m>h</m> of a self-similar set <m>S</m> is
         <me>
           h(S) = \frac{\ln(\text{ number of self-similar pieces } )}{\ln(\text{ scaling factor } )}
@@ -327,7 +373,9 @@
       </p>
     </statement>
   </definition>
-  <activity xml:id="act_IFS_dimension">
+
+  <project xml:id="act_IFS_dimension">
+    <statement>
     <p>
       Find the fractal dimensions of the Sierpinski triangle and the Sierpinski carpet.
       These are well-known and you can look them up to check your result.
@@ -339,5 +387,6 @@
     <p>
       You might want to draw this fractal using an online generator.
     </p>
-  </activity>
+    </statement>
+  </project>
 </section>
