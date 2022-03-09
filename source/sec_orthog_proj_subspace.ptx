@@ -6,29 +6,35 @@
     we saw how to project a vector <m>\vv</m> in <m>\R^n</m> onto a subspace <m>W</m> of <m>\R^n</m>.
     The same process works for vectors in any inner product space.
   </p>
+
   <definition>
+  <idx><h>orthogonal projection onto a subspace</h></idx>
+  <idx><h>projection orthogonal to a subspace</h></idx>
     <statement>
       <p>
         Let <m>W</m> be a subspace of an inner product space <m>V</m> and let
         <m>\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> be an orthogonal basis for <m>W</m>.
         For a vector <m>\vv</m> in <m>V</m>,
-        the <term>orthogonal projection of <m>\vv</m> onto <m>W</m></term><idx><h>orthogonal projection onto a subspace</h></idx> is the vector
+        the <term>orthogonal projection of <m>\vv</m> onto <m>W</m></term> is the vector
         <me>
           \proj_W \vv =  \frac{\langle \vv, \vw_1 \rangle }{\langle \vw_1, \vw_1 \rangle } \vw_1 + \frac{\langle \vv, \vw_2 \rangle }{\langle \vw_2, \vw_2 \rangle }  \vw_2 + \cdots + \frac{\langle \vv, \vw_m \rangle}{\langle \vw_m, \vw_m \rangle} \vw_m
         </me>.
       </p>
       <p>
-        The <term>projection of <m>\vv</m> orthogonal to <m>W</m></term><idx><h>projection orthogonal to a subspace</h></idx> is the vector
+        The <term>projection of <m>\vv</m> orthogonal to <m>W</m></term> is the vector
         <me>
           \proj_{W^{\perp}} \vv = \vv - \proj_W \vv
         </me>.
       </p>
     </statement>
   </definition>
+
   <p>
     The notation <m>\proj_{W^{\perp}} \vv</m> indicates that we expect this vector to be orthogonal to every vector in <m>W</m>.
   </p>
+
   <activity xml:id="act_6_c_orth_projection">
+    <introduction>
     <p>
       In <xref ref="sec_gram_schmidt"></xref>
       we showed that in the inner product space <m>\R^n</m> using the dot product as inner product,
@@ -38,14 +44,18 @@
       That is, assume that <m>\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> is an orthogonal basis for a subspace <m>W</m> of an inner product space <m>V</m> and <m>\vv</m> is a vector in <m>V</m>.
       Follow the indicated steps to show that
       <m>\proj_{W^{\perp}} \vv</m> is orthogonal to every vector in <m>\CB</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Let <m>\vz</m> be the projection of <m>\vv</m> onto <m>W</m>.
             Write <m>\vz</m> in terms of the basis vectors in <m>\CB</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             The vector <m>\vv - \vz</m> is the projection of <m>\vv</m> orthogonal to <m>W</m>.
             Let <m>k</m> be between <m>1</m> and <m>m</m>.
@@ -54,10 +64,11 @@
             <xref ref="ex_6_c_orth_complement_basis"></xref>
             then shows that <m>\vv - \vz</m> is orthogonal to every vector in <m>W</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     <xref ref="act_6_c_orth_projection"></xref>
     shows that the vector <m>\vv - \vw</m> is orthogonal to vector for <m>W</m>.
