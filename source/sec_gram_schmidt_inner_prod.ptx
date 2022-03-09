@@ -4,7 +4,9 @@
   <p>
     Our goal is to understand how the Gram-Schmidt process works in any inner product space.
   </p>
-  <activity xml:id="pa_6_d_2">
+
+  <exploration xml:id="pa_6_d_2">
+    <introduction>
     <p>
       Let <m>p_1(t) = t</m>, <m>p_2(t) = 1+t+t^2</m>,
       and <m>p_3(t) = t^3</m> in <m>\pol_3</m>.
@@ -20,32 +22,39 @@
       <m>\CC = \{q_1(t), q_2(t),
       q_3(t)\}</m> from <m>\CB</m> so that <m>\Span \ \CC = \Span \ \CB</m>.
       To begin, we start by letting <m>q_1(t) = p_1(t)</m>.
-      <ol>
-        <li>
+    </p>
+  </introduction>
+      <task>
+        <statement>
           <p>
             Now we want to find a polynomial in <m>W</m> that is orthogonal to <m>q_1(t)</m>.
             Let <m>W_1 = \Span\{q_1(t)\}</m>.
             Explain why <m>q_2(t) = \proj_{\perp W_1} p_2(t)</m> is in <m>W</m> and is orthogonal to <m>q_1(t)</m>.
             Then calculate the polynomial <m>q_2(t)</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Next we need to find a third polynomial <m>q_3(t)</m> that is in <m>W</m> and is orthogonal to both <m>q_1(t)</m> and <m>q_2(t)</m>.
             Let <m>W_2 = \Span \{q_1(t), q_2(t)\}</m>.
             Explain why <m>q_3(t) = \proj_{\perp W_2} p_3(t)</m> is in <m>W</m> and is orthogonal to both <m>q_1(t)</m> and <m>q_2(t)</m>.
             Then calculate the polynomial <m>q_3(t)</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Explain why the set <m>\{q_1(t),
             q_2(t), q_3(t)\}</m> is an orthogonal basis for <m>W</m>.
           </p>
-        </li>
-      </ol>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </exploration>
+
   <p>
     <xref ref="pa_6_d_2"></xref>
     shows the first steps of the Gram-Schmidt process to construct an orthogonal basis from any basis of an inner product space.
@@ -144,11 +153,12 @@
   <p>
     We summarize the process in the following theorem.
   </p>
+
   <theorem xml:id="thm_6_d_Gram_Schmidt_ips">
     <title>The Gram-Schmidt Process</title>
+    <idx><h>Gram-Schmidt Process</h><h>in an inner product space</h></idx>
     <statement>
       <p>
-            <idx><h>Gram-Schmidt Process</h><h>in an inner product space</h></idx>
         Let <m>\{\vv_1, \vv_2, \ldots, \vv_m\}</m> be a basis for a subspace <m>W</m> of an inner product space <m>V</m>.
         The set <m>\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}</m> defined by
         <ul>
@@ -185,6 +195,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     The Gram-Schmidt process builds an orthogonal basis
     <m>\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}</m> for us from a given basis.
@@ -195,7 +206,9 @@
       \vu_i = \ds \frac{\vw_i}{|| \vw_i ||} \,
     </me>.
   </p>
+
   <activity xml:id="act_6_d_gs_example">
+    <statement>
     <p>
       Use the Gram-Schmidt process to find an orthogonal basis for
       <me>
@@ -206,5 +219,6 @@
         \left\langle [u_1 \ u_2 \ u_3 \ u_4]^{\tr}, [v_1 \ v_2 \ v_3 \ v_4]^{\tr} \right\rangle = u_1v_1 + 2u_2v_2 + 2u_3v_3 + u_4v_4
       </me>.
     </p>
+    </statement>
   </activity>
 </section>
