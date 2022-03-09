@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<section xml:id="sec_lin_trans_exer">
-  <title>Exercises</title>
-  <ol>
-    <li>
+<exercises xml:id="sec_lin_trans_exer">
+  
+  <exercise>
+    <statement>
       <p>
         We have seen that <m>C[a,b]</m>,
         the set of all continuous functions on the interval <m>[a,b]</m> is a vector space.
         Let <m>T : C[a,b] \to \R</m> be defined by <m>T(f) = \int_a^b f(x) \, dx</m>.
         Show that <m>T</m> is a linear transformation.
       </p>
-    </li>
-    <li xml:id="ex_8_a_reflexive_isomorphism">
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex_8_a_reflexive_isomorphism">
+    <statement>
       <p>
         If <m>V</m> is a vector space,
         prove that the identity map <m>I:V \to V</m> defined by
         <m>I(\vx) = \vx</m> for all <m>\vx \in V</m> is an isomorphism.
       </p>
-    </li>
-    <li xml:id="ex_8_a_inverse_isomorphism">
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex_8_a_inverse_isomorphism">
+    <introduction>
       <p>
         Let <m>V</m> and <m>W</m> be vector spaces and let <m>T : V \to W</m> be an isomorphism.
         Since <m>T</m> is a bijection,
         <m>T</m> has an inverse function. (Recall that two functions <m>f</m> and <m>g</m> are inverses if
         <m>(f \circ g)(x) = x</m> for all <m>x</m> in the domain of <m>g</m> and
         <m>(g \circ f)(x) = x</m> for all <m>x</m> in the domain of <m>f</m>.)
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Let <m>T: \pol_1 \to \R^2</m> be defined by <m>T(a_0+a_1t) = \left[ \begin{array}{c} a_0\\a_0+a_1 \end{array} \right]</m>.
               Assume that <m>T</m> is an isomorphism.
               Show that <m>S: \R^2 \to \pol_1</m> defined by
               <m>S([a \ b]^{\tr}) = a + (b-a)t</m> is the inverse of <m>T</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Let <m>T: \M_{2 \times 2} \to \pol_3</m> be defined by <m>T\left(\left[ \begin{array}{cc} a\amp b\\ c\amp d \end{array} \right] \right) = a+bt+ct^2+dt^3</m>.
               Assume that <m>T</m> is an isomorphism.
               Find the inverse of <m>T</m>.
               Make sure to verify that your conjectured function really is the inverse of <m>T</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Now assume that <m>T</m> is an arbitrary isomorphism from a vector space <m>V</m> to a vector space <m>W</m>.
               We know that the inverse <m>T^{-1}</m> of <m>T</m> satisfies the property that
@@ -51,11 +63,12 @@
               Show that <m>T^{-1}</m> is a linear transformation and,
               consequently, an isomorphism.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>U</m>, <m>V</m>, and <m>W</m> be vector spaces,
         and let <m>S : U \to V</m> and
@@ -64,44 +77,55 @@
         If a statement is true, verify it.
         If a statement is false, give a counterexample.
         (The result of this exercise,
-        along with <xref ref="ex_8_a_reflexive_isomorphism">Exercises</xref>
+        along with <xref ref="ex_8_a_reflexive_isomorphism"></xref>
         and <xref ref="ex_8_a_inverse_isomorphism"></xref>,
         shows that the isomorphism relation is reflexive,
         symmetric, and transitive.
         Thus, isomorphism is an equivalence relation.)
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               <m>T \circ S</m> is a linear transformation
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               <m>S \circ T</m> is a linear transformation
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               If <m>S</m> and <m>T</m> are one-to-one,
               then <m>T \circ S</m> is one-to-one.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               If <m>S</m> and <m>T</m> are onto,
               then <m>T \circ S</m> is onto.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               If <m>S</m> and <m>T</m> are isomorphisms,
               then <m>T \circ S</m> is an isomorphism.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         For each of the following maps,
         determine which is a linear transformation.
@@ -110,43 +134,54 @@
         If a mapping is a linear transformation,
         verify that fact and then determine if the mapping is one-to-one and/or onto.
         Throughout, let <m>V</m> and <m>W</m> be vector spaces.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               <m>T: V \to V</m> defined by <m>T(\vx) = -\vx</m>
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               <m>T: V \to V</m> defined by <m>T(\vx) = 2\vx</m>
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>V</m> be a vector space.
         In this exercise, we will investigate mappings
         <m>T: V \to V</m> of the form <m>T(\vx) = k\vx</m>,
         where <m>k</m> is a scalar.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               For which values,
               if any, of <m>k</m> is <m>T</m> a linear transformation?
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               For which values of <m>k</m>,
               if any, is <m>T</m> an isomorphism?
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li xml:id="ex_8_a_isomorphic_dimension">
+          </statement>
+        </task>
+  
+</exercise>
+
+  <exercise xml:id="ex_8_a_isomorphic_dimension">
+    <statement>
       <p>
         Let <m>V</m> be a finite-dimensional vector space and <m>W</m> a vector space.
         Show that if <m>T: V \to W</m> is an isomorphism,
@@ -156,47 +191,65 @@
         Hence, if <m>V</m> is a vector space of dimension <m>n</m> and <m>W</m> is isomorphic to <m>V</m>,
         then <m>\dim(W) = n</m> as well.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>W = \left\{ \left[ \begin{array}{rr} x \amp -x \\ -x \amp x \end{array} \right] : x \text{ is a scalar } \right\}</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>W</m> is a subspace of <m>\M_{2 \times 2}</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               The space <m>W</m> is isomorphic to <m>\R^k</m> for some <m>k</m>.
               Determine the value of <m>k</m> and explain why <m>W</m> is isomorphic to <m>\R^k</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Is it possible for a vector space to be isomorphic to one of its proper subspaces?
         Justify your answer.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Prove <xref ref="thm_8_a_ker"></xref>
-        <hint>
-          <p>
-            See <xref ref="pa_3_b"></xref>.
-          </p>
-        </hint>
+        
       </p>
-    </li>
-    <li>
+    </statement>
+    <hint>
+      <p>
+        See <xref ref="pa_3_b"></xref>.
+      </p>
+    </hint>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Prove <xref ref="thm_8_a_one_to_one_kernel"></xref>.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Let <m>V</m> and <m>W</m> be finite dimensional vector spaces,
         and let <m>T : V \to W</m> be a linear transformation.
@@ -206,8 +259,11 @@
         <m>\ldots</m>, <m>T(\vv_n)</m>,
         then we know exactly which vector <m>T(\vu)</m> is for any <m>\vu</m> in <m>V</m>.
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>V</m> and <m>W</m> be vectors spaces and let
         <m>T: V \to W</m> be a linear transformation.
@@ -215,24 +271,29 @@
         <me>
           T(V') = \{T(\vv) : \vv \text{ is in }  V'\}
         </me>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>T(V')</m> is a subspace of <m>W</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Suppose <m>\dim(V') = n</m>.
               Show that <m>\dim(T(V')) \leq n</m>.
               Can <m>\dim(T(V')) = n</m> even if <m>T</m> is not an isomorphism?
               Justify your answer.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li xml:id="ex_8_a_transformation_space">
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise xml:id="ex_8_a_transformation_space">
+    <statement>
       <p>
         Let <m>V</m> and <m>W</m> be vector spaces and define <m>L(V,W)</m> to be the set of all linear transformations from <m>V</m> to <m>W</m>.
         If <m>S</m> and <m>T</m> are in <m>L(V,W)</m> and <m>c</m> is a scalar,
@@ -243,8 +304,11 @@
         for all <m>\vv</m> in <m>V</m>.
         Prove that <m>L(V,W)</m> is a vector space.
       </p>
-    </li>
-    <li xml:id="ex_8_a_rank_nullity">
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex_8_a_rank_nullity">
+    <statement>
       <p>
         The Rank-Nullity Theorem
         (<xref ref="thm_3_d_rank_nullity"></xref>)
@@ -259,38 +323,49 @@
         <m>\vv_n\}</m> of <m>V</m>.
         Use this basis to find a basis for <m>\Range(T)</m>.)
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Let <m>V</m> and <m>W</m> be vector spaces with <m>\dim(V) = n = \dim(W)</m>,
         and let <m>T: V \to W</m> be a linear transformation.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Prove or disprove: If <m>T</m> is one-to-one,
               then <m>T</m> is also onto.
-              <hint>
-                <p>
-                  Use <xref ref="ex_8_a_rank_nullity"></xref>.
-                </p>
-              </hint>
+              
             </p>
-          </li>
-          <li>
+          </statement>
+          <hint>
+            <p>
+              Use <xref ref="ex_8_a_rank_nullity"></xref>.
+            </p>
+          </hint>
+        </task>
+        <task>
+          <statement>
             <p>
               Prove or disprove: If <m>T</m> is onto,
               then <m>T</m> is also one-to-one.
-              <hint>
-                <p>
-                  Use <xref ref="ex_8_a_rank_nullity"></xref>.
-                </p>
-              </hint>
+              
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+          <hint>
+            <p>
+              Use <xref ref="ex_8_a_rank_nullity"></xref>.
+            </p>
+          </hint>
+        </task>
+
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
         Suppose <m>\CB_1</m> is a basis of an <m>n</m>-dimensional vector space <m>V</m>,
         and <m>\CB_2</m> is a basis of an <m>n</m>-dimensional vector space <m>W</m>.
@@ -301,8 +376,11 @@
         we can conclude that <m>T_{VW}</m> is an isomorphism.
         Thus, any two vectors space of dimension <m>n</m> are isomorphic.)
       </p>
-    </li>
-    <li>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         There is an important characterization of linear functionals that we examine in this problem.
         A linear functional is a linear transformation from a vector space <m>V</m> to <m>\R</m>.
@@ -315,34 +393,44 @@
         for every vector <m>\vv</m> in <m>V</m>.
         That is, every linear functional on an inner product space can be represented by an inner product with a fixed vector.
         Let <m>n = \dim(V)</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Suppose <m>\Range(T) = \{\vzero\}</m>.
               What vector could we use for <m>\vx</m>?
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Now assume that <m>\dim(\Range(T)) > 0</m>.
               Note that <m>\Range(T)</m> is a subspace of <m>\R</m>.
               Explain why the only subspaces of <m>\R</m> are <m>\{0\}</m> and <m>\R</m>.
               Conclude that <m>\Range(T) = \R</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Explain why <m>\dim(\Ker(T)) = n-1</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Let <m>\{\vv_1, \vv_2, \ldots, \vv_{n-1}\}</m> be an orthonormal basis for <m>\Ker(T)</m>.
               Explain why there is a vector <m>\vv_n</m> in <m>V</m> so that
               <m>\{\vv_1, \vv_2, \ldots, \vv_{n-1}, \vv_n\}</m> is an orthonormal basis for <m>V</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Let <m>\vv</m> be in <m>V</m>.
               Explain why
@@ -350,21 +438,27 @@
                 \vv = \langle \vv, \vv_1 \rangle \vv_1 + \langle \vv, \vv_2 \rangle \vv_2 + \cdots + \langle \vv, \vv_n \rangle \vv_n
               </me>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Now explain why
               <me>
                 T(\vv) = \langle \vv, \vv_n \rangle T(\vv_n)
               </me>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               Finally, explain why <m>T(\vv_n)\vv_n</m> is the vector <m>\vx</m> we are looking for.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <statement>
             <p>
               As an example,
               let <m>T: \pol_2 \to \R</m> be defined by <m>T(p(t)) = p(0)</m>.
@@ -378,88 +472,121 @@
               </me>
               for every <m>p(t)</m> in <m>\pol_2</m>.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-    <li>
+          </statement>
+        </task>
+  </exercise>
+
+  <exercise>
+    <introduction>
       <p>
         Label each of the following statements as True or False.
         Provide justification for your response.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> The mapping <m>T: \M_{2 \times 2} \to \R</m> defined by
+              The mapping <m>T: \M_{2 \times 2} \to \R</m> defined by
               <m>T(A) = \det(A)</m> is a linear transformation.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> The mapping <m>T: \M_{2 \times 2} \to \M_{2 \times 2}</m> defined by
+              The mapping <m>T: \M_{2 \times 2} \to \M_{2 \times 2}</m> defined by
               <m>T(A) = A^{-1}</m> if <m>A</m> is invertible and <m>T(A) = 0</m>
               (the zero matrix)
               otherwise is a linear transformation.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> Let <m>V</m> and <m>W</m> be vector spaces.
+              Let <m>V</m> and <m>W</m> be vector spaces.
               The mapping <m>T: V \to W</m> defined by
               <m>T(\vx) = \vzero</m> is a linear transformation.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If <m>T: V \to W</m> is a linear transformation,
+              If <m>T: V \to W</m> is a linear transformation,
               and if <m>\{\vv_1, \vv_2\}</m> is a linearly independent set in <m>V</m>,
               then the set <m>\{T(\vv_1), T(\vv_2)\}</m> is a linearly independent set in <m>W</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> A one-to-one transformation is a transformation where each input has a unique output.
+              A one-to-one transformation is a transformation where each input has a unique output.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> A one-to-one linear transformation is a transformation where each output can only come from a unique input.
+              A one-to-one linear transformation is a transformation where each output can only come from a unique input.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> Let <m>V</m> and <m>W</m> be vector spaces with
+              Let <m>V</m> and <m>W</m> be vector spaces with
               <m>\dim(V) = 2</m> and <m>\dim(W) = 3</m>.
               A linear transformation from <m>V</m> to <m>W</m> cannot be onto.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> Let <m>V</m> and <m>W</m> be vector spaces with
+              Let <m>V</m> and <m>W</m> be vector spaces with
               <m>\dim(V) = 3</m> and <m>\dim(W) = 2</m>.
               A linear transformation from <m>V</m> to <m>W</m> cannot be onto.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> Let <m>V</m> and <m>W</m> be vector spaces with
+              Let <m>V</m> and <m>W</m> be vector spaces with
               <m>\dim(V) = 3</m> and <m>\dim(W) = 2</m>.
               A linear transformation from <m>V</m> to <m>W</m> cannot be one-to-one.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If <m>\vw</m> is in the range of a linear transformation <m>T</m>,
+              If <m>\vw</m> is in the range of a linear transformation <m>T</m>,
               then there is an <m>\vx</m> in the domain of <m>T</m> such that <m>T(\vx)=\vw</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+        </task>
+        <task>
+          <title>True/False</title>
+          <statement>
             <p>
-              <em>True/False</em> If <m>T</m> is a one-to-one linear transformation,
+              If <m>T</m> is a one-to-one linear transformation,
               then <m>T(\vx)=\vzero</m> has a non-trivial solution.
             </p>
-          </li>
-        </ul>
-      </p>
-    </li>
-  </ol>
-</section>
+          </statement>
+        </task>
+
+  </exercise>
+</exercises>

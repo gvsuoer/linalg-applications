@@ -10,11 +10,13 @@
     which is also <m>\Ker(T) = \{\vx : T(\vx) = \vzero\}</m>.
     We can extend this idea of the kernel of a matrix transformation to any linear transformation <m>T</m>.
   </p>
+
   <definition>
+  <idx><h>linear transformation</h><h>kernel</h></idx>
     <statement>
       <p>
         Let <m>T : V \to W</m> be a linear transformation from the vector space <m>V</m> to the vector space <m>W</m>.
-        The <term>kernel</term><idx><h>linear transformation</h><h>kernel</h></idx> of <m>T</m> is the set
+        The <term>kernel</term> of <m>T</m> is the set
         <me>
           \Ker(T) = \{\vx \in V : T(\vx) = \vzero_W\}
         </me>,
@@ -22,12 +24,14 @@
       </p>
     </statement>
   </definition>
+
   <p>
     Just as the null space of an
     <m>m \times n</m> matrix <m>A</m> is a subspace of <m>\R^n</m>,
     the kernel of a linear transformation from a vector space <m>V</m> to a vector space <m>W</m> is a subspace of <m>V</m>.
     The proof is left to the exercises.
   </p>
+
   <theorem xml:id="thm_8_a_ker">
     <statement>
       <p>
@@ -36,6 +40,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     The kernel of a linear transformation provides a convenient way to determine if the linear transformation is one-to-one.
     If <m>T</m> is one-to-one,
@@ -49,6 +54,7 @@
     (Compare to <xref ref="thm_3_b_one_to_one_kernel"></xref>.)
     The formal proof is left for the exercises.
   </p>
+
   <theorem xml:id="thm_8_a_one_to_one_kernel">
     <statement>
       <p>
@@ -57,48 +63,55 @@
       </p>
     </statement>
   </theorem>
+
   <activity xml:id="act_8_a_Lin_trans_1">
-    <p>
-      <nbsp/>
-      <ul>
-        <li>
+    
+      <task>
+        <statement>
           <p>
             Let <m>T: \pol_1 \to \pol_2</m> be defined by <m>T(a_0+a_1t) = a_1t^2</m>.
             Find <m>\Ker(T)</m>.
             Is <m>T</m> one-to-one?
             Explain.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>T: \D \to \F</m> be defined by <m>T(f) = f'</m>.
             Find <m>\Ker(T)</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     Recall that the matrix-vector product <m>A \vx</m> is a linear combination of the columns of <m>A</m> and the set of all vectors of the form <m>A \vx</m> is the column space of <m>A</m>.
     For the matrix transformation <m>T</m> defined by <m>T(\vx) = A\vx</m>,
     the set of all vectors of the form <m>A \vx</m> is also the range of the transformation <m>T</m>.
     We can extend this idea to arbitrary linear transformations to define the
-    <em>range</em> of a transformation.
+    <term>range</term> of a transformation.
   </p>
+
   <definition>
+  <idx><h>range of a linear transformation</h></idx>
     <statement>
       <p>
         Let <m>T : V \to W</m> be a linear transformation from the vector space <m>V</m> to the vector space <m>W</m>.
-        The <term>range</term><idx><h>range of a linear transformation</h></idx> of <m>T</m> is the set
+        The <term>range</term> of <m>T</m> is the set
         <me>
           \Range(T) = \{T(\vx) : \vx \text{ is in }  V\}
         </me>.
       </p>
     </statement>
   </definition>
+
   <p>
+  <idx><h>image of a linear transformation</h></idx>
     We also call the range of a transformation <m>T</m> the
-    <em>image</em><idx><h>image of a linear transformation</h></idx> of the transformation and use the notation <m>\Image(T)</m>.
+    <term>image</term> of the transformation and use the notation <m>\Image(T)</m>.
   </p>
   <p>
     If <m>T(\vx) = A\vx</m> for some <m>m \times n</m> matrix <m>A</m>,
@@ -111,6 +124,7 @@
     In general, the range of a linear transformation <m>T</m> from <m>V</m> to <m>W</m> is a subspace of <m>W</m>.
     The fact that the range of a transformation is a subspace of the codomain is a consequence of the more general result in the following theorem.
   </p>
+
   <theorem>
     <statement>
       <p>
@@ -123,7 +137,7 @@
         is a subspace of <m>W</m>.
       </p>
     </statement>
-  </theorem>
+  
   <proof>
     <p>
       Let <m>T : V \to W</m> be a linear transformation from a vector space <m>V</m> to vector space <m>W</m>,
@@ -158,6 +172,8 @@
       We conclude that <m>T(U)</m> is a subspace of <m>W</m>.
     </p>
   </proof>
+  </theorem>
+
   <p>
     Letting <m>U = V</m> shows that
     <m>\Range(T)</m> is a subspace of <m>W</m>.
@@ -169,6 +185,7 @@
     This means that every <m>\vb</m> in <m>W</m> belongs to
     <m>\Range(T)</m> for <m>T</m> to be onto.
   </p>
+
   <theorem xml:id="thm_8_a_onto_range">
     <statement>
       <p>
@@ -176,7 +193,9 @@
       </p>
     </statement>
   </theorem>
+
   <activity>
+    <statement>
     <p>
       Let <m>T: \pol_1 \to \pol_2</m> be defined by
       <m>T(a_0+a_1t) = a_1t^2</m> as in <xref ref="act_8_a_Lin_trans_1"></xref>.
@@ -184,5 +203,6 @@
       Is <m>T</m> onto?
       Explain.
     </p>
+    </statement>
   </activity>
 </section>
