@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<section xml:id="sec_orthog_comp_ip">
+  <title>Orthogonal Complements</title>
+  <p>
+    If we have a set of vectors <m>S</m> in an inner product space <m>V</m>, we can define the orthogonal complement of <m>S</m> as we did in <m>\R^n</m> (see <xref ref="def_6_a_orth_complement"/>).
+  </p>
+
+  <definition>
+  <idx><h>orthogonal complement in inner product spaces</h></idx>
+    <statement>
+      <p>
+        The <term>orthogonal complement</term> of a subset <m>S</m> of an inner product space <m>V</m> is the set
+        <me>S^{\perp} = \{\vv \in V : \langle \vv, \vu \rangle = 0 \text{ for all } \vu \in S\}</me>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    As we saw in <m>\R^n</m>, to show that a vector is in the orthogonal complement of a subspace, it is enough to show that the vector is orthogonal to every vector in a basis for that subspace. The same is true in any inner product space. The proof is left to the exercises. 
+  </p>
+
+  <theorem xml:id="thm_6_e_ip_orth_complement_basis">
+    <statement>
+      <p>
+        Let <m>\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}</m> be a basis for a subspace <m>W</m> of an inner product space <m>V</m>. A vector <m>\vv</m> in <m>V</m> is orthogonal to every vector in <m>W</m> if and only if <m>\vv</m> is orthogonal to every vector in <m>\CB</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <activity>
+    <introduction>
+      <p>
+        Consider <m>\pol_2</m> with the inner product <m>\langle p(t), q(t) \rangle = \int_0^1 p(t)q(t) \ dt</m>.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Find <m>\langle p(t), 1-t \rangle</m> where <m>p(t)=a+bt+ct^2</m> is in <m>\pol_2</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Describe as best you can the orthogonal complement of <m>\Span\{1-t\}</m> in <m>\pol_2</m>. Is <m>p(t)=1-2t-2t^2</m> in this orthogonal complement? Is <m>p(t)=1+t-t^2</m>?
+        </p>
+      </statement>
+    </task>
+  </activity>
+
+  <p>
+    As was the case in <m>\R^n</m>, give a subspace <m>W</m> of an inner product space <m>V</m>, any vector in <m>V</m> can be written uniquely as a sum of a vector in <m>W</m> and a vector in <m>W^{\perp}</m>. 
+  </p>
+
+  <activity xml:id="act_6_c_decompose_ips">
+    <introduction>
+      <p>
+        Let <m>V</m> be an inner product space of dimension <m>n</m>, and let <m>W</m> be a subspace of <m>V</m>. Let <m>\vx</m> be any vector in <m>V</m>. We will demonstrate that <m>\vx</m> can be written uniquely as a sum of a vector in <m>W</m> and a vector in <m>W^{\perp}</m>. 
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Explain why <m>\proj_W \vx</m> is in <m>W</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Explain why <m>\proj_{W^{\perp}} \vx</m> is in <m>W^{\perp}</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Explain why <m>\vx</m> can be written as a sum of vectors, one in <m>W</m> and one in <m>W^{\perp}</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Now we demonstrate the uniqueness of this decomposition. Suppose <m>\vx = \vw+\vw_1</m> and <m>\vx = \vu+\vu_1</m>, where <m>\vw</m> and <m>\vu</m> are in <m>W</m> and <m>\vw_1</m> and <m>\vu_1</m> are in <m>W^{\perp}</m>. Show that <m>\vw=\vu</m> and <m>\vw_1 = \vu_1</m>, so that the representation of <m>\vx</m> as a sum of a vector in <m>W</m> and a vector in <m>W^{\perp}</m> is unique. (Hint: What is <m>W \cap W^{\perp}</m>?)
+        </p>
+      </statement>
+    </task>
+    
+  </activity>
+
+  <p>
+    We summarize the result of <xref ref="act_6_c_decompose_ips"/>.
+  </p>
+
+  <theorem xml:id="thm_6_c_decompose_ips">
+    <statement>
+      <p>
+        Let <m>V</m> be a finite dimensional inner product space, and let <m>W</m> be a subspace of <m>V</m>. Any vector in <m>V</m> can be written in a unique way as a sum of a vector in <m>W</m> and a vector in <m>W^{\perp}</m>. 
+      </p>
+    </statement>
+  </theorem>
+  
+  <p>
+    <xref ref="thm_6_c_decompose_ips"/> is useful in many applications. For example, to compress an image using wavelets, we store the image as a collection of data, then rewrite the data using a succession of subspaces and their orthogonal complements.  This new representation allows us to visualize the data in a way that compression is possible. 
+  </p>
+  
+</section>
