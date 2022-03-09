@@ -5,7 +5,7 @@
     What follows are worked examples that use the concepts from this section.
   </p>
   <example>
-    <statement>
+    <introduction>
       <p>
         Let <m>T : \M_{2 \times 2} \to \M_{2 \times 2}</m> be defined by <m>T(A) = A^{\tr}</m>.
         Let <m>M_1 = \left[ \begin{array}{cc} 1\amp 1\\0\amp 0 \end{array} \right]</m>,
@@ -13,67 +13,59 @@
         <m>M_3 = \left[ \begin{array}{cc} 1\amp 0\\1\amp 0 \end{array} \right]</m>,
         and <m>M_4 = \left[ \begin{array}{cc} 0\amp 0\\1\amp 1 \end{array} \right]</m>,
         and let <m>\CB</m> be the ordered basis <m>\{M_1, M_2, M_3, M_4\}</m>.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Show that <m>T</m> is a linear transformation.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
+            <p>
+              Let <m>A</m> and <m>B</m> be
+              <m>2 \times 2</m> matrices and let <m>c</m> be a scalar.
+              The properties of the transpose show that
+              <me>
+                T(A+B) = (A+B)^{\tr} = A^{\tr}+B^{\tr} = T(A) + T(B)
+              </me>
+              and
+              <me>
+                T(cA) = (cA)^{\tr} = cA^{\tr} = cT(A)
+              </me>.
+              Thus, <m>T</m> is a linear transformation.
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
             <p>
               Find <m>[T]_{\CB}</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
+            <p>
+              Notice that <m>T(M_1) = M_3</m>, <m>T(M_2) = M_2</m>,
+        <m>T(M_3) = M_1</m>, and <m>T(M_4) = M_1-M_3+M_4</m>.
+        So
+        <me>
+          [T]_{\CB} = \left[ [T(M_1)_{\CB} \  [T(M_2)_{\CB} \  [T(M_3)_{\CB} \  [T(M_4)_{\CB} \right] = \left[ \begin{array}{cccr} 0\amp 0\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 0 \\ 1\amp 0\amp 0\amp -1  \\ 0\amp 0\amp 0\amp 1 \end{array}  \right]
+        </me>.
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
             <p>
               Is the matrix <m>[T]_{\CB}</m> diagonalizable?
               If so, find a matrix <m>P</m> such that
               <m>P^{-1}[T]_{\CB}P</m> is a diagonal matrix.
               Use technology as appropriate.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
             <p>
-              Use part (c) to find a basis <m>\CC</m> for <m>\M_{2 \times 2}</m> for which
-              <m>[T]_{\CC}</m> is a diagonal matrix.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-      </p>
-    </statement>
-  </example>
-  <ul>
-    <li>
-      <p>
-        Let <m>A</m> and <m>B</m> be
-        <m>2 \times 2</m> matrices and let <m>c</m> be a scalar.
-        The properties of the transpose show that
-        <me>
-          T(A+B) = (A+B)^{\tr} = A^{\tr}+B^{\tr} = T(A) + T(B)
-        </me>
-        and
-        <me>
-          T(cA) = (cA)^{\tr} = cA^{\tr} = cT(A)
-        </me>.
-        Thus, <m>T</m> is a linear transformation.
-      </p>
-    </li>
-    <li>
-      <p>
-        Notice that <m>T(M_1) = M_3</m>, <m>T(M_2) = M_2</m>,
-        <m>T(M_3) = M_1</m>, and <m>T(M_4) = M_1-M_3+M_4</m>.
-        So
-        <me>
-          [T]_{\CB} = \left[ [T(M_1)_{\CB} \  [T(M_2)_{\CB} \  [T(M_3)_{\CB} \  [T(M_4)_{\CB} \right] = \left[ \begin{array}{cccr} 0\amp 0\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 0 \\ 1\amp 0\amp 0\amp -1  \\ 0\amp 0\amp 0\amp 1 \end{array}  \right]
-        </me>.
-      </p>
-    </li>
-    <li>
-      <p>
-        Technology shows that the characteristic polynomial of
+              Technology shows that the characteristic polynomial of
         <m>[T]_{\CB}</m> is <m>p(\lambda) = (\lambda+1)(\lambda-1)^3</m>.
         It follows that the eigenvalues of
         <m>[T]_{\CB}</m> are <m>-1</m> and <m>1</m>
@@ -84,11 +76,19 @@
         <m>[0 \ 1 \ 0 \ 0]^{\tr}</m> form a basis for the eigenspace corresponding to the eigenvalue <m>1</m>.
         If we let <m>P = \left[ \begin{array}{cccr} 1\amp 1\amp 0\amp -1 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 1\amp 0\amp 1 \\ 1\amp 0\amp 0\amp 0 \end{array} \right]</m>,
         then <m>P^{-1}AP = \left[ \begin{array}{cccr} 1\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp -1 \end{array} \right]</m>.
-      </p>
-    </li>
-    <li>
-      <p>
-        Suppose <m>\CC = \{Q_1, Q_2, Q_3, Q_4\}</m> is a basis for
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use part (c) to find a basis <m>\CC</m> for <m>\M_{2 \times 2}</m> for which
+              <m>[T]_{\CC}</m> is a diagonal matrix.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Suppose <m>\CC = \{Q_1, Q_2, Q_3, Q_4\}</m> is a basis for
         <m>\M_{2 \times 2}</m> satisfying <m>P^{-1}[T]_{\CB}P = [T]_{\CC}</m>.
         This makes <m>[T]_{\CC}</m> a diagonal matrix with the eigenvalues of <m>[T]_{\CB}</m> along the diagonal.
         In this case we have
@@ -105,11 +105,14 @@
         Letting <m>Q_1 = M_1+M_4</m>,
         <m>Q_2 = M_1+M_3</m>, <m>Q_3=M_2</m>, and <m>Q_4 = M_3-M_1</m>,
         we conclude that <m>[T]_{\CC}</m> is a diagonal matrix.
-      </p>
-    </li>
-  </ul>
+            </p>
+          </solution>
+        </task>
+     
+  </example>
+  
   <example>
-    <statement>
+    <introduction>
       <p>
         We have shown that every linear transformation from a finite dimensional vector space <m>V</m> to <m>V</m> can be represented as a matrix transformation.
         As a consequence, all such linear transformations have eigenvalues.
@@ -117,14 +120,29 @@
         <m>T : V \to V</m> defined by <m>T(f)(x) = \int_0^x f(t) \, dt</m>,
         where <m>V</m> is the vector space of all infinitely differentiable functions from <m>\R</m> to <m>\R</m>.
         Suppose that <m>f</m> is an eigenvector of <m>T</m> with a nonzero eigenvalue.
-        <ul>
-          <li>
+      </p>
+    </introduction>
+        <task>
+          <statement>
             <p>
               Use the Fundamental Theorem of Calculus to show that <m>f</m> must satisfy the equation
               <m>f'(x) = \frac{1}{\lambda} f(x)</m> for some scalar nonzero scalar <m>\lambda</m>.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
+            <p>
+              Assuming that <m>f</m> is an eigenvector of <m>T</m> with nonzero eigenvalue <m>\lambda</m>, then
+        <men xml:id="eq_8_c_integral">
+          \lambda f(x) = T(f)(x) = \int_0^x f(t) \, dt
+        </men>.
+        Recall that <m>\frac{d}{dx}  \int_0^x f(t) \, dt = f(x)</m> by the Fundamental Theorem of Calculus.
+        Differentiating both sides of <xref ref="eq_8_c_integral"/> with respect to <m>x</m> leaves us with <m>\lambda f'(x) = f(x)</m>,
+        or <m>f'(x) = \frac{1}{\lambda} f(x)</m>.
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
             <p>
               From calculus,
               we know that the functions <m>f</m> that satisfy the equation <m>f(x) = \frac{1}{\lambda} f'(x)</m> all have the form
@@ -135,40 +153,10 @@
               that <m>Ae^{x/\lambda}</m> cannot be an eigenvector of <m>T</m>.
               Thus, <m>T</m> has no eigenvectors with nonzero eigenvalues.
             </p>
-          </li>
-          <li>
+          </statement>
+          <solution>
             <p>
-              Now show that <m>0</m> is not an eigenvalue of <m>T</m>.
-              Conclude that <m>T</m> has no eigenvalues or eigenvectors.
-            </p>
-          </li>
-          <li>
-            <p>
-              Explain why this example does not contradict the statement that every linear transformation from a finite dimensional vector space <m>V</m> to <m>V</m> has eigenvalues.
-            </p>
-          </li>
-        </ul>
-      </p>
-      <p>
-        <em>Example Solution. </em>
-      </p>
-    </statement>
-  </example>
-  <ul>
-    <li>
-      <p>
-        Assuming that <m>f</m> is an eigenvector of <m>T</m> with nonzero eigenvalue <m>\lambda</m>, then
-        <men xml:id="eq_8_c_integral">
-          \lambda f(x) = T(f)(x) = \int_0^x f(t) \, dt
-        </men>.
-        Recall that <m>\frac{d}{dx}  \int_0^x f(t) \, dt = f(x)</m> by the Fundamental Theorem of Calculus.
-        Differentiating both sides of <xref ref="eq_8_c_integral"/> with respect to <m>x</m> leaves us with <m>\lambda f'(x) = f(x)</m>,
-        or <m>f'(x) = \frac{1}{\lambda} f(x)</m>.
-      </p>
-    </li>
-    <li>
-      <p>
-        We can directly check from the definition that <m>T(f)</m> is not a multiple of
+              We can directly check from the definition that <m>T(f)</m> is not a multiple of
         <m>f(x)=Ae^{x/\lambda}</m> unless <m>A=0</m>, which is not allowed.
         Another method is to note that <m>T(f)(0) = \int_0^0 f(t) \, dt = 0</m> by definition.
         But if <m>f(x) = Ae^{x/\lambda}</m>, then
@@ -178,11 +166,19 @@
         This means that  <m>f(x) = 0e^{x/\lambda} = 0</m>.
         But <m>0</m> can never be an eigenvector by definition.
         So <m>T</m> has no eigenvectors with nonzero eigenvalues.
-      </p>
-    </li>
-    <li>
-      <p>
-        Suppose that <m>0</m> is an eigenvalue of <m>T</m>.
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Now show that <m>0</m> is not an eigenvalue of <m>T</m>.
+              Conclude that <m>T</m> has no eigenvalues or eigenvectors.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Suppose that <m>0</m> is an eigenvalue of <m>T</m>.
         Then there is a nonzero function <m>g</m> such that <m>T(g) = 0</m>.
         In other words, <m>0 = \int_0^x g(t) \, dt</m>.
         Again, differentiating with respect to <m>x</m> yields the equation <m>g(x) = 0</m>.
@@ -190,13 +186,23 @@
         Since <m>T</m> does not have a nonzero eigenvalue or zero as an eigenvalue,
         <m>T</m> has no eigenvalues
         (and eigenvectors).
-      </p>
-    </li>
-    <li>
-      <p>
-        The reason this example does not contradict the statement is that <m>V</m> is an infinite dimensional vector space.
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Explain why this example does not contradict the statement that every linear transformation from a finite dimensional vector space <m>V</m> to <m>V</m> has eigenvalues.
+            </p>
+          </statement>
+          <solution>
+            <p>
+              The reason this example does not contradict the statement is that <m>V</m> is an infinite dimensional vector space.
         In fact, the linearly independent monomials <m>t^m</m> are all in <m>V</m> for any positive integer <m>m</m>.
-      </p>
-    </li>
-  </ul>
+            </p>
+          </solution>
+        </task>
+    
+  </example>
+  
 </section>
