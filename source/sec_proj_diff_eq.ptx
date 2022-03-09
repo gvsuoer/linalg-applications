@@ -26,17 +26,23 @@
     So we should expect close connections between differential equations and linear algebra,
     and we will make some of these connections as we proceed.
   </p>
-  <activity xml:id="act_de_operator">
+
+  <project xml:id="act_de_operator">
+    <introduction>
     <p>
       We can represent differential equations using linear transformations.
       To see how, let <m>D</m> be the function from the space <m>C^1</m> of all differentiable real-valued functions to <m>\F</m> given by <m>D(f)  = \frac{df}{dt}</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Show that <m>D</m> is a linear transformation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             In order for a function <m>f</m> to be a solution to a differential equation of the form <xref ref="eq_de_1"/>,
             it is necessary for <m>f</m> to be twice differentiable.
@@ -47,10 +53,11 @@
               \left(mD^2 + bD \right)(y) = -ky
             </me>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     <xref ref="act_de_operator"></xref>
     shows that any solution to the differential equation
@@ -63,7 +70,9 @@
     To build up to solutions to the second order differential equation we have been considering,
     we start with solutions to the first order equation.
   </p>
-  <activity xml:id="act_de_first_order">
+
+  <project xml:id="act_de_first_order">
+    <statement>
     <p>
       Let <m>k</m> be a scalar.
       Show that the solutions of the differential equation
@@ -71,6 +80,7 @@
       Find a basis for this subspace.
       Note that this is the eigenspace of the transformation <m>D</m> corresponding to the eigenvalue <m>-k</m>.
     </p>
+    </statement>
     <hint>
       <p>
         To find the solutions to <m>y' = -ky</m>,
@@ -79,12 +89,15 @@
         Divide by <m>y</m> and integrate with respect to <m>t</m>.
       </p>
     </hint>
-  </activity>
+  </project>
+
   <p>
     Before considering the general second order differential equation,
     we start with a simpler example.
   </p>
-  <activity xml:id="act_de_Hooke">
+
+  <project xml:id="act_de_Hooke">
+    <introduction>
     <p>
       As a specific example of a second order linear equation,
       as discussed at the beginning of this section, Hooke's law states that if a mass is hanging from a spring,
@@ -103,16 +116,20 @@
       </men>
       where <m>c = \frac{k}{m}</m>.
       So the solutions to the differential equation <xref ref="eq_de_Hooke"/> make up the eigenspace <m>E_{-c}</m> for <m>D^2</m> with eigenvalue <m>-c</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Since the derivatives of <m>\sin(t)</m> and <m>\cos(t)</m> are scalar multiples of <m>\sin(t)</m> and <m>\cos(t)</m>,
             it may be reasonable that these make up solutions to <xref ref="eq_de_Hooke"/>.
             Show that <m>y_1 = c\cos(t)</m> and
             <m>y_2 = c\sin(t)</m> are both in <m>E_{-c}</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             As functions,
             the cosine and sine are related in many ways (e.g., the Pythagorean Identity).
@@ -120,8 +137,10 @@
             Show, using the <em>definition</em> of linear independence,
             that the cosine and sine functions are linearly independent in <m>\F</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Part (a) shows that there are at least two different functions in <m>E_{-c}</m>.
             To solve a differential equation is to find all of the solutions to the differential equation.
@@ -146,10 +165,11 @@
             shows that <m>\{\cos, \sin\}</m> is a basis for <m>E_{-c}</m>.
             (Note: That the solutions to differential equation <xref ref="eq_de_Hooke"/> involve sines and cosines models the situation that a mass hanging from a spring will oscillate up and down.)
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     As we saw in <xref ref="act_de_first_order"></xref>,
     the eigenspace <m>E_{k}</m> of the linear transformation <m>D</m> is one-dimensional.
@@ -166,14 +186,16 @@
     y_n\}</m> is a basis for the eigenspace of the linear transformation
     <m>a_nD^n + a_{n-1}D^{n-1} + \cdots + a_1D</m> with eigenvalue <m>-a_0</m>.
     Any basis for the solution set to a differential equation is called a
-    <em>fundamental set of solutions</em>
+    <term>fundamental set of solutions</term>
     for the differential equation.
     Consequently,
     it is important to be able to determine when a set of functions is linearly independent.
     One tool for doing so is the Wronskian,
     which we study in the next activity.
   </p>
-  <activity xml:id="act_de_Wronskian">
+
+  <project xml:id="act_de_Wronskian">
+    <introduction>
     <p>
       Suppose we have <m>n</m> functions <m>f_1</m>, <m>f_2</m>,
       <m>\ldots</m>, <m>f_n</m>, each with <m>n-1</m> derivatives.
@@ -195,18 +217,23 @@
         <mrow>{f'_1(t)}c_1         \amp {}+{}  \amp {f'_2(t)}c_2        \amp {}+{}  \amp \cdots \amp {}+{} \amp {f'_n(t)}c_n        \amp = \amp \ 0\amp {}</mrow>
         <mrow>{f''_1(t)}c_1         \amp {}+{}  \amp {f''_2(t)}c_2        \amp {}+{}  \amp \cdots \amp {}+{} \amp {f''_n(t)}c_n        \amp = \amp \ 0\amp {}</mrow>
         <mrow>{}             \amp {}    \amp             \amp     \amp \vdots \amp       \amp             \amp  \amp \amp {}</mrow>
-        <mrow>{f^{(n-1)}_1(t)}c_1   \amp {}+{}  \amp {f^{(n-1)}_2(t)}c_2  \amp {}+{}  \amp \cdots \amp {}+{} \amp {f^{(n-1)}_n(t)}c_n  \amp = \amp \ 0\amp {.}</mrow>
+        <mrow>{f^{(n-1)}_1(t)}c_1   \amp {}+{}  \amp {f^{(n-1)}_2(t)}c_2  \amp {}+{}  \amp \cdots \amp {}+{} \amp {f^{(n-1)}_n(t)}c_n  \amp = \amp \ 0\amp </mrow>.
       </md>
-      <ul>
-        <li>
+      </p>
+      </introduction>
+      <task>
+        <statement>
           <p>
             Write this system in matrix form, with coefficient matrix
             <me>
               A  = \left[ \begin{array}{ccccc} f_1(t) \amp f_2(t)\amp  \cdots \amp f_n(t) \\ f'_1(t) \amp f'_2(t)\amp  \cdots \amp f'_n(t) \\ \vdots \amp       \amp       \amp  \\ f^{(n-1)}_1(t) \amp f^{(n-1)}_2(t)\amp  \cdots \amp f^{(n-1)}_n(t) \end{array}  \right]
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+      <idx><h>Wronskian</h></idx>
+        <statement>
           <p>
             The matrix in part (a) is called the Wronskian matrix of the system.
             The scalar
@@ -214,27 +241,31 @@
               W(f_1, f_2, \ldots, f_n) = \det(A)
             </me>
             is called the Wronskian
-              <idx><h>Wronskian</h></idx>
             of <m>f_1</m>, <m>f_2</m>, <m>\ldots</m>, <m>f_n</m>.
             What must be true about the Wronskian for our system to have a unique solution?
             If the system has a unique solution, what is the solution?
             What does this result tell us about the functions <m>f_1</m>,
             <m>f_2</m>, <m>\ldots</m>, <m>f_n</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the Wronskian to show that the cosine and sine functions are linearly independent.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+  
+  </project>
+
   <p>
     We can apply the Wronskian to help find bases for the eigenspace of the linear transformation
     <m>mD^2 + bD</m> with eigenvalue <m>k</m>.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       The solution to the Hooke's Law differential equation in <xref ref="act_de_Hooke"></xref>
       indicates that the spring will continue to oscillate forever.
@@ -253,16 +284,20 @@
       </men>
       or <m>\left(mD^2+bD\right) = -ky</m>.
       We will find bases for the eigenspace of the linear transformation <m>mD^2+bD</m> with eigenvalue <m>-k</m> in this activity.
-      <ul>
-        <li>
+      </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Since derivatives of exponential functions are still exponential functions,
             it seems reasonable to try an exponential function as a solution to <xref ref="act_de_second"/>.
             Show that if <m>y = e^{rt}</m> for some constant <m>r</m> is a solution to <xref ref="act_de_second"/>, then <m>mr^2+br+k = 0</m>.
             The equation <m>mr^2+br+k = 0</m> is the characteristic or auxiliary equation for the differential equation.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
             Part (a) shows that our solutions to the differential equation <xref ref="act_de_second"/> are exponential of the form <m>e^{rt}</m>,
             where <m>r</m> is a solution to the auxiliary equation.
@@ -274,8 +309,10 @@
             </me>.
             As we will see,
             our basis depends on the types of roots the auxiliary equation has.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Assume that the roots <m>r_1</m> and <m>r_2</m> of the auxiliary equation are real and distinct.
                   That means that <m>y_1 = e^{r_1t}</m> and
@@ -285,12 +322,14 @@
                   Then describe the behavior of an arbitrary eigenfunction in <m>E_{-2}</m> if
                   <m>mD^2+bD = D^2+3D</m> and how it relates to damping.
                   Draw a representative solution to illustrate.
-                  (In this case we say that the system is <em>overdamped</em>.
+                  (In this case we say that the system is <term>overdamped</term>.
                   These systems can oscillate at most once,
                   then they quickly damp to <m>0</m>.)
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Now suppose that we have a repeated real root <m>r</m> to the auxiliary equation.
                   Then there is only one exponential function <m>y_1 = e^{rt}</m> in <m>E_{-k}</m>.
@@ -301,13 +340,15 @@
                   <m>mD^2+bD = D^2+2D</m> and how it relates to damping.
                   Draw a representative solution to illustrate.
                   (In this case we say that the system is
-                  <em>critically damped</em>.
+                  <term>critically damped</term>.
                   These systems behave similar to the overdamped systems in that they do not oscillations.
                   However, if the damping is reduced just a little,
                   the system can oscillate.)
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   The last case is when the auxiliary equation has complex roots
                   <m>z_1 = u+vi</m> and <m>z_2 = u-vi</m>.
@@ -325,16 +366,16 @@
                   Then describe the behavior of an arbitrary eigenfunction in <m>E_{-5}</m> if
                   <m>mD^2+bD = D^2+2D</m> and how it relates to damping.
                   Draw a representative solution to illustrate.
-                  (In this case we say that the system is <em>underdamped</em>.
+                  (In this case we say that the system is <term>underdamped</term>.
                   These systems typically exhibit some oscillation.)
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+              </statement>
+            </task>
+          
+        </task>
+   
+  </project>
+  
   <p>
     <xref ref="act_de_Wronskian"></xref>
     tells us that if <m>W(f_1, f_2, \ldots,
@@ -343,55 +384,68 @@
     You might wonder what conclusion we can draw if <m>W(f_1, f_2, \ldots,
     f_n)</m> is zero.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       In this activity we consider the Wronskian of two different pairs of functions.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Calculate <m>W\left(t, 2t\right)</m>.
             Are <m>t</m> and <m>2t</m> linearly independent or dependent?
             Explain.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
             Now let <m>f(t) = t|t|</m> and <m>g(t) = t^2</m>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   Calculate <m>f'(t)</m> and <m>g'(t)</m>.
-                  <hint>
-                    <p>
-                      Recall that <m>|x| = \begin{cases}x \amp \text{ if } x \geq 0 \\ -x \amp \text{ if } x \lt 0. \end{cases}</m>
-                    </p>
-                  </hint>
+                  
                 </p>
-              </li>
-              <li>
+              </statement>
+              <hint>
+                <p>
+                  Recall that <m>|x| = \begin{cases}x \amp \text{ if } x \geq 0 \\ -x \amp \text{ if } x \lt 0. \end{cases}</m>
+                </p>
+              </hint>
+            </task>
+            <task>
+              <statement>
                 <p>
                   Calculate <m>W\left(f, g \right)</m>.
                   Are <m>f</m> and <m>g</m> linearly independent or dependent in <m>\F</m>?
                   Explain.
-                  <hint>
-                    <p>
-                      Consider the cases when <m>t \geq 0</m> and <m>t \lt 0</m>.
-                    </p>
-                  </hint>
+                  
                 </p>
-              </li>
-              <li>
+              </statement>
+              <hint>
+                <p>
+                  Consider the cases when <m>t \geq 0</m> and <m>t \lt 0</m>.
+                </p>
+              </hint>
+            </task>
+            <task>
+              <statement>
                 <p>
                   What conclusion can we draw about the functions <m>f_1</m>,
                   <m>f_2</m>, <m>\ldots</m>,
                   <m>f_n</m> if <m>W(f_1,f_2, \ldots, f_n)</m> is zero?
                   Explain.
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+              </statement>
+            </task>
+          
+        </task>
+  
+  </project>
 </section>
