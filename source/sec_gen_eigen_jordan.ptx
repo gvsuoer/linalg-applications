@@ -8,7 +8,9 @@
     a matrix without enough linearly independent eigenvectors can look close enough to a diagonal matrix.
     We now investigate whether this generalized representation can be achieved for all matrices.
   </p>
+
   <activity xml:id="act_JC_intro">
+    <introduction>
     <p>
       Let <m>M = \left[ \begin{array}{crc} 3 \amp -1 \amp 0 \\ 4 \amp 7 \amp 0 \\ 0\amp 0\amp 1 \end{array} \right]</m>.
       The characteristic polynomial of <m>M</m> is <m>(\lambda-1)(\lambda - 5)^2</m>,
@@ -20,36 +22,43 @@
       We cannot diagonalize matrix <m>M</m> because we do not have a second linearly independent eigenvector for the eigenvalue 5, which would give us the three linearly independent eigenvectors we need.
       Using the idea as in the last problem of <xref ref="pa_JCF"></xref>,
       we can find another linearly independent vector to give us a matrix close to a diagonal matrix.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find a vector <m>\vv_3</m> that is in
             <m>\Nul (M-5I_3)^2</m> but not in <m>\Nul (M-5I_3)</m>.
             Then calculate <m>(M-5I_3)\vv_3</m>.
             How is <m>\vv_2 = (M-5I_3)\vv_3</m> related to <m>\vv_0</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>C = [\vv_1 \ \vv_2 \ \vv_3]</m> and calculate the product
             <m>C^{-1}MC</m> for our example matrix <m>M</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Describe the effect of <m>(M-I_3)</m> and
             <m>(M-5I_3)^2</m> on each of the column vectors of <m>C</m> and explain why this justifies that <m>(M-I_3)(M-5I_3)^2</m> is the 0 matrix.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
+  <idx><h>defective matrix</h></idx>
     <xref ref="act_JC_intro"></xref>
     shows that even if a matrix does not have a full complement of linearly independent eigenvectors,
     we can still almost diagonalize the matrix.
-    If <m>A</m> is an <m>n \times n</m> matrix that does not have <m>n</m> linearly independent eigenvectors (such matrices area called <em>defective</em>),
-        <idx><h>defective matrix</h></idx>
+    If <m>A</m> is an <m>n \times n</m> matrix that does not have <m>n</m> linearly independent eigenvectors (such matrices area called <term>defective</term>),
     the matrix <m>A</m> is still similar to a matrix that is
     <q>close</q>
     to diagonal.
@@ -100,13 +109,15 @@
     and so <m>\vv_1</m> is an eigenvector for <m>A</m> with eigenvalue <m>\lambda</m>.
     It is vectors that satisfy an equation like <xref ref="eq_JCF_gen_eigenvector"/> that drive the Jordan canonical form.
     These vectors are similar to eigenvectors and are called
-    <em>generalized eigenvectors</em>.
+    <term>generalized eigenvectors</term>.
   </p>
+
   <definition>
+  <idx><h>eigenvector</h><h>generalized</h></idx>
     <statement>
       <p>
         Let <m>A</m> be an <m>n \times n</m> matrix with eigenvalue <m>\lambda</m>.
-        A <term>generalized eigenvector</term><idx><h>eigenvector</h><h>generalized</h></idx> of <m>A</m> corresponding to the eigenvalue <m>\lambda</m> is a non-zero vector <m>\vx</m> satisfying
+        A <term>generalized eigenvector</term> of <m>A</m> corresponding to the eigenvalue <m>\lambda</m> is a non-zero vector <m>\vx</m> satisfying
         <me>
           (A - \lambda I_n)^m \vx = \vzero
         </me>
@@ -114,6 +125,7 @@
       </p>
     </statement>
   </definition>
+
   <p>
     In other words, a generalized eigenvector of an
     <m>n \times n</m> matrix <m>A</m> corresponding to the eigenvalue <m>\lambda</m> is a nonzero vector in <m>\Nul (A - \lambda I_n)^m</m> for some <m>m</m>.
@@ -134,7 +146,9 @@
     The key is to find generalized eigenvectors for eigenvalues whose algebraic multiplicities exceed their geometric multiplicities.
     One way to do this is indicated in <xref ref="pa_JCF"></xref> and in the next activity.
   </p>
+
   <activity xml:id="act_JCF_gev_2">
+    <introduction>
     <p>
       Let
       <me>
@@ -149,38 +163,47 @@
       <me>
         \left[ \begin{array}{ccr} 1\amp 0\amp -1\\0\amp 1\amp -1\\0\amp 0\amp 0 \end{array}  \right], \ \left[ \begin{array}{ccr} 1\amp 0\amp -1\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array}  \right], \ \left[ \begin{array}{ccc} 0\amp 0\amp 0\\0\amp 0\amp 0\\0\amp 0\amp 0 \end{array}  \right]
       </me>.
-      <ul>
-        <li>
+      </p>
+      </introduction>
+      <task>
+        <statement>
           <p>
             To begin, we look for a vector <m>\vv_3</m> that is in
             <m>\Nul (A-2I_3)^3</m> that is not in <m>\Nul (A-2I_3)^2</m>.
             Find such a vector.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>\vv_2 = (A-2I_3)\vv_3</m>.
             Show that <m>\vv_2</m> is in
             <m>\Nul (A-2I_3)^2</m> but is not in <m>\Nul (A-2I_3)</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>\vv_1 = (A-2I_3)\vv_2</m>.
             Show that <m>\vv_1</m> is an eigenvector of <m>A</m> with eigenvalue <m>2</m>.
             That is, <m>\vv_1</m> is in <m>\Nul (A-2I_3)</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>C = [\vv_1 \ \vv_2 \ \vv_3]</m>.
             Calculate the matrix product <m>C^{-1}AC</m>.
             What do you notice?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     It is the equations <m>(A- 2I)\vv_{i+1} = \vv_i</m> from <xref ref="act_JCF_gev_2"></xref>
     that give us this simple form <m>\left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 0\amp 2\amp 1 \\ 0\amp 0\amp 2 \end{array}  \right]</m>.
@@ -200,6 +223,7 @@
     The major reason that this method always works is contained in the following theorem whose proof follows from the proof of the existence of the Jordan canonical form
     (presented later).
   </p>
+
   <theorem xml:id="thm_JCF_1">
     <statement>
       <p>
@@ -209,6 +233,7 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     To find generalized eigenvectors, then,
     we find a value of <m>p</m> so that
@@ -220,9 +245,11 @@
     <me>
       \vv_p \underset{A - \lambda I_n}{\rightarrow} \vv_{p-1} \underset{A - \lambda I_n}{\rightarrow}  \cdots \ \underset{A - \lambda I_n}{\rightarrow} \vv_1 \underset{A - \lambda I_n}{\rightarrow} \vzero
     </me>
-    is called a <em>generalized eigenvector chain</em>.
+    is called a <term>generalized eigenvector chain</term>.
   </p>
+
   <activity xml:id="act_JCF_3">
+    <introduction>
     <p>
       Let
       <me>
@@ -240,25 +267,33 @@
       <me>
         \left[ \begin{array}{cccr} 1\amp 0\amp 0\amp -1 \\ 0\amp 1\amp 1\amp -2 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right], \ \left[ \begin{array}{cccr} 1\amp 1\amp 1\amp -3 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right], \ \text{ and }  \ \left[ \begin{array}{cccc} 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]
       </me>.
-      <ul>
-        <li>
+      </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Identify the smallest value of <m>p</m> as in <xref ref="thm_JCF_1"></xref>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find a vector <m>\vv_3</m> in
             <m>\Nul (A - \lambda I_4)^3</m> that is not in <m>\Nul (A - \lambda I_4)^2</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now let <m>\vv_2 = (A-\lambda I_4) \vv_3</m> and <m>\vv_1 = (A-\lambda I_4) \vv_2</m>.
             What special property does <m>\vv_1</m> have?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find a fourth vector <m>\vv_0</m> so that
             <m>\{\vv_0, \vv_1, \vv_2, \vv_3\}</m> is a basis of <m>\R^4</m> consisting of generalized eigenvectors of <m>A</m>.
@@ -266,11 +301,13 @@
             Calculate the product <m>C^{-1}AC</m>.
             What do you see?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
+  <idx><h>Jordan block</h></idx>
     The previous activities illustrate the general idea for almost diagonalizing an arbitrary square matrix.
     First let <m>A</m> be an <m>n \times n</m> matrix with an eigenvalue <m>\lambda</m> of of algebraic multiplicity <m>n</m> and geometric multiplicity <m>k</m>.
     If <m>\vv_1</m>, <m>\vv_2</m>, <m>\ldots</m>,
@@ -283,10 +320,12 @@
       \left[ \begin{array}{ccccccc} \lambda\amp 1\amp 0 \amp \cdots\amp 0\amp 0\amp 0 \\ 0\amp \lambda\amp 1\amp \cdots\amp 0\amp 0\amp 0 \\ 0\amp 0\amp \lambda\amp \cdots\amp 0\amp 0\amp 0 \\ \amp \amp \amp \ddots\amp \ddots\amp \amp  \\ 0\amp 0\amp 0\amp \cdots\amp \lambda\amp 1\amp 0 \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda\amp 1 \\  0\amp 0\amp 0\amp \cdots\amp 0\amp 0\amp \lambda \end{array}  \right]
     </men>.
     and has zeros everywhere else.
-    A matrix of the form <xref ref="eq_JCF_10"/> is called a <em>Jordan block</em>.
-        <idx><h>Jordan block</h></idx>
+    A matrix of the form <xref ref="eq_JCF_10"/> is called a <term>Jordan block</term>.
+        
   </p>
   <p>
+  <idx><h>Jordan canonical form</h></idx>
+  <idx><h>Jordan normal form</h></idx>
     If <m>A</m> is an <m>n \times n</m> matrix with eigenvalues <m>\lambda_1</m>,
     <m>\lambda_2</m>,
     <m>\ldots</m>, <m>\lambda_k</m>,
@@ -297,13 +336,12 @@
     where each matrix <m>J_i</m> is a Jordan block
     (note that a <m>1 \times 1</m> Jordan block is allowable).
     The form in <xref ref="eq_JCF_11"/> is called the
-    <em>Jordan canonical form</em>
-        <idx><h>Jordan canonical form</h></idx>
-    or <em>Jordan normal form</em>
-        <idx><h>Jordan normal form</h></idx>
+    <term>Jordan canonical form</term>
+    or <term>Jordan normal form</term>
     of the matrix <m>A</m>.
     Later in this section we will prove the following theorem.
   </p>
+
   <theorem xml:id="thm_JCF">
     <statement>
       <p>
@@ -311,19 +349,24 @@
       </p>
     </statement>
   </theorem>
+
   <p>
     Another example may help illustrate the process.
   </p>
+
   <activity>
+    <introduction>
     <p>
       Let <m>A = \left[ \begin{array}{rrcccc} 4\amp -1\amp 1\amp 0\amp 0\amp 0 \\ 0\amp 3\amp 1\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 3\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 3\amp 1\amp 0 \\ -1\amp 1\amp 0\amp 0\amp 4\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 4 \end{array}  \right]</m>.
       The eigenvalues of <m>A</m> are <m>3</m> and <m>4</m>,
       both with algebraic multiplicity 3.
       A basis for the eigenspace <m>E_3</m> corresponding to the eigenvalue <m>3</m> is
       <m>\{[1 \ 1 \ 0 \ 0 \ 0 \ 0]^{\tr}\}</m> and a basis for the eigenspace <m>E_4</m> corresponding to the eigenvalue <m>4</m> is <m>\{[1 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}, [1 \ 1 \ 1 \ 1 \ 1 \ 0]^{\tr}\}</m>.
-      In this activity we find a Jordan canonical form of <m>A</m>.
-      <ul>
-        <li>
+      In this activity we find a Jordan canonical form of <m>A</m>. 
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Assume that the reduced row echelon forms of <m>A -3 I_6</m>,
             <m>(A-3I_6)^2</m>, and <m>(A-3I_6)^3</m> are, respectively,
@@ -335,8 +378,10 @@
             Then let <m>\vv_2 = (A-3I_6)\vv_3</m> and <m>\vv_1 = (A-3I_6)\vv_2</m>.
             Notice that we obtain a string of three generalized eigenvectors.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Assume that the reduced row echelon forms of
             <m>A -4 I_6</m> and <m>(A-4I_6)^2</m> are, respectively,
@@ -348,8 +393,10 @@
             Then let <m>\vv_4 = (A-4I_6)\vv_5</m>.
             Notice that we obtain a string of two generalized eigenvectors.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find a generalized eigenvector <m>\vv_6</m> for <m>A</m> such that
             <m>\{\vv_1, \vv_2, \vv_3, \vv_4, \vv_5, \vv_6\}</m> is a basis for <m>\R^6</m>.
@@ -357,22 +404,27 @@
             Calculate <m>J=C^{-1}AC</m>.
             Make sure that <m>J</m> is a matrix in Jordan canonical form.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             How does the matrix <m>J</m> tell us about the eigenvalues of <m>A</m> and their algebraic multiplicities?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             How many Jordan blocks are there in <m>J</m> for the eigenvalue <m>3</m>?
             How many Jordan blocks are there in <m>J</m> for the eigenvalue <m>4</m>?
             How do these numbers compare to the geometric multiplicities of <m>3</m> and <m>4</m> as eigenvalues of <m>A</m>?
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     The previous activities highlight some of the information that a Jordan canonical tells us about a matrix.
     Assuming that <m>C^{-1}AC = J</m>,
@@ -408,11 +460,12 @@
   <p>
     One interesting consequence of the existence of the Jordan canonical form is the famous Cayley-Hamilton Theorem.
   </p>
+
   <corollary>
     <title>The Cayley-Hamilton Theorem</title>
+    <idx><h>Cayley-Hamilton Theorem</h></idx>
     <statement>
-      <p>
-            <idx><h>Cayley-Hamilton Theorem</h></idx>
+      <p>   
         Let <m>A</m> be a square matrix with characteristic polynomial <m>p(x)</m>.
         Then <m>p(A) = 0</m>.
       </p>
