@@ -6,18 +6,19 @@
     However, that is not how complex numbers first came to light.
     The story actually involves solutions to the general cubic equation.
     The interested reader could consult Chapter 6 of William Dunham's excellent book
-    <em>Journey Through Genius</em>.
+    <pubtitle>Journey Through Genius</pubtitle>.
     In this appendix we touch on the basics of complex numbers to provide enough context for the section on complex eigenvalues.
   </p>
   <p>
-    A complex number is defined by a pair of real numbers - the <em>real part</em>
-    of the complex number and the <em>imaginary part</em> of the complex number.
+    A complex number is defined by a pair of real numbers - the <term>real part</term>
+    of the complex number and the <term>imaginary part</term> of the complex number.
   </p>
+
   <definition>
+  <idx><h>complex number</h></idx>
     <statement>
       <p>
         A <term>complex number</term>
-            <idx><h>complex number</h></idx>
         is a number of the form
         <me>
           a+bi
@@ -26,9 +27,11 @@
       </p>
     </statement>
   </definition>
+
   <p>
-    The number <m>a</m> is the real part<idx><h>complex number</h><h>real part</h></idx> of the complex number and the number <m>b</m> is the imaginary part.
-        <idx><h>complex number</h><h>imaginary part</h></idx>
+  <idx><h>complex number</h><h>real part</h></idx>
+  <idx><h>complex number</h><h>imaginary part</h></idx>
+    The number <m>a</m> is the real part of the complex number and the number <m>b</m> is the imaginary part.
     We often write
     <me>
       z = a+bi
@@ -50,11 +53,15 @@
   <p>
     That is, to add two complex numbers we add their real parts together and their imaginary parts together.
   </p>
+
   <activity>
+    <introduction>
     <p>
       Multiplication of complex numbers is is also done in a natural way.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             By expanding the product as usual,
             treating <m>i</m> as we would any real number,
@@ -64,87 +71,114 @@
               (a+bi)(c+di) = (ac-bd) + (bc+ad)i
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <introduction>
           <p>
             Use the definitions of addition and multiplication to write each of the sums or products as a complex number in the form <m>a+bi</m>.
-            <ol label="i">
-              <li>
+          </p>
+        </introduction>
+            <task>
+              <statement>
                 <p>
                   <m>(2+3i) + (7-4i)</m>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   <m>(4-2i)(3+i)</m>
                 </p>
-              </li>
-              <li>
+              </statement>
+            </task>
+            <task>
+              <statement>
                 <p>
                   <m>(2+i)i - (3+4i)</m>
                 </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ul>
-    </p>
+              </statement>
+            </task>
+          
+        </task>
+     
   </activity>
+
   <p>
     It isn't difficult to show that the set of complex numbers,
     which we denote by <m>\C</m>,
     satisfies many useful and familiar properties.
   </p>
+
   <activity xml:id="act_complex_field">
+    <introduction>
     <p>
       Show that <m>\C</m> has the same structure as <m>\R</m>.
       That is, show that for all <m>u</m>, <m>w</m>,
       and <m>z</m> in <m>\C</m>, the following properties are satisfied.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             <m>w+z \in \C</m> and <m>wz \in \C</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>w+z=z+w</m> and <m>wz=zw</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>(w+z) + u = w + (z + u)</m> and <m>(wz)u = w(zu)</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             There is an element <m>0</m> in <m>\C</m> such that <m>z+ 0 = z</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             There is an element <m>1</m> in <m>\C</m> such that <m>(1)z = z</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             There is an element <m>-z</m> in <m>\C</m> such that <m>z+(-z) = 0</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             If <m>z \neq 0</m>, there is an element
             <m>\frac{1}{z}</m> in <m>\C</m> such that <m>z\left(\frac{1}{z}\right) = 1</m>
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             <m>u (w + z) = (u w) + (u z)</m>
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     The result of <xref ref="act_complex_field"></xref> is that,
     just like <m>\R</m>, the set <m>\C</m> is a field.
