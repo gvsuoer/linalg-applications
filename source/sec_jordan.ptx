@@ -4,6 +4,7 @@
   <p>
     We are now ready to prove the existence of the Jordan canonical form.
   </p>
+
   <lemma xml:id="lem_JCF_1">
     <statement>
       <p>
@@ -19,10 +20,13 @@
       </p>
     </statement>
   </lemma>
+
   <p>
     An example might help illustrate the lemma.
   </p>
+
   <activity xml:id="act_JCF_Lemma_1">
+    <introduction>
     <p>
       Let <m>T:\pol_4 \to \pol_4</m> be defined by
       <md>
@@ -45,35 +49,42 @@
     <p>
       For every <m>t</m>, we can find
       <m>\Ker(T-\lambda I)^t</m> using <m>\Nul (A- \lambda I)^t</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Technology shows that <m>\dim(\Nul A-I) = 1</m>,
             <m>\dim(\Nul A-I)^2 = 2</m>, and <m>\dim(\Nul A-I)^3 = 3</m>.
             A basis for <m>\Nul (A-I)^3</m> is <m>\CC_1 = \left\{ [-1 \ 1 \ 0 \ 0 \ 0]^{\tr}, [1 \ 0 \ 1 \ 0 \ 0]^{\tr}, [1 \ 0 \ 0 \ 1 \ 0]^{\tr}\right\}</m>.
             Find a basis <m>\CB_1</m> for <m>\Ker\left((T-I)^3\right)</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Technology also shows that
             <m>\dim(\Nul A-2I) = 1</m> and <m>\dim(\Nul A-2I)^2 = 2</m>.
             A basis for <m>\Nul (A-2I)^2</m> is <m>\CC_2 = \left\{ [0 \ 0 \ 0 \ 1 \ 0]^{\tr}, [0 \ 0 \ 0 \ 0 \ 1]^{\tr}\right\}</m>.
             Find a basis <m>\CC_2</m> for <m>\Ker\left((T-2I)^2\right)</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
-            Identify the <m>\lambda_i</m> and <m>s_i</m> in <xref ref="act_JCF_Lemma_1">Lemma</xref>.
+            Identify the <m>\lambda_i</m> and <m>s_i</m> in <xref ref="act_JCF_Lemma_1"></xref>.
             Let <m>\CB = \CB_1 \cup \CB_2</m>.
             Find the matrix <m>[T]_{\CB}</m>.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
-    Since each <m>\Ker(T-\lambda_i I)^{s_i}</m> in <xref ref="act_JCF_Lemma_1">Lemma</xref> is <m>T</m> invariant,
+    Since each <m>\Ker(T-\lambda_i I)^{s_i}</m> in <xref ref="act_JCF_Lemma_1"></xref> is <m>T</m> invariant,
     <m>T</m> maps vectors in <m>\Ker(T-\lambda_i I)^{s_i}</m> back into <m>\Ker(T-\lambda_i I)^{s_i}</m>.
     So <m>T</m> applied to each
     <m>\Ker(T-\lambda_i I)^{s_i}</m> provides a matrix <m>B_i</m>.
@@ -86,9 +97,10 @@
     <m>\Ker(T-\lambda_i I)^{s_i}</m> with respect to the found basis.
     To obtain the Jordan canonical form,
     we need to know that we can always choose these basis to create the correct block matrices.
-    <xref ref="lem_JCF_2">Lemma</xref> will provide those details.
+    <xref ref="lem_JCF_2"></xref> will provide those details.
   </p>
   <proof>
+    <title>Proof of <xref ref="lem_JCF_1"/></title>
     <p>
       Choose a <m>\lambda_i</m> and,
       for convenience, label it <m>\lambda</m>.
@@ -238,14 +250,16 @@
       </me>.
     </p>
   </proof>
+
   <p>
-    <xref ref="lem_JCF_1">Lemma</xref>
+    <xref ref="lem_JCF_1"></xref>
     tells us that <m>T</m> has a diagonal form with block matrices down the diagonal.
     To obtain a Jordan canonical form,
     we need to identify the correct bases for the summands of <m>V</m>.
     (Lemma is due to Mark Wildon from
-    <em>A SHORT PROOF OF THE EXISTENCE OF JORDAN NORMAL FORM</em>.)
+    <articletitle>A SHORT PROOF OF THE EXISTENCE OF JORDAN NORMAL FORM</articletitle>.)
   </p>
+
   <lemma xml:id="lem_JCF_2">
     <statement>
       <p>
@@ -263,12 +277,15 @@
       </p>
     </statement>
   </lemma>
+
   <p>
-    Notice the similarity of <xref ref="lem_JCF_2">Lemma</xref>
+    Notice the similarity of <xref ref="lem_JCF_2"></xref>
     to chains of generalized eigenvectors.
-    An example might help illustrate <xref ref="lem_JCF_2">Lemma</xref>.
+    An example might help illustrate <xref ref="lem_JCF_2"></xref>.
   </p>
+
   <activity xml:id="act_JCF_Lem_2">
+    <introduction>
     <p>
       Let <m>T: \pol_5 \to \pol_5</m> be defined by
       <me>
@@ -293,8 +310,10 @@
       </me>,
       while <m>A^3 = 0</m>.
       We see that <m>\dim(\Ker(T^3)) \dim(\Nul A^3) = 6</m> while <m>\dim(\Ker(T^2)) = \dim(\Nul A^2) = 5</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Notice that the vector <m>\vv_1 = [0 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}</m> is in
             <m>\Nul A^3</m> but not in <m>\Nul A^2</m>.
@@ -304,8 +323,10 @@
             What can we say about the vector
             <m>T^2(u_1)</m> in relation to eigenvectors of <m>T</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             We know two other eigenvectors of <m>T</m>,
             so we need another chain of generalized eigenvectors to provide a basis of <m>\pol_5</m> of generalized eigenvectors.
@@ -315,18 +336,21 @@
             Then create a chain <m>u_2</m> and <m>T(u_2)</m> of generalized eigenvectors.
             What is true about <m>T(u_2)</m> in relation to eigenvectors of <m>T</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>u_3 = 1+t^3</m> be a third eigenvector of <m>T</m>.
             Explain why <m>\{u_1, T(u_1), T^2(u_1),
             u_2, T(u_2), u_3\}</m> is a basis of <m>\pol_5</m>.
             Identify the values of <m>k</m> and the <m>a_i</m> in Lemma 40.12.
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+  
   </activity>
+
   <p>
     Notice that if we let <m>C = [[T^2(\vu_1)]_{\CS} \ [T(\vu_1)]_{\CS} \ [\vu_1]_{\CS} \  [T(\vu_4)]_{|CS} \ [\vu_4]_{|CS} \ [\vu_6]_{\CS}]</m> using the vectors from <xref ref="act_JCF_Lem_2"></xref> we should find that
     <me>
@@ -335,7 +359,7 @@
     and this basis provides a matrix that produces a Jordan canonical form of <m>A</m>.
   </p>
   <p>
-    <xref ref="lem_JCF_2">Lemma</xref>
+    <xref ref="lem_JCF_2"></xref>
     provides the sequences of generalized eigenvectors that we need to make the block matrices in Jordan canonical form.
     This works as follows.
     Start, for example, with <m>\vu_1</m>,
@@ -365,7 +389,9 @@
     </me>,
     which gives one Jordan block.
   </p>
+
   <proof>
+    <title>Proof of <xref ref="lem_JCF_2"/></title>
     <p>
       If <m>T(\vx) = \vzero</m> for all <m>\vx \in V</m>,
       then we can choose <m>\vu_1</m>,
@@ -424,15 +450,16 @@
       </men>
       form a basis for <m>V</m>.
       To demonstrate linear independence, suppose that
-      <md>
-        <mrow>c_{1,0}\vu_1\amp +c_{1,1}T(\vu_1)+ \cdots + c_{1,b_1}T^{b_1}(\vu_1) +  \cdots</mrow>
-        <mrow xml:id="eq_JCF_Lemma_2" number="yes">\amp + c_{\ell,0}\vu_{\ell} +  c_{\ell,1}T(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vu_{\ell}) +  d_1\vw_1+  \cdots +  d_m\vw_m = \vzero</mrow>
-      </md>
+      <mdn>
+        <mrow number="no">c_{1,0}\vu_1\amp +c_{1,1}T(\vu_1)+ \cdots + c_{1,b_1}T^{b_1}(\vu_1) +  \cdots</mrow>
+        <mrow xml:id="eq_JCF_Lemma_2">\amp + c_{\ell,0}\vu_{\ell} +  c_{\ell,1}T(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vu_{\ell}) +  d_1\vw_1+  \cdots +  d_m\vw_m = \vzero</mrow>
+      </mdn>
       for some scalars <m>c_{i,j}</m> and <m>d_k</m>.
       Apply <m>T</m> to this linear combination to obtain the vector equation
       <md>
         <mrow>c_{1,0}T(\vu_1)\amp +c_{1,1}T^2(\vu_1)+ \cdots + c_{1,b_1}T^{b_1+1}(\vu_1) +  \cdots</mrow>
-        <mrow>\amp + c_{\ell,0}T(\vu_{\ell}) +  c_{\ell,1}T^2(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}+1}(\vu_{\ell}) +  d_1T(\vw_1)+  \cdots +  d_mT(\vw_m) = \vzero</mrow>
+        <mrow>\amp + c_{\ell,0}T(\vu_{\ell}) +  c_{\ell,1}T^2(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}+1}(\vu_{\ell}) +  d_1T(\vw_1)+  \cdots </mrow>
+        <mrow> \amp +  d_mT(\vw_m) = \vzero</mrow>
       </md>.
     </p>
     <p>
@@ -446,9 +473,10 @@
       Recall that <m>T^{b_i}(\vv_i) = 0</m> and that <m>\vw_1</m>,
       <m>\vw_2</m>, <m>\ldots</m>,
       <m>\vw_m</m> are in <m>\Ker(T)</m> to obtain the equation
-      <me>
-        c_{1,0}\vv_1+c_{1,1}T(\vv_1)+ \cdots + c_{1,b_1-1}T^{b_1-1}(\vv_1) +  \cdots + c_{\ell,0}\vv_{\ell} +  c_{\ell,1}T(\vv_{\ell})+ \cdots + c_{\ell,b_{\ell}-1}T^{b_{\ell}-1}(\vv_{\ell}) = \vzero
-      </me>.
+      <md>
+        <mrow>c_{1,0}\vv_1 \amp +c_{1,1}T(\vv_1)+ \cdots + c_{1,b_1-1}T^{b_1-1}(\vv_1) +  \cdots + c_{\ell,0}\vv_{\ell} +  c_{\ell,1}T(\vv_{\ell})+ \cdots</mrow>
+        <mrow> \amp + c_{\ell,b_{\ell}-1}T^{b_{\ell}-1}(\vv_{\ell}) = \vzero</mrow>
+      </md>.
     </p>
     <p>
       But this final equation is a linear combination of the basis elements in <xref ref="eq_JCF_TV_basis"/> of <m>T(V)</m>,
@@ -479,22 +507,24 @@
     </p>
     <p>
       But this is exactly the number of vectors in our claimed basis <xref ref="eq_JCF_V_basis"/>.
-      This verifies <xref ref="lem_JCF_2">Lemma</xref> with <m>k=\ell+m</m>,
+      This verifies <xref ref="lem_JCF_2"></xref> with <m>k=\ell+m</m>,
       <m>a_i=b_i+1</m> for <m>1 \leq i \leq \ell</m>,
       <m>u_{j+\ell} = w_j</m> and <m>a_{j+\ell} = 1</m> for <m>1 \leq m</m>.
     </p>
   </proof>
   <p>
     We return to <xref ref="act_JCF_Lemma_1"></xref>
-    to illustrate the use of <xref ref="lem_JCF_2">Lemma</xref>.
+    to illustrate the use of <xref ref="lem_JCF_2"></xref>.
   </p>
+
   <example xml:id="ex_JCF_Lemma_2_2">
     <statement>
       <p>
         We work with the transformation <m>T:\pol_4 \to \pol_4</m> defined by
         <md>
           <mrow>T\left(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4\right) = (2a_0+a_1) \amp + (a_1-a_2)t + (a_0+a_1)t^2</mrow>
-          <mrow>\amp \qquad + (-a_0-a_1+a_2+2a_3-a_4)t^3 + (2a_4)t^4</mrow>
+          <mrow>\amp + (-a_0-a_1+a_2+2a_3-a_4)t^3 </mrow>
+          <mrow> \amp + (2a_4)t^4</mrow>
         </md>.
       </p>
       <p>
@@ -525,7 +555,7 @@
         </me>,
         while <m>[T-I]_{\CB_1}^3 = 0</m>.
         This makes <m>(T-I)^3 = 0</m>.
-        We apply <xref ref="lem_JCF_2">Lemma</xref>
+        We apply <xref ref="lem_JCF_2"></xref>
         to <m>T-I : \Ker(T-I)^3 \to \Ker(T-I)^3</m>.
         We choose <m>u_1</m> to be a vector in
         <m>\Ker(T-I)^3</m> that is not in <m>\Ker(T-I)^2</m>.
@@ -535,7 +565,7 @@
         This gives us the basis <m>\{1-t, 1+t^2, 1+t^3\}</m> for <m>\Ker(T-I)^3</m>.
       </p>
       <p>
-        We can also apply <xref ref="lem_JCF_2">Lemma</xref>
+        We can also apply <xref ref="lem_JCF_2"></xref>
         to <m>T-2I : \Ker(T-I)^2 \to \Ker(T-I)^2</m>.
         Since
         <me>

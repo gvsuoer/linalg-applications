@@ -5,12 +5,12 @@
     The COVID-19 epidemic has generated many mathematical and statistical models to try to understand the spread of the virus.
     In this project we examine a simple stochastic model of the spread of an epidemic proposed by Norman Bailey in 1950.<fn>
     Bailey, N. T. J. (1950) A simple stochastic epidemic.
-    <em>Biometrika</em> 37
+    <pubtitle>Biometrika</pubtitle> 37
     </fn> This is a model of a relatively mild epidemic in which no one dies from the disease.
     Of course, mathematicians build on simple models to form more complicated and realistic ones,
     but this is a good, and accessible, starting point.
     Bailey writes about the the difficulties in the stochastic<fn>
-    The word <em>stochastic</em> refers to quantities that have a random pattern that can be analyzed statistically,
+    The word <term>stochastic</term> refers to quantities that have a random pattern that can be analyzed statistically,
     but generally cannot be predicted precisely.
     </fn> analysis of epidemics.
     For example, the overall epidemic
@@ -141,38 +141,46 @@
     Just as in calculus,
     <m>e^M</m> converges for any square matrix <m>M</m>.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       If <m>M</m> is diagonalizable,
       then <m>e^M</m> can be found fairly easily.
       Assume that there is an invertible matrix <m>P</m> such that <m>P^{-1}MP = D</m>,
       where <m>D = \left[ \begin{array}{ccccc} \lambda_1\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  \lambda_2\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  \lambda_n \end{array}  \right]</m> is a diagonal matrix.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Use <xref ref="eq_Matrix_exponential"/> to explain why
             <me>
               e^M = Pe^DP^{-1}
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Now show that
             <me>
               e^M = P\left[ \begin{array}{ccccc} e^{\lambda_1}\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  e^{\lambda_2}\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  e^{\lambda_n} \end{array}  \right]P^{-1}
             </me>.
-            <hint>
-              <p>
-                What is <m>D^k</m> for any positive integer <m>k</m>?
-                Then add corresponding components and compare to <xref ref="eq_exponential"/>.
-              </p>
-            </hint>
+            
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+        <hint>
+          <p>
+            What is <m>D^k</m> for any positive integer <m>k</m>?
+            Then add corresponding components and compare to <xref ref="eq_exponential"/>.
+          </p>
+        </hint>
+      </task>
+    
+  </project>
+
   <p>
     As we will see,
     the matrix <m>A</m> in Bailey's model is not diagonalizable,
@@ -181,7 +189,9 @@
     Of course, the computations are more complicated.
     We first illustrate with the <m>2 \times 2</m> case.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       Assume <m>A</m> is a <m>2 \times 2</m> matrix with Jordan canonical form<m>J = \left[ \begin{array}{cc} \lambda\amp 1\\0\amp \lambda \end{array}  \right]</m>,
       where <m>C^{-1}AC = J</m>.
@@ -190,22 +200,28 @@
         e^A = Ce^JC^{-1}
       </me>
       and so we only have to be able to find <m>e^J</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             We can write <m>J</m> in the form <m>J = D+N</m>,
             where <m>D</m> is a diagonal matrix and <m>N</m> is a nilpotent matrix.
             Find <m>D</m> and <m>N</m> in this case and explain why <m>N</m> is a nilpotent matrix.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find the index of <m>N</m>.
             That is, find the smallest positive power <m>s</m> of <m>N</m> such that <m>N^s = 0</m>.
             Then use <xref ref="eq_Matrix_exponential"/> to find <m>e^N</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Assume that the matrix exponential satisfies the standard property of exponential functions that <m>e^{R+S} = e^Re^S</m> for any
             <m>n \times n</m> matrices <m>R</m> and <m>S</m>.
@@ -214,15 +230,18 @@
               e^J = \left[ \begin{array}{cc} e^{\lambda}\amp e^{\lambda}\\0\amp e^{\lambda} \end{array}  \right]
             </me>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Use the previous information to calculate <m>e^M</m> where <m>M = \left[ \begin{array}{cr} 3 \amp -1 \\ 4 \amp 7 \end{array} \right]</m>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+  
+  </project>
+
   <p>
     Now we turn to the general case of finding the matrix exponential <m>e^M</m> when <m>M</m> is not diagonalizable.
     Suppose <m>C</m> is an invertible matrix and <m>C^{-1}MC = J</m>,
@@ -260,17 +279,23 @@
       e^N = I + N + \frac{1}{2}N^2 + \frac{1}{3!}N^3 + \cdots + \frac{1}{(k-1)!}N^{k-1}
     </me>.
   </p>
-  <activity>
+
+  <project>
+    <introduction>
     <p>
       Let us apply this analysis to a specific case of Bailey's model,
       with <m>n = 5</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Find the entries of <m>A</m> when <m>n = 5</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>J</m> be a Jordan canonical form for <m>A</m>.
             Explain why the solution to Bailey's model has the form
@@ -281,18 +306,24 @@
             <m>Dt</m> is a diagonal matrix,
             and <m>Nt</m> is a nilpotent matrix.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find a Jordan canonical form <m>J</m> for <m>A</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find a diagonal matrix <m>D</m> and a nilpotent matrix <m>N</m> so that <m>J = D+N</m>.
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Find <m>e^{Dt}</m> and <m>e^{Nt}</m>.
             Then show that
@@ -300,17 +331,20 @@
               P(t) = \left[  \begin{array}{c} 1+\frac{172}{3}e^{-5t}-80te^{-5t}+\frac{125}{3}e^{-8t}-200te^{-8t}-100e^{-9t} \\ -\frac{220}{3}e^{-5t}+80te^{-5t}-\frac {320}{3}e^{-8t}+320te^{-8t} +180e^{-9t} \\ 10e^{-5t}+80e^{-8t}-120te^{-8t}-90e^{-9t} \\ \frac{10}{3}e^{-5t}-\frac{40}{3}e^{-8t}+10e^{-9t} \\ \frac{5}{3}e^{-5t}- \frac{5}{3}e^{-8t} \\ e^{-5t} \end{array}  \right]
             </me>.
           </p>
-        </li>
-      </ul>
-    </p>
-  </activity>
+        </statement>
+      </task>
+    
+  </project>
+
   <p>
     One use for mathematical models like Bailey's is to make predictions that can help set policies.
     Recall that we made the substitution of <m>t</m> for <m>\beta s</m> in our original equation in order to make the equations dimensionless,
     where <m>\beta</m> is the infection rate <mdash/> the rate at which people catch the disease.
     Let us replace <m>t</m> with <m>\beta s</m> in our solution and analyze the effect of changing the value of <m>\beta</m>.
   </p>
-  <activity>
+
+  <project>
+    <statement>
     <p>
       If <m>\beta = 1</m>,
       then the disease is easily transmitted from person to person.
@@ -327,7 +361,9 @@
       <q>flattening the curve</q>
       used during the COVID-19 pandemic of 2020.
     </p>
-  </activity>
+    </statement>
+  </project>
+
   <p>
     In general, the matrix <m>A</m> has eigenvalues of algebraic multiplicity 1 and 2.
     When <m>n</m> is even,
@@ -341,7 +377,5 @@
     that every eigenvalue of algebraic multiplicity 2 has geometric multiplicity 1.
     This information completely determines the Jordan canonical formof <m>A</m>.
   </p>
-  <p>
-    \appendix
-  </p>
+  
 </section>
