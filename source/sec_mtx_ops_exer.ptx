@@ -13,6 +13,11 @@
               <m>B = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>AB = \left[ \begin{array}{cc} a\amp b \\ c\amp d \\ 0\amp 0 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -21,6 +26,11 @@
               <m>B = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 3 \\ 3\amp 4 \end{array} \right]</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>AB = [-2 \ -2]</m>.
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -58,6 +68,7 @@
         </task>
       
     </exercise>
+
   <exercise>
     <introduction>
       <p>
@@ -71,6 +82,11 @@
               <m>\left[ \begin{array}{cc} 1\amp 2 \\ 0 \amp 2 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp 0 \end{array} \right]</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>X = \left[ \begin{array}{cc} 0\amp 1\\0\amp 0 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -78,6 +94,11 @@
               <m>\left[ \begin{array}{rr} 1\amp -2 \\ -2 \amp 4 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp 0 \end{array} \right]</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              There is no matrix <m>X</m> with this property.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -85,8 +106,15 @@
               <m>\left[ \begin{array}{rr} 1\amp -2 \\ -2 \amp 4 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp -2 \end{array} \right]</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>X = \left[ \begin{array}{cc} 2x_{21}\amp 1+2x_{22}\\x_{21}\amp x_{22} \end{array} \right]</m>,
+              where <m>x_{21}</m> and <m>x_{22}</m> can be any scalars
+            </p>
+          </answer>
         </task>
   </exercise>
+
   <exercise>
     <introduction>
       <p>
@@ -119,6 +147,7 @@
           </statement>
         </task>
   </exercise>
+
   <exercise>
     <statement>
       <p>
@@ -127,6 +156,11 @@
         <m>A^3\vv</m>, <ellipsis/>, <m>A^m\vv</m>.
       </p>
     </statement>
+    <answer>
+      <p>
+        <m>A^m \vv = 2^m \vv</m>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -151,6 +185,11 @@
         are nilpotent matrices.
       </p>
     </statement>
+    <answer>
+      <p>
+        <m>A^2=0</m> and <m>B^3=0</m>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -178,6 +217,11 @@
               <m>A+B = B+A</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>[a_{ij} + b_{ij}] = [b_{ij} + a_{ij}]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -193,6 +237,11 @@
               property that <m>A + 0 = A</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>[a_{ij} + 0] = [a_{ij}]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -208,6 +257,11 @@
               <m>(a+b) A = aA + bA</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>[(a+b)a_{ij}] = [aa_{ij}] + [ba_{ij}]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -222,6 +276,11 @@
               <m>(ab) A = a(bA)</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>[(ab)a_{ij}] = a[ba_{ij}]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -289,6 +348,17 @@
               <m>\left(A^{\tr}\right)^{\tr} = A</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              Let <m>A^{\tr} = [a'_{ij}]</m>.
+              Then <m>a'_{ij} = a_{ji}</m> by definition of the transpose.
+              Let <m>\left(A^{\tr}\right)^{\tr} = [a''_{ij}]</m>.
+              Then <m>a''_{ij} = a'_{ji} = a_{ij}</m>.
+              So the <m>ij</m>th entry of
+              <m>\left(A^{\tr}\right)^{\tr}</m> is the same as the <m>ij</m>th entry of <m>A</m>,
+              and we conclude that <m>\left(A^{\tr}\right)^{\tr} = A</m>.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -303,6 +373,14 @@
               <m>(aA)^{\tr} = aA^{\tr}</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              The <m>ij</m>th entry of <m>aA</m> is <m>aa_{ij}</m>,
+              so the <m>ij</m>th entry of <m>(aA)^{\tr}</m> is <m>aa_{ji}</m>.
+              But <m>aa_{ji}</m> is also the <m>ij</m>th entry of <m>aA^{\tr}</m>.
+              We conclude that <m>(aA)^{\tr} = aA^{\tr}</m>.
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -352,6 +430,7 @@
           </statement>
         </task>
   </exercise>
+
   <exercise>
     <statement>
       <p>
@@ -359,6 +438,14 @@
         then <m>AB</m> is also a <m>2\times 2</m> rotation matrix.
       </p>
     </statement>
+    <answer>
+      <p>
+        If <m>A=\left[ \begin{array}{cr} \cos(\alpha) \amp -\sin(\alpha) \\ \sin(\alpha) \amp \cos(\alpha) \end{array} \right]</m>,
+        <m>B = \left[ \begin{array}{cr} \cos(\beta) \amp -\sin(\beta) \\ \sin(\beta) \amp \cos(\beta) \end{array} \right]</m>,
+        then <m>AB</m> equals
+        <m>\left[ \begin{array}{cr} \cos(\alpha+\beta) \amp -\sin(\alpha+\beta) \\ \sin(\alpha+\beta) \amp \cos(\alpha+\beta) \end{array} \right]</m>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -378,6 +465,11 @@
               <m>AB=AC</m> implies <m>B=C</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -396,6 +488,11 @@
               then <m>A</m> itself is the zero matrix.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -414,6 +511,11 @@
               then <m>A</m> and <m>B</m> are both square matrices of the same size.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -434,6 +536,11 @@
               then the matrix <m>AB</m> has two equal columns for every <m>k \times m</m> matrix.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
