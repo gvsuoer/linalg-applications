@@ -16,6 +16,11 @@
               <m>A=\left[ \begin{array}{cr} 2\amp -1\\ 1\amp 4 \end{array} \right]</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              Not diagonalizable.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -23,6 +28,11 @@
               <m>A=\left[ \begin{array}{rcr} -1 \amp 4 \amp -2 \\ -3 \amp 4 \amp 0 \\ -3 \amp 1 \amp 3 \end{array} \right]</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              Diagonalizable by <m>P = \left[ \begin{array}{ccc} 1\amp 2\amp 1\\1\amp 3\amp 3\\1\amp 3\amp 4 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -46,6 +56,15 @@
         Find a <m>2\times 2</m> non-diagonal matrix <m>A</m> and two different pairs of <m>P</m> and <m>D</m> matrices for which <m>A=PDP^{-1}</m>.
       </p>
     </statement>
+    <answer>
+      <p>
+        <m>A = \left[ \begin{array}{cc} 1\amp 2\\0\amp 2 \end{array} \right]</m>,
+        <m>P_1 = \left[ \begin{array}{cc} 1\amp 2 \\ 0\amp 1 \end{array} \right]</m>,
+        we have <m>D_1 = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 2 \end{array} \right]</m>,
+        <m>P_2 = \left[ \begin{array}{cc} 2\amp 1 \\ 1\amp 0 \end{array} \right]</m>,
+        <m>D_2 = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 1 \end{array} \right]</m>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -65,6 +84,11 @@
         Explain.
       </p>
     </statement>
+    <answer>
+      <p>
+        Yes
+      </p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex_4_c_diagonal_converse">
@@ -87,6 +111,11 @@
               <m>n \times n</m> matrices <m>A</m> and <m>B</m> to have exactly the same eigenvectors and corresponding eigenvalues.
             </p>
           </statement>
+          <answer>
+            <p>
+              Eigenvalues, 1; eigenvectors : <m>\Span \{[1 \ 0]^{\tr}</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -96,6 +125,11 @@
               Determine the answer to this question if <m>A</m> and <m>B</m> are both diagonalizable.
             </p>
           </statement>
+          <answer>
+            <p>
+              Diagonalizable
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -157,6 +191,13 @@
               then <m>\trace(RS) = \trace(SR)</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              The <m>ii</m> entry of <m>RS</m> is <m>r_{i1}s_{1i} + r_{i2}s_{2i} + \cdots + r_{in}s_{ni}</m>.
+              The <m>jj</m> entry of <m>SR</m> is <m>s_{j1}r_{1j} + s_{j2}r_{2j} + \cdots + s_{jn}r_{nj}</m>.
+              Sum as <m>i</m> and <m>j</m> go from <m>1</m> to <m>n</m>.
+            </p>
+          </answer>
         </task>
         <task>
           <introduction>
@@ -176,6 +217,11 @@
                     Explain why <m>\trace(A) = \trace(D)</m>.
                   </p>
                 </statement>
+                <answer>
+                  <p>
+                    <m>\trace(D) = \trace\left(P^{-1}(AP)\right) = \trace\left((AP)P^{-1}\right) = \trace(A)</m>
+                  </p>
+                </answer>
               </task>
               <task>
                 <statement>
@@ -183,6 +229,11 @@
                     Show that the trace of an <m>n \times n</m> diagonalizable matrix is the sum of the eigenvalues of the matrix.
                   </p>
                 </statement>
+                <answer>
+                  <p>
+                    <m>\trace\left(A\right) = \trace(D) = \sum_{i=1}^n \lambda_i</m>
+                  </p>
+                </answer>
               </task>
          
         </task>
@@ -233,6 +284,11 @@
               Use the result of <xref ref="ex_4_c_matrix_exponential"></xref> to calculate <m>e^A</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>e^A = \left[ \begin{array}{cc} e\amp e-1\\0\amp 1 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -241,6 +297,11 @@
               
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>e^B = I_2 + B = \left[ \begin{array}{cr} 1\amp -1 \\ 0\amp 1 \end{array} \right]</m>.
+            </p>
+          </answer>
           <hint>
             <p>
               Explain why <m>B</m> is not diagonalizable.
@@ -253,6 +314,11 @@
               Use the result of <xref ref="ex_4_c_matrix_exponential"></xref> to calculate <m>e^{A+B}</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>e^{A+B} = \left[ \begin{array}{cc} e\amp 0 \\ 0\amp 1 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -266,6 +332,11 @@
               Explain.
             </p>
           </statement>
+          <answer>
+            <p>
+              No
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -346,6 +417,17 @@
               Show that <m>e^A = Pe^DP^{-1}</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              <md>
+                <mrow>e^A \amp = e^{PDP^{-1}}</mrow>
+                <mrow>\amp = \sum_{k \geq 0} \frac{1}{k!} \left(PDP^{-1}\right)^k</mrow>
+                <mrow>\amp =  \sum_{k \geq 0} \frac{1}{k!} PD^kP^{-1}</mrow>
+                <mrow>\amp =  P\left(\sum_{k \geq 0} \frac{1}{k!} D^k\right) P^{-1}</mrow>
+                <mrow>\amp = Pe^DP^{-1}</mrow>
+              </md>.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -356,6 +438,17 @@
               </me>.
             </p>
           </statement>
+          <answer>
+            <p>
+              <md>
+                <mrow>\det\left(e^A\right) \amp = \det\left(Pe^DP^{-1}\right)</mrow>
+                <mrow>\amp =  \det\left(e^D\right)</mrow>
+                <mrow>\amp = e^{\lambda_1}e^{\lambda^2} \cdots e^{\lambda_n}</mrow>
+                <mrow>\amp = e^{\lambda_1+\lambda^2+ \cdots + \lambda_n}</mrow>
+                <mrow>\amp = e^{\trace(A)}</mrow>
+              </md>.
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -379,6 +472,7 @@
                   </p>
                 </statement>
               </task>
+              <task>
                 <statement>
                   <p>
                     Calculate <m>B^2</m>.
@@ -388,7 +482,7 @@
                 </statement>
               </task>
           </task>
-        </task>
+        <task>
           <statement>
             <p>
               The first part of this exercise presents an example of a matrix that satisfies its own characteristic equation.
@@ -423,6 +517,11 @@
               then so is <m>A^T</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -441,6 +540,11 @@
               then <m>A</m> has <m>n</m> distinct eigenvalues.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -459,6 +563,11 @@
               then there exists a basis of <m>\R^n</m> consisting of the eigenvectors of <m>C</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -478,6 +587,11 @@
               <m>P^{-1}AP = D</m> for some invertible matrix <m>P</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -500,6 +614,11 @@
               for information on the matrix exponential.)
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
       
   </exercise>

@@ -14,6 +14,13 @@
               Find the eigenvalues and corresponding eigenvectors for <m>A</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              Eigenvalues:
+              <m>3</m> and <m>-1</m>; T<m>[1 \ -1]^{\tr}</m> is an eigenvector for <m>A</m> with eigenvalue <m>-1</m> and
+              <m>[1 \ 1]^{\tr}</m> is an eigenvector for <m>A</m> with eigenvalue <m>3</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -23,6 +30,13 @@
               Compare to a dominant eigenvector for <m>A</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              As <m>k</m> increases, the vectors
+              <m>A^k \vx_0</m> are approaching the vector <m>[1 \ 1]^{\tr}</m>,
+              which is a dominant eigenvector of <m>A</m>.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -31,6 +45,11 @@
               Compare to the exact value of the dominant eigenvalue of <m>A</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              The Rayleigh quotients <m>r_k = \frac{\vx_{k+1}\cdot \vx_k}{\vx_k \cdot \vx_k}</m> approach the dominant eigenvalue <m>3</m>.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -39,6 +58,15 @@
               Apply the inverse power method and compare the results to the remaining eigenvalue and eigenvectors for <m>A</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              Apply the power method to <m>B = (A - 0 I_2)^{-1} = A^{-1}</m>.
+              As <m>k</m> increases, the vectors
+              <m>B^k \vx_0</m> are approaching the vector <m>\frac{1}{2}[1 \ -1]^{\tr}</m>,
+              which is an eigenvector of <m>A</m>.
+              The Rayleigh quotients approach the other eigenvalue <m>-1</m> of <m>A</m>.
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -62,6 +90,13 @@
         and how you could adjust the seed to make the process work.
       </p>
     </statement>
+    <answer>
+      <p>
+        <m>[1 \ 1]^{\tr}</m> is an eigenvector for <m>A</m> with eigenvalue <m>1</m>,
+        so the vectors <m>A^k \vx_0</m> are all equal to <m>\vx_0</m>.
+        We can adjust the seed to a non-eigenvector.
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -157,6 +192,11 @@
         </table>
       </p>
       </statement>
+      <answer>
+        <p>
+          <m>8</m> is the dominant eigenvalue of <m>A</m>
+        </p>
+      </answer>
   </exercise>
 
   <exercise>
@@ -205,6 +245,12 @@
               are linearly dependent.
             </p>
           </statement>
+          <answer>
+            <p>
+              Since <m>\R^n</m> has dimension <m>n</m>,
+              it follows that any set of <m>n+1</m> vectors is linearly dependent.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -222,6 +268,12 @@
               </me>.
             </p>
           </statement>
+          <hint>
+            <p>
+              Proceed down the list <m>c_{n-1}</m>,
+              <m>c_{n-2}</m>, etc., until you reach a weight that is non-zero.
+            </p>
+          </hint>
         </task>
         <task>
           <statement>
@@ -246,6 +298,11 @@
               <m>\lambda</m> is an eigenvalue of <m>A</m> with eigenvector <m>Q(A) \vv</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>\vzero = q(A) \vv = (A-\lambda I_n) Q(A)\vv</m>
+            </p>
+          </answer>
         </task>
         <task>
           <introduction>
@@ -264,6 +321,11 @@
                     Use <m>\vv = [1 \ 1 \ 1]^{\tr}</m>.
                   </p>
                 </statement>
+                <answer>
+                  <p>
+                    <m>q(t) = 24t - 10t^2+t^3</m>
+                  </p>
+                </answer>
               </task>
               <task>
                 <statement>
@@ -271,6 +333,11 @@
                     Find all of the roots of <m>q(t)</m>.
                   </p>
                 </statement>
+                <answer>
+                  <p>
+                    <m>0</m>, <m>4</m>, and <m>6</m>
+                  </p>
+                </answer>
               </task>
               <task>
                 <statement>
@@ -280,6 +347,16 @@
                     Verify your work.
                   </p>
                 </statement>
+                <answer>
+                  <p>
+                    For <m>t=0</m>, we have <m>Q(t) = (4-t)t-4)(t-6)</m>,
+                    and <m>[6 \ -6 \ 0]^{\tr}</m> an eigenvector for <m>A</m> with eigenvalue <m>0</m>.
+                    For <m>t=4</m> we have <m>Q(t) = t(t-6)</m>,
+                    and <m>[24 \ 24 \ 0]^{\tr}</m> is an eigenvector for <m>A</m> with eigenvalue <m>4</m>.
+                    For <m>t=6</m> we have <m>Q(t) = t(t-4)</m>,
+                    and <m>[0 \ -6 \ -12]^{\tr}</m> is an eigenvector for <m>A</m> with eigenvalue <m>6</m>.
+                  </p>
+                </answer>
               </task>
           
         </task>
@@ -320,7 +397,7 @@
         </task>
   </exercise>
 
-  <exercise>
+  <!-- <exercise>
     <introduction>
       <p>
         We don't need to use the Rayleigh quotients to approximate the dominant eigenvalue of a matrix <m>A</m> if we instead keep track of the scaling factors. Recall that the scaling in the power method can be used to make the magnitudes of the successive approximations smaller and easier to work with. Let <m>A</m> be an <m>n \times n</m> matrix and begin with a non-zero seed <m>\vv_0</m>. We now want to keep track of the scaling factors, so let <m>\alpha_0</m> be the component of <m>\vv_0</m> with largest absolute value and let <m>\vx_0 = \frac{1}{\abs{\alpha_0}} \vv_0</m>. For <m>k \ge 0</m>, let <m>\vv_k = A \vx_{k-1}</m>, let <m>\alpha_k</m> be the component of <m>\vv_k</m> with largest absolute value and let <m>\vx_l = \frac{1}{\abs{\alpha_k}} \vv_k</m>
@@ -341,7 +418,7 @@
         </p>
       </statement>
     </task>
-  </exercise>
+  </exercise> -->
 
   <exercise>
     <statement>
@@ -352,6 +429,12 @@
         Find an eigenvalue of <m>A</m> in terms of <m>\beta</m> and <m>\alpha</m> with corresponding eigenvector <m>\vx</m>.
       </p>
     </statement>
+    <answer>
+      <p>
+        If <m>\beta</m> is an eigenvalue of <m>B</m> with eigenvector <m>\vx</m>,
+        then <m>\frac{1}{\beta} + \alpha</m> is an eigenvalue of <m>A</m> with eigenvector <m>\vx</m>.
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -368,6 +451,11 @@
               The largest eigenvalue of a matrix is a dominant eigenvalue.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -387,6 +475,11 @@
               then <m>\lambda - \alpha</m> is an eigenvalue of <m>A - \alpha I_n</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>

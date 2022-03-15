@@ -19,10 +19,12 @@
     and <m>2</m> units in the <m>\vv_2</m> direction,
     then the result is the vector from the origin to point defined by <m>\vb</m>.
   </p>
+
   <figure xml:id="F_3_e_1">
     <caption>A Coordinate System Defined by a Basis.</caption>
     <image width="50%" source="5_d_Coords_basis"/>
   </figure>
+
   <p>
     As discussed in <xref ref="pa_3_e"></xref>,
     we can think of the vectors <m>\vv_1</m> and <m>\vv_2</m> as defining a coordinate system,
@@ -39,7 +41,7 @@
     and the weights serve as the coordinates of <m>\vb</m> in the <m>\vv_1</m>,
     <m>\vv_2</m> coordinate system.
     We call the vector <m>\left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right]</m> the
-    <em>coordinate vector</em>
+    <term>coordinate vector</term>
     of <m>\vb</m> with respect to the basis <m>\CB</m> and write this vector as <m>[\vb]_{\CB}</m>.
   </p>
   <p>
@@ -52,12 +54,15 @@
     While we can draw pictures in <m>\R^2</m>,
     there is no reason to restrict this idea to <m>\R^2</m>.
   </p>
+
   <definition>
+  <idx><h>coordinate vector with respect to a basis in <m>\R^n</m></h></idx>
+  <idx><h>coordinates with respect to a basis in <m>\R^n</m></h></idx>
     <statement>
       <p>
         Let <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}</m> be a basis for <m>\R^n</m> for some positive integer <m>n</m>.
         For any vector <m>\vx</m> in <m>\R^n</m>,
-        the <term>coordinate vector</term><idx><h>coordinate vector with respect to a basis in <m>\R^n</m></h></idx> of <m>\vx</m> with respect to <m>\CB</m> is the vector
+        the <term>coordinate vector</term> of <m>\vx</m> with respect to <m>\CB</m> is the vector
         <me>
           [\vx]_{\CB} = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]
         </me>,
@@ -68,26 +73,33 @@
       </p>
       <p>
         The scalars <m>x_1</m>, <m>x_2</m>, <m>\ldots</m>,
-        <m>x_n</m> are the <term>coordinates of the vector</term><idx><h>coordinates with respect to a basis in <m>\R^n</m></h></idx> <m>\vx</m>
-        <term>with respect to the basis</term>.
+        <m>x_n</m> are the <term>coordinates of the vector <m>\vx</m>
+        with respect to the basis</term>.
       </p>
     </statement>
   </definition>
+
   <p>
     Recall that there is exactly one way to write a vector as a linear combination of basis vectors,
     so there is only one coordinate vector of a given vector with respect to a basis.
     Therefore, the coordinate vector of any vector with respect to a basis is well-defined.
   </p>
+
   <activity xml:id="act_3_e_1">
+    <statement>
     <p>
       Let <m>\CS = \{[1 \ 0 \ 0]^{\tr},[0 \ 1 \ 0]^{\tr}, [0 \ 0 \ 1]^{\tr}\}</m> and <m>\CB = \{[1 \ 0 \ 0]^{\tr}, [3 \ 2 \ -1]^{\tr}, [1 \ 1 \ -1]^{\tr}\}</m>.
       Assume that <m>\CS</m> and <m>\CB</m> are bases for <m>\R^3</m>.
       Find <m>\left[\left[ \begin{array}{c} 3\\ 7 \\ 0 \end{array} \right]\right]_{\CS}</m> and <m>\left[\left[ \begin{array}{c} 3\\ 7 \\ 0 \end{array} \right]\right]_{\CB}</m>.
       Note that the coordinate vector depends on the basis that is used.
     </p>
+    </statement>
   </activity>
+
+  <paragraphs>
+    <title>IMPORTANT NOTE</title>
   <p>
-    <em>IMPORTANT NOTE:</em> We have defined the coordinate vector of a vector <m>\vx</m> in <m>\R^n</m> with respect to a basis
+    We have defined the coordinate vector of a vector <m>\vx</m> in <m>\R^n</m> with respect to a basis
     <m>\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}</m> as the vector <m>[x_1 \ x_2 \ \ldots \ x_n]^{\tr}</m> if
     <me>
       \vx = x_1 \vv_1 + x_2 \vv_2 + \cdots + x_n \vv_n
@@ -106,38 +118,47 @@
     So, for example, the ordered basis
     <m>\{\vv_1, \vv_2, \ldots, \vv_n\}</m> is different than the ordered basis <m>\{\vv_2, \vv_1, \vv_3, \ldots, \vv_n\}</m>.
   </p>
+  </paragraphs>
+
   <p>
     Coordinate vectors behave nicely with respect to addition and multiplication by scalars.
     The next activity illustrates this in <m>\R^2</m>.
   </p>
   <activity xml:id="act_3_e_coor_vect_props">
+    <introduction>
     <p>
       Let <m>\CB = \{\vb_1, \vb_2\}</m> be a basis for <m>\R^2</m>.
       Let <m>\vv</m> and <m>\vw</m> be vectors in <m>\R^2</m> with
       <m>[\vv]_{\CB} = [x_1 \ x_2]^{\tr}</m> and <m>[\vw]_{\CB} = [y_1 \ y_2]^{\tr}</m>.
-      <ul>
-        <li>
+    </p>
+    </introduction>
+      <task>
+        <statement>
           <p>
             Determine the components of the vector <m>[ \vv + \vw]_{\CB}</m>.
             How is <m>[ \vv + \vw]_{\CB}</m> related to
             <m>[ \vv]_{\CB}</m> and <m>[\vw]_{\CB}</m>?
           </p>
-        </li>
-        <li>
+        </statement>
+      </task>
+      <task>
+        <statement>
           <p>
             Let <m>c</m> be any scalar.
             Determine the components of the vector <m>[ c\vv]_{\CB}</m>.
             How is <m>[ c\vv]_{\CB}</m> related to <m>c</m> and <m>[ \vv]_{\CB}</m>
           </p>
-        </li>
-      </ul>
-    </p>
+        </statement>
+      </task>
+    
   </activity>
+
   <p>
     <xref ref="act_3_e_coor_vect_props"></xref>
     suggests that the following theorem is true for coordinate vectors.
     The verification is left to the exercises.
   </p>
+  
   <theorem xml:id="thm_3_e_coord_vector">
     <statement>
       <p>

@@ -13,6 +13,11 @@
               <m>x_1^2 - 2x_1x_2 + 4x_2^2</m> if <m>\vx</m> is in <m>\R^2</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>\left[ \begin{array}{rr} 1\amp -1\\-1\amp 4 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -20,6 +25,11 @@
               <m>10x_1^2 + 4x_1x_3 + 2x_2x_3 + x_3^2</m> if <m>\vx</m> is in <m>\R^3</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>\left[ \begin{array}{ccc} 10\amp 0\amp 2\\0\amp 0\amp 1 \\ 2\amp 1\amp 1 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -27,6 +37,11 @@
               <m>2x_1x_2 + 2x_1x_3 - x_1x_4 + 5x_2^2 + 4x_3x_4 + 8x_4^2</m> if <m>\vx</m> is in <m>\R^4</m>
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>\left[ \begin{array}{rccr} 0\amp 1\amp 1\amp -\frac{1}{2}\\1\amp 5\amp 0\amp 0 \\ 1\amp 0\amp 0\amp 2 \\ -\frac{1}{2}\amp 0\amp 2\amp 8 \end{array} \right]</m>
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -93,6 +108,13 @@
                     </me>.
                   </p>
                 </statement>
+                <answer>
+                  <p>
+                    Let <m>P</m> be a matrix that orthogonally diagonalizes <m>A</m>,
+                    with <m>P^{\tr}AP = D</m>.
+                    Use this to calculate <m>Q(\vx)</m>.
+                  </p>
+                </answer>
               </task>
               <task>
                 <statement>
@@ -105,6 +127,11 @@
                     </me>.
                   </p>
                 </statement>
+                <hint>
+                  <p>
+                    Substitute in part i.
+                  </p>
+                </hint>
               </task>
               <task>
                 <statement>
@@ -112,6 +139,11 @@
                     Now show that <m>Q(\vx) \geq \lambda_n ||\vx||</m>.
                   </p>
                 </statement>
+                <hint>
+                  <p>
+                    Make an argument similar to part ii.
+                  </p>
+                </hint>
               </task>
         </task>
         <task>
@@ -120,6 +152,11 @@
               Use the result of part (a) to find the maximum and minimum values of the quadratic form defined by the matrix <m>\left[ \begin{array}{cc} 2\amp 1\\1\amp 2 \end{array} \right]</m> on the unit circle.
             </p>
           </statement>
+          <answer>
+            <p>
+              The maximum value of <m>Q(\vx)</m> on the unit circle is 1 and it occurs at the input <m>\frac{1}{\sqrt{2}}[1 \ -1]</m>.
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -185,6 +222,11 @@
               What form does the resulting equation have (write this form in terms of the eigenvalues of <m>A</m>)?
             </p>
           </statement>
+          <answer>
+            <p>
+              <m>1 = \lambda_1 y_1^2 + \lambda_2 y_2^2</m>.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -193,6 +235,11 @@
               Why?
             </p>
           </statement>
+          <answer>
+            <p>
+              An ellipse.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -201,6 +248,11 @@
               Why?
             </p>
           </statement>
+          <answer>
+            <p>
+              A hyperbola.
+            </p>
+          </answer>
         </task>
         <task>
           <statement>
@@ -209,6 +261,11 @@
               Why?
             </p>
           </statement>
+          <answer>
+            <p>
+              Two lines.
+            </p>
+          </answer>
         </task>
   </exercise>
 
@@ -249,6 +306,13 @@
         quadratic forms are uniquely determined by their symmetric matrices.
       </p>
     </statement>
+    <hint>
+      <p>
+        Use the previous exercise to compare
+        <m>Q_A(\ve_i)</m> and <m>Q_B(\ve_i)</m>,
+        then compare <m>Q_A(\ve_i+\ve_j)</m> to <m>Q_B(\ve_i + \ve_j)</m> for <m>i \neq j</m>.
+      </p>
+    </hint>
   </exercise>
 
   <exercise xml:id="ex_7_b_PD_inner_product">
@@ -308,6 +372,11 @@
         <m>\vu \cdot \vv = \vu^{\tr} A \vv</m> for all <m>\vu</m> and <m>\vv</m> in <m>\R^n</m>.
       </p>
     </statement>
+    <answer>
+      <p>
+        <m>I_n</m>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -382,7 +451,7 @@
           </statement>
           <hint>
             <p>
-              Rewrite <m>||\vu+\vv||^2</m> using the dot product.
+              Expand <m>||\vu+\vv||^2</m> using the dot product.
             </p>
           </hint>
         </task>
@@ -395,6 +464,11 @@
               If true, verify the statement.
             </p>
           </statement>
+          <hint>
+            <p>
+              Expand <m>||\vu+\vv||^2</m> using the dot product.
+            </p>
+          </hint>
         </task>
   </exercise>
 
@@ -468,6 +542,11 @@
         to prove the triangle inequality for any inner product on <m>\R^n</m>.
       </p>
     </statement>
+    <hint>
+      <p>
+        Expand <m>||\vu+\vv||^2</m> using the dot product.
+      </p>
+    </hint>
   </exercise>
 
   <exercise>
@@ -485,6 +564,11 @@
               then there is exactly one matrix <m>A</m> such that <m>Q(\vx) = \vx^{\tr}A\vx</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -502,6 +586,11 @@
               then the quadratic form has no cross-product terms.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -518,6 +607,11 @@
               The principal axes of a quadratic form are orthogonal.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -536,6 +630,11 @@
               then the quadratic form <m>\vx^{\tr}A\vx</m> is positive definite.
             </p>
           </statement>
+          <answer>
+            <p>
+              F
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -555,6 +654,11 @@
               then the graph of <m>z=Q(\vx)</m> is a paraboloid opening upward.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -573,6 +677,11 @@
               then there is a nonzero vector <m>\vx</m> such that <m>Q(\vx) = 0</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -591,6 +700,11 @@
               then at least one of the eigenvalues of <m>A</m> is negative and at least one positive.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
         <task>
           <title>True/False</title>
@@ -609,6 +723,11 @@
               then so does <m>A^{-1}</m>.
             </p>
           </statement>
+          <answer>
+            <p>
+              T
+            </p>
+          </answer>
         </task>
   
   </exercise>

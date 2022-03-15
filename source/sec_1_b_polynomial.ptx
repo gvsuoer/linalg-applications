@@ -1,30 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <section xml:id="sec_1_b_polynomial">
-  <title>Project: A Polynomial Fitting Application: Simpson's Rule</title>
+  <title>Project: Polynomial Interpolation to Approximate the Area Under a Curve</title>
+  <p>
+    Suppose we want to approximate the area of the region shown in <xref ref="F_1_b_area"></xref>.
+    As discussed in the introduction,
+    we can approximate the area under a curve by approximating the curve by quadratics.
+    First, we will see how Archimedes approached the problem of finding the area of a quadratic region,
+    then we will determine how to determine a quadratic function that passes through three points,
+    then we put it all together to approximate the area under a curve as in <xref ref="F_1_b_area"></xref>.
+  </p>
+
+  <figure xml:id="F_1_b_area">
+    <caption>A region whose area we want to approximate.</caption>
+    <image width="50%" source="1_b_area"/>
+  </figure>
 
   <p>
-    As discussed in the introduction, Simpson's Rule for approximating a definite integral models the
-    integrand with a quadratic polynomial on each interval. To better understand this method, we consider
-    how to fit a quadratic to three points.
+    Archimedes approached the problem of calculating the area of a quadratic region in the following way.
+    Given a quadratic <m>q(x)</m> on an interval <m>[a,b]</m>, Archimedes drew in a base given by the 
+    secant line connecting the points <m>(a,q(a))</m> and
+    <m>(b,q(b))</m> as illustrated at left in <xref ref="F_1_b_Archimedes"></xref>.
+    Then he found the point in the interval <m>[a,b]</m> at which the tangent line to the curve is 
+    parallel to the secant line.
+    Archimedes gave an argument using mechanics
+    (based on balance points),
+    and then another using geometry
+    (through a method of exhaustion)
+    to show that the area of the parabolic region is
+    <m>\frac{4}{3}</m> times the area of the triangle determined by the endpoints and the point of tangency as shown at right in <xref ref="F_1_b_Archimedes"></xref>.
+  </p>
+
+  <figure xml:id="F_1_b_Archimedes">
+    <caption>Archimedes method.</caption>
+    <sidebyside>
+    <image width="50%" source="1_b_Archimedes_1"/>   
+    <image width="50%" source="1_b_Archimedes_2"/>
+    </sidebyside>
+  </figure>
+
+  <p>
+    Although we won't go through the details,
+    a conclusion we can draw from Archimedes argument,
+    using the formula for the area of a rectangle and the area of a triangle,
+    is that the area between the graph of a quadratic with equation
+    <m>q(x) = ax^2+bx+c</m> and the <m>x</m>-axis on an interval
+    <m>[x_1, x_2]</m> as illustrated in <xref ref="F_1_b_quad_area"></xref> is
+    <men xml:id="eq_quad_area">
+      \frac{a}{3}(x_2^3-x_1^3) + \frac{b}{2}(x_2^2-x_1^2) + c(x_2-x_1)
+    </men>.
+  </p>
+
+  <figure xml:id="F_1_b_quad_area">
+    <caption>Region between a parabola and the <m>x</m>-axis.</caption>
+    <image width="50%" source="1_b_quad_area"/>
+  </figure>
+
+  <p>
+    To approximate the area under the graph of a function,
+    we will approximate the function itself with a collection of quadratics,
+    and then use equation <xref ref="eq_quad_area"/> repeatedly.
+    To do this, we need to know how to fit a quadratic curve to a three points.
+    We consider that question now.
   </p>
   <p>
-    <idx><h>polynomial curve fitting</h></idx>
-    Suppose we are given a collection of three points in the plane: <m>(x_1, y_1)</m>, <m>(x_2, y_2)</m>
-    and <m>(x_3, y_3)</m>. There is exactly one quadratic polynomial <m>p(x)</m> which goes through these
-    points, <ie/> there is exactly one quadratic <m>p(x)</m> such that for each <m>x_i</m>,
-    <m>p(x_i) = y_i</m>. This is an example of <term>polynomial curve fitting</term>.
+  <idx><h>polynomial curve fitting</h></idx>
+    Suppose we are given a collection of three points in the plane:
+    <m>(x_1, y_1), (x_2, y_2)</m> and <m>(x_3, y_3)</m>.
+    There is exactly one quadratic polynomial <m>p(x)</m> which goes through these points,
+    i.e. there is exactly one quadratic <m>p(x)</m> such that for each <m>x_i</m>,
+    <m>p(x_i)=y_i</m>.
+    This is an example of <term>polynomial curve fitting</term>.
+        
   </p>
   <p>
-    Suppose our given points are <m>(-1, 2)</m>, <m>(1, 6)</m>, <m>(2, 5)</m>. To fit a quadratic to these
-    points, consider a general quadratic of the form <m>p(x) = a_2 x^2 + a_1 x + a_0</m>. By 
-    substituting the <m>x</m> value of each of the given points and setting that equal to the <m>y</m>
-    value of that point, we find three equations
+    As an example, we use the points <m>(-1, 2)</m>,
+    <m>(1,6)</m>, <m>(2,5)</m>.
+    To fit a quadratic to these points,
+    consider a general quadratic of the form <m>p(x)=a_2x^2+a_1x+a_0</m>.
+    By substituting the <m>x</m> value of each of the given points and setting that equal to the <m>y</m> value of that point,
+    we find three equations
     <me>
       (-1)^2a_2-a_1+a_0=2 \; , \;  a_2+a_1+a_0=6 \; , \;  (2)^2a_2 +2a_1+a_0=5
     </me>
-    
-    that give us a system of three equations in the three unknowns <m>a_2</m>, <m>a_1</m>, and <m>a_0</m>:
-
+    that give us a system of three equations in the three unknowns <m>a_2</m>,
+    <m>a_1</m>, and <m>a_0</m>:
     <md alignment="alignat">
       <mrow> {}a_2  \amp {}-{}   \amp {}a_1   \amp {}+{}  \amp {}a_0   \amp = 2</mrow>
       <mrow>{}a_2   \amp {}+{}  \amp {}a_1   \amp {}+{}  \amp {}a_0  \amp = 6</mrow>
@@ -39,37 +98,48 @@
     <m>(1,6)</m>,
     <m>(2,5)</m> is shown in <xref ref="F_1_b_quadratic_fit"></xref>.
   </p>
+
   <figure xml:id="F_1_b_quadratic_fit">
     <caption>A quadratic fit to the points <m>(-1, 2)</m>, <m>(1,6)</m>, <m>(2,5)</m>.</caption>
     <image width="50%" source="1_b_quadratic_fit"/>
   </figure>
 
-    <project xml:id="act_1_b_Simpson_ex_1">
+  <p>
+    Now that we know how to fit a quadratic to three points,
+    we next approximate a curve with a collection of quadratics.
+    The method we use is to break the interval on which our curve is defined into several subintervals and create quadratics on each subinterval.
+    The basic idea is contained in our first project activity.
+  </p>
+
+  <project xml:id="act_1_b_Simpson_ex_1">
     <introduction>
     <p>
-      In this activity we model the sine function on the interval <m>[a,b]</m>,
+      In this activity we model the function <m>f</m> defined by
+      <m>f(x) = \sin(2x)+2</m> on the interval <m>[a,b]</m>,
       where <m>a = -\frac{\pi}{2}</m> and <m>b = \pi</m> with a collection of quadratics.
       Let <m>f(x) = \sin(x)</m>.
-      We divide the interval <m>[a,b]</m> using 6 partition points. Let
+      We divide the interval <m>[a,b]</m> into three subintervals using the six points 
       <m>x_0 = -\frac{\pi}{2}</m>,
       <m>x_1 = -\frac{\pi}{4}</m>,
       <m>x_2 = 0</m>, <m>x_3 = \frac{\pi}{4}</m>,
       <m>x_4 = \frac{\pi}{2}</m>,
       <m>x_5 = \frac{3 \pi}{4}</m>, and <m>x_6 = \pi</m>.
-      We need 3 points to determine a quadratic,
-      so the interval <m>[a,b]</m> will be partioned into 3 subintervals: <m>[x_0, x_2]</m>,
+      We need three points to determine a quadratic,
+      so the three subintervals of the interval <m>[a,b]</m> will be the intervals <m>[x_0, x_2]</m>,
       <m>[x_2, x_4]</m>, and <m>[x_4,x_6]</m>.
-      </p>
-      </introduction>
-
+      An illustration of the process of dividing our interval <m>[a,b]</m> and approximating by 
+      quadratics can be found at <url href="https://www.geogebra.org/m/spd4hhbw" visual="geogebra.org/m/spd4hhbw"/>. 
+      Round all calculations in this activity to the nearest thousandth.
+    </p>
+    </introduction>
       <task>
         <statement>
           <p>
             Set up a system of linear equations to fit a quadratic
             <m>q_1(x) = r_1x^2+s_1x+t_1</m> to the three points <m>(x_0, f(x_0))</m>,
             <m>(x_1, f(x_1))</m>, and <m>(x_2, f(x_2))</m>.
-            (The solution to this system to three decimal places is <m>r_1 \approx 0.336</m>,
-            <m>s_1 \approx 1.164</m>, and <m>t_1 = 0</m>.)
+            (The solution to this system to the nearest thousandth is <m>r_1 = 2</m>,
+            <m>s_1 \approx 2.546</m>, and <m>t_1 = 1.621</m>.)
           </p>
         </statement>
       </task>
@@ -79,8 +149,8 @@
             Set up a system of linear equations to fit a quadratic
             <m>q_2(x) = r_2x^2+s_2x+t_2</m> to the three points <m>(x_2, f(x_2))</m>,
             <m>(x_3, f(x_3))</m>, and <m>(x_4, f(x_4))</m>.
-            (The solution to this system to the three decimal places is <m>r_2 \approx -0.336</m>,
-            <m>s_2 \approx 1.164</m>, and <m>t_2 = 0</m>.)
+            (The solution to this system to the nearest thousandth is <m>r_2 = 2</m>,
+            <m>s_2 \approx 2.546</m>, and <m>t_2 \approx -1.621</m>.)
           </p>
         </statement>
       </task>
@@ -90,116 +160,140 @@
             Set up a system of linear equations to fit a quadratic
             <m>q_3(x) = r_3x^2+s_3x+t_3</m> to the 3 points <m>(x_4, f(x_4))</m>,
             <m>(x_5, f(x_5))</m>, and <m>(x_6, f(x_6))</m>.
-            (The solution to this system to the three decimal places is <m>r_3 \approx -0.336</m>,
-            <m>s_3 \approx 0.946</m>, and <m>t_3 \approx 0.343</m>.)
+            (The solution to this system to the nearest thousandth is <m>r_3 \approx 10.000</m>,
+            <m>s_3 \approx -7.639</m>, and <m>t_3 \approx 1.621</m>.)
           </p>
         </statement>
       </task>
       <task>
         <statement>
           <p>
-            Plot the three quadratics on their intervals against the graph of <m>f</m>. Explain what
-            you see.
+            Use the GeoGebra applet at <url href="https://www.geogebra.org/m/spd4hhbw" visual="geogebra.org/m/spd4hhbw"/> to graph the three quadratics on their intervals on the same axes as the graph of <m>f</m>.
+            Explain what you see.
           </p>
         </statement>
       </task>
-
+    
   </project>
 
   <p>
-    <xref ref="act_1_b_Simpson_ex_1"/> illustrates how we can model a funciton on an interval using a
-    sequence of quadratic functions. Now we apply this polynomial curve fitting technique to derive the
-    general formula for Simpson's Rule for approximating definite integrals. The Simpson sum
-    <m>S(n)</m> is found by using parabolic arcs to approximate the graph of <m>f</m> on each subinterval
-    rather than line segments. This allows Simpson's Rule to more closely approximate the value of the
-    definite integral with a smaller number of subintervals, although Simpson's rule requires more
-    calculations. Recall that to approximate a definite integral of a runction <m>f</m> on an interval
-    <m>[a, b]</m>, we partition <m>[a, b]</m> into equal length subintervals. For Simpson's Rule, we
-    partition <m>[a, b]</m> into <m>n = 2m</m> subintervals of equal length <m>\Delta x = \frac{b - a}{n}</m>.
-    (Note that we need an even number of subintervals since we have to use three points for each parabola).
-    For each <m>k</m> we let <m>x_k = a + k \Delta x</m> and <m>y_k = f(x_k)</m>. We approximate <m>f</m>
-    on each subinterval using a quadratic. So we need to find the quadratic <m>Q(x) = c_2 x^2 + c_1 x + c_0</m>
-    that passes through two consecutive end points as well as the midpoint of a subinterval. That is,
-    we need to find the coefficients of <m>Q</m> so that <m>Q</m> passes through the points
-    <m>(x_k, y_k)</m>, <m>(x_{k+2}, y_{k+2})</m>, and the midpoint <m>(x_{k+1}, y_{k+1})</m> on the
-    interval <m>[x_k, x_{k+2}]</m> (so that we have three points to which to fit a parabola). Note
-    that the length of the interval <m>[x_k, x_{k+2}]</m> is <m>2 \Delta x</m>. To make the
-    calculations easier, we will translate our function so that our leftmost point is
-    <m>(-r, y_k)</m>. Then the middle point is <m>(0, y_{k+1})</m> and the rightmostpoint is
-    <m>(r, y_{k+2})</m> where <m>r = \Delta x</m>.
+    <xref ref="act_1_b_Simpson_ex_1"></xref>
+    illustrates how we can model a function on an interval using a sequence of quadratic functions.
+    Now we apply this polynomial curve fitting technique to derive the general formula for approximating the area between a graph of a function <m>f</m> and the <m>x</m>-axis.
+    We use parabolic arcs to approximate the graph of <m>f</m> on each subinterval.
+  </p>
+  <p>
+    We start by dividing the interval <m>[a,b]</m> over which our function is defined into some number of subintervals.
+    We need an even number of subintervals,
+    since we have to use three points to define each parabola.
+    Let <m>n = 2m</m> be the number of subintervals we use.
+    In order to make the calculations a bit easier,
+    let the subintervals all have the same length,
+    which we denote by <m>\Delta x</m>
+    (the symbol <m>\Delta</m> is often used in mathematics to indicate a change in a quantity).
+    Since we have <m>n</m> subintervals,
+    the length of each subinterval will be <m>\Delta x = \frac{b-a}{n}</m>.
+    For each <m>k</m> we let <m>x_k = a+k \Delta x</m> and <m>y_k = f(x_k)</m>.
+    Note that <m>x_0 = a</m> and <m>x_n=b</m>.
+    This labeling scheme is illustrated in <xref ref="F_1_b_partition"></xref>
+  </p>
+
+  <figure xml:id="F_1_b_partition">
+    <caption>Subdividing the interval <m>[a,b]</m>.</caption>
+    <image width="50%" source="1_b_partition"/>
+  </figure>
+
+  <p>
+    We approximate <m>f</m> on each subinterval using a quadratic.
+    So we need to find the quadratic
+    <m>Q(x) = c_2x^2+c_1x+c_0</m> that passes through two consecutive end points as well as the midpoint of a subinterval.
+    That is, we need to find the coefficients of <m>Q</m> so that <m>Q</m> passes through the points <m>(x_k,y_k)</m>,
+    <m>(x_{k+2}, y_{k+2})</m>,
+    and the midpoint <m>(x_{k+1},y_{k+1})</m> on the interval <m>[x_k, x_{k+2}]</m>
+    (so that we have three points to which to fit a parabola)
+    as shown at left in <xref ref="F_1_b_quad_fit"></xref>.
+    Note that the length of the interval <m>[x_k, x_{k+2}]</m> is <m>2\Delta x</m>.
+    To make the calculations easier,
+    we will translate our function so that our leftmost point is <m>(-r, y_k)</m>.
+    Then the middle point is <m>(0, y_{k+1})</m> and the rightmost point is
+    <m>(r, y_{k+2})</m> as illustrated at right in <xref ref="F_1_b_quad_fit"></xref>,
+    where <m>r = \Delta x</m>.
+  </p>
+
+  <figure xml:id="F_1_b_quad_fit">
+    <caption>Left: Three points. Right: Translated points.</caption>
+    <sidebyside>
+    <image width="50%" source="1_b_quad_fit"/>   
+    <image width="50%" source="1_b_translate"/>
+    </sidebyside>
+  </figure>
+
+  <project>
+   
+      <task>
+        <statement>
+          <p>
+            Set up a linear system that will determine the coefficients <m>c_2</m>,
+            <m>c_1</m>,
+            and <m>c_0</m> so that the polynomial
+            <m>Q(x) = c_2x^2+c_1x+c_0</m> passes through the points <m>(-r, y_k)</m>,
+            <m>(0, y_{k+1})</m>, and <m>(r, y_{k+2})</m> with <m>r \neq 0</m>.
+            Remember that the unknowns in this system are <m>c_2</m>,
+            <m>c_1</m>, and <m>c_0</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Explain why the coefficient matrix of the system in part (a) is <m>\left[ \begin{array}{crc} r^2\amp -r\amp 1 \\ 0\amp 0\amp 1 \\ r^2\amp r\amp 1 \end{array}  \right]</m>.
+            Then explain why row reducing the matrix
+            <m>\left[ \begin{array}{crcc} r^2\amp -r\amp 1\amp y_k \\ 0\amp 0\amp 1\amp y_{k+1} \\ r^2\amp r\amp 1\amp y_{k+2} \end{array}  \right]</m> will find the coefficients we want.
+            Assume that a row echelon form of the matrix <m>\left[ \begin{array}{crcc} r^2\amp -r\amp 1\amp y_k \\ 0\amp 0\amp 1\amp y_{k+1} \\ r^2\amp r\amp 1\amp y_{k+2} \end{array}  \right]</m> is
+            <me>
+              \left[ \begin{array}{crcc} r^2\amp -r\amp 1\amp y_k \\ 0\amp 2r\amp 0\amp y_{k+2}-y_k \\ 0\amp 0\amp 1\amp y_{k+1} \end{array}  \right]
+            </me>.
+            Use these matrices to explain why <m>c_2=\frac{y_k-2y_{k+1}+y_{k+2}}{2r^2}</m>,
+            <m>c_1=\frac{y_{k+2}-y_k}{2r}</m>, and <m>c_0 = y_{k+1}</m>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Our goal is to ultimately approximate the area under the curve on the interval <m>[a,b]</m> by approximating <m>f</m> with quadratics on each subinterval.
+            Use the Archimedean formula <xref ref="eq_quad_area"/> to show that the area under the quadratic <m>Q(x)</m> from part (a) is
+            <me>
+              \frac{1}{3}  \left(y_k+4y_{k+1}+y_{k+2}\right) \Delta x
+            </me>.
+          </p>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            Now add up all of the area approximations on each subinterval to show that the approximate area under the graph is given by the formula
+            <men xml:id="eq_1_b_Simpson_sum">
+              S(n) = \left(y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \cdots 2y_{n-2} + 4y_{n-1} + y_n\right) \frac{\Delta x}{3}
+            </men>.
+          </p>
+        </statement>
+      </task>
+    
+  </project>
+
+  <p>
+    We conclude with an example.
   </p>
 
   <project>
-    <task>
-      <statement>
-        <p>
-          Set up a linear system that will determine the coefficients <m>c_2</m>, <m>c_1</m>, and
-          <m>c_0</m> so that the polynomial <m>Q(x) = c_2 x^2 + c_1 x + c_0</m> passes through
-          the points <m>(-r, y_k)</m>, <m>(0, y_{k+1})</m>, and <m>(r, y_{k+2})</m> with <m>r \ne 0</m>.
-          Remember that the unknowns in this system are <m>c_2</m>, <m>c_1</m>, and <m>c_0</m>.
-        </p>
-      </statement>
-    </task>
-
-    <task>
-      <statement>
-        <p>
-          We apply row operations to the matrix
-          <m>\left[ \begin{array}{crc} r^2\amp -r\amp 1 \amp y_k \\ 0\amp 0\amp 1 \amp y_{k+1} \\ r^2\amp r\amp 1 \amp y_{k+2} \end{array}  \right]</m>
-          and obtain the matrix
-          <m>\left[ \begin{array}{crc} r^2\amp -r\amp 1 \amp y_k \\ 0\amp 2r \amp 0 \amp y_{k+2}-y_k \\ 0 \amp 0 \amp 1 \amp y_{k+1} \end{array}  \right]</m>.
-          Use these matrices to show that <m>c_2=\frac{y_k-2y_{k+1}+y_{k+2}}{2r^2}</m>,
-          <m>c_1=\frac{y_{k+2}-y_k}{2r}</m>, and <m>c_0 = y_{k+1}</m>.
-        </p>
-      </statement>
-    </task>
-    <task>
-      <statement>
-        <p>
-          Our goal is to ultimately approximate 
-          <me>
-            \int_{x_k}^{x_{k+2}} f(x) \,dx \approx
-            \int_{x_k}^{x_{k+2}} Q(x) \,dx = 
-            \int_{-r}^{r} Q(x) \,dx
-          </me>,
-          to show that
-          <me>
-            \int_{x_k}^{x_{k+2}} f(x) \,dx = \frac{1}{3}(y_k + 4y_{k+1} + y_{k+2}) \Delta x
-          </me>.
-        </p>
-      </statement>
-    </task>
-    <task>
-      <statement>
-        <p>
-          Now we can derive Simpson's Rule. Use an additive property of the definite integral to show that 
-          <me>
-            \int_{a}^{b} f(x) \,dx \approx S(n)
-          </me>,
-          where
-          <me>
-            S(n) = (y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \cdots 2y_{n-2} + 4y_{n-1} + y_n) \frac{\Delta x}{3}
-          </me>
-          is the Simpson's Rule approximation.
-        </p>
-      </statement>
-    </task>
+    <statement>
+    <p>
+      Let <m>f(x) = \left(\frac{1}{2}\right)^x</m> on the interval <m>[1,6]</m>.
+      A graph of <m>f</m> is shown in <xref ref="F_1_b_area"></xref>.
+      Use our approximation formula with <m>n=8</m> to approximate the area of the shaded region in <xref ref="F_1_b_area"></xref>.
+      Show all of your work and round all calculations to the nearest thousandth.
+    </p>
+    </statement>
   </project>
-
-  <p>
-    Notice that we can rewrite the Simpson's Rule approximation as 
-    <md>
-      <mrow>\frac{1}{3} \amp (y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \cdots 2y_{n-2} + 4y_{n-1} + y_n) \Delta x</mrow>
-      <mrow> \amp = \frac{2}{3} [2(y_1 + y_3 + \cdots + y_{n-1})] \Delta x</mrow>
-      <mrow> \amp \quad + \frac{2}{3} (\frac{y_0 + y_2}{2} + \frac{y_2 + y_4}{2} + \cdots + \frac{y_{n-2} + y_n}{2}) \Delta x</mrow>
-      <mrow> \amp = \frac{1}{3}[(y_1 + y_3 + \cdots + y_{n-1})(2 \Delta x)]</mrow>
-      <mrow> \amp \quad + \frac{1}{3} (\frac{y_0 + y_2}{2} + \frac{y_2 + y_4}{2} + \cdots + \frac{y_{n-2} + y_n}{2}) (2 \Delta x)</mrow>
-      <mrow> \amp = \frac{2 M(n) + T(n)}{3}</mrow>
-    </md>,
-
-    where <m>M(n)</m> is the midpoint sum and <m>T(n)</m> is the trapezoid sum using <m>n</m> subdivisions
-    of the interval <m>[a, b]</m>. Therefore, the weighted average <m>\frac{2 M(n) + T(n)}{3}</m>
-    of the midpoint and trapezoid sums gives an approximation using quadratic functions.
-  </p>
-  
 </section>
