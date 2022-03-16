@@ -2,7 +2,7 @@
 <section xml:id="sec_ls_approx">
   <title>Least Squares Approximations</title>
   <p>
-  In <xref ref="sec_gram_schmidt"/> we saw that the projection of a vector <m>\vv</m> in <m>\R^n</m> onto a subspace <m>W</m> of <m>\R^n</m> is the best approximation to <m>\vv</m> of all the vectors in <m>W</m>. In fact, if <m>\vv = [v_1 \ v_2 \ \ldots \ v_n]^{\tr}</m> and <m>\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}</m>, then the error in approximating <m>\vv</m> by <m>\vw</m> is given by 
+  In <xref ref="chap_gram_schmidt"/> we saw that the projection of a vector <m>\vv</m> in <m>\R^n</m> onto a subspace <m>W</m> of <m>\R^n</m> is the best approximation to <m>\vv</m> of all the vectors in <m>W</m>. In fact, if <m>\vv = [v_1 \ v_2 \ \ldots \ v_n]^{\tr}</m> and <m>\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}</m>, then the error in approximating <m>\vv</m> by <m>\vw</m> is given by 
   <me>|| \vv - \proj_W \vv ||^2 = \sum_{i=1}^m (v_i - w_i)^2</me>.
   
   In the context of <xref ref="pa_LS_1"/>, we projected the vector <m>\vb</m> onto the span of  the vectors <m>\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}</m> and <m>\vv_2 = [0 \ 4 \ 8 \ 12]^{\tr}</m>. The projection   minimizes the distance between the vectors in <m>W</m> and the vector <m>\vb</m> (as shown in <xref ref="F_6_f_proj"/>), and also produces a line which minimizes the sums of the squares of the vertical  distances from the line to the data set as illustrated in <xref ref="F_LS_Olympics2"/> with the olympics data. This is why these approximations are called least squares approximations. 
@@ -39,7 +39,7 @@
 
   <p>
     Of course, it is unlikely that the <m>m</m> data points already lie on a polynomial of degree <m>n</m>, so the system will usually have no solution. So instead of attempting to find coefficients <m>a_0</m>, <m>a_1</m>, <m>\ldots</m>, <m>a_n</m> that give a solution to this system, which may be impossible, we instead look for a vector that is ``close" to a solution. As we have seen, the vector <m>\proj_{W} \vy</m>, where <m>W</m> is the span of the columns of <m>M</m>, minimizes the sum of the squares of the differences of the components. That is, our desired approximation to a solution to <m>M \vx = \vy</m> is the projection of <m>\vy</m> onto <m>\Col M</m>. Now <m>\proj_W \vy</m> is a linear combination of the columns of <m>M</m>, so <m>\proj_W \vy = M \va^*</m> for some vector <m>\va^*</m>. This vector <m>\va^*</m> then minimizes <m>|| \proj_{\perp W} \vy|| = ||\vy - M \va ||</m>. That is, if we let <m>(M\va)^{\tr} = [b_1 \ b_2 \ b_3 \ \cdots \ b_m]</m>, we are minimizing 
-    <men xml:id="eq_ls_1">
+    <men xml:id="eq_ls_approx">
       ||\vy - M\va||^2 = (y_1-b_1)^2 + (t_2-b_2)^2 + \cdots + (y_m-b_m)^2
     </men>.
     The expression <m>||\vy - M\va||^2</m> measures the error in our approximation.
