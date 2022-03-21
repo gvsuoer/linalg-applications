@@ -93,8 +93,34 @@
     then <m>a_{ij}</m> counts the number of times word <m>i</m> appears in document <m>j</m>.
     The term-document matrix <m>A</m> for our library is
 
+    <tabular>
+      <row>
+        <cell><nbsp/></cell>
+        <cell><m>\begin{array}{ccccccccc}c_1 \amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}</m></cell>
+      </row>
+      <row>
+        <cell><m>\begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array}</m></cell>
+        <cell><m>\left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]</m></cell>
+      </row>
+    </tabular>
+
+    <md>
+      <mrow> \amp 
+      \begin{array}{ccccccccc}c_1 \amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}</mrow>
+
+      <mrow>\begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array} 
+      \amp 
+      \left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]</mrow>
+    </md>
+
     <men xml:id="eq_LSI_A">
-      \begin{array}{cc} \amp    \begin{array}{ccccccccc}c_1\amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}  \\ \begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array}   \amp \left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]\end{array}
+      \begin{array}{cc} 
+        \amp  
+        \begin{array}{ccccccccc}c_1\amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}  \\ 
+        
+        \begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array}   
+        \amp 
+        \left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]\end{array}
     </men>.
   </p>
   <p>

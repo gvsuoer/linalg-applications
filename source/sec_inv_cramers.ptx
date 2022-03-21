@@ -78,7 +78,7 @@
     we use the row-column version of the matrix product to find the <m>ij</m>th entry of
     <m>A \ \adj(A)</m> as indicated by the shaded row and column
     <me>
-      \left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ \rowcolor{Gray} a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right] \left[ \begin{array}{ccc>{\columncolor{Gray}}ccc} C_{11}   \amp  C_{21} \amp  \cdots    \amp C_{j1} \amp \cdots \amp  C_{n1} \\ C_{12}   \amp  C_{22} \amp  \cdots    \amp C_{j2} \amp \cdots \amp  C_{n2} \\ \vdots   \amp   \vdots  \amp          \amp            \amp        \amp  \vdots \\ C_{1n}   \amp  C_{2n} \amp  \cdots    \amp C_{jn} \amp \cdots \amp  C_{nn} \end{array}  \right]
+      \left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\  \boldsymbol{a_{i1}}  \amp \boldsymbol{a_{i2}}     \amp  \boldsymbol{\cdots}   \amp  \boldsymbol{a_{in}} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right] \left[ \begin{array}{cccccc} C_{11}   \amp  C_{21} \amp  \cdots    \amp \boldsymbol{C_{j1}} \amp \cdots \amp  C_{n1} \\ C_{12}   \amp  C_{22} \amp  \cdots    \amp \boldsymbol{C_{j2}} \amp \cdots \amp  C_{n2} \\ \vdots   \amp   \vdots  \amp          \amp            \amp        \amp  \vdots \\ C_{1n}   \amp  C_{2n} \amp  \cdots  \amp  \boldsymbol{C_{jn}} \amp \cdots \amp  C_{nn} \end{array}  \right]
     </me>.
   </p>
   <p>
@@ -98,7 +98,7 @@
     When <m>i \neq j</m>,
     the expression <xref ref="eq_4_f_4"/> is the cofactor expansion of the matrix
     <me>
-      \left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{j-11}      \amp a_{j-12}     \amp  \cdots   \amp  a_{j-1n} \\ \rowcolor{Gray} a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ a_{j+11}      \amp a_{i+12}     \amp  \cdots   \amp  a_{j+1n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right]
+      \left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{j-11}      \amp a_{j-12}     \amp  \cdots   \amp  a_{j-1n} \\ \boldsymbol{a_{i1}}  \amp   \boldsymbol{a_{i2}}     \amp  \cdots   \amp  \boldsymbol{a_{in}} \\ a_{j+11}      \amp a_{i+12}     \amp  \cdots   \amp  a_{j+1n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right]
     </me>
     along the <m>j</m>th row.
     This matrix is the one obtained by replacing the <m>j</m>th row of <m>A</m> with the <m>i</m>th row of <m>A</m>.
@@ -191,7 +191,7 @@
     </me>
     is the cofactor expansion of the matrix
     <me>
-      A_j = \left[ \begin{array}{cccc>{\columncolor{Gray}}cccc} a_{11}   \amp  a_{12} \amp  \cdots    \amp a_{1j-1} \amp b_1   \amp a_{1j+1}    \amp \cdots   \amp  a_{1n} \\ a_{21}   \amp  a_{22} \amp  \cdots    \amp a_{2j-1} \amp b_2   \amp a_{2j+1}  \amp \cdots  \amp  a_{2n} \\ \vdots   \amp   \vdots  \amp          \amp              \amp     \amp         \amp        \amp  \vdots \\ a_{n1}   \amp  a_{n2} \amp  \cdots    \amp a_{nj-1} \amp b_n   \amp a_{nj+1}  \amp \cdots  \amp  a_{nn} \end{array}  \right]
+      A_j = \left[ \begin{array}{cccc>{\columncolor{Gray}}cccc} a_{11}   \amp  a_{12} \amp  \cdots    \amp a_{1j-1} \amp \boldsymbol{b_1}   \amp a_{1j+1}    \amp \cdots   \amp  a_{1n} \\ a_{21}   \amp  a_{22} \amp  \cdots    \amp a_{2j-1} \amp \boldsymbol{b_2}   \amp a_{2j+1}  \amp \cdots  \amp  a_{2n} \\ \vdots   \amp   \vdots  \amp          \amp              \amp     \amp         \amp        \amp  \vdots \\ a_{n1}   \amp  a_{n2} \amp  \cdots    \amp a_{nj-1} \amp \boldsymbol{b_n}   \amp a_{nj+1}  \amp \cdots  \amp  a_{nn} \end{array}  \right]
     </me>
     along the <m>j</m>th column, giving us the formula in Cramer's Rule.
   </p>
