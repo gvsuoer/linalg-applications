@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-17T15:36:18-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proof"><h3 class="heading"><span class="title">Proof of Theorem 1.3.</span></h3>
+<p>We will prove the result by induction on <span class="process-math">\(n\text{,}\)</span> the size of the matrix <span class="process-math">\(A\text{.}\)</span> We verified these results in <a href="" class="xref" data-knowl="./knowl/pa_4_f.html" title="Preview Activity 1.1">Preview Activity 1.1</a> for <span class="process-math">\(n=2\)</span> using elementary row operations. The elementary matrix versions follow immediately.</p>
+<p>Now assume the theorem is true for <span class="process-math">\(k\times k\)</span> matrices with <span class="process-math">\(k\geq 2\)</span> and consider an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> where <span class="process-math">\(n=k+1\text{.}\)</span> If <span class="process-math">\(E\)</span> is an <span class="process-math">\(n\times n\)</span> elementary matrix, we want to show that <span class="process-math">\(\det(EA)=\det(E)\det(A)\text{.}\)</span> Let <span class="process-math">\(EA=B\text{.}\)</span> (Although it is an abuse of language, we will refer to both the elementary matrix and the elementary row operation corresponding to it by <span class="process-math">\(E\text{.}\)</span>)</p>
+<p>When finding <span class="process-math">\(\det(B)=\det(EA)\)</span> we will use a cofactor expansion along a row which is not affected by the elementary row operation <span class="process-math">\(E\text{.}\)</span> Since <span class="process-math">\(E\)</span> affects at most two rows and <span class="process-math">\(A\)</span> has <span class="process-math">\(n\geq 3\)</span> rows, it is possible to find such a row, say row <span class="process-math">\(i\text{.}\)</span> The cofactor expansion along row <span class="process-math">\(i\)</span> of <span class="process-math">\(B\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation}
+b_{i1} (-1)^{i+1} \det(B_{i1}) + b_{i2} (-1)^{i+2} \det(B_{i2}) + \cdots + b_{in} (-1)^{i+n} \det(B_{in}) \,\text{.}\tag{1.1}
+\end{equation}
+</div>
+<p>Since we chose a row of <span class="process-math">\(A\)</span> which was not affected by the elementary row operation, it follows that <span class="process-math">\(b_{ij}=a_{ij}\)</span> for <span class="process-math">\(1\leq j\leq n\text{.}\)</span> Also, the matrix <span class="process-math">\(B_{ij}\)</span> obtained by removing row <span class="process-math">\(i\)</span> and column <span class="process-math">\(j\)</span> from matrix <span class="process-math">\(B=EA\)</span> can be obtained from <span class="process-math">\(A_{ij}\)</span> by an elementary row operation of the same type as <span class="process-math">\(E\text{.}\)</span> Hence there is an elementary matrix <span class="process-math">\(E_k\)</span> of the same type as <span class="process-math">\(E\)</span> with <span class="process-math">\(B_{ij}=E_k A_{ij}\text{.}\)</span> Therefore, by induction, <span class="process-math">\(\det(B_{ij})=\det(E_k)\det(A_{ij})\)</span> and <span class="process-math">\(\det(E_k)\)</span> is equal to 1, -1 or <span class="process-math">\(r\)</span> depending on the type of elementary row operation. If we substitute this information into equation <a href="" class="xref" data-knowl="./knowl/eq_4_f_1.html" title="Equation 1.1">(1.1)</a>, we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{split} \det(B)\amp = a_{i1} (-1)^{i+1} \det(E_k) \det(A_{i1}) + a_{i2} (-1)^{i+2} \det(E_k) \det(A_{i2}) \\ \amp \qquad + \cdots + a_{in} (-1)^{i+n} \det(E_k) \det(A_{in})\\ \amp = \det(E_k) \det(A) \, . \end{split}
+\end{equation*}
+</div>
+<p>This equation proves <span class="process-math">\(\det(EA)=\det(E_k)\det(A)\)</span> for any <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> where <span class="process-math">\(E_k\)</span> is the corresponding elementary row operation on the <span class="process-math">\(k\times k\)</span> matrices obtained in the cofactor expansion.</p>
+<p>The proof of the inductive step will be finished if we show that <span class="process-math">\(\det(E_k)=\det(E)\text{.}\)</span> This equality follows if we let <span class="process-math">\(A=I_n\)</span> in <span class="process-math">\(\det(EA)=\det(E_k)\det(A)\text{.}\)</span> Therefore, <span class="process-math">\(\det(E)\)</span> is equal to <span class="process-math">\(r\text{,}\)</span> or 1, or <span class="process-math">\(-1\text{,}\)</span> depending on the type of the elementary row operation <span class="process-math">\(E\)</span> since the same is true of <span class="process-math">\(\det(E_k)\)</span> by inductive hypothesis.</p>
+<p>Therefore, by the principle of induction, the claim is true for every <span class="process-math">\(n\geq 2\text{.}\)</span></p></article><span class="incontext"><a href="sec_mtx_elem.html#proof-1">in-context</a></span>
+</body>
+</html>

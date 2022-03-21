@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-21T15:04:02-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Conjugates and Modulus</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_complex_numbers.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="app_complex_numbers.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_complex_vect.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_complex_numbers.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="app_complex_numbers.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_complex_vect.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link part"><a href="part-app-orthog.html" data-scroll="part-app-orthog" class="internal"><span class="codenumber">I</span> <span class="title">Applications of Orthogonality</span></a></li>
+<li class="link"><a href="chap_SVD.html" data-scroll="chap_SVD" class="internal"><span class="codenumber">1</span> <span class="title">The Singular Value Decomposition</span></a></li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a></li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_conj_modulus"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber"></span> <span class="title">Conjugates and Modulus</span>
+</h2>
+<p id="p-238">We can draw pictures of complex numbers in the plane. We let the <span class="process-math">\(x\)</span>-axis be the real axis for a complex number and the <span class="process-math">\(y\)</span>-axis the imaginary axis. That is, if <span class="process-math">\(z=a+bi\)</span> we can think of <span class="process-math">\(z\)</span> as a directed line segment from the origin to the point <span class="process-math">\((a,b)\text{,}\)</span> where the terminal point of the segment is <span class="process-math">\(a\)</span> units from the imaginary axis and <span class="process-math">\(b\)</span> units from the real axis. For example, the complex numbers <span class="process-math">\(3+4i\)</span> and <span class="process-math">\(-8+3i\)</span> are shown in <a href="" class="xref" data-knowl="./knowl/F_complex_numbers.html" title="Figure A.2">Figure A.2</a>.</p>
+<figure class="figure figure-like" id="F_complex_numbers"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/A_complex_numbers.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">A.2<span class="period">.</span></span><span class="space"> </span>Two complex numbers.</figcaption></figure><p id="p-239">We can also think of the complex number <span class="process-math">\(z = a+bi\)</span> as the vector <span class="process-math">\([a \ b]^{\tr}\text{.}\)</span> In this way, the set <span class="process-math">\(\C\)</span> is a two-dimensional vector space over <span class="process-math">\(\R\)</span> with basis <span class="process-math">\(\{1, i\}\text{.}\)</span> Each of these complex numbers has a length that we call the <dfn class="terminology">norm</dfn> or <dfn class="terminology">modulus</dfn> of the complex number. We denote the norm of a complex number <span class="process-math">\(a+bi\)</span> as <span class="process-math">\(|a+bi|\text{.}\)</span> The distance formula or the Pythagorean theorem show that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+|a+bi| = \sqrt{a^2+b^2}\text{.}
+\end{equation*}
+</div>
+<p id="p-240"> Note that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a^2+b^2 = a^2-b^2i^2 = (a+bi)(a-bi)
+\end{equation*}
+</div>
+<p class="continuation">so the norm of the complex number <span class="process-math">\(a+bi\)</span> can also be viewed as a square root of the product of <span class="process-math">\(a+bi\)</span> with <span class="process-math">\(a-bi\text{.}\)</span> The number <span class="process-math">\(a-bi\)</span> is called the <dfn class="terminology">complex conjugate</dfn> of <span class="process-math">\(a+bi\text{.}\)</span> If we let <span class="process-math">\(z = a+bi\text{,}\)</span> we denote the complex conjugate of <span class="process-math">\(z\)</span> as <span class="process-math">\(\overline{z}\text{.}\)</span> So <span class="process-math">\(\overline{a+bi} = a-bi\text{.}\)</span></p>
+<article class="activity project-like" id="activity-5"><h2 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">A.3</span><span class="period">.</span>
+</h2>
+<div class="introduction" id="introduction-27"><p id="p-241">Let <span class="process-math">\(w = 2+3i\)</span> and <span class="process-math">\(z = -1+5i\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-74"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<p id="p-242">Find <span class="process-math">\(\overline{w}\)</span> and <span class="process-math">\(\overline{z}\text{.}\)</span></p></article><article class="task exercise-like" id="task-75"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<p id="p-243">Compute <span class="process-math">\(|w|\)</span> and <span class="process-math">\(|z|\text{.}\)</span></p></article><article class="task exercise-like" id="task-76"><h3 class="heading"><span class="codenumber">(c)</span></h3>
+<p id="p-244">Compute <span class="process-math">\(w\overline{w}\)</span> and <span class="process-math">\(z \overline{z}\text{.}\)</span></p></article><article class="task exercise-like" id="task-77"><h3 class="heading"><span class="codenumber">(d)</span></h3>
+<p id="p-245">Let <span class="process-math">\(z\)</span> be an arbitrary complex number. There is a relationship between <span class="process-math">\(|z|\text{,}\)</span> <span class="process-math">\(z\text{,}\)</span> and <span class="process-math">\(\overline{z}\text{.}\)</span> Find and verify this relationship.</p></article><article class="task exercise-like" id="task-78"><h3 class="heading"><span class="codenumber">(e)</span></h3>
+<p id="p-246">What is <span class="process-math">\(\overline{z}\)</span> if <span class="process-math">\(z \in \R\text{?}\)</span></p></article></article></section></div></main>
+</div>
+</body>
+</html>

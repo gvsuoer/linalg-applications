@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-16T15:40:44-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h4 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">26.10.b</span><span class="period">.</span>
+</h4>
+<div class="introduction">
+<p>Consider the data set in <a href="" class="xref" data-knowl="./knowl/T_life_exectancy.html" title="Table 26.11: Life expectancy in the US">Table 26.11</a>, which shows the average life expectance in years in the US for selected years from 1950 to 2010.</p>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">26.11<span class="period">.</span></span><span class="space"> </span>Life expectancy in the US</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r1 l0 t0 lines">year</td>
+<td class="l m b0 r0 l0 t0 lines">1950</td>
+<td class="l m b0 r0 l0 t0 lines">1965</td>
+<td class="l m b0 r0 l0 t0 lines">1980</td>
+<td class="l m b0 r0 l0 t0 lines">1995</td>
+<td class="l m b0 r0 l0 t0 lines">2010</td>
+</tr>
+<tr>
+<td class="l m b0 r1 l0 t0 lines">age</td>
+<td class="l m b0 r0 l0 t0 lines">68.14</td>
+<td class="l m b0 r0 l0 t0 lines">70.21</td>
+<td class="l m b0 r0 l0 t0 lines">73.70</td>
+<td class="l m b0 r0 l0 t0 lines">75.98</td>
+<td class="l m b0 r0 l0 t0 lines">78.49</td>
+</tr>
+</table></div></figure> (Data from macrotrends at <a class="external" href="https://www.macrotrends.net/countries/USA/united-states/life-expectancy" target="_blank"><code class="code-inline tex2jax_ignore">macrotrends.net/countries/USA/united-states/life-expectancy</code></a>.)</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p>Use <a href="" class="xref" data-knowl="./knowl/eq_ls_example.html" title="Equation 26.9">(26.9)</a> to find the least squares linear fit to the data set.</p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>A linear fit to the data will be provided by the least squares solution to <span class="process-math">\(A \vx = \vb\text{,}\)</span> where</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{array}{cc} 1\amp 1950 \\ 1\amp 1965 \\ 1 \amp 1980 \\  1\amp 1995 \\ 1 \amp 2010 \end{array}  \right], \ \vx = \left[ \begin{array}{c} a\\b \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{c} 68.14\\70.21\\73.70\\75.98  \\78.49 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Technology shows that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left(A^{\tr}A\right)^{-1}A^{\tr} \vb \approx [-276.1000 \ 0.1765]^{\tr}\text{.}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p>Use appropriate technology to find the QR factorization of an appropriate matrix <span class="process-math">\(A\text{,}\)</span> and use the QR decomposition to find the least squares linear fit to the data. Compare to what you found in part i.</p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>Technology shows that <span class="process-math">\(A = QR\text{,}\)</span> where</p>
+<div class="displaymath process-math">
+\begin{equation*}
+Q = \left[  \begin{array}{cr} \frac{1}{\sqrt{5}}\amp -\frac{2}{\sqrt{10}} \\ \frac{1}{\sqrt{5}}\amp -\frac{1}{\sqrt{10}} \\ \frac{1}{\sqrt{5}}\amp 0 \\ \frac{1}{\sqrt{5}}\amp \frac{1}{\sqrt{10}} \\ \frac{1}{\sqrt{5}}\amp \frac{2}{\sqrt{10}} \end{array}  \right] \text{ and }  R = \left[ \begin{array}{cc} \sqrt{5}\amp 1980 \sqrt{5} \\ 0\amp 15 \sqrt{10} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Then we have that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+R^{-1} Q^{\tr} \vb \approx [-276.1000 \ 0.1765]^{\tr}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">just as in part i.</p>
+</div></article></article><span class="incontext"><a href="sec_ls_exam.html#task-1463">in-context</a></span>
+</body>
+</html>

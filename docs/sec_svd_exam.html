@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-21T15:04:01-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Examples</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_svd_mtx_spaces.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chap_SVD.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_svd_summ.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_svd_mtx_spaces.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chap_SVD.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_svd_summ.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link part"><a href="part-app-orthog.html" data-scroll="part-app-orthog" class="internal"><span class="codenumber">I</span> <span class="title">Applications of Orthogonality</span></a></li>
+<li class="link"><a href="chap_SVD.html" data-scroll="chap_SVD" class="internal"><span class="codenumber">1</span> <span class="title">The Singular Value Decomposition</span></a></li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a></li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_svd_exam"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber"></span> <span class="title">Examples</span>
+</h2>
+<p id="p-90">What follows are worked examples that use the concepts from this section.</p>
+<article class="example example-like" id="example-3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-6"><p id="p-91">Let <span class="process-math">\(A = \left[ \begin{array}{cccc} 2 \amp 0 \amp 0 \amp 0 \\ 0 \amp 2 \amp 1 \amp 0 \\ 0\amp 1 \amp 2 \amp 0 \end{array} \right]\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-16"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-92">Find a singular value decomposition for <span class="process-math">\(A\text{.}\)</span> You may use technology to find eigenvalues and eigenvectors of matrices.</p>
+<div class="solution solution-like" id="solution-1">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p id="p-93">With <span class="process-math">\(A\)</span> as given, we have <span class="process-math">\(A^{\tr}A = \left[ \begin{array}{cccc} 4  \amp   0  \amp   0  \amp   0 \\  0  \amp   5  \amp   4  \amp   0 \\ 0  \amp   4  \amp   5  \amp   0 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]\text{.}\)</span> Technology shows that the eigenvalues of <span class="process-math">\(A^{\tr}A\)</span> are <span class="process-math">\(\lambda_1 = 9\text{,}\)</span> <span class="process-math">\(\lambda_2 = 4\text{,}\)</span> <span class="process-math">\(\lambda_3 = 1\text{,}\)</span> and <span class="process-math">\(\lambda_4 = 0\)</span> with corresponding orthonormal eigenvectors <span class="process-math">\(\vv_1 = \frac{1}{\sqrt{2}}[0 \ 1 \ 1 \ 0]^{\tr}\text{,}\)</span> <span class="process-math">\(\vv_2 = [1 \ 0 \ 0 \ 0]^{\tr}\text{,}\)</span> <span class="process-math">\(\vv_3 = \frac{1}{\sqrt{2}}[0 \ -1 \ 1 \ 0]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vv_4 = [0 \ 0 \ 0 \ 1]^{\tr}\text{.}\)</span> This makes <span class="process-math">\(V = [\vv_1 \ \vv_2 \ \vv_3 \ \vv_4]\text{.}\)</span> The singular values of <span class="process-math">\(A\)</span> are <span class="process-math">\(\sigma_1 = \sqrt{9} = 3\text{,}\)</span> <span class="process-math">\(\sigma_2 = \sqrt{4}= 2\text{,}\)</span> <span class="process-math">\(\sigma_3 = \sqrt{1} = 1\text{,}\)</span> and <span class="process-math">\(\sigma_4 = 0\text{,}\)</span> so <span class="process-math">\(\Sigma\)</span> is the <span class="process-math">\(3 \times 4\)</span> matrix with the nonzero singular values along the diagonal and zeros everywhere else. Finally, we define the vectors <span class="process-math">\(\vu_i\)</span> as <span class="process-math">\(\vu_i = \frac{1}{||A \vv_i||} A\vv_i\text{.}\)</span> Again, technology gives us <span class="process-math">\(\vu_1 = \frac{1}{\sqrt{2}}[0 \ 1 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\(\vu_2 = [1 \ 0 \ 0]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vu_3 = \frac{1}{\sqrt{2}}[0 \ -1 \ 1]^{\tr}\text{.}\)</span> Thus, a singular value decomposition of <span class="process-math">\(A\)</span> is <span class="process-math">\(U \Sigma V^{\tr}\text{,}\)</span> where</p>
+<div class="displaymath process-math">
+\begin{align*}
+U \amp = \left[ \begin{array}{ccr} 0\amp 1\amp 0\\
+\frac{1}{\sqrt{2}}\amp 0\amp -\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}\amp 0\amp \frac{1}{\sqrt{2}} \end{array} \right],\\
+\Sigma \amp = \left[ \begin{array}{cccc} 3\amp 0\amp 0\amp 0\\
+0\amp 2\amp 0\amp 0\\
+0\amp 0\amp 1\amp 0 \end{array} \right], \ \text{ and }\\
+V \amp = \left[ \begin{array}{ccrc} 0\amp 1\amp 0\amp 0\\
+\frac{1}{\sqrt{2}}\amp 0\amp -\frac{1}{\sqrt{2}}\amp 0\\
+\frac{1}{\sqrt{2}}\amp 0\amp \frac{1}{\sqrt{2}}\amp 0\\
+0\amp 0\amp 0\amp 1 \end{array} \right]\text{.}
+\end{align*}
+</div>
+</div></article><article class="task exercise-like" id="task-17"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-94">Use the singular value decomposition to find a basis for <span class="process-math">\(\Col A\text{,}\)</span> <span class="process-math">\(\Row A\text{,}\)</span> and <span class="process-math">\(\Nul A\text{.}\)</span></p>
+<div class="solution solution-like" id="solution-2">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p id="p-95">Recall that the right singular vectors of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> of rank <span class="process-math">\(r\)</span> form an orthonormal basis <span class="process-math">\(\{\vv_1, \vv_2, \vv_3, \ldots, \vv_n\}\)</span> of eigenvectors of <span class="process-math">\(A^{\tr}A\)</span> such that <span class="process-math">\((A^{\tr}A) \vv_i = \lambda_i \vv_i\)</span> for <span class="process-math">\(i\)</span> from 1 to <span class="process-math">\(n\)</span> with <span class="process-math">\(\lambda_1 \geq \lambda_{2} \geq \cdots \geq \lambda_n \geq 0\text{.}\)</span> These vectors are the columns of the matrix <span class="process-math">\(V = [\vv_1 \ \vv_2 \ \cdots \ \vv_n]\)</span> in a singular value decomposition of <span class="process-math">\(A\text{.}\)</span> For <span class="process-math">\(i\)</span> from 1 to <span class="process-math">\(r\text{,}\)</span> we let <span class="process-math">\(\vu_i = \frac{A\vv_i}{||A\vv_i||}\text{.}\)</span> Then the set <span class="process-math">\(\{\vu_1, \vu_2, \ldots, \vu_r\}\)</span> forms an orthonormal basis of <span class="process-math">\(\Col A\text{.}\)</span> We extend this set <span class="process-math">\(\{\vu_1, \vu_2, \ldots, \vu_r\}\)</span> to an orthonormal basis <span class="process-math">\(\{\vu_1, \vu_2, \ldots, \vu_r, \vu_{r+1} \vu_{r+2}, \ldots, \vu_m\}\)</span> of <span class="process-math">\(\R^m\text{.}\)</span> Recall also that <span class="process-math">\(A \vv_j = \vzero\)</span> for <span class="process-math">\(r+1 \leq j \leq n\text{.}\)</span> Since <span class="process-math">\(\dim(\Nul A) + \dim(\Col A) = n\text{,}\)</span> it follows that the vectors <span class="process-math">\(\vv_{r+1}\text{,}\)</span> <span class="process-math">\(\vv_{r+2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_n\)</span> form a basis for <span class="process-math">\(\Nul A\text{.}\)</span> Finally, the set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_r\}\)</span> is a basis for <span class="process-math">\(\Row A\text{.}\)</span> So in our example, we have <span class="process-math">\(m = 3\text{,}\)</span> <span class="process-math">\(n = 4\text{,}\)</span> <span class="process-math">\(\vv_1 = \frac{1}{\sqrt{2}}[0 \ 1 \ 1 \ 0]^{\tr}\text{,}\)</span> <span class="process-math">\(\vv_2 = [1 \ 0 \ 0 \ 0]^{\tr}\text{,}\)</span> <span class="process-math">\(\vv_3 = \frac{1}{\sqrt{2}}[0 \ -1 \ 1 \ 0]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vv_4 = [0 \ 0 \ 0 \ 1]^{\tr}\text{.}\)</span> Since the singular values of <span class="process-math">\(A\)</span> are <span class="process-math">\(3\text{,}\)</span> <span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> and <span class="process-math">\(0\text{,}\)</span> it follows that <span class="process-math">\(r = \rank(A) = 3\text{.}\)</span> We also have <span class="process-math">\(\vu_1 = \frac{1}{\sqrt{2}}[0 \ 1 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\(\vu_2 = [1 \ 0 \ 0]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vu_3 = \frac{1}{\sqrt{2}}[ 0 \ -1 \ 1]^{\tr}\text{.}\)</span> So</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{\frac{1}{\sqrt{2}}[0 \ 1 \ 1 \ 0]^{\tr}, [1 \ 0 \ 0 \ 0]^{\tr}, \frac{1}{\sqrt{2}}[0 \ -1 \ 1 \ 0]^{\tr}\right\}
+\end{equation*}
+</div>
+<p class="continuation">is a basis for <span class="process-math">\(\Row A\)</span> and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\{[0 \ 0 \ 0 \ 1]^{\tr}\}
+\end{equation*}
+</div>
+<p class="continuation">is a basis for <span class="process-math">\(\Nul A\text{.}\)</span> Finally, the set</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{ \frac{1}{\sqrt{2}}[0 \ 1 \ 1]^{\tr}, [1 \ 0 \ 0]^{\tr}, \frac{1}{\sqrt{2}}[[ 0 \ -1 \ 1]^{\tr}\right\}
+\end{equation*}
+</div>
+<p class="continuation">is a basis for <span class="process-math">\(\Col A\text{.}\)</span></p>
+</div></article></article><article class="example example-like" id="example-4"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-7">
+<p id="p-96">Let</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[ \begin{array}{ccc} 2\amp 5\amp 4\\6\amp 3\amp 0\\6\amp 3\amp 0\\2\amp 5\amp 4 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p id="p-97">The eigenvalues of <span class="process-math">\(A^{\tr}A\)</span> are <span class="process-math">\(\lambda_1 = 144\text{,}\)</span> <span class="process-math">\(\lambda_2 = 36\text{,}\)</span> and <span class="process-math">\(\lambda_3=0\)</span> with corresponding eigenvectors</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\vw_1 = \left[ \begin{array}{c} 2\\2\\1 \end{array}  \right], \ \vw_1 = \left[ \begin{array}{r} -2\\1\\2 \end{array}  \right], \ \text{ and }  \ \vw_1 = \left[ \begin{array}{r} 1\\-2\\2 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p id="p-98">In addition,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A \vw_1 = \left[ \begin{array}{c} 18\\18\\18\\18 \end{array}  \right] \ \text{ and }  A \vw_2 = \left[ \begin{array}{r} 9\\-9\\-9\\9 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+</div>
+<article class="task exercise-like" id="task-18"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-99">Find orthogonal matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\text{,}\)</span> and the matrix <span class="process-math">\(\Sigma\text{,}\)</span> so that <span class="process-math">\(U \Sigma V^{\tr}\)</span> is a singular value decomposition of <span class="process-math">\(A\text{.}\)</span></p>
+<div class="solution solution-like" id="solution-3">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p id="p-100">Normalizing the eigenvectors <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> and <span class="process-math">\(\vw_3\)</span> to normal eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_3\text{,}\)</span> respectively, gives us an orthogonal matrix</p>
+<div class="displaymath process-math">
+\begin{equation*}
+V = \left[  \begin{array}{crr} \frac{2}{3}\amp -\frac{2}{3}\amp \frac{1}{3}\\ \frac{2}{3}\amp \frac{1}{3}\amp - \frac{2}{3}\\  \frac{1}{3}\amp \frac{2}{3}\amp \frac{2}{3} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Now <span class="process-math">\(A \vv_i = A \frac{\vw_i}{||\vw_i||} = \frac{1}{|| \vw_i ||} A \vw_i\text{,}\)</span> so normalizing the vectors <span class="process-math">\(A \vv_1\)</span> and <span class="process-math">\(A \vv_2\)</span> gives us vectors</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\vu_1 = \frac{1}{2} \left[ \begin{array}{c} 1\\1\\1\\1 \end{array}  \right] \ \text{ and }  \ \vu_2 = \frac{1}{2} \left[ \begin{array}{r} 1\\-1\\-1\\1 \end{array}  \right]
+\end{equation*}
+</div>
+<p class="continuation">that are the first two columns of our matrix <span class="process-math">\(U\text{.}\)</span> Given that <span class="process-math">\(U\)</span> is a <span class="process-math">\(4 \times 4\)</span> matrix, we need to find two other vectors orthogonal to <span class="process-math">\(\vu_1\)</span> and <span class="process-math">\(\vu_2\)</span> that will combine with <span class="process-math">\(\vu_1\)</span> and <span class="process-math">\(\vu_2\)</span> to form an orthogonal basis for <span class="process-math">\(\R^4\text{.}\)</span> Letting <span class="process-math">\(\vz_1 = [1 \ 1 \ 1 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\(\vz_2 = [1 \ -1 \ -1 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\(\vz_3 = [1 \ 0 \ 0 \ 0]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vz_4 = [0 \ 1 \ 0 \ 1]^{\tr}\text{,}\)</span> a computer algebra system shows that the reduced row echelon form of the matrix <span class="process-math">\([\vz_1 \ \vz_2 \ \vz_3 \ \vz_4]\)</span> is <span class="process-math">\(I_4\text{,}\)</span> so that vectors <span class="process-math">\(\vz_1\text{,}\)</span> <span class="process-math">\(\vz_2\text{,}\)</span> <span class="process-math">\(\vz_3\text{,}\)</span> <span class="process-math">\(\vz_4\)</span> are linearly independent. Letting <span class="process-math">\(\vw_1 = \vz_1\)</span> and <span class="process-math">\(\vw_2 = \vz_2\text{,}\)</span> the Gram-Schmidt process shows that the set <span class="process-math">\(\{\vw_1, \vw_2, \vw_3, \vw_4\}\)</span> is an orthogonal basis for <span class="process-math">\(\R^4\text{,}\)</span> where</p>
+<div class="displaymath process-math">
+\begin{align*}
+\vw_3 \amp = [1 \ 0 \ 0 \ 0]^{\tr} - \frac{[1 \ 0 \ 0 \ 0]^{\tr} \cdot [1 \ 1 \ 1 \ 1]^{\tr}}{[1 \ 1 \ 1 \ 1]^{\tr} \cdot [1 \ 1 \ 1 \ 1]^{\tr}} [1 \ 1 \ 1 \ 1]^{\tr}\\
+\amp \qquad - \frac{[1 \ 0 \ 0 \ 0]^{\tr} \cdot [1 \ -1 \ -1 \ 1]^{\tr}}{[1 \ -1 \ -1 \ 1]^{\tr} \cdot [1 \ -1 \ -1 \ 1]^{\tr}} [1 \ -1 \ -1 \ 1]^{\tr}\\
+\amp = [1 \ 0 \ 0 \ 0]^{\tr} - \frac{1}{4}[1 \ 1 \ 1 \ 1]^{\tr} - \frac{1}{4} [1 \ -1 \ -1 \ 1]^{\tr}\\
+\amp = \frac{1}{4} [2 \ 0 \ 0 \ -2]^{\tr}
+\end{align*}
+</div>
+<p class="continuation">and (using <span class="process-math">\([1 \ 0 \ 0 \ -1]^{\tr}\)</span> for <span class="process-math">\(\vw_3\)</span>)</p>
+<div class="displaymath process-math">
+\begin{align*}
+\vw_4 \amp = [0 \ 1 \ 0 \ 0]^{\tr} - \frac{[0 \ 1 \ 0 \ 0]^{\tr} \cdot [1 \ 1 \ 1 \ 1]^{\tr}}{[1 \ 1 \ 1 \ 1]^{\tr} \cdot [1 \ 1 \ 1 \ 1]^{\tr}} [1 \ 1 \ 1 \ 1]^{\tr}\\
+\amp \qquad - \frac{[0 \ 1 \ 0 \ 0]^{\tr} \cdot [1 \ -1 \ -1 \ 1]^{\tr}}{[1 \ -1 \ -1 \ 1]^{\tr} \cdot [1 \ -1 \ -1 \ 1]^{\tr}} [1 \ -1 \ -1 \ 1]^{\tr}\\
+\amp \qquad - \frac{[0 \ 1 \ 0 \ 0]^{\tr} \cdot [1 \ 0 \ 0 \ -1]^{\tr}}{[1 \ 0 \ 0 \ -1]^{\tr} \cdot [1 \ 0 \ 0 \ -1]^{\tr}} [1 \ 0 \ 0 \ -1]^{\tr}\\
+\amp = [0 \ 1 \ 0 \ 0]^{\tr} - \frac{1}{4}[1 \ 1 \ 1 \ 1]^{\tr} + \frac{1}{4} [1 \ -1 \ -1 \ 1]^{\tr} - \vzero\\
+\amp = \frac{1}{4} [0 \ 2 \ -2 \ 0]^{\tr}\text{.}
+\end{align*}
+</div>
+<p class="continuation">The set <span class="process-math">\(\{\vu_1, \vu_2, \vu_3, \vu_4\}\)</span> where <span class="process-math">\(\vu_1 = \frac{1}{2}[1 \ 1 \ 1 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\(\vu_2 = \frac{1}{2}[1 \ -1 \ -1 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\(\vu_3 = \frac{1}{\sqrt{2}}[1 \ 0 \ 0 \ -1]^{\tr}\)</span> and <span class="process-math">\(\vu_4 = \frac{1}{\sqrt{2}}[0 \ 1 \ -1 \ 0]^{\tr}\)</span> is an orthonormal basis for <span class="process-math">\(\R^4\)</span> and we can let</p>
+<div class="displaymath process-math">
+\begin{equation*}
+U = \left[  \begin{array}{crrr} \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{1}{\sqrt{2}} \amp  0 \\ \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  \frac{1}{\sqrt{2}} \\  \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  -\frac{1}{\sqrt{2}} \\ \frac{1}{2} \amp  \frac{1}{2} \amp  -\frac{1}{\sqrt{2}} \amp  0 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The singular values of <span class="process-math">\(A\)</span> are <span class="process-math">\(\sigma_1 = \sqrt{\lambda_1} = 12\)</span> and <span class="process-math">\(\sigma_2 = \sqrt{\lambda_2} = 6\text{,}\)</span> and so</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\Sigma = \begin{bmatrix}12\amp 0\amp 0 \\ 0\amp 6\amp 0 \\0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Therefore, a singular value decomposition of <span class="process-math">\(A\)</span> is <span class="process-math">\(U \Sigma V^{\tr}\)</span> of</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{array}{crrr} \frac{1}{2} \amp  \frac{1}{2} \amp  \frac{1}{\sqrt{2}} \amp  0 \\ \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  \frac{1}{\sqrt{2}} \\  \frac{1}{2} \amp  -\frac{1}{2} \amp  0 \amp  -\frac{1}{\sqrt{2}} \\ \frac{1}{2} \amp  \frac{1}{2} \amp  -\frac{1}{\sqrt{2}} \amp  0 \end{array}  \right] \begin{bmatrix}12\amp 0\amp 0 \\ 0\amp 6\amp 0 \\0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{bmatrix}  \left[ \begin{array}{rrc} \frac{2}{3}\amp \frac{2}{3}\amp \frac{1}{3}\\ -\frac{2}{3}\amp \frac{1}{3}\amp \frac{2}{3}\\  \frac{1}{3}\amp -\frac{2}{3}\amp \frac{2}{3} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="task-19"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-101">Determine the best rank 1 approximation to <span class="process-math">\(A\text{.}\)</span></p>
+<div class="solution solution-like" id="solution-4">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p id="p-102">Determine the best rank 1 approximation to <span class="process-math">\(A\text{.}\)</span> The outer product decomposition of <span class="process-math">\(A\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \sigma_1 \vu_1 \vv_1^{\tr} + \sigma_2 \vu_2 \vv_2^{\tr}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">So the rank one approximation to <span class="process-math">\(A\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sigma_1 \vu_1 \vv_1^{\tr} = 12 \left(\frac{1}{2}\right) \left[ \begin{array}{c} 1\\1\\1\\1 \end{array}  \right] \left[ \begin{array}{ccc} \frac{2}{3} \amp  \frac{2}{3} \amp  \frac{1}{3} \end{array}  \right] = \left[ \begin{array}{ccc} 4\amp 4\amp 2\\ 4\amp 4\amp 2 \\ 4\amp 4\amp 2\\ 4\amp 4\amp 2 \end{array}   \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Note that the rows in this rank one approximation are the averages of the two distinct rows in the matrix <span class="process-math">\(A\text{,}\)</span> which makes sense considering that this is the closest rank one matrix to <span class="process-math">\(A\text{.}\)</span></p>
+</div></article></article></section></div></main>
+</div>
+</body>
+</html>

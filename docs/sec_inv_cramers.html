@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-17T15:36:16-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>An Explicit Formula for the Inverse and Cramer's Rule</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
+\def\cleardoublepage{\clearemptydoublepage}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\renewcommand{\qedsymbol}{\blacksquare}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\newcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_det_geom.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chap_det_properties.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_det_transpose.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_det_geom.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chap_det_properties.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_det_transpose.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="fm_preface.html" data-scroll="fm_preface" class="internal">Preface</a></li></ul>
+</li>
+<li class="link part"><a href="part-eigen.html" data-scroll="part-eigen" class="internal"><span class="codenumber">I</span> <span class="title">Eigenvalues and Eigenvectors</span></a></li>
+<li class="link">
+<a href="chap_det_properties.html" data-scroll="chap_det_properties" class="internal"><span class="codenumber">1</span> <span class="title">Properties of Determinants</span></a><ul>
+<li><a href="sec_det_prop_intro.html" data-scroll="sec_det_prop_intro" class="internal">Introduction</a></li>
+<li><a href="sec_det_row_ops.html" data-scroll="sec_det_row_ops" class="internal">Elementary Row Operations and Their Effects on the Determinant</a></li>
+<li><a href="sec_mtx_elem.html" data-scroll="sec_mtx_elem" class="internal">Elementary Matrices</a></li>
+<li><a href="sec_det_geom.html" data-scroll="sec_det_geom" class="internal">Geometric Interpretation of the Determinant</a></li>
+<li><a href="sec_inv_cramers.html" data-scroll="sec_inv_cramers" class="active">An Explicit Formula for the Inverse and Cramer's Rule</a></li>
+<li><a href="sec_det_transpose.html" data-scroll="sec_det_transpose" class="internal">The Determinant of the Transpose</a></li>
+<li><a href="sec_det_row_swap.html" data-scroll="sec_det_row_swap" class="internal">Row Swaps and Determinants</a></li>
+<li><a href="sec_cofactor_expand.html" data-scroll="sec_cofactor_expand" class="internal">Cofactor Expansions</a></li>
+<li><a href="sec_mtx_lu_factor.html" data-scroll="sec_mtx_lu_factor" class="internal">The LU Factorization of a Matrix</a></li>
+<li><a href="sec_det_prop_exam.html" data-scroll="sec_det_prop_exam" class="internal">Examples</a></li>
+<li><a href="sec_det_prop_summ.html" data-scroll="sec_det_prop_summ" class="internal">Summary</a></li>
+<li><a href="sec_det_prop_exer.html" data-scroll="sec_det_prop_exer" class="internal">Exercises</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a><ul>
+<li><a href="sec_complex_numbers.html" data-scroll="sec_complex_numbers" class="internal">Complex Numbers</a></li>
+<li><a href="sec_conj_modulus.html" data-scroll="sec_conj_modulus" class="internal">Conjugates and Modulus</a></li>
+<li><a href="sec_complex_vect.html" data-scroll="sec_complex_vect" class="internal">Complex Vectors</a></li>
+</ul>
+</li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_inv_cramers"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber"></span> <span class="title">An Explicit Formula for the Inverse and Cramer's Rule</span>
+</h2>
+<p id="p-100">In <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "chap_matrix_inverse" missing or not unique]</code> we found the inverse <span class="process-math">\(A^{-1}\)</span> using row reduction of the matrix obtained by augmenting <span class="process-math">\(A\)</span> with <span class="process-math">\(I_n\text{.}\)</span> However, in theoretical applications, having an explicit formula for <span class="process-math">\(A^{-1}\)</span> can be handy. Such an explicit formula provides us with an algebraic expression for <span class="process-math">\(A^{-1}\)</span> in terms of the entries of <span class="process-math">\(A\text{.}\)</span> A consequence of the formula we develop is Cramer's Rule, which can be used to provide formulas that give solutions to certain linear systems.</p>
+<p id="p-101">We begin with an interesting connection between a square matrix and the matrix of its cofactors that we explore in the next activity.</p>
+<article class="activity project-like" id="act_4_f_4"><h3 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-11"><p id="p-102">Let <span class="process-math">\(A = \left[ \begin{array}{crc} 2\amp 1\amp 3 \\ 1\amp 4\amp 5 \\ 2\amp -1\amp 2 \end{array}  \right]\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-30"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-103">Calculate the <span class="process-math">\((1,1)\text{,}\)</span> <span class="process-math">\((1,2)\text{,}\)</span> and <span class="process-math">\((1,3)\)</span> cofactors of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-31"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-104">If <span class="process-math">\(C_{ij}\)</span> represents the <span class="process-math">\((i,j)\)</span> cofactor of <span class="process-math">\(A\text{,}\)</span> then the cofactor matrix <span class="process-math">\(C\)</span> is the matrix <span class="process-math">\(C = [C_{ij}]\text{.}\)</span> The <dfn class="terminology">adjugate</dfn> matrix of <span class="process-math">\(A\)</span> is the transpose of the cofactor matrix. In our example, the adjugate matrix of <span class="process-math">\(A\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\adj(A) = \left[ \begin{array}{rrr} 13\amp -5\amp -7 \\ 8\amp -2\amp -7 \\ -9\amp 4\amp 7 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Check the entries of this adjugate matrix with your calculations from part (a). Then calculate the matrix product</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A \ \adj(A)\text{.}
+\end{equation*}
+</div></article><article class="task exercise-like" id="task-32"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-105">What do you notice about the product <span class="process-math">\(A \ \adj(A)\text{?}\)</span> How is this product related to <span class="process-math">\(\det(A)\text{?}\)</span></p></article></article><p id="p-106">The result of <a href="" class="xref" data-knowl="./knowl/act_4_f_4.html" title="Activity 1.6">Activity 1.6</a> is rather surprising, but it is valid in general. That is, if <span class="process-math">\(A = [a_{ij}]\)</span> is an invertible <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(C_{ij}\)</span> is the <span class="process-math">\((i,j)\)</span> cofactor of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A \ \adj(A)=\det(A) I_n\text{.}\)</span> In other words, <span class="process-math">\(A \left(\frac{\adj(A)}{\det(A)}\right) = I_n\)</span> and so</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A^{-1} = \frac{1}{\det(A)} \adj(A)\text{.}
+\end{equation*}
+</div>
+<p id="p-107">This gives us another formulation of the inverse of a matrix. To see why <span class="process-math">\(A \ \adj(A) = \det(A) I_n\text{,}\)</span> we use the row-column version of the matrix product to find the <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(A \ \adj(A)\)</span> as indicated by the shaded row and column</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\  \boldsymbol{a_{i1}}  \amp \boldsymbol{a_{i2}}     \amp  \boldsymbol{\cdots}   \amp  \boldsymbol{a_{in}} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right] \left[ \begin{array}{cccccc} C_{11}   \amp  C_{21} \amp  \cdots    \amp \boldsymbol{C_{j1}} \amp \cdots \amp  C_{n1} \\ C_{12}   \amp  C_{22} \amp  \cdots    \amp \boldsymbol{C_{j2}} \amp \cdots \amp  C_{n2} \\ \vdots   \amp   \vdots  \amp          \amp            \amp        \amp  \vdots \\ C_{1n}   \amp  C_{2n} \amp  \cdots  \amp  \boldsymbol{C_{jn}} \amp \cdots \amp  C_{nn} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p id="p-108">Thus the <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(A \ \adj(A)\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation}
+a_{i1}C_{j1} + a_{i2}C_{j2} + \cdots + a_{in}C_{jn}\text{.}\label{eq_4_f_4}\tag{1.4}
+\end{equation}
+</div>
+<p id="p-109">Notice that if <span class="process-math">\(i=j\text{,}\)</span> then expression <a href="" class="xref" data-knowl="./knowl/eq_4_f_4.html" title="Equation 1.4">(1.4)</a> is the cofactor expansion of <span class="process-math">\(A\)</span> along the <span class="process-math">\(i\)</span>th row. So the <span class="process-math">\(ii\)</span>th entry of <span class="process-math">\(A \ \adj(A)\)</span> is <span class="process-math">\(\det(A)\text{.}\)</span> It remains to show that the <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(A \ \adj(A)\)</span> is 0 when <span class="process-math">\(i \neq j\text{.}\)</span></p>
+<p id="p-110">When <span class="process-math">\(i \neq j\text{,}\)</span> the expression <a href="" class="xref" data-knowl="./knowl/eq_4_f_4.html" title="Equation 1.4">(1.4)</a> is the cofactor expansion of the matrix</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{array}{cccc} a_{11}     \amp  a_{12}   \amp  \cdots   \amp  a_{1n} \\ a_{21}     \amp a_{22}    \amp  \cdots  \amp  a_{2n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{i1}      \amp a_{i2}     \amp  \cdots   \amp  a_{in} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{j-11}      \amp a_{j-12}     \amp  \cdots   \amp  a_{j-1n} \\ \boldsymbol{a_{i1}}  \amp   \boldsymbol{a_{i2}}     \amp  \cdots   \amp  \boldsymbol{a_{in}} \\ a_{j+11}      \amp a_{i+12}     \amp  \cdots   \amp  a_{j+1n} \\ \vdots     \amp  \vdots      \amp            \amp \vdots  \\ a_{n1}     \amp  a_{n2}   \amp  \cdots   \amp a_{nn} \end{array}  \right]
+\end{equation*}
+</div>
+<p class="continuation">along the <span class="process-math">\(j\)</span>th row. This matrix is the one obtained by replacing the <span class="process-math">\(j\)</span>th row of <span class="process-math">\(A\)</span> with the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A\text{.}\)</span> Since this matrix has two identical rows, it is not row equivalent to the identity matrix and is therefore not invertible. Thus, when <span class="process-math">\(i \neq j\)</span> expression <a href="" class="xref" data-knowl="./knowl/eq_4_f_4.html" title="Equation 1.4">(1.4)</a> is 0. This makes <span class="process-math">\(A \ \adj(A) = \det(A) I_n\text{.}\)</span></p>
+<p id="p-111">One consequence of the formula <span class="process-math">\(A^{-1} = \frac{1}{\det(A)} \adj(A)\)</span> is Cramer's rule, which describes the solution to the equation <span class="process-math">\(A \vx = \vb\text{.}\)</span></p>
+<article class="activity project-like" id="act_4_f_5"><h3 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-12"><p id="p-112">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 3\amp 1 \\ 4\amp 2 \end{array} \right]\text{,}\)</span> and let <span class="process-math">\(\vb = \left[ \begin{array}{c}2\\6 \end{array} \right]\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-33"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-113">Solve the equation <span class="process-math">\(A \vx = \vb\)</span> using the inverse of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-34"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-114">Let <span class="process-math">\(A_1 = \left[ \begin{array}{cc} 2\amp 1 \\ 6\amp 2 \end{array} \right]\text{,}\)</span> the matrix obtained by replacing the first column of <span class="process-math">\(A\)</span> with <span class="process-math">\(\vb\text{.}\)</span> Calculate <span class="process-math">\(\frac{\det(A_1)}{\det(A)}\)</span> and compare to your solution from part (a). What do you notice?</p></article><article class="task exercise-like" id="task-35"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-115">Now let <span class="process-math">\(A_2 = \left[ \begin{array}{cc} 3\amp 2 \\ 4\amp 6 \end{array} \right]\text{,}\)</span> the matrix obtained by replacing the second column of <span class="process-math">\(A\)</span> with <span class="process-math">\(\vb\text{.}\)</span> Calculate <span class="process-math">\(\frac{\det(A_2)}{\det(A)}\)</span> and compare to your solution from part (a). What do you notice?</p></article></article><p id="p-116">The result from <a href="" class="xref" data-knowl="./knowl/act_4_f_5.html" title="Activity 1.7">Activity 1.7</a> may seem a bit strange, but turns out to be true in general. The result is called <em class="emphasis">Cramer's Rule</em>.</p>
+<article class="theorem theorem-like" id="theorem-6"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Cramer's Rule.</span>
+</h3>
+<p id="p-117">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> invertible matrix. For any <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{,}\)</span> the solution <span class="process-math">\(\vx\)</span> of <span class="process-math">\(A\vx=\vb\)</span> has entries</p>
+<div class="displaymath process-math">
+\begin{equation*}
+x_i =\frac{\det(A_i)}{\det(A)}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(A_i\)</span> represents the matrix formed by replacing <span class="process-math">\(i\)</span>th column of <span class="process-math">\(A\)</span> with <span class="process-math">\(\vb\text{.}\)</span> </p></article><p id="p-118">To see why Cramer's Rule works in general, let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> invertible matrix and <span class="process-math">\(\vb = [b_1 \ b_2 \ \cdots \ b_n]^{\tr}\text{.}\)</span> The solution to <span class="process-math">\(A \vx = \vb\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\vx = A^{-1} \vb = \frac{1}{\det(A)} \adj(A) \vb = \frac{1}{\det(A)}\left[ \begin{array}{cccc} C_{11}   \amp  C_{21} \amp \cdots \amp  C_{n1} \\ C_{12}   \amp  C_{22} \amp \cdots \amp  C_{n2} \\ \vdots   \amp   \vdots  \amp        \amp  \vdots \\ C_{1n}   \amp  C_{2n} \amp \cdots \amp  C_{nn} \end{array}  \right] \left[ \begin{array}{c} b_1 \\ b_2 \\ \vdots \\ b_n \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p id="p-119">Expanding the product gives us</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\vx = \frac{1}{\det(A)}\left[ \begin{array}{c} b_1C_{11} + b_2C_{21} + \cdots + b_nC_{n1}  \\ b_1C_{12} + b_2C_{22} + \cdots + b_nC_{n2}   \\ \vdots \\ b_1C_{1n} + b_2C_{2n} + \cdots + b_nC_{nn} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p id="p-120">The expression</p>
+<div class="displaymath process-math">
+\begin{equation*}
+b_1C_{1j} + b_2C_{2j} + \cdots + b_nC_{nj}
+\end{equation*}
+</div>
+<p class="continuation">is the cofactor expansion of the matrix</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A_j = \left[ \begin{array}{cccc&gt;{\columncolor{Gray}}cccc} a_{11}   \amp  a_{12} \amp  \cdots    \amp a_{1j-1} \amp \boldsymbol{b_1}   \amp a_{1j+1}    \amp \cdots   \amp  a_{1n} \\ a_{21}   \amp  a_{22} \amp  \cdots    \amp a_{2j-1} \amp \boldsymbol{b_2}   \amp a_{2j+1}  \amp \cdots  \amp  a_{2n} \\ \vdots   \amp   \vdots  \amp          \amp              \amp     \amp         \amp        \amp  \vdots \\ a_{n1}   \amp  a_{n2} \amp  \cdots    \amp a_{nj-1} \amp \boldsymbol{b_n}   \amp a_{nj+1}  \amp \cdots  \amp  a_{nn} \end{array}  \right]
+\end{equation*}
+</div>
+<p class="continuation">along the <span class="process-math">\(j\)</span>th column, giving us the formula in Cramer's Rule.</p>
+<p id="p-121">Cramer's Rule is not a computationally efficient method. To find a solution to a linear system of <span class="process-math">\(n\)</span> equations in <span class="process-math">\(n\)</span> unknowns using Cramer's Rule requires calculating <span class="process-math">\(n+1\)</span> determinants of <span class="process-math">\(n \times n\)</span> matrices — quite inefficient when <span class="process-math">\(n\)</span> is 3 or greater. Our standard method of solving systems using Gaussian elimination is much more efficient. However, Cramer's Rule does provide a formula for the solution to <span class="process-math">\(A \vx = \vb\)</span> as long as <span class="process-math">\(A\)</span> is invertible.</p></section></div></main>
+</div>
+</body>
+</html>

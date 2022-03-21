@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-17T15:36:16-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Determinant of the Transpose</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
+\def\cleardoublepage{\clearemptydoublepage}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\renewcommand{\qedsymbol}{\blacksquare}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\newcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_inv_cramers.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chap_det_properties.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_det_row_swap.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_inv_cramers.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chap_det_properties.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_det_row_swap.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="fm_preface.html" data-scroll="fm_preface" class="internal">Preface</a></li></ul>
+</li>
+<li class="link part"><a href="part-eigen.html" data-scroll="part-eigen" class="internal"><span class="codenumber">I</span> <span class="title">Eigenvalues and Eigenvectors</span></a></li>
+<li class="link">
+<a href="chap_det_properties.html" data-scroll="chap_det_properties" class="internal"><span class="codenumber">1</span> <span class="title">Properties of Determinants</span></a><ul>
+<li><a href="sec_det_prop_intro.html" data-scroll="sec_det_prop_intro" class="internal">Introduction</a></li>
+<li><a href="sec_det_row_ops.html" data-scroll="sec_det_row_ops" class="internal">Elementary Row Operations and Their Effects on the Determinant</a></li>
+<li><a href="sec_mtx_elem.html" data-scroll="sec_mtx_elem" class="internal">Elementary Matrices</a></li>
+<li><a href="sec_det_geom.html" data-scroll="sec_det_geom" class="internal">Geometric Interpretation of the Determinant</a></li>
+<li><a href="sec_inv_cramers.html" data-scroll="sec_inv_cramers" class="internal">An Explicit Formula for the Inverse and Cramer's Rule</a></li>
+<li><a href="sec_det_transpose.html" data-scroll="sec_det_transpose" class="active">The Determinant of the Transpose</a></li>
+<li><a href="sec_det_row_swap.html" data-scroll="sec_det_row_swap" class="internal">Row Swaps and Determinants</a></li>
+<li><a href="sec_cofactor_expand.html" data-scroll="sec_cofactor_expand" class="internal">Cofactor Expansions</a></li>
+<li><a href="sec_mtx_lu_factor.html" data-scroll="sec_mtx_lu_factor" class="internal">The LU Factorization of a Matrix</a></li>
+<li><a href="sec_det_prop_exam.html" data-scroll="sec_det_prop_exam" class="internal">Examples</a></li>
+<li><a href="sec_det_prop_summ.html" data-scroll="sec_det_prop_summ" class="internal">Summary</a></li>
+<li><a href="sec_det_prop_exer.html" data-scroll="sec_det_prop_exer" class="internal">Exercises</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a><ul>
+<li><a href="sec_complex_numbers.html" data-scroll="sec_complex_numbers" class="internal">Complex Numbers</a></li>
+<li><a href="sec_conj_modulus.html" data-scroll="sec_conj_modulus" class="internal">Conjugates and Modulus</a></li>
+<li><a href="sec_complex_vect.html" data-scroll="sec_complex_vect" class="internal">Complex Vectors</a></li>
+</ul>
+</li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_det_transpose"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Determinant of the Transpose</span>
+</h2>
+<p id="p-122">In this section we establish the fact that the determinant of a square matrix is the same as the determinant of its transpose.</p>
+<p id="p-123">The result is easily verified for <span class="process-math">\(2 \times 2\)</span> matrices, so we will proceed by induction and assume that the determinant of the transpose of any <span class="process-math">\((n-1) \times (n-1)\)</span> matrix is the same as the determinant of its transpose. Suppose <span class="process-math">\(A = [a_{ij}]\)</span> is an <span class="process-math">\(n \times n\)</span> matrix. By definition,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} + \cdots + a_{1n}C_{1n}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\det(A^{\tr}) = a_{11}C_{11} + a_{21}C_{21} + a_{31}C_{31} + \cdots + a_{n1}C_{n1}\text{.}
+\end{equation*}
+</div>
+<p id="p-124">Note that the only terms in either determinant that contains <span class="process-math">\(a_{11}\)</span> is <span class="process-math">\(a_{11}C_{11}\text{.}\)</span> This term is the same in both determinants, so we proceed to examine other elements. Let us consider all terms in the cofactor expansion for <span class="process-math">\(\det(A^{\tr})\)</span> that contain <span class="process-math">\(a_{i1}a_{1j}\text{.}\)</span> The only summand that contains <span class="process-math">\(a_{i1}\)</span> is <span class="process-math">\(a_{i1}C_{i1}\text{.}\)</span> Letting <span class="process-math">\(A_{ij}\)</span> be the sub-matrix of <span class="process-math">\(A\)</span> obtained by deleting the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column, we see that <span class="process-math">\(a_{i1}C_{i1} = (-1)^{i+1}a_{i1}\det(A_{i1})\text{.}\)</span> Now let's examine the sub-matrix <span class="process-math">\(A_{i1}\text{:}\)</span></p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{array}{ccccccc} \boldsymbol{a_{12}} \amp  \boldsymbol{a_{13}} \amp  \boldsymbol{\cdots}    \amp \boldsymbol{a_{1j}} \amp \boldsymbol{\cdots} \amp  \boldsymbol{a_{1n-1}} \amp  \boldsymbol{a_{1n}} \\ a_{22} \amp  a_{23} \amp  \cdots    \amp \boldsymbol{a_{2j}} \amp \cdots \amp  a_{2n-1} \amp  a_{2n} \\ \boldsymbol{\vdots} \amp        \amp  \ddots    \amp  \vdots          \amp \ddots \amp  \amp  \\ a_{i-12} \amp  a_{i-13} \amp  \cdots    \amp \boldsymbol{a_{i-1j}} \amp \cdots \amp  a_{i-1n-1} \amp  a_{i-1n} \\ a_{i+12} \amp  a_{i+13} \amp  \cdots    \amp \boldsymbol{a_{i+1j}} \amp \cdots \amp  a_{i+1n-1} \amp  a_{i+1n} \\ a_{n2} \amp  a_{n3} \amp  \cdots    \amp \boldsymbol{a_{nj}} \amp \cdots \amp  a_{nn-1} \amp  a_{nn} \end{array}  \right]
+\end{equation*}
+</div>
+<p id="p-125">When we expand along the first row to calculate <span class="process-math">\(\det(A_{i1})\text{,}\)</span> the only term that will involve <span class="process-math">\(a_{1j}\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(-1)^{j-1+1}a_{1j}\det(A_{i1, 1j})\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(A_{ik,jm}\)</span> denotes the sub-matrix of <span class="process-math">\(A\)</span> obtained by deleting rows <span class="process-math">\(i\)</span> and <span class="process-math">\(k\)</span> and columns <span class="process-math">\(j\)</span> and <span class="process-math">\(m\)</span> from <span class="process-math">\(A\text{.}\)</span> So the term that contains <span class="process-math">\(a_{i1}a_{1j}\)</span> in the cofactor expansion for <span class="process-math">\(\det(A^{\tr})\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation}
+(-1){i+1}a_{i1}(-1)^{j}a_{1j}\det(A_{i1_{1j}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{i1, 1j})\text{.}\label{eq_det_transpose_1}\tag{1.5}
+\end{equation}
+</div>
+<p id="p-126">Now we examine the cofactor expansion for <span class="process-math">\(\det(A)\)</span> to find the terms that contain <span class="process-math">\(a_{i1}a_{1j}\text{.}\)</span> The quantity <span class="process-math">\(a_{1j}\)</span> only appears in the cofactor expansion as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{1j}C_{1j} = (-1)^{1+j}a_{1j}\det(A_{1j})\text{.}
+\end{equation*}
+</div>
+<p id="p-127">Now let's examine the sub-matrix <span class="process-math">\(A_{1j}\text{:}\)</span></p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{array}{ccccccc} \boldsymbol{a_{21}}   \amp  a_{22}   \amp  \cdots    \amp a_{2j-1} \amp a_{2j+1} \amp \cdots \amp  a_{2n} \\ \boldsymbol{a_{31}}   \amp  a_{32}   \amp  \cdots    \amp a_{3j-1} \amp a_{3j+1} \amp \cdots \amp  a_{3n} \\ \boldsymbol{\vdots}   \amp            \amp  \ddots    \amp  \vdots   \amp \ddots    \amp       \amp  \\  \boldsymbol{a_{i1}}   \amp  \boldsymbol{a_{i2}}   \amp  \boldsymbol{\cdots}     \amp \boldsymbol{a_{ij-1}} \amp \boldsymbol{a_{ij+1}}   \amp \boldsymbol{\cdots} \amp  \boldsymbol{a_{in}} \\ \boldsymbol{\vdots}   \amp            \amp             \amp  \vdots   \amp          \amp \vdots \amp \\ \boldsymbol{a_{n1}}   \amp  a_{n2}   \amp  \cdots    \amp a_{nj-1} \amp a_{nj+1}  \amp \cdots \amp  a_{nn} \end{array}  \right]
+\end{equation*}
+</div>
+<p id="p-128">Here is where we use the induction hypothesis. Since <span class="process-math">\(A_{1j}\)</span> is an <span class="process-math">\((n-1) \times (n-1)\)</span> matrix, its determinant can be found with a cofactor expansion down the first column. The only term in this cofactor expansion that will involve <span class="process-math">\(a_{i1}\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(-1)^{i-1+1}a_{i1} \det(A_{1i, j1})\text{.}
+\end{equation*}
+</div>
+<p id="p-129">So the term that contains <span class="process-math">\(a_{i1}a_{1j}\)</span> in the cofactor expansion for <span class="process-math">\(\det(A)\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation}
+(-1)^{1+j}a_{1j}(-1)^{i-1+1}a_{i1} \det(A_{1j_{i1}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{1i, j1})\text{.}\label{eq_det_transpose_2}\tag{1.6}
+\end{equation}
+</div>
+<p id="p-130">Since the quantities in <a href="" class="xref" data-knowl="./knowl/eq_det_transpose_1.html" title="Equation 1.5">(1.5)</a> and <a href="" class="xref" data-knowl="./knowl/eq_det_transpose_2.html" title="Equation 1.6">(1.6)</a> are equal, we conclude that the terms in the two cofactor expansions are the same and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\det(A^{\tr}) = \det(A)\text{.}
+\end{equation*}
+</div></section></div></main>
+</div>
+</body>
+</html>

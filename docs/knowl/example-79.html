@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-16T15:46:08-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">38.4</span><span class="period">.</span>
+</h3>
+<div class="introduction"><p>Let <span class="process-math">\(T: \pol_1 \to \pol_2\)</span> be defined by <span class="process-math">\(T(a+bt) = b+at+2at^2\text{.}\)</span></p></div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p>Show that <span class="process-math">\(T\)</span> is a linear transformation.</p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>Let <span class="process-math">\(p(t)=a+bt\)</span> and <span class="process-math">\(q(t)=c+dt\)</span> be in <span class="process-math">\(\pol_1\text{.}\)</span> Then</p>
+<div class="displaymath process-math">
+\begin{align*}
+T(p(t)+q(t)) \amp = T((a+c)+(b+d)t)\\
+\amp = (b+d) + (a+c)t + 2(a+c)t^2\\
+\amp = (b+at+2at^2) + (d+ct+2ct^2)\\
+\amp = T(p(t)) + T(q(t))\text{.}
+\end{align*}
+</div>
+<p class="continuation">Now let <span class="process-math">\(k\)</span> be a scalar. Then</p>
+<div class="displaymath process-math">
+\begin{align*}
+T(kp(t)) \amp = T((ka)+(kb)t)\\
+\amp = (kb)+(ka)t + (2ka)t^2\\
+\amp = k(b+at+2at^2)\\
+\amp =kT(p(t))\text{.}
+\end{align*}
+</div>
+<p class="continuation">We conclude that <span class="process-math">\(T\)</span> is a linear transformation.</p>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p>Let <span class="process-math">\(\CS_1 = \{1,t\}\)</span> and <span class="process-math">\(\CS_2 = \{1,t,t^2\}\)</span> be the standard bases for <span class="process-math">\(\pol_1\)</span> and <span class="process-math">\(\pol_2\text{,}\)</span> respectively. Find the matrix <span class="process-math">\([T]_{\CS_2}^{\CS_1}\)</span> for <span class="process-math">\(T\)</span> with respect to <span class="process-math">\(\CS_2\)</span> and <span class="process-math">\(\CS_1\text{.}\)</span> Use the matrix <span class="process-math">\([T]_{\CS_2}^{\CS_1}\)</span> to determine if <span class="process-math">\(T\)</span> is one-to-one and/or onto. Explain your reasoning. Use technology as appropriate.</p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>Recall that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+[T]_{\CS_1}^{\CS_2} = \left[ [T(1)]_{\CS_2} \ [T(t)]_{\CS_2} \right] = \left[ [t+2t^2]_{\CS_2} \ [1]_{\CS_2} \right] = \left[ \begin{array}{cc} 0\amp 1\\1\amp 0\\2\amp 0 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The linear transformation <span class="process-math">\(T\)</span> is one-to-one and/or onto if and only if the matrix transformation defined by <span class="process-math">\([T]_{\CS_1}^{\CS_2}\)</span> is one-to-one and/or onto. The reduced row echelon form of <span class="process-math">\([T]_{\CS_1}^{\CS_2}\)</span> is <span class="process-math">\(\left[ \begin{array}{cc} 1\amp 0\\0\amp 1\\0\amp 0 \end{array}  \right]\text{.}\)</span> Since <span class="process-math">\([T]_{\CS_1}^{\CS_2}\)</span> has a pivot in every column, <span class="process-math">\(T\)</span> is one-to-one. However, <span class="process-math">\([T]_{\CS_1}^{\CS_2}\)</span> does not have a pivot in every row, so <span class="process-math">\(T\)</span> is not onto.</p>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p>Use the matrix <span class="process-math">\([T]_{\CS_2}^{\CS_1}\)</span> to find <span class="process-math">\(\Ker(T)\)</span> and <span class="process-math">\(\Range(T)\text{.}\)</span> If possible, find a basis for each.</p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>From part (b) we know that <span class="process-math">\(T\)</span> is one-to-one, so <span class="process-math">\(\Ker(T) = \{0\}\text{.}\)</span> Let <span class="process-math">\(q(t)\)</span> be a polynomial in <span class="process-math">\(\Range(T)\text{.}\)</span> Then there is a polynomial <span class="process-math">\(p(t)\)</span> in <span class="process-math">\(\pol_1\)</span> such that <span class="process-math">\(T(p(t)) = q(t)\text{.}\)</span> It follows that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+[q(t)]_{\CS_2} = [T(p(t))]_{\CS_2} = [T]_{\CS_1}^{\CS_2}[p(t)]_{\CS_1}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If <span class="process-math">\(p(t) = a_0+a_1t\text{,}\)</span> then</p>
+<div class="displaymath process-math">
+\begin{align*}
+_{\CS_2}  \amp = \left[ \begin{array}{cc} 0\amp 1\\
+1\amp 0\\
+2\amp 0 \end{array} \right] \left[ \begin{array}{c} a_0\\
+a_1 \end{array} \right]\\
+\amp = \left[ \begin{array}{c} a_1\\
+a_0\\
+2a_0 \end{array} \right]\\
+\amp = a_0\left[ \begin{array}{c} 0\\
+1\\
+2 \end{array} \right] + a_1\left[ \begin{array}{c} 1\\
+0\\
+0\end{array} \right]\text{.}
+\end{align*}
+</div>
+<p class="continuation">Thus, <span class="process-math">\(q(t)\)</span> is in the span of <span class="process-math">\(t+2t^2\)</span> and <span class="process-math">\(1\text{.}\)</span> So <span class="process-math">\(\Range(T) = \Span\{1, t+2t^2\}\text{.}\)</span> Since neither <span class="process-math">\(1\)</span> nor <span class="process-math">\(t+2t^2\)</span> is a scalar multiple of the other, the vectors <span class="process-math">\(1\)</span> and <span class="process-math">\(t+2t^2\)</span> are linearly independent. Thus, <span class="process-math">\(\{1, t+2t^2\}\)</span> is a basis for <span class="process-math">\(\Range(T)\text{.}\)</span></p>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p>Let <span class="process-math">\(\CB = \{1+t,1-t\}\)</span> be a basis for <span class="process-math">\(\pol_1\)</span> and <span class="process-math">\(\CC = \{t, 1-t^2, t+t^2\}\)</span> a basis for <span class="process-math">\(\pol_2\text{.}\)</span> Find the matrix <span class="process-math">\([T]_{\CB}^{\CC}\)</span> for <span class="process-math">\(T\)</span> with respect to <span class="process-math">\(\CC\)</span> and <span class="process-math">\(\CB\text{.}\)</span></p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>Recall that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+[T]_{\CB}^{\CC} = \left[ [T(1+t)]_{\CC} \ [T(1-t)]_{\CC} \right] = \left[ [1+2t+t^2]_{\CC} \ [1-t^2]_{\CC} \right] = \left[ \begin{array}{cc} 0\amp 0\\1\amp 1\\2\amp 0 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p>Find <span class="process-math">\(T(1-2t)\)</span> using the matrix <span class="process-math">\([T]_{\CB}^{\CC}\text{.}\)</span></p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>To find <span class="process-math">\(T(1-2t)\)</span> using the matrix <span class="process-math">\([T]_{\CB}^{\CC}\text{,}\)</span> recall that <span class="process-math">\([T(p(t))]_{\CC} = [T]_{\CB}^{\CC}[p(t)]_{\CB}\text{.}\)</span> First note that <span class="process-math">\([1-2t]_{\CB} = \left[ \begin{array}{r} -\frac{1}{2} \\ \frac{3}{2} \end{array}  \right]\text{.}\)</span> So</p>
+<div class="displaymath process-math">
+\begin{equation*}
+[T(p(t))]_{\CC} =  [T]_{\CB}^{\CC}[p(t)]_{\CB} = \left[ \begin{array}{cc} 1\amp 0\\0\amp 1\\0\amp 0 \end{array}  \right] \left[ \begin{array}{r} -\frac{1}{2} \\ \frac{3}{2} \end{array}  \right] = \left[ \begin{array}{r} 0 \\ 1 \\ -1 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This makes</p>
+<div class="displaymath process-math">
+\begin{equation*}
+T(1-2t) = 0(t) + (1)\left(1-t^2\right) + (-1)\left(t+t^2\right) = 1-t-2t^2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">To check, using the definition of <span class="process-math">\(T\)</span> we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+T(1-2t) = t(1-2t) + (1-2t) = 1-t-2t^2\text{.}
+\end{equation*}
+</div>
+</div></article></article><span class="incontext"><a href="sec_mtxof_trans_exam.html#example-79">in-context</a></span>
+</body>
+</html>

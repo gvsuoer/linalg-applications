@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-21T15:04:01-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Project: Latent Semantic Indexing</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_svd_exer.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chap_SVD.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="backmatter-1.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_svd_exer.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chap_SVD.html" title="Up">Up</a><a class="next-button button toolbar-item" href="backmatter-1.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link part"><a href="part-app-orthog.html" data-scroll="part-app-orthog" class="internal"><span class="codenumber">I</span> <span class="title">Applications of Orthogonality</span></a></li>
+<li class="link"><a href="chap_SVD.html" data-scroll="chap_SVD" class="internal"><span class="codenumber">1</span> <span class="title">The Singular Value Decomposition</span></a></li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a></li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="sec_proj_indexing"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Latent Semantic Indexing</span>
+</h2>
+<p id="p-173">As an elementary example to illustrate the idea behind Latent Semantic Indexing (LSI), consider the problem of creating a program to search a collection of documents for words, or words related to a given word. Document collections are usually very large, but we use a small example for illustrative purposes. A standard example that is given in several publications<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 5 </sup></a> is the following. Suppose we have nine documents <span class="process-math">\(c_1\)</span> through <span class="process-math">\(c_5\)</span> (titles of documents about human-computer interaction) and <span class="process-math">\(m_1\)</span> through <span class="process-math">\(m_4\)</span> (titles of graph theory papers) that make up our library:</p>
+<ul class="disc">
+<li id="li-28"><p id="p-174"><span class="process-math">\(c_1\text{:}\)</span> <em class="emphasis">Human</em> machine <em class="emphasis">interface</em> for ABC <em class="emphasis">computer</em> applications</p></li>
+<li id="li-29"><p id="p-175"><span class="process-math">\(c_2\text{:}\)</span> A <em class="emphasis">survey</em> of <em class="emphasis">user</em> opinion of <em class="emphasis">computer system response time</em></p></li>
+<li id="li-30"><p id="p-176"><span class="process-math">\(c_3\text{:}\)</span> The <em class="emphasis">EPS user interface</em> management <em class="emphasis">system</em></p></li>
+<li id="li-31"><p id="p-177"><span class="process-math">\(c_4\text{:}\)</span> <em class="emphasis">System</em> and <em class="emphasis">human system</em> engineering testing of <em class="emphasis">EPS</em></p></li>
+<li id="li-32"><p id="p-178"><span class="process-math">\(c_5\text{:}\)</span> Relation of <em class="emphasis">user</em> perceived <em class="emphasis">response time</em> to error measurement</p></li>
+<li id="li-33"><p id="p-179"><span class="process-math">\(m_1\text{:}\)</span> The generation of random, binary, ordered <em class="emphasis">trees</em></p></li>
+<li id="li-34"><p id="p-180"><span class="process-math">\(m_2\text{:}\)</span> The intersection <em class="emphasis">graph</em> of paths in <em class="emphasis">trees</em></p></li>
+<li id="li-35"><p id="p-181"><span class="process-math">\(m_3\text{:}\)</span> <em class="emphasis">Graph minors</em> IV: Widths of <em class="emphasis">trees</em> and well-quasi-ordering</p></li>
+<li id="li-36"><p id="p-182"><span class="process-math">\(m_4\text{:}\)</span> <em class="emphasis">Graph minors</em>: A <em class="emphasis">survey</em></p></li>
+</ul>
+<p id="p-183">To make a searchable database, one might start by creating a list of key terms that appear in the documents (generally removing common words such as “a”, “the”, “of”, etc., called <dfn class="terminology">stop words</dfn> — these words contribute little, if any, context). In our documents we identify the key words that are shown in italics. (Note that we are just selecting key words to make our example manageable, not necessarily identifying the most important words.) Using the key words we create a <dfn class="terminology">term-document</dfn> matrix. The term-document matrix is the matrix in which the terms form the rows and the documents the columns. If <span class="process-math">\(A = [a_{ij}]\)</span> is the term-document matrix, then <span class="process-math">\(a_{ij}\)</span> counts the number of times word <span class="process-math">\(i\)</span> appears in document <span class="process-math">\(j\text{.}\)</span> The term-document matrix <span class="process-math">\(A\)</span> for our library is <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"> </td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{ccccccccc}c_1 \amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]\)</span></td>
+</tr>
+</table></div></p>
+<div class="displaymath process-math">
+\begin{align*}
+\amp 
+\begin{array}{ccccccccc}c_1 \amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}\\
+\begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array} 
+\amp 
+\left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]
+\end{align*}
+</div>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{array}{cc} 
+\amp  
+\begin{array}{ccccccccc}c_1\amp  c_2\amp c_3\amp c_4\amp c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}  \\ 
+\begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array}   
+\amp 
+\left[ \begin{array}{ccccccccc} 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0  \\ 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0  \\ 0\amp 1\amp 1\amp 2\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \end{array}  \right]\end{array}\text{.}\label{eq_LSI_A}\tag{1.3}
+\end{equation}
+</div>
+<p id="p-184">One of our goals is to rate the pages in our library for relevance if we search for a query. For example, suppose we want to rate the pages for the query <em class="emphasis">survey, computer</em>. This query can be represented by the vector <span class="process-math">\(\vq= [0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 ]^{\tr}\text{.}\)</span></p>
+<article class="project project-like" id="act_LSI_standard"><h3 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">1.5</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-17"><p id="p-185">In a standard term-matching search with <span class="process-math">\(m \times n\)</span> term-document matrix <span class="process-math">\(A\text{,}\)</span> a query vector <span class="process-math">\(\vq\)</span> would be matched with the terms to determine the number of matches. The matching counts the number of times each document agrees with the query.</p></div>
+<article class="task exercise-like" id="task-51"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-186">Explain why this matching is accomplished by the matrix-vector product <span class="process-math">\(A^{\tr} \vq\text{.}\)</span></p></article><article class="task exercise-like" id="task-52"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-187">Let <span class="process-math">\(\vy = [y_1 \ y_2 \ \ldots \ y_n]^{\tr} = A^{\tr} \vq\text{.}\)</span> Explain why <span class="process-math">\(y_i = \cos(\theta_i) ||\va_i|| ||\vq||\text{,}\)</span> where <span class="process-math">\(\va_i\)</span> is the <span class="process-math">\(i\)</span>th column of <span class="process-math">\(A\)</span> and <span class="process-math">\(\theta_i\)</span> is the angle between <span class="process-math">\(\va_i\)</span> and <span class="process-math">\(\vq\text{.}\)</span></p></article><article class="task exercise-like" id="task-53"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-188">We can use the cosine calculation from part (b) to compare matches to our query — the closer the cosine is to <span class="process-math">\(1\text{,}\)</span> the better the match (dividing by the product of the norms is essentially converting all vectors to unit vectors for comparison purposes). This is often referred to as the cosine distance. Calculate the cosines of the <span class="process-math">\(\theta_i\)</span> for our example of the query <span class="process-math">\(\vq= [0 \ 0 \ 1 \ 0  \ 0 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 ]^{\tr}\text{.}\)</span> Order the documents from best to worst match for this query.</p></article></article><p id="p-189">Though we were able to rate the documents in <a href="" class="xref" data-knowl="./knowl/act_LSI_standard.html" title="Project Activity 1.5">Project Activity 1.5</a> using the cosine distance, the result is less than satisfying. Documents <span class="process-math">\(c_3\text{,}\)</span> <span class="process-math">\(c_4\text{,}\)</span> and <span class="process-math">\(c_5\)</span> are all related to computers but do not appear at all in or results. This is a problem with language searches — we don't want to compare just words, but we also need to compare the concepts the words represent. The fact that words can represent different things implies that a random choice of word by different authors can introduce noise into the word-concept relationship. To filter out this noise, we can apply the singular value decomposition to find a smaller set of concepts to better represent the relationships. Before we do so, we examine some useful properties of the term-document matrix.</p>
+<article class="project project-like" id="act_LSI_tt_dd"><h3 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">1.6</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-18"><p id="p-190">Let <span class="process-math">\(A = [ \va_1 \ \va_2 \ \cdots \ \va_9]\text{,}\)</span> where <span class="process-math">\(\va_1\text{,}\)</span> <span class="process-math">\(\va_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\va_9\)</span> are the columns of <span class="process-math">\(A\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-54"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-191">In <a href="" class="xref" data-knowl="./knowl/act_LSI_standard.html" title="Project Activity 1.5">Project Activity 1.5</a> you should have seen that <span class="process-math">\(b_{ij} = \va_i^{\tr} \va_j = \va_i \cdot \va_j\text{.}\)</span> Assume for the moment that all of the entries in <span class="process-math">\(A\)</span> are either <span class="process-math">\(0\)</span> or <span class="process-math">\(1\text{.}\)</span> Explain why in this case the dot product <span class="process-math">\(\va_i \cdot \va_j\)</span> tells us how many terms documents <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> have in common. Also, the matrix <span class="process-math">\(A^{\tr}A\)</span> takes dot products of the columns of <span class="process-math">\(A\text{,}\)</span> which refer to what's happening in each document and so is looking at document-document interactions. For these reasons, we call <span class="process-math">\(A^{\tr}A\)</span> the document-document matrix.</p></article><article class="task exercise-like" id="task-55"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-192">Use appropriate technology to calculate the entries of the matrix <span class="process-math">\(C = [c_{ij}] = AA^{\tr}\text{.}\)</span> This matrix is the term-term matrix. Assume for the moment that all of the entries in <span class="process-math">\(A\)</span> are either <span class="process-math">\(0\)</span> or <span class="process-math">\(1\text{.}\)</span> Explain why if terms <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> occur together in <span class="process-math">\(k\)</span> documents, then <span class="process-math">\(c_{ij} =k\text{.}\)</span></p></article></article><p id="p-193">The nature of the term-term and document-document matrices makes it realistic to think about a SVD.</p>
+<article class="project project-like" id="act_LSI_ATA_AAT"><h3 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">1.7</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-19"><p id="p-194">To see why a singular value decomposition might be useful, suppose our term-document matrix <span class="process-math">\(A\)</span> has singular value decomposition <span class="process-math">\(A = U \Sigma V^{\tr}\text{.}\)</span> (Don't actually calculate the SVD yet).</p></div>
+<article class="task exercise-like" id="task-56"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-195">Show that the document-document matrix <span class="process-math">\(A^{\tr}A\)</span> satisfies <span class="process-math">\(A^{\tr}A = \left(V \Sigma^{\tr}\right) \left(V\Sigma^{\tr}\right)^{\tr}\text{.}\)</span> This means that we can compare document <span class="process-math">\(i\)</span> and document <span class="process-math">\(j\)</span> using the dot product of row <span class="process-math">\(i\)</span> and column <span class="process-math">\(j\)</span> of the matrix product <span class="process-math">\(V\Sigma^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-57"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-196">Show that the term-term matrix <span class="process-math">\(AA^{\tr}\)</span> satisfies <span class="process-math">\(AA^{\tr} = \left(U \Sigma\right) \left(U\Sigma\right)^{\tr}\text{.}\)</span> Thus we can compare term <span class="process-math">\(i\)</span> and term <span class="process-math">\(j\)</span> using the dot product of row <span class="process-math">\(i\)</span> and column <span class="process-math">\(j\)</span> of the matrix product <span class="process-math">\(U\Sigma\text{.}\)</span> (<a href="" class="xref" data-knowl="./knowl/ex_7_c_AAT.html" title="Exercise 6">Exercise 6</a> shows that the columns of <span class="process-math">\(U\)</span> are orthogonal eigenvectors of <span class="process-math">\(AA^{\tr}\text{.}\)</span>)</p></article></article><p id="p-197">As we will see, the connection of the matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> to documents and terms that we saw in <a href="" class="xref" data-knowl="./knowl/act_LSI_ATA_AAT.html" title="Project Activity 1.7">Project Activity 1.7</a> will be very useful when we use the SVD of the term-document matrix to reduce dimensions to a “concept” space. We will be able to interpret the rows of the matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> as providing coordinates for terms and documents in this space.</p>
+<article class="project project-like" id="act_LSI_SVD"><h3 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-20"><p id="p-198">The singular value decomposition (SVD) allows us to produce new, improved term-document matrices. For this activity, use the term-document matrix <span class="process-math">\(A\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_LSI_A.html" title="Equation 1.3">(1.3)</a>.</p></div>
+<article class="task exercise-like" id="task-58"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-199">Use appropriate technology to find a singular value decomposition of <span class="process-math">\(A\)</span> so that <span class="process-math">\(A = U \Sigma V^{\tr}\text{.}\)</span> Print your entries to two decimal places (but keep as many as possible for computational purposes).</p>
+<p id="p-200">Each singular value tells us how important its semantic dimension is. If we remove the smaller singular values (the less important dimensions), we retain the important information but eliminate minor details and noise. We produce a new term-document matrix <span class="process-math">\(A_k\)</span> by keeping the largest <span class="process-math">\(k\)</span> of the singular values and discarding the rest. This gives us an approximation</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A_k = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \cdots + \sigma_k \vu_k\vv_k^{\tr}
+\end{equation*}
+</div>
+<p class="continuation">using the outer product decomposition, where <span class="process-math">\(\sigma_1\text{,}\)</span> <span class="process-math">\(\sigma_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\sigma_k\)</span> are the <span class="process-math">\(k\)</span> largest singular values of <span class="process-math">\(A\text{.}\)</span> Note that if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix, letting <span class="process-math">\(U_k = [\vu_1 \ \vu_2 \ \cdots \ \vu_k]\)</span> (an <span class="process-math">\(m \times k\)</span> matrix), <span class="process-math">\(\Sigma_k\)</span> the <span class="process-math">\(k \times k\)</span> matrix with the first <span class="process-math">\(k\)</span> singular values along the diagonal, and <span class="process-math">\(V^{\tr} = [\vv_1 \ \vv_2 \ \cdots \ \vv_k ]^{\tr}\)</span> (a <span class="process-math">\(k \times n\)</span> matrix), then we can also write <span class="process-math">\(A_k = U_k \Sigma_k V_k^{\tr}\text{.}\)</span> This is sometimes referred to as a reduced SVD.  Find <span class="process-math">\(U_2\text{,}\)</span> <span class="process-math">\(\Sigma_2\text{,}\)</span> and <span class="process-math">\(V_2^{\tr}\text{,}\)</span> and find the new term-document matrix <span class="process-math">\(A_2\text{.}\)</span></p></article></article><p id="p-201">Once we have our term-document matrix, there are three basic comparisons to make: comparing terms, comparing documents, and comparing terms and documents. Term-document matrices are usually very large, with dimension being the number of terms. By using a reduced SVD we can create a much smaller approximation. In our example, the matrix <span class="process-math">\(A_k\)</span> in <a href="" class="xref" data-knowl="./knowl/act_LSI_SVD.html" title="Project Activity 1.8">Project Activity 1.8</a> reduces our problem to a <span class="process-math">\(k\)</span>-dimensional space. Intuitively, we can think of LSI as representing terms as averages of all of the documents in which they appear and documents as averages of all of the terms they contain. Through this process, LSI attempts to combine the surface information in our library into a deeper abstraction (the “concept” space) that captures the mutual relationships between terms and documents.</p>
+<p id="p-202">We now need to understand how we can represent documents and terms in this smaller space where <span class="process-math">\(A_k = U_k \Sigma_k V_k^{\tr}\text{.}\)</span> Informally, we can consider the rows of <span class="process-math">\(U_k\)</span> as representing the coordinates of each term in the lower dimensional concept space and the columns of <span class="process-math">\(V_k^{\tr}\)</span> as the coordinates of the documents, while the entries of <span class="process-math">\(\Sigma_k\)</span> tell us how important each semantic dimension is. The dot product of two row vectors of <span class="process-math">\(A_k\)</span> indicates how terms compare across documents. This product is <span class="process-math">\(A_kA_k^{\tr}\text{.}\)</span> Just as in <a href="" class="xref" data-knowl="./knowl/act_LSI_ATA_AAT.html" title="Project Activity 1.7">Project Activity 1.7</a>, we have <span class="process-math">\(A_kA_k^{\tr} = \left(U_k \Sigma_k\right) \left(U_k\Sigma_k\right)^{\tr}\text{.}\)</span> In other words, if we consider the rows of <span class="process-math">\(U_k\Sigma_k\)</span> as coordinates for terms, then the dot products of these rows give us term to term comparisons. (Note that multiplying <span class="process-math">\(U\)</span> by <span class="process-math">\(\Sigma\)</span> just stretches the rows of <span class="process-math">\(U\)</span> by the singular values according to the importance of the concept represented by that singular value.) Similarly, the dot product between columns of <span class="process-math">\(A\)</span> provide a comparison of documents. This comparison is given by <span class="process-math">\(A_k^{\tr}A_k^ = \left(V_k \Sigma_k^{\tr}\right) \left(V_k\Sigma_k^{\tr}\right)^{\tr}\)</span> (again by <a href="" class="xref" data-knowl="./knowl/act_LSI_ATA_AAT.html" title="Project Activity 1.7">Project Activity 1.7</a>). So we can consider the rows of <span class="process-math">\(V\Sigma^{\tr}\)</span> as providing coordinates for documents.</p>
+<article class="project project-like" id="act_LSI_term_document"><h3 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
+</h3>
+<p id="p-203">We have seen how to compare terms to terms and documents to documents. The matrix <span class="process-math">\(A_k\)</span> itself compares terms to documents. Show that <span class="process-math">\(A_k = \left(U_k \Sigma_k^{1/2}\right) \left(V_k\Sigma_k^{1/2}\right)^{\tr}\text{,}\)</span> where <span class="process-math">\(\Sigma_k^{1/2}\)</span> is the diagonal matrix of the same size as <span class="process-math">\(\Sigma_k\)</span> whose diagonal entries are the square roots of the corresponding diagonal entries in <span class="process-math">\(\Sigma_k\text{.}\)</span> Thus, all useful comparisons of terms and documents can be made using the rows of the matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\text{,}\)</span> scaled in some way by the singular values in <span class="process-math">\(\Sigma\text{.}\)</span></p></article><p id="p-204">To work in this smaller concept space, it is important to be able to find appropriate comparisons to objects that appeared in the original search. For example, to complete the latent structure view of the system, we must also convert the original query to a representation within the new term-document system represented by <span class="process-math">\(A_k\text{.}\)</span> This new representation is called a <dfn class="terminology">pseudo-document</dfn>.</p>
+<div class="displaymath process-math">
+\begin{equation}
+\begin{array}{ccc} \amp     \begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array} $  \amp $\left[ \begin{array}{rr}  - 0.22\amp - 0.11\\ - 0.20\amp - 0.07\\ - 0.24\amp  0.04\\ - 0.40\amp 0.06\\ - 0.64\amp - 0.17\\ - 0.27\amp 0.11\\ - 0.27\amp  0.11\\ - 0.30\amp -0.14\\ - 0.21\amp  0.27\\ - 0.01\amp 0.49\\ - 0.04\amp  0.62\\ - 0.03\amp 0.45 \end{array}    \right] \end{array}\label{eq_LSI_newterms}\tag{1.4}
+\end{equation}
+</div>
+<p class="continuation">Terms in the reduced concept space.</p>
+<div class="displaymath process-math" id="p-205">
+\begin{equation}
+\begin{array}{cc} \amp       \begin{array}{ccccccccc}c_1\amp   c_2\amp  \ \  c_3\amp  \ \  c_4\amp  \ c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}  \\ \amp  \left[   \begin{array}{rrrrrrrrr} - 0.20\amp - 0.61\amp - 0.46\amp - 0.54\amp - 0.28\amp - 0.00\amp - 0.01\amp - 0.02\amp - 0.08\\ - 0.06\amp  0.17\amp - 0.13\amp - 0.23\amp  0.11\amp  0.19\amp  0.44\amp  0.62\amp  0.53 \end{array}  \right] \end{array}\label{eq_LSI_newdocs}\tag{1.5}
+\end{equation}
+</div>
+<p class="continuation">Documents in the reduced concept space.</p>
+<article class="project project-like" id="act_LSI_concept_space"><h3 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">1.10</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-21"><p id="p-206">For an original query <span class="process-math">\(\vq\text{,}\)</span> we start with its term vector <span class="process-math">\(\va_{\vq}\)</span> (a vector in the coordinate system determined by the columns of <span class="process-math">\(A\)</span>) and find a representation <span class="process-math">\(\vv_{\vq}\)</span> that we can use as a column of <span class="process-math">\(V^{\tr}\)</span> in the document-document comparison matrix. If this representation was perfect, then it would take a real document in the original system given by <span class="process-math">\(A\)</span> and produce the corresponding column of <span class="process-math">\(U\)</span> if we used the full SVD. In other words, we would have <span class="process-math">\(\va_{\vq} = U \Sigma \vv_{\vq}^{\tr}\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-59"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-207">Use the fact that <span class="process-math">\(A_k = U_k \Sigma_k V_k^{\tr}\text{,}\)</span> to show that <span class="process-math">\(V_k = A_k^{\tr} U_k \Sigma_k^{-1}\text{.}\)</span> It follows that <span class="process-math">\(\vq\)</span> is transformed into the query <span class="process-math">\(\vq_k = \vq^{\tr}U_k \Sigma_k^{-1}\text{.}\)</span></p></article><article class="task exercise-like" id="task-60"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-208">In our example, using <span class="process-math">\(k=2\text{,}\)</span> the terms can now be represented as <span class="process-math">\(2\)</span>-dimensional vectors (the rows of <span class="process-math">\(U_2\text{,}\)</span> see <a href="" class="xref" data-knowl="./knowl/eq_LSI_newterms.html" title="Equation 1.4">(1.4)</a>), or as points in the plane. More specifically, <em class="emphasis">human</em> is represented by the vector (to two decimal places) <span class="process-math">\([-0.22 \ -0.11]^{\tr}\text{,}\)</span> <em class="emphasis">interface</em> by <span class="process-math">\([- 0.20 \ - 0.07]^{\tr}\text{,}\)</span> etc. Similarly, the documents are represented by columns of <span class="process-math">\(V_2\)</span> (see <a href="" class="xref" data-knowl="./knowl/eq_LSI_newdocs.html" title="Equation 1.5">(1.5)</a>), so that the document <span class="process-math">\(c_1\)</span> is represented by <span class="process-math">\([-0.20 \ -0.06]^{\tr}\text{,}\)</span> <span class="process-math">\(c_2\)</span> by <span class="process-math">\([-0.61 \ 0.17]^{\tr}\text{,}\)</span> etc. From this perspective we can visualize these documents in the plane. Plot the documents and the query in the 2-dimensional concept space. Then calculate the cosine distances from the query to the documents in this space. Which documents now give the best three matches to the query? Compare the matches to your plot.</p></article></article><p id="p-209">As we can see from <a href="" class="xref" data-knowl="./knowl/act_LSI_concept_space.html" title="Project Activity 1.10">Project Activity 1.10</a>, the original query had no match at all with any documents except <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(m_4\text{.}\)</span> In the new concept space, the query now has some connection to every document,. So LSI has made semantic connections between the terms and documents that were not present in the original term-document matrix, which gives us better results for our search.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn">e.g., Deerwester, S., Dumais, S. T., Fumas, G. W., Landauer, T. K. and Harshman, R. Indexing by latent semantic analysis. <span class="booktitle">Journal of the American Society for Information Science</span>, 1990, 41: 391?407, and Landauer, T. and Dutnais, S. A Solution to Plato's Problem: The Latent Semantic Analysis Theory of Acquisition, Induction, and Representation of Knowledge. <span class="booktitle">Psychological Review</span>, 1997. Vol. 1M. No. 2, 211-240.</div></div>
+</div></main>
+</div>
+</body>
+</html>

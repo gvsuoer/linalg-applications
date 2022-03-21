@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-17T15:36:17-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Examples</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
+\def\cleardoublepage{\clearemptydoublepage}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\renewcommand{\qedsymbol}{\blacksquare}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\newcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_mtx_lu_factor.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chap_det_properties.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_det_prop_summ.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_mtx_lu_factor.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chap_det_properties.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_det_prop_summ.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="fm_preface.html" data-scroll="fm_preface" class="internal">Preface</a></li></ul>
+</li>
+<li class="link part"><a href="part-eigen.html" data-scroll="part-eigen" class="internal"><span class="codenumber">I</span> <span class="title">Eigenvalues and Eigenvectors</span></a></li>
+<li class="link">
+<a href="chap_det_properties.html" data-scroll="chap_det_properties" class="internal"><span class="codenumber">1</span> <span class="title">Properties of Determinants</span></a><ul>
+<li><a href="sec_det_prop_intro.html" data-scroll="sec_det_prop_intro" class="internal">Introduction</a></li>
+<li><a href="sec_det_row_ops.html" data-scroll="sec_det_row_ops" class="internal">Elementary Row Operations and Their Effects on the Determinant</a></li>
+<li><a href="sec_mtx_elem.html" data-scroll="sec_mtx_elem" class="internal">Elementary Matrices</a></li>
+<li><a href="sec_det_geom.html" data-scroll="sec_det_geom" class="internal">Geometric Interpretation of the Determinant</a></li>
+<li><a href="sec_inv_cramers.html" data-scroll="sec_inv_cramers" class="internal">An Explicit Formula for the Inverse and Cramer's Rule</a></li>
+<li><a href="sec_det_transpose.html" data-scroll="sec_det_transpose" class="internal">The Determinant of the Transpose</a></li>
+<li><a href="sec_det_row_swap.html" data-scroll="sec_det_row_swap" class="internal">Row Swaps and Determinants</a></li>
+<li><a href="sec_cofactor_expand.html" data-scroll="sec_cofactor_expand" class="internal">Cofactor Expansions</a></li>
+<li><a href="sec_mtx_lu_factor.html" data-scroll="sec_mtx_lu_factor" class="internal">The LU Factorization of a Matrix</a></li>
+<li><a href="sec_det_prop_exam.html" data-scroll="sec_det_prop_exam" class="active">Examples</a></li>
+<li><a href="sec_det_prop_summ.html" data-scroll="sec_det_prop_summ" class="internal">Summary</a></li>
+<li><a href="sec_det_prop_exer.html" data-scroll="sec_det_prop_exer" class="internal">Exercises</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a><ul>
+<li><a href="sec_complex_numbers.html" data-scroll="sec_complex_numbers" class="internal">Complex Numbers</a></li>
+<li><a href="sec_conj_modulus.html" data-scroll="sec_conj_modulus" class="internal">Conjugates and Modulus</a></li>
+<li><a href="sec_complex_vect.html" data-scroll="sec_complex_vect" class="internal">Complex Vectors</a></li>
+</ul>
+</li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_det_prop_exam"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber"></span> <span class="title">Examples</span>
+</h2>
+<p id="p-158">What follows are worked examples that use the concepts from this section.</p>
+<article class="example example-like" id="example-1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.8</span><span class="period">.</span>
+</h3>
+<article class="task exercise-like" id="task-36"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="introduction" id="introduction-13"><p id="p-159">If <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> are <span class="process-math">\(n\times n\)</span> matrices with <span class="process-math">\(\det(A)=3\)</span> and <span class="process-math">\(\det(B)=2\text{,}\)</span> evaluate the following determinant values. Briefly justify.</p></div>
+<article class="task exercise-like" id="task-37"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-160"><span class="process-math">\(\det(A^{-1})\)</span></p>
+<div class="solution solution-like" id="solution-1">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p id="p-161">Assume that <span class="process-math">\(\det(A)=3\)</span> and <span class="process-math">\(\det(B)=2\text{.}\)</span></p>
+<p id="p-162">Since <span class="process-math">\(\det(A) \neq 0\text{,}\)</span> we know that <span class="process-math">\(A\)</span> is invertible. Since <span class="process-math">\(1 = \det(I_n) = \det(AA^{-1}) = \det(A) \det(A^{-1})\text{,}\)</span> it follows that <span class="process-math">\(\det(A^{-1}) = \frac{1}{\det(A)} = \frac{1}{3}\text{.}\)</span></p>
+</div></article><article class="task exercise-like" id="task-38"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-163"><span class="process-math">\(\det(ABA^{\mathsf{T}})\)</span></p>
+<div class="solution solution-like" id="solution-2">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p id="p-164">Assume that <span class="process-math">\(\det(A)=3\)</span> and <span class="process-math">\(\det(B)=2\text{.}\)</span></p>
+<p id="p-165">We know that <span class="process-math">\(\det(A^{\tr}) = \det(A)\text{,}\)</span> so</p>
+<div class="displaymath process-math">
+\begin{align*}
+\det(ABA^\tr) \amp = \det(A) \det(B) \det(A^{\tr})\\
+\amp = \det(A) \det(B) \det(A)\\
+\amp = (3)(2)(3)\\
+\amp = 18\text{.}
+\end{align*}
+</div>
+</div></article><article class="task exercise-like" id="task-39"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-166"><span class="process-math">\(\det(A^3(BA)^{-1}(AB)^2)\)</span></p>
+<div class="solution solution-like" id="solution-3">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p id="p-167">Assume that <span class="process-math">\(\det(A)=3\)</span> and <span class="process-math">\(\det(B)=2\text{.}\)</span></p>
+<p id="p-168">Using properties of determinants gives us</p>
+<div class="displaymath process-math">
+\begin{align*}
+\det(A^3(BA)^{-1}(AB)^2) \amp = \det(A^3)\det((BA)^{-1}) \det((AB)^2)\\
+\amp = (\det(A))^3 \left(\frac{1}{\det(AB)}\right) (\det(AB))^2\\
+\amp = 27 \left(\frac{1}{\det(A) \det(B)} \right) (\det(A)\det(B))^2\\
+\amp = \frac{(27)(6^2)}{6}\\
+\amp = 162\text{.}
+\end{align*}
+</div>
+</div></article></article><article class="task exercise-like" id="task-40"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction" id="introduction-14"><p id="p-169">If the determinant of <span class="process-math">\(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array} \right]\)</span> is <span class="process-math">\(m\text{,}\)</span> find the determinant of each of the following matrices.</p></div>
+<article class="task exercise-like" id="task-41"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-170"><span class="process-math">\(\left[ \begin{array}{ccc} a\amp b\amp c\\2d\amp 2e\amp 2f\\g\amp h\amp i \end{array} \right]\)</span></p>
+<div class="solution solution-like" id="solution-4">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p id="p-171">Assume that <span class="process-math">\(\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m\text{.}\)</span></p>
+<p id="p-172">Multiplying a row by a scalar multiples the determinant by that scalar, so</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\det\left( \left[ \begin{array}{ccc} a\amp b\amp c\\2d\amp 2e\amp 2f\\g\amp h\amp i \end{array}  \right] \right) = 2m\text{.}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="task-42"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-173"><span class="process-math">\(\left[ \begin{array}{ccc} d\amp e\amp f\\g\amp h\amp i\\a\amp b\amp c \end{array} \right]\)</span></p>
+<div class="solution solution-like" id="solution-5">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p id="p-174">Assume that <span class="process-math">\(\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m\text{.}\)</span></p>
+<p id="p-175">Interchanging two rows multiples the determinant by <span class="process-math">\(-1\text{.}\)</span> It takes two row swaps in the original matrix to obtain this one, so</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\det\left( \left[ \begin{array}{ccc} d\amp e\amp f\\g\amp h\amp i\\a\amp b\amp c \end{array}  \right] \right) = (-1)^2m = m\text{.}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="task-43"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-176"><span class="process-math">\(\left[ \begin{array}{ccc} a\amp b\amp c\\g-2d\amp h-2e\amp i-2f\\a+d\amp b+e\amp c+f \end{array} \right]\)</span></p>
+<div class="solution solution-like" id="solution-6">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p id="p-177">Assume that <span class="process-math">\(\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\d\amp e\amp f\\g\amp h\amp i \end{array}  \right] \right) = m\text{.}\)</span></p>
+<p id="p-178">Adding a multiple of a row to another does not change the determinant of the matrix. Since there is a row swap needed to get this matrix from the original we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\det\left(\left[ \begin{array}{ccc} a\amp b\amp c\\g-2d\amp h-2e\amp i-2f\\a+d\amp b+e\amp c+f \end{array}  \right]\right) = -m\text{.}
+\end{equation*}
+</div>
+</div></article></article></article><article class="example example-like" id="example-2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.9</span><span class="period">.</span>
+</h3>
+<div class="introduction" id="introduction-15"><p id="p-179">Let <span class="process-math">\(A = \left[ \begin{array}{ccr} 2\amp 8\amp 0\\2\amp 2\amp -3\\1\amp 2\amp 7 \end{array} \right]\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-44"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-180">Find an LU factorization for <span class="process-math">\(A\text{.}\)</span></p>
+<div class="solution solution-like" id="solution-7">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p id="p-181">We row reduce <span class="process-math">\(A\)</span> to an upper triangular matrix by applying elementary matrices. First notice that if <span class="process-math">\(E_1 = \left[ \begin{array}{rcc} 1\amp 0\amp 0 \\-1\amp 1\amp 0 \\ 0\amp 0\amp 1 \end{array}  \right]\text{,}\)</span> then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+E_1 A = \left[ \begin{array}{crr} 2\amp 8\amp 0 \\ 0\amp -6\amp -3 \\ 1\amp 2\amp 7 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Letting <span class="process-math">\(E_2 =  \left[ \begin{array}{rcc} 1\amp 0\amp 0 \\0\amp 1\amp 0 \\ -\frac{1}{2}\amp 0\amp 1 \end{array}  \right]\)</span> gives us</p>
+<div class="displaymath process-math">
+\begin{equation*}
+E_2E_1A = \left[ \begin{array}{crr} 2\amp 8\amp 0 \\ 0\amp -6\amp -3 \\ 0\amp -2\amp 7 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Finally, when <span class="process-math">\(E_3 = \left[ \begin{array}{crc} 1\amp 0\amp 0 \\0\amp 1\amp 0 \\ 0\amp -\frac{1}{3}\amp 1 \end{array}  \right]\)</span> we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+U=E_3E_2E_1A = \left[ \begin{array}{crr} 2\amp 8\amp 0 \\ 0\amp -6\amp -3 \\ 0\amp 0\amp 8 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This gives us <span class="process-math">\(E_3E_2E_1A = U\text{,}\)</span> so we can take</p>
+<div class="displaymath process-math">
+\begin{equation*}
+L = E_1^{-1}E_2^{-1}E_3^{-1} =  \left[ \begin{array}{ccc} 1\amp 0\amp 0 \\1\amp 1\amp 0 \\ \frac{1}{2}\amp \frac{1}{3}\amp 1 \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+</div></article><article class="task exercise-like" id="task-45"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-182">Use the LU factorization with forward substitution and back substitution to solve the system <span class="process-math">\(A \vx = [18 \ 3 \ 12]^{\tr}\text{.}\)</span></p>
+<div class="solution solution-like" id="solution-8">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p id="p-183">To solve the system <span class="process-math">\(A \vx = \vb\text{,}\)</span> where <span class="process-math">\(\vb = [18 \ 3 \ 12]^{\tr}\text{,}\)</span> we use the LU factorization of <span class="process-math">\(A\)</span> and solve <span class="process-math">\(LU \vx = \vb\text{.}\)</span> Let <span class="process-math">\(\vx = [x_1 \ x_2 \ x_3]^{\tr}\)</span> and let <span class="process-math">\(\vz = [z_1 \ z_2 \ z_3]^{\tr}\)</span> with <span class="process-math">\(U \vx = \vz\)</span> so that <span class="process-math">\(L \vz = L(U\vx) = A\vx = \vb\text{.}\)</span> First we solve <span class="process-math">\(L \vz = [18 \ 3 \ 12]^{\tr}\)</span> to find <span class="process-math">\(\vz\)</span> using forward substitution. The first row of <span class="process-math">\(L\)</span> shows that <span class="process-math">\(z_1 = 18\)</span> and the second row that <span class="process-math">\(z_1 + z_2 = 3\text{.}\)</span> So <span class="process-math">\(z_2 = -15\text{.}\)</span> The third row of <span class="process-math">\(L\)</span> gives us <span class="process-math">\(\frac{1}{2}z_1 + \frac{1}{3}z_2 + z_3 = 12\text{,}\)</span> so <span class="process-math">\(z_3 = 12 - 9 + 5 = 8\text{.}\)</span> Now to find <span class="process-math">\(\vx\)</span> we solve <span class="process-math">\(U \vx = \vz\)</span> using back substitution. The third row of <span class="process-math">\(U\)</span> tells us that <span class="process-math">\(8x_3 = 8\)</span> or that <span class="process-math">\(x_3 = 1\text{.}\)</span> The second row of <span class="process-math">\(U\)</span> shows that <span class="process-math">\(-6x_2-3x_3 = -15\)</span> or <span class="process-math">\(x_2 =2\text{.}\)</span> Finally, the first row of <span class="process-math">\(U\)</span> gives us <span class="process-math">\(2x_1+8x_2 = 18\text{,}\)</span> or <span class="process-math">\(x_1 = 1\text{.}\)</span> So the solution to <span class="process-math">\(A \vx = \vb\)</span> is <span class="process-math">\(\vx = [1 \ 2 \ 1]^{\tr}\text{.}\)</span></p>
+</div></article></article></section></div></main>
+</div>
+</body>
+</html>

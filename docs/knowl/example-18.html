@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-16T15:34:23-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.3</span><span class="period">.</span>
+</h3>
+<div class="introduction">
+<p>Accurately predicting the weather has long been an important task. Meteorologists use science, mathematics, and technology to construct models that help us understand weather patterns. These models are very sophisticated, but we will consider only a simple model. Suppose, for example, we want to learn something about whether it will be wet or dry in Grand Rapids, Michigan. To do this, we might begin by collecting some data about weather conditions in Grand Rapids and then use that to make predictions. Information taken over the course of 2017 from the National Weather Service Climate Data shows that if it was dry (meaning no measurable precipitation, either rain or snow) on a given day in Grand Rapids, it would be dry the next day with a probability of 64% and wet with a probability of 36%. Similarly, if it was wet on a given day it would be dry the next day with a probability of 47% and dry with a probability of 53%. Assuming that this pattern is one that continues in the long run, we can develop a mathematical model to make predictions about the weather.</p>
+<p>This data tells us how the weather transitions from one day to the next, and we can succinctly represent this data in a <dfn class="terminology">transition matrix</dfn>:</p>
+<div class="displaymath process-math">
+\begin{equation}
+T = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right]\text{.}\tag{9.5}
+\end{equation}
+</div>
+<p>Whether it is dry or wet on a given day is called the <dfn class="terminology">state</dfn> of that day. So our transition matrix tells us about the transition between states. Notice that if <span class="process-math">\(T = [t_{ij}]\text{,}\)</span> then the probability of moving from state <span class="process-math">\(j\)</span> to state <span class="process-math">\(i\)</span> is given by <span class="process-math">\(t_{ij}\text{.}\)</span> We can represent a state by a vector: the vector <span class="process-math">\(\left[ \begin{array}{c} 1\\0 \end{array} \right]\)</span> represents the dry state and the vector <span class="process-math">\(\left[ \begin{array}{c} 0\\1 \end{array} \right]\)</span> represents the wet state.</p>
+</div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p>Calculate <span class="process-math">\(T\left[ \begin{array}{c} 1\\0 \end{array} \right]\text{.}\)</span> Interpret the meaning of this output.</p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>Here we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+T\left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This output tells us the different probabilities of whether it will be dry or wet the day following a dry day.</p>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p>Calculate <span class="process-math">\(T\left[ \begin{array}{c} 0\\1 \end{array} \right]\text{.}\)</span> Interpret the meaning of this output.</p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>Here we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+T\left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{c} 0.47\\0.53 \end{array} \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This output tells us the different probabilities of whether it will be dry or wet the day following a wet day.</p>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p>Calculate <span class="process-math">\(T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]\text{.}\)</span> Interpret the meaning of this output.</p>
+<div class="solution solution-like">
+<h4 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h4>
+<p>Here we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  \approx \left[ \begin{array}{c} 0.52\\0.48 \end{array} \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This output tells us there is a 52% chance of it being dry and a 48% chance of it being wet following a day when there is a 30% chance of it being dry and a 70% chance of it being wet.</p>
+</div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="introduction">
+<p>We can use the transition matrix to build a chain of probability vectors. We begin with an initial state, say it is dry on a given day. This initial state is represented by the initial state vector <span class="process-math">\(\vx_0 = \left[ \begin{array}{c} 1\\0 \end{array} \right]\text{.}\)</span> The probabilities that it will be dry or wet the following day are given by the vector</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\vx_1 = T\vx_0 = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This output vector tells us that the next day will be dry with a 64% probability and wet with a 36% probability. For each <span class="process-math">\(k \geq 1\text{,}\)</span> we let</p>
+<div class="displaymath process-math">
+\begin{equation}
+\vx_{k} = T\vx_{k-1}\text{.}\tag{9.6}
+\end{equation}
+</div>
+<p class="continuation">Thus we create a sequence of vectors that tell us the probabilities of it being dry or wet on subsequent days. The vector <span class="process-math">\(\vx_k\)</span> is called the <dfn class="terminology">state vector</dfn> of the system at time <span class="process-math">\(k\text{,}\)</span> because it describes the state of the whole system at time <span class="process-math">\(k\text{.}\)</span> We can rewrite the system of equations in <a href="" class="xref" data-knowl="./knowl/eq_PA5_1_3.html" title="Equation 9.1">(9.1)</a> as a matrix-vector equation in terms of the state vectors at time <span class="process-math">\(k\)</span> and <span class="process-math">\(k+1\text{.}\)</span> More specifically, the equation will be of the form</p>
+<div class="displaymath process-math">
+\begin{equation}
+\vx_{k+1} = T\vx_k\tag{9.7}
+\end{equation}
+</div>
+<p class="continuation">for <span class="process-math">\(k \geq 0\text{.}\)</span></p>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p>Starting with <span class="process-math">\(\vx_0 = \left[ \begin{array}{c} 1\\0 \end{array} \right]\text{,}\)</span> use appropriate technology to calculate <span class="process-math">\(\vx_k\)</span> for <span class="process-math">\(k\)</span> values up to 10. Round to three decimal places. What do you notice about the entries?</p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>Technology shows that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{ll} \vx_1 = \left[ \begin{array}{c} 0.640\\0.360 \end{array}  \right] \amp \vx_2 = \left[ \begin{array}{c} 0.579\\0.421 \end{array}  \right]  \\ \vx_3 = \left[ \begin{array}{c} 0.568\\0.432 \end{array}  \right] \amp \vx_4 = \left[ \begin{array}{c} 0.567\\0.433 \end{array}  \right]    \\ \vx_5 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_6 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_7 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_8 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_9 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_{10} = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]. \end{array}
+\end{equation*}
+</div>
+<p class="continuation">We can see that our vectors <span class="process-math">\(\vx_k\)</span> are essentially the same as we let <span class="process-math">\(k\)</span> increase.</p>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p>What does the result of the previous part tell us about eigenvalues of <span class="process-math">\(T\text{?}\)</span> Explain.</p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>Since our sequence seems to be converging to a vector <span class="process-math">\(\vx\)</span> satisfying <span class="process-math">\(T \vx = \vx\text{,}\)</span> we conclude that 1 is an eigenvalue of <span class="process-math">\(T\text{.}\)</span></p>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p>Rewrite <span class="process-math">\(T\)</span> as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+T = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We do this so we can use exact arithmetic. Let <span class="process-math">\(\vx = \left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right]\text{.}\)</span> What is <span class="process-math">\(T\vx\text{?}\)</span> (Use exact arithmetic, no decimals.) Explain how <span class="process-math">\(\vx\)</span> is related to the previous two parts of this problem. What does the vector <span class="process-math">\(\vx\)</span> tells us about weather in Grand Rapids?</p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>A matrix vector multiplication shows that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+T \vx = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right] = \left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In other words, <span class="process-math">\(\vx\)</span> is an eigenvector for <span class="process-math">\(T\)</span> with eigenvalue 1. Notice that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{47}{83} \approx 0.566 \ \text{ and }  \ \frac{36}{83} \approx 0.434\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so these fractions give the same results we obtained with our sequence of vectors <span class="process-math">\(\vx_k\text{.}\)</span> These vectors provide a steady-state vector for Grand Rapids weather. In other words, if there is a <span class="process-math">\(56.6\%\)</span> chance of it being dry on a given day in Grand Rapids, then there is a <span class="process-math">\(56.6\%\)</span> chance it will be dry again the next day.</p>
+</div></article></article><div class="conclusion">
+<p>This is an example of a Markov process. Markov processes (named after Andrei Andreevich Markov) are widely used to model phenomena in biology, chemistry, business, physics, engineering, the social sciences, and much more. More specifically,</p>
+<article class="definition definition-like"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.4</span><span class="period">.</span>
+</h4>
+<p>A <dfn class="terminology">Markov process</dfn> is a process in which the probability of the system being in a given state depends only on the previous state.</p></article><p>If <span class="process-math">\(\vx_0\)</span> is a vector which represents the initial state of a Markov process, then there is a matrix <span class="process-math">\(T\)</span> (the <dfn class="terminology">transition matrix</dfn>) such that the state of the system after one iteration is given by the vector <span class="process-math">\(T\vx_0\text{.}\)</span> This produces a chain of state vectors <span class="process-math">\(T\vx_0\text{,}\)</span> <span class="process-math">\(T^2 \vx_0\text{,}\)</span> <span class="process-math">\(T^3 \vx_0\text{,}\)</span> etc., where the state of the system after <span class="process-math">\(n\)</span> iterations is given by <span class="process-math">\(T^n \vx_0\text{.}\)</span> Such a chain of vectors is called a <dfn class="terminology">Markov chain</dfn>. A Markov process is characterized by two properties:</p>
+<ul class="disc">
+<li><p>the total number of observations remains fixed (this is reflected in the fact that the sum of the entries in each column of the matrix <span class="process-math">\(T\)</span> is 1), and</p></li>
+<li><p>no observation is lost (this means the entries in the matrix <span class="process-math">\(T\)</span> cannot be negative).</p></li>
+</ul>
+</div></article><span class="incontext"><a href="sec_eigen_exam.html#example-18">in-context</a></span>
+</body>
+</html>

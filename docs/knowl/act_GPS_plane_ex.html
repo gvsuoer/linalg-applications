@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-16T15:42:46-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="project project-like"><h3 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">30.11</span><span class="period">.</span>
+</h3>
+<div class="introduction">
+<p>Suppose that there are three base stations <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> in <span class="process-math">\(\R^2\)</span> that can send and receive signals from your mobile phone. Assume that <span class="process-math">\(A\)</span> is located at point <span class="process-math">\((-1,-2)\text{,}\)</span> <span class="process-math">\(B\)</span> at point <span class="process-math">\((36,5)\text{,}\)</span> and <span class="process-math">\(C\)</span> at point <span class="process-math">\((16,35)\text{.}\)</span> Also assume that your mobile phone location is point <span class="process-math">\((x,y)\text{.}\)</span> Based on the time that it takes to receive the signals from the three base stations, it can be determined that your distance to base station <span class="process-math">\(A\)</span> is <span class="process-math">\(28\)</span> km, your distance to base station <span class="process-math">\(B\)</span> is <span class="process-math">\(26\)</span> km, and your distance to base station <span class="process-math">\(C\)</span> is <span class="process-math">\(14\)</span> km using a coordinate system with measurements in kilometers based on a reference point chosen to be <span class="process-math">\((0,0)\text{.}\)</span> Due to limitations on the measurement equipment, these measurements all contain some unknown error which we will denote as <span class="process-math">\(z\text{.}\)</span> The goal is to determine your location in <span class="process-math">\(\R^2\)</span> based on this information.</p>
+<p>If the distance readings were accurate, then the point <span class="process-math">\((x,y)\)</span> would lie on the circle centered at <span class="process-math">\(A\)</span> of radius <span class="process-math">\(29\text{.}\)</span> The distance from <span class="process-math">\((x,y)\)</span> to base station <span class="process-math">\(A\)</span> can be represented in two different ways: <span class="process-math">\(28\)</span> km and <span class="process-math">\(\sqrt{(x+1)^2 + (y+2)^2}\text{.}\)</span> However, there is some error in the measurements (due to the receiver clock and satellite clocks not being snychronized), so we really have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{(x+1)^2 + (y+2)^2} + z = 28\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(z\)</span> is the error. Similarly, <span class="process-math">\((x,y)\)</span> must also satisfy</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{(x-36)^2 + (y-5)^2} + z = 26
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sqrt{(x-16)^2 + (y-35)^2} + z = 14\text{.}
+\end{equation*}
+</div>
+</div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p>Explain how these three equations can be written in the equivalent form</p>
+<div class="displaymath process-math">
+\begin{align}
+(x+1)^2+(y+2)^2\amp =(28-z)^2\tag{30.11}\\
+(x-36)^2 + (y-5)^2 \amp = (26-z)^2\tag{30.12}\\
+(x-16)^2 + (y-35)^2 \amp = (14-z)^2\text{.}\tag{30.13}
+\end{align}
+</div>
+<p class="continuation"><figure class="figure figure-like"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/7_d_Ex2_D_circles.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">30.12<span class="period">.</span></span><span class="space"> </span>Intersections of circles.</figcaption></figure></p></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p>If all measurements were accurate, your position would be at the intersection of the circles centered at <span class="process-math">\(A\)</span> with radius <span class="process-math">\(28\)</span> km, centered at <span class="process-math">\(B\)</span> with radius <span class="process-math">\(26\)</span> km, and centered at <span class="process-math">\(C\)</span> with radius <span class="process-math">\(14\)</span> km as shown in <a href="" class="xref" data-knowl="./knowl/F_GPS_circles.html" title="Figure 30.12">Figure 30.12</a>. Even though the figure might seem to imply it, because of the error in the measurements the three circles do not intersect in one point. So instead, we want to find the best estimate of a point of intersection that we can. The system of <a href="" class="xref" data-knowl="./knowl/eq_GPS_2D_1.html" title="Equation 30.11">equations (30.11)</a>, <a href="" class="xref" data-knowl="./knowl/eq_GPS_2D_2.html" title="Equation 30.12">(30.12)</a>, and <a href="" class="xref" data-knowl="./knowl/eq_GPS_2D_3.html" title="Equation 30.13">(30.13)</a> is non-linear and can be difficult to solve, if it even has a solution. To approximate a solution, we can linearize the system. To do this, show that if we subtract corresponding sides of equation  <a href="" class="xref" data-knowl="./knowl/eq_GPS_2D_1.html" title="Equation 30.11">(30.11)</a> from <a href="" class="xref" data-knowl="./knowl/eq_GPS_2D_2.html" title="Equation 30.12">(30.12)</a> and expand both sides, we can obtain the linear equation</p>
+<div class="displaymath process-math">
+\begin{equation*}
+37x + 7y + 2z = 712
+\end{equation*}
+</div>
+<p class="continuation">in the unknowns <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\text{.}\)</span></p></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p>Repeat the process in part (b), subtracting <a href="" class="xref" data-knowl="./knowl/eq_GPS_2D_1.html" title="Equation 30.11">(30.11)</a> from <a href="" class="xref" data-knowl="./knowl/eq_GPS_2D_3.html" title="Equation 30.13">(30.13)</a> and show that we can obtain the linear equation</p>
+<div class="displaymath process-math">
+\begin{equation*}
+17x + 37y + 14z = 1032
+\end{equation*}
+</div>
+<p class="continuation">in <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\text{.}\)</span></p></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p>We have reduced our system of three non-linear equations to the system</p>
+<div class="displaymath process-math">
+\begin{alignat*}{4}
+{37}x   \amp {}+{}   \amp {7}y   \amp {}+{}  \amp {2}z   \amp = \amp {}   \amp 712\\
+{17}x    \amp {}+{}   \amp {37}y   \amp {}+{}   \amp {14}z  \amp = \amp {}  \amp 1032
+\end{alignat*}
+</div>
+<p class="continuation">of two linear equations in the unknowns <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\text{.}\)</span> Use technology to find a pseudoinverse of the coefficient matrix of this system. Use the pseudoinverse to find the least squares solution to this system. Does your solution correspond to an approximate point of intersection of the three circles?</p></article></article><span class="incontext"><a href="sec_proj_gps.html#act_GPS_plane_ex">in-context</a></span>
+</body>
+</html>

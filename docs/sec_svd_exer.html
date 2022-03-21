@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-03-21T15:04:01-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Exercises</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec_svd_summ.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chap_SVD.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_proj_indexing.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec_svd_summ.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chap_SVD.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_proj_indexing.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter"><a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a></li>
+<li class="link part"><a href="part-app-orthog.html" data-scroll="part-app-orthog" class="internal"><span class="codenumber">I</span> <span class="title">Applications of Orthogonality</span></a></li>
+<li class="link"><a href="chap_SVD.html" data-scroll="chap_SVD" class="internal"><span class="codenumber">1</span> <span class="title">The Singular Value Decomposition</span></a></li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a></li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="exercises" id="sec_svd_exer"><h2 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
+</h2>
+<article class="exercise exercise-like" id="exercise-1"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-8"><p id="p-112">Find a singular value decomposition of the following matrices.</p></div>
+<article class="task exercise-like" id="task-20"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-113"><span class="process-math">\(\left[ \begin{array}{cc} 1\amp 1\\0\amp 0 \end{array} \right]\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-1" id="answer-1"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-1"><div class="answer solution-like"><p id="p-114"><span class="process-math">\(U = \left[ \begin{array}{cc} 1\amp 0\\0\amp 1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\Sigma = \left[ \begin{array}{cc} \sqrt{2}\amp 0\\0\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(V = \frac{1}{\sqrt{2}}\left[ \begin{array}{cr} 1\amp -1\\1\amp 1 \end{array} \right]\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-21"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-115"><span class="process-math">\(\left[ \begin{array}{c} 1\\0\\1 \end{array} \right]\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-2" id="answer-2"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-2"><div class="answer solution-like"><p id="p-116"><span class="process-math">\(U = \frac{1}{\sqrt{2}}\left[ \begin{array}{c} 1\\0\\1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\Sigma = [\sqrt{2}]\text{,}\)</span> <span class="process-math">\(V = [1]\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-22"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-117"><span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 1\amp 0\\1\amp 0\amp 1 \end{array} \right]\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><p id="p-118"><span class="process-math">\(U = \frac{1}{\sqrt{2}}\left[ \begin{array}{cr} 1\amp -1\\1\amp 1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\Sigma = \left[ \begin{array}{ccc} \sqrt{3}\amp 0\amp 0\\0\amp 1\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(V = \left[ \begin{array}{crr} \frac{2}{\sqrt{6}}\amp 0\amp -\frac{1}{\sqrt{3}}\\ \frac{1}{\sqrt{6}}\amp -\frac{1}{\sqrt{2}}\amp \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{6}}\amp \frac{1}{\sqrt{2}} \amp \frac{1}{\sqrt{3}} \end{array} \right]\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-23"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-119"><span class="process-math">\(\left[ \begin{array}{cc} 1\amp 2\\2\amp 1\\3\amp 1\\1\amp 3 \end{array} \right]\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-4" id="answer-4"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-4"><div class="answer solution-like"><p id="p-120"><span class="process-math">\(U = \left[ \begin{array}{crrr} \frac{1}{\sqrt{10}}\amp \frac{1}{\sqrt{10}}\amp \frac{2}{\sqrt{5}}\amp 0 \\ \frac{1}{\sqrt{10}}\amp -\frac{1}{\sqrt{10}}\amp 0\amp -\frac{2}{\sqrt{5}} \\ \frac{2}{\sqrt{10}}\amp -\frac{2}{\sqrt{10}}\amp 0\amp \frac{1}{\sqrt{5}} \\ \frac{2}{\sqrt{10}}\amp \frac{2}{\sqrt{10}}\amp -\frac{2}{\sqrt{5}}\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\Sigma = \left[ \begin{array}{cc} 5\amp 0 \\ 0\amp \sqrt{5} \\ 0\amp 0\\0\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(V= \frac{1}{\sqrt{2}} \left[ \begin{array}{cr} 1\amp -1 \\ 1\amp 1 \end{array} \right]\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-24"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-121"><span class="process-math">\(\left[ \begin{array}{cccc} 2\amp 0\amp 0\amp 0\\0\amp 2\amp 1\amp 0\\0\amp 1\amp 2\amp 0 \end{array} \right]\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><p id="p-122"><span class="process-math">\(U = \left[ \begin{array}{ccr} 0\amp 1\amp 0 \\ \frac{1}{\sqrt{2}}\amp 0\amp -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}\amp 0\amp \frac{1}{\sqrt{2}} \end{array} \right]\text{,}\)</span> <span class="process-math">\(\Sigma = \left[ \begin{array}{cccc} 3\amp 0\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(V = \left[ \begin{array}{ccrc} 0\amp 1\amp 0\amp 0 \\ \frac{1}{\sqrt{2}}\amp 0\amp -\frac{1}{\sqrt{2}}\amp 0 \\ \frac{1}{\sqrt{2}}\amp 0\amp \frac{1}{\sqrt{2}}\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]\text{.}\)</span></p></div></div>
+</div></article></article><article class="exercise exercise-like" id="exercise-2"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-9"><p id="p-123">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix of rank <span class="process-math">\(r\)</span> with singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\text{,}\)</span> where <span class="process-math">\(U = [ \vu_1 \ \vu_2 \ \cdots \ \vu_m ]\)</span> and <span class="process-math">\(V = [\vv_1 \ \vv_2 \ \cdots \ \vv_n]\text{.}\)</span> We have seen that the set <span class="process-math">\(\{ \vu_1, \vu_2, \ldots, \vu_r\}\)</span> is a basis for <span class="process-math">\(\Col A\text{,}\)</span> and the vectors <span class="process-math">\(\vv_{r+1}\text{,}\)</span> <span class="process-math">\(\vv_{r+2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_n\)</span> form a basis for <span class="process-math">\(\Nul A\text{.}\)</span> In this exercise we examine the set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_r\}\)</span> and determine what this set tells us about <span class="process-math">\(\Row A\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-25"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-124">Find a singular value decomposition for <span class="process-math">\(A^{\tr}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><p id="p-125">Use the singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\)</span> for <span class="process-math">\(A\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-26"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-126">Explain why the result of (a) shows that the set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_r\}\)</span> is a basis for <span class="process-math">\(\Row A\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-3"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-10"><p id="p-127">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 2\amp 2 \\ 3\amp 3 \end{array} \right]\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-27"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-128">Find the singular values of <span class="process-math">\(A\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like"><p id="p-129"><span class="process-math">\(\sqrt{28}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-28"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-130">Find a singular value decomposition of <span class="process-math">\(A\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-7" id="answer-7"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-7"><div class="answer solution-like"><p id="p-131"><span class="process-math">\(U = \left[ \begin{array}{crr} \frac{1}{\sqrt{14}}\amp \frac{2}{\sqrt{5}}\amp \frac{3}{\sqrt{70}} \\ \frac{2}{\sqrt{14}}\amp -\frac{1}{\sqrt{5}}\amp \frac{6}{\sqrt{70}} \\ \frac{3}{\sqrt{14}}\amp 0\amp -\frac{5}{\sqrt{70}} \end{array} \right]\text{,}\)</span> <span class="process-math">\(\Sigma = \left[ \begin{array}{cc} \sqrt{28}\amp 0 \\ 0\amp 0 \\ 0\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(V = \frac{1}{\sqrt{2}}\left[ \begin{array}{cr} 1\amp -1 \\ 1\amp 1 \end{array} \right]\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-29"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="introduction" id="introduction-11"><p id="p-132">Use a singular value decomposition to find orthonormal bases for the following:</p></div>
+<article class="task exercise-like" id="task-30"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-133"><span class="process-math">\(\Nul A\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-8" id="answer-8"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-8"><div class="answer solution-like"><p id="p-134"><span class="process-math">\(\left\{\frac{1}{\sqrt{2}}[-1 \ 1]^{\tr}\right\}\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-31"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-135"><span class="process-math">\(\Col A\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-9" id="answer-9"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-9"><div class="answer solution-like"><p id="p-136"><span class="process-math">\(\left\{\frac{1}{\sqrt{14}}[1 \ 2 \ 3]^{\tr}\right\}\text{.}\)</span></p></div></div>
+</div></article><article class="task exercise-like" id="task-32"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-137"><span class="process-math">\(\Row A\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-10" id="answer-10"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-10"><div class="answer solution-like"><p id="p-138"><span class="process-math">\(\left\{ \frac{1}{\sqrt{2}}[1 \ 1]^{\tr}\right\}\text{.}\)</span></p></div></div>
+</div></article></article></article><article class="exercise exercise-like" id="exercise-4"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-12"><p id="p-139">Let <span class="process-math">\(A\)</span> have the singular value decomposition as in <a href="" class="xref" data-knowl="./knowl/eq_7_c_SVD.html" title="Equation 1.2">(1.2)</a>.</p></div>
+<article class="task exercise-like" id="task-33"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-140">Show, using <a href="" class="xref" data-knowl="./knowl/eq_7_c_SVD.html" title="Equation 1.2">(1.2)</a>, that <span class="process-math">\(||A\vv_j|| = \sigma_j\text{.}\)</span></p></article><article class="task exercise-like" id="task-34"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-141">Explain why <span class="process-math">\(||A|| = \sigma_1\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-2" id="hint-2"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like"><p id="p-142">The set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_n\}\)</span> is an orthonormal basis of <span class="process-math">\(\R^n\text{.}\)</span> Use this to show that <span class="process-math">\(||A \vx||^2 \leq \sigma_1^2\)</span> for any unit vector <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></div></div>
+</div></article></article><article class="exercise exercise-like" id="exercise-5"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
+<p id="p-143">Show that <span class="process-math">\(A\)</span> and <span class="process-math">\(A^{\tr}\)</span> have the same nonzero singular values. How are their singular value decompositions related?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-3" id="hint-3"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-3"><div class="hint solution-like"><p id="p-144">Find the transpose of an SVD for <span class="process-math">\(A\text{.}\)</span></p></div></div>
+</div></article><article class="exercise exercise-like" id="ex_7_c_AAT"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-13"><p id="p-145">The vectors <span class="process-math">\(\vv_i\)</span> that form the columns of the matrix <span class="process-math">\(V\)</span> in a singular value decomposition of a matrix <span class="process-math">\(A\)</span> are eigenvectors of <span class="process-math">\(A^{\tr}A\text{.}\)</span> In this exercise we investigate the vectors <span class="process-math">\(\vu_i\)</span> that make up the columns of the matrix <span class="process-math">\(U\)</span> in a singular value decomposition of a matrix <span class="process-math">\(A\)</span> for each <span class="process-math">\(i\)</span> between 1 and the rank of <span class="process-math">\(A\text{,}\)</span> and their connection to the matrix <span class="process-math">\(AA^{\tr}\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-35"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="introduction" id="introduction-14">&gt; <p id="p-146">Let <span class="process-math">\(A = \left[ \begin{array}{ccr} 1\amp 1\amp 0 \\ 0\amp 1\amp -1 \end{array}  \right]\text{.}\)</span> A singular value decomposition of <span class="process-math">\(A\)</span> is <span class="process-math">\(U \Sigma V^{\tr}\text{,}\)</span> where</p>
+<div class="displaymath process-math">
+\begin{align*}
+U \amp = \frac{1}{\sqrt{2}}\left[ \begin{array}{rr} -1\amp 1\\
+-1\amp -1 \end{array} \right],\\
+\Sigma \amp = \left[ \begin{array}{ccc} \sqrt{3}\amp 0\amp 0\\
+0\amp 1\amp 0 \end{array} \right],\\
+V \amp = \left[ \begin{array}{rcc} -\frac{1}{\sqrt{6}}\amp -\frac{1}{3\sqrt{6}}\amp \frac{1}{\sqrt{6}}\\
+\frac{1}{\sqrt{2}}\amp 0\amp \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{3}} \amp  \frac{1}{\sqrt{3}} \amp  \frac{1}{\sqrt{3}}\end{array} \right]\text{.}
+\end{align*}
+</div>
+</div>
+<article class="task exercise-like" id="task-36"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-147">Determine the rank <span class="process-math">\(r\)</span> of <span class="process-math">\(A^{\tr}A\)</span> and identify the vectors <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_r\text{.}\)</span></p></article><article class="task exercise-like" id="task-37"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-148">Calculate <span class="process-math">\(AA^{\tr} \vu_i\)</span> for each <span class="process-math">\(i\)</span> between 1 and <span class="process-math">\(r\text{.}\)</span> How is <span class="process-math">\(AA^{\tr} \vu_i\)</span> related to <span class="process-math">\(\vu_i\text{?}\)</span></p></article></article><article class="task exercise-like" id="task-38"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-149">Now we examine the result of part (a) in general. Let <span class="process-math">\(A\)</span> be an arbitrary matrix. Calculate <span class="process-math">\(AA^{\tr} \vu_i\)</span> for <span class="process-math">\(1 \leq i \leq \rank(A)\)</span> and determine specifically how <span class="process-math">\(AA^{\tr} \vu_i\)</span> is related to <span class="process-math">\(\vu_i\text{.}\)</span> What does this tell us about the vectors <span class="process-math">\(\vu_i\)</span> and the matrix <span class="process-math">\(AA^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-39"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-150">Now show in general that the columns of <span class="process-math">\(U\)</span> are orthonormal eigenvectors for <span class="process-math">\(AA^{\tr}\text{.}\)</span> (That is, what can we say about the vectors <span class="process-math">\(\vu_i\)</span> if <span class="process-math">\(i &gt; \rank(A)\text{?}\)</span>)</p></article></article><article class="exercise exercise-like" id="exercise-7"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
+<p id="p-151">If <span class="process-math">\(A\)</span> is a symmetric matrix with eigenvalues <span class="process-math">\(\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n \geq 0\text{,}\)</span> what is <span class="process-math">\(||A||\text{?}\)</span> Justify your answer.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-11" id="answer-11"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-11"><div class="answer solution-like"><p id="p-152"><span class="process-math">\(||A|| = \lambda_1\)</span></p></div></div>
+</div></article><article class="exercise exercise-like" id="ex_7_c_Symmetric_SVD"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-15"><p id="p-153">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(n \times n\)</span> symmetric matrix.</p></div>
+<article class="task exercise-like" id="task-40"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-154">Show that if <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is an eigenvector for <span class="process-math">\(A^{\tr}A\text{.}\)</span> What is the corresponding eigenvalue?</p></article><article class="task exercise-like" id="task-41"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-155">Show that if <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(A^{\tr}A\)</span> with non-negative eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(A\vv\)</span> is an eigenvector of <span class="process-math">\(A^{\tr}A\text{.}\)</span> What is the corresponding eigenvalue?</p></article><article class="task exercise-like" id="task-42"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-156">Suppose <span class="process-math">\(U \Sigma V^{\tr}\)</span> is a singular value decomposition of <span class="process-math">\(A\text{.}\)</span> Explain why <span class="process-math">\(V \Sigma V^{\tr}\)</span> is also a singular value decomposition of <span class="process-math">\(A\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="ex_7_c_rank1"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
+<p id="p-157">Let <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_r\)</span> and <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_r\)</span> be the vectors found in a singular value decomposition of a matrix <span class="process-math">\(A\text{,}\)</span> where <span class="process-math">\(r\)</span> is the rank of <span class="process-math">\(A\text{.}\)</span> Show that <span class="process-math">\(\vu_i\vv_i^{\tr}\)</span> is a rank 1 matrix for each <span class="process-math">\(i\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-4" id="hint-4"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-4"><div class="hint solution-like"><p id="p-158">Mimic <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "ex_7_a_spectral_decomposition" missing or not unique]</code> in <code class="code-inline tex2jax_ignore">[cross-reference to target(s) "chap_orthogonal_diagonalization" missing or not unique]</code>.</p></div></div>
+</div></article><article class="exercise exercise-like" id="exercise-10"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
+<p id="p-159">Is it possible for a matrix <span class="process-math">\(A\)</span> to have a singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\)</span> in which <span class="process-math">\(U = V\text{?}\)</span> If no, explain why. If yes, determine for which matrices we can have <span class="process-math">\(U = V\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-11"><h3 class="heading"><span class="codenumber">11<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-16"><p id="p-160">Label each of the following statements as True or False. Provide justification for your response.</p></div>
+<article class="task exercise-like" id="task-43"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-161">If <span class="process-math">\(\sigma\)</span> is a singular value of a matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\sigma\)</span> is an eigenvalue of <span class="process-math">\(A^{\tr}A\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-12" id="answer-12"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-12"><div class="answer solution-like"><p id="p-162">F</p></div></div>
+</div></article><article class="task exercise-like" id="task-44"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-163">A set of right singular vectors of a matrix <span class="process-math">\(A\)</span> is also a set of left singular vectors of <span class="process-math">\(A^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-45"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-164">The transpose of a singular value decomposition of a matrix <span class="process-math">\(A\)</span> is a singular value decomposition for <span class="process-math">\(A^{\tr}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-13" id="answer-13"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-13"><div class="answer solution-like"><p id="p-165">T</p></div></div>
+</div></article><article class="task exercise-like" id="task-46"><h4 class="heading">
+<span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-166">Similar matrices have the same singular values.</p></article><article class="task exercise-like" id="task-47"><h4 class="heading">
+<span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-167">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix, then the singular values of <span class="process-math">\(A^2\)</span> are the squares of the singular values of <span class="process-math">\(A\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-14" id="answer-14"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-14"><div class="answer solution-like"><p id="p-168">F</p></div></div>
+</div></article><article class="task exercise-like" id="task-48"><h4 class="heading">
+<span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-169">The <span class="process-math">\(\Sigma\)</span> matrix in an SVD of <span class="process-math">\(A\)</span> is unique.</p></article><article class="task exercise-like" id="task-49"><h4 class="heading">
+<span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-170">The matrices <span class="process-math">\(U, V\)</span> in an SVD of <span class="process-math">\(A\)</span> are unique.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-15" id="answer-15"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-15"><div class="answer solution-like"><p id="p-171">F</p></div></div>
+</div></article><article class="task exercise-like" id="task-50"><h4 class="heading">
+<span class="codenumber">(h)</span><span class="space"> </span><span class="title">True/False.</span>
+</h4>
+<p id="p-172">If <span class="process-math">\(A\)</span> is a positive definite matrix, then an orthogonal diagonalization of <span class="process-math">\(A\)</span> is an SVD of <span class="process-math">\(A\text{.}\)</span></p></article></article></section></div></main>
+</div>
+</body>
+</html>
