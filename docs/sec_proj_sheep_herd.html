@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:24:32-04:00       *-->
+<!--*       on 2022-03-21T15:34:16-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,7 +750,7 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proj_sheep_herd"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Managing a Sheep Herd</span>
 </h2>
-<p id="p-3463">Sheep farming is a significant industry in New Zealand. New Zealand is reported to have the highest density of sheep in the world. Sheep can begin to reproduce after one year, and give birth only once per year. <a href="" class="xref" data-knowl="./knowl/T_Sheep.html" title="Table 20.8: New Zealand female sheep data by age group">Table 20.8</a> gives Birth and Survival Rates for Female New Zealand Sheep (from G. Caughley, <span class="articletitle">“Parameters for Seasonally Breeding Populations,”</span> <span class="booktitle">Ecology</span>, <em class="emphasis">48</em>, (1967), 834-839). Since sheep hardly ever live past 12 years, we will only consider the population through 12 years.</p>
+<p id="p-3462">Sheep farming is a significant industry in New Zealand. New Zealand is reported to have the highest density of sheep in the world. Sheep can begin to reproduce after one year, and give birth only once per year. <a href="" class="xref" data-knowl="./knowl/T_Sheep.html" title="Table 20.8: New Zealand female sheep data by age group">Table 20.8</a> gives Birth and Survival Rates for Female New Zealand Sheep (from G. Caughley, <span class="articletitle">“Parameters for Seasonally Breeding Populations,”</span> <span class="booktitle">Ecology</span>, <em class="emphasis">48</em>, (1967), 834-839). Since sheep hardly ever live past 12 years, we will only consider the population through 12 years.</p>
 <figure class="table table-like" id="T_Sheep"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">20.8<span class="period">.</span></span><span class="space"> </span>New Zealand female sheep data by age group</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b1 r1 l1 t1 lines">Age (years)</td>
@@ -818,15 +817,15 @@
 <td class="c m b1 r1 l0 t0 lines">0.421</td>
 <td class="c m b1 r1 l0 t0 lines">0.000</td>
 </tr>
-</table></div></figure><p id="p-3464">As sheep reproduce, they add to the 0-1 sheep (lamb) population. The potential to produce offspring is called <dfn class="terminology">fecundity</dfn> (derived from the word <dfn class="terminology">fecund</dfn> which generally refers to reproductive ability) and determines how many lamb are added to the population. Let <span class="process-math">\(F_k\)</span> (the fecundity rate) be the rate at which females in age class <span class="process-math">\(k\)</span> give birth to female offspring. Not all members of a given age group survive to the next age groups, so let <span class="process-math">\(s_k\)</span> be the fraction of individuals that survives from age group <span class="process-math">\(k\)</span> to age group <span class="process-math">\(k+1\text{.}\)</span> With these ideas in mind, we can create a life cycle chart as in <a href="" class="xref" data-knowl="./knowl/F_Life_cycle.html" title="Figure 20.9">Figure 20.9</a> that illustrates how the population of sheep changes on a farm (for the sake of space, we illustrate with four age classes).</p>
+</table></div></figure><p id="p-3463">As sheep reproduce, they add to the 0-1 sheep (lamb) population. The potential to produce offspring is called <dfn class="terminology">fecundity</dfn> (derived from the word <dfn class="terminology">fecund</dfn> which generally refers to reproductive ability) and determines how many lamb are added to the population. Let <span class="process-math">\(F_k\)</span> (the fecundity rate) be the rate at which females in age class <span class="process-math">\(k\)</span> give birth to female offspring. Not all members of a given age group survive to the next age groups, so let <span class="process-math">\(s_k\)</span> be the fraction of individuals that survives from age group <span class="process-math">\(k\)</span> to age group <span class="process-math">\(k+1\text{.}\)</span> With these ideas in mind, we can create a life cycle chart as in <a href="" class="xref" data-knowl="./knowl/F_Life_cycle.html" title="Figure 20.9">Figure 20.9</a> that illustrates how the population of sheep changes on a farm (for the sake of space, we illustrate with four age classes).</p>
 <figure class="figure figure-like" id="F_Life_cycle"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/4_d_Cycles.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.9<span class="period">.</span></span><span class="space"> </span>Life cycle with four age classes.</figcaption></figure><p id="p-3465">To model the sheep population, we need a few variables. Let <span class="process-math">\(n_1^{(0)}\)</span> be the number of sheep in age group 0-1, <span class="process-math">\(n_2^{(0)}\)</span> the number in age group 1-2, <span class="process-math">\(n_3\)</span> the number in age group 2-3 and, in general, <span class="process-math">\(n_k^{(0)}\)</span> the number of sheep in age group <span class="process-math">\((k-1)\)</span>-<span class="process-math">\(k\)</span> at some initial time (time <span class="process-math">\(0\)</span>), and let</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.9<span class="period">.</span></span><span class="space"> </span>Life cycle with four age classes.</figcaption></figure><p id="p-3464">To model the sheep population, we need a few variables. Let <span class="process-math">\(n_1^{(0)}\)</span> be the number of sheep in age group 0-1, <span class="process-math">\(n_2^{(0)}\)</span> the number in age group 1-2, <span class="process-math">\(n_3\)</span> the number in age group 2-3 and, in general, <span class="process-math">\(n_k^{(0)}\)</span> the number of sheep in age group <span class="process-math">\((k-1)\)</span>-<span class="process-math">\(k\)</span> at some initial time (time <span class="process-math">\(0\)</span>), and let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \vx_0 = \left[ n_1^{(0)} \ n_2^{(0)} \ n_3^{(0)} \ \cdots \ n_{12}^{(0)} \right]^{\tr}\text{.}
 \end{equation*}
 </div>
-<p id="p-3466">We wish to determine the populations in the different groups after one year. Let</p>
+<p id="p-3465">We wish to determine the populations in the different groups after one year. Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \vx_1 = \left[ n_1^{(1)} \ n_2^{(1)} \ n_3^{(1)}  \ \cdots \ n_{12}^{(1)} \right]^{\tr}\text{,}
@@ -836,17 +835,17 @@
 <article class="project project-like" id="Leslie_1"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">20.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-333"><p id="p-3467"><a href="" class="xref" data-knowl="./knowl/T_Sheep.html" title="Table 20.8: New Zealand female sheep data by age group">Table 20.8</a> shows that, on average, each female in age group 1-2 produces <span class="process-math">\(0.045\)</span> female offspring in a year. Since there are <span class="process-math">\(n_2\)</span> females in age group 1-2, the lamb population increases by <span class="process-math">\(0.045n_2\)</span> in a year.</p></div>
+<div class="introduction" id="introduction-332"><p id="p-3466"><a href="" class="xref" data-knowl="./knowl/T_Sheep.html" title="Table 20.8: New Zealand female sheep data by age group">Table 20.8</a> shows that, on average, each female in age group 1-2 produces <span class="process-math">\(0.045\)</span> female offspring in a year. Since there are <span class="process-math">\(n_2\)</span> females in age group 1-2, the lamb population increases by <span class="process-math">\(0.045n_2\)</span> in a year.</p></div>
 <article class="task exercise-like" id="task-1153"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3468">Continue this analysis to explain why</p>
+<p id="p-3467">Continue this analysis to explain why</p>
 <div class="displaymath process-math">
 \begin{align*}
 n_1^{(1)} \amp = 0.045n_2+0.391 n_3+0.472n_4+0.484 n_5+0.546n_6+0.543n_7\\
 \amp \qquad+0.502 n_8+0.468 n_9+0.459n_{10}+0.433 n_{11}+0.421 n_{12}\text{.}
 \end{align*}
 </div></article><article class="task exercise-like" id="task-1154"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3469">Explain why <span class="process-math">\(n_2^{(1)} = 0.845n_1\text{.}\)</span></p></article><article class="task exercise-like" id="task-1155"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3470">Now explain why</p>
+<p id="p-3468">Explain why <span class="process-math">\(n_2^{(1)} = 0.845n_1\text{.}\)</span></p></article><article class="task exercise-like" id="task-1155"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-3469">Now explain why</p>
 <div class="displaymath process-math">
 \begin{equation}
 \vx_1 = L\vx_0\text{,}\label{eq_Leslie_1}\tag{20.5}
@@ -857,26 +856,26 @@ n_1^{(1)} \amp = 0.045n_2+0.391 n_3+0.472n_4+0.484 n_5+0.546n_6+0.543n_7\\
 \begin{equation}
 {\scriptsize  \left[  \begin{array}{cccccccccccc} 0       \amp  0.045 \amp  0.391 \amp  0.472 \amp  0.484 \amp  0.546 \amp  0.543 \amp  0.502 \amp  0.468 \amp  0.459 \amp  0.433 \amp  0.421 \\ 0.845   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0.975 \amp  0    \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0.965  \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0.950  \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0.926 \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0.895  \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0.850  \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0.786  \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0    \amp  0.691  \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0    \amp  0    \amp  0.561  \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0    \amp  0    \amp  0    \amp  0.370  \amp  0 \end{array}  \right]}\text{.}\label{eq_Leslie_2}\tag{20.6}
 \end{equation}
-</div></article></article><p id="p-3471"> Notice that our matrix <span class="process-math">\(L\)</span> has the form</p>
+</div></article></article><p id="p-3470"> Notice that our matrix <span class="process-math">\(L\)</span> has the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{array}{cccccc} F_1\amp F_2\amp F_3\amp \cdots\amp F_{n-1}\amp F_n \\ s_1\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\ 0\amp s_2\amp 0\amp \cdots\amp 0\amp 0 \\  0\amp 0\amp s_3\amp \cdots\amp 0\amp 0 \\ \amp \amp \amp \ddots\amp \amp  \\ 0\amp 0\amp 0\amp \cdots\amp s_{n-1}\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Such a matrix is called a <dfn class="terminology">Leslie matrix</dfn>.</p>
-<p id="p-3472">Leslie matrices have certain useful properties, and one eigenvalue of a Leslie matrix can tell us a lot about the long-term behavior of the situation being modeled. You can take these properties as fact unless otherwise directed.</p>
+<p id="p-3471">Leslie matrices have certain useful properties, and one eigenvalue of a Leslie matrix can tell us a lot about the long-term behavior of the situation being modeled. You can take these properties as fact unless otherwise directed.</p>
 <ol class="decimal">
-<li id="li-592"><p id="p-3473">A Leslie matrix <span class="process-math">\(L\)</span> has a unique positive eigenvalue <span class="process-math">\(\lambda_1\)</span> with a corresponding eigenvector <span class="process-math">\(\vv_1\)</span> whose entries are all positive.</p></li>
-<li id="li-593"><p id="p-3474">If <span class="process-math">\(\lambda_i\)</span> (<span class="process-math">\(i &gt; 1\)</span>) is any other eigenvalue (real or complex) of <span class="process-math">\(L\text{,}\)</span> then <span class="process-math">\(|\lambda_i| \leq \lambda_1\text{.}\)</span> If <span class="process-math">\(\lambda_1\)</span> is the largest magnitude eigenvalue of a matrix <span class="process-math">\(L\text{,}\)</span> we call <span class="process-math">\(\lambda_1\)</span> a <dfn class="terminology">dominant eigenvalue</dfn> of <span class="process-math">\(L\text{.}\)</span></p></li>
-<li id="li-594"><p id="p-3475">If any two successive entries in the first row of <span class="process-math">\(L\)</span> are both positive, then <span class="process-math">\(|\lambda_i| \lt \lambda_1\)</span> for every <span class="process-math">\(i &gt; 1\text{.}\)</span> In this case we say that <span class="process-math">\(\lambda_1\)</span> is a <dfn class="terminology">strictly dominant eigenvalue</dfn> of <span class="process-math">\(L\text{.}\)</span> In a Leslie model, this happens when the females in two successive age classes are fertile, which is almost always the case.</p></li>
-<li id="li-595"><p id="p-3476">If <span class="process-math">\(\lambda_1\)</span> is a strictly dominant eigenvalue, then <span class="process-math">\(\vx_k\)</span> is approximately a scalar multiple of <span class="process-math">\(\vv_1\)</span> for large values of <span class="process-math">\(k\text{,}\)</span> regardless of the initial state <span class="process-math">\(\vx_0\text{.}\)</span> In other words, large state vectors are close to eigenvectors for <span class="process-math">\(\lambda_1\text{.}\)</span></p></li>
+<li id="li-592"><p id="p-3472">A Leslie matrix <span class="process-math">\(L\)</span> has a unique positive eigenvalue <span class="process-math">\(\lambda_1\)</span> with a corresponding eigenvector <span class="process-math">\(\vv_1\)</span> whose entries are all positive.</p></li>
+<li id="li-593"><p id="p-3473">If <span class="process-math">\(\lambda_i\)</span> (<span class="process-math">\(i &gt; 1\)</span>) is any other eigenvalue (real or complex) of <span class="process-math">\(L\text{,}\)</span> then <span class="process-math">\(|\lambda_i| \leq \lambda_1\text{.}\)</span> If <span class="process-math">\(\lambda_1\)</span> is the largest magnitude eigenvalue of a matrix <span class="process-math">\(L\text{,}\)</span> we call <span class="process-math">\(\lambda_1\)</span> a <dfn class="terminology">dominant eigenvalue</dfn> of <span class="process-math">\(L\text{.}\)</span></p></li>
+<li id="li-594"><p id="p-3474">If any two successive entries in the first row of <span class="process-math">\(L\)</span> are both positive, then <span class="process-math">\(|\lambda_i| \lt \lambda_1\)</span> for every <span class="process-math">\(i &gt; 1\text{.}\)</span> In this case we say that <span class="process-math">\(\lambda_1\)</span> is a <dfn class="terminology">strictly dominant eigenvalue</dfn> of <span class="process-math">\(L\text{.}\)</span> In a Leslie model, this happens when the females in two successive age classes are fertile, which is almost always the case.</p></li>
+<li id="li-595"><p id="p-3475">If <span class="process-math">\(\lambda_1\)</span> is a strictly dominant eigenvalue, then <span class="process-math">\(\vx_k\)</span> is approximately a scalar multiple of <span class="process-math">\(\vv_1\)</span> for large values of <span class="process-math">\(k\text{,}\)</span> regardless of the initial state <span class="process-math">\(\vx_0\text{.}\)</span> In other words, large state vectors are close to eigenvectors for <span class="process-math">\(\lambda_1\text{.}\)</span></p></li>
 </ol>
-<p id="p-3477">We can use these properties to determine the long-term behavior of the sheep herd.</p>
+<p id="p-3476">We can use these properties to determine the long-term behavior of the sheep herd.</p>
 <article class="project project-like" id="act_Leslie_2"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">20.7</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-334">
-<p id="p-3478">Assume that <span class="process-math">\(L\)</span> is defined by <a href="" class="xref" data-knowl="./knowl/eq_Leslie_2.html" title="Equation 20.6">(20.6)</a>, and let</p>
+<div class="introduction" id="introduction-333">
+<p id="p-3477">Assume that <span class="process-math">\(L\)</span> is defined by <a href="" class="xref" data-knowl="./knowl/eq_Leslie_2.html" title="Equation 20.6">(20.6)</a>, and let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \vx_m = \left[ n_1^{(m)} \ n_2^{(m)} \ n_3^{(m)} \ \cdots \ n_{12}^{(m)} \right]^{\tr}\text{,}
@@ -885,14 +884,14 @@ n_1^{(1)} \amp = 0.045n_2+0.391 n_3+0.472n_4+0.484 n_5+0.546n_6+0.543n_7\\
 <p class="continuation">where <span class="process-math">\(n_1^{(m)}\)</span> denotes the number of sheep in age group 0-1, <span class="process-math">\(n_2^{(m)}\)</span> the number of sheep in age group 1-2 and, in general, <span class="process-math">\(n_k^{(m)}\)</span> the number of sheep in age group <span class="process-math">\((k-1)\)</span>-<span class="process-math">\(k\)</span> after <span class="process-math">\(k\)</span> years.</p>
 </div>
 <article class="task exercise-like" id="task-1156"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3479">Assume that <span class="process-math">\(\vx_0 = \left[100 \ 100 \ 100 \ \cdots \ 100 \right]^{\tr}\text{.}\)</span> Use appropriate technology to calculate <span class="process-math">\(\vx_{22}\text{,}\)</span> <span class="process-math">\(\vx_{23}\text{,}\)</span> <span class="process-math">\(\vx_{24}\text{,}\)</span> and <span class="process-math">\(\vx_{25}\text{.}\)</span> Round to the nearest whole number. What do you notice about the sheep population? You may use the GeoGebra applet at <a class="external" href="https://www.geogebra.org/m/yqss88xq" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/yqss88xq</code></a>.</p>
-<p id="p-3480">We can use the third and fourth properties of Leslie matrices to better understand the long-term behavior of the sheep population. Since successive entries in the first row of the Leslie matrix in <a href="" class="xref" data-knowl="./knowl/eq_Leslie_2.html" title="Equation 20.6">(20.6)</a> are positive, our Leslie matrix has a strictly dominant eigenvalue <span class="process-math">\(\lambda_1\text{.}\)</span> Given the dimensions of our Leslie matrix, finding this dominant eigenvalue through algebraic means is not feasible. Use the power method to approximate the dominant eigenvalue <span class="process-math">\(\lambda_1\)</span> of the Leslie matrix in <a href="" class="xref" data-knowl="./knowl/eq_Leslie_2.html" title="Equation 20.6">(20.6)</a> to five decimal places. Explain your process. Then explain how this dominant eigenvalue tells us that, unchecked, the sheep population grows at a rate that is roughly exponential. What is the growth rate of this exponential growth? You may use the GeoGebra applet at <a class="external" href="https://www.geogebra.org/m/yqss88xq" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/yqss88xq</code></a>.</p></article></article><p id="p-3481"><a href="" class="xref" data-knowl="./knowl/act_Leslie_2.html" title="Project Activity 20.7">Project Activity 20.7</a> indicates that, unchecked, the sheep population will grow without bound, roughly exponentially with ratio equal to the dominant eigenvalue of our Leslie matrix <span class="process-math">\(L\text{.}\)</span> Of course, a sheep farmer cannot provide the physical environment or the resources to support an unlimited population of sheep. In addition, most sheep farmers cannot support themselves only by shearing sheep for the wool. Consequently, some harvesting of the sheep population each year for meat and skin is necessary. A sustainable harvesting policy allows for the regular harvesting of some sheep while maintaining the population at a stable level. It is necessary for the farmer to find an optimal harvesting rate to attain this stable population and the following activity leads us through an analysis of how such a harvesting rate can be determined.</p>
+<p id="p-3478">Assume that <span class="process-math">\(\vx_0 = \left[100 \ 100 \ 100 \ \cdots \ 100 \right]^{\tr}\text{.}\)</span> Use appropriate technology to calculate <span class="process-math">\(\vx_{22}\text{,}\)</span> <span class="process-math">\(\vx_{23}\text{,}\)</span> <span class="process-math">\(\vx_{24}\text{,}\)</span> and <span class="process-math">\(\vx_{25}\text{.}\)</span> Round to the nearest whole number. What do you notice about the sheep population? You may use the GeoGebra applet at <a class="external" href="https://www.geogebra.org/m/yqss88xq" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/yqss88xq</code></a>.</p>
+<p id="p-3479">We can use the third and fourth properties of Leslie matrices to better understand the long-term behavior of the sheep population. Since successive entries in the first row of the Leslie matrix in <a href="" class="xref" data-knowl="./knowl/eq_Leslie_2.html" title="Equation 20.6">(20.6)</a> are positive, our Leslie matrix has a strictly dominant eigenvalue <span class="process-math">\(\lambda_1\text{.}\)</span> Given the dimensions of our Leslie matrix, finding this dominant eigenvalue through algebraic means is not feasible. Use the power method to approximate the dominant eigenvalue <span class="process-math">\(\lambda_1\)</span> of the Leslie matrix in <a href="" class="xref" data-knowl="./knowl/eq_Leslie_2.html" title="Equation 20.6">(20.6)</a> to five decimal places. Explain your process. Then explain how this dominant eigenvalue tells us that, unchecked, the sheep population grows at a rate that is roughly exponential. What is the growth rate of this exponential growth? You may use the GeoGebra applet at <a class="external" href="https://www.geogebra.org/m/yqss88xq" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/yqss88xq</code></a>.</p></article></article><p id="p-3480"><a href="" class="xref" data-knowl="./knowl/act_Leslie_2.html" title="Project Activity 20.7">Project Activity 20.7</a> indicates that, unchecked, the sheep population will grow without bound, roughly exponentially with ratio equal to the dominant eigenvalue of our Leslie matrix <span class="process-math">\(L\text{.}\)</span> Of course, a sheep farmer cannot provide the physical environment or the resources to support an unlimited population of sheep. In addition, most sheep farmers cannot support themselves only by shearing sheep for the wool. Consequently, some harvesting of the sheep population each year for meat and skin is necessary. A sustainable harvesting policy allows for the regular harvesting of some sheep while maintaining the population at a stable level. It is necessary for the farmer to find an optimal harvesting rate to attain this stable population and the following activity leads us through an analysis of how such a harvesting rate can be determined.</p>
 <article class="project project-like" id="act_Leslie_harvest"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">20.8</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-335"><p id="p-3482">The Leslie model can be modified to consider harvesting. It is possible to harvest different age groups at different rates, and to harvest only some age groups and not others. In the case of sheep, it might make sense to only harvest from the youngest population since lamb is more desirable than mutton and the lamb population grows the fastest. Assume that this is our harvesting strategy and that we harvest our sheep from only the youngest age group at the start of each year. Let <span class="process-math">\(h\)</span> be the fraction of sheep we harvest from the youngest age group each year after considering growth.</p></div>
+<div class="introduction" id="introduction-334"><p id="p-3481">The Leslie model can be modified to consider harvesting. It is possible to harvest different age groups at different rates, and to harvest only some age groups and not others. In the case of sheep, it might make sense to only harvest from the youngest population since lamb is more desirable than mutton and the lamb population grows the fastest. Assume that this is our harvesting strategy and that we harvest our sheep from only the youngest age group at the start of each year. Let <span class="process-math">\(h\)</span> be the fraction of sheep we harvest from the youngest age group each year after considering growth.</p></div>
 <article class="task exercise-like" id="task-1157"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3483">If we begin with an initial population <span class="process-math">\(\vx_0\text{,}\)</span> then the state vector after births and expected deaths is <span class="process-math">\(L\vx_0\text{.}\)</span> Now we harvest. Explain why if we harvest a fraction <span class="process-math">\(h\)</span> from the youngest age group after considering growth, then the state vector after 1 year will be</p>
+<p id="p-3482">If we begin with an initial population <span class="process-math">\(\vx_0\text{,}\)</span> then the state vector after births and expected deaths is <span class="process-math">\(L\vx_0\text{.}\)</span> Now we harvest. Explain why if we harvest a fraction <span class="process-math">\(h\)</span> from the youngest age group after considering growth, then the state vector after 1 year will be</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \vx_1 = L\vx_0 - HL\vx_0\text{,}
@@ -904,7 +903,7 @@ n_1^{(1)} \amp = 0.045n_2+0.391 n_3+0.472n_4+0.484 n_5+0.546n_6+0.543n_7\\
 H =  \left[ \begin{array}{c c c c c c c c c c c c} h      \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0     \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0   \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0   \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0    \amp  0   \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0    \amp  0    \amp  0   \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0    \amp  0    \amp  0    \amp  0   \amp  0 \\ 0     \amp  0   \amp  0    \amp  0    \amp  0   \amp  0    \amp  0    \amp  0    \amp  0    \amp  0    \amp  0    \amp  0 \end{array}  \right]\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-1158"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3484">Our goal is to find a harvesting rate that will lead to a steady state in which the sheep population remains the same each year. In other words, we want to find a value of <span class="process-math">\(h\text{,}\)</span> if one exists, that satisfies</p>
+<p id="p-3483">Our goal is to find a harvesting rate that will lead to a steady state in which the sheep population remains the same each year. In other words, we want to find a value of <span class="process-math">\(h\text{,}\)</span> if one exists, that satisfies</p>
 <div class="displaymath process-math">
 \begin{equation}
 \vx = L\vx - HL\vx\text{.}\label{eq_Harvest}\tag{20.7}
@@ -916,9 +915,9 @@ H =  \left[ \begin{array}{c c c c c c c c c c c c} h      \amp  0   \amp  0   \a
 \vx = (I_{12}-H)L\vx\text{.}\label{eq_Harvest2}\tag{20.8}
 \end{equation}
 </div></article><article class="task exercise-like" id="task-1159"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3485">Use appropriate technology to experiment numerically with different values of <span class="process-math">\(h\)</span> to find the value you think gives the best uniform harvest rate. Explain your reasoning. You may use the GeoGebra applet at <a class="external" href="https://www.geogebra.org/m/yqss88xq" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/yqss88xq</code></a>.</p></article><article class="task exercise-like" id="task-1160"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<div class="introduction" id="introduction-336">
-<p id="p-3486">Now we will use some algebra to find an equation that explicitly gives us the harvest rate in the general setting. This will take a bit of work, but none of it is too difficult. To simplify our work but yet illustrate the overall idea, let us consider the general <span class="process-math">\(4 \times 4\)</span> case with arbitrary Leslie matrix</p>
+<p id="p-3484">Use appropriate technology to experiment numerically with different values of <span class="process-math">\(h\)</span> to find the value you think gives the best uniform harvest rate. Explain your reasoning. You may use the GeoGebra applet at <a class="external" href="https://www.geogebra.org/m/yqss88xq" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/yqss88xq</code></a>.</p></article><article class="task exercise-like" id="task-1160"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="introduction" id="introduction-335">
+<p id="p-3485">Now we will use some algebra to find an equation that explicitly gives us the harvest rate in the general setting. This will take a bit of work, but none of it is too difficult. To simplify our work but yet illustrate the overall idea, let us consider the general <span class="process-math">\(4 \times 4\)</span> case with arbitrary Leslie matrix</p>
 <div class="displaymath process-math">
 \begin{equation*}
 L = \left[ \begin{array}{cccc} F_1 \amp  F_2   \amp  F_3   \amp  F_4 \\ s_1 \amp  0   \amp  0   \amp  0  \\ 0   \amp  s_2   \amp  0   \amp  0 \\ 0   \amp  0   \amp  s_3  \amp  0 \end{array}  \right]\text{.}
@@ -927,14 +926,14 @@ L = \left[ \begin{array}{cccc} F_1 \amp  F_2   \amp  F_3   \amp  F_4 \\ s_1 \amp
 <p class="continuation">Recall that we want to find a value of <span class="process-math">\(h\)</span> that satisfies <a href="" class="xref" data-knowl="./knowl/eq_Harvest2.html" title="Equation 20.8">(20.8)</a> with <span class="process-math">\(H = \left[ \begin{array}{cccc} h   \amp  0   \amp  0   \amp  0 \\ 0   \amp  0   \amp  0   \amp  0  \\ 0   \amp  0   \amp  0   \amp  0 \\ 0   \amp  0   \amp  0      \amp  0 \end{array}  \right]\text{.}\)</span> Let <span class="process-math">\(\vx = [x_1 \  x_2 \ x_3 \ x_4]^{\tr}\text{.}\)</span></p>
 </div>
 <article class="task exercise-like" id="task-1161"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-3487">Calculate the matrix product <span class="process-math">\((I_{4}-H)L\text{.}\)</span> Explain why this product is again a Leslie matrix and why <span class="process-math">\((I_{4}-H)L\)</span> will have a dominant eigenvalue of 1.</p></article><article class="task exercise-like" id="task-1162"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-3488">Now calculate <span class="process-math">\((I_{4}-H)L\vx\)</span> and set it equal to <span class="process-math">\(\vx\text{.}\)</span> Write down the resulting system of 4 equations that must be satisfied. Be sure that your first equation is</p>
+<p id="p-3486">Calculate the matrix product <span class="process-math">\((I_{4}-H)L\text{.}\)</span> Explain why this product is again a Leslie matrix and why <span class="process-math">\((I_{4}-H)L\)</span> will have a dominant eigenvalue of 1.</p></article><article class="task exercise-like" id="task-1162"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-3487">Now calculate <span class="process-math">\((I_{4}-H)L\vx\)</span> and set it equal to <span class="process-math">\(\vx\text{.}\)</span> Write down the resulting system of 4 equations that must be satisfied. Be sure that your first equation is</p>
 <div class="displaymath process-math">
 \begin{equation}
 x_1 = (1-h)F_1x_1 + (1-h)F_2x_2 + (1-h)F_3x_3 + (1-h)F_4x_4\text{.}\label{eq_harvestval1}\tag{20.9}
 \end{equation}
 </div></article><article class="task exercise-like" id="task-1163"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-3489">Equation <a href="" class="xref" data-knowl="./knowl/eq_harvestval1.html" title="Equation 20.9">(20.9)</a> as written depends on the entries of the vector <span class="process-math">\(\vx\text{,}\)</span> but we should be able to arrive at a result that is independent of <span class="process-math">\(\vx\text{.}\)</span> To see how we do this, we assume the population of the youngest group is never 0, so we can divide both sides of <a href="" class="xref" data-knowl="./knowl/eq_harvestval1.html" title="Equation 20.9">(20.9)</a> by <span class="process-math">\(x_1\)</span> to obtain</p>
+<p id="p-3488">Equation <a href="" class="xref" data-knowl="./knowl/eq_harvestval1.html" title="Equation 20.9">(20.9)</a> as written depends on the entries of the vector <span class="process-math">\(\vx\text{,}\)</span> but we should be able to arrive at a result that is independent of <span class="process-math">\(\vx\text{.}\)</span> To see how we do this, we assume the population of the youngest group is never 0, so we can divide both sides of <a href="" class="xref" data-knowl="./knowl/eq_harvestval1.html" title="Equation 20.9">(20.9)</a> by <span class="process-math">\(x_1\)</span> to obtain</p>
 <div class="displaymath process-math">
 \begin{equation}
 1 = (1-h)F_1 + (1-h)F_2 \frac{x_2}{x_1} + (1-h)F_3 \frac{x_3}{x_1} + (1-h)F_4 \frac{x_4}{x_1}\text{.}\label{eq_harvestval2}\tag{20.10}
@@ -948,14 +947,14 @@ x_1 = (1-h)F_1x_1 + (1-h)F_2x_2 + (1-h)F_3x_3 + (1-h)F_4x_4\text{.}\label{eq_har
 \frac{x_4}{x_1} \amp = s_1s_2s_3\text{.}
 \end{align*}
 </div></article><article class="task exercise-like" id="task-1164"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-3490">Now conclude that the harvesting value <span class="process-math">\(h\)</span> must satisfy the equation</p>
+<p id="p-3489">Now conclude that the harvesting value <span class="process-math">\(h\)</span> must satisfy the equation</p>
 <div class="displaymath process-math">
 \begin{equation}
 1 = (1-h) [F_1 + F_2 s_1 + F_3 s_1s_2 + F_4 s_1s_2s_3]\text{.}\label{eq_harvestval3}\tag{20.11}
 \end{equation}
 </div>
 <p class="continuation">The value <span class="process-math">\(R = F_1 + F_2 s_1 + F_3 s_1s_2 + F_4 s_1s_2s_3\)</span> is called the <dfn class="terminology">net reproduction rate of the population</dfn> and turns out to be the average number of daughters born to a female in her expected lifetime.</p></article></article><article class="task exercise-like" id="task-1165"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-3491">Extend <a href="" class="xref" data-knowl="./knowl/eq_harvestval3.html" title="Equation 20.11">(20.11)</a> to the 12 age group case of the sheep herd. Calculate the value of <span class="process-math">\(R\)</span> for this sheep herd and then find the value of <span class="process-math">\(h\text{.}\)</span> Compare this <span class="process-math">\(h\)</span> to the value you obtained through experimentation earlier. Find the fraction of the lambs that should be harvested each year and explain what the stable population state vector <span class="process-math">\(\vx\)</span> tells us about the sheep population for this harvesting policy.</p></article></article></section></div></main>
+<p id="p-3490">Extend <a href="" class="xref" data-knowl="./knowl/eq_harvestval3.html" title="Equation 20.11">(20.11)</a> to the 12 age group case of the sheep herd. Calculate the value of <span class="process-math">\(R\)</span> for this sheep herd and then find the value of <span class="process-math">\(h\text{.}\)</span> Compare this <span class="process-math">\(h\)</span> to the value you obtained through experimentation earlier. Find the fraction of the lambs that should be harvested each year and explain what the stable population state vector <span class="process-math">\(\vx\)</span> tells us about the sheep population for this harvesting policy.</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

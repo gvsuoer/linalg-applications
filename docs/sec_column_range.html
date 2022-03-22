@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:22:25-04:00       *-->
+<!--*       on 2022-03-21T15:32:09-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,29 +750,29 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_column_range"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Column Space of a Matrix and the Range of a Matrix Transformation</span>
 </h2>
-<p id="p-2206">Given an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we have seen that the matrix-vector product <span class="process-math">\(A \vx\)</span> is a linear combination of the columns of <span class="process-math">\(A\)</span> with weights from <span class="process-math">\(\vx\text{.}\)</span> It follows that the equation <span class="process-math">\(A \vx = \vb\)</span> has a solution if and only if <span class="process-math">\(\vb\)</span> is a linear combination of the columns of <span class="process-math">\(A\text{.}\)</span> So the span of the columns of <span class="process-math">\(A\)</span> tells us for which vectors the equation <span class="process-math">\(A \vx = \vb\)</span> is consistent. We give the span of the columns of a matrix <span class="process-math">\(A\)</span> a special name.</p>
+<p id="p-2205">Given an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we have seen that the matrix-vector product <span class="process-math">\(A \vx\)</span> is a linear combination of the columns of <span class="process-math">\(A\)</span> with weights from <span class="process-math">\(\vx\text{.}\)</span> It follows that the equation <span class="process-math">\(A \vx = \vb\)</span> has a solution if and only if <span class="process-math">\(\vb\)</span> is a linear combination of the columns of <span class="process-math">\(A\text{.}\)</span> So the span of the columns of <span class="process-math">\(A\)</span> tells us for which vectors the equation <span class="process-math">\(A \vx = \vb\)</span> is consistent. We give the span of the columns of a matrix <span class="process-math">\(A\)</span> a special name.</p>
 <article class="definition definition-like" id="definition-32"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">13.4</span><span class="period">.</span>
 </h3>
-<p id="p-2207">The <dfn class="terminology">column space</dfn> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is the span of the columns of <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-2208">We denote the column space of <span class="process-math">\(A\)</span> as <span class="process-math">\(\Col A\text{.}\)</span> Given that <span class="process-math">\(A \vx\)</span> is a linear combination of the columns of <span class="process-math">\(A\text{,}\)</span> we can also write the column space of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> as</p>
+<p id="p-2206">The <dfn class="terminology">column space</dfn> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is the span of the columns of <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-2207">We denote the column space of <span class="process-math">\(A\)</span> as <span class="process-math">\(\Col A\text{.}\)</span> Given that <span class="process-math">\(A \vx\)</span> is a linear combination of the columns of <span class="process-math">\(A\text{,}\)</span> we can also write the column space of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Col A = \{A \vx : \vx \text{ is in }  \R^n\}\text{.}
 \end{equation*}
 </div>
-<p id="p-2209">For the matrix transformation <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\text{,}\)</span> the set of all vectors of the form <span class="process-math">\(A \vx\)</span> is also the range of the transformation <span class="process-math">\(T\text{.}\)</span> So for a matrix transformation <span class="process-math">\(T\)</span> with matrix <span class="process-math">\(A\)</span> we have <span class="process-math">\(\Range(T) = \Col A\text{.}\)</span></p>
+<p id="p-2208">For the matrix transformation <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\text{,}\)</span> the set of all vectors of the form <span class="process-math">\(A \vx\)</span> is also the range of the transformation <span class="process-math">\(T\text{.}\)</span> So for a matrix transformation <span class="process-math">\(T\)</span> with matrix <span class="process-math">\(A\)</span> we have <span class="process-math">\(\Range(T) = \Col A\text{.}\)</span></p>
 <article class="activity project-like" id="act_3_b_2"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">13.3</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-202"><p id="p-2210">As a span of a set of vectors, we know that <span class="process-math">\(\Col A\)</span> is a subspace of <span class="process-math">\(\R^k\)</span> for an appropriate value of <span class="process-math">\(k\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-201"><p id="p-2209">As a span of a set of vectors, we know that <span class="process-math">\(\Col A\)</span> is a subspace of <span class="process-math">\(\R^k\)</span> for an appropriate value of <span class="process-math">\(k\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-711"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2211">Let <span class="process-math">\(M = \left[ \begin{array}{ccccr} 1\amp 1\amp 1\amp 0\amp 2 \\ 0\amp 1\amp 0\amp 1\amp 1 \\ 1\amp 0\amp 1\amp 1\amp -1 \\ 0\amp 1\amp 0\amp 1\amp 1 \end{array} \right]\text{.}\)</span> The space <span class="process-math">\(\Col M\)</span> is a subspace of <span class="process-math">\(\R^k\)</span> for some positive integer <span class="process-math">\(k\text{.}\)</span> What is <span class="process-math">\(k\)</span> in this case?</p></article><article class="task exercise-like" id="task-712"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2212">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix, then <span class="process-math">\(\Col A\)</span> is a subspace of <span class="process-math">\(\R^k\)</span> for some positive integer <span class="process-math">\(k\text{.}\)</span> What is <span class="process-math">\(k\)</span> in this case?</p></article><article class="task exercise-like" id="task-713"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-2213">Recall that a matrix transformation <span class="process-math">\(T\)</span> given by <span class="process-math">\(T(\vx)=A\vx\)</span> where <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix is onto if for every <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^m\)</span> there exists a <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\)</span> for which <span class="process-math">\(T(\vx)=\vb\text{.}\)</span> How does <span class="process-math">\(T\)</span> being onto relate to the <span class="process-math">\(\Col A\text{?}\)</span></p></article></article><p id="p-2214">As you saw in <a href="" class="xref" data-knowl="./knowl/act_3_b_2.html" title="Activity 13.3">Activity 13.3</a>, a matrix transformation <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx)=A\vx\)</span> is onto if the column space of <span class="process-math">\(A\text{,}\)</span> which consists of the image vectors under the transformation <span class="process-math">\(T\text{,}\)</span> is equal to <span class="process-math">\(\R^m\text{.}\)</span> In other words, we want the <span class="process-math">\(\Range(T)\)</span> to equal <span class="process-math">\(\R^m\text{.}\)</span></p>
+<p id="p-2210">Let <span class="process-math">\(M = \left[ \begin{array}{ccccr} 1\amp 1\amp 1\amp 0\amp 2 \\ 0\amp 1\amp 0\amp 1\amp 1 \\ 1\amp 0\amp 1\amp 1\amp -1 \\ 0\amp 1\amp 0\amp 1\amp 1 \end{array} \right]\text{.}\)</span> The space <span class="process-math">\(\Col M\)</span> is a subspace of <span class="process-math">\(\R^k\)</span> for some positive integer <span class="process-math">\(k\text{.}\)</span> What is <span class="process-math">\(k\)</span> in this case?</p></article><article class="task exercise-like" id="task-712"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2211">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix, then <span class="process-math">\(\Col A\)</span> is a subspace of <span class="process-math">\(\R^k\)</span> for some positive integer <span class="process-math">\(k\text{.}\)</span> What is <span class="process-math">\(k\)</span> in this case?</p></article><article class="task exercise-like" id="task-713"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-2212">Recall that a matrix transformation <span class="process-math">\(T\)</span> given by <span class="process-math">\(T(\vx)=A\vx\)</span> where <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix is onto if for every <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^m\)</span> there exists a <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\)</span> for which <span class="process-math">\(T(\vx)=\vb\text{.}\)</span> How does <span class="process-math">\(T\)</span> being onto relate to the <span class="process-math">\(\Col A\text{?}\)</span></p></article></article><p id="p-2213">As you saw in <a href="" class="xref" data-knowl="./knowl/act_3_b_2.html" title="Activity 13.3">Activity 13.3</a>, a matrix transformation <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx)=A\vx\)</span> is onto if the column space of <span class="process-math">\(A\text{,}\)</span> which consists of the image vectors under the transformation <span class="process-math">\(T\text{,}\)</span> is equal to <span class="process-math">\(\R^m\text{.}\)</span> In other words, we want the <span class="process-math">\(\Range(T)\)</span> to equal <span class="process-math">\(\R^m\text{.}\)</span></p>
 <article class="theorem theorem-like" id="thm_3_b_onto_range"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">13.5</span><span class="period">.</span>
 </h3>
-<p id="p-2215">A matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is onto if and only if</p>
+<p id="p-2214">A matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is onto if and only if</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Col A = \Range(T) = \R^m\text{.}

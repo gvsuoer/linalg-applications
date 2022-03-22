@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:22:20-04:00       *-->
+<!--*       on 2022-03-21T15:32:03-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,12 +750,12 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proj_ls_approx"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Least Sqaures Linear Approximation</span>
 </h2>
-<p id="p-2150">We return to the problem of finding the least squares line to fit the GDP-consumption data. We will start our work in a more general setting, determining the  method for fitting a linear function to fit any data set, like the GDP-consumption data, in the least squares sense. Then we will apply our result to the GDP-consumption data.</p>
+<p id="p-2149">We return to the problem of finding the least squares line to fit the GDP-consumption data. We will start our work in a more general setting, determining the  method for fitting a linear function to fit any data set, like the GDP-consumption data, in the least squares sense. Then we will apply our result to the GDP-consumption data.</p>
 <article class="project project-like" id="act_ls_no_line"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">12.4</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-194">
-<p id="p-2151">Suppose we want to fit a linear function <span class="process-math">\(p(x) = mx+b\)</span>to our data. For the sake of our argument, let us assume the general case where we have <span class="process-math">\(n\)</span>data points labeled as <span class="process-math">\((x_1,y_1)\text{,}\)</span> <span class="process-math">\((x_2, y_2)\text{,}\)</span> <span class="process-math">\((x_3, y_3)\text{,}\)</span>  <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((x_n, y_n)\text{.}\)</span> (In the GDP-consumption data <span class="process-math">\(n = 21\text{.}\)</span>) In the unlikely event that the graph of <span class="process-math">\(p(x)\)</span> actually passes through these data points, then we would have the system of equations</p>
+<div class="introduction" id="introduction-193">
+<p id="p-2150">Suppose we want to fit a linear function <span class="process-math">\(p(x) = mx+b\)</span>to our data. For the sake of our argument, let us assume the general case where we have <span class="process-math">\(n\)</span>data points labeled as <span class="process-math">\((x_1,y_1)\text{,}\)</span> <span class="process-math">\((x_2, y_2)\text{,}\)</span> <span class="process-math">\((x_3, y_3)\text{,}\)</span>  <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((x_n, y_n)\text{.}\)</span> (In the GDP-consumption data <span class="process-math">\(n = 21\text{.}\)</span>) In the unlikely event that the graph of <span class="process-math">\(p(x)\)</span> actually passes through these data points, then we would have the system of equations</p>
 <div class="displaymath process-math">
 \begin{align}
 y_1 \amp = b + mx_1\notag\\
@@ -769,10 +768,10 @@ y_n \amp = b + mx_n \notag\notag
 <p class="continuation">in the unknowns <span class="process-math">\(b\)</span> and <span class="process-math">\(m\text{.}\)</span></p>
 </div>
 <article class="task exercise-like" id="task-689"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2152">As a small example to illustrate, write the system (\ref{eq:LS_system}) using the threepoints <span class="process-math">\((x_1,y_1)= (1,2)\text{,}\)</span> <span class="process-math">\((x_2,y_2) = (3,4)\text{,}\)</span> and <span class="process-math">\((x_3,y_3) = (5,6)\text{.}\)</span> Identify the unknowns and then write this system in the form <span class="process-math">\(M \va = \vy\text{.}\)</span> Explicitly identify thematrix <span class="process-math">\(M\)</span> and the the vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vy\text{.}\)</span></p></article><article class="task exercise-like" id="task-690"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2153">Identify the specific matrix <span class="process-math">\(M\)</span> and the specific vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vy\)</span> using the data inTable \ref{T:GDP_consumption}. Explain why the system <span class="process-math">\(M \va = \vy\)</span> is inconsistent.(Remember, we are treating consumption as the independent variable and GDP as the dependentvariable.) What does the result tell us about the data?</p></article></article><p id="p-2154"><a href="" class="xref" data-knowl="./knowl/act_ls_no_line.html" title="Project Activity 12.4">Project Activity 12.4</a> shows that the GDP-consumption data does not lie on a line. So instead of attempting to find coefficients <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> that give a solution to this system, which may be impossible, we instead look for a vector <span class="process-math">\(\va^*\)</span> that provides us with something that is “close” to a solution.</p>
-<p id="p-2155">If we could find <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> that give a solution to the system <span class="process-math">\(M\va = \vy\text{,}\)</span> then <span class="process-math">\(M\va - \vy\)</span> would be zero. If we can't make <span class="process-math">\(M\va - \vy\)</span> exactly equal to the vector <span class="process-math">\(\vzero\text{,}\)</span> we could instead try to minimize <span class="process-math">\(M\va-\vy\)</span> in some way. One way is to minimize the length <span class="process-math">\(||M\va-\vy||\)</span> of the vector <span class="process-math">\(M\va - \vy\text{.}\)</span></p>
-<p id="p-2156">If we minimize the quantity <span class="process-math">\(||M\va-\vy||\text{,}\)</span> then we will have minimized a function given by a sum of squares. That is, <span class="process-math">\(||M\va-\vy||\)</span> is calculated to be</p>
+<p id="p-2151">As a small example to illustrate, write the system (\ref{eq:LS_system}) using the threepoints <span class="process-math">\((x_1,y_1)= (1,2)\text{,}\)</span> <span class="process-math">\((x_2,y_2) = (3,4)\text{,}\)</span> and <span class="process-math">\((x_3,y_3) = (5,6)\text{.}\)</span> Identify the unknowns and then write this system in the form <span class="process-math">\(M \va = \vy\text{.}\)</span> Explicitly identify thematrix <span class="process-math">\(M\)</span> and the the vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vy\text{.}\)</span></p></article><article class="task exercise-like" id="task-690"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2152">Identify the specific matrix <span class="process-math">\(M\)</span> and the specific vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vy\)</span> using the data inTable \ref{T:GDP_consumption}. Explain why the system <span class="process-math">\(M \va = \vy\)</span> is inconsistent.(Remember, we are treating consumption as the independent variable and GDP as the dependentvariable.) What does the result tell us about the data?</p></article></article><p id="p-2153"><a href="" class="xref" data-knowl="./knowl/act_ls_no_line.html" title="Project Activity 12.4">Project Activity 12.4</a> shows that the GDP-consumption data does not lie on a line. So instead of attempting to find coefficients <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> that give a solution to this system, which may be impossible, we instead look for a vector <span class="process-math">\(\va^*\)</span> that provides us with something that is “close” to a solution.</p>
+<p id="p-2154">If we could find <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> that give a solution to the system <span class="process-math">\(M\va = \vy\text{,}\)</span> then <span class="process-math">\(M\va - \vy\)</span> would be zero. If we can't make <span class="process-math">\(M\va - \vy\)</span> exactly equal to the vector <span class="process-math">\(\vzero\text{,}\)</span> we could instead try to minimize <span class="process-math">\(M\va-\vy\)</span> in some way. One way is to minimize the length <span class="process-math">\(||M\va-\vy||\)</span> of the vector <span class="process-math">\(M\va - \vy\text{.}\)</span></p>
+<p id="p-2155">If we minimize the quantity <span class="process-math">\(||M\va-\vy||\text{,}\)</span> then we will have minimized a function given by a sum of squares. That is, <span class="process-math">\(||M\va-\vy||\)</span> is calculated to be</p>
 <div class="displaymath process-math">
 \begin{equation}
 \sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{.}\label{eq_ls_equation}\tag{12.2}
@@ -780,16 +779,16 @@ y_n \amp = b + mx_n \notag\notag
 </div>
 <p class="continuation">This is why the method we will derive is called the method of least squares. This method provides us with a vector “solution” in a subspace that is related to <span class="process-math">\(M\text{.}\)</span> We can visualize <span class="process-math">\(||M \va - \vy||\)</span> as in <a href="" class="xref" data-knowl="./knowl/F_GDP_error.html" title="Figure 12.10">Figure 12.10</a>. In this figure the data points are shown along with a linear approximation (not the best for illustrative purposes). The lengths of the vertical line segments are the summands <span class="process-math">\((b+mx_i-y_i)\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_ls_equation.html" title="Equation 12.2">(12.2)</a>. So we are trying to minimize the sum of the squares of these line segments.</p>
 <figure class="figure figure-like" id="F_GDP_error"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/GDP_error.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.10<span class="period">.</span></span><span class="space"> </span>Error in the linear approximation.</figcaption></figure><p id="p-2157">Suppose that <span class="process-math">\(\va^*\)</span> minimizes <span class="process-math">\(||M \va - \vy||\text{.}\)</span> Then the vector <span class="process-math">\(M \va^*\)</span> is the vector that is closest to <span class="process-math">\(\vy\)</span> of all of the vectors of the form <span class="process-math">\(M \vx\text{.}\)</span> The fact that the vectors of the form <span class="process-math">\(M \vx\)</span> make a subspace will be useful in what follows. We verify that fact in the next project activity.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.10<span class="period">.</span></span><span class="space"> </span>Error in the linear approximation.</figcaption></figure><p id="p-2156">Suppose that <span class="process-math">\(\va^*\)</span> minimizes <span class="process-math">\(||M \va - \vy||\text{.}\)</span> Then the vector <span class="process-math">\(M \va^*\)</span> is the vector that is closest to <span class="process-math">\(\vy\)</span> of all of the vectors of the form <span class="process-math">\(M \vx\text{.}\)</span> The fact that the vectors of the form <span class="process-math">\(M \vx\)</span> make a subspace will be useful in what follows. We verify that fact in the next project activity.</p>
 <article class="project project-like" id="act_ls_subspace"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">12.5</span><span class="period">.</span>
 </h3>
-<p id="p-2158">Let <span class="process-math">\(A\)</span> be an arbitrary <span class="process-math">\(m \times k\)</span> matrix. Explain why the set <span class="process-math">\(C = \{A \vx : \vx \in \R^k\}\)</span> is a subspace of <span class="process-math">\(\R^m\text{.}\)</span></p></article><p id="p-2159"><a href="" class="xref" data-knowl="./knowl/act_ls_subspace.html" title="Project Activity 12.5">Project Activity 12.5</a> shows us that even though the GDP-consumption system <span class="process-math">\(M \va = \vy\)</span> does not have a solution, we can find a vector that is close to a solution in the subspace <span class="process-math">\(\{M \vx : \vx \in \R^2\}\text{.}\)</span> That is, find a vector <span class="process-math">\(\va^*\)</span> in <span class="process-math">\(\R^{2}\)</span> such that <span class="process-math">\(M \va^*\)</span> is as close (in the least squares sense) to <span class="process-math">\(\vy\)</span> as we can get. In other words, the error <span class="process-math">\(||M \va^* - \vy||\)</span> is as small as possible. In the following activity we see how to find <span class="process-math">\(\va^*\text{.}\)</span></p>
+<p id="p-2157">Let <span class="process-math">\(A\)</span> be an arbitrary <span class="process-math">\(m \times k\)</span> matrix. Explain why the set <span class="process-math">\(C = \{A \vx : \vx \in \R^k\}\)</span> is a subspace of <span class="process-math">\(\R^m\text{.}\)</span></p></article><p id="p-2158"><a href="" class="xref" data-knowl="./knowl/act_ls_subspace.html" title="Project Activity 12.5">Project Activity 12.5</a> shows us that even though the GDP-consumption system <span class="process-math">\(M \va = \vy\)</span> does not have a solution, we can find a vector that is close to a solution in the subspace <span class="process-math">\(\{M \vx : \vx \in \R^2\}\text{.}\)</span> That is, find a vector <span class="process-math">\(\va^*\)</span> in <span class="process-math">\(\R^{2}\)</span> such that <span class="process-math">\(M \va^*\)</span> is as close (in the least squares sense) to <span class="process-math">\(\vy\)</span> as we can get. In other words, the error <span class="process-math">\(||M \va^* - \vy||\)</span> is as small as possible. In the following activity we see how to find <span class="process-math">\(\va^*\text{.}\)</span></p>
 <article class="project project-like" id="act_ls_minimum"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">12.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-195">
-<p id="p-2160">Let</p>
+<div class="introduction" id="introduction-194">
+<p id="p-2159">Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 S = \sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{,}
@@ -805,7 +804,7 @@ S = \sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{,}
 <p class="continuation">In this activity we solve equations <a href="" class="xref" data-knowl="./knowl/eq_ls_1.html" title="Equation 12.3">(12.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_ls_2.html" title="Equation 12.4">(12.4)</a> for the unknowns <span class="process-math">\(b\)</span> and <span class="process-math">\(m\text{.}\)</span> (Do this in a general setting without using specific values for the <span class="process-math">\(x_i\)</span> and <span class="process-math">\(y_i\text{.}\)</span>)</p>
 </div>
 <article class="task exercise-like" id="task-691"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2161">Let <span class="process-math">\(r=\sum_{i=1}^n x_i^2\text{,}\)</span> <span class="process-math">\(s=\sum_{i=1}^n x_i\text{,}\)</span> <span class="process-math">\(t = \sum_{i=1}^n y_i\text{,}\)</span> and <span class="process-math">\(u =\sum_{i=1}^n x_iy_i\text{.}\)</span> Show that the equations <a href="" class="xref" data-knowl="./knowl/eq_ls_1.html" title="Equation 12.3">(12.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_ls_2.html" title="Equation 12.4">(12.4)</a> can be written in the form</p>
+<p id="p-2160">Let <span class="process-math">\(r=\sum_{i=1}^n x_i^2\text{,}\)</span> <span class="process-math">\(s=\sum_{i=1}^n x_i\text{,}\)</span> <span class="process-math">\(t = \sum_{i=1}^n y_i\text{,}\)</span> and <span class="process-math">\(u =\sum_{i=1}^n x_iy_i\text{.}\)</span> Show that the equations <a href="" class="xref" data-knowl="./knowl/eq_ls_1.html" title="Equation 12.3">(12.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_ls_2.html" title="Equation 12.4">(12.4)</a> can be written in the form</p>
 <div class="displaymath process-math">
 \begin{align*}
 0 \amp = bs + mr -u\\
@@ -813,7 +812,7 @@ S = \sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{,}
 \end{align*}
 </div>
 <p class="continuation">Note that this is a system of two linear equations in the unknowns <span class="process-math">\(b\)</span> and <span class="process-math">\(m\text{.}\)</span></p></article><article class="task exercise-like" id="task-692"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2162">Write the system from part (a) in matrix form <span class="process-math">\(A \vx = \vb\text{.}\)</span> Then use techniques from linear algebra to solve the linear system to show that</p>
+<p id="p-2161">Write the system from part (a) in matrix form <span class="process-math">\(A \vx = \vb\text{.}\)</span> Then use techniques from linear algebra to solve the linear system to show that</p>
 <div class="displaymath process-math">
 \begin{equation}
 b = \frac{tr-us}{nr-s^2} = \frac{\left(\sum_{i=1}^n y_i\right) \left(\sum_{i=1}^n x_i^2\right) - \left(\sum_{i=1}^n x_i \right) \left(\sum_{i=1}^n x_iy_i \right)}{n\left(\sum_{i=1}^n x_i^2 \right) - \left(\sum_{i=1}^n x_i \right)^2}\label{eq_ls_b}\tag{12.5}

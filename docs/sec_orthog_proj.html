@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:25:14-04:00       *-->
+<!--*       on 2022-03-21T15:35:12-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,24 +750,24 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_orthog_proj"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Orthogonal Projections</span>
 </h2>
-<p id="p-3915">When running a sprint, the racers may be aided or slowed by the wind. The wind assistance is a measure of the wind speed that is helping push the runners down the track. It is much easier to run a very fast race if the wind is blowing hard in the direction of the race. So that world records aren't dependent on the weather conditions, times are only recorded as record times if the wind aiding the runners is less than or equal to 2 meters per second. Wind speed for a race is recorded by a wind gauge that is set up close to the track. It is important to note, however, that weather is not always as cooperative as we might like. The wind does not always blow exactly in the direction of the track, so the gauge must account for the angle the wind makes with the track. If the wind is blowing in the direction of the vector <span class="process-math">\(\vu\)</span> in <a href="" class="xref" data-knowl="./knowl/F_Projection.html" title="Figure 23.12">Figure 23.12</a> and the track is in the direction of the vector <span class="process-math">\(\vv\)</span> in <a href="" class="xref" data-knowl="./knowl/F_Projection.html" title="Figure 23.12">Figure 23.12</a>, then only part of the total wind vector is actually working to help the runners. This part is called the orthogonal projection of the vector <span class="process-math">\(\vu\)</span> onto the vector <span class="process-math">\(\vv\)</span> and is denoted <span class="process-math">\(\proj_{\vv} \vu\text{.}\)</span> The next activity shows how to find this projection.</p>
+<p id="p-3914">When running a sprint, the racers may be aided or slowed by the wind. The wind assistance is a measure of the wind speed that is helping push the runners down the track. It is much easier to run a very fast race if the wind is blowing hard in the direction of the race. So that world records aren't dependent on the weather conditions, times are only recorded as record times if the wind aiding the runners is less than or equal to 2 meters per second. Wind speed for a race is recorded by a wind gauge that is set up close to the track. It is important to note, however, that weather is not always as cooperative as we might like. The wind does not always blow exactly in the direction of the track, so the gauge must account for the angle the wind makes with the track. If the wind is blowing in the direction of the vector <span class="process-math">\(\vu\)</span> in <a href="" class="xref" data-knowl="./knowl/F_Projection.html" title="Figure 23.12">Figure 23.12</a> and the track is in the direction of the vector <span class="process-math">\(\vv\)</span> in <a href="" class="xref" data-knowl="./knowl/F_Projection.html" title="Figure 23.12">Figure 23.12</a>, then only part of the total wind vector is actually working to help the runners. This part is called the orthogonal projection of the vector <span class="process-math">\(\vu\)</span> onto the vector <span class="process-math">\(\vv\)</span> and is denoted <span class="process-math">\(\proj_{\vv} \vu\text{.}\)</span> The next activity shows how to find this projection.</p>
 <figure class="figure figure-like" id="F_Projection"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/6_a_Projection.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.12<span class="period">.</span></span><span class="space"> </span>The orthogonal projection of <span class="process-math">\(\vu\)</span> onto <span class="process-math">\(\vv\text{.}\)</span></figcaption></figure><article class="activity project-like" id="activity-87"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">23.4</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-377"><p id="p-3916">Since the orthogonal projection <span class="process-math">\(\proj_{\vv} \vu\)</span> is in the direction of <span class="process-math">\(\vv\text{,}\)</span> there exists a constant <span class="process-math">\(c\)</span> such that <span class="process-math">\(\proj_{\vv} \vu = c \vv\text{.}\)</span> If we determine the value of <span class="process-math">\(c\text{,}\)</span> we can find <span class="process-math">\(\proj_{\vv} \vu\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-376"><p id="p-3915">Since the orthogonal projection <span class="process-math">\(\proj_{\vv} \vu\)</span> is in the direction of <span class="process-math">\(\vv\text{,}\)</span> there exists a constant <span class="process-math">\(c\)</span> such that <span class="process-math">\(\proj_{\vv} \vu = c \vv\text{.}\)</span> If we determine the value of <span class="process-math">\(c\text{,}\)</span> we can find <span class="process-math">\(\proj_{\vv} \vu\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1289"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3917">The wind component that acts perpendicular to the direction of <span class="process-math">\(\vv\)</span> is called the projection of <span class="process-math">\(\vu\)</span> orthogonal to <span class="process-math">\(\vv\)</span> and is denoted <span class="process-math">\(\proj_{\perp \vv} \vu\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F_Projection.html" title="Figure 23.12">Figure 23.12</a>. Write an equation that involves <span class="process-math">\(\proj_{\vv} \vu\text{,}\)</span> <span class="process-math">\(\proj_{\perp \vv} \vu\text{,}\)</span> and <span class="process-math">\(\vu\text{.}\)</span> Then solve that equation for <span class="process-math">\(\proj_{\perp \vv} \vu\text{.}\)</span></p></article><article class="task exercise-like" id="task-1290"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3918">Given that <span class="process-math">\(\vv\)</span> and <span class="process-math">\(\proj_{\perp \vv} \vu\)</span> are orthogonal, what does that tell us about <span class="process-math">\(\vv \cdot \proj_{\perp \vv} \vu\text{?}\)</span> Combine this fact with the result of part (a) and that <span class="process-math">\(\proj_{\vv} \vu = c \vv\)</span> to obtain an equation involving <span class="process-math">\(\vv\text{,}\)</span> <span class="process-math">\(\vu\text{,}\)</span> and <span class="process-math">\(c\text{.}\)</span></p></article><article class="task exercise-like" id="task-1291"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3919">Solve for <span class="process-math">\(c\)</span> using the equation you found in the previous step.</p></article><article class="task exercise-like" id="task-1292"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-3920">Use your value of <span class="process-math">\(c\)</span> to identify <span class="process-math">\(\proj_{\vv} \vu\text{.}\)</span></p></article></article><p id="p-3921">To summarize:</p>
+<p id="p-3916">The wind component that acts perpendicular to the direction of <span class="process-math">\(\vv\)</span> is called the projection of <span class="process-math">\(\vu\)</span> orthogonal to <span class="process-math">\(\vv\)</span> and is denoted <span class="process-math">\(\proj_{\perp \vv} \vu\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F_Projection.html" title="Figure 23.12">Figure 23.12</a>. Write an equation that involves <span class="process-math">\(\proj_{\vv} \vu\text{,}\)</span> <span class="process-math">\(\proj_{\perp \vv} \vu\text{,}\)</span> and <span class="process-math">\(\vu\text{.}\)</span> Then solve that equation for <span class="process-math">\(\proj_{\perp \vv} \vu\text{.}\)</span></p></article><article class="task exercise-like" id="task-1290"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3917">Given that <span class="process-math">\(\vv\)</span> and <span class="process-math">\(\proj_{\perp \vv} \vu\)</span> are orthogonal, what does that tell us about <span class="process-math">\(\vv \cdot \proj_{\perp \vv} \vu\text{?}\)</span> Combine this fact with the result of part (a) and that <span class="process-math">\(\proj_{\vv} \vu = c \vv\)</span> to obtain an equation involving <span class="process-math">\(\vv\text{,}\)</span> <span class="process-math">\(\vu\text{,}\)</span> and <span class="process-math">\(c\text{.}\)</span></p></article><article class="task exercise-like" id="task-1291"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-3918">Solve for <span class="process-math">\(c\)</span> using the equation you found in the previous step.</p></article><article class="task exercise-like" id="task-1292"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-3919">Use your value of <span class="process-math">\(c\)</span> to identify <span class="process-math">\(\proj_{\vv} \vu\text{.}\)</span></p></article></article><p id="p-3920">To summarize:</p>
 <article class="definition definition-like" id="definition-52"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">23.13</span><span class="period">.</span>
 </h3>
-<p id="p-3922">Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors in <span class="process-math">\(\R^n\)</span> with <span class="process-math">\(\vv \neq \vzero\text{.}\)</span></p>
+<p id="p-3921">Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors in <span class="process-math">\(\R^n\)</span> with <span class="process-math">\(\vv \neq \vzero\text{.}\)</span></p>
 <ol class="decimal">
 <li id="li-647">
-<p id="p-3923">The <dfn class="terminology">orthogonal projection</dfn> of <span class="process-math">\(\vu\)</span> onto <span class="process-math">\(\vv\)</span> is the vector</p>
+<p id="p-3922">The <dfn class="terminology">orthogonal projection</dfn> of <span class="process-math">\(\vu\)</span> onto <span class="process-math">\(\vv\)</span> is the vector</p>
 <div class="displaymath process-math">
 \begin{equation}
 \proj_{\vv} \vu = \frac{\vu \cdot \vv}{||\vv||^2} \vv\text{.}\label{eq_6_a_projection}\tag{23.2}
@@ -776,7 +775,7 @@
 </div>
 </li>
 <li id="li-648">
-<p id="p-3924">The <dfn class="terminology">projection</dfn> of <span class="process-math">\(\vu\)</span> orthogonal to <span class="process-math">\(\vv\)</span> is the vector</p>
+<p id="p-3923">The <dfn class="terminology">projection</dfn> of <span class="process-math">\(\vu\)</span> orthogonal to <span class="process-math">\(\vv\)</span> is the vector</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \proj_{\perp \vv} \vu = \vu - \proj_{\vv} \vu\text{.}
@@ -786,7 +785,7 @@
 </ol></article><article class="activity project-like" id="activity-88"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">23.5</span><span class="period">.</span>
 </h3>
-<p id="p-3925">Let <span class="process-math">\(\vu = \left[ \begin{array}{c} 5\\8 \end{array} \right]\)</span> and <span class="process-math">\(\vv = \left[ \begin{array}{r} 6\\-10 \end{array} \right]\text{.}\)</span> Find <span class="process-math">\(\proj_{\vv} \vu\)</span> and <span class="process-math">\(\proj_{\perp \vv} \vu\)</span> and draw a picture to illustrate.</p></article><p id="p-3926">The orthogonal projection of a vector <span class="process-math">\(\vu\)</span> onto a vector <span class="process-math">\(\vv\)</span> is really a projection of the vector <span class="process-math">\(\vu\)</span> onto the space <span class="process-math">\(\Span\{\vv\}\text{.}\)</span> The vector <span class="process-math">\(\proj_{\vv} \vu\)</span> is the best approximation to <span class="process-math">\(\vu\)</span> of all the vectors in <span class="process-math">\(\Span\{\vv\}\)</span> in the sense that <span class="process-math">\(\proj_{\vv} \vu\)</span> is the closest to <span class="process-math">\(\vu\)</span> among all vectors in <span class="process-math">\(\Span\{\vv\}\text{,}\)</span> as we will prove later.</p></section></div></main>
+<p id="p-3924">Let <span class="process-math">\(\vu = \left[ \begin{array}{c} 5\\8 \end{array} \right]\)</span> and <span class="process-math">\(\vv = \left[ \begin{array}{r} 6\\-10 \end{array} \right]\text{.}\)</span> Find <span class="process-math">\(\proj_{\vv} \vu\)</span> and <span class="process-math">\(\proj_{\perp \vv} \vu\)</span> and draw a picture to illustrate.</p></article><p id="p-3925">The orthogonal projection of a vector <span class="process-math">\(\vu\)</span> onto a vector <span class="process-math">\(\vv\)</span> is really a projection of the vector <span class="process-math">\(\vu\)</span> onto the space <span class="process-math">\(\Span\{\vv\}\text{.}\)</span> The vector <span class="process-math">\(\proj_{\vv} \vu\)</span> is the best approximation to <span class="process-math">\(\vu\)</span> of all the vectors in <span class="process-math">\(\Span\{\vv\}\)</span> in the sense that <span class="process-math">\(\proj_{\vv} \vu\)</span> is the closest to <span class="process-math">\(\vu\)</span> among all vectors in <span class="process-math">\(\Span\{\vv\}\text{,}\)</span> as we will prove later.</p></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

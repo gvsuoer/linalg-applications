@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:25:48-04:00       *-->
+<!--*       on 2022-03-21T15:35:43-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,15 +751,15 @@
 <section class="section" id="sec_qr_fact"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The QR Factorization of a Matrix</span>
 </h2>
-<p id="p-4267">There are several different factorizations, or decompositions, of matrices where each matrix is written as a product of certain types of matrices: LU decomposition using lower and upper triangular matrices (see <a href="chap_det_properties.html" class="internal" title="Chapter 22: Properties of Determinants">Chapter 22</a>), EVD (EigenVector Decomposition) decomposition using eigenvectors and diagonal matrices (see <a href="chap_diagonalization.html" class="internal" title="Chapter 19: Diagonalization">Chapter 19</a>), and in this section we will introduce the QR decomposition of a matrix. The QR decomposition is one of the most important tools for matrix computations. Jack Dongarra and Francis Sullivan<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-40" id="fn-40"><sup> 40 </sup></a> nominated the QR decomposition as one of the “10 algorithms with the greatest influence on the development and practice of science and engineering in the 20th century.” The QR algorithm's importance stems from the fact that is a “genuinely new contribution to the field of numerical analysis and not just a refinement of ideas given by Newton, Gauss, Hadamard, or Schur.”<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-41" id="fn-41"><sup> 41 </sup></a> Most computer algebra systems (e.g., MATLAB) use a variant of the QR decomposition to compute eigenvalues. While there are other methods for approximating eigenvalues, the QR algorithm stands out. For example, the power method is useful when a matrix is large and contains a lot of zero entries (such matrices are called <dfn class="terminology">sparse</dfn>). When most of the entries of a matrix are nonzero, the power method is not recommended. The better, more sophisticated, alternative in these situations is to use the QR decomposition. The QR factorization has applications to solving least squares problems and approximating eigenvalues of matrices.</p>
+<p id="p-4266">There are several different factorizations, or decompositions, of matrices where each matrix is written as a product of certain types of matrices: LU decomposition using lower and upper triangular matrices (see <a href="chap_det_properties.html" class="internal" title="Chapter 22: Properties of Determinants">Chapter 22</a>), EVD (EigenVector Decomposition) decomposition using eigenvectors and diagonal matrices (see <a href="chap_diagonalization.html" class="internal" title="Chapter 19: Diagonalization">Chapter 19</a>), and in this section we will introduce the QR decomposition of a matrix. The QR decomposition is one of the most important tools for matrix computations. Jack Dongarra and Francis Sullivan<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-40" id="fn-40"><sup> 40 </sup></a> nominated the QR decomposition as one of the “10 algorithms with the greatest influence on the development and practice of science and engineering in the 20th century.” The QR algorithm's importance stems from the fact that is a “genuinely new contribution to the field of numerical analysis and not just a refinement of ideas given by Newton, Gauss, Hadamard, or Schur.”<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-41" id="fn-41"><sup> 41 </sup></a> Most computer algebra systems (e.g., MATLAB) use a variant of the QR decomposition to compute eigenvalues. While there are other methods for approximating eigenvalues, the QR algorithm stands out. For example, the power method is useful when a matrix is large and contains a lot of zero entries (such matrices are called <dfn class="terminology">sparse</dfn>). When most of the entries of a matrix are nonzero, the power method is not recommended. The better, more sophisticated, alternative in these situations is to use the QR decomposition. The QR factorization has applications to solving least squares problems and approximating eigenvalues of matrices.</p>
 <article class="activity project-like" id="act_6_e_QR"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">25.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-410"><p id="p-4268">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \\ 0\amp 2 \end{array} \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-409"><p id="p-4267">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \\ 0\amp 2 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1407"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4269">Find an orthonormal basis <span class="process-math">\(\CB\)</span> for <span class="process-math">\(\Col A\text{.}\)</span> Let <span class="process-math">\(Q\)</span> be the matrix whose columns are these orthonormal basis vectors.</p></article><article class="task exercise-like" id="task-1408"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4270">Write the columns of <span class="process-math">\(A\)</span> as linear combinations of the columns of <span class="process-math">\(Q\text{.}\)</span> That is, if <span class="process-math">\(A = [\va_1 \ \va_2]\text{,}\)</span> find <span class="process-math">\([\va_1]_{\CB}\)</span> and <span class="process-math">\([\va_2]_{\CB}\text{.}\)</span> Let <span class="process-math">\(R = [[\va_1]_{\CB} \ [\va_2]_{\CB}]\text{.}\)</span></p></article><article class="task exercise-like" id="task-1409"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4271">Find the product <span class="process-math">\(QR\)</span> and compare to <span class="process-math">\(A\text{.}\)</span></p></article></article><p id="p-4272"><a href="" class="xref" data-knowl="./knowl/act_6_e_QR.html" title="Activity 25.6">Activity 25.6</a> contains the main ideas to find the QR factorization of a matrix. Let</p>
+<p id="p-4268">Find an orthonormal basis <span class="process-math">\(\CB\)</span> for <span class="process-math">\(\Col A\text{.}\)</span> Let <span class="process-math">\(Q\)</span> be the matrix whose columns are these orthonormal basis vectors.</p></article><article class="task exercise-like" id="task-1408"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4269">Write the columns of <span class="process-math">\(A\)</span> as linear combinations of the columns of <span class="process-math">\(Q\text{.}\)</span> That is, if <span class="process-math">\(A = [\va_1 \ \va_2]\text{,}\)</span> find <span class="process-math">\([\va_1]_{\CB}\)</span> and <span class="process-math">\([\va_2]_{\CB}\text{.}\)</span> Let <span class="process-math">\(R = [[\va_1]_{\CB} \ [\va_2]_{\CB}]\text{.}\)</span></p></article><article class="task exercise-like" id="task-1409"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4270">Find the product <span class="process-math">\(QR\)</span> and compare to <span class="process-math">\(A\text{.}\)</span></p></article></article><p id="p-4271"><a href="" class="xref" data-knowl="./knowl/act_6_e_QR.html" title="Activity 25.6">Activity 25.6</a> contains the main ideas to find the QR factorization of a matrix. Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = [\va_1  \ \va_2  \ \va_3  \ \cdots  \ \va_n ]
@@ -772,7 +771,7 @@ A = [\va_1  \ \va_2  \ \va_3  \ \cdots  \ \va_n ]
 Q = [\vu_1 \   \vu_2 \  \vu_3 \  \cdots \  \vu_n ]\text{.}
 \end{equation*}
 </div>
-<p id="p-4273">If <span class="process-math">\(k\)</span> is between 1 and <span class="process-math">\(n\text{,}\)</span> then <span class="process-math">\(\va_k\)</span> is in <span class="process-math">\(\Span\{\vu_1, \vu_2, \ldots, \vu_k\}\)</span> and</p>
+<p id="p-4272">If <span class="process-math">\(k\)</span> is between 1 and <span class="process-math">\(n\text{,}\)</span> then <span class="process-math">\(\va_k\)</span> is in <span class="process-math">\(\Span\{\vu_1, \vu_2, \ldots, \vu_k\}\)</span> and</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \va_k = r_{1k}\vu_1 + r_{2k}\vu_2 + \cdots + r_{kk}\vu_k
@@ -784,13 +783,13 @@ Q = [\vu_1 \   \vu_2 \  \vu_3 \  \cdots \  \vu_n ]\text{.}
 Q \left[ \begin{array}{c} r_{1k} \\ r_{2k} \\ \vdots \\ r_{kk} \\ 0 \\ \vdots \\ 0 \end{array}  \right] = \va_k\text{.}
 \end{equation*}
 </div>
-<p id="p-4274">If we let <span class="process-math">\(\vr_k = \left[ \begin{array}{c} r_{1k} \\ r_{2k} \\ \vdots \\ r_{kk} \\ 0 \\ \vdots \\ 0 \end{array}  \right]\)</span> for <span class="process-math">\(k\)</span> from 1 to <span class="process-math">\(n\text{,}\)</span> then</p>
+<p id="p-4273">If we let <span class="process-math">\(\vr_k = \left[ \begin{array}{c} r_{1k} \\ r_{2k} \\ \vdots \\ r_{kk} \\ 0 \\ \vdots \\ 0 \end{array}  \right]\)</span> for <span class="process-math">\(k\)</span> from 1 to <span class="process-math">\(n\text{,}\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = [Q\vr_1  \ Q\vr_2  \ Q\vr_3  \ \cdots  \ Q\vr_k]\text{.}
 \end{equation*}
 </div>
-<p id="p-4275">This is the QR factorization of <span class="process-math">\(A\)</span> into the product</p>
+<p id="p-4274">This is the QR factorization of <span class="process-math">\(A\)</span> into the product</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = QR
@@ -806,16 +805,16 @@ R = [\vr_1  \ \vr_2  \ \vr_3  \ \cdots  \ \vr_n ] = \left[ \begin{array}{cccccc}
 <article class="activity project-like" id="activity-100"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">25.7</span><span class="period">.</span>
 </h3>
-<p id="p-4276">The set <span class="process-math">\(\{\vu_1, \vu_2\}\text{,}\)</span> where <span class="process-math">\(\vu_1 = [1 \ 1 \ 1 \ 1]^{\tr}\)</span> and <span class="process-math">\(\vu_2 = [1 \ -1 \ 1 \ -1]^{\tr}\)</span> is an orthogonal basis for the column space of a <span class="process-math">\(4 \times 2\)</span> matrix <span class="process-math">\(A = [\va_1 \ \va_2]\text{.}\)</span> Moreover, <span class="process-math">\(\va_1 = 2\vu_1\)</span> and <span class="process-math">\(\va_2 = 3\vu_2+4\vu_2\text{.}\)</span> What is <span class="process-math">\(A\text{?}\)</span></p></article><p id="p-4277">The QR factorization provides a widely used algorithm (the QR algorithm) for approximating all of the eigenvalues of a matrix. The computer system MATLAB utilizes four versions of the QR algorithm to approximate the eigenvalues of real symmetric matrices, eigenvalues of real nonsymmetric matrices, eigenvalues of pairs of complex matrices, and singular values of general matrices.</p>
-<p id="p-4278">The algorithm works as follows.</p>
+<p id="p-4275">The set <span class="process-math">\(\{\vu_1, \vu_2\}\text{,}\)</span> where <span class="process-math">\(\vu_1 = [1 \ 1 \ 1 \ 1]^{\tr}\)</span> and <span class="process-math">\(\vu_2 = [1 \ -1 \ 1 \ -1]^{\tr}\)</span> is an orthogonal basis for the column space of a <span class="process-math">\(4 \times 2\)</span> matrix <span class="process-math">\(A = [\va_1 \ \va_2]\text{.}\)</span> Moreover, <span class="process-math">\(\va_1 = 2\vu_1\)</span> and <span class="process-math">\(\va_2 = 3\vu_2+4\vu_2\text{.}\)</span> What is <span class="process-math">\(A\text{?}\)</span></p></article><p id="p-4276">The QR factorization provides a widely used algorithm (the QR algorithm) for approximating all of the eigenvalues of a matrix. The computer system MATLAB utilizes four versions of the QR algorithm to approximate the eigenvalues of real symmetric matrices, eigenvalues of real nonsymmetric matrices, eigenvalues of pairs of complex matrices, and singular values of general matrices.</p>
+<p id="p-4277">The algorithm works as follows.</p>
 <ul class="disc">
-<li id="li-681"><p id="p-4279">Start with an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span> Let <span class="process-math">\(A_1 = A\text{.}\)</span></p></li>
-<li id="li-682"><p id="p-4280">Find the QR factorization for <span class="process-math">\(A_1\)</span> and write it as <span class="process-math">\(A_1 = Q_1R_1\text{,}\)</span> where <span class="process-math">\(Q_1\)</span> is orthogonal and <span class="process-math">\(R_1\)</span> is upper triangular.</p></li>
-<li id="li-683"><p id="p-4281">Let <span class="process-math">\(A_2 = Q_1^{-1}A_1Q_1 = Q_1^{\tr}AQ_1 = R_1Q_1\text{.}\)</span> Find the QR factorization of <span class="process-math">\(A_2\)</span> and write it as <span class="process-math">\(A_2 = Q_2R_2\text{.}\)</span></p></li>
-<li id="li-684"><p id="p-4282">Let <span class="process-math">\(A_3 = Q_2^{-1}A_2Q_2 = Q_2^{\tr}AQ_2 = R_2Q_2\text{.}\)</span> Find the QR factorization of <span class="process-math">\(A_3\)</span> and write it as <span class="process-math">\(A_3 = Q_3R_3\text{.}\)</span></p></li>
-<li id="li-685"><p id="p-4283">Continue in this manner to obtain a sequence <span class="process-math">\(\{A_k\}\)</span> where <span class="process-math">\(A_k = Q_kR_k\)</span> and <span class="process-math">\(A_{k+1} = R_kQ_k\text{.}\)</span></p></li>
+<li id="li-681"><p id="p-4278">Start with an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span> Let <span class="process-math">\(A_1 = A\text{.}\)</span></p></li>
+<li id="li-682"><p id="p-4279">Find the QR factorization for <span class="process-math">\(A_1\)</span> and write it as <span class="process-math">\(A_1 = Q_1R_1\text{,}\)</span> where <span class="process-math">\(Q_1\)</span> is orthogonal and <span class="process-math">\(R_1\)</span> is upper triangular.</p></li>
+<li id="li-683"><p id="p-4280">Let <span class="process-math">\(A_2 = Q_1^{-1}A_1Q_1 = Q_1^{\tr}AQ_1 = R_1Q_1\text{.}\)</span> Find the QR factorization of <span class="process-math">\(A_2\)</span> and write it as <span class="process-math">\(A_2 = Q_2R_2\text{.}\)</span></p></li>
+<li id="li-684"><p id="p-4281">Let <span class="process-math">\(A_3 = Q_2^{-1}A_2Q_2 = Q_2^{\tr}AQ_2 = R_2Q_2\text{.}\)</span> Find the QR factorization of <span class="process-math">\(A_3\)</span> and write it as <span class="process-math">\(A_3 = Q_3R_3\text{.}\)</span></p></li>
+<li id="li-685"><p id="p-4282">Continue in this manner to obtain a sequence <span class="process-math">\(\{A_k\}\)</span> where <span class="process-math">\(A_k = Q_kR_k\)</span> and <span class="process-math">\(A_{k+1} = R_kQ_k\text{.}\)</span></p></li>
 </ul>
-<p id="p-4284">Note that <span class="process-math">\(A_{k+1} = Q_k^{-1}A_kQ_k\)</span> and so all of the matrices <span class="process-math">\(A_k\)</span> are similar to each other and therefore all have the same eigenvalues. We won't go into the details, but it can be shown that if the eigenvalues of <span class="process-math">\(A\)</span> are real and have distinct absolute values, then the sequence <span class="process-math">\(\{A_i\}\)</span> converges to an upper triangular matrix with the eigenvalues of <span class="process-math">\(A\)</span> as the diagonal entries. If some of the eigenvalues of <span class="process-math">\(A\)</span> are complex, then the sequence <span class="process-math">\(\{A_i\}\)</span> converges to a block upper triangular matrix, where the diagonal blocks are either <span class="process-math">\(1 \times 1\)</span> (approximating the real eigenvalues of <span class="process-math">\(A\)</span>) or <span class="process-math">\(2 \times 2\)</span> (which provide a pair of conjugate complex eigenvalues of <span class="process-math">\(A\)</span>).</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-40"><div class="fn">Jack Dongarra and Francis Sullivan. Introduction to the top 10 algorithms. Computing in Science and Engineering, 2: 22-23, 2000.</div></div>
+<p id="p-4283">Note that <span class="process-math">\(A_{k+1} = Q_k^{-1}A_kQ_k\)</span> and so all of the matrices <span class="process-math">\(A_k\)</span> are similar to each other and therefore all have the same eigenvalues. We won't go into the details, but it can be shown that if the eigenvalues of <span class="process-math">\(A\)</span> are real and have distinct absolute values, then the sequence <span class="process-math">\(\{A_i\}\)</span> converges to an upper triangular matrix with the eigenvalues of <span class="process-math">\(A\)</span> as the diagonal entries. If some of the eigenvalues of <span class="process-math">\(A\)</span> are complex, then the sequence <span class="process-math">\(\{A_i\}\)</span> converges to a block upper triangular matrix, where the diagonal blocks are either <span class="process-math">\(1 \times 1\)</span> (approximating the real eigenvalues of <span class="process-math">\(A\)</span>) or <span class="process-math">\(2 \times 2\)</span> (which provide a pair of conjugate complex eigenvalues of <span class="process-math">\(A\)</span>).</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-40"><div class="fn">Jack Dongarra and Francis Sullivan. Introduction to the top 10 algorithms. Computing in Science and Engineering, 2: 22-23, 2000.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-41"><div class="fn">[3] Beresford N. Parlett. The QR algorithm. Computing in Science and Engineering, 2:38-42, 2000.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-42"><div class="fn">Recall that the rank of a matrix <span class="process-math">\(A\)</span> is the dimension of the column space of <span class="process-math">\(A\text{.}\)</span>
 </div></div>

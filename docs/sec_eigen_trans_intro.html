@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:29:44-04:00       *-->
+<!--*       on 2022-03-21T15:40:06-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,20 +750,20 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_eigen_trans_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-6786">Recall that a scalar <span class="process-math">\(\lambda\)</span> is an eigenvalue of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> if <span class="process-math">\(A \vx = \lambda \vx\)</span> for some nonzero vector <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\text{.}\)</span> Now that we have seen how to represent a linear transformation <span class="process-math">\(T\)</span> from a finite dimensional vector space <span class="process-math">\(V\)</span> to itself with a matrix transformation, we can exploit this idea to define and find eigenvalues and eigenvectors for <span class="process-math">\(T\)</span> just as we did for matrices.</p>
+<p id="p-6785">Recall that a scalar <span class="process-math">\(\lambda\)</span> is an eigenvalue of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> if <span class="process-math">\(A \vx = \lambda \vx\)</span> for some nonzero vector <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\text{.}\)</span> Now that we have seen how to represent a linear transformation <span class="process-math">\(T\)</span> from a finite dimensional vector space <span class="process-math">\(V\)</span> to itself with a matrix transformation, we can exploit this idea to define and find eigenvalues and eigenvectors for <span class="process-math">\(T\)</span> just as we did for matrices.</p>
 <article class="definition definition-like" id="definition-96"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">39.1</span><span class="period">.</span>
 </h3>
-<p id="p-6787">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span> dimensional vector space and <span class="process-math">\(T : V \to V\)</span> a linear transformation. A scalar <span class="process-math">\(\lambda\)</span> is an <dfn class="terminology">eigenvalue</dfn> for <span class="process-math">\(T\)</span> if there is a nonzero vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> such that <span class="process-math">\(T(\vv) = \lambda \vv\text{.}\)</span> The vector <span class="process-math">\(\vv\)</span> is an <dfn class="terminology">eigenvector</dfn> for <span class="process-math">\(T\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></article><p id="p-6788">We can exploit the fact that we can represent linear transformations as matrix transformations to find eigenvalues and eigenvectors of a linear transformation.</p>
+<p id="p-6786">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span> dimensional vector space and <span class="process-math">\(T : V \to V\)</span> a linear transformation. A scalar <span class="process-math">\(\lambda\)</span> is an <dfn class="terminology">eigenvalue</dfn> for <span class="process-math">\(T\)</span> if there is a nonzero vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> such that <span class="process-math">\(T(\vv) = \lambda \vv\text{.}\)</span> The vector <span class="process-math">\(\vv\)</span> is an <dfn class="terminology">eigenvector</dfn> for <span class="process-math">\(T\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></article><p id="p-6787">We can exploit the fact that we can represent linear transformations as matrix transformations to find eigenvalues and eigenvectors of a linear transformation.</p>
 <article class="exploration project-like" id="pa_8_c"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">39.1</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-682"><p id="p-6789">Let <span class="process-math">\(T: \pol_1 \to \pol_1\)</span> be defined by <span class="process-math">\(T(a_0+a_1t) = (a_0+2a_1) + (3a_0+2a_1)t\text{.}\)</span> Assume <span class="process-math">\(T\)</span> is a linear transformation.</p></div>
+<div class="introduction" id="introduction-681"><p id="p-6788">Let <span class="process-math">\(T: \pol_1 \to \pol_1\)</span> be defined by <span class="process-math">\(T(a_0+a_1t) = (a_0+2a_1) + (3a_0+2a_1)t\text{.}\)</span> Assume <span class="process-math">\(T\)</span> is a linear transformation.</p></div>
 <article class="task exercise-like" id="task-2312"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6790">Let <span class="process-math">\(\CS = \{1,t\}\)</span> be the standard basis for <span class="process-math">\(\pol_1\text{.}\)</span> Find the matrix <span class="process-math">\([T]_{\CS}\text{.}\)</span> (Recall that we use the shorthand notation <span class="process-math">\([T]_{\CS}\)</span> for <span class="process-math">\([T]_{\CS}^{\CS}\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-2313"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6791">Check that <span class="process-math">\(\lambda_1 = 4\)</span> and <span class="process-math">\(\lambda_2 = -1\)</span> are the eigenvalues of <span class="process-math">\([T]_{\CS}\text{.}\)</span> Find an eigenvector <span class="process-math">\(\vv_1\)</span> for <span class="process-math">\([T]_{\CS}\)</span> corresponding to the eigenvalue <span class="process-math">\(4\)</span> and an eigenvector <span class="process-math">\(\vv_2\)</span> of <span class="process-math">\([T]_{\CS}\)</span> corresponding to the eigenvalue <span class="process-math">\(-1\text{.}\)</span></p></article><article class="task exercise-like" id="task-2314"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6792">Find the vector in <span class="process-math">\(\pol_1\)</span> corresponding to the eigenvector of <span class="process-math">\([T]_{\CS}\)</span> for the eigenvalue <span class="process-math">\(\lambda=4\text{.}\)</span> Check that this is an eigenvector of <span class="process-math">\(T\text{.}\)</span></p></article><article class="task exercise-like" id="task-2315"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-6793">Explain why in general, if <span class="process-math">\(V\)</span> is a vector space with basis <span class="process-math">\(\CB\)</span> and <span class="process-math">\(S: V \to V\)</span> is a linear transformation, and if <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> satisfies <span class="process-math">\([\vv]_{\CB}=\vw\text{,}\)</span> where <span class="process-math">\(\vw\)</span> is an eigenvector of <span class="process-math">\([S]_{\CB}\)</span> with eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(S\)</span> with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></article></article></section></div></main>
+<p id="p-6789">Let <span class="process-math">\(\CS = \{1,t\}\)</span> be the standard basis for <span class="process-math">\(\pol_1\text{.}\)</span> Find the matrix <span class="process-math">\([T]_{\CS}\text{.}\)</span> (Recall that we use the shorthand notation <span class="process-math">\([T]_{\CS}\)</span> for <span class="process-math">\([T]_{\CS}^{\CS}\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-2313"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6790">Check that <span class="process-math">\(\lambda_1 = 4\)</span> and <span class="process-math">\(\lambda_2 = -1\)</span> are the eigenvalues of <span class="process-math">\([T]_{\CS}\text{.}\)</span> Find an eigenvector <span class="process-math">\(\vv_1\)</span> for <span class="process-math">\([T]_{\CS}\)</span> corresponding to the eigenvalue <span class="process-math">\(4\)</span> and an eigenvector <span class="process-math">\(\vv_2\)</span> of <span class="process-math">\([T]_{\CS}\)</span> corresponding to the eigenvalue <span class="process-math">\(-1\text{.}\)</span></p></article><article class="task exercise-like" id="task-2314"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6791">Find the vector in <span class="process-math">\(\pol_1\)</span> corresponding to the eigenvector of <span class="process-math">\([T]_{\CS}\)</span> for the eigenvalue <span class="process-math">\(\lambda=4\text{.}\)</span> Check that this is an eigenvector of <span class="process-math">\(T\text{.}\)</span></p></article><article class="task exercise-like" id="task-2315"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-6792">Explain why in general, if <span class="process-math">\(V\)</span> is a vector space with basis <span class="process-math">\(\CB\)</span> and <span class="process-math">\(S: V \to V\)</span> is a linear transformation, and if <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> satisfies <span class="process-math">\([\vv]_{\CB}=\vw\text{,}\)</span> where <span class="process-math">\(\vw\)</span> is an eigenvector of <span class="process-math">\([S]_{\CB}\)</span> with eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(S\)</span> with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

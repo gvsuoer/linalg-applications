@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:28:38-04:00       *-->
+<!--*       on 2022-03-21T15:38:58-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,31 +750,31 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_inner_prod_orthog"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Orthogonality in Inner Product Spaces</span>
 </h2>
-<p id="p-6095">We defined orthogonality in <span class="process-math">\(\R^n\)</span> using inner products in <span class="process-math">\(\R^n\)</span> (see <a href="" class="xref" data-knowl="./knowl/def_6_a_orthogonal_dot_product.html" title="Definition 23.11">Definition 23.11</a>) and the angle between vectors. We can extend those ideas to any inner product space.</p>
-<p id="p-6096"> If <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are nonzero vectors in an inner product space, then the <dfn class="terminology">angle <span class="process-math">\(\theta\)</span> between <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span></dfn> is such that</p>
+<p id="p-6094">We defined orthogonality in <span class="process-math">\(\R^n\)</span> using inner products in <span class="process-math">\(\R^n\)</span> (see <a href="" class="xref" data-knowl="./knowl/def_6_a_orthogonal_dot_product.html" title="Definition 23.11">Definition 23.11</a>) and the angle between vectors. We can extend those ideas to any inner product space.</p>
+<p id="p-6095"> If <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are nonzero vectors in an inner product space, then the <dfn class="terminology">angle <span class="process-math">\(\theta\)</span> between <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span></dfn> is such that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \cos(\theta) = \frac{\langle \vu, \vv \rangle}{||\vu||\, ||\vv||}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">and <span class="process-math">\(0\leq \theta \leq \pi\text{.}\)</span> This angle is well-defined due to the Cauchy-Schwarz inequality <span class="process-math">\(|\langle \vu, \vv \rangle| \leq ||\vu||\, ||\vv||\)</span> whose proof is left to the exercises.</p>
-<p id="p-6097">With the angle between vectors in mind, we can define orthogonal vectors in an inner product space.</p>
+<p id="p-6096">With the angle between vectors in mind, we can define orthogonal vectors in an inner product space.</p>
 <article class="definition definition-like" id="definition-81"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">35.6</span><span class="period">.</span>
 </h3>
-<p id="p-6098">Vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> in an inner product space are <dfn class="terminology">orthogonal</dfn> if</p>
+<p id="p-6097">Vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> in an inner product space are <dfn class="terminology">orthogonal</dfn> if</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \langle \vu, \vv \rangle = 0\text{.}
 \end{equation*}
-</div></article><p id="p-6099">Note that this defines the zero vector to be orthogonal to every vector.</p>
+</div></article><p id="p-6098">Note that this defines the zero vector to be orthogonal to every vector.</p>
 <article class="activity project-like" id="activity-136"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">35.4</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-607"><p id="p-6100">In this activity we use the Frobenius inner product (see <a href="" class="xref" data-knowl="./knowl/act_6_c_Frobenius.html" title="Activity 35.3">Activity 35.3</a>). Let <span class="process-math">\(A = \left[ \begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{cc} 0\amp 1\\0\amp 0 \end{array} \right]\)</span> in <span class="process-math">\(\M_{2 \times 2}\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-606"><p id="p-6099">In this activity we use the Frobenius inner product (see <a href="" class="xref" data-knowl="./knowl/act_6_c_Frobenius.html" title="Activity 35.3">Activity 35.3</a>). Let <span class="process-math">\(A = \left[ \begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{cc} 0\amp 1\\0\amp 0 \end{array} \right]\)</span> in <span class="process-math">\(\M_{2 \times 2}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-2066"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6101">Find a nonzero vector in <span class="process-math">\(\M_{2 \times 2}\)</span> orthogonal to <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-2067"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6102">Find the angle between <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span></p></article></article><p id="p-6103">Using orthogonality we can generalize the notions of orthogonal sets and bases, orthonormal bases and orthogonal complements we defined in <span class="process-math">\(\R^n\)</span> to all inner product spaces in a natural way.</p></section></div></main>
+<p id="p-6100">Find a nonzero vector in <span class="process-math">\(\M_{2 \times 2}\)</span> orthogonal to <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-2067"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6101">Find the angle between <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span></p></article></article><p id="p-6102">Using orthogonality we can generalize the notions of orthogonal sets and bases, orthonormal bases and orthogonal complements we defined in <span class="process-math">\(\R^n\)</span> to all inner product spaces in a natural way.</p></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

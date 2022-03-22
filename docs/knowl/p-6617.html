@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:46:02-04:00       *-->
+<!--*       on 2022-03-22T13:11:52-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,30 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>You could assume that the carpet is embedded in the unit square.</p>
+<p>Test your IFS to make sure that it actually generates the Sierpinski carpet. There are many websites that allow you to do this, one of which is <a class="external" href="http://cs.lmu.edu/~ray/notes/ifs/" target="_blank"><code class="code-inline tex2jax_ignore">cs.lmu.edu/~ray/notes/ifs/</code></a>. In this program, the mapping <span class="process-math">\(f\)</span> defined by</p>
+<div class="displaymath process-math">
+\begin{equation*}
+f(\vx) = \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right] \vx + \left[ \begin{array}{c} e\\f \end{array} \ \right]
+\end{equation*}
+</div>
+<p class="continuation">is represented as the string</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a \ b \ c \ d \ e \ f\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Most programs generally use a different algorithm to create the attractor, plotting points instead of sets. In this algorithm, each contraction mapping is assigned a probability as well (the larger parts of the figure are usually given higher probabilities), so you will enter each contraction mapping in the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a \ b \ c \ d \ e \ f \ p
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(p\)</span> is the probability attached to that contraction mapping. As an example, the IFS code for the Sierpinski triangle is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{ccccccc} 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 1  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0.5  \amp 0.43  \amp 0.33 \end{array}
+\end{equation*}
+</div>
 <span class="incontext"><a href="sec_proj_fractals.html#p-6617">in-context</a></span>
 </body>
 </html>

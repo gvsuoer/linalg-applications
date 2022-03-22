@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:28:04-04:00       *-->
+<!--*       on 2022-03-21T15:38:20-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,16 +750,16 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_finite_dim_space"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Finite Dimensional Vector Spaces</span>
 </h2>
-<p id="p-5734"><a href="" class="xref" data-knowl="./knowl/thm_5_c_1.html" title="Theorem 33.1">Theorem 33.1</a> shows that if sets <span class="process-math">\(\CB_1\)</span> and <span class="process-math">\(\CB_2\)</span> are finite bases for a vector space <span class="process-math">\(V\text{,}\)</span> which are linearly independent by definition, then each cannot contain more elements than the other, so the number of elements in each basis must be equal.</p>
+<p id="p-5733"><a href="" class="xref" data-knowl="./knowl/thm_5_c_1.html" title="Theorem 33.1">Theorem 33.1</a> shows that if sets <span class="process-math">\(\CB_1\)</span> and <span class="process-math">\(\CB_2\)</span> are finite bases for a vector space <span class="process-math">\(V\text{,}\)</span> which are linearly independent by definition, then each cannot contain more elements than the other, so the number of elements in each basis must be equal.</p>
 <article class="theorem theorem-like" id="thm_5_c_2"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">33.2</span><span class="period">.</span>
 </h3>
-<p id="p-5735">If a non-trivial vector space <span class="process-math">\(V\)</span> has a basis of <span class="process-math">\(n\)</span> vectors, then every basis of <span class="process-math">\(V\)</span> contains exactly <span class="process-math">\(n\)</span> vectors.</p></article><p id="p-5736"><a href="" class="xref" data-knowl="./knowl/thm_5_c_2.html" title="Theorem 33.2">Theorem 33.2</a> states that if a vector space <span class="process-math">\(V\)</span> has a basis with a finite number of vectors, then the number of vectors in a basis for that vector space is a well-defined number. In other words, the number of vectors in a basis is an <dfn class="terminology">invariant</dfn> of the vector space. This important number is given a name.</p>
+<p id="p-5734">If a non-trivial vector space <span class="process-math">\(V\)</span> has a basis of <span class="process-math">\(n\)</span> vectors, then every basis of <span class="process-math">\(V\)</span> contains exactly <span class="process-math">\(n\)</span> vectors.</p></article><p id="p-5735"><a href="" class="xref" data-knowl="./knowl/thm_5_c_2.html" title="Theorem 33.2">Theorem 33.2</a> states that if a vector space <span class="process-math">\(V\)</span> has a basis with a finite number of vectors, then the number of vectors in a basis for that vector space is a well-defined number. In other words, the number of vectors in a basis is an <dfn class="terminology">invariant</dfn> of the vector space. This important number is given a name.</p>
 <article class="definition definition-like" id="definition-74"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">33.3</span><span class="period">.</span>
 </h3>
-<p id="p-5737">A <dfn class="terminology">finite-dimensional</dfn> vector space is a vector space that can be spanned by a finite number of vectors. The <dfn class="terminology">dimension</dfn> of a non-trivial finite-dimensional vector space is the number of vectors in a basis for <span class="process-math">\(V\text{.}\)</span> The dimension of the trivial vector space is defined to be 0.</p></article><p id="p-5738">We denote the dimension of a finite dimensional vector space <span class="process-math">\(V\)</span> by <span class="process-math">\(\dim(V)\text{.}\)</span></p>
-<p id="p-5739">Not every vector space is finite dimensional. We have seen, for example, that the vector space <span class="process-math">\(\pol\)</span> of all polynomials, regardless of degree, is not a finite-dimensional vector space. In fact, the polynomials</p>
+<p id="p-5736">A <dfn class="terminology">finite-dimensional</dfn> vector space is a vector space that can be spanned by a finite number of vectors. The <dfn class="terminology">dimension</dfn> of a non-trivial finite-dimensional vector space is the number of vectors in a basis for <span class="process-math">\(V\text{.}\)</span> The dimension of the trivial vector space is defined to be 0.</p></article><p id="p-5737">We denote the dimension of a finite dimensional vector space <span class="process-math">\(V\)</span> by <span class="process-math">\(\dim(V)\text{.}\)</span></p>
+<p id="p-5738">Not every vector space is finite dimensional. We have seen, for example, that the vector space <span class="process-math">\(\pol\)</span> of all polynomials, regardless of degree, is not a finite-dimensional vector space. In fact, the polynomials</p>
 <div class="displaymath process-math">
 \begin{equation*}
 1, t, t^2, \ldots, t^n, \ldots
@@ -770,22 +769,22 @@
 <article class="activity project-like" id="act_5_c_1"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">33.2</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-564"><p id="p-5740">Since columns of the <span class="process-math">\(n \times n\)</span> identity matrix span <span class="process-math">\(\R^n\)</span> and are linearly independent, the columns of <span class="process-math">\(I_n\)</span> form a basis for <span class="process-math">\(\R^n\)</span> (the standard basis). Consequently, we have that <span class="process-math">\(\dim(\R^n) = n\text{.}\)</span> In this activity we determine the dimensions of other familiar vector spaces. Find the dimensions of each of the indicated vector spaces. Verify your answers.</p></div>
+<div class="introduction" id="introduction-563"><p id="p-5739">Since columns of the <span class="process-math">\(n \times n\)</span> identity matrix span <span class="process-math">\(\R^n\)</span> and are linearly independent, the columns of <span class="process-math">\(I_n\)</span> form a basis for <span class="process-math">\(\R^n\)</span> (the standard basis). Consequently, we have that <span class="process-math">\(\dim(\R^n) = n\text{.}\)</span> In this activity we determine the dimensions of other familiar vector spaces. Find the dimensions of each of the indicated vector spaces. Verify your answers.</p></div>
 <article class="task exercise-like" id="task-1933"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5741"><span class="process-math">\(\pol_1\)</span></p></article><article class="task exercise-like" id="task-1934"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5742"><span class="process-math">\(\pol_2\)</span></p></article><article class="task exercise-like" id="task-1935"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-5743"><span class="process-math">\(\pol_n\)</span></p></article><article class="task exercise-like" id="task-1936"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-5744"><span class="process-math">\(\M_{2 \times 3}\)</span></p></article><article class="task exercise-like" id="task-1937"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-5745"><span class="process-math">\(\M_{3 \times 4}\)</span></p></article><article class="task exercise-like" id="task-1938"><h4 class="heading"><span class="codenumber">(f)</span></h4>
-<p id="p-5746"><span class="process-math">\(\M_{k \times n}\)</span></p></article></article><p id="p-5747">Finding the dimension of a finite-dimensional vector space amounts to finding a basis for the space.</p>
+<p id="p-5740"><span class="process-math">\(\pol_1\)</span></p></article><article class="task exercise-like" id="task-1934"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5741"><span class="process-math">\(\pol_2\)</span></p></article><article class="task exercise-like" id="task-1935"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-5742"><span class="process-math">\(\pol_n\)</span></p></article><article class="task exercise-like" id="task-1936"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-5743"><span class="process-math">\(\M_{2 \times 3}\)</span></p></article><article class="task exercise-like" id="task-1937"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-5744"><span class="process-math">\(\M_{3 \times 4}\)</span></p></article><article class="task exercise-like" id="task-1938"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<p id="p-5745"><span class="process-math">\(\M_{k \times n}\)</span></p></article></article><p id="p-5746">Finding the dimension of a finite-dimensional vector space amounts to finding a basis for the space.</p>
 <article class="activity project-like" id="act_5_c_2"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">33.3</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-565"><p id="p-5748">Let <span class="process-math">\(W = \{(a+b) + (a-b)t + (2a+3b)t^2 \mid a, b \text{ are scalars } \}\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-564"><p id="p-5747">Let <span class="process-math">\(W = \{(a+b) + (a-b)t + (2a+3b)t^2 \mid a, b \text{ are scalars } \}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1939"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5749">Find a finite set of polynomials in <span class="process-math">\(W\)</span> that span <span class="process-math">\(W\text{.}\)</span></p></article><article class="task exercise-like" id="task-1940"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5750">Determine if the spanning set from part (a) is linearly independent or dependent. Clearly explain your process.</p></article><article class="task exercise-like" id="task-1941"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-5751">What is <span class="process-math">\(\dim(W)\text{?}\)</span> Explain.</p></article></article></section></div></main>
+<p id="p-5748">Find a finite set of polynomials in <span class="process-math">\(W\)</span> that span <span class="process-math">\(W\text{.}\)</span></p></article><article class="task exercise-like" id="task-1940"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5749">Determine if the spanning set from part (a) is linearly independent or dependent. Clearly explain your process.</p></article><article class="task exercise-like" id="task-1941"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-5750">What is <span class="process-math">\(\dim(W)\text{?}\)</span> Explain.</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

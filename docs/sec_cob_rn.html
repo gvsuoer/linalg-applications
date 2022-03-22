@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:23:13-04:00       *-->
+<!--*       on 2022-03-21T15:32:56-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,35 +750,35 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_cob_rn"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Change of Basis in <span class="process-math">\(\R^n\)</span></span>
 </h2>
-<p id="p-2721">In calculus we change coordinates, from rectangular to polar, for example, to make certain calculations easier. In order for us to be able to work effectively in different coordinate systems, and to easily change back and forth as needed, we will want to have a way to effectively transition from one coordinate system to another. In other words, if we have two different bases for <span class="process-math">\(\R^n\text{,}\)</span> we want a straightforward way to translate between the coordinate vectors of any given vector in <span class="process-math">\(\R^n\)</span> with respect to the two bases.</p>
+<p id="p-2720">In calculus we change coordinates, from rectangular to polar, for example, to make certain calculations easier. In order for us to be able to work effectively in different coordinate systems, and to easily change back and forth as needed, we will want to have a way to effectively transition from one coordinate system to another. In other words, if we have two different bases for <span class="process-math">\(\R^n\text{,}\)</span> we want a straightforward way to translate between the coordinate vectors of any given vector in <span class="process-math">\(\R^n\)</span> with respect to the two bases.</p>
 <article class="activity project-like" id="pa_3_e_2"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">16.4</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-894"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-252"><p id="p-2722">Let <span class="process-math">\(\vb_1 = [4 \ 2]^{\tr}\text{,}\)</span> <span class="process-math">\(\vb_2 = [-6 \ 8]^{\tr}\text{,}\)</span> <span class="process-math">\(\vc_1 = [1 \ 1 ]^{\tr}\text{,}\)</span> <span class="process-math">\(\vc_2 = [1 \ -1]^{\tr}\text{,}\)</span> and let <span class="process-math">\(\CB = \{\vb_1, \vb_2\}\)</span> and <span class="process-math">\(\CC = \{\vc_1, \vc_2\}\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-251"><p id="p-2721">Let <span class="process-math">\(\vb_1 = [4 \ 2]^{\tr}\text{,}\)</span> <span class="process-math">\(\vb_2 = [-6 \ 8]^{\tr}\text{,}\)</span> <span class="process-math">\(\vc_1 = [1 \ 1 ]^{\tr}\text{,}\)</span> <span class="process-math">\(\vc_2 = [1 \ -1]^{\tr}\text{,}\)</span> and let <span class="process-math">\(\CB = \{\vb_1, \vb_2\}\)</span> and <span class="process-math">\(\CC = \{\vc_1, \vc_2\}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-895"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-2723">Show that <span class="process-math">\(\CB\)</span> and <span class="process-math">\(\CC\)</span> are bases for <span class="process-math">\(\R^2\text{.}\)</span></p></article><article class="task exercise-like" id="task-896"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-2724">Let <span class="process-math">\(\vv = 3 \vb_1 + 2 \vb_2\text{.}\)</span> What is <span class="process-math">\([\vv]_{\CB}\text{?}\)</span></p></article><article class="task exercise-like" id="task-897"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-2725">Since <span class="process-math">\(\CC\)</span> is also a basis for <span class="process-math">\(\R^2\text{,}\)</span> there is also a coordinate vector for <span class="process-math">\(\vv\)</span> with respect to <span class="process-math">\(\CC\text{,}\)</span> and it is reasonable to ask how <span class="process-math">\([\vv]_{\CC}\)</span> is related to <span class="process-math">\([\vv]_{\CB}\text{.}\)</span> Recall that coordinate vectors respect linear combinations — that is</p>
+<p id="p-2722">Show that <span class="process-math">\(\CB\)</span> and <span class="process-math">\(\CC\)</span> are bases for <span class="process-math">\(\R^2\text{.}\)</span></p></article><article class="task exercise-like" id="task-896"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-2723">Let <span class="process-math">\(\vv = 3 \vb_1 + 2 \vb_2\text{.}\)</span> What is <span class="process-math">\([\vv]_{\CB}\text{?}\)</span></p></article><article class="task exercise-like" id="task-897"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-2724">Since <span class="process-math">\(\CC\)</span> is also a basis for <span class="process-math">\(\R^2\text{,}\)</span> there is also a coordinate vector for <span class="process-math">\(\vv\)</span> with respect to <span class="process-math">\(\CC\text{,}\)</span> and it is reasonable to ask how <span class="process-math">\([\vv]_{\CC}\)</span> is related to <span class="process-math">\([\vv]_{\CB}\text{.}\)</span> Recall that coordinate vectors respect linear combinations — that is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 [r\vx + s\vy]_{\CS} = r[\vx]_{\CS} + s[\vy]_{\CS}
 \end{equation*}
 </div>
 <p class="continuation">for any vectors <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vy\)</span> in <span class="process-math">\(\R^n\)</span>  with basis <span class="process-math">\(\CS\text{,}\)</span> and any scalars <span class="process-math">\(r\)</span> and <span class="process-math">\(s\text{.}\)</span> Use the fact that <span class="process-math">\(\vv = 3 \vb_1 + 2 \vb_2\)</span> and the linearity of the coordinate transformation with respect to the basis <span class="process-math">\(\CC\)</span> to express <span class="process-math">\([\vv]_{\CC}\)</span> in terms of <span class="process-math">\([\vb_1]_{\CC}\)</span> and <span class="process-math">\([\vb_2]_{\CC}\)</span> (don't actually calculate <span class="process-math">\([\vb_1]_{\CC}\)</span> and <span class="process-math">\([\vb_2]_{\CC}\)</span> yet, just leave your result in terms of the symbols <span class="process-math">\([\vb_1]_{\CC}\)</span> and <span class="process-math">\([\vb_2]_{\CC}\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-898"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-2726">The result of part (c) can be expressed as a matrix-vector product of the form</p>
+<p id="p-2725">The result of part (c) can be expressed as a matrix-vector product of the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 [\vv]_{\CC} = P[\vv]_{\CB}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Describe how the columns of the matrix <span class="process-math">\(P\)</span> are related to <span class="process-math">\([\vb_1]_{\CC}\)</span> and <span class="process-math">\([\vb_2]_{\CC}\text{.}\)</span></p></article><article class="task exercise-like" id="task-899"><h5 class="heading"><span class="codenumber">(v)</span></h5>
-<p id="p-2727">Now calculate <span class="process-math">\([\vb_1]_{\CC}\text{,}\)</span> <span class="process-math">\([\vb_2]_{\CC}\text{,}\)</span> and <span class="process-math">\([\vv]_{\CC}\text{.}\)</span> Determine the entries of the matrix <span class="process-math">\(P\)</span> and verify in this example that <span class="process-math">\([\vv]_{\CC} = P[\vv]_{\CB}\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-900"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="introduction" id="introduction-253"><p id="p-2728">The matrix <span class="process-math">\(P\)</span> that we constructed in problem (1) allows us to quickly and easily switch from coordinates with respect to a basis <span class="process-math">\(\CB\)</span> to coordinates with respect to another basis <span class="process-math">\(\CC\text{,}\)</span> providing a way to effectively transition from one coordinate system to another as described in the introduction. This matrix <span class="process-math">\(P\)</span> is called a <dfn class="terminology">change of basis matrix</dfn>. In problem (1) we explained why the change of basis matrix exists, and in this problem we will see another perspective from which to view this matrix. Let <span class="process-math">\(\CB = \{\vb_1, \vb_2\}\)</span> and <span class="process-math">\(\CC = \{\vc_1, \vc_2\}\)</span> be two bases for <span class="process-math">\(\R^2\)</span> (not the specific bases we used earlier in this activity, but any bases). The change of basis matrix <span class="process-math">\(P\)</span> from <span class="process-math">\(\CB\)</span> to <span class="process-math">\(\CC\)</span> has the property that <span class="process-math">\(P[\vx]_{\CB} = [\vx]_{\CC}\)</span> for every vector <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^2\text{.}\)</span> We can determine the entries of <span class="process-math">\(P\)</span> by applying this formula to specific vectors in <span class="process-math">\(\R^2\text{.}\)</span></p></div>
+<p id="p-2726">Now calculate <span class="process-math">\([\vb_1]_{\CC}\text{,}\)</span> <span class="process-math">\([\vb_2]_{\CC}\text{,}\)</span> and <span class="process-math">\([\vv]_{\CC}\text{.}\)</span> Determine the entries of the matrix <span class="process-math">\(P\)</span> and verify in this example that <span class="process-math">\([\vv]_{\CC} = P[\vv]_{\CB}\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-900"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction" id="introduction-252"><p id="p-2727">The matrix <span class="process-math">\(P\)</span> that we constructed in problem (1) allows us to quickly and easily switch from coordinates with respect to a basis <span class="process-math">\(\CB\)</span> to coordinates with respect to another basis <span class="process-math">\(\CC\text{,}\)</span> providing a way to effectively transition from one coordinate system to another as described in the introduction. This matrix <span class="process-math">\(P\)</span> is called a <dfn class="terminology">change of basis matrix</dfn>. In problem (1) we explained why the change of basis matrix exists, and in this problem we will see another perspective from which to view this matrix. Let <span class="process-math">\(\CB = \{\vb_1, \vb_2\}\)</span> and <span class="process-math">\(\CC = \{\vc_1, \vc_2\}\)</span> be two bases for <span class="process-math">\(\R^2\)</span> (not the specific bases we used earlier in this activity, but any bases). The change of basis matrix <span class="process-math">\(P\)</span> from <span class="process-math">\(\CB\)</span> to <span class="process-math">\(\CC\)</span> has the property that <span class="process-math">\(P[\vx]_{\CB} = [\vx]_{\CC}\)</span> for every vector <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^2\text{.}\)</span> We can determine the entries of <span class="process-math">\(P\)</span> by applying this formula to specific vectors in <span class="process-math">\(\R^2\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-901"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-2729">What are <span class="process-math">\([\vb_1]_{\CB}\)</span> and <span class="process-math">\([\vb_2]_{\CB}\text{?}\)</span> Why?</p></article><article class="task exercise-like" id="task-902"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-2730">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(\ve_1\text{,}\)</span> <span class="process-math">\(\ve_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\ve_n\)</span> are the standard unit vectors in <span class="process-math">\(\R^n\)</span> (that is, <span class="process-math">\(\ve_i\)</span> is the <span class="process-math">\(i\)</span>th column of the <span class="process-math">\(n \times n\)</span> identity matrix), then what does the product <span class="process-math">\(A \ve_i\)</span> tell us about the matrix <span class="process-math">\(A\text{?}\)</span></p></article><article class="task exercise-like" id="task-903"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-2731">Combine the results of parts (a) and (b) and the equation <span class="process-math">\(P[\vx]_{\CB} = [\vx]_{\CC}\)</span> to explain why <span class="process-math">\(P = [[\vb_1]_{\CC} \ [\vb_2]_{\CC}]\text{.}\)</span></p></article></article></article></section></div></main>
+<p id="p-2728">What are <span class="process-math">\([\vb_1]_{\CB}\)</span> and <span class="process-math">\([\vb_2]_{\CB}\text{?}\)</span> Why?</p></article><article class="task exercise-like" id="task-902"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-2729">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(\ve_1\text{,}\)</span> <span class="process-math">\(\ve_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\ve_n\)</span> are the standard unit vectors in <span class="process-math">\(\R^n\)</span> (that is, <span class="process-math">\(\ve_i\)</span> is the <span class="process-math">\(i\)</span>th column of the <span class="process-math">\(n \times n\)</span> identity matrix), then what does the product <span class="process-math">\(A \ve_i\)</span> tell us about the matrix <span class="process-math">\(A\text{?}\)</span></p></article><article class="task exercise-like" id="task-903"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-2730">Combine the results of parts (a) and (b) and the equation <span class="process-math">\(P[\vx]_{\CB} = [\vx]_{\CC}\)</span> to explain why <span class="process-math">\(P = [[\vb_1]_{\CC} \ [\vb_2]_{\CC}]\text{.}\)</span></p></article></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

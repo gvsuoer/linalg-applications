@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:34:14-04:00       *-->
+<!--*       on 2022-03-22T13:00:00-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,28 +15,10 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be two <span class="process-math">\(r \times r\)</span> matrices. If <span class="process-math">\(r\)</span> is not a power of <span class="process-math">\(2\text{,}\)</span> then pad the rows and columns of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> with zeros to make them of size <span class="process-math">\(2^m \times 2^m\)</span> for some integer <span class="process-math">\(m\text{.}\)</span> (From a practical perspective, we might instead just use unequal block sizes.) Let <span class="process-math">\(n = 2^m\text{.}\)</span> Partition <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> as</p>
+<p>Apply Strassen's algorithm to calculate the matrix product <span class="process-math">\(AB\text{,}\)</span> where</p>
 <div class="displaymath process-math">
 \begin{equation*}
-A = \left[ \begin{array}{cc} A_{11}\amp A_{12}\\A_{21}\amp A_{22} \end{array}  \right] \ \text{ and }  \  B = \left[ \begin{array}{cc} B_{11}\amp B_{12}\\B_{21}\amp B_{22} \end{array}  \right]\text{,}
-\end{equation*}
-</div>
-<p class="continuation">where each submatrix is of size <span class="process-math">\(\frac{n}{2} \times \frac{n}{2}\text{.}\)</span> Now we use the Strassen algorithm just as in the <span class="process-math">\(2 \times 2\)</span> case, treating the submatrices as if they were scalars (with the additional constraints of making sure that the dimensions match up so that products are defined, and ensuring we multiply in the correct order). Letting</p>
-<div class="displaymath process-math">
-\begin{align*}
-M_1 \amp = (A_{11}+A_{22})(B_{11}+B_{22})\\
-M_2 \amp = (A_{21}+A_{22})B_{11}\\
-M_3 \amp = A_{11}(B_{12}-B_{22})\\
-M_4 \amp = A_{22}(B_{21}-B_{11})\\
-M_5 \amp = (A_{11}+A_{12})B_{22}\\
-M_6 \amp =(A_{21}-A_{11})(B_{11}+B_{12})\\
-M_7 \amp = (A_{12}-A_{22})(B_{21}+B_{22})\text{,}
-\end{align*}
-</div>
-<p class="continuation">then the same algebra as in <a href="" class="xref" data-knowl="./knowl/x_pact_Strassen_1.html" title="Project Activity 8.6">Project Activity 8.6</a> shows that</p>
-<div class="displaymath process-math">
-\begin{equation*}
-AB = \left[ \begin{array}{cc} M_1+M_4-M_5+M_7 \amp  M_3+M_5 \\ M_2+M_4 \amp  M_1+M_3-M_2+M_6 \end{array}  \right]\text{.}
+A = \left[ \begin{array}{crr} 1\amp 3\amp -1\\2\amp 4\amp 6\\7\amp -2\amp 5 \end{array}  \right] \text{ and }  B = \left[ \begin{array}{crc} 2\amp 5\amp 3\\2\amp -4\amp 1\\1\amp 6\amp 4 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <span class="incontext"><a href="sec_proj_starassen.html#p-1516">in-context</a></span>

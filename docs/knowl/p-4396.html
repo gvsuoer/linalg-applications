@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:40:39-04:00       *-->
+<!--*       on 2022-03-22T13:06:28-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,18 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>In <a href="chap_gram_schmidt.html" class="internal" title="Chapter 25: Projections onto Subspaces and the Gram-Schmidt Process in \R^n">Chapter 25</a> we saw that the projection of a vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^n\)</span> onto a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> is the best approximation to <span class="process-math">\(\vv\)</span> of all the vectors in <span class="process-math">\(W\text{.}\)</span> In fact, if <span class="process-math">\(\vv = [v_1 \ v_2 \ \ldots \ v_n]^{\tr}\)</span> and <span class="process-math">\(\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}\text{,}\)</span> then the error in approximating <span class="process-math">\(\vv\)</span> by <span class="process-math">\(\vw\)</span> is given by</p>
+<p>While we can always solve least squares problems using projections, we can often avoid having to create an orthogonal basis when fitting functions to data. We work in a more general setting, showing how to fit a polynomial of degree <span class="process-math">\(n\)</span> to a set of data points. Our goal is to fit a polynomial <span class="process-math">\(p(x) = a_0+a_1x+a_2x^2+ \cdots + 
+a_nx^n\)</span> of degree <span class="process-math">\(n\)</span> to <span class="process-math">\(m\)</span> data points <span class="process-math">\((x_1,y_1)\text{,}\)</span> <span class="process-math">\((x_2,y_2)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((x_m,y_m)\text{,}\)</span> no two of which have the same <span class="process-math">\(x\)</span> coordinate. In the unlikely event that the polynomial <span class="process-math">\(p(x)\)</span> actually passes through the <span class="process-math">\(m\)</span> points, then we would have the <span class="process-math">\(m\)</span> equations</p>
 <div class="displaymath process-math">
-\begin{equation*}
-|| \vv - \proj_W \vv ||^2 = \sum_{i=1}^m (v_i - w_i)^2\text{.}
-\end{equation*}
+\begin{alignat}{7}
+y_1 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_1 \amp{}+{} \amp{a_2}x_1^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_1^{n-1} \amp{}+{} \amp{a_n}x_1^n\tag{26.2}\\
+y_2 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_2 \amp{}+{} \amp{a_2}x_2^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_2^{n-1} \amp{}+{} \amp{a_n}x_2^n\tag{26.3}\\
+y_3 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_3 \amp{}+{} \amp{a_2}x_3^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_3^{n-1} \amp{}+{} \amp{a_n}x_3^n\tag{26.4}\\
+{}   \amp{}     \amp{}       \amp{}      \amp{}          \amp{}      \amp{}             \amp{}       \amp\vdots \amp{}     \amp{}                            \amp{}       \amp{}\tag{26.5}\\
+y_m \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_m \amp{}+{} \amp{a_2}x_m^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_m^{n-1} \amp{}+{} \amp{a_n}x_m^n\tag{26.6}
+\end{alignat}
 </div>
-<p class="continuation">In the context of <a href="" class="xref" data-knowl="./knowl/pa_LS_1.html" title="Preview Activity 26.1">Preview Activity 26.1</a>, we projected the vector <span class="process-math">\(\vb\)</span> onto the span of  the vectors <span class="process-math">\(\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}\)</span> and <span class="process-math">\(\vv_2 = [0 \ 4 \ 8 \ 12]^{\tr}\text{.}\)</span> The projection   minimizes the distance between the vectors in <span class="process-math">\(W\)</span> and the vector <span class="process-math">\(\vb\)</span> (as shown in <a href="" class="xref" data-knowl="./knowl/F_6_f_proj.html" title="Figure 26.3">Figure 26.3</a>), and also produces a line which minimizes the sums of the squares of the vertical  distances from the line to the data set as illustrated in <a href="" class="xref" data-knowl="./knowl/F_LS_Olympics2.html" title="Figure 26.4">Figure 26.4</a> with the olympics data. This is why these approximations are called least squares approximations.</p>
+<p class="continuation">in the <span class="process-math">\(n+1\)</span> unknowns <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_{n-1}\text{,}\)</span> and <span class="process-math">\(a_n\text{.}\)</span></p>
 <span class="incontext"><a href="sec_ls_approx.html#p-4396">in-context</a></span>
 </body>
 </html>

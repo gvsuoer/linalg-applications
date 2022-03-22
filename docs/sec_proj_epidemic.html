@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:30:27-04:00       *-->
+<!--*       on 2022-03-21T15:40:56-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,22 +751,22 @@
 <section class="section" id="sec_proj_epidemic"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Modeling an Epidemic</span>
 </h2>
-<p id="p-7197">The COVID-19 epidemic has generated many mathematical and statistical models to try to understand the spread of the virus. In this project we examine a simple stochastic model of the spread of an epidemic proposed by Norman Bailey in 1950.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-61" id="fn-61"><sup> 61 </sup></a> This is a model of a relatively mild epidemic in which no one dies from the disease. Of course, mathematicians build on simple models to form more complicated and realistic ones, but this is a good, and accessible, starting point. Bailey writes about the the difficulties in the stochastic<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-62" id="fn-62"><sup> 62 </sup></a> analysis of epidemics. For example, the overall epidemic “can often be broken down into smaller epidemics occurring in separate regional subdivisions” and that these regional epidemics “are not necessarily in phase and often interact with each other”. This is behavior that has been clearly evident in the COVID-19 epidemic in the US. Even within a single district, “it is obvious that a given infectious individual has not the same chance of infecting each inhabitant. He will probably be in close contact with a small number of people only, perhaps of the order of 10-50, depending on the nature of his activities.” But then the epidemic for the whole district will “be built up from epidemics taking place in several relatively small groups of associates and acquaintances.” So we can see in this analysis that an epidemic can spread from small, localized areas.</p>
-<p id="p-7198">Bailey begins by considering a community of <span class="process-math">\(n\)</span> persons who are susceptible to a disease, and supposes introducing a single infected individual into the community. Bailey makes the following assumptions: “We shall assume that the infection spreads by contact between the members of the community, and that it is not sufficiently serious for cases to be withdrawn from circulation by isolation or death; also that no case becomes clear of infection during the course of the main part of the epidemic.”</p>
-<p id="p-7199">To see how the Bailey's model is constructed, we make some assumption. We split the population at any time into two groups, those infected with the disease, and those susceptible, i.e., not currently infected. We assume that once an individual is infected, that individual is always infected. A person catches the disease by interacting with an infected individual. That is, if a susceptible individual meets an infected individual, the chance that the susceptible person contracts the disease is <span class="process-math">\(\beta\)</span> (the <em class="emphasis">infection rate</em>). For example, there many be a <span class="process-math">\(5\%\)</span> chance that an encounter between a susceptible individual and an infected individual results in the susceptible individual contracting the disease. (Of course, there are many variables involved in such an interaction — if no one is wearing masks and the interaction involves close contact, the infection rate would be higher than if everyone practices social distancing. For the sake of simplicity, we assume one infection rate for the entire population.) With this simple model we assume assume homogeneous mixing in the population. That is, it is equally likely that any one individual will interact with any other in a given time frame. Let <span class="process-math">\(y\)</span> be the number of susceptible individuals in the population at time <span class="process-math">\(t\text{.}\)</span> Then the number of infected individuals is the total population minus <span class="process-math">\(y\text{,}\)</span> or <span class="process-math">\(n+1-y\)</span> (recall that we introduced an infected individual into the population). So the change in the number of susceptible individuals in the population at time <span class="process-math">\(s\)</span> is <span class="process-math">\(-\beta y(n+1-y)\)</span> (since the <span class="process-math">\(n+1-y\)</span> susceptible individuals interact with the <span class="process-math">\(y\)</span> infected individuals). That is, <span class="process-math">\(\frac{dy}{ds} = -\beta y (n+1-y)\text{.}\)</span> Bailey makes the substitution of <span class="process-math">\(t\)</span> for <span class="process-math">\(\beta s\)</span> to simplify the equation. This substitution makes <span class="process-math">\(ds = \frac{1}{\beta} dt\text{,}\)</span> which produces the differential equation <span class="process-math">\(\beta \frac{dy}{dt} =  -\beta y (n+1-y)\text{.}\)</span> The <span class="process-math">\(\beta\)</span>s cancel, producing the differential equation</p>
+<p id="p-7196">The COVID-19 epidemic has generated many mathematical and statistical models to try to understand the spread of the virus. In this project we examine a simple stochastic model of the spread of an epidemic proposed by Norman Bailey in 1950.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-61" id="fn-61"><sup> 61 </sup></a> This is a model of a relatively mild epidemic in which no one dies from the disease. Of course, mathematicians build on simple models to form more complicated and realistic ones, but this is a good, and accessible, starting point. Bailey writes about the the difficulties in the stochastic<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-62" id="fn-62"><sup> 62 </sup></a> analysis of epidemics. For example, the overall epidemic “can often be broken down into smaller epidemics occurring in separate regional subdivisions” and that these regional epidemics “are not necessarily in phase and often interact with each other”. This is behavior that has been clearly evident in the COVID-19 epidemic in the US. Even within a single district, “it is obvious that a given infectious individual has not the same chance of infecting each inhabitant. He will probably be in close contact with a small number of people only, perhaps of the order of 10-50, depending on the nature of his activities.” But then the epidemic for the whole district will “be built up from epidemics taking place in several relatively small groups of associates and acquaintances.” So we can see in this analysis that an epidemic can spread from small, localized areas.</p>
+<p id="p-7197">Bailey begins by considering a community of <span class="process-math">\(n\)</span> persons who are susceptible to a disease, and supposes introducing a single infected individual into the community. Bailey makes the following assumptions: “We shall assume that the infection spreads by contact between the members of the community, and that it is not sufficiently serious for cases to be withdrawn from circulation by isolation or death; also that no case becomes clear of infection during the course of the main part of the epidemic.”</p>
+<p id="p-7198">To see how the Bailey's model is constructed, we make some assumption. We split the population at any time into two groups, those infected with the disease, and those susceptible, i.e., not currently infected. We assume that once an individual is infected, that individual is always infected. A person catches the disease by interacting with an infected individual. That is, if a susceptible individual meets an infected individual, the chance that the susceptible person contracts the disease is <span class="process-math">\(\beta\)</span> (the <em class="emphasis">infection rate</em>). For example, there many be a <span class="process-math">\(5\%\)</span> chance that an encounter between a susceptible individual and an infected individual results in the susceptible individual contracting the disease. (Of course, there are many variables involved in such an interaction — if no one is wearing masks and the interaction involves close contact, the infection rate would be higher than if everyone practices social distancing. For the sake of simplicity, we assume one infection rate for the entire population.) With this simple model we assume assume homogeneous mixing in the population. That is, it is equally likely that any one individual will interact with any other in a given time frame. Let <span class="process-math">\(y\)</span> be the number of susceptible individuals in the population at time <span class="process-math">\(t\text{.}\)</span> Then the number of infected individuals is the total population minus <span class="process-math">\(y\text{,}\)</span> or <span class="process-math">\(n+1-y\)</span> (recall that we introduced an infected individual into the population). So the change in the number of susceptible individuals in the population at time <span class="process-math">\(s\)</span> is <span class="process-math">\(-\beta y(n+1-y)\)</span> (since the <span class="process-math">\(n+1-y\)</span> susceptible individuals interact with the <span class="process-math">\(y\)</span> infected individuals). That is, <span class="process-math">\(\frac{dy}{ds} = -\beta y (n+1-y)\text{.}\)</span> Bailey makes the substitution of <span class="process-math">\(t\)</span> for <span class="process-math">\(\beta s\)</span> to simplify the equation. This substitution makes <span class="process-math">\(ds = \frac{1}{\beta} dt\text{,}\)</span> which produces the differential equation <span class="process-math">\(\beta \frac{dy}{dt} =  -\beta y (n+1-y)\text{.}\)</span> The <span class="process-math">\(\beta\)</span>s cancel, producing the differential equation</p>
 <div class="displaymath process-math">
 \begin{equation}
 \frac{dy}{dt} = -y(n+1-y)\label{eq_Bailey_1}\tag{40.9}
 \end{equation}
 </div>
 <p class="continuation">with <span class="process-math">\(y(0) = n\text{.}\)</span></p>
-<p id="p-7200">The above analysis is just to provide some background. Bailey's stochastic model deals with probabilities instead of actual numbers, so we now take that approach. For <span class="process-math">\(r\)</span> from <span class="process-math">\(0\)</span> to <span class="process-math">\(n\text{,}\)</span> let <span class="process-math">\(p_r(t)\)</span> be the probability that there are <span class="process-math">\(r\)</span> susceptible individuals still uninfected at time <span class="process-math">\(t\text{.}\)</span> Similar to the case describe above, if there are <span class="process-math">\(r\)</span> susceptible individuals, any one of them can be come infected by interacting with the <span class="process-math">\(n-r+1\)</span> infected individuals. With that in mind, Bailey's model of the spread of the disease is the system</p>
+<p id="p-7199">The above analysis is just to provide some background. Bailey's stochastic model deals with probabilities instead of actual numbers, so we now take that approach. For <span class="process-math">\(r\)</span> from <span class="process-math">\(0\)</span> to <span class="process-math">\(n\text{,}\)</span> let <span class="process-math">\(p_r(t)\)</span> be the probability that there are <span class="process-math">\(r\)</span> susceptible individuals still uninfected at time <span class="process-math">\(t\text{.}\)</span> Similar to the case describe above, if there are <span class="process-math">\(r\)</span> susceptible individuals, any one of them can be come infected by interacting with the <span class="process-math">\(n-r+1\)</span> infected individuals. With that in mind, Bailey's model of the spread of the disease is the system</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{cases}\frac{d p_r(t)}{dt} = (r+1)(n-r)p_{r+1}(t) - r(n-r+1)p_r(t) \amp \text{ for }  0 \leq r \leq n-1\\ \frac{dp_n(t)}{dt} = -np_n(t). \amp \end{cases}
 \end{equation*}
 </div>
-<p id="p-7201">That is,</p>
+<p id="p-7200">That is,</p>
 <div class="displaymath process-math">
 \begin{align*}
 \frac{d p_0(t)}{dt} \amp = np_1(t)\\
@@ -778,8 +777,8 @@
 \frac{dp_n(t)}{dt} \amp = -np_n(t)\text{.}
 \end{align*}
 </div>
-<p id="p-7202">Since we start with <span class="process-math">\(n\)</span> susceptible individuals, at time <span class="process-math">\(0\)</span> we have <span class="process-math">\(p_r(0) = 0\)</span> if <span class="process-math">\(0 \leq r \leq n-1\)</span> and <span class="process-math">\(p_n(0)=1\text{.}\)</span></p>
-<p id="p-7203">This system can be written in matrix form. Let <span class="process-math">\(P(t) = \left[ \begin{array}{c} p_0(t)\\p_1(t) \\ \vdots \\ p_n(t) \end{array}  \right]\text{.}\)</span> Assuming that we can differentiate a vector function component-wise, our system becomes</p>
+<p id="p-7201">Since we start with <span class="process-math">\(n\)</span> susceptible individuals, at time <span class="process-math">\(0\)</span> we have <span class="process-math">\(p_r(0) = 0\)</span> if <span class="process-math">\(0 \leq r \leq n-1\)</span> and <span class="process-math">\(p_n(0)=1\text{.}\)</span></p>
+<p id="p-7202">This system can be written in matrix form. Let <span class="process-math">\(P(t) = \left[ \begin{array}{c} p_0(t)\\p_1(t) \\ \vdots \\ p_n(t) \end{array}  \right]\text{.}\)</span> Assuming that we can differentiate a vector function component-wise, our system becomes</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dP(t)}{dt} = A P(t)
@@ -791,51 +790,51 @@
 A=\left[ \begin{array}{ccccccccc} 0\amp n\amp 0\amp 0\amp 0\amp  \cdots \amp 0\amp 0\amp 0 \\ 0\amp -n\amp 2(n-1)\amp 0 \amp 0\amp \cdots \amp 0\amp 0\amp 0 \\ 0\amp 0\amp -2(n-1)\amp 3(n-2) \amp 0 \amp  \cdots \amp  0\amp 0\amp 0 \\ \amp \amp \amp \amp \vdots\amp \amp \amp \amp  \\ 0\amp 0\amp  \cdots \amp -r(n-r+1) \amp (r+1)(n-r)\amp  0 \amp  \cdots \amp  0\amp 0 \\ \amp \amp \amp \amp \vdots\amp \amp \amp \amp   \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp 0 \amp 0\amp -2(n-1)\amp n \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp 0\amp 0\amp 0\amp -n \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-7204">The solution to this system involves a matrix exponential <span class="process-math">\(e^{At}\text{.}\)</span> The matrix exponential acts much like our familiar exponential function in that</p>
+<p id="p-7203">The solution to this system involves a matrix exponential <span class="process-math">\(e^{At}\text{.}\)</span> The matrix exponential acts much like our familiar exponential function in that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{d}{dx}e^{At} = Ae^{At}\text{.}
 \end{equation*}
 </div>
-<p id="p-7205">With this in mind it is not difficult to see that Bailey's system has solution <span class="process-math">\(P(t)= e^{At}P(0)\text{.}\)</span> To truly understand this solution, we need to make sense of the matrix exponential <span class="process-math">\(e^{At}\text{.}\)</span></p>
-<p id="p-7206">We can make sense of the matrix exponential by utilizing the Taylor series of the exponential function centered at the origin. From calculus we know that</p>
+<p id="p-7204">With this in mind it is not difficult to see that Bailey's system has solution <span class="process-math">\(P(t)= e^{At}P(0)\text{.}\)</span> To truly understand this solution, we need to make sense of the matrix exponential <span class="process-math">\(e^{At}\text{.}\)</span></p>
+<p id="p-7205">We can make sense of the matrix exponential by utilizing the Taylor series of the exponential function centered at the origin. From calculus we know that</p>
 <div class="displaymath process-math">
 \begin{equation}
 e^x = 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots + \frac{1}{n!}x^n + \cdots = \sum_{k\geq 0} \frac{1}{k!}x^k\text{.}\label{eq_exponential}\tag{40.10}
 \end{equation}
 </div>
-<p id="p-7207">Since powers of square matrices are defined, the matrix exponential <span class="process-math">\(e^M\)</span> of a square matrix <span class="process-math">\(M\)</span> is then</p>
+<p id="p-7206">Since powers of square matrices are defined, the matrix exponential <span class="process-math">\(e^M\)</span> of a square matrix <span class="process-math">\(M\)</span> is then</p>
 <div class="displaymath process-math">
 \begin{equation}
 e^M = I_n + M + \frac{1}{2!}M^2 + \frac{1}{3!}M^3 + \cdots + \frac{1}{n!}M^n + \cdots = \sum_{k\geq 0} \frac{1}{k!}M^k\text{.}\label{eq_Matrix_exponential}\tag{40.11}
 \end{equation}
 </div>
-<p id="p-7208">Just as in calculus, <span class="process-math">\(e^M\)</span> converges for any square matrix <span class="process-math">\(M\text{.}\)</span></p>
+<p id="p-7207">Just as in calculus, <span class="process-math">\(e^M\)</span> converges for any square matrix <span class="process-math">\(M\text{.}\)</span></p>
 <article class="project project-like" id="project-148"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">40.12</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-724"><p id="p-7209">If <span class="process-math">\(M\)</span> is diagonalizable, then <span class="process-math">\(e^M\)</span> can be found fairly easily. Assume that there is an invertible matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}MP = D\text{,}\)</span> where <span class="process-math">\(D = \left[ \begin{array}{ccccc} \lambda_1\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  \lambda_2\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  \lambda_n \end{array}  \right]\)</span> is a diagonal matrix.</p></div>
+<div class="introduction" id="introduction-723"><p id="p-7208">If <span class="process-math">\(M\)</span> is diagonalizable, then <span class="process-math">\(e^M\)</span> can be found fairly easily. Assume that there is an invertible matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}MP = D\text{,}\)</span> where <span class="process-math">\(D = \left[ \begin{array}{ccccc} \lambda_1\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  \lambda_2\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  \lambda_n \end{array}  \right]\)</span> is a diagonal matrix.</p></div>
 <article class="task exercise-like" id="task-2465"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-7210">Use <a href="" class="xref" data-knowl="./knowl/eq_Matrix_exponential.html" title="Equation 40.11">(40.11)</a> to explain why</p>
+<p id="p-7209">Use <a href="" class="xref" data-knowl="./knowl/eq_Matrix_exponential.html" title="Equation 40.11">(40.11)</a> to explain why</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^M = Pe^DP^{-1}\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-2466"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-7211">Now show that</p>
+<p id="p-7210">Now show that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^M = P\left[ \begin{array}{ccccc} e^{\lambda_1}\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  e^{\lambda_2}\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  e^{\lambda_n} \end{array}  \right]P^{-1}\text{.}
 \end{equation*}
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-147" id="hint-147"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-147"><div class="hint solution-like"><p id="p-7212">What is <span class="process-math">\(D^k\)</span> for any positive integer <span class="process-math">\(k\text{?}\)</span> Then add corresponding components and compare to <a href="" class="xref" data-knowl="./knowl/eq_exponential.html" title="Equation 40.10">(40.10)</a>.</p></div></div>
-</div></article></article><p id="p-7213">As we will see, the matrix <span class="process-math">\(A\)</span> in Bailey's model is not diagonalizable, so we need to learn how to consider the matrix exponential in this new situation. In these cases we can utilize the Jordan canonical form. Of course, the computations are more complicated. We first illustrate with the <span class="process-math">\(2 \times 2\)</span> case.</p>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-147" id="hint-147"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-147"><div class="hint solution-like"><p id="p-7211">What is <span class="process-math">\(D^k\)</span> for any positive integer <span class="process-math">\(k\text{?}\)</span> Then add corresponding components and compare to <a href="" class="xref" data-knowl="./knowl/eq_exponential.html" title="Equation 40.10">(40.10)</a>.</p></div></div>
+</div></article></article><p id="p-7212">As we will see, the matrix <span class="process-math">\(A\)</span> in Bailey's model is not diagonalizable, so we need to learn how to consider the matrix exponential in this new situation. In these cases we can utilize the Jordan canonical form. Of course, the computations are more complicated. We first illustrate with the <span class="process-math">\(2 \times 2\)</span> case.</p>
 <article class="project project-like" id="project-149"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">40.13</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-725">
-<p id="p-7214">Assume <span class="process-math">\(A\)</span> is a <span class="process-math">\(2 \times 2\)</span> matrix with Jordan canonical form<span class="process-math">\(J = \left[ \begin{array}{cc} \lambda\amp 1\\0\amp \lambda \end{array}  \right]\text{,}\)</span> where <span class="process-math">\(C^{-1}AC = J\text{.}\)</span> The same argument as above shows that</p>
+<div class="introduction" id="introduction-724">
+<p id="p-7213">Assume <span class="process-math">\(A\)</span> is a <span class="process-math">\(2 \times 2\)</span> matrix with Jordan canonical form<span class="process-math">\(J = \left[ \begin{array}{cc} \lambda\amp 1\\0\amp \lambda \end{array}  \right]\text{,}\)</span> where <span class="process-math">\(C^{-1}AC = J\text{.}\)</span> The same argument as above shows that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^A = Ce^JC^{-1}
@@ -844,27 +843,27 @@ e^A = Ce^JC^{-1}
 <p class="continuation">and so we only have to be able to find <span class="process-math">\(e^J\text{.}\)</span></p>
 </div>
 <article class="task exercise-like" id="task-2467"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-7215">We can write <span class="process-math">\(J\)</span> in the form <span class="process-math">\(J = D+N\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix and <span class="process-math">\(N\)</span> is a nilpotent matrix. Find <span class="process-math">\(D\)</span> and <span class="process-math">\(N\)</span> in this case and explain why <span class="process-math">\(N\)</span> is a nilpotent matrix.</p></article><article class="task exercise-like" id="task-2468"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-7216">Find the index of <span class="process-math">\(N\text{.}\)</span> That is, find the smallest positive power <span class="process-math">\(s\)</span> of <span class="process-math">\(N\)</span> such that <span class="process-math">\(N^s = 0\text{.}\)</span> Then use <a href="" class="xref" data-knowl="./knowl/eq_Matrix_exponential.html" title="Equation 40.11">(40.11)</a> to find <span class="process-math">\(e^N\text{.}\)</span></p></article><article class="task exercise-like" id="task-2469"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-7217">Assume that the matrix exponential satisfies the standard property of exponential functions that <span class="process-math">\(e^{R+S} = e^Re^S\)</span> for any <span class="process-math">\(n \times n\)</span> matrices <span class="process-math">\(R\)</span> and <span class="process-math">\(S\text{.}\)</span> Use this property to explain why</p>
+<p id="p-7214">We can write <span class="process-math">\(J\)</span> in the form <span class="process-math">\(J = D+N\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix and <span class="process-math">\(N\)</span> is a nilpotent matrix. Find <span class="process-math">\(D\)</span> and <span class="process-math">\(N\)</span> in this case and explain why <span class="process-math">\(N\)</span> is a nilpotent matrix.</p></article><article class="task exercise-like" id="task-2468"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-7215">Find the index of <span class="process-math">\(N\text{.}\)</span> That is, find the smallest positive power <span class="process-math">\(s\)</span> of <span class="process-math">\(N\)</span> such that <span class="process-math">\(N^s = 0\text{.}\)</span> Then use <a href="" class="xref" data-knowl="./knowl/eq_Matrix_exponential.html" title="Equation 40.11">(40.11)</a> to find <span class="process-math">\(e^N\text{.}\)</span></p></article><article class="task exercise-like" id="task-2469"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-7216">Assume that the matrix exponential satisfies the standard property of exponential functions that <span class="process-math">\(e^{R+S} = e^Re^S\)</span> for any <span class="process-math">\(n \times n\)</span> matrices <span class="process-math">\(R\)</span> and <span class="process-math">\(S\text{.}\)</span> Use this property to explain why</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^J = \left[ \begin{array}{cc} e^{\lambda}\amp e^{\lambda}\\0\amp e^{\lambda} \end{array}  \right]\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-2470"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-7218">Use the previous information to calculate <span class="process-math">\(e^M\)</span> where <span class="process-math">\(M = \left[ \begin{array}{cr} 3 \amp -1 \\ 4 \amp 7 \end{array} \right]\text{.}\)</span></p></article></article><p id="p-7219">Now we turn to the general case of finding the matrix exponential <span class="process-math">\(e^M\)</span> when <span class="process-math">\(M\)</span> is not diagonalizable. Suppose <span class="process-math">\(C\)</span> is an invertible matrix and <span class="process-math">\(C^{-1}MC = J\text{,}\)</span> where <span class="process-math">\(J\)</span> is a Jordan canonical form of <span class="process-math">\(M\text{.}\)</span> Then we have</p>
+<p id="p-7217">Use the previous information to calculate <span class="process-math">\(e^M\)</span> where <span class="process-math">\(M = \left[ \begin{array}{cr} 3 \amp -1 \\ 4 \amp 7 \end{array} \right]\text{.}\)</span></p></article></article><p id="p-7218">Now we turn to the general case of finding the matrix exponential <span class="process-math">\(e^M\)</span> when <span class="process-math">\(M\)</span> is not diagonalizable. Suppose <span class="process-math">\(C\)</span> is an invertible matrix and <span class="process-math">\(C^{-1}MC = J\text{,}\)</span> where <span class="process-math">\(J\)</span> is a Jordan canonical form of <span class="process-math">\(M\text{.}\)</span> Then we have</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^M = e^{CJC^{-1}} = C e^J C^{-1}\text{.}
 \end{equation*}
 </div>
-<p id="p-7220">We know that <span class="process-math">\(J\)</span> can be written in the form <span class="process-math">\(D+N\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix and <span class="process-math">\(N\)</span> is an upper triangular matrix with zeros on the diagonal and some ones along the superdiagonal. It follows that</p>
+<p id="p-7219">We know that <span class="process-math">\(J\)</span> can be written in the form <span class="process-math">\(D+N\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix and <span class="process-math">\(N\)</span> is an upper triangular matrix with zeros on the diagonal and some ones along the superdiagonal. It follows that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^M = Ce^De^NC^{-1}\text{.}
 \end{equation*}
 </div>
-<p id="p-7221">We know that if</p>
+<p id="p-7220">We know that if</p>
 <div class="displaymath process-math">
 \begin{equation*}
 D = \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\  0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0 \\ \amp \amp \amp \ddots\amp \amp  \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_n \end{array}  \right]\text{,}
@@ -876,8 +875,8 @@ D = \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\
 e^D = \left[ \begin{array}{cccccc} e^{\lambda_1}\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\  0\amp e^{\lambda_2}\amp 0\amp \cdots\amp 0\amp 0 \\ \amp \amp \amp \ddots\amp \amp  \\ 0\amp 0\amp 0\amp \cdots\amp 0\amp e^{\lambda_n} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-7222">So finding <span class="process-math">\(e^M\)</span> boils down to determining <span class="process-math">\(e^N\text{.}\)</span></p>
-<p id="p-7223">Now <span class="process-math">\(N\)</span> has only zero as an eigenvalue, so <span class="process-math">\(N\)</span> is nilpotent. If <span class="process-math">\(k\)</span> is the index of <span class="process-math">\(N\text{,}\)</span> then</p>
+<p id="p-7221">So finding <span class="process-math">\(e^M\)</span> boils down to determining <span class="process-math">\(e^N\text{.}\)</span></p>
+<p id="p-7222">Now <span class="process-math">\(N\)</span> has only zero as an eigenvalue, so <span class="process-math">\(N\)</span> is nilpotent. If <span class="process-math">\(k\)</span> is the index of <span class="process-math">\(N\text{,}\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^N = I + N + \frac{1}{2}N^2 + \frac{1}{3!}N^3 + \cdots + \frac{1}{(k-1)!}N^{k-1}\text{.}
@@ -886,34 +885,34 @@ e^N = I + N + \frac{1}{2}N^2 + \frac{1}{3!}N^3 + \cdots + \frac{1}{(k-1)!}N^{k-1
 <article class="project project-like" id="project-150"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">40.14</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-726"><p id="p-7224">Let us apply this analysis to a specific case of Bailey's model, with <span class="process-math">\(n = 5\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-725"><p id="p-7223">Let us apply this analysis to a specific case of Bailey's model, with <span class="process-math">\(n = 5\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-2471"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-7225">Find the entries of <span class="process-math">\(A\)</span> when <span class="process-math">\(n = 5\text{.}\)</span></p></article><article class="task exercise-like" id="task-2472"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-7226">Let <span class="process-math">\(J\)</span> be a Jordan canonical form for <span class="process-math">\(A\text{.}\)</span> Explain why the solution to Bailey's model has the form</p>
+<p id="p-7224">Find the entries of <span class="process-math">\(A\)</span> when <span class="process-math">\(n = 5\text{.}\)</span></p></article><article class="task exercise-like" id="task-2472"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-7225">Let <span class="process-math">\(J\)</span> be a Jordan canonical form for <span class="process-math">\(A\text{.}\)</span> Explain why the solution to Bailey's model has the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P(t)= e^{At}P(0) = Ce^{Dt}e^{Nt}C^{-1}P(0)\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(C\)</span> is an invertible matrix, <span class="process-math">\(Dt\)</span> is a diagonal matrix, and <span class="process-math">\(Nt\)</span> is a nilpotent matrix.</p></article><article class="task exercise-like" id="task-2473"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-7227">Find a Jordan canonical form <span class="process-math">\(J\)</span> for <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-2474"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-7228">Find a diagonal matrix <span class="process-math">\(D\)</span> and a nilpotent matrix <span class="process-math">\(N\)</span> so that <span class="process-math">\(J = D+N\text{.}\)</span></p></article><article class="task exercise-like" id="task-2475"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-7229">Find <span class="process-math">\(e^{Dt}\)</span> and <span class="process-math">\(e^{Nt}\text{.}\)</span> Then show that</p>
+<p id="p-7226">Find a Jordan canonical form <span class="process-math">\(J\)</span> for <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-2474"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-7227">Find a diagonal matrix <span class="process-math">\(D\)</span> and a nilpotent matrix <span class="process-math">\(N\)</span> so that <span class="process-math">\(J = D+N\text{.}\)</span></p></article><article class="task exercise-like" id="task-2475"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-7228">Find <span class="process-math">\(e^{Dt}\)</span> and <span class="process-math">\(e^{Nt}\text{.}\)</span> Then show that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P(t) = \left[  \begin{array}{c} 1+\frac{172}{3}e^{-5t}-80te^{-5t}+\frac{125}{3}e^{-8t}-200te^{-8t}-100e^{-9t} \\ -\frac{220}{3}e^{-5t}+80te^{-5t}-\frac {320}{3}e^{-8t}+320te^{-8t} +180e^{-9t} \\ 10e^{-5t}+80e^{-8t}-120te^{-8t}-90e^{-9t} \\ \frac{10}{3}e^{-5t}-\frac{40}{3}e^{-8t}+10e^{-9t} \\ \frac{5}{3}e^{-5t}- \frac{5}{3}e^{-8t} \\ e^{-5t} \end{array}  \right]\text{.}
 \end{equation*}
-</div></article></article><p id="p-7230">One use for mathematical models like Bailey's is to make predictions that can help set policies. Recall that we made the substitution of <span class="process-math">\(t\)</span> for <span class="process-math">\(\beta s\)</span> in our original equation in order to make the equations dimensionless, where <span class="process-math">\(\beta\)</span> is the infection rate — the rate at which people catch the disease. Let us replace <span class="process-math">\(t\)</span> with <span class="process-math">\(\beta s\)</span> in our solution and analyze the effect of changing the value of <span class="process-math">\(\beta\text{.}\)</span></p>
+</div></article></article><p id="p-7229">One use for mathematical models like Bailey's is to make predictions that can help set policies. Recall that we made the substitution of <span class="process-math">\(t\)</span> for <span class="process-math">\(\beta s\)</span> in our original equation in order to make the equations dimensionless, where <span class="process-math">\(\beta\)</span> is the infection rate — the rate at which people catch the disease. Let us replace <span class="process-math">\(t\)</span> with <span class="process-math">\(\beta s\)</span> in our solution and analyze the effect of changing the value of <span class="process-math">\(\beta\text{.}\)</span></p>
 <article class="project project-like" id="project-151"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">40.15</span><span class="period">.</span>
 </h3>
-<p id="p-7231">If <span class="process-math">\(\beta = 1\text{,}\)</span> then the disease is easily transmitted from person to person. If <span class="process-math">\(\beta\)</span> can be made smaller, then the disease is not so easily transmitted. We continue to work with the case where <span class="process-math">\(n=5\text{.}\)</span> Plot the curves <span class="process-math">\(p_0(t)\)</span> through <span class="process-math">\(p_5(t)\)</span> on the same set of axes for the following values of <span class="process-math">\(\beta\text{:}\)</span></p>
+<p id="p-7230">If <span class="process-math">\(\beta = 1\text{,}\)</span> then the disease is easily transmitted from person to person. If <span class="process-math">\(\beta\)</span> can be made smaller, then the disease is not so easily transmitted. We continue to work with the case where <span class="process-math">\(n=5\text{.}\)</span> Plot the curves <span class="process-math">\(p_0(t)\)</span> through <span class="process-math">\(p_5(t)\)</span> on the same set of axes for the following values of <span class="process-math">\(\beta\text{:}\)</span></p>
 <div class="displaymath process-math">
 \begin{equation*}
 (a) \beta =1  (b) \beta = 0.5  (c) \beta = 0.25\text{.}
 \end{equation*}
 </div>
-<p id="p-7232">Explain what you see and how this might be related to the phrase “flattening the curve” used during the COVID-19 pandemic of 2020.</p></article><p id="p-7233">In general, the matrix <span class="process-math">\(A\)</span> has eigenvalues of algebraic multiplicity 1 and 2. When <span class="process-math">\(n\)</span> is even, <span class="process-math">\(n+1\)</span> is odd and the eigenvalues of <span class="process-math">\(A\)</span> will occur in pairs except for the single eigenvalue <span class="process-math">\(0\)</span> of multiplicity 1. When <span class="process-math">\(n\)</span> is odd, <span class="process-math">\(n+1\)</span> is even and we have two eigenvalues of multiplicity 1: <span class="process-math">\(0\)</span> and the eigenvalue <span class="process-math">\(-r(n-r+1)\)</span> when <span class="process-math">\(r = \frac{n+1}{2}\text{,}\)</span> at which <span class="process-math">\(-r(n-r+1) = -\frac{(n+1)^2}{4}\text{.}\)</span> It can be shown, although we won't do it here, that every eigenvalue of algebraic multiplicity 2 has geometric multiplicity 1. This information completely determines the Jordan canonical formof <span class="process-math">\(A\text{.}\)</span></p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-61"><div class="fn">Bailey, N. T. J. (1950) A simple stochastic epidemic. <span class="booktitle">Biometrika</span> 37</div></div>
+<p id="p-7231">Explain what you see and how this might be related to the phrase “flattening the curve” used during the COVID-19 pandemic of 2020.</p></article><p id="p-7232">In general, the matrix <span class="process-math">\(A\)</span> has eigenvalues of algebraic multiplicity 1 and 2. When <span class="process-math">\(n\)</span> is even, <span class="process-math">\(n+1\)</span> is odd and the eigenvalues of <span class="process-math">\(A\)</span> will occur in pairs except for the single eigenvalue <span class="process-math">\(0\)</span> of multiplicity 1. When <span class="process-math">\(n\)</span> is odd, <span class="process-math">\(n+1\)</span> is even and we have two eigenvalues of multiplicity 1: <span class="process-math">\(0\)</span> and the eigenvalue <span class="process-math">\(-r(n-r+1)\)</span> when <span class="process-math">\(r = \frac{n+1}{2}\text{,}\)</span> at which <span class="process-math">\(-r(n-r+1) = -\frac{(n+1)^2}{4}\text{.}\)</span> It can be shown, although we won't do it here, that every eigenvalue of algebraic multiplicity 2 has geometric multiplicity 1. This information completely determines the Jordan canonical formof <span class="process-math">\(A\text{.}\)</span></p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-61"><div class="fn">Bailey, N. T. J. (1950) A simple stochastic epidemic. <span class="booktitle">Biometrika</span> 37</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-62"><div class="fn">The word <dfn class="terminology">stochastic</dfn> refers to quantities that have a random pattern that can be analyzed statistically, but generally cannot be predicted precisely.</div></div>
 </div></main>
 </div>

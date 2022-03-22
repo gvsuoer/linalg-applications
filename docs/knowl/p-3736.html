@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:39:10-04:00       *-->
+<!--*       on 2022-03-22T13:05:02-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,16 +15,10 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>The result is easily verified for <span class="process-math">\(2 \times 2\)</span> matrices, so we will proceed by induction and assume that the determinant of the transpose of any <span class="process-math">\((n-1) \times (n-1)\)</span> matrix is the same as the determinant of its transpose. Suppose <span class="process-math">\(A = [a_{ij}]\)</span> is an <span class="process-math">\(n \times n\)</span> matrix. By definition,</p>
+<p>Note that the only terms in either determinant that contains <span class="process-math">\(a_{11}\)</span> is <span class="process-math">\(a_{11}C_{11}\text{.}\)</span> This term is the same in both determinants, so we proceed to examine other elements. Let us consider all terms in the cofactor expansion for <span class="process-math">\(\det(A^{\tr})\)</span> that contain <span class="process-math">\(a_{i1}a_{1j}\text{.}\)</span> The only summand that contains <span class="process-math">\(a_{i1}\)</span> is <span class="process-math">\(a_{i1}C_{i1}\text{.}\)</span> Letting <span class="process-math">\(A_{ij}\)</span> be the sub-matrix of <span class="process-math">\(A\)</span> obtained by deleting the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column, we see that <span class="process-math">\(a_{i1}C_{i1} = (-1)^{i+1}a_{i1}\det(A_{i1})\text{.}\)</span> Now let's examine the sub-matrix <span class="process-math">\(A_{i1}\text{:}\)</span></p>
 <div class="displaymath process-math">
 \begin{equation*}
-\det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} + \cdots + a_{1n}C_{1n}
-\end{equation*}
-</div>
-<p class="continuation">and</p>
-<div class="displaymath process-math">
-\begin{equation*}
-\det(A^{\tr}) = a_{11}C_{11} + a_{21}C_{21} + a_{31}C_{31} + \cdots + a_{n1}C_{n1}\text{.}
+\left[ \begin{array}{ccccccc} \boldsymbol{a_{12}} \amp  \boldsymbol{a_{13}} \amp  \boldsymbol{\cdots}    \amp \boldsymbol{a_{1j}} \amp \boldsymbol{\cdots} \amp  \boldsymbol{a_{1n-1}} \amp  \boldsymbol{a_{1n}} \\ a_{22} \amp  a_{23} \amp  \cdots    \amp \boldsymbol{a_{2j}} \amp \cdots \amp  a_{2n-1} \amp  a_{2n} \\ \boldsymbol{\vdots} \amp        \amp  \ddots    \amp  \vdots          \amp \ddots \amp  \amp  \\ a_{i-12} \amp  a_{i-13} \amp  \cdots    \amp \boldsymbol{a_{i-1j}} \amp \cdots \amp  a_{i-1n-1} \amp  a_{i-1n} \\ a_{i+12} \amp  a_{i+13} \amp  \cdots    \amp \boldsymbol{a_{i+1j}} \amp \cdots \amp  a_{i+1n-1} \amp  a_{i+1n} \\ a_{n2} \amp  a_{n3} \amp  \cdots    \amp \boldsymbol{a_{nj}} \amp \cdots \amp  a_{nn-1} \amp  a_{nn} \end{array}  \right]
 \end{equation*}
 </div>
 <span class="incontext"><a href="sec_det_transpose.html#p-3736">in-context</a></span>

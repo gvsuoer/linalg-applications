@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:36:54-04:00       *-->
+<!--*       on 2022-03-22T13:02:47-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,19 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>The GGH cryptosystem works with two <dfn class="terminology">keys</dfn> — a public key and a private key. The keys are based on lattices. The general process of the GGH cryptosystem is as follows. Begin with a good basis <span class="process-math">\(\CB = \{\vb_1 \ \vb_2 \ \ldots \ \vb_n\}\)</span> of <span class="process-math">\(\R^n\)</span> of vectors with integer components. Let <span class="process-math">\(B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]\)</span> be the matrix associated with <span class="process-math">\(\CB\text{.}\)</span> Let <span class="process-math">\(\CB' = \{\vb'_1, \vb'_2, \ldots, \vb'_n\}\)</span> be a bad basis for which <span class="process-math">\(\mathcal{L}(\CB') = \mathcal{L}(\CB)\text{.}\)</span> Let <span class="process-math">\(B' = [\vb'_1 \ \vb'_2 \ \cdots \ \vb'_n]\)</span> be the matrix associated to the basis <span class="process-math">\(\CB'\text{.}\)</span> The bad basis can be shared with anyone (the public key), but the good basis is kept secret (the private key). Start with a message <span class="process-math">\(\vm = [m_1 \ m_2 \ \cdots \ m_n]^{\tr}\)</span> with integer entries to send.</p>
+<p>First we encrypt the message, which can be done by anyone who has the public key <span class="process-math">\(\CB'\text{.}\)</span></p>
+<ul class="disc">
+<li>
+<p>Create the message vector</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\vm' = m_1 \vb'_1 +  m_2 \vb'_2 + \cdots +  m_n \vb'_n = B' \vm
+\end{equation*}
+</div>
+<p class="continuation">that is in the lattice using the bad basis <span class="process-math">\(\CB'\text{.}\)</span></p>
+</li>
+<li><p>Choose a small error <span class="process-math">\(\ve\)</span> to add to <span class="process-math">\(\vm'\)</span> to move <span class="process-math">\(\vm'\)</span> off the lattice (small enough so that <span class="process-math">\(\vm'\)</span> does not pass by another lattice point). This is an important step that will make the message difficult to decrypt without the key. Let <span class="process-math">\(\vc = \vm' + \ve = B'\vm + \ve\text{.}\)</span> The vector <span class="process-math">\(\vc\)</span> is the ciphertext that is to be transmitted to the receiver.</p></li>
+</ul>
 <span class="incontext"><a href="sec_proj_ggh_crypto.html#p-2668">in-context</a></span>
 </body>
 </html>

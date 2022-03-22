@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:24:03-04:00       *-->
+<!--*       on 2022-03-21T15:33:45-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,13 +750,13 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_sim_mtx_trans"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Similarity and Matrix Transformations</span>
 </h2>
-<p id="p-3215">When a matrix is similar to a diagonal matrix, we can gain insight into the action of the corresponding matrix transformation. As an example, consider the matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^2\)</span> to <span class="process-math">\(\R^2\)</span> defined by <span class="process-math">\(T(\vx) = A \vx\text{,}\)</span> where</p>
+<p id="p-3214">When a matrix is similar to a diagonal matrix, we can gain insight into the action of the corresponding matrix transformation. As an example, consider the matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^2\)</span> to <span class="process-math">\(\R^2\)</span> defined by <span class="process-math">\(T(\vx) = A \vx\text{,}\)</span> where</p>
 <div class="displaymath process-math">
 \begin{equation}
 A = \left[ \begin{array}{cc} 3\amp 1\\1\amp 3 \end{array}  \right]\text{.}\label{eq_4_c_1}\tag{19.2}
 \end{equation}
 </div>
-<p id="p-3216">We are interested in understanding what this matrix transformation does to vectors in <span class="process-math">\(\R^2\text{.}\)</span> First we note that <span class="process-math">\(A\)</span> has eigenvalues <span class="process-math">\(\lambda_1 = 2\)</span> and <span class="process-math">\(\lambda_2 = 4\)</span> with corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1\\1 \end{array}  \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 1\\1 \end{array}  \right]\text{.}\)</span> If we let <span class="process-math">\(P = [\vv_1 \ \vv_2]\text{,}\)</span> then you can check that</p>
+<p id="p-3215">We are interested in understanding what this matrix transformation does to vectors in <span class="process-math">\(\R^2\text{.}\)</span> First we note that <span class="process-math">\(A\)</span> has eigenvalues <span class="process-math">\(\lambda_1 = 2\)</span> and <span class="process-math">\(\lambda_2 = 4\)</span> with corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1\\1 \end{array}  \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 1\\1 \end{array}  \right]\text{.}\)</span> If we let <span class="process-math">\(P = [\vv_1 \ \vv_2]\text{,}\)</span> then you can check that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P^{-1}AP = D
@@ -775,26 +774,26 @@ A = PDP^{-1}\text{,}
 D = \left[ \begin{array}{cc} 2 \amp  0 \\ 0 \amp  4 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-3217">Thus,</p>
+<p id="p-3216">Thus,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 T(\vx) = PDP^{-1}\vx\text{.}
 \end{equation*}
 </div>
-<p id="p-3218">A simple calculation shows that</p>
+<p id="p-3217">A simple calculation shows that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P^{-1} = \frac{1}{2}\left[ \begin{array}{rc} -1\amp 1 \\ 1\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-3219">Let us apply <span class="process-math">\(T\)</span> to the unit square whose sides are formed by the vectors <span class="process-math">\(\ve_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]\)</span> and <span class="process-math">\(\ve_2 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]\)</span> as shown in the first picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>.</p>
-<p id="p-3220">To apply <span class="process-math">\(T\)</span> we first multiply <span class="process-math">\(\ve_1\)</span> and <span class="process-math">\(\ve_2\)</span> by <span class="process-math">\(P^{-1}\text{.}\)</span> This gives us</p>
+<p id="p-3218">Let us apply <span class="process-math">\(T\)</span> to the unit square whose sides are formed by the vectors <span class="process-math">\(\ve_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]\)</span> and <span class="process-math">\(\ve_2 = \left[ \begin{array}{c} 0 \\ 1 \end{array} \right]\)</span> as shown in the first picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>.</p>
+<p id="p-3219">To apply <span class="process-math">\(T\)</span> we first multiply <span class="process-math">\(\ve_1\)</span> and <span class="process-math">\(\ve_2\)</span> by <span class="process-math">\(P^{-1}\text{.}\)</span> This gives us</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P^{-1}\ve_1 = \frac{1}{2}\left[ \begin{array}{r} -1\\1 \end{array}  \right] \text{ and }  \ P^{-1}\ve_2 = \frac{1}{2}\left[ \begin{array}{c} 1\\1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-3221">So <span class="process-math">\(P^{-1}\)</span> transforms the standard coordinate system into a coordinate system in which columns of <span class="process-math">\(P^{-1}\)</span> determine the axes, as illustrated in the second picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>. Applying <span class="process-math">\(D\)</span> to the output scales by 2 in the first component and by <span class="process-math">\(4\)</span> in the second component as depicted in the third picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>. Finally, we apply <span class="process-math">\(P\)</span> to translate back into the standard <span class="process-math">\(xy\)</span> coordinate system as shown in the last picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>. In this case, we can visualize that when we apply the transformation <span class="process-math">\(T\)</span> to a vector in this system it is just scaled in the <span class="process-math">\(P^{-1}\ve_1-P^{-1}\ve_2\)</span> system by the matrix <span class="process-math">\(D\text{.}\)</span> Then the matrix <span class="process-math">\(P\)</span> translates everything back to the standard <span class="process-math">\(xy\)</span> coordinate system.</p>
+<p id="p-3220">So <span class="process-math">\(P^{-1}\)</span> transforms the standard coordinate system into a coordinate system in which columns of <span class="process-math">\(P^{-1}\)</span> determine the axes, as illustrated in the second picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>. Applying <span class="process-math">\(D\)</span> to the output scales by 2 in the first component and by <span class="process-math">\(4\)</span> in the second component as depicted in the third picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>. Finally, we apply <span class="process-math">\(P\)</span> to translate back into the standard <span class="process-math">\(xy\)</span> coordinate system as shown in the last picture in <a href="" class="xref" data-knowl="./knowl/F_4_c_1.html" title="Figure 19.3">Figure 19.3</a>. In this case, we can visualize that when we apply the transformation <span class="process-math">\(T\)</span> to a vector in this system it is just scaled in the <span class="process-math">\(P^{-1}\ve_1-P^{-1}\ve_2\)</span> system by the matrix <span class="process-math">\(D\text{.}\)</span> Then the matrix <span class="process-math">\(P\)</span> translates everything back to the standard <span class="process-math">\(xy\)</span> coordinate system.</p>
 <figure class="figure figure-like" id="F_4_c_1"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel top" style="width:50%;"><img src="external/4_c_Transformation_1.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:50%;"><img src="external/4_c_Transformation_2.svg" role="img" class="contained"></div>
@@ -803,7 +802,7 @@ P^{-1}\ve_1 = \frac{1}{2}\left[ \begin{array}{r} -1\\1 \end{array}  \right] \tex
 <div class="sbspanel top" style="width:50%;"><img src="external/4_c_Transformation_3.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:50%;"><img src="external/4_c_Transformation_4.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">19.3<span class="period">.</span></span><span class="space"> </span>The matrix transformation.</figcaption></figure><p id="p-3222">This geometric perspective provides another example of how having a matrix similar to a diagonal matrix informs us about the situation. In what follows we determine the conditions that determine when a matrix is similar to a diagonal matrix.</p></section></div></main>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">19.3<span class="period">.</span></span><span class="space"> </span>The matrix transformation.</figcaption></figure><p id="p-3221">This geometric perspective provides another example of how having a matrix similar to a diagonal matrix informs us about the situation. In what follows we determine the conditions that determine when a matrix is similar to a diagonal matrix.</p></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

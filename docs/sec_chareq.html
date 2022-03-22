@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:23:46-04:00       *-->
+<!--*       on 2022-03-21T15:33:29-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,18 +750,18 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_chareq"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Characteristic Equation</span>
 </h2>
-<p id="p-3043">Until now, we have been given eigenvalues or eigenvectors of a matrix and determined eigenvectors and eigenvalues from the known information. In this section we use determinants to find (or approximate) the eigenvalues of a matrix. From there we can find (or approximate) the corresponding eigenvectors. The tool we will use is a polynomial equation, the characteristic equation, of a square matrix whose roots are the eigenvalues of the matrix. The characteristic equation will then provide us with an algebraic way of finding the eigenvalues of a square matrix.</p>
-<p id="p-3044">We have seen that the eigenvalues of a square matrix <span class="process-math">\(A\)</span> are the scalars <span class="process-math">\(\lambda\)</span> so that <span class="process-math">\(A - \lambda I\)</span> has a nontrivial null space. Since a matrix has a nontrivial null space if and only if the matrix is not invertible, we can also say that <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if</p>
+<p id="p-3042">Until now, we have been given eigenvalues or eigenvectors of a matrix and determined eigenvectors and eigenvalues from the known information. In this section we use determinants to find (or approximate) the eigenvalues of a matrix. From there we can find (or approximate) the corresponding eigenvectors. The tool we will use is a polynomial equation, the characteristic equation, of a square matrix whose roots are the eigenvalues of the matrix. The characteristic equation will then provide us with an algebraic way of finding the eigenvalues of a square matrix.</p>
+<p id="p-3043">We have seen that the eigenvalues of a square matrix <span class="process-math">\(A\)</span> are the scalars <span class="process-math">\(\lambda\)</span> so that <span class="process-math">\(A - \lambda I\)</span> has a nontrivial null space. Since a matrix has a nontrivial null space if and only if the matrix is not invertible, we can also say that <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if</p>
 <div class="displaymath process-math">
 \begin{equation}
 \det(A - \lambda I) = 0\text{.}\label{eq_4_b_1}\tag{18.2}
 \end{equation}
 </div>
-<p id="p-3045">Note that if <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix, then <span class="process-math">\(\det(A - \lambda I)\)</span> is a polynomial of degree <span class="process-math">\(n\text{.}\)</span> Furthermore, if <span class="process-math">\(A\)</span> has real entries, the polynomial has real coefficients. This polynomial, and the equation <a href="" class="xref" data-knowl="./knowl/eq_4_b_1.html" title="Equation 18.2">(18.2)</a> are given special names.</p>
+<p id="p-3044">Note that if <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix, then <span class="process-math">\(\det(A - \lambda I)\)</span> is a polynomial of degree <span class="process-math">\(n\text{.}\)</span> Furthermore, if <span class="process-math">\(A\)</span> has real entries, the polynomial has real coefficients. This polynomial, and the equation <a href="" class="xref" data-knowl="./knowl/eq_4_b_1.html" title="Equation 18.2">(18.2)</a> are given special names.</p>
 <article class="definition definition-like" id="definition-39"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">18.1</span><span class="period">.</span>
 </h3>
-<p id="p-3046">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. The <dfn class="terminology">characteristic polynomial</dfn> of <span class="process-math">\(A\)</span> is the polynomial</p>
+<p id="p-3045">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. The <dfn class="terminology">characteristic polynomial</dfn> of <span class="process-math">\(A\)</span> is the polynomial</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \det(A-\lambda I_n)\text{,}
@@ -773,28 +772,28 @@
 \begin{equation*}
 \det(A-\lambda I_n) = 0\text{.}
 \end{equation*}
-</div></article><p id="p-3047">So the characteristic equation of <span class="process-math">\(A\)</span> gives us an algebraic way of finding the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p>
+</div></article><p id="p-3046">So the characteristic equation of <span class="process-math">\(A\)</span> gives us an algebraic way of finding the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p>
 <article class="activity project-like" id="act_4_b_1"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">18.2</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-1006"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3048">Find the characteristic polynomial of the matrix <span class="process-math">\(A = \left[ \begin{array}{crc} 3\amp -2\amp 5 \\ 1\amp 0\amp 7 \\ 0\amp 0\amp 1 \end{array} \right]\text{,}\)</span> and use the characteristic polynomial to find all of the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1007"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3049">Verify that 1 and 2 are the only eigenvalues of the matrix <span class="process-math">\(\left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 1\\ 1\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]\text{.}\)</span></p></article></article><p id="p-3050">As we argued in <a href="" class="xref" data-knowl="./knowl/pa_4_b.html" title="Preview Activity 18.1">Preview Activity 18.1</a>, a <span class="process-math">\(2 \times 2\)</span> matrix can have at most 2 eigenvalues. For an <span class="process-math">\(n \times n\)</span> matrix, the characteristic polynomial will be a degree <span class="process-math">\(n\)</span> polynomial, and we know from algebra that a degree <span class="process-math">\(n\)</span> polynomial can have at most <span class="process-math">\(n\)</span> roots. Since an eigenvalue of a matrix is a root of the characteristic polynomial of that matrix, we can conclude that an <span class="process-math">\(n \times n\)</span> matrix can have at most <span class="process-math">\(n\)</span> distinct eigenvalues. <a href="" class="xref" data-knowl="./knowl/act_4_b_1.html" title="Activity 18.2">Activity 18.2</a> (b) shows that a <span class="process-math">\(4 \times 4\)</span> matrix may have fewer than <span class="process-math">\(4\)</span> eigenvalues, however. Note that one of these eigenvalues, the eigenvalue 1, appears three times as a root of the characteristic polynomial of the matrix. The number of times an eigenvalue appears as a root of the characteristic polynomial is called the <dfn class="terminology">(algebraic) multiplicity</dfn> of the eigenvalue. More formally:</p>
+<p id="p-3047">Find the characteristic polynomial of the matrix <span class="process-math">\(A = \left[ \begin{array}{crc} 3\amp -2\amp 5 \\ 1\amp 0\amp 7 \\ 0\amp 0\amp 1 \end{array} \right]\text{,}\)</span> and use the characteristic polynomial to find all of the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1007"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3048">Verify that 1 and 2 are the only eigenvalues of the matrix <span class="process-math">\(\left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 1\\ 1\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array} \right]\text{.}\)</span></p></article></article><p id="p-3049">As we argued in <a href="" class="xref" data-knowl="./knowl/pa_4_b.html" title="Preview Activity 18.1">Preview Activity 18.1</a>, a <span class="process-math">\(2 \times 2\)</span> matrix can have at most 2 eigenvalues. For an <span class="process-math">\(n \times n\)</span> matrix, the characteristic polynomial will be a degree <span class="process-math">\(n\)</span> polynomial, and we know from algebra that a degree <span class="process-math">\(n\)</span> polynomial can have at most <span class="process-math">\(n\)</span> roots. Since an eigenvalue of a matrix is a root of the characteristic polynomial of that matrix, we can conclude that an <span class="process-math">\(n \times n\)</span> matrix can have at most <span class="process-math">\(n\)</span> distinct eigenvalues. <a href="" class="xref" data-knowl="./knowl/act_4_b_1.html" title="Activity 18.2">Activity 18.2</a> (b) shows that a <span class="process-math">\(4 \times 4\)</span> matrix may have fewer than <span class="process-math">\(4\)</span> eigenvalues, however. Note that one of these eigenvalues, the eigenvalue 1, appears three times as a root of the characteristic polynomial of the matrix. The number of times an eigenvalue appears as a root of the characteristic polynomial is called the <dfn class="terminology">(algebraic) multiplicity</dfn> of the eigenvalue. More formally:</p>
 <article class="definition definition-like" id="definition-40"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">18.2</span><span class="period">.</span>
 </h3>
-<p id="p-3051">The <dfn class="terminology">(algebraic) multiplicity</dfn> of an eigenvalue <span class="process-math">\(\lambda\)</span> of a matrix <span class="process-math">\(A\)</span> is the largest integer <span class="process-math">\(m\)</span> so that <span class="process-math">\((x-\lambda)^m\)</span> divides the characteristic polynomial of <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-3052">Thus, in <a href="" class="xref" data-knowl="./knowl/act_4_b_1.html" title="Activity 18.2">Activity 18.2</a> (b) the eigenvalue 1 has multiplicity 3 and the eigenvalue 2 has multiplicity 1. Notice that if we count the eigenvalues of an <span class="process-math">\(n \times n\)</span> matrix with their multiplicities, the total will always be <span class="process-math">\(n\text{.}\)</span></p>
-<p id="p-3053">If <span class="process-math">\(A\)</span> is a matrix with real entries, then the characteristic polynomial will have real coefficients. It is possible that the characteristic polynomial can have complex roots, and that the matrix <span class="process-math">\(A\)</span> has complex eigenvalues. The Fundamental Theorem of Algebra shows us that if a real matrix has complex eigenvalues, then those eigenvalues will appear in conjugate pairs, i.e., if <span class="process-math">\(\lambda_1=a+ib\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\lambda_2=a-ib\)</span> is another eigenvalue of <span class="process-math">\(A\text{.}\)</span> Furthermore, for an odd degree polynomial, since the complex eigenvalues will come in conjugate pairs, we will be able to find at least one real eigenvalue.</p>
-<p id="p-3054">We now summarize the information we have so far about eigenvalues of an <span class="process-math">\(n\times n\)</span> real matrix:</p>
+<p id="p-3050">The <dfn class="terminology">(algebraic) multiplicity</dfn> of an eigenvalue <span class="process-math">\(\lambda\)</span> of a matrix <span class="process-math">\(A\)</span> is the largest integer <span class="process-math">\(m\)</span> so that <span class="process-math">\((x-\lambda)^m\)</span> divides the characteristic polynomial of <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-3051">Thus, in <a href="" class="xref" data-knowl="./knowl/act_4_b_1.html" title="Activity 18.2">Activity 18.2</a> (b) the eigenvalue 1 has multiplicity 3 and the eigenvalue 2 has multiplicity 1. Notice that if we count the eigenvalues of an <span class="process-math">\(n \times n\)</span> matrix with their multiplicities, the total will always be <span class="process-math">\(n\text{.}\)</span></p>
+<p id="p-3052">If <span class="process-math">\(A\)</span> is a matrix with real entries, then the characteristic polynomial will have real coefficients. It is possible that the characteristic polynomial can have complex roots, and that the matrix <span class="process-math">\(A\)</span> has complex eigenvalues. The Fundamental Theorem of Algebra shows us that if a real matrix has complex eigenvalues, then those eigenvalues will appear in conjugate pairs, i.e., if <span class="process-math">\(\lambda_1=a+ib\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\lambda_2=a-ib\)</span> is another eigenvalue of <span class="process-math">\(A\text{.}\)</span> Furthermore, for an odd degree polynomial, since the complex eigenvalues will come in conjugate pairs, we will be able to find at least one real eigenvalue.</p>
+<p id="p-3053">We now summarize the information we have so far about eigenvalues of an <span class="process-math">\(n\times n\)</span> real matrix:</p>
 <article class="theorem theorem-like" id="theorem-40"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.3</span><span class="period">.</span>
 </h3>
-<p id="p-3055">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> matrix with real entries. Then</p>
+<p id="p-3054">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> matrix with real entries. Then</p>
 <ol class="decimal">
-<li id="li-542"><p id="p-3056">There are at most <span class="process-math">\(n\)</span> eigenvalues of <span class="process-math">\(A\text{.}\)</span> If each eigenvalue (including complex eigenvalues) is counted with its multiplicity, there are exactly <span class="process-math">\(n\)</span> eigenvalues.</p></li>
-<li id="li-543"><p id="p-3057">If <span class="process-math">\(A\)</span> has a complex eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> the complex conjugate of <span class="process-math">\(\lambda\)</span> is also an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></li>
-<li id="li-544"><p id="p-3058">If <span class="process-math">\(n\)</span> is odd, <span class="process-math">\(A\)</span> has at least one real eigenvalue.</p></li>
-<li id="li-545"><p id="p-3059">If <span class="process-math">\(A\)</span> is upper or lower-triangular, the eigenvalues are the entries on the diagonal.</p></li>
+<li id="li-542"><p id="p-3055">There are at most <span class="process-math">\(n\)</span> eigenvalues of <span class="process-math">\(A\text{.}\)</span> If each eigenvalue (including complex eigenvalues) is counted with its multiplicity, there are exactly <span class="process-math">\(n\)</span> eigenvalues.</p></li>
+<li id="li-543"><p id="p-3056">If <span class="process-math">\(A\)</span> has a complex eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> the complex conjugate of <span class="process-math">\(\lambda\)</span> is also an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></li>
+<li id="li-544"><p id="p-3057">If <span class="process-math">\(n\)</span> is odd, <span class="process-math">\(A\)</span> has at least one real eigenvalue.</p></li>
+<li id="li-545"><p id="p-3058">If <span class="process-math">\(A\)</span> is upper or lower-triangular, the eigenvalues are the entries on the diagonal.</p></li>
 </ol></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>

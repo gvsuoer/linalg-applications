@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:23:44-04:00       *-->
+<!--*       on 2022-03-21T15:33:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,35 +750,35 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_chareq_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-3031">We have seen that the eigenvalues of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> are the scalars <span class="process-math">\(\lambda\)</span> so that <span class="process-math">\(A - \lambda I_n\)</span> has a nontrivial null space. Since a matrix has a nontrivial null space if and only if the matrix is not invertible, we can also say that <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if</p>
+<p id="p-3030">We have seen that the eigenvalues of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> are the scalars <span class="process-math">\(\lambda\)</span> so that <span class="process-math">\(A - \lambda I_n\)</span> has a nontrivial null space. Since a matrix has a nontrivial null space if and only if the matrix is not invertible, we can also say that <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if</p>
 <div class="displaymath process-math">
 \begin{equation}
 \det(A - \lambda I_n) = 0\text{.}\label{eq_PA5_2_1}\tag{18.1}
 \end{equation}
 </div>
-<p id="p-3032">This equation is called the <dfn class="terminology">characteristic equation</dfn> of <span class="process-math">\(A\text{.}\)</span> It provides us an <dfn class="terminology">algebraic</dfn> way to find eigenvalues, which can then be used in finding eigenvectors corresponding to each eigenvalue. Suppose we want to find the eigenvalues of <span class="process-math">\(A=\left[ \begin{array}{cc} 1 \amp  1 \\ 1\amp  3 \end{array}  \right]\text{.}\)</span> Note that</p>
+<p id="p-3031">This equation is called the <dfn class="terminology">characteristic equation</dfn> of <span class="process-math">\(A\text{.}\)</span> It provides us an <dfn class="terminology">algebraic</dfn> way to find eigenvalues, which can then be used in finding eigenvectors corresponding to each eigenvalue. Suppose we want to find the eigenvalues of <span class="process-math">\(A=\left[ \begin{array}{cc} 1 \amp  1 \\ 1\amp  3 \end{array}  \right]\text{.}\)</span> Note that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A- \lambda I_2 = \left[ \begin{array}{cc} 1-\lambda \amp  1 \\ 1\amp  3-\lambda \end{array}  \right]\,\text{,}
 \end{equation*}
 </div>
 <p class="continuation">with determinant <span class="process-math">\((1-\lambda)(3-\lambda)-1=\lambda^2-4\lambda+2\text{.}\)</span> Hence, the eigenvalues <span class="process-math">\(\lambda_1, \lambda_2\)</span> are the solutions of the characteristic equation <span class="process-math">\(\lambda^2-4\lambda+2=0\text{.}\)</span> Using quadratic formula, we find that <span class="process-math">\(\lambda_1=2+\sqrt{2}\)</span> and <span class="process-math">\(\lambda_2=2-\sqrt{2}\)</span> are the eigenvalues.</p>
-<p id="p-3033">In this activity, our goal will be to use the characteristic equation to obtain information about eigenvalues and eigenvectors of a matrix with real entries.</p>
+<p id="p-3032">In this activity, our goal will be to use the characteristic equation to obtain information about eigenvalues and eigenvectors of a matrix with real entries.</p>
 <article class="exploration project-like" id="pa_4_b"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">18.1</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-997"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-282"><p id="p-3034">For each of the following parts, use the characteristic equation to determine the eigenvalues of <span class="process-math">\(A\text{.}\)</span> Then, for each eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> find a basis of the corresponding eigenspace, i.e., <span class="process-math">\(\Nul(A-\lambda I)\text{.}\)</span> You might want to recall how to find a basis for the null space of a matrix from <a href="chap_null_space.html" class="internal" title="Chapter 13: The Null Space and Column Space of a Matrix">Chapter 13</a>. Also, make sure that your eigenvalue candidate <span class="process-math">\(\lambda\)</span> yields nonzero eigenvectors in <span class="process-math">\(\Nul(A-\lambda I)\)</span> for otherwise <span class="process-math">\(\lambda\)</span> will not be an eigenvalue.</p></div>
+<div class="introduction" id="introduction-281"><p id="p-3033">For each of the following parts, use the characteristic equation to determine the eigenvalues of <span class="process-math">\(A\text{.}\)</span> Then, for each eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> find a basis of the corresponding eigenspace, i.e., <span class="process-math">\(\Nul(A-\lambda I)\text{.}\)</span> You might want to recall how to find a basis for the null space of a matrix from <a href="chap_null_space.html" class="internal" title="Chapter 13: The Null Space and Column Space of a Matrix">Chapter 13</a>. Also, make sure that your eigenvalue candidate <span class="process-math">\(\lambda\)</span> yields nonzero eigenvectors in <span class="process-math">\(\Nul(A-\lambda I)\)</span> for otherwise <span class="process-math">\(\lambda\)</span> will not be an eigenvalue.</p></div>
 <article class="task exercise-like" id="task-998"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-3035"><span class="process-math">\(A=\left[ \begin{array}{cr} 2 \amp 0 \\ 0 \amp -3 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-999"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-3036"><span class="process-math">\(A=\left[ \begin{array}{cc} 1 \amp 2 \\ 0 \amp 1 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1000"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-3037"><span class="process-math">\(A=\left[ \begin{array}{cc} 1 \amp 4 \\2 \amp 3 \end{array} \right]\)</span></p></article></article><article class="task exercise-like" id="task-1001"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="introduction" id="introduction-283"><p id="p-3038">Use your eigenvalue and eigenvector calculations of the above problem as a guidance to answer the following questions about a matrix with real entries.</p></div>
+<p id="p-3034"><span class="process-math">\(A=\left[ \begin{array}{cr} 2 \amp 0 \\ 0 \amp -3 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-999"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-3035"><span class="process-math">\(A=\left[ \begin{array}{cc} 1 \amp 2 \\ 0 \amp 1 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1000"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-3036"><span class="process-math">\(A=\left[ \begin{array}{cc} 1 \amp 4 \\2 \amp 3 \end{array} \right]\)</span></p></article></article><article class="task exercise-like" id="task-1001"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction" id="introduction-282"><p id="p-3037">Use your eigenvalue and eigenvector calculations of the above problem as a guidance to answer the following questions about a matrix with real entries.</p></div>
 <article class="task exercise-like" id="task-1002"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-3039">At most how many eigenvalues can a <span class="process-math">\(2\times 2\)</span> matrix have? Is it possible to have no eigenvalues? Is it possible to have only one eigenvalue? Explain.</p></article><article class="task exercise-like" id="task-1003"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-3040">If a matrix is an upper-triangular matrix (i.e., all entries below the diagonal are 0's, as in the first two matrices of the previous problem), what can you say about its eigenvalues? Explain.</p></article><article class="task exercise-like" id="task-1004"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-3041">How many linearly independent eigenvectors can be found for a <span class="process-math">\(2\times 2\)</span> matrix? Is it possible to have a matrix without 2 linearly independent eigenvectors? Explain.</p></article></article><article class="task exercise-like" id="task-1005"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3042">Using the characteristic equation, determine which matrices have 0 as an eigenvalue.</p></article></article></section></div></main>
+<p id="p-3038">At most how many eigenvalues can a <span class="process-math">\(2\times 2\)</span> matrix have? Is it possible to have no eigenvalues? Is it possible to have only one eigenvalue? Explain.</p></article><article class="task exercise-like" id="task-1003"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-3039">If a matrix is an upper-triangular matrix (i.e., all entries below the diagonal are 0's, as in the first two matrices of the previous problem), what can you say about its eigenvalues? Explain.</p></article><article class="task exercise-like" id="task-1004"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-3040">How many linearly independent eigenvectors can be found for a <span class="process-math">\(2\times 2\)</span> matrix? Is it possible to have a matrix without 2 linearly independent eigenvectors? Explain.</p></article></article><article class="task exercise-like" id="task-1005"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-3041">Using the characteristic equation, determine which matrices have 0 as an eigenvalue.</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

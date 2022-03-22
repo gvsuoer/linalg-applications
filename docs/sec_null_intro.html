@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:22:23-04:00       *-->
+<!--*       on 2022-03-21T15:32:06-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,41 +750,41 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_null_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-2174">Recall that a subspace of <span class="process-math">\(\R^n\)</span> is a subset of <span class="process-math">\(\R^n\)</span> which is a vector space in itself. More specifically, a subset <span class="process-math">\(W\)</span> or <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\)</span> if</p>
+<p id="p-2173">Recall that a subspace of <span class="process-math">\(\R^n\)</span> is a subset of <span class="process-math">\(\R^n\)</span> which is a vector space in itself. More specifically, a subset <span class="process-math">\(W\)</span> or <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\)</span> if</p>
 <ol class="decimal">
-<li id="li-411"><p id="p-2175">whenever <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are in <span class="process-math">\(W\)</span> it is also true that <span class="process-math">\(\vu + \vv\)</span> is in <span class="process-math">\(W\)</span> (that is, <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under addition),</p></li>
-<li id="li-412"><p id="p-2176">whenever <span class="process-math">\(\vu\)</span> is in <span class="process-math">\(W\)</span> and <span class="process-math">\(a\)</span> is a scalar it is also true that <span class="process-math">\(a\vu\)</span> is in <span class="process-math">\(W\)</span> (that is, <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under scalar multiplication),</p></li>
-<li id="li-413"><p id="p-2177"><span class="process-math">\(\vzero\)</span> is in <span class="process-math">\(W\text{.}\)</span></p></li>
+<li id="li-411"><p id="p-2174">whenever <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are in <span class="process-math">\(W\)</span> it is also true that <span class="process-math">\(\vu + \vv\)</span> is in <span class="process-math">\(W\)</span> (that is, <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under addition),</p></li>
+<li id="li-412"><p id="p-2175">whenever <span class="process-math">\(\vu\)</span> is in <span class="process-math">\(W\)</span> and <span class="process-math">\(a\)</span> is a scalar it is also true that <span class="process-math">\(a\vu\)</span> is in <span class="process-math">\(W\)</span> (that is, <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under scalar multiplication),</p></li>
+<li id="li-413"><p id="p-2176"><span class="process-math">\(\vzero\)</span> is in <span class="process-math">\(W\text{.}\)</span></p></li>
 </ol>
-<p id="p-2178">Given a matrix <span class="process-math">\(A\text{,}\)</span> there are several subspaces that are connected to <span class="process-math">\(A\text{.}\)</span> Two specific such subspaces are the null space of <span class="process-math">\(A\)</span> and the column space of <span class="process-math">\(A\text{.}\)</span> We will see that these subspaces provide answers to the big questions we have been considering since the beginning of the semester, such as “Do columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^m\text{?}\)</span>” “Are the columns of <span class="process-math">\(A\)</span> linearly independent?” “Is the transformation <span class="process-math">\(T\)</span> defined by matrix multiplication by <span class="process-math">\(A\)</span> one-to-one?” “Is the transformation <span class="process-math">\(T\)</span> onto?”</p>
-<p id="p-2179">In this preview activity, we start examining the <dfn class="terminology">null space</dfn>.</p>
+<p id="p-2177">Given a matrix <span class="process-math">\(A\text{,}\)</span> there are several subspaces that are connected to <span class="process-math">\(A\text{.}\)</span> Two specific such subspaces are the null space of <span class="process-math">\(A\)</span> and the column space of <span class="process-math">\(A\text{.}\)</span> We will see that these subspaces provide answers to the big questions we have been considering since the beginning of the semester, such as “Do columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^m\text{?}\)</span>” “Are the columns of <span class="process-math">\(A\)</span> linearly independent?” “Is the transformation <span class="process-math">\(T\)</span> defined by matrix multiplication by <span class="process-math">\(A\)</span> one-to-one?” “Is the transformation <span class="process-math">\(T\)</span> onto?”</p>
+<p id="p-2178">In this preview activity, we start examining the <dfn class="terminology">null space</dfn>.</p>
 <article class="exploration project-like" id="pa_3_b"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">13.1</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-693"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-198"><p id="p-2180">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 2\amp 1\amp 3\\ 1\amp 1\amp 4 \end{array} \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-197"><p id="p-2179">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 2\amp 1\amp 3\\ 1\amp 1\amp 4 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-694"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-2181">Find the general solution to the homogeneous equation <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Write your solutions in parametric vector form. (Recall that the parametric vector form expresses the solutions to an equation as linear combinations of vectors with free variables as the weights. An example would be <span class="process-math">\(x_3 \left[ \begin{array}{r} 1\\0\\-1\\0 \end{array} \right] + x_4 \left[ \begin{array}{r} -2\\1\\0\\1 \end{array} \right]\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-695"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-2182">Find two specific solutions <span class="process-math">\(\vx_1\)</span> and <span class="process-math">\(\vx_2\)</span> to the homogeneous equation <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Is <span class="process-math">\(\vx_1 + \vx_2\)</span> a solution to <span class="process-math">\(A \vx = \vzero\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-696"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-2183">Is <span class="process-math">\(3\vx_1\)</span> a solution to <span class="process-math">\(A \vx = \vzero\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-697"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-2184">Is <span class="process-math">\(\vzero\)</span> a solution to <span class="process-math">\(A \vx = \vzero\text{?}\)</span></p></article><article class="task exercise-like" id="task-698"><h5 class="heading"><span class="codenumber">(v)</span></h5>
-<p id="p-2185">What does the above seem to indicate about the set of solutions to the homogeneous system <span class="process-math">\(A \vx = \vzero\text{?}\)</span></p></article></article><article class="task exercise-like" id="task-699"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2186">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix. As problem 1 implies, the set of solutions to a homogeneous matrix-vector equation <span class="process-math">\(A \vx = \vzero\)</span> appears to be a subspace. We give a special name to this set. <article class="definition definition-like" id="def_null_space"><h5 class="heading">
+<p id="p-2180">Find the general solution to the homogeneous equation <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Write your solutions in parametric vector form. (Recall that the parametric vector form expresses the solutions to an equation as linear combinations of vectors with free variables as the weights. An example would be <span class="process-math">\(x_3 \left[ \begin{array}{r} 1\\0\\-1\\0 \end{array} \right] + x_4 \left[ \begin{array}{r} -2\\1\\0\\1 \end{array} \right]\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-695"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-2181">Find two specific solutions <span class="process-math">\(\vx_1\)</span> and <span class="process-math">\(\vx_2\)</span> to the homogeneous equation <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Is <span class="process-math">\(\vx_1 + \vx_2\)</span> a solution to <span class="process-math">\(A \vx = \vzero\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-696"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-2182">Is <span class="process-math">\(3\vx_1\)</span> a solution to <span class="process-math">\(A \vx = \vzero\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-697"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
+<p id="p-2183">Is <span class="process-math">\(\vzero\)</span> a solution to <span class="process-math">\(A \vx = \vzero\text{?}\)</span></p></article><article class="task exercise-like" id="task-698"><h5 class="heading"><span class="codenumber">(v)</span></h5>
+<p id="p-2184">What does the above seem to indicate about the set of solutions to the homogeneous system <span class="process-math">\(A \vx = \vzero\text{?}\)</span></p></article></article><article class="task exercise-like" id="task-699"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2185">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix. As problem 1 implies, the set of solutions to a homogeneous matrix-vector equation <span class="process-math">\(A \vx = \vzero\)</span> appears to be a subspace. We give a special name to this set. <article class="definition definition-like" id="def_null_space"><h5 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">13.1</span><span class="period">.</span>
 </h5>
-<p id="p-2187">The <dfn class="terminology">null space</dfn> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is the set of all solutions to <span class="process-math">\(A \vx = \vzero\text{.}\)</span></p></article> We denote the null space of a matrix <span class="process-math">\(A\)</span> as <span class="process-math">\(\Nul A\text{.}\)</span> In set notation we write</p>
+<p id="p-2186">The <dfn class="terminology">null space</dfn> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is the set of all solutions to <span class="process-math">\(A \vx = \vzero\text{.}\)</span></p></article> We denote the null space of a matrix <span class="process-math">\(A\)</span> as <span class="process-math">\(\Nul A\text{.}\)</span> In set notation we write</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Nul A = \{ \vx : A \vx = \vzero\}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Note that since <span class="process-math">\(A\vx=\vzero\)</span> corresponds to a homogeneous system of linear equations, <span class="process-math">\(\Nul A\)</span> also represents the solution set of a homogeneous system. Let <span class="process-math">\(A =  \left[ \begin{array}{cccc} 2\amp 1\amp 3\amp 0\\ 1\amp 1\amp 4\amp 1 \end{array}  \right]\text{.}\)</span> Find all vectors in <span class="process-math">\(\Nul A\text{.}\)</span></p></article><article class="task exercise-like" id="task-700"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<div class="introduction" id="introduction-199"><p id="p-2188">So far we considered specific examples of null spaces. But what are the properties of a null space in general? Let <span class="process-math">\(A\)</span> be an <dfn class="terminology">arbitrary</dfn> <span class="process-math">\(m \times n\)</span> matrix.</p></div>
+<div class="introduction" id="introduction-198"><p id="p-2187">So far we considered specific examples of null spaces. But what are the properties of a null space in general? Let <span class="process-math">\(A\)</span> be an <dfn class="terminology">arbitrary</dfn> <span class="process-math">\(m \times n\)</span> matrix.</p></div>
 <article class="task exercise-like" id="task-701"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-2189">The null space of an <span class="process-math">\(m \times n\)</span> matrix is a subset of <span class="process-math">\(\R^k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> What is <span class="process-math">\(k\text{?}\)</span></p></article><article class="task exercise-like" id="task-702"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-2190">Now suppose <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are two vectors in <span class="process-math">\(\Nul A\text{.}\)</span> By definition, that means <span class="process-math">\(A\vu=\vzero\text{,}\)</span> <span class="process-math">\(A\vv=\vzero\text{.}\)</span> Use properties of the matrix-vector product to show that <span class="process-math">\(\vu + \vv\)</span> is also in <span class="process-math">\(\Nul A\text{.}\)</span></p></article><article class="task exercise-like" id="task-703"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-2191">Now suppose <span class="process-math">\(\vu\)</span> is a vector in <span class="process-math">\(\Nul A\)</span> and <span class="process-math">\(a\)</span> is a scalar. Explain why <span class="process-math">\(a\vu\)</span> is also in <span class="process-math">\(\Nul A\text{.}\)</span></p></article><article class="task exercise-like" id="task-704"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-2192">Explain why <span class="process-math">\(\Nul A\)</span> is a subspace of <span class="process-math">\(\R^n\text{.}\)</span></p></article></article></article></section></div></main>
+<p id="p-2188">The null space of an <span class="process-math">\(m \times n\)</span> matrix is a subset of <span class="process-math">\(\R^k\)</span> for some integer <span class="process-math">\(k\text{.}\)</span> What is <span class="process-math">\(k\text{?}\)</span></p></article><article class="task exercise-like" id="task-702"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-2189">Now suppose <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are two vectors in <span class="process-math">\(\Nul A\text{.}\)</span> By definition, that means <span class="process-math">\(A\vu=\vzero\text{,}\)</span> <span class="process-math">\(A\vv=\vzero\text{.}\)</span> Use properties of the matrix-vector product to show that <span class="process-math">\(\vu + \vv\)</span> is also in <span class="process-math">\(\Nul A\text{.}\)</span></p></article><article class="task exercise-like" id="task-703"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-2190">Now suppose <span class="process-math">\(\vu\)</span> is a vector in <span class="process-math">\(\Nul A\)</span> and <span class="process-math">\(a\)</span> is a scalar. Explain why <span class="process-math">\(a\vu\)</span> is also in <span class="process-math">\(\Nul A\text{.}\)</span></p></article><article class="task exercise-like" id="task-704"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
+<p id="p-2191">Explain why <span class="process-math">\(\Nul A\)</span> is a subspace of <span class="process-math">\(\R^n\text{.}\)</span></p></article></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

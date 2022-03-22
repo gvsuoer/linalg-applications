@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:29:58-04:00       *-->
+<!--*       on 2022-03-21T15:40:24-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,24 +750,24 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_eigen_dne"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">When an Eigenvalue Decomposition Does Not Exist</span>
 </h2>
-<p id="p-6924">Recall that an eigenvalue decomposition of a matrix exists if and only if the algebraic multiplicity equals the geometric multiplicity for each eigenvalue. In this case, the whole space <span class="process-math">\(\R^n\)</span> decomposes into eigenspaces corresponding to the eigenvalues and the matrix acts as scalar multiplication in each eigenspace. We consider some cases where such a decomposition exists and some where it does not to notice some differences between the two cases and think of ways to improvise the situation.</p>
+<p id="p-6923">Recall that an eigenvalue decomposition of a matrix exists if and only if the algebraic multiplicity equals the geometric multiplicity for each eigenvalue. In this case, the whole space <span class="process-math">\(\R^n\)</span> decomposes into eigenspaces corresponding to the eigenvalues and the matrix acts as scalar multiplication in each eigenspace. We consider some cases where such a decomposition exists and some where it does not to notice some differences between the two cases and think of ways to improvise the situation.</p>
 <article class="exploration project-like" id="pa_JCF"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">40.1</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-2367"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-700"><p id="p-6925">All of the matrices below have only one eigenvalue, <span class="process-math">\(\lambda = 2\)</span> and characteristic polynomial <span class="process-math">\((\lambda-2)^n\)</span> where <span class="process-math">\(n\)</span> is the matrix size. Therefore, for each case, the algebraic multiplicity of this eigenvalue is the size of the matrix. Find the geometric multiplicity of this eigenvalue (i.e. the dimension of <span class="process-math">\(\Nul(A-\lambda I)\)</span>) in each case below to see how the behavior is different in each case.</p></div>
+<div class="introduction" id="introduction-699"><p id="p-6924">All of the matrices below have only one eigenvalue, <span class="process-math">\(\lambda = 2\)</span> and characteristic polynomial <span class="process-math">\((\lambda-2)^n\)</span> where <span class="process-math">\(n\)</span> is the matrix size. Therefore, for each case, the algebraic multiplicity of this eigenvalue is the size of the matrix. Find the geometric multiplicity of this eigenvalue (i.e. the dimension of <span class="process-math">\(\Nul(A-\lambda I)\)</span>) in each case below to see how the behavior is different in each case.</p></div>
 <article class="task exercise-like" id="task-2368"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-6926"><span class="process-math">\(A = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2369"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-6927"><span class="process-math">\(B = \left[ \begin{array}{cc} 2\amp 1 \\ 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2370"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-6928"><span class="process-math">\(C = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 0\amp 2\amp 1 \\ 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2371"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-6929"><span class="process-math">\(D = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 0\amp 2\amp 0 \\ 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2372"><h5 class="heading"><span class="codenumber">(v)</span></h5>
-<p id="p-6930"><span class="process-math">\(E = \left[ \begin{array}{ccc} 2\amp 0\amp 0 \\ 0\amp 2\amp 0 \\ 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2373"><h5 class="heading"><span class="codenumber">(vi)</span></h5>
-<p id="p-6931"><span class="process-math">\(F = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 2\amp 1\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2374"><h5 class="heading"><span class="codenumber">(vii)</span></h5>
-<p id="p-6932"><span class="process-math">\(G = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 1\amp 0 \\ 0\amp 0\amp 2\amp 1\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2375"><h5 class="heading"><span class="codenumber">(viii)</span></h5>
-<p id="p-6933"><span class="process-math">\(H = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 2\amp 0\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2376"><h5 class="heading"><span class="codenumber">(ix)</span></h5>
-<p id="p-6934"><span class="process-math">\(J = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 1\amp 0 \\ 0\amp 0\amp 2\amp 0\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article></article><article class="task exercise-like" id="task-2377"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6935">In the examples above, the only matrices where the algebraic and geometric multiplicities of the eigenvalue 2 are equal are the diagonal matrices, which obviously have eigenvalue decompositions. The existence of ones above the diagonal destroys this property. However, the positioning of the ones is also strategical. By letting ones above the diagonal determine how to split the matrix into diagonal blocks, we can categorize the matrices. For example, the matrix in part (c) has one big <span class="process-math">\(3\times 3\)</span> block with twos on the diagonal and ones above, while the matrix in part (d) as a <span class="process-math">\(2\times 2\)</span> block at the top left and another <span class="process-math">\(1\times 1\)</span> block at the bottom right. Determine the blocks for all matrices above, and identify the relationship between the number of blocks and the geometric multiplicity.</p></article><article class="task exercise-like" id="task-2378"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6936">For this last problem, we will focus on the matrix <span class="process-math">\(B\)</span> above. We know that <span class="process-math">\(\vv_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]\)</span> is an eigenvector. We do not have a second linearly independent eigenvector, i.e. a solution to <span class="process-math">\((B-2I_2)\vx=\vzero\text{.}\)</span> However, since <span class="process-math">\((B-2I_2)^2=0\text{,}\)</span> we know that <span class="process-math">\((B-2I_2)(B-2I_2)\vx = \vzero\)</span> for any <span class="process-math">\(\vx\text{,}\)</span> which implies that <span class="process-math">\((B-2I_2)\vx\)</span> always lies inside the eigenspace corresponding to <span class="process-math">\(\lambda=2\text{.}\)</span> Find <span class="process-math">\((B-2I_2)\left[ \begin{array}{c} 0 \\ 1 \end{array} \right]\)</span> to verify this works in this particular case.</p></article></article></section></div></main>
+<p id="p-6925"><span class="process-math">\(A = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2369"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-6926"><span class="process-math">\(B = \left[ \begin{array}{cc} 2\amp 1 \\ 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2370"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-6927"><span class="process-math">\(C = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 0\amp 2\amp 1 \\ 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2371"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
+<p id="p-6928"><span class="process-math">\(D = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 0\amp 2\amp 0 \\ 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2372"><h5 class="heading"><span class="codenumber">(v)</span></h5>
+<p id="p-6929"><span class="process-math">\(E = \left[ \begin{array}{ccc} 2\amp 0\amp 0 \\ 0\amp 2\amp 0 \\ 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2373"><h5 class="heading"><span class="codenumber">(vi)</span></h5>
+<p id="p-6930"><span class="process-math">\(F = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 2\amp 1\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2374"><h5 class="heading"><span class="codenumber">(vii)</span></h5>
+<p id="p-6931"><span class="process-math">\(G = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 1\amp 0 \\ 0\amp 0\amp 2\amp 1\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2375"><h5 class="heading"><span class="codenumber">(viii)</span></h5>
+<p id="p-6932"><span class="process-math">\(H = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 0\amp 0 \\ 0\amp 0\amp 2\amp 0\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2376"><h5 class="heading"><span class="codenumber">(ix)</span></h5>
+<p id="p-6933"><span class="process-math">\(J = \left[ \begin{array}{cccc} 2\amp 1\amp 0\amp 0 \\ 0\amp 2\amp 1\amp 0 \\ 0\amp 0\amp 2\amp 0\\ 0\amp 0\amp 0\amp 2 \end{array} \right]\)</span></p></article></article><article class="task exercise-like" id="task-2377"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6934">In the examples above, the only matrices where the algebraic and geometric multiplicities of the eigenvalue 2 are equal are the diagonal matrices, which obviously have eigenvalue decompositions. The existence of ones above the diagonal destroys this property. However, the positioning of the ones is also strategical. By letting ones above the diagonal determine how to split the matrix into diagonal blocks, we can categorize the matrices. For example, the matrix in part (c) has one big <span class="process-math">\(3\times 3\)</span> block with twos on the diagonal and ones above, while the matrix in part (d) as a <span class="process-math">\(2\times 2\)</span> block at the top left and another <span class="process-math">\(1\times 1\)</span> block at the bottom right. Determine the blocks for all matrices above, and identify the relationship between the number of blocks and the geometric multiplicity.</p></article><article class="task exercise-like" id="task-2378"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6935">For this last problem, we will focus on the matrix <span class="process-math">\(B\)</span> above. We know that <span class="process-math">\(\vv_1 = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]\)</span> is an eigenvector. We do not have a second linearly independent eigenvector, i.e. a solution to <span class="process-math">\((B-2I_2)\vx=\vzero\text{.}\)</span> However, since <span class="process-math">\((B-2I_2)^2=0\text{,}\)</span> we know that <span class="process-math">\((B-2I_2)(B-2I_2)\vx = \vzero\)</span> for any <span class="process-math">\(\vx\text{,}\)</span> which implies that <span class="process-math">\((B-2I_2)\vx\)</span> always lies inside the eigenspace corresponding to <span class="process-math">\(\lambda=2\text{.}\)</span> Find <span class="process-math">\((B-2I_2)\left[ \begin{array}{c} 0 \\ 1 \end{array} \right]\)</span> to verify this works in this particular case.</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

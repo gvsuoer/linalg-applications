@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:26:26-04:00       *-->
+<!--*       on 2022-03-21T15:36:28-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,27 +751,27 @@
 <section class="section" id="sec_proj_two_var_deriv"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: The Second Derivative Test for Functions of Two Variables</span>
 </h2>
-<p id="p-4673">In this project we will verify the Second Derivative Test for functions of two variables.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-45" id="fn-45"><sup> 45 </sup></a> This test will involve Taylor polynomials and linear algebra. As a quick review, recall that the second order Taylor polynomial for a function <span class="process-math">\(f\)</span> of a single variable <span class="process-math">\(x\)</span> at <span class="process-math">\(x = a\)</span> is</p>
+<p id="p-4672">In this project we will verify the Second Derivative Test for functions of two variables.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-45" id="fn-45"><sup> 45 </sup></a> This test will involve Taylor polynomials and linear algebra. As a quick review, recall that the second order Taylor polynomial for a function <span class="process-math">\(f\)</span> of a single variable <span class="process-math">\(x\)</span> at <span class="process-math">\(x = a\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation}
 P_2(x) = f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2\text{.}\label{eq_Taylor_2}\tag{27.4}
 \end{equation}
 </div>
-<p id="p-4674">As with the linearization of a function, the second order Taylor polynomial is a good approximation to <span class="process-math">\(f\)</span> around <span class="process-math">\(a\)</span> — that is <span class="process-math">\(f(x) \approx P_2(x)\)</span> for <span class="process-math">\(x\)</span> close to <span class="process-math">\(a\text{.}\)</span> If <span class="process-math">\(a\)</span> is a critical number for <span class="process-math">\(f\)</span> with <span class="process-math">\(f'(a) = 0\text{,}\)</span> then</p>
+<p id="p-4673">As with the linearization of a function, the second order Taylor polynomial is a good approximation to <span class="process-math">\(f\)</span> around <span class="process-math">\(a\)</span> — that is <span class="process-math">\(f(x) \approx P_2(x)\)</span> for <span class="process-math">\(x\)</span> close to <span class="process-math">\(a\text{.}\)</span> If <span class="process-math">\(a\)</span> is a critical number for <span class="process-math">\(f\)</span> with <span class="process-math">\(f'(a) = 0\text{,}\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P_2(x) = f(a) + \frac{f''(a)}{2}(x-a)^2\text{.}
 \end{equation*}
 </div>
-<p id="p-4675">In this situation, if <span class="process-math">\(f''(a) \lt 0\text{,}\)</span> then <span class="process-math">\(\frac{f''(a)}{2}(x-a)^2 \leq 0\)</span> for <span class="process-math">\(x\)</span> close to <span class="process-math">\(a\text{,}\)</span> which makes <span class="process-math">\(P_2(x) \leq f(a)\text{.}\)</span> This implies that <span class="process-math">\(f(x) \approx P_2(x) \leq f(a)\)</span> for <span class="process-math">\(x\)</span> close to <span class="process-math">\(a\text{,}\)</span> which makes <span class="process-math">\(f(a)\)</span> a relative maximum value for <span class="process-math">\(f\text{.}\)</span> Similarly, if <span class="process-math">\(f''(a) &gt; 0\text{,}\)</span> then <span class="process-math">\(f(a)\)</span> is a relative minimum.</p>
-<p id="p-4676">We now need a Taylor polynomial for a function of two variables. The complication of the additional independent variable in the two variable case means that the Taylor polynomials will need to contain all of the possible monomials of the indicated degrees. Recall that the linearization (or tangent plane) to a function <span class="process-math">\(f = f(x,y)\)</span> at a point <span class="process-math">\((a,b)\)</span> is given by</p>
+<p id="p-4674">In this situation, if <span class="process-math">\(f''(a) \lt 0\text{,}\)</span> then <span class="process-math">\(\frac{f''(a)}{2}(x-a)^2 \leq 0\)</span> for <span class="process-math">\(x\)</span> close to <span class="process-math">\(a\text{,}\)</span> which makes <span class="process-math">\(P_2(x) \leq f(a)\text{.}\)</span> This implies that <span class="process-math">\(f(x) \approx P_2(x) \leq f(a)\)</span> for <span class="process-math">\(x\)</span> close to <span class="process-math">\(a\text{,}\)</span> which makes <span class="process-math">\(f(a)\)</span> a relative maximum value for <span class="process-math">\(f\text{.}\)</span> Similarly, if <span class="process-math">\(f''(a) &gt; 0\text{,}\)</span> then <span class="process-math">\(f(a)\)</span> is a relative minimum.</p>
+<p id="p-4675">We now need a Taylor polynomial for a function of two variables. The complication of the additional independent variable in the two variable case means that the Taylor polynomials will need to contain all of the possible monomials of the indicated degrees. Recall that the linearization (or tangent plane) to a function <span class="process-math">\(f = f(x,y)\)</span> at a point <span class="process-math">\((a,b)\)</span> is given by</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P_1(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)\text{.}
 \end{equation*}
 </div>
-<p id="p-4677">Note that <span class="process-math">\(P_1(a,b) = f(a,b)\text{,}\)</span> <span class="process-math">\(\frac{\partial P_1}{\partial x}(a,b) = f_x(a,b)\text{,}\)</span> and <span class="process-math">\(\frac{\partial P_1}{\partial y}(a,b) = f_y(a,b)\text{.}\)</span> This makes <span class="process-math">\(P_1(x,y)\)</span> the best linear approximation to <span class="process-math">\(f\)</span> near the point <span class="process-math">\((a,b)\text{.}\)</span> The polynomial <span class="process-math">\(P_1(x,y)\)</span> is the first order Taylor polynomial for <span class="process-math">\(f\)</span> at <span class="process-math">\((a,b)\text{.}\)</span></p>
-<p id="p-4678">Similarly, the second order Taylor polynomial <span class="process-math">\(P_2(x,y)\)</span> centered at the point <span class="process-math">\((a,b)\)</span> for the function <span class="process-math">\(f\)</span> is</p>
+<p id="p-4676">Note that <span class="process-math">\(P_1(a,b) = f(a,b)\text{,}\)</span> <span class="process-math">\(\frac{\partial P_1}{\partial x}(a,b) = f_x(a,b)\text{,}\)</span> and <span class="process-math">\(\frac{\partial P_1}{\partial y}(a,b) = f_y(a,b)\text{.}\)</span> This makes <span class="process-math">\(P_1(x,y)\)</span> the best linear approximation to <span class="process-math">\(f\)</span> near the point <span class="process-math">\((a,b)\text{.}\)</span> The polynomial <span class="process-math">\(P_1(x,y)\)</span> is the first order Taylor polynomial for <span class="process-math">\(f\)</span> at <span class="process-math">\((a,b)\text{.}\)</span></p>
+<p id="p-4677">Similarly, the second order Taylor polynomial <span class="process-math">\(P_2(x,y)\)</span> centered at the point <span class="process-math">\((a,b)\)</span> for the function <span class="process-math">\(f\)</span> is</p>
 <div class="displaymath process-math">
 \begin{align*}
 P_2(x,y) = f(a,b) \amp + f_x(a,b)(x-a) + f_y(a,b)(y-b) + \frac{f_{xx}(a,b)}{2}(x-a)^2\\
@@ -782,7 +781,7 @@ P_2(x,y) = f(a,b) \amp + f_x(a,b)(x-a) + f_y(a,b)(y-b) + \frac{f_{xx}(a,b)}{2}(x
 <article class="project project-like" id="project-85"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">27.6</span><span class="period">.</span>
 </h3>
-<p id="p-4679">To see that <span class="process-math">\(P_2(x,y)\)</span> is the best approximation for <span class="process-math">\(f\)</span> near <span class="process-math">\((a,b)\text{,}\)</span> we need to know that the first and second order partial derivatives of <span class="process-math">\(P_2\)</span> agree with the corresponding partial derivatives of <span class="process-math">\(f\)</span> at the point <span class="process-math">\((a,b)\text{.}\)</span> Verify that this is true.</p></article><p id="p-4680">We can rewrite this second order Taylor polynomial using matrices and vectors so that we can apply techniques from linear algebra to analyze it. Note that</p>
+<p id="p-4678">To see that <span class="process-math">\(P_2(x,y)\)</span> is the best approximation for <span class="process-math">\(f\)</span> near <span class="process-math">\((a,b)\text{,}\)</span> we need to know that the first and second order partial derivatives of <span class="process-math">\(P_2\)</span> agree with the corresponding partial derivatives of <span class="process-math">\(f\)</span> at the point <span class="process-math">\((a,b)\text{.}\)</span> Verify that this is true.</p></article><p id="p-4679">We can rewrite this second order Taylor polynomial using matrices and vectors so that we can apply techniques from linear algebra to analyze it. Note that</p>
 <div class="displaymath process-math">
 \begin{align}
 P_2(x,y) \amp = f(a,b) + \nabla f(a,b)^{\tr} \left[ \begin{array}{c} x-a\notag\\
@@ -797,37 +796,37 @@ y-b \end{array} \right]\text{,}\label{eq_Taylor_2_vector}\tag{27.5}
 <article class="project project-like" id="ex_example_1"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">27.7</span><span class="period">.</span>
 </h3>
-<p id="p-4681">Use Equation <a href="" class="xref" data-knowl="./knowl/eq_Taylor_2_vector.html" title="Equation 27.5">(27.5)</a> to compute <span class="process-math">\(P_2(x,y)\)</span> for <span class="process-math">\(f(x,y)=x^4+y^4-4xy+1\)</span> at <span class="process-math">\((a, b)=(2,3)\text{.}\)</span></p></article><p id="p-4682">The important idea for us is that if <span class="process-math">\((a, b)\)</span> is a point at which <span class="process-math">\(f_x\)</span> and <span class="process-math">\(f_y\)</span> are zero, then <span class="process-math">\(\nabla f\)</span> is the zero vector and Equation <a href="" class="xref" data-knowl="./knowl/eq_Taylor_2_vector.html" title="Equation 27.5">(27.5)</a> reduces to</p>
+<p id="p-4680">Use Equation <a href="" class="xref" data-knowl="./knowl/eq_Taylor_2_vector.html" title="Equation 27.5">(27.5)</a> to compute <span class="process-math">\(P_2(x,y)\)</span> for <span class="process-math">\(f(x,y)=x^4+y^4-4xy+1\)</span> at <span class="process-math">\((a, b)=(2,3)\text{.}\)</span></p></article><p id="p-4681">The important idea for us is that if <span class="process-math">\((a, b)\)</span> is a point at which <span class="process-math">\(f_x\)</span> and <span class="process-math">\(f_y\)</span> are zero, then <span class="process-math">\(\nabla f\)</span> is the zero vector and Equation <a href="" class="xref" data-knowl="./knowl/eq_Taylor_2_vector.html" title="Equation 27.5">(27.5)</a> reduces to</p>
 <div class="displaymath process-math">
 \begin{equation}
 P_2(x,y) = f(a,b) +  \frac{1}{2}\left[ \begin{array}{c} x-a\\y-b \end{array}  \right]^{\tr} \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b) \\ f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array}  \right] \left[ \begin{array}{c} x-a\\y-b \end{array}  \right]\text{,}\label{eq_Taylor_2_vector_2}\tag{27.6}
 \end{equation}
 </div>
-<p id="p-4683">To make the connection between the multivariable second derivative test and properties of the Hessian, <span class="process-math">\(H(a,b)\text{,}\)</span> at a critical point of a function <span class="process-math">\(f\)</span> at which <span class="process-math">\(\nabla f = \vzero\text{,}\)</span> we will need to connect the eigenvalues of a matrix to the determinant and the trace.</p>
-<p id="p-4684">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_n\)</span> (not necessarily distinct). <a href="" class="xref" data-knowl="./knowl/ex_determinant_eigenvalues.html" title="Exercise 1">Exercise 1</a> in <a href="chap_characteristic_equation.html" class="internal" title="Chapter 18: The Characteristic Equation">Chapter 18</a> shows that</p>
+<p id="p-4682">To make the connection between the multivariable second derivative test and properties of the Hessian, <span class="process-math">\(H(a,b)\text{,}\)</span> at a critical point of a function <span class="process-math">\(f\)</span> at which <span class="process-math">\(\nabla f = \vzero\text{,}\)</span> we will need to connect the eigenvalues of a matrix to the determinant and the trace.</p>
+<p id="p-4683">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_n\)</span> (not necessarily distinct). <a href="" class="xref" data-knowl="./knowl/ex_determinant_eigenvalues.html" title="Exercise 1">Exercise 1</a> in <a href="chap_characteristic_equation.html" class="internal" title="Chapter 18: The Characteristic Equation">Chapter 18</a> shows that</p>
 <div class="displaymath process-math">
 \begin{equation}
 \det(A) = \lambda_1 \lambda_2 \cdots \lambda_n\text{.}\label{eq_evals_det}\tag{27.7}
 \end{equation}
 </div>
-<p id="p-4685">In other words, the determinant of a matrix is equal to the product of the eigenvalues of the matrix. In addition, <a href="" class="xref" data-knowl="./knowl/ex_trace_eigenvalues.html" title="Exercise 9">Exercise 9</a> in <a href="chap_diagonalization.html" class="internal" title="Chapter 19: Diagonalization">Chapter 19</a> shows that</p>
+<p id="p-4684">In other words, the determinant of a matrix is equal to the product of the eigenvalues of the matrix. In addition, <a href="" class="xref" data-knowl="./knowl/ex_trace_eigenvalues.html" title="Exercise 9">Exercise 9</a> in <a href="chap_diagonalization.html" class="internal" title="Chapter 19: Diagonalization">Chapter 19</a> shows that</p>
 <div class="displaymath process-math">
 \begin{equation}
 \trace(A) = \lambda_1 +  \lambda_2 + \cdots + \lambda_n\text{.}\label{eq_evals_trace}\tag{27.8}
 \end{equation}
 </div>
 <p class="continuation">for a diagonalizable matrix, where <span class="process-math">\(\trace(A)\)</span> is the sum of the diagonal entries of <span class="process-math">\(A\text{.}\)</span> Equation <a href="" class="xref" data-knowl="./knowl/eq_evals_trace.html" title="Equation 27.8">(27.8)</a> is true for any square matrix, but we don't need the more general result for this project.</p>
-<p id="p-4686">The fact that the Hessian is a symmetric matrix makes it orthogonally diagonalizable. We denote the eigenvalues of <span class="process-math">\(H(a,b)\)</span> as <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\text{.}\)</span> Thus there exists an orthogonal matrix <span class="process-math">\(P\)</span> and a diagonal matrix <span class="process-math">\(D = \left[ \begin{array}{cc} \lambda_1\amp 0 \\ 0\amp \lambda_2 \end{array}  \right]\)</span> such that <span class="process-math">\(P^{\tr}H(a,b)P=D\text{,}\)</span> or <span class="process-math">\(H(a,b) = PDP^{\tr}\text{.}\)</span> Equations <a href="" class="xref" data-knowl="./knowl/eq_evals_det.html" title="Equation 27.7">(27.7)</a> and <a href="" class="xref" data-knowl="./knowl/eq_evals_trace.html" title="Equation 27.8">(27.8)</a> show that</p>
+<p id="p-4685">The fact that the Hessian is a symmetric matrix makes it orthogonally diagonalizable. We denote the eigenvalues of <span class="process-math">\(H(a,b)\)</span> as <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\text{.}\)</span> Thus there exists an orthogonal matrix <span class="process-math">\(P\)</span> and a diagonal matrix <span class="process-math">\(D = \left[ \begin{array}{cc} \lambda_1\amp 0 \\ 0\amp \lambda_2 \end{array}  \right]\)</span> such that <span class="process-math">\(P^{\tr}H(a,b)P=D\text{,}\)</span> or <span class="process-math">\(H(a,b) = PDP^{\tr}\text{.}\)</span> Equations <a href="" class="xref" data-knowl="./knowl/eq_evals_det.html" title="Equation 27.7">(27.7)</a> and <a href="" class="xref" data-knowl="./knowl/eq_evals_trace.html" title="Equation 27.8">(27.8)</a> show that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \lambda_1\lambda_2 = f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2 \ \text{ and  }  \ \lambda_1 + \lambda_2 = f_{xx}(a,b) + f_{yy}(a,b)\text{.}
 \end{equation*}
 </div>
-<p id="p-4687">Now we have the machinery to verify the Second Derivative Test for Two-Variable Functions. We assume <span class="process-math">\((a,b)\)</span> is a point in the domain of a function <span class="process-math">\(f\)</span> so that <span class="process-math">\(\nabla f(a,b) = \vzero\text{.}\)</span> First we consider the case where <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0\text{.}\)</span></p>
+<p id="p-4686">Now we have the machinery to verify the Second Derivative Test for Two-Variable Functions. We assume <span class="process-math">\((a,b)\)</span> is a point in the domain of a function <span class="process-math">\(f\)</span> so that <span class="process-math">\(\nabla f(a,b) = \vzero\text{.}\)</span> First we consider the case where <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0\text{.}\)</span></p>
 <article class="project project-like" id="project-87"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">27.8</span><span class="period">.</span>
 </h3>
-<p id="p-4688">Explain why if <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0\text{,}\)</span> then</p>
+<p id="p-4687">Explain why if <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2\lt 0\text{,}\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{array}{c} x-a \\ y-b \end{array}  \right]^{\tr} H(a,b) \left[ \begin{array}{c} x-a \\ y-b \end{array}  \right]
@@ -835,20 +834,20 @@ P_2(x,y) = f(a,b) +  \frac{1}{2}\left[ \begin{array}{c} x-a\\y-b \end{array}  \r
 </div>
 <p class="continuation">is indefinite. Explain why this implies that <span class="process-math">\(f\)</span> is “saddle-shaped” near <span class="process-math">\((a,b)\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-61" id="hint-61"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-61"><div class="hint solution-like"><p id="p-4689">Substitute <span class="process-math">\(\vw = \left[ \begin{array}{c} w_1\\w_2 \end{array} \right] = P^{\tr}\left[ \begin{array}{c} x-a \\ y-b \end{array} \right]\text{.}\)</span> What does the graph of <span class="process-math">\(f\)</span> look like in the <span class="process-math">\(w_1\)</span> and <span class="process-math">\(w_2\)</span> directions?</p></div></div>
-</div></article><p id="p-4690">Now we examine the situation when <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2&gt;0\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-61" id="hint-61"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-61"><div class="hint solution-like"><p id="p-4688">Substitute <span class="process-math">\(\vw = \left[ \begin{array}{c} w_1\\w_2 \end{array} \right] = P^{\tr}\left[ \begin{array}{c} x-a \\ y-b \end{array} \right]\text{.}\)</span> What does the graph of <span class="process-math">\(f\)</span> look like in the <span class="process-math">\(w_1\)</span> and <span class="process-math">\(w_2\)</span> directions?</p></div></div>
+</div></article><p id="p-4689">Now we examine the situation when <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2&gt;0\text{.}\)</span></p>
 <article class="project project-like" id="project-88"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">27.9</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-456"><p id="p-4691">Assume that <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2&gt;0\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-455"><p id="p-4690">Assume that <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2&gt;0\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1556"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4692">Explain why either both <span class="process-math">\(f_{xx}(a,b)\)</span> and <span class="process-math">\(f_{yy}(a,b)\)</span> are positive or both are negative.</p></article><article class="task exercise-like" id="task-1557"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4693">If <span class="process-math">\(f_{xx}(a,b)&gt;0\)</span> and <span class="process-math">\(f_{yy}(a,b)&gt;0\text{,}\)</span> explain why <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> must be positive.</p></article><article class="task exercise-like" id="task-1558"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4694">Explain why, if <span class="process-math">\(f_{xx}(a,b)&gt;0\)</span> and <span class="process-math">\(f_{yy}(a,b)&gt;0\text{,}\)</span> then <span class="process-math">\(f(a,b)\)</span> is a local minimum value for <span class="process-math">\(f\text{.}\)</span></p></article></article><p id="p-4695">When <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2&gt;0\)</span> and either <span class="process-math">\(f_{xx}(a,b)\)</span> or <span class="process-math">\(f_{yy}(a,b)\)</span> is negative, a slight modification of the preceding argument leads to the fact that <span class="process-math">\(f\)</span> has a local maximum at <span class="process-math">\((a,b)\)</span> (the details are left to the reader). Therefore, we have proved the Second Derivative Test for functions of two variables!</p>
+<p id="p-4691">Explain why either both <span class="process-math">\(f_{xx}(a,b)\)</span> and <span class="process-math">\(f_{yy}(a,b)\)</span> are positive or both are negative.</p></article><article class="task exercise-like" id="task-1557"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4692">If <span class="process-math">\(f_{xx}(a,b)&gt;0\)</span> and <span class="process-math">\(f_{yy}(a,b)&gt;0\text{,}\)</span> explain why <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> must be positive.</p></article><article class="task exercise-like" id="task-1558"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4693">Explain why, if <span class="process-math">\(f_{xx}(a,b)&gt;0\)</span> and <span class="process-math">\(f_{yy}(a,b)&gt;0\text{,}\)</span> then <span class="process-math">\(f(a,b)\)</span> is a local minimum value for <span class="process-math">\(f\text{.}\)</span></p></article></article><p id="p-4694">When <span class="process-math">\(f_{xx}(a,b)f_{yy}(a,b)-f_{xy}(a,b)^2&gt;0\)</span> and either <span class="process-math">\(f_{xx}(a,b)\)</span> or <span class="process-math">\(f_{yy}(a,b)\)</span> is negative, a slight modification of the preceding argument leads to the fact that <span class="process-math">\(f\)</span> has a local maximum at <span class="process-math">\((a,b)\)</span> (the details are left to the reader). Therefore, we have proved the Second Derivative Test for functions of two variables!</p>
 <article class="project project-like" id="project-89"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">27.10</span><span class="period">.</span>
 </h3>
-<p id="p-4696">Use the Hessian to classify the local maxima, minima, and saddle points of <span class="process-math">\(f(x,y)=x^4+y^4-4xy+1\text{.}\)</span> Draw a graph of <span class="process-math">\(f\)</span> to illustrate.</p></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-45"><div class="fn">Many thanks to Professor Paul Fishback for sharing his activity on this topic. Much of this project comes from his activity.</div></div>
+<p id="p-4695">Use the Hessian to classify the local maxima, minima, and saddle points of <span class="process-math">\(f(x,y)=x^4+y^4-4xy+1\text{.}\)</span> Draw a graph of <span class="process-math">\(f\)</span> to illustrate.</p></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-45"><div class="fn">Many thanks to Professor Paul Fishback for sharing his activity on this topic. Much of this project comes from his activity.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-46"><div class="fn">Note that under reasonable conditions (e.g., that <span class="process-math">\(f\)</span> has continuous second order mixed partial derivatives in some open neighborhood containing <span class="process-math">\((x,y)\)</span>) we have that <span class="process-math">\(f_{xy}(x,y) = f_{yx}(x,y)\)</span> and <span class="process-math">\(H(x,y) = \left[ \begin{array}{cc} f_{xx}(a,b)\amp f_{xy}(a,b) \\ f_{xy}(a,b)\amp  f_{yy}(a,b) \end{array}  \right]\)</span> is a symmetric matrix. We will only consider functions that satisfy these reasonable conditions.</div></div>
 </div></main>
 </div>

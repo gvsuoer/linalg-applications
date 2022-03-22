@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:22:39-04:00       *-->
+<!--*       on 2022-03-21T15:32:26-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,7 +750,7 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_mtx_egspace"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Eigenspaces of Matrix</span>
 </h2>
-<p id="p-2366">Recall that the eigenvectors of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> satisfy the equation</p>
+<p id="p-2365">Recall that the eigenvectors of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> satisfy the equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A \vx = \lambda \vx
@@ -763,29 +762,29 @@ A \vx = \lambda \vx
 (A - \lambda I_n) \vx = \vzero\text{.}
 \end{equation*}
 </div>
-<p id="p-2367">In other words, the eigenvectors for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\)</span> are the non-zero vectors in <span class="process-math">\(\Nul A-\lambda I_n\text{.}\)</span> Recall that the null space of an <span class="process-math">\(n \times n\)</span> matrix is a subspace of <span class="process-math">\(\R^n\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/pa_3_c_1.html" title="Preview Activity 14.1">Preview Activity 14.1</a> we say how these subspaces provided a convenient coordinate system through which to view a matrix transformation. These special null spaces are called <dfn class="terminology">eigenspaces</dfn>.</p>
+<p id="p-2366">In other words, the eigenvectors for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda\)</span> are the non-zero vectors in <span class="process-math">\(\Nul A-\lambda I_n\text{.}\)</span> Recall that the null space of an <span class="process-math">\(n \times n\)</span> matrix is a subspace of <span class="process-math">\(\R^n\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/pa_3_c_1.html" title="Preview Activity 14.1">Preview Activity 14.1</a> we say how these subspaces provided a convenient coordinate system through which to view a matrix transformation. These special null spaces are called <dfn class="terminology">eigenspaces</dfn>.</p>
 <article class="definition definition-like" id="definition-34"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">14.2</span><span class="period">.</span>
 </h3>
-<p id="p-2368">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span> The <dfn class="terminology">eigenspace</dfn> for <span class="process-math">\(A\)</span> corresponding to <span class="process-math">\(\lambda\)</span> is the null space of <span class="process-math">\(A - \lambda I_n\text{.}\)</span></p></article><article class="activity project-like" id="act_3_c_1"><h3 class="heading">
+<p id="p-2367">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span> The <dfn class="terminology">eigenspace</dfn> for <span class="process-math">\(A\)</span> corresponding to <span class="process-math">\(\lambda\)</span> is the null space of <span class="process-math">\(A - \lambda I_n\text{.}\)</span></p></article><article class="activity project-like" id="act_3_c_1"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.2</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-215"><p id="p-2369">The matrix <span class="process-math">\(A = \left[ \begin{array}{rrrr} 2\amp 0\amp 1 \\ 0\amp 2\amp -1 \\ 0\amp 0\amp 1 \end{array} \right]\)</span> has two distinct eigenvalues.</p></div>
+<div class="introduction" id="introduction-214"><p id="p-2368">The matrix <span class="process-math">\(A = \left[ \begin{array}{rrrr} 2\amp 0\amp 1 \\ 0\amp 2\amp -1 \\ 0\amp 0\amp 1 \end{array} \right]\)</span> has two distinct eigenvalues.</p></div>
 <article class="task exercise-like" id="task-753"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2370">Find a basis for the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_1 = 1\text{.}\)</span> In other words, find a basis for <span class="process-math">\(\Nul A - I_3\text{.}\)</span></p></article><article class="task exercise-like" id="task-754"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2371">Find a basis for the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_2 = 2\text{.}\)</span></p></article><article class="task exercise-like" id="task-755"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-2372">Is it true that if <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are two distinct eigenvectors for <span class="process-math">\(A\text{,}\)</span> that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are linearly independent? Explain.</p></article><article class="task exercise-like" id="task-756"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-2373">Is it possible to have two linearly independent eigenvectors corresponding to the same eigenvalue?</p></article><article class="task exercise-like" id="task-757"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-2374">Is it true that if <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are two distinct eigenvectors corresponding to different eigenvalues for <span class="process-math">\(A\text{,}\)</span> that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are linearly independent? Explain.</p></article></article><p id="p-2375">If we know an eigenvalue <span class="process-math">\(\lambda\)</span> of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> <a href="" class="xref" data-knowl="./knowl/act_3_c_1.html" title="Activity 14.2">Activity 14.2</a> shows us how to find a basis for the corresponding eigenspace — just row reduce <span class="process-math">\(A - \lambda I_n\)</span> to find a basis for <span class="process-math">\(\Nul A-\lambda I_n\text{.}\)</span> To this point we have always been given eigenvalues for our matrices, and have not seen how to find these eigenvalues. That process will come a bit later. For now, we just want to become more familiar with eigenvalues and eigenvectors. The next activity should help connect eigenvalues to ideas we have discussed earlier.</p>
+<p id="p-2369">Find a basis for the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_1 = 1\text{.}\)</span> In other words, find a basis for <span class="process-math">\(\Nul A - I_3\text{.}\)</span></p></article><article class="task exercise-like" id="task-754"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2370">Find a basis for the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_2 = 2\text{.}\)</span></p></article><article class="task exercise-like" id="task-755"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-2371">Is it true that if <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are two distinct eigenvectors for <span class="process-math">\(A\text{,}\)</span> that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are linearly independent? Explain.</p></article><article class="task exercise-like" id="task-756"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-2372">Is it possible to have two linearly independent eigenvectors corresponding to the same eigenvalue?</p></article><article class="task exercise-like" id="task-757"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-2373">Is it true that if <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are two distinct eigenvectors corresponding to different eigenvalues for <span class="process-math">\(A\text{,}\)</span> that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are linearly independent? Explain.</p></article></article><p id="p-2374">If we know an eigenvalue <span class="process-math">\(\lambda\)</span> of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> <a href="" class="xref" data-knowl="./knowl/act_3_c_1.html" title="Activity 14.2">Activity 14.2</a> shows us how to find a basis for the corresponding eigenspace — just row reduce <span class="process-math">\(A - \lambda I_n\)</span> to find a basis for <span class="process-math">\(\Nul A-\lambda I_n\text{.}\)</span> To this point we have always been given eigenvalues for our matrices, and have not seen how to find these eigenvalues. That process will come a bit later. For now, we just want to become more familiar with eigenvalues and eigenvectors. The next activity should help connect eigenvalues to ideas we have discussed earlier.</p>
 <article class="activity project-like" id="act_3_c_2"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.3</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-216"><p id="p-2376">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-215"><p id="p-2375">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-758"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2377">How many solutions does the equation <span class="process-math">\((A-\lambda I_n) \vx = \vzero\)</span> have? Explain.</p></article><article class="task exercise-like" id="task-759"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2378">Can <span class="process-math">\(A - \lambda I_n\)</span> have a pivot in every column? Why or why not?</p></article><article class="task exercise-like" id="task-760"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-2379">Can <span class="process-math">\(A - \lambda I_n\)</span> have a pivot in every row? Why or why not?</p></article><article class="task exercise-like" id="task-761"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-2380">Can the columns of <span class="process-math">\(A - \lambda I_n\)</span> be linearly independent? Why or why not?</p></article></article></section></div></main>
+<p id="p-2376">How many solutions does the equation <span class="process-math">\((A-\lambda I_n) \vx = \vzero\)</span> have? Explain.</p></article><article class="task exercise-like" id="task-759"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2377">Can <span class="process-math">\(A - \lambda I_n\)</span> have a pivot in every column? Why or why not?</p></article><article class="task exercise-like" id="task-760"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-2378">Can <span class="process-math">\(A - \lambda I_n\)</span> have a pivot in every row? Why or why not?</p></article><article class="task exercise-like" id="task-761"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-2379">Can the columns of <span class="process-math">\(A - \lambda I_n\)</span> be linearly independent? Why or why not?</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

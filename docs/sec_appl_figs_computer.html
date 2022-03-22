@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:25:08-04:00       *-->
+<!--*       on 2022-03-21T15:35:05-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,14 +750,14 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_appl_figs_computer"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Application: Hidden Figures in Computer Graphics</span>
 </h2>
-<p id="p-3865">In video games, the speed at which a computer can render changing graphics views is vitally important. To increase a computer's ability to render a scene, programs often try to identify those parts of the images a viewer could see and those parts the viewer could not see. For example, in a scene involving buildings, the viewer could not see any images blocked by a solid building. In the mathematical world, this can be visualized by graphing surfaces. In <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we see a crude image of a house made up of small polygons (this is how programs generally represent surfaces). On the left in <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we see all of the polygons that are needed to construct the entire surface, even those polygons that lie behind others which we could not see if the surface was solid. On the right in <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we have hidden the parts of the polygons that we cannot see from our view.</p>
+<p id="p-3864">In video games, the speed at which a computer can render changing graphics views is vitally important. To increase a computer's ability to render a scene, programs often try to identify those parts of the images a viewer could see and those parts the viewer could not see. For example, in a scene involving buildings, the viewer could not see any images blocked by a solid building. In the mathematical world, this can be visualized by graphing surfaces. In <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we see a crude image of a house made up of small polygons (this is how programs generally represent surfaces). On the left in <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we see all of the polygons that are needed to construct the entire surface, even those polygons that lie behind others which we could not see if the surface was solid. On the right in <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we have hidden the parts of the polygons that we cannot see from our view.</p>
 <figure class="figure figure-like" id="F_House"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/6_a_House.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.1<span class="period">.</span></span><span class="space"> </span>Images of a house.</figcaption></figure><p id="p-3866">We also see this idea in mathematics when we graph surfaces. <a href="" class="xref" data-knowl="./knowl/F_Surface.html" title="Figure 23.2">Figure 23.2</a> shows the graph of the surface defined by <span class="process-math">\(f(x,y) = \sqrt{4-x^2}\)</span> that is made up of polygons. At left we see all of the polygons and at right only those parts that would be visible from our viewing perspective.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.1<span class="period">.</span></span><span class="space"> </span>Images of a house.</figcaption></figure><p id="p-3865">We also see this idea in mathematics when we graph surfaces. <a href="" class="xref" data-knowl="./knowl/F_Surface.html" title="Figure 23.2">Figure 23.2</a> shows the graph of the surface defined by <span class="process-math">\(f(x,y) = \sqrt{4-x^2}\)</span> that is made up of polygons. At left we see all of the polygons and at right only those parts that would be visible from our viewing perspective.</p>
 <figure class="figure figure-like" id="F_Surface"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel top" style="width:50%;"><img src="external/6_a_Surface_1.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:50%;"><img src="external/6_a_Surface_2.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(f(x,y) = \sqrt{4-x^2}\text{.}\)</span></figcaption></figure><p id="p-3867">By eliminating the parts of the polygons we cannot see from our viewing perspective, the computer program can more quickly render the viewing image. Later in this section we will explore one method for how programs remove the hidden portions of images. This process involves the dot product of vectors.</p></section></div></main>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(f(x,y) = \sqrt{4-x^2}\text{.}\)</span></figcaption></figure><p id="p-3866">By eliminating the parts of the polygons we cannot see from our viewing perspective, the computer program can more quickly render the viewing image. Later in this section we will explore one method for how programs remove the hidden portions of images. This process involves the dot product of vectors.</p></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

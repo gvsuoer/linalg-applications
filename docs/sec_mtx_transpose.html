@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:21:13-04:00       *-->
+<!--*       on 2022-03-21T15:30:51-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,11 +750,11 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_mtx_transpose"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Transpose of a Matrix</span>
 </h2>
-<p id="p-1382">One additional operation on matrices is the transpose. The transpose of a matrix occurs in many useful formulas in linear algebra and in applications of linear algebra.</p>
+<p id="p-1381">One additional operation on matrices is the transpose. The transpose of a matrix occurs in many useful formulas in linear algebra and in applications of linear algebra.</p>
 <article class="definition definition-like" id="definition-21"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.5</span><span class="period">.</span>
 </h3>
-<p id="p-1383">The <dfn class="terminology">transpose</dfn> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A = [a_{ij}]\)</span> is the <span class="process-math">\(n \times m\)</span> matrix <span class="process-math">\(A^{\tr}\)</span> whose <span class="process-math">\(i,j\)</span>th entry is <span class="process-math">\(a_{ji}\text{.}\)</span></p></article><p id="p-1384">Written out, the transpose of the <span class="process-math">\(m \times n\)</span> matrix</p>
+<p id="p-1382">The <dfn class="terminology">transpose</dfn> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A = [a_{ij}]\)</span> is the <span class="process-math">\(n \times m\)</span> matrix <span class="process-math">\(A^{\tr}\)</span> whose <span class="process-math">\(i,j\)</span>th entry is <span class="process-math">\(a_{ji}\text{.}\)</span></p></article><p id="p-1383">Written out, the transpose of the <span class="process-math">\(m \times n\)</span> matrix</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = \left[ \begin{array}{ccccc} a_{11} \amp  a_{12} \amp  \cdots    \amp  a_{1n-1} \amp  a_{1n} \\ a_{21} \amp  a_{22} \amp  \cdots    \amp  a_{2n-1} \amp  a_{2n} \\ \vdots \amp        \amp  \ddots    \amp            \amp \vdots \\ a_{m1} \amp  a_{m2} \amp  \cdots    \amp  a_{mn-1} \amp  a_{mn} \end{array}  \right]
@@ -767,36 +766,36 @@ A = \left[ \begin{array}{ccccc} a_{11} \amp  a_{12} \amp  \cdots    \amp  a_{1n-
 A^{\tr} = \left[ \begin{array}{ccccc} a_{11} \amp  a_{21} \amp  \cdots \amp  a_{m-11} \amp  a_{m1} \\ a_{12} \amp  a_{22} \amp  \cdots \amp  a_{m-12} \amp  a_{m2} \\ \vdots \amp        \amp  \ddots \amp           \amp \vdots \\ a_{1n} \amp  a_{2n} \amp  \cdots \amp  a_{m-1n} \amp  a_{mn} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-1385"> In other words, the transpose of a matrix <span class="process-math">\(A\)</span> is the matrix <span class="process-math">\(A^{\tr}\)</span> whose rows are the columns of <span class="process-math">\(A\text{.}\)</span> Alternatively, the transpose of <span class="process-math">\(A\)</span> is the matrix <span class="process-math">\(A^{\tr}\)</span> whose columns are the rows of <span class="process-math">\(A\text{.}\)</span> We can also view the transpose of <span class="process-math">\(A\)</span> as the reflection of <span class="process-math">\(A\)</span> across its main diagonal, where the <dfn class="terminology">diagonal</dfn> of a matrix <span class="process-math">\(A = [a_{ij}]\)</span> consists of the entries of the form <span class="process-math">\([a_{ii}]\text{.}\)</span></p>
+<p id="p-1384"> In other words, the transpose of a matrix <span class="process-math">\(A\)</span> is the matrix <span class="process-math">\(A^{\tr}\)</span> whose rows are the columns of <span class="process-math">\(A\text{.}\)</span> Alternatively, the transpose of <span class="process-math">\(A\)</span> is the matrix <span class="process-math">\(A^{\tr}\)</span> whose columns are the rows of <span class="process-math">\(A\text{.}\)</span> We can also view the transpose of <span class="process-math">\(A\)</span> as the reflection of <span class="process-math">\(A\)</span> across its main diagonal, where the <dfn class="terminology">diagonal</dfn> of a matrix <span class="process-math">\(A = [a_{ij}]\)</span> consists of the entries of the form <span class="process-math">\([a_{ii}]\text{.}\)</span></p>
 <article class="activity project-like" id="act_A2_1_4"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.5</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-411"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1386">Find the transpose of each of the indicated matrices.</p>
+<p id="p-1385">Find the transpose of each of the indicated matrices.</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 5 \amp 6 \amp 7 \amp 8 \end{array} \right] \qquad
 \left[ \begin{array}{r} 1 \\ -1 \\ 0 \end{array} \right] \qquad \left[ \begin{array}{cr} 1 \amp 2 \\ 4 \amp -3 \\ 0 \amp -1 \end{array} \right]
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-412"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1387">Find the transpose of the new matrix for each part above. What can you conjecture based on your results? There are certain special types of matrices that are given names.</p></article><article class="task exercise-like" id="task-413"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<div class="introduction" id="introduction-121">
-<p id="p-1388">There are certain special types of matrices that are given names.</p>
+<p id="p-1386">Find the transpose of the new matrix for each part above. What can you conjecture based on your results? There are certain special types of matrices that are given names.</p></article><article class="task exercise-like" id="task-413"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="introduction" id="introduction-120">
+<p id="p-1387">There are certain special types of matrices that are given names.</p>
 <article class="definition definition-like" id="def_special_matrices"><h5 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.6</span><span class="period">.</span>
 </h5>
-<p id="p-1389">Let <span class="process-math">\(A\)</span> be a square matrix whose <span class="process-math">\(ij\)</span>th entry is <span class="process-math">\(a_{ij}\text{.}\)</span></p>
+<p id="p-1388">Let <span class="process-math">\(A\)</span> be a square matrix whose <span class="process-math">\(ij\)</span>th entry is <span class="process-math">\(a_{ij}\text{.}\)</span></p>
 <ol class="decimal">
-<li id="li-257"><p id="p-1390">The matrix <span class="process-math">\(A\)</span> is a <em class="emphasis">diagonal matrix</em>  if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i \neq j\text{.}\)</span></p></li>
-<li id="li-258"><p id="p-1391">The matrix <span class="process-math">\(A\)</span> is a <em class="emphasis">symmetric</em>  matrix if <span class="process-math">\(A^{\tr} = A\text{.}\)</span></p></li>
-<li id="li-259"><p id="p-1392">The matrix <span class="process-math">\(A\)</span> is an <em class="emphasis">upper triangular</em>  if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i &gt; j\text{.}\)</span></p></li>
-<li id="li-260"><p id="p-1393">The matrix <span class="process-math">\(A\)</span> is a <em class="emphasis">lower triangular</em>  if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i \lt j\text{.}\)</span></p></li>
+<li id="li-257"><p id="p-1389">The matrix <span class="process-math">\(A\)</span> is a <em class="emphasis">diagonal matrix</em>  if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i \neq j\text{.}\)</span></p></li>
+<li id="li-258"><p id="p-1390">The matrix <span class="process-math">\(A\)</span> is a <em class="emphasis">symmetric</em>  matrix if <span class="process-math">\(A^{\tr} = A\text{.}\)</span></p></li>
+<li id="li-259"><p id="p-1391">The matrix <span class="process-math">\(A\)</span> is an <em class="emphasis">upper triangular</em>  if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i &gt; j\text{.}\)</span></p></li>
+<li id="li-260"><p id="p-1392">The matrix <span class="process-math">\(A\)</span> is a <em class="emphasis">lower triangular</em>  if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i \lt j\text{.}\)</span></p></li>
 </ol></article>
 </div>
 <article class="task exercise-like" id="task-414"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-1394">Find an example of a diagonal matrix <span class="process-math">\(A\text{.}\)</span> What can you say about <span class="process-math">\(A^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-415"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-1395">Find an example of a non-diagonal symmetric matrix <span class="process-math">\(B\text{.}\)</span> If <span class="process-math">\(B^{\tr} = B\text{,}\)</span> must <span class="process-math">\(B\)</span> be a square matrix?</p></article><article class="task exercise-like" id="task-416"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-1396">Find an example of an upper triangular matrix <span class="process-math">\(C\text{.}\)</span> What kind of a matrix is <span class="process-math">\(C^{\tr}\text{?}\)</span></p></article></article></article><p id="p-1397">We will see later that diagonal matrices are important in that their powers are easy to calculate. Symmetric matrices arise frequently in applications such as in graph theory as adjacency matrices and in quantum mechanics as observables, and have many useful properties including being diagonalizable and having real eigenvalues, as we will also see later.</p></section></div></main>
+<p id="p-1393">Find an example of a diagonal matrix <span class="process-math">\(A\text{.}\)</span> What can you say about <span class="process-math">\(A^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-415"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-1394">Find an example of a non-diagonal symmetric matrix <span class="process-math">\(B\text{.}\)</span> If <span class="process-math">\(B^{\tr} = B\text{,}\)</span> must <span class="process-math">\(B\)</span> be a square matrix?</p></article><article class="task exercise-like" id="task-416"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-1395">Find an example of an upper triangular matrix <span class="process-math">\(C\text{.}\)</span> What kind of a matrix is <span class="process-math">\(C^{\tr}\text{?}\)</span></p></article></article></article><p id="p-1396">We will see later that diagonal matrices are important in that their powers are easy to calculate. Symmetric matrices arise frequently in applications such as in graph theory as adjacency matrices and in quantum mechanics as observables, and have many useful properties including being diagonalizable and having real eigenvalues, as we will also see later.</p></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

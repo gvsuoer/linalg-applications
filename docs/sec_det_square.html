@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:23:30-04:00       *-->
+<!--*       on 2022-03-21T15:33:13-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,16 +751,16 @@
 <section class="section" id="sec_det_square"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Determinant of a Square Matrix</span>
 </h2>
-<p id="p-2885">Around 1900 or so determinants were deemed much more important than they are today. In fact, determinants were used even before matrices. According to Tucker<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-31" id="fn-31"><sup> 31 </sup></a> determinants (not matrices) developed out of the study of coefficients of systems of linear equations and were used by Leibniz 150 years before the term matrix was coined by J. J. Sylvester in 1848. Even though determinants are not as important as they once were, the determinant of a matrix is still a useful quantity. We saw in <a href="" class="xref" data-knowl="./knowl/pa_4_a.html" title="Preview Activity 17.1">Preview Activity 17.1</a> that the determinant of a matrix tells us if the matrix is invertible and how it can help us find eigenvalues. In this section, we will see how to find the determinant of any size matrix and how to use this determinant to find the eigenvalues.</p>
-<p id="p-2886">The determinant of a <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]\)</span> is <span class="process-math">\(\det(A)=ad-bc\text{.}\)</span> The matrix <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(\det(A) \neq 0\text{.}\)</span> We will use a recursive approach to find the determinants of larger size matrices building from the <span class="process-math">\(2\times 2\)</span> determinants. We present the result in the <span class="process-math">\(3 \times 3\)</span> case here — a more detailed analysis can be found at the end of this section.</p>
-<p id="p-2887">To find the determinant of a <span class="process-math">\(3 \times 3\)</span> matrix <span class="process-math">\(A = \left[ \begin{array}{ccc} a_{11}\amp a_{12}\amp a_{13} \\ a_{21}\amp a_{22}\amp a_{23}\\ a_{31}\amp a_{32}\amp a_{33} \end{array}  \right]\text{,}\)</span> we will use the determinants of three <span class="process-math">\(2\times 2\)</span> matrices. More specifically, the determinant of <span class="process-math">\(A\text{,}\)</span> denoted <span class="process-math">\(\det(A)\)</span> is the quantity</p>
+<p id="p-2884">Around 1900 or so determinants were deemed much more important than they are today. In fact, determinants were used even before matrices. According to Tucker<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-31" id="fn-31"><sup> 31 </sup></a> determinants (not matrices) developed out of the study of coefficients of systems of linear equations and were used by Leibniz 150 years before the term matrix was coined by J. J. Sylvester in 1848. Even though determinants are not as important as they once were, the determinant of a matrix is still a useful quantity. We saw in <a href="" class="xref" data-knowl="./knowl/pa_4_a.html" title="Preview Activity 17.1">Preview Activity 17.1</a> that the determinant of a matrix tells us if the matrix is invertible and how it can help us find eigenvalues. In this section, we will see how to find the determinant of any size matrix and how to use this determinant to find the eigenvalues.</p>
+<p id="p-2885">The determinant of a <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]\)</span> is <span class="process-math">\(\det(A)=ad-bc\text{.}\)</span> The matrix <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(\det(A) \neq 0\text{.}\)</span> We will use a recursive approach to find the determinants of larger size matrices building from the <span class="process-math">\(2\times 2\)</span> determinants. We present the result in the <span class="process-math">\(3 \times 3\)</span> case here — a more detailed analysis can be found at the end of this section.</p>
+<p id="p-2886">To find the determinant of a <span class="process-math">\(3 \times 3\)</span> matrix <span class="process-math">\(A = \left[ \begin{array}{ccc} a_{11}\amp a_{12}\amp a_{13} \\ a_{21}\amp a_{22}\amp a_{23}\\ a_{31}\amp a_{32}\amp a_{33} \end{array}  \right]\text{,}\)</span> we will use the determinants of three <span class="process-math">\(2\times 2\)</span> matrices. More specifically, the determinant of <span class="process-math">\(A\text{,}\)</span> denoted <span class="process-math">\(\det(A)\)</span> is the quantity</p>
 <div class="displaymath process-math">
 \begin{equation}
 a_{11} \det\left(\left[ \begin{array}{cc} a_{22}\amp a_{23} \\ a_{32}\amp a_{33} \end{array}  \right] \right)- a_{12} \det \left(\left[ \begin{array}{cc} a_{21}\amp a_{23} \\ a_{31}\amp a_{33} \end{array}  \right] \right) + a_{13} \det \left(\left[ \begin{array}{cc} a_{21}\amp a_{22} \\ a_{31}\amp a_{32} \end{array}  \right] \right)\text{.}\label{eq_det_3by3}\tag{17.1}
 \end{equation}
 </div>
-<p id="p-2888">This sum is called a <dfn class="terminology">cofactor expansion</dfn> of the determinant of <span class="process-math">\(A\text{.}\)</span> The smaller matrices in this expansion are obtained by deleting certain rows and columns of the matrix <span class="process-math">\(A\text{.}\)</span> In general, when finding the determinant of an <span class="process-math">\(n\times n\)</span> matrix, we find determinants of <span class="process-math">\((n-1)\times (n-1)\)</span> matrices, which we can again reduce to smaller matrices to calculate.</p>
-<p id="p-2889">We will use the specific matrix</p>
+<p id="p-2887">This sum is called a <dfn class="terminology">cofactor expansion</dfn> of the determinant of <span class="process-math">\(A\text{.}\)</span> The smaller matrices in this expansion are obtained by deleting certain rows and columns of the matrix <span class="process-math">\(A\text{.}\)</span> In general, when finding the determinant of an <span class="process-math">\(n\times n\)</span> matrix, we find determinants of <span class="process-math">\((n-1)\times (n-1)\)</span> matrices, which we can again reduce to smaller matrices to calculate.</p>
+<p id="p-2888">We will use the specific matrix</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = \left[ \begin{array}{ccc} 1 \amp  2 \amp  0 \\ 1 \amp  4 \amp  3 \\ 2 \amp  2 \amp  1 \end{array}  \right]
@@ -769,9 +768,9 @@ A = \left[ \begin{array}{ccc} 1 \amp  2 \amp  0 \\ 1 \amp  4 \amp  3 \\ 2 \amp  
 </div>
 <p class="continuation">as an example in illustrating the cofactor expansion method in general.</p>
 <ul class="disc">
-<li id="li-503"><p id="p-2890">We first pick a row or column of <span class="process-math">\(A\text{.}\)</span> We will pick the first row of <span class="process-math">\(A\)</span> for this example.</p></li>
+<li id="li-503"><p id="p-2889">We first pick a row or column of <span class="process-math">\(A\text{.}\)</span> We will pick the first row of <span class="process-math">\(A\)</span> for this example.</p></li>
 <li id="li-504">
-<p id="p-2891">For each entry in the row (or column) we choose, in this case the first row, we will calculate the determinant of a smaller matrix obtained by removing the row and the column the entry is in. Let <span class="process-math">\(A_{ij}\)</span> be the smaller matrix found by deleting the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column of <span class="process-math">\(A\text{.}\)</span> For entry <span class="process-math">\(a_{11}\text{,}\)</span> we find the matrix <span class="process-math">\(A_{11}\)</span> obtained by removing first row and first column:</p>
+<p id="p-2890">For each entry in the row (or column) we choose, in this case the first row, we will calculate the determinant of a smaller matrix obtained by removing the row and the column the entry is in. Let <span class="process-math">\(A_{ij}\)</span> be the smaller matrix found by deleting the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column of <span class="process-math">\(A\text{.}\)</span> For entry <span class="process-math">\(a_{11}\text{,}\)</span> we find the matrix <span class="process-math">\(A_{11}\)</span> obtained by removing first row and first column:</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A_{11} = \left[ \begin{array}{cc} 4 \amp  3 \\ 2 \amp  1 \end{array}  \right]\,\text{.}
@@ -791,7 +790,7 @@ A_{13} = \left[ \begin{array}{cc} 1 \amp  4 \\ 2 \amp  2 \end{array}  \right] \,
 </div>
 </li>
 <li id="li-505">
-<p id="p-2892">Notice that in the <span class="process-math">\(3 \times 3\)</span> determinant formula in <a href="" class="xref" data-knowl="./knowl/eq_det_3by3.html" title="Equation 17.1">(17.1)</a> above, the middle term had a (-) sign. The signs of the terms in the cofactor expansion alternate within each row and each column. More specifically, the sign of a term in the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column is <span class="process-math">\((-1)^{i+j}\text{.}\)</span> We then obtain the following pattern of the signs within each row and column:</p>
+<p id="p-2891">Notice that in the <span class="process-math">\(3 \times 3\)</span> determinant formula in <a href="" class="xref" data-knowl="./knowl/eq_det_3by3.html" title="Equation 17.1">(17.1)</a> above, the middle term had a (-) sign. The signs of the terms in the cofactor expansion alternate within each row and each column. More specifically, the sign of a term in the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column is <span class="process-math">\((-1)^{i+j}\text{.}\)</span> We then obtain the following pattern of the signs within each row and column:</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{array}{cccc} + \amp  - \amp  + \amp  \cdots \\ - \amp  + \amp  - \amp  \cdots \\ + \amp  - \amp  + \amp  \cdots \\ \vdots \amp  \amp  \amp \end{array}  \right]
@@ -800,7 +799,7 @@ A_{13} = \left[ \begin{array}{cc} 1 \amp  4 \\ 2 \amp  2 \end{array}  \right] \,
 <p class="continuation">In particular, the sign factor for <span class="process-math">\(a_{11}\)</span> is <span class="process-math">\((-1)^{1+1}=1\text{,}\)</span> for <span class="process-math">\(a_{12}\)</span> is <span class="process-math">\((-1)^{1+2}=-1\text{,}\)</span> and for <span class="process-math">\(a_{13}\)</span> is <span class="process-math">\((-1)^{1+3}=1\text{.}\)</span></p>
 </li>
 <li id="li-506">
-<p id="p-2893">For each entry <span class="process-math">\(a_{ij}\)</span> in the row (or column) of <span class="process-math">\(A\)</span> we chose, we multiply the entry <span class="process-math">\(a_{ij}\)</span> by the determinant of <span class="process-math">\(A_{ij}\)</span> and the sign <span class="process-math">\((-1)^{i+j}\text{.}\)</span> In this case, we obtain the following numbers</p>
+<p id="p-2892">For each entry <span class="process-math">\(a_{ij}\)</span> in the row (or column) of <span class="process-math">\(A\)</span> we chose, we multiply the entry <span class="process-math">\(a_{ij}\)</span> by the determinant of <span class="process-math">\(A_{ij}\)</span> and the sign <span class="process-math">\((-1)^{i+j}\text{.}\)</span> In this case, we obtain the following numbers</p>
 <div class="displaymath process-math">
 \begin{equation*}
 a_{11} (-1)^{1+1} \det(A_{11})  = 1 \det \left[ \begin{array}{cc} 4 \amp  3 \\ 2 \amp  1 \end{array}  \right] = 1(4-6)=-2
@@ -819,7 +818,7 @@ a_{13} (-1)^{1+3} \det(A_{13}) = 0
 <p class="continuation">Note that in the last calculation, since <span class="process-math">\(a_{13}=0\text{,}\)</span> we did not have to evaluate the rest of the terms.</p>
 </li>
 <li id="li-507">
-<p id="p-2894">Finally, we find the determinant by adding all these values:</p>
+<p id="p-2893">Finally, we find the determinant by adding all these values:</p>
 <div class="displaymath process-math">
 \begin{align*}
 \det(A) \amp = a_{11} (-1)^{1+1} \det(A_{11}) + a_{12} (-1)^{1+2} \det(A_{12})\\

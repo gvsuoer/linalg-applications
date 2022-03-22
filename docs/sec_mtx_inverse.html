@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:21:47-04:00       *-->
+<!--*       on 2022-03-21T15:31:26-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,7 +750,7 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_mtx_inverse"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Finding the Inverse of a Matrix</span>
 </h2>
-<p id="p-1748">The next questions for us to address are how to tell when a matrix is invertible and how to find the inverse of an invertible matrix. Consider a <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A\text{.}\)</span> To find the inverse matrix <span class="process-math">\(B = [\vb_1 \ \vb_2]\)</span> of <span class="process-math">\(A\text{,}\)</span> we have to solve the two matrix-vector equations <span class="process-math">\(A \vb_1 = \begin{bmatrix}1 \\ 0 \end{bmatrix}\)</span> and <span class="process-math">\(A \vb_2= \begin{bmatrix}0 \\1 \end{bmatrix}\)</span> to find the columns of <span class="process-math">\(B\text{.}\)</span> Since <span class="process-math">\(A\)</span> is the coefficient matrix for both systems, we apply the same row operations on both systems to reduce <span class="process-math">\(A\)</span> to RREF. Thus, instead of solving the two matrix-vector equations separately, we could simply have found the RREF of</p>
+<p id="p-1747">The next questions for us to address are how to tell when a matrix is invertible and how to find the inverse of an invertible matrix. Consider a <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A\text{.}\)</span> To find the inverse matrix <span class="process-math">\(B = [\vb_1 \ \vb_2]\)</span> of <span class="process-math">\(A\text{,}\)</span> we have to solve the two matrix-vector equations <span class="process-math">\(A \vb_1 = \begin{bmatrix}1 \\ 0 \end{bmatrix}\)</span> and <span class="process-math">\(A \vb_2= \begin{bmatrix}0 \\1 \end{bmatrix}\)</span> to find the columns of <span class="process-math">\(B\text{.}\)</span> Since <span class="process-math">\(A\)</span> is the coefficient matrix for both systems, we apply the same row operations on both systems to reduce <span class="process-math">\(A\)</span> to RREF. Thus, instead of solving the two matrix-vector equations separately, we could simply have found the RREF of</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[\, A \ \left| \begin{array}{cc} 1 \amp  0 \\ 0 \amp  1 \end{array} \right. \right]
@@ -759,17 +758,17 @@
 </div>
 <p class="continuation">and done all of the work in one pass. Note that the right hand side of the augmented matrix is now <span class="process-math">\(I_2\text{.}\)</span> So we row reduce <span class="process-math">\([A \ | \ I_2]\text{,}\)</span> and if the systems are consistent, the reduced row echelon form of <span class="process-math">\([A \ | \ I_2]\)</span> must be <span class="process-math">\([I_2 \ | \ A^{-1}]\text{.}\)</span> You should be able to see that this same process works in any dimension.</p>
 <section class="paragraphs" id="paragraphs-19"><h3 class="heading"><span class="title">How to find the inverse of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span>.</span></h3>
-<ul id="p-1749" class="disc">
-<li id="li-300"><p id="p-1750">Augment <span class="process-math">\(A\)</span> with the identity matrix <span class="process-math">\(I_n\text{.}\)</span></p></li>
-<li id="li-301"><p id="p-1751">Apply row operations to reduce the augmented matrix <span class="process-math">\([A \ | \ I_n]\text{.}\)</span> If the system is consistent, then the reduced row echelon form of <span class="process-math">\([A \ | \ I_n]\)</span> will have the form <span class="process-math">\([I_n \ | \ B]\)</span> (by <a href="" class="xref" data-knowl="./knowl/act_2_c_1.html" title="Activity 10.2">Activity 10.2</a> (d)). If the reduced row echelon form of <span class="process-math">\(A\)</span> is not <span class="process-math">\(I_n\text{,}\)</span> then this step fails and <span class="process-math">\(A\)</span> is not invertible.</p></li>
-<li id="li-302"><p id="p-1752">If <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I_n\text{,}\)</span> then the matrix <span class="process-math">\(B\)</span> in the second step has the property that <span class="process-math">\(AB = I_n\text{.}\)</span> We will show later that the matrix <span class="process-math">\(B\)</span> also satisfies <span class="process-math">\(BA = I_n\)</span> and so <span class="process-math">\(B\)</span> is the inverse of <span class="process-math">\(A\text{.}\)</span></p></li>
+<ul id="p-1748" class="disc">
+<li id="li-300"><p id="p-1749">Augment <span class="process-math">\(A\)</span> with the identity matrix <span class="process-math">\(I_n\text{.}\)</span></p></li>
+<li id="li-301"><p id="p-1750">Apply row operations to reduce the augmented matrix <span class="process-math">\([A \ | \ I_n]\text{.}\)</span> If the system is consistent, then the reduced row echelon form of <span class="process-math">\([A \ | \ I_n]\)</span> will have the form <span class="process-math">\([I_n \ | \ B]\)</span> (by <a href="" class="xref" data-knowl="./knowl/act_2_c_1.html" title="Activity 10.2">Activity 10.2</a> (d)). If the reduced row echelon form of <span class="process-math">\(A\)</span> is not <span class="process-math">\(I_n\text{,}\)</span> then this step fails and <span class="process-math">\(A\)</span> is not invertible.</p></li>
+<li id="li-302"><p id="p-1751">If <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I_n\text{,}\)</span> then the matrix <span class="process-math">\(B\)</span> in the second step has the property that <span class="process-math">\(AB = I_n\text{.}\)</span> We will show later that the matrix <span class="process-math">\(B\)</span> also satisfies <span class="process-math">\(BA = I_n\)</span> and so <span class="process-math">\(B\)</span> is the inverse of <span class="process-math">\(A\text{.}\)</span></p></li>
 </ul></section><article class="activity project-like" id="act_2_c_3"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">10.4</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-160"><p id="p-1753">Find the inverse of each matrix <em class="emphasis">using the method above</em>, if it exists. Compare the result with the inverse that you get from using appropriate technology to directly calculate the inverse.</p></div>
+<div class="introduction" id="introduction-159"><p id="p-1752">Find the inverse of each matrix <em class="emphasis">using the method above</em>, if it exists. Compare the result with the inverse that you get from using appropriate technology to directly calculate the inverse.</p></div>
 <article class="task exercise-like" id="task-563"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1754"><span class="process-math">\(\left[ \begin{array}{crr} 1\amp 1\amp 1\\ 1\amp 1\amp -1\\ 1\amp -1\amp 0 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-564"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1755"><span class="process-math">\(\left[ \begin{array}{cccc} 1\amp 1\amp 1\\ 2\amp 2\amp 2\\ 0\amp 0\amp 1 \end{array} \right]\)</span></p></article></article><p id="p-1756">We can use this method of finding the inverse of a matrix to derive a concrete formula for the inverse of a <span class="process-math">\(2 \times 2\)</span> matrix:</p>
+<p id="p-1753"><span class="process-math">\(\left[ \begin{array}{crr} 1\amp 1\amp 1\\ 1\amp 1\amp -1\\ 1\amp -1\amp 0 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-564"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1754"><span class="process-math">\(\left[ \begin{array}{cccc} 1\amp 1\amp 1\\ 2\amp 2\amp 2\\ 0\amp 0\amp 1 \end{array} \right]\)</span></p></article></article><p id="p-1755">We can use this method of finding the inverse of a matrix to derive a concrete formula for the inverse of a <span class="process-math">\(2 \times 2\)</span> matrix:</p>
 <div class="displaymath process-math">
 \begin{equation}
 \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]^{-1} = \frac{1}{ad-bc} \left[ \begin{array}{rr} d\amp -b \\ -c\amp a \end{array}  \right]\text{,}\label{eq_2_c_1}\tag{10.1}

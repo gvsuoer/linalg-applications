@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:42:26-04:00       *-->
+<!--*       on 2022-03-22T13:08:20-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,18 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Only some square matrices have inverses. However, every matrix has a pseudoinverse. A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> provides something like an inverse when a matrix doesn't have an inverse. Pseudoinverses are useful to approximate solutions to linear systems. If <span class="process-math">\(A\)</span> is invertible, then the equation <span class="process-math">\(A \vx = \vb\)</span> has the solution <span class="process-math">\(\vx = A^{-1}\vb\text{,}\)</span> but when <span class="process-math">\(A\)</span> is not invertible and <span class="process-math">\(\vb\)</span> is not in <span class="process-math">\(\Col A\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vb\)</span> has no solution. In the invertible case of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> there is a matrix <span class="process-math">\(B\)</span> so that <span class="process-math">\(AB = BA = I_n\text{.}\)</span> This also implies that <span class="process-math">\(BAB = B\)</span> and <span class="process-math">\(ABA = A\text{.}\)</span> To mimic this situation when <span class="process-math">\(A\)</span> is not invertible, we search for a matrix <span class="process-math">\(A^+\)</span> (a pseudoinverse of <span class="process-math">\(A\)</span>) so that <span class="process-math">\(AA^+A = A\)</span> and <span class="process-math">\(A^+AA^+ = A^+\text{,}\)</span> as we saw in <a href="" class="xref" data-knowl="./knowl/pa_7_d_2.html" title="Preview Activity 30.7">Preview Activity 30.7</a>. Then it turns out that <span class="process-math">\(A^+\)</span> acts something like an inverse for <span class="process-math">\(A\text{.}\)</span> In this case, we approximate the solution to <span class="process-math">\(A \vx = \vb\)</span> by <span class="process-math">\(\vx^* = A^+\vb\text{,}\)</span> and we will see that the vector <span class="process-math">\(A\vx^* = AA^+\vb\)</span> turns out to be the vector in <span class="process-math">\(\Col A\)</span> that is closest to <span class="process-math">\(\vb\)</span> in the least squares sense.</p>
+<p>A reasonable question to ask is how we can find a pseudoinverse of a matrix <span class="process-math">\(A\text{.}\)</span> A singular value decomposition provides an answer to this question. If <span class="process-math">\(A\)</span> is an invertible <span class="process-math">\(n \times n\)</span> matrix, then 0 is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span> As a result, in the singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\)</span> of <span class="process-math">\(A\text{,}\)</span> the matrix <span class="process-math">\(\Sigma\)</span> is an invertible matrix (note that <span class="process-math">\(U\text{,}\)</span> <span class="process-math">\(\Sigma\text{,}\)</span> and <span class="process-math">\(V\)</span> are all <span class="process-math">\(n \times n\)</span> matrices in this case). So</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A^{-1} = \left(U \Sigma V^{\tr}\right)^{-1} = V \Sigma^{-1} U^{\tr}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\Sigma^{-1} = \left[ \begin{array}{ccccc} \frac{1}{\sigma_1}\amp \amp \amp \amp  \\  \amp  \frac{1}{\sigma_2}\amp \amp 0\amp  \\  \amp \amp  \frac{1}{\sigma_3}\amp \amp  \\ \amp 0  \amp  \amp  \ddots \amp   \\ \amp \amp \amp \amp  \frac{1}{\sigma_n} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
 <span class="incontext"><a href="sec_pseudoinverses.html#p-5151">in-context</a></span>
 </body>
 </html>

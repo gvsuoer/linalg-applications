@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:27:05-04:00       *-->
+<!--*       on 2022-03-21T15:37:08-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,13 +750,13 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_err_approx_img"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Calculating the Error in Approximating an Image</span>
 </h2>
-<p id="p-5100">In the context where a matrix represents an image, the operator aspect of the matrix is irrelevant — we are only interested in the matrix as a holder of information. In this situation, we think of an <span class="process-math">\(m \times n\)</span> matrix as simply a long vector in <span class="process-math">\(\R^{mn}\)</span> where we have folded the data into a rectangular array. If we are interested in determining the error in approximating an image by a compressed image, it makes sense to use the standard norm in <span class="process-math">\(\R^{mn}\)</span> to determine length and distance. This leads to what is called the <dfn class="terminology">Frobenius</dfn> norm of a matrix. The Frobenius norm <span class="process-math">\(||M||_F\)</span> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(M = [m_{ij}]\)</span> is</p>
+<p id="p-5099">In the context where a matrix represents an image, the operator aspect of the matrix is irrelevant — we are only interested in the matrix as a holder of information. In this situation, we think of an <span class="process-math">\(m \times n\)</span> matrix as simply a long vector in <span class="process-math">\(\R^{mn}\)</span> where we have folded the data into a rectangular array. If we are interested in determining the error in approximating an image by a compressed image, it makes sense to use the standard norm in <span class="process-math">\(\R^{mn}\)</span> to determine length and distance. This leads to what is called the <dfn class="terminology">Frobenius</dfn> norm of a matrix. The Frobenius norm <span class="process-math">\(||M||_F\)</span> of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(M = [m_{ij}]\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 ||M||_F = \sqrt{ \sum m_{ij}^2 }\text{.}
 \end{equation*}
 </div>
-<p id="p-5101">There is a natural corresponding inner product on the set of <span class="process-math">\(m \times n\)</span> matrices (called the <dfn class="terminology">Frobenius product</dfn>) defined by</p>
+<p id="p-5100">There is a natural corresponding inner product on the set of <span class="process-math">\(m \times n\)</span> matrices (called the <dfn class="terminology">Frobenius product</dfn>) defined by</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \langle A,B \rangle = \sum a_{ij}b_{ij}\text{,}
@@ -769,7 +768,7 @@
 ||A||_F = \sqrt{\langle A, A\rangle}\text{.}
 \end{equation*}
 </div>
-<p id="p-5102">If an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(M\)</span> of rank <span class="process-math">\(r\)</span> has a singular value decomposition <span class="process-math">\(M = U \Sigma V^{\tr}\text{,}\)</span> we have seen that we can write <span class="process-math">\(M\)</span> as an outer product</p>
+<p id="p-5101">If an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(M\)</span> of rank <span class="process-math">\(r\)</span> has a singular value decomposition <span class="process-math">\(M = U \Sigma V^{\tr}\text{,}\)</span> we have seen that we can write <span class="process-math">\(M\)</span> as an outer product</p>
 <div class="displaymath process-math">
 \begin{equation}
 M = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{r} \vu_{r}\vv_{r}^{\tr}\text{,}\label{eq_7_c_outer_product}\tag{30.3}
@@ -785,13 +784,13 @@ M = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^
 \amp = (\vx \cdot \vw) (\vy \cdot \vz)\text{.}
 \end{align*}
 </div>
-<p id="p-5103">Using the vectors from the singular value decomposition of <span class="process-math">\(M\)</span> as in <a href="" class="xref" data-knowl="./knowl/eq_7_c_outer_product.html" title="Equation 30.3">(30.3)</a> we see that</p>
+<p id="p-5102">Using the vectors from the singular value decomposition of <span class="process-math">\(M\)</span> as in <a href="" class="xref" data-knowl="./knowl/eq_7_c_outer_product.html" title="Equation 30.3">(30.3)</a> we see that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \langle \vu_i\vv_i^{\tr}, \vu_j\vv_j^{\tr} \rangle = (\vu_i \cdot \vu_j)(\vv_i \cdot \vv_j) = \begin{cases}0, \amp \text{ if }  i\neq j, \\ 1, \amp \text{ if }  i = j. \end{cases}
 \end{equation*}
 </div>
-<p id="p-5104">It follows that</p>
+<p id="p-5103">It follows that</p>
 <div class="displaymath process-math">
 \begin{equation}
 ||M||_F^2 = \sum \sigma_i^2 (\vu_i \cdot \vu_i)(\vv_i \cdot \vv_i) = \sum \sigma_i^2\text{.}\label{eq_7_c_SVD_norm}\tag{30.4}
@@ -800,38 +799,38 @@ M = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^
 <article class="activity project-like" id="activity-112"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">30.2</span><span class="period">.</span>
 </h3>
-<p id="p-5105">Verify <a href="" class="xref" data-knowl="./knowl/eq_7_c_SVD_norm.html" title="Equation 30.4">(30.4)</a> that <span class="process-math">\(||M||_F^2 = \sum \sigma_i^2\text{.}\)</span></p></article><p id="p-5106">When we used the singular value decomposition to approximate the image defined by <span class="process-math">\(M\text{,}\)</span> we replaced <span class="process-math">\(M\)</span> with a matrix of the form</p>
+<p id="p-5104">Verify <a href="" class="xref" data-knowl="./knowl/eq_7_c_SVD_norm.html" title="Equation 30.4">(30.4)</a> that <span class="process-math">\(||M||_F^2 = \sum \sigma_i^2\text{.}\)</span></p></article><p id="p-5105">When we used the singular value decomposition to approximate the image defined by <span class="process-math">\(M\text{,}\)</span> we replaced <span class="process-math">\(M\)</span> with a matrix of the form</p>
 <div class="displaymath process-math">
 \begin{equation}
 M_k = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{k} \vu_{k}\vv_{k}^{\tr}\text{.}\label{eq_7_c_outer_product_k}\tag{30.5}
 \end{equation}
 </div>
-<p id="p-5107">We call <span class="process-math">\(M_k\)</span> the rank <span class="process-math">\(k\)</span> approximation to <span class="process-math">\(M\text{.}\)</span> Notice that the outer product expansion in <a href="" class="xref" data-knowl="./knowl/eq_7_c_outer_product_k.html" title="Equation 30.5">(30.5)</a> is in fact a singular value decomposition for <span class="process-math">\(M_k\text{.}\)</span> The error <span class="process-math">\(E_k\)</span> in approximating <span class="process-math">\(M\)</span> with <span class="process-math">\(M_k\)</span> is</p>
+<p id="p-5106">We call <span class="process-math">\(M_k\)</span> the rank <span class="process-math">\(k\)</span> approximation to <span class="process-math">\(M\text{.}\)</span> Notice that the outer product expansion in <a href="" class="xref" data-knowl="./knowl/eq_7_c_outer_product_k.html" title="Equation 30.5">(30.5)</a> is in fact a singular value decomposition for <span class="process-math">\(M_k\text{.}\)</span> The error <span class="process-math">\(E_k\)</span> in approximating <span class="process-math">\(M\)</span> with <span class="process-math">\(M_k\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation}
 E_k = M - M_k = \sigma_{k+1} \vu_{k+1}\vv_{k+1}^{\tr} + \sigma_{k+2} \vu_{k+2}\vv_{k+2}^{\tr} + \cdots + \sigma_{r} \vu_{r}\vv_{r}^{\tr}\text{.}\label{eq_7_c_outer_product_error}\tag{30.6}
 \end{equation}
 </div>
-<p id="p-5108">Once again, notice that <a href="" class="xref" data-knowl="./knowl/eq_7_c_outer_product_error.html" title="Equation 30.6">(30.6)</a> is a singular value decomposition for <span class="process-math">\(E_k\text{.}\)</span> We define the relative error in approximating <span class="process-math">\(M\)</span> with <span class="process-math">\(M_k\)</span> as</p>
+<p id="p-5107">Once again, notice that <a href="" class="xref" data-knowl="./knowl/eq_7_c_outer_product_error.html" title="Equation 30.6">(30.6)</a> is a singular value decomposition for <span class="process-math">\(E_k\text{.}\)</span> We define the relative error in approximating <span class="process-math">\(M\)</span> with <span class="process-math">\(M_k\)</span> as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \ds \frac{||E_k||}{||M||}\text{.}
 \end{equation*}
 </div>
-<p id="p-5109">Now <a href="" class="xref" data-knowl="./knowl/eq_7_c_SVD_norm.html" title="Equation 30.4">(30.4)</a> shows that</p>
+<p id="p-5108">Now <a href="" class="xref" data-knowl="./knowl/eq_7_c_SVD_norm.html" title="Equation 30.4">(30.4)</a> shows that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \ds \frac{||E_k||}{||M||} = \sqrt{ \frac{\sum_{i=k+1}^r \sigma_i^2}{\sum_{i=1}^r \sigma_i^2} }\text{.}
 \end{equation*}
 </div>
-<p id="p-5110">In applications, we often want to retain a certain degree of accuracy in our approximations and this error term can help us accomplish that.</p>
-<p id="p-5111">In our flower example, the singular values of <span class="process-math">\(M\)</span> are given in <a href="" class="xref" data-knowl="./knowl/eq_7_c_Flower_sing_values.html" title="Equation 30.2">(30.2)</a>. The relative error in approximating <span class="process-math">\(M\)</span> with <span class="process-math">\(M_{12}\)</span> is</p>
+<p id="p-5109">In applications, we often want to retain a certain degree of accuracy in our approximations and this error term can help us accomplish that.</p>
+<p id="p-5110">In our flower example, the singular values of <span class="process-math">\(M\)</span> are given in <a href="" class="xref" data-knowl="./knowl/eq_7_c_Flower_sing_values.html" title="Equation 30.2">(30.2)</a>. The relative error in approximating <span class="process-math">\(M\)</span> with <span class="process-math">\(M_{12}\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sqrt{ \frac{\sum_{i=13}^{16} \sigma_i^2}{\sum_{i=1}^{16} \sigma_i^2} } \approx 0.0018\text{.}
 \end{equation*}
 </div>
-<p id="p-5112">Errors (rounded to 4 decimal places) for approximating <span class="process-math">\(M\)</span> with some of the <span class="process-math">\(M_k\)</span> are shown in <a href="" class="xref" data-knowl="./knowl/T_7_c_Errors.html" title="Table 30.3: Errors in approximating M by M_k">Table 30.3</a></p>
+<p id="p-5111">Errors (rounded to 4 decimal places) for approximating <span class="process-math">\(M\)</span> with some of the <span class="process-math">\(M_k\)</span> are shown in <a href="" class="xref" data-knowl="./knowl/T_7_c_Errors.html" title="Table 30.3: Errors in approximating M by M_k">Table 30.3</a></p>
 <figure class="table table-like" id="T_7_c_Errors"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">30.3<span class="period">.</span></span><span class="space"> </span>Errors in approximating <span class="process-math">\(M\)</span> by <span class="process-math">\(M_k\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b1 r1 l1 t1 lines"><span class="process-math">\(k\)</span></td>
@@ -868,10 +867,10 @@ E_k = M - M_k = \sigma_{k+1} \vu_{k+1}\vv_{k+1}^{\tr} + \sigma_{k+2} \vu_{k+2}\v
 </table></div></figure><article class="activity project-like" id="activity-113"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">30.3</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-506"><p id="p-5113">Let <span class="process-math">\(M\)</span> represent the flower image.</p></div>
+<div class="introduction" id="introduction-505"><p id="p-5112">Let <span class="process-math">\(M\)</span> represent the flower image.</p></div>
 <article class="task exercise-like" id="task-1707"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5114">Find the relative errors in approximating <span class="process-math">\(M\)</span> by <span class="process-math">\(M_{13}\)</span> and <span class="process-math">\(M_{14}\text{.}\)</span> You may use the fact that <span class="process-math">\(\sqrt{\sum_{i=1}^{16} \sigma_i^2} \approx 3102.0679\text{.}\)</span></p></article><article class="task exercise-like" id="task-1708"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5115">About how much of the information in the image is contained in the rank 1 approximation? Explain.</p></article></article></section></div></main>
+<p id="p-5113">Find the relative errors in approximating <span class="process-math">\(M\)</span> by <span class="process-math">\(M_{13}\)</span> and <span class="process-math">\(M_{14}\text{.}\)</span> You may use the fact that <span class="process-math">\(\sqrt{\sum_{i=1}^{16} \sigma_i^2} \approx 3102.0679\text{.}\)</span></p></article><article class="task exercise-like" id="task-1708"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5114">About how much of the information in the image is contained in the rank 1 approximation? Explain.</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

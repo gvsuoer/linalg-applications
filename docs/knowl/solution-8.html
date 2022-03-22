@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-17T15:36:20-04:00       *-->
+<!--*       on 2022-03-22T12:57:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,10 +16,25 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">1.9.b.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">2.7.a.1</span><span class="period">.</span>
 </h4>
-<p>To solve the system <span class="process-math">\(A \vx = \vb\text{,}\)</span> where <span class="process-math">\(\vb = [18 \ 3 \ 12]^{\tr}\text{,}\)</span> we use the LU factorization of <span class="process-math">\(A\)</span> and solve <span class="process-math">\(LU \vx = \vb\text{.}\)</span> Let <span class="process-math">\(\vx = [x_1 \ x_2 \ x_3]^{\tr}\)</span> and let <span class="process-math">\(\vz = [z_1 \ z_2 \ z_3]^{\tr}\)</span> with <span class="process-math">\(U \vx = \vz\)</span> so that <span class="process-math">\(L \vz = L(U\vx) = A\vx = \vb\text{.}\)</span> First we solve <span class="process-math">\(L \vz = [18 \ 3 \ 12]^{\tr}\)</span> to find <span class="process-math">\(\vz\)</span> using forward substitution. The first row of <span class="process-math">\(L\)</span> shows that <span class="process-math">\(z_1 = 18\)</span> and the second row that <span class="process-math">\(z_1 + z_2 = 3\text{.}\)</span> So <span class="process-math">\(z_2 = -15\text{.}\)</span> The third row of <span class="process-math">\(L\)</span> gives us <span class="process-math">\(\frac{1}{2}z_1 + \frac{1}{3}z_2 + z_3 = 12\text{,}\)</span> so <span class="process-math">\(z_3 = 12 - 9 + 5 = 8\text{.}\)</span> Now to find <span class="process-math">\(\vx\)</span> we solve <span class="process-math">\(U \vx = \vz\)</span> using back substitution. The third row of <span class="process-math">\(U\)</span> tells us that <span class="process-math">\(8x_3 = 8\)</span> or that <span class="process-math">\(x_3 = 1\text{.}\)</span> The second row of <span class="process-math">\(U\)</span> shows that <span class="process-math">\(-6x_2-3x_3 = -15\)</span> or <span class="process-math">\(x_2 =2\text{.}\)</span> Finally, the first row of <span class="process-math">\(U\)</span> gives us <span class="process-math">\(2x_1+8x_2 = 18\text{,}\)</span> or <span class="process-math">\(x_1 = 1\text{.}\)</span> So the solution to <span class="process-math">\(A \vx = \vb\)</span> is <span class="process-math">\(\vx = [1 \ 2 \ 1]^{\tr}\text{.}\)</span></p>
+<p>Throughout, we will let the variables <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> correspond to the first, second, and third columns, respectively, of our augmented matrix.</p>
+<p>When <span class="process-math">\(a=0\)</span> and <span class="process-math">\(b=2\)</span> our augmented matrix has the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[ \begin{array}{ccc|r} 1\amp 0\amp 0\amp 2 \\ 0\amp 2\amp 2\amp -4 \\ 0\amp 0\amp 2\amp 1 \end{array}  \right]\text{.}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec_det_prop_exam.html#solution-8">in-context</a></span>
+<p class="continuation">This matrix corresponds to the system</p>
+<div class="displaymath process-math">
+\begin{alignat*}{4}
+{}x  \amp {}{}     \amp {}    \amp {}{}    \amp {}     \amp {}= \amp  \ 2\amp {}\\
+{}  \amp {}{}     \amp {2}y  \amp {}+{}  \amp {2}z   \amp {}= \amp  \ -4\amp {}\\
+{}  \amp {}{}     \amp {}    \amp {}{}    \amp {2}z  \amp {}= \amp  \ 1\amp {.}
+\end{alignat*}
+</div>
+<p class="continuation">There are no equations of the form <span class="process-math">\(0 = b\)</span> for a nonzero constant <span class="process-math">\(b\text{,}\)</span> so the system is consistent. There are no free variables, so the system has a unique solution. Algebraically, the solution is <span class="process-math">\(x = 2\text{,}\)</span> <span class="process-math">\(z = \frac{1}{2}\text{,}\)</span> and <span class="process-math">\(y = -\frac{5}{2}\text{.}\)</span> Geometrically, this tells us that the three planes given by the original system intersect in a single point.</p>
+</div>
+<span class="incontext"><a href="sec_mtx_sys_exam.html#solution-8">in-context</a></span>
 </body>
 </html>

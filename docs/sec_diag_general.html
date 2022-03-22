@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:24:04-04:00       *-->
+<!--*       on 2022-03-21T15:33:46-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,13 +750,13 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_diag_general"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Diagonalization in General</span>
 </h2>
-<p id="p-3223">In <a href="" class="xref" data-knowl="./knowl/pa_4_c.html" title="Preview Activity 19.1">Preview Activity 19.1</a> and in the matrix transformation example we found that a matrix <span class="process-math">\(A\)</span> was similar to a diagonal matrix whose columns were eigenvectors of <span class="process-math">\(A\text{.}\)</span> This will work for a general <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> as long as we can find an invertible matrix <span class="process-math">\(P\)</span> whose columns are eigenvectors of <span class="process-math">\(A\text{.}\)</span> More specifically, suppose <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix with <span class="process-math">\(n\)</span> linearly independent eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_n\)</span> with corresponding eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_n\)</span> (not necessarily distinct). Let</p>
+<p id="p-3222">In <a href="" class="xref" data-knowl="./knowl/pa_4_c.html" title="Preview Activity 19.1">Preview Activity 19.1</a> and in the matrix transformation example we found that a matrix <span class="process-math">\(A\)</span> was similar to a diagonal matrix whose columns were eigenvectors of <span class="process-math">\(A\text{.}\)</span> This will work for a general <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> as long as we can find an invertible matrix <span class="process-math">\(P\)</span> whose columns are eigenvectors of <span class="process-math">\(A\text{.}\)</span> More specifically, suppose <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix with <span class="process-math">\(n\)</span> linearly independent eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_n\)</span> with corresponding eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_n\)</span> (not necessarily distinct). Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P = [ \vv_1 \  \vv_2  \ \vv_3  \ \cdots  \ \vv_n]\text{.}
 \end{equation*}
 </div>
-<p id="p-3224">Then</p>
+<p id="p-3223">Then</p>
 <div class="displaymath process-math">
 \begin{align*}
 AP \amp = [ A\vv_1  \ A\vv_2  \ A\vv_3  \ \cdots  \ A\vv_n]\\
@@ -776,7 +775,7 @@ AP \amp = [ A\vv_1  \ A\vv_2  \ A\vv_3  \ \cdots  \ A\vv_n]\\
 D = \left[ \begin{array}{cccccc} \lambda_1\amp 0\amp 0\amp \cdots\amp 0\amp 0 \\ 0\amp \lambda_2\amp 0\amp \cdots\amp 0\amp 0 \\ \vdots\amp \vdots\amp \amp  \cdots\amp \vdots\amp \vdots \\ 0\amp 0\amp 0\amp \cdots\amp \lambda_{n-1}\amp 0 \\  0\amp 0\amp 0\amp \cdots\amp 0\amp \lambda_{n} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-3225">Since the columns of <span class="process-math">\(P\)</span> are linearly independent, we know <span class="process-math">\(P\)</span> is invertible, and so</p>
+<p id="p-3224">Since the columns of <span class="process-math">\(P\)</span> are linearly independent, we know <span class="process-math">\(P\)</span> is invertible, and so</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P^{-1}AP = D\text{.}
@@ -785,24 +784,24 @@ P^{-1}AP = D\text{.}
 <article class="definition definition-like" id="definition-43"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">19.4</span><span class="period">.</span>
 </h3>
-<p id="p-3226">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">diagonalizable</dfn> if there is an invertible <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P\)</span> so that <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix.</p></article><p id="p-3227">In other words, a matrix <span class="process-math">\(A\)</span> is diagonalizable if <span class="process-math">\(A\)</span> is similar to a diagonal matrix.</p>
+<p id="p-3225">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">diagonalizable</dfn> if there is an invertible <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P\)</span> so that <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix.</p></article><p id="p-3226">In other words, a matrix <span class="process-math">\(A\)</span> is diagonalizable if <span class="process-math">\(A\)</span> is similar to a diagonal matrix.</p>
 <section class="paragraphs" id="paragraphs-24"><h3 class="heading"><span class="title">IMPORTANT NOTE.</span></h3>
-<p id="p-3228">The key notion to the process described above is that in order to diagonalize an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we have to find <span class="process-math">\(n\)</span> linearly independent eigenvectors for <span class="process-math">\(A\text{.}\)</span> When <span class="process-math">\(A\)</span> is diagonalizable, a matrix <span class="process-math">\(P\)</span> so that <span class="process-math">\(P^{-1}AP\)</span> is diagonal is said to <dfn class="terminology">diagonalize</dfn> <span class="process-math">\(A\text{.}\)</span></p></section><article class="activity project-like" id="act_4_c_3"><h3 class="heading">
+<p id="p-3227">The key notion to the process described above is that in order to diagonalize an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we have to find <span class="process-math">\(n\)</span> linearly independent eigenvectors for <span class="process-math">\(A\text{.}\)</span> When <span class="process-math">\(A\)</span> is diagonalizable, a matrix <span class="process-math">\(P\)</span> so that <span class="process-math">\(P^{-1}AP\)</span> is diagonal is said to <dfn class="terminology">diagonalize</dfn> <span class="process-math">\(A\text{.}\)</span></p></section><article class="activity project-like" id="act_4_c_3"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">19.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-303"><p id="p-3229">Find an invertible matrix <span class="process-math">\(P\)</span> that diagonalizes <span class="process-math">\(A\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-302"><p id="p-3228">Find an invertible matrix <span class="process-math">\(P\)</span> that diagonalizes <span class="process-math">\(A\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1063"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3230"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1064"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3231"><span class="process-math">\(A = \left[ \begin{array}{ccc} 3\amp 2\amp 4 \\ 2\amp 0\amp 2 \\ 4\amp 2\amp 3 \end{array} \right]\text{.}\)</span></p>
+<p id="p-3229"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 0\amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1064"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3230"><span class="process-math">\(A = \left[ \begin{array}{ccc} 3\amp 2\amp 4 \\ 2\amp 0\amp 2 \\ 4\amp 2\amp 3 \end{array} \right]\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-23" id="hint-23"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-23"><div class="hint solution-like"><p id="p-3232">The eigenvalues of <span class="process-math">\(A\)</span> are 8 and <span class="process-math">\(-1\text{.}\)</span></p></div></div>
-</div></article></article><p id="p-3233">It should be noted that there are square matrices that are not diagonalizable. For example, the matrix <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 0\amp 1 \end{array} \right]\)</span> has 1 as its only eigenvalue and the dimension of the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue is one. Therefore, it will be impossible to find two linearly independent eigenvectors for <span class="process-math">\(A\text{.}\)</span></p>
-<p id="p-3234">We showed previously that eigenvectors corresponding to distinct eigenvalue are always linearly independent, so if an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> distinct eigenvalues then <span class="process-math">\(A\)</span> is diagonalizable. <a href="" class="xref" data-knowl="./knowl/act_4_c_3.html" title="Activity 19.6">Activity 19.6</a> (b) shows that it is possible to diagonalize an <span class="process-math">\(n \times n\)</span> matrix even if the matrix does not have <span class="process-math">\(n\)</span> distinct eigenvalues. In general, we can diagonalize a matrix as long as the dimension of each eigenspace is equal to the multiplicity of the corresponding eigenvalue. In other words, a matrix is diagonalizable if the geometric multiplicity is the same is the algebraic multiplicity for each eigenvalue.</p>
-<p id="p-3235">At this point we might ask one final question. We argued that if an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors, then <span class="process-math">\(A\)</span> is diagonalizable. It is reasonable to wonder if the converse is true — that is, if <span class="process-math">\(A\)</span> is diagonalizable, must <span class="process-math">\(A\)</span> have <span class="process-math">\(n\)</span> linearly independent eigenvectors? The answer is yes, and you are asked to show this in <a href="" class="xref" data-knowl="./knowl/ex_4_c_diagonal_converse.html" title="Exercise 6">Exercise 6</a>. We summarize the result in the following theorem.</p>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-23" id="hint-23"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-23"><div class="hint solution-like"><p id="p-3231">The eigenvalues of <span class="process-math">\(A\)</span> are 8 and <span class="process-math">\(-1\text{.}\)</span></p></div></div>
+</div></article></article><p id="p-3232">It should be noted that there are square matrices that are not diagonalizable. For example, the matrix <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 0\amp 1 \end{array} \right]\)</span> has 1 as its only eigenvalue and the dimension of the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue is one. Therefore, it will be impossible to find two linearly independent eigenvectors for <span class="process-math">\(A\text{.}\)</span></p>
+<p id="p-3233">We showed previously that eigenvectors corresponding to distinct eigenvalue are always linearly independent, so if an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> distinct eigenvalues then <span class="process-math">\(A\)</span> is diagonalizable. <a href="" class="xref" data-knowl="./knowl/act_4_c_3.html" title="Activity 19.6">Activity 19.6</a> (b) shows that it is possible to diagonalize an <span class="process-math">\(n \times n\)</span> matrix even if the matrix does not have <span class="process-math">\(n\)</span> distinct eigenvalues. In general, we can diagonalize a matrix as long as the dimension of each eigenspace is equal to the multiplicity of the corresponding eigenvalue. In other words, a matrix is diagonalizable if the geometric multiplicity is the same is the algebraic multiplicity for each eigenvalue.</p>
+<p id="p-3234">At this point we might ask one final question. We argued that if an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors, then <span class="process-math">\(A\)</span> is diagonalizable. It is reasonable to wonder if the converse is true — that is, if <span class="process-math">\(A\)</span> is diagonalizable, must <span class="process-math">\(A\)</span> have <span class="process-math">\(n\)</span> linearly independent eigenvectors? The answer is yes, and you are asked to show this in <a href="" class="xref" data-knowl="./knowl/ex_4_c_diagonal_converse.html" title="Exercise 6">Exercise 6</a>. We summarize the result in the following theorem.</p>
 <article class="theorem theorem-like" id="theorem-43"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">19.5</span><span class="period">.</span><span class="space"> </span><span class="title">The Diagonalization Theorem.</span>
 </h3>
-<p id="p-3236">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable if and only if <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors. If <span class="process-math">\(A\)</span> is diagonalizable and has linearly independent eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_n\)</span> with <span class="process-math">\(A\vv_i = \lambda_i \vv_i\)</span> for each <span class="process-math">\(i\text{,}\)</span> then <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P [ \vv_1 \ \vv_2 \ \cdots \ \vv_n]\)</span> whose columns are linearly independent eigenvectors of <span class="process-math">\(A\)</span> satisfies <span class="process-math">\(P^{-1}AP = D\text{,}\)</span> where <span class="process-math">\(D = [d_{ij}]\)</span> is the diagonal matrix with diagonal entries <span class="process-math">\(d_{ii} = \lambda_i\)</span> for each <span class="process-math">\(i\text{.}\)</span></p></article></section></div></main>
+<p id="p-3235">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable if and only if <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors. If <span class="process-math">\(A\)</span> is diagonalizable and has linearly independent eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_n\)</span> with <span class="process-math">\(A\vv_i = \lambda_i \vv_i\)</span> for each <span class="process-math">\(i\text{,}\)</span> then <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P [ \vv_1 \ \vv_2 \ \cdots \ \vv_n]\)</span> whose columns are linearly independent eigenvectors of <span class="process-math">\(A\)</span> satisfies <span class="process-math">\(P^{-1}AP = D\text{,}\)</span> where <span class="process-math">\(D = [d_{ij}]\)</span> is the diagonal matrix with diagonal entries <span class="process-math">\(d_{ii} = \lambda_i\)</span> for each <span class="process-math">\(i\text{.}\)</span></p></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

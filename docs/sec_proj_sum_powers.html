@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:28:32-04:00       *-->
+<!--*       on 2022-03-21T15:38:52-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,20 +750,20 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proj_sum_powers"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Finding Formulas for Sums of Powers</span>
 </h2>
-<p id="p-6030">One way to derive formulas for sums of powers of whole numbers is to use different bases and coordinate vectors. One basis that will be useful is a basis of polynomials created by the binomial coefficients. Recall that the binomial coefficient <span class="process-math">\(\binom{n}{k}\)</span> is equal to</p>
+<p id="p-6029">One way to derive formulas for sums of powers of whole numbers is to use different bases and coordinate vectors. One basis that will be useful is a basis of polynomials created by the binomial coefficients. Recall that the binomial coefficient <span class="process-math">\(\binom{n}{k}\)</span> is equal to</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \binom{n}{k} = \frac{n!}{k!(n-k)!}\text{,}
 \end{equation*}
 </div>
 <p class="continuation">with <span class="process-math">\(\binom{n}{k} = 0\)</span> if <span class="process-math">\(n \lt  k\text{.}\)</span></p>
-<p id="p-6031">The binomial coefficient can be rewritten in a way to make it applicable to polynomials as</p>
+<p id="p-6030">The binomial coefficient can be rewritten in a way to make it applicable to polynomials as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \binom{n}{k} = \frac{n(n-1)(n-2) \cdots (n-k+1)}{k!} = \Pi_{i=1}^k \frac{1}{i}(n-i+1)\text{.}
 \end{equation*}
 </div>
-<p id="p-6032">With this representation of <span class="process-math">\(\binom{n}{k}\text{,}\)</span> we can define a new polynomial in <span class="process-math">\(t\)</span> of degree <span class="process-math">\(k\)</span> as</p>
+<p id="p-6031">With this representation of <span class="process-math">\(\binom{n}{k}\text{,}\)</span> we can define a new polynomial in <span class="process-math">\(t\)</span> of degree <span class="process-math">\(k\)</span> as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 p_{k}(t) = \frac{1}{k!}(t)(t-1)(t-2) \cdots (t-k+1)
@@ -778,33 +777,33 @@ p_2(t) \amp = \frac{1}{2}(t)(t-1) = \frac{1}{2}\left(t^2-t\right)\\
 p_3(t) \amp = \frac{1}{6}(t)(t-1)(t-2) = \frac{1}{6}\left(t^3-3t^2+2t\right)\text{.}
 \end{align*}
 </div>
-<p id="p-6033">These “generalized binomial coefficients” appear in Newton's generalized binomial theorem.</p>
-<p id="p-6034">Two facts will make these polynomials useful for our sums.</p>
+<p id="p-6032">These “generalized binomial coefficients” appear in Newton's generalized binomial theorem.</p>
+<p id="p-6033">Two facts will make these polynomials useful for our sums.</p>
 <article class="project project-like" id="act_hockey_stick"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">34.5</span><span class="period">.</span>
 </h3>
-<p id="p-6035">Our polynomials <span class="process-math">\(p_k(t)\)</span> are defined in terms of binomial coefficients. A useful identity will relate sums of binomial coefficients to other binomial coefficients. This identity, called the <em class="emphasis">hockey-stick identity</em> after the way it can be visualized on Pascal's triangle, is as follows:</p>
+<p id="p-6034">Our polynomials <span class="process-math">\(p_k(t)\)</span> are defined in terms of binomial coefficients. A useful identity will relate sums of binomial coefficients to other binomial coefficients. This identity, called the <em class="emphasis">hockey-stick identity</em> after the way it can be visualized on Pascal's triangle, is as follows:</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{k=0}^{n-1} \binom{k}{r} = \binom{n}{r+1}
 \end{equation*}
 </div>
-<p class="continuation">for positive integers <span class="process-math">\(r\text{.}\)</span> Use the definition of the binomial coefficients and some algebra to verify the hockey-stick identity.</p></article><p id="p-6036">The second useful fact about our polynomials <span class="process-math">\(p_k(t)\)</span> is that they form a basis for <span class="process-math">\(\pol_n\text{.}\)</span></p>
+<p class="continuation">for positive integers <span class="process-math">\(r\text{.}\)</span> Use the definition of the binomial coefficients and some algebra to verify the hockey-stick identity.</p></article><p id="p-6035">The second useful fact about our polynomials <span class="process-math">\(p_k(t)\)</span> is that they form a basis for <span class="process-math">\(\pol_n\text{.}\)</span></p>
 <article class="project project-like" id="act_binomial_basis"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">34.6</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-2050"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6037">Let <span class="process-math">\(k\)</span> be a positive integer. Explain why <span class="process-math">\(p_k(0) = p_k(1) = p_k(2) = \cdots = p_k(k-1) = 0\)</span> and <span class="process-math">\(p_k(k) = 1\text{.}\)</span></p></article><article class="task exercise-like" id="task-2051"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6038">Let <span class="process-math">\(\CP_n = \{p_0(t), p_1(t),
+<p id="p-6036">Let <span class="process-math">\(k\)</span> be a positive integer. Explain why <span class="process-math">\(p_k(0) = p_k(1) = p_k(2) = \cdots = p_k(k-1) = 0\)</span> and <span class="process-math">\(p_k(k) = 1\text{.}\)</span></p></article><article class="task exercise-like" id="task-2051"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6037">Let <span class="process-math">\(\CP_n = \{p_0(t), p_1(t),
 p_2(t), \ldots, p_n(t)\}\text{.}\)</span> Show that <span class="process-math">\(\CP_n\)</span> is a basis for <span class="process-math">\(\pol_n\text{.}\)</span> (Hint: Let <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_n\)</span> be scalars and consider the equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 c_0p_0(t) + c_1p_1(t) + c_2 p_2(t) + \cdots + c_np_n(t) = 0\text{.}
 \end{equation*}
 </div>
-<p class="continuation">Evaluate this equation at <span class="process-math">\(t=0\text{,}\)</span> <span class="process-math">\(t=1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(t=n\)</span> and use the result of part (a).)</p></article></article><p id="p-6039">Now we have the tools we need to derive our formulas. To simplify computations, we will change coordinates to the standard basis <span class="process-math">\(\CS_n = \{1, t, t^2, \ldots,
+<p class="continuation">Evaluate this equation at <span class="process-math">\(t=0\text{,}\)</span> <span class="process-math">\(t=1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(t=n\)</span> and use the result of part (a).)</p></article></article><p id="p-6038">Now we have the tools we need to derive our formulas. To simplify computations, we will change coordinates to the standard basis <span class="process-math">\(\CS_n = \{1, t, t^2, \ldots,
 t^n\}\)</span> for <span class="process-math">\(\pol_n\text{.}\)</span></p>
-<p id="p-6040">We will illustrate the process of deriving formulas for our sums with the sum <span class="process-math">\(\sum_{t=0}^{n-1} t\text{.}\)</span> We want to write <span class="process-math">\(t\)</span> as a linear combination of the vectors in <span class="process-math">\(\CP_1\)</span> so that we can utilize the hockey-stick identity. In this case, by definition we have <span class="process-math">\(t = p_1(t)\text{.}\)</span> It follows by the hockey-stick identity and the fact that <span class="process-math">\(p_1(t) = \binom{t}{1}\)</span> that</p>
+<p id="p-6039">We will illustrate the process of deriving formulas for our sums with the sum <span class="process-math">\(\sum_{t=0}^{n-1} t\text{.}\)</span> We want to write <span class="process-math">\(t\)</span> as a linear combination of the vectors in <span class="process-math">\(\CP_1\)</span> so that we can utilize the hockey-stick identity. In this case, by definition we have <span class="process-math">\(t = p_1(t)\text{.}\)</span> It follows by the hockey-stick identity and the fact that <span class="process-math">\(p_1(t) = \binom{t}{1}\)</span> that</p>
 <div class="displaymath process-math">
 \begin{align*}
 \sum_{t=0}^{n-1} t \amp = \sum_{t=0}^{n-1}  p_1(t)\\
@@ -813,22 +812,22 @@ t^n\}\)</span> for <span class="process-math">\(\pol_n\text{.}\)</span></p>
 \amp = \frac{1}{2}\left(n^2-n\right)\text{.}
 \end{align*}
 </div>
-<p id="p-6041">This is exactly the formula we saw at the beginning of this section. The cases for sums of higher powers work the same way, but we will need to do a little more work to write <span class="process-math">\(t^n\)</span> in terms of the basis vectors in <span class="process-math">\(\CP_n\text{.}\)</span></p>
+<p id="p-6040">This is exactly the formula we saw at the beginning of this section. The cases for sums of higher powers work the same way, but we will need to do a little more work to write <span class="process-math">\(t^n\)</span> in terms of the basis vectors in <span class="process-math">\(\CP_n\text{.}\)</span></p>
 <article class="project project-like" id="act_sum_2"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">34.7</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-600"><p id="p-6042">Consider the sum <span class="process-math">\(\sum_{t=0}^{n-1} t^2\text{.}\)</span> We want to write <span class="process-math">\(t^2\)</span> as a linear combination of <span class="process-math">\(p_0(t)\text{,}\)</span> <span class="process-math">\(p_1(t)\)</span> and <span class="process-math">\(p_2(t)\text{.}\)</span> To do so, we will use the coordinate vectors with respect to <span class="process-math">\(\CS_2\)</span> and do our work in <span class="process-math">\(\R^3\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-599"><p id="p-6041">Consider the sum <span class="process-math">\(\sum_{t=0}^{n-1} t^2\text{.}\)</span> We want to write <span class="process-math">\(t^2\)</span> as a linear combination of <span class="process-math">\(p_0(t)\text{,}\)</span> <span class="process-math">\(p_1(t)\)</span> and <span class="process-math">\(p_2(t)\text{.}\)</span> To do so, we will use the coordinate vectors with respect to <span class="process-math">\(\CS_2\)</span> and do our work in <span class="process-math">\(\R^3\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-2052"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6043">Find <span class="process-math">\([p_0(t)]_{\CS_2}\text{,}\)</span> <span class="process-math">\([p_1(t)]_{\CS_2}\text{,}\)</span> <span class="process-math">\([p_2(t)]_{\CS_2}\text{,}\)</span> and <span class="process-math">\([t^2]_{\CS_2}\text{.}\)</span></p></article><article class="task exercise-like" id="task-2053"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6044">Use the coordinate vectors from part (a) to write <span class="process-math">\(t^2\)</span> as a linear combination of the vectors in <span class="process-math">\(\CP_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-2054"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6045">Use the result of part (b) and, the hockey-stick identity, and the fact that <span class="process-math">\(p_k(t) = \binom{t}{k}\)</span> to find a formula for <span class="process-math">\(\sum_{t=0}^{n-1} t^2\text{.}\)</span></p></article></article><p id="p-6046">Deriving formulas for higher powers involves the same process, just with more algebra.</p>
+<p id="p-6042">Find <span class="process-math">\([p_0(t)]_{\CS_2}\text{,}\)</span> <span class="process-math">\([p_1(t)]_{\CS_2}\text{,}\)</span> <span class="process-math">\([p_2(t)]_{\CS_2}\text{,}\)</span> and <span class="process-math">\([t^2]_{\CS_2}\text{.}\)</span></p></article><article class="task exercise-like" id="task-2053"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6043">Use the coordinate vectors from part (a) to write <span class="process-math">\(t^2\)</span> as a linear combination of the vectors in <span class="process-math">\(\CP_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-2054"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6044">Use the result of part (b) and, the hockey-stick identity, and the fact that <span class="process-math">\(p_k(t) = \binom{t}{k}\)</span> to find a formula for <span class="process-math">\(\sum_{t=0}^{n-1} t^2\text{.}\)</span></p></article></article><p id="p-6045">Deriving formulas for higher powers involves the same process, just with more algebra.</p>
 <article class="project project-like" id="act_sums_higher"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">34.8</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-601"><p id="p-6047">Use the process outlined in <a href="" class="xref" data-knowl="./knowl/act_sum_2.html" title="Project Activity 34.7">Project Activity 34.7</a> to derive formulas for the following sums.</p></div>
+<div class="introduction" id="introduction-600"><p id="p-6046">Use the process outlined in <a href="" class="xref" data-knowl="./knowl/act_sum_2.html" title="Project Activity 34.7">Project Activity 34.7</a> to derive formulas for the following sums.</p></div>
 <article class="task exercise-like" id="task-2055"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6048"><span class="process-math">\(\sum_{t=0}^{n-1} t^3\)</span></p></article><article class="task exercise-like" id="task-2056"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6049"><span class="process-math">\(\sum_{t=0}^{n-1} t^4\)</span></p></article></article></section></div></main>
+<p id="p-6047"><span class="process-math">\(\sum_{t=0}^{n-1} t^3\)</span></p></article><article class="task exercise-like" id="task-2056"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6048"><span class="process-math">\(\sum_{t=0}^{n-1} t^4\)</span></p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

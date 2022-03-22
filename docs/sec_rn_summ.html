@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:22:13-04:00       *-->
+<!--*       on 2022-03-21T15:31:55-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -753,32 +752,32 @@
 </h2>
 <ul class="disc">
 <li id="li-384">
-<p id="p-2063">A vector space is a set <span class="process-math">\(V\)</span> with operations of addition and scalar multiplication defined on <span class="process-math">\(V\)</span> such that for all <span class="process-math">\(\vu\text{,}\)</span> <span class="process-math">\(\vv\text{,}\)</span> and <span class="process-math">\(\vw\)</span> in <span class="process-math">\(V\)</span> and all scalars <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{:}\)</span></p>
+<p id="p-2062">A vector space is a set <span class="process-math">\(V\)</span> with operations of addition and scalar multiplication defined on <span class="process-math">\(V\)</span> such that for all <span class="process-math">\(\vu\text{,}\)</span> <span class="process-math">\(\vv\text{,}\)</span> and <span class="process-math">\(\vw\)</span> in <span class="process-math">\(V\)</span> and all scalars <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{:}\)</span></p>
 <ol class="decimal">
-<li id="li-385"><p id="p-2064"><span class="process-math">\(\vu + \vv\)</span> is an element of <span class="process-math">\(V\)</span> (we say that <span class="process-math">\(V\)</span> is <dfn class="terminology">closed</dfn> under the addition in <span class="process-math">\(V\)</span>),</p></li>
-<li id="li-386"><p id="p-2065"><span class="process-math">\(\vu + \vv = \vv + \vu\)</span> (we say that the addition in <span class="process-math">\(V\)</span> is <dfn class="terminology">commutative</dfn>),</p></li>
-<li id="li-387"><p id="p-2066"><span class="process-math">\((\vu + \vv) + \vw = \vu + (\vv + \vw)\)</span> (we say that the addition in <span class="process-math">\(V\)</span> is <dfn class="terminology">associative</dfn>),</p></li>
-<li id="li-388"><p id="p-2067">there is a vector <span class="process-math">\(\vzero\)</span> in <span class="process-math">\(V\)</span> so that <span class="process-math">\(\vu + \vzero = \vu\)</span> (we say that <span class="process-math">\(V\)</span> contains an <dfn class="terminology">additive identity</dfn> or <dfn class="terminology">zero vector</dfn> <span class="process-math">\(\vzero\)</span>),</p></li>
-<li id="li-389"><p id="p-2068">for each <span class="process-math">\(\vx\)</span> in <span class="process-math">\(V\)</span> there is an element <span class="process-math">\(\vy\)</span> in <span class="process-math">\(V\)</span> so that <span class="process-math">\(\vx + \vy = \vzero\)</span> (we say that <span class="process-math">\(V\)</span> contains an <dfn class="terminology">additive inverse</dfn> <span class="process-math">\(\vy\)</span> for each element <span class="process-math">\(\vx\)</span> in <span class="process-math">\(V\)</span>),</p></li>
-<li id="li-390"><p id="p-2069"><span class="process-math">\(a \vu\)</span> is an element of <span class="process-math">\(V\)</span> (we say that <span class="process-math">\(V\)</span> is <dfn class="terminology">closed</dfn> under multiplication by scalars),</p></li>
-<li id="li-391"><p id="p-2070"><span class="process-math">\((a+b) \vu = a\vu + b\vu\)</span> (we say that <dfn class="terminology">multiplication by scalars distributes over scalar addition</dfn>),</p></li>
-<li id="li-392"><p id="p-2071"><span class="process-math">\(a(\vu + \vv) = a\vu + a\vv\)</span> (we say that <dfn class="terminology">multiplication by scalars distributes over addition in <span class="process-math">\(V\)</span></dfn>),</p></li>
-<li id="li-393"><p id="p-2072"><span class="process-math">\((ab) \vu = a(b\vu)\text{,}\)</span></p></li>
-<li id="li-394"><p id="p-2073"><span class="process-math">\(1 \vu = \vu\text{.}\)</span></p></li>
+<li id="li-385"><p id="p-2063"><span class="process-math">\(\vu + \vv\)</span> is an element of <span class="process-math">\(V\)</span> (we say that <span class="process-math">\(V\)</span> is <dfn class="terminology">closed</dfn> under the addition in <span class="process-math">\(V\)</span>),</p></li>
+<li id="li-386"><p id="p-2064"><span class="process-math">\(\vu + \vv = \vv + \vu\)</span> (we say that the addition in <span class="process-math">\(V\)</span> is <dfn class="terminology">commutative</dfn>),</p></li>
+<li id="li-387"><p id="p-2065"><span class="process-math">\((\vu + \vv) + \vw = \vu + (\vv + \vw)\)</span> (we say that the addition in <span class="process-math">\(V\)</span> is <dfn class="terminology">associative</dfn>),</p></li>
+<li id="li-388"><p id="p-2066">there is a vector <span class="process-math">\(\vzero\)</span> in <span class="process-math">\(V\)</span> so that <span class="process-math">\(\vu + \vzero = \vu\)</span> (we say that <span class="process-math">\(V\)</span> contains an <dfn class="terminology">additive identity</dfn> or <dfn class="terminology">zero vector</dfn> <span class="process-math">\(\vzero\)</span>),</p></li>
+<li id="li-389"><p id="p-2067">for each <span class="process-math">\(\vx\)</span> in <span class="process-math">\(V\)</span> there is an element <span class="process-math">\(\vy\)</span> in <span class="process-math">\(V\)</span> so that <span class="process-math">\(\vx + \vy = \vzero\)</span> (we say that <span class="process-math">\(V\)</span> contains an <dfn class="terminology">additive inverse</dfn> <span class="process-math">\(\vy\)</span> for each element <span class="process-math">\(\vx\)</span> in <span class="process-math">\(V\)</span>),</p></li>
+<li id="li-390"><p id="p-2068"><span class="process-math">\(a \vu\)</span> is an element of <span class="process-math">\(V\)</span> (we say that <span class="process-math">\(V\)</span> is <dfn class="terminology">closed</dfn> under multiplication by scalars),</p></li>
+<li id="li-391"><p id="p-2069"><span class="process-math">\((a+b) \vu = a\vu + b\vu\)</span> (we say that <dfn class="terminology">multiplication by scalars distributes over scalar addition</dfn>),</p></li>
+<li id="li-392"><p id="p-2070"><span class="process-math">\(a(\vu + \vv) = a\vu + a\vv\)</span> (we say that <dfn class="terminology">multiplication by scalars distributes over addition in <span class="process-math">\(V\)</span></dfn>),</p></li>
+<li id="li-393"><p id="p-2071"><span class="process-math">\((ab) \vu = a(b\vu)\text{,}\)</span></p></li>
+<li id="li-394"><p id="p-2072"><span class="process-math">\(1 \vu = \vu\text{.}\)</span></p></li>
 </ol>
 </li>
-<li id="li-395"><p id="p-2074">For every <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\R^n\)</span> is a vector space.</p></li>
-<li id="li-396"><p id="p-2075">A subset <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\)</span> if <span class="process-math">\(W\)</span> is a vector space using the same operations as in <span class="process-math">\(\R^n\text{.}\)</span></p></li>
+<li id="li-395"><p id="p-2073">For every <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(\R^n\)</span> is a vector space.</p></li>
+<li id="li-396"><p id="p-2074">A subset <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\)</span> if <span class="process-math">\(W\)</span> is a vector space using the same operations as in <span class="process-math">\(\R^n\text{.}\)</span></p></li>
 <li id="li-397">
-<p id="p-2076">To show that a subset <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\text{,}\)</span> we need to prove the following:</p>
+<p id="p-2075">To show that a subset <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\text{,}\)</span> we need to prove the following:</p>
 <ol class="decimal">
-<li id="li-398"><p id="p-2077"><span class="process-math">\(\vu + \vv\)</span> is in <span class="process-math">\(W\)</span> whenever <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are in <span class="process-math">\(W\)</span> (when this property is satisfied we say that <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under addition),</p></li>
-<li id="li-399"><p id="p-2078"><span class="process-math">\(a \vu\)</span> is in <span class="process-math">\(W\)</span> whenever <span class="process-math">\(a\)</span> is a scalar and <span class="process-math">\(\vu\)</span> is in <span class="process-math">\(W\)</span> (when this property is satisfied we say that <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under multiplication by scalars),</p></li>
-<li id="li-400"><p id="p-2079"><span class="process-math">\(\vzero\)</span> is in <span class="process-math">\(W\text{.}\)</span></p></li>
+<li id="li-398"><p id="p-2076"><span class="process-math">\(\vu + \vv\)</span> is in <span class="process-math">\(W\)</span> whenever <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are in <span class="process-math">\(W\)</span> (when this property is satisfied we say that <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under addition),</p></li>
+<li id="li-399"><p id="p-2077"><span class="process-math">\(a \vu\)</span> is in <span class="process-math">\(W\)</span> whenever <span class="process-math">\(a\)</span> is a scalar and <span class="process-math">\(\vu\)</span> is in <span class="process-math">\(W\)</span> (when this property is satisfied we say that <span class="process-math">\(W\)</span> is <dfn class="terminology">closed</dfn> under multiplication by scalars),</p></li>
+<li id="li-400"><p id="p-2078"><span class="process-math">\(\vzero\)</span> is in <span class="process-math">\(W\text{.}\)</span></p></li>
 </ol>
 <p class="continuation">The remaining properties of a vector space are properties of the operation, and as long as we use the same operations as in <span class="process-math">\(\R^n\text{,}\)</span> the operation properties follow the operations.</p>
 </li>
-<li id="li-401"><p id="p-2080">The span of any set of vectors in <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\text{.}\)</span></p></li>
+<li id="li-401"><p id="p-2079">The span of any set of vectors in <span class="process-math">\(\R^n\)</span> is a subspace of <span class="process-math">\(\R^n\text{.}\)</span></p></li>
 </ul></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>

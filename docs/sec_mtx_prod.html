@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:21:11-04:00       *-->
+<!--*       on 2022-03-21T15:30:49-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,26 +751,26 @@
 <section class="section" id="sec_mtx_prod"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">A Matrix Product</span>
 </h2>
-<section class="introduction" id="introduction-118"><p id="p-1331">As we saw in <a href="" class="xref" data-knowl="./knowl/pa_2_a.html" title="Preview Activity 8.1">Preview Activity 8.1</a>, a matrix-matrix product can be found in a way which makes use of and also generalizes the matrix-vector product.</p>
+<section class="introduction" id="introduction-117"><p id="p-1330">As we saw in <a href="" class="xref" data-knowl="./knowl/pa_2_a.html" title="Preview Activity 8.1">Preview Activity 8.1</a>, a matrix-matrix product can be found in a way which makes use of and also generalizes the matrix-vector product.</p>
 <article class="definition definition-like" id="definition-19"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.2</span><span class="period">.</span>
 </h3>
-<p id="p-1332">The <dfn class="terminology">matrix product</dfn> of a <span class="process-math">\(k \times m\)</span> matrix <span class="process-math">\(A\)</span> and an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]\)</span> with columns <span class="process-math">\(\vb_1\text{,}\)</span> <span class="process-math">\(\vb_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vb_n\)</span> is the <span class="process-math">\(k \times n\)</span> matrix</p>
+<p id="p-1331">The <dfn class="terminology">matrix product</dfn> of a <span class="process-math">\(k \times m\)</span> matrix <span class="process-math">\(A\)</span> and an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]\)</span> with columns <span class="process-math">\(\vb_1\text{,}\)</span> <span class="process-math">\(\vb_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vb_n\)</span> is the <span class="process-math">\(k \times n\)</span> matrix</p>
 <div class="displaymath process-math">
 \begin{equation*}
 [A\vb_1 \ A\vb_2 \ \cdots \ A\vb_n]\text{.}
 \end{equation*}
-</div></article><p id="p-1333">We now consider the motivation behind this definition by thinking about the matrix transformations corresponding to each of the matrices <span class="process-math">\(A, B\)</span> and <span class="process-math">\(AB\text{.}\)</span> Recall that left multiplication by an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B\)</span> defines a transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> by <span class="process-math">\(T(\vx)=B\vx\text{.}\)</span> The domain of <span class="process-math">\(T\)</span> is <span class="process-math">\(\R^n\)</span> because the number of components of <span class="process-math">\(\vx\)</span> have to match the number of entries in each of row of <span class="process-math">\(B\)</span> in order for the matrix-vector product <span class="process-math">\(B\vx\)</span> to be defined. Similarly, a <span class="process-math">\(k \times m\)</span> matrix <span class="process-math">\(A\)</span> defines a transformation <span class="process-math">\(A\)</span> from <span class="process-math">\(\R^m\)</span> to <span class="process-math">\(\R^k\text{.}\)</span> Since transformations are functions, we can compose them as long as the output vectors of the inside transformation lie in the domain of the outside transformation. Therefore if <span class="process-math">\(T\)</span> is the inside transformation and <span class="process-math">\(S\)</span> is the outside transformation, the composition <span class="process-math">\(S\circ T\)</span> is defined. So a natural question to ask is if we are given</p>
+</div></article><p id="p-1332">We now consider the motivation behind this definition by thinking about the matrix transformations corresponding to each of the matrices <span class="process-math">\(A, B\)</span> and <span class="process-math">\(AB\text{.}\)</span> Recall that left multiplication by an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B\)</span> defines a transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> by <span class="process-math">\(T(\vx)=B\vx\text{.}\)</span> The domain of <span class="process-math">\(T\)</span> is <span class="process-math">\(\R^n\)</span> because the number of components of <span class="process-math">\(\vx\)</span> have to match the number of entries in each of row of <span class="process-math">\(B\)</span> in order for the matrix-vector product <span class="process-math">\(B\vx\)</span> to be defined. Similarly, a <span class="process-math">\(k \times m\)</span> matrix <span class="process-math">\(A\)</span> defines a transformation <span class="process-math">\(A\)</span> from <span class="process-math">\(\R^m\)</span> to <span class="process-math">\(\R^k\text{.}\)</span> Since transformations are functions, we can compose them as long as the output vectors of the inside transformation lie in the domain of the outside transformation. Therefore if <span class="process-math">\(T\)</span> is the inside transformation and <span class="process-math">\(S\)</span> is the outside transformation, the composition <span class="process-math">\(S\circ T\)</span> is defined. So a natural question to ask is if we are given</p>
 <ul class="disc">
-<li id="li-250"><p id="p-1334">a transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> where <span class="process-math">\(T(\vx) = B \vx\)</span> for an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B\)</span> and</p></li>
-<li id="li-251"><p id="p-1335">a transformation <span class="process-math">\(S\)</span> from <span class="process-math">\(\R^m\)</span> to <span class="process-math">\(\R^k\)</span> with <span class="process-math">\(S(\vy) = A \vy\)</span> for some <span class="process-math">\(k \times m\)</span> matrix <span class="process-math">\(A\text{,}\)</span></p></li>
+<li id="li-250"><p id="p-1333">a transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> where <span class="process-math">\(T(\vx) = B \vx\)</span> for an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B\)</span> and</p></li>
+<li id="li-251"><p id="p-1334">a transformation <span class="process-math">\(S\)</span> from <span class="process-math">\(\R^m\)</span> to <span class="process-math">\(\R^k\)</span> with <span class="process-math">\(S(\vy) = A \vy\)</span> for some <span class="process-math">\(k \times m\)</span> matrix <span class="process-math">\(A\text{,}\)</span></p></li>
 </ul>
 <p class="continuation">is there a matrix that represents the transformation <span class="process-math">\(S \circ T\)</span> defined by <span class="process-math">\((S\circ T)(\vx)=S(T(\vx))\text{?}\)</span> We investigate this question in the next activity in the special case of a <span class="process-math">\(2\times 3\)</span> matrix <span class="process-math">\(A\)</span> and a <span class="process-math">\(3\times 2\)</span> matrix <span class="process-math">\(B\text{.}\)</span></p>
 <article class="activity project-like" id="act_A2_1_1"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.2</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-119">
-<p id="p-1336">In this activity, we look for the meaning of the matrix product from a transformation perspective. Let <span class="process-math">\(S\)</span> and <span class="process-math">\(T\)</span> be matrix transformations defined by</p>
+<div class="introduction" id="introduction-118">
+<p id="p-1335">In this activity, we look for the meaning of the matrix product from a transformation perspective. Let <span class="process-math">\(S\)</span> and <span class="process-math">\(T\)</span> be matrix transformations defined by</p>
 <div class="displaymath process-math">
 \begin{equation*}
 S(\vy) = A \vy \ \ \ \text{ and }  \ \ \ T(\vx) = B \vx\text{,}
@@ -785,36 +784,36 @@ A = \left[ \begin{array}{ccc} 1\amp 2\amp 0 \\ 0\amp 1\amp 1 \end{array}  \right
 </div>
 </div>
 <article class="task exercise-like" id="task-401"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1337">What are the domains and codomains of <span class="process-math">\(S\)</span> and <span class="process-math">\(T\text{?}\)</span> Why is the composite transformation <span class="process-math">\(S \circ T\)</span> defined? What is the domain of <span class="process-math">\(S\circ T\text{?}\)</span> What is the codomain of <span class="process-math">\(S\circ T\text{?}\)</span> (Recall that <span class="process-math">\(S \circ T\)</span> is defined by <span class="process-math">\((S \circ T)(\vx) = S(T(\vx))\text{,}\)</span> i.e., we substitute the output <span class="process-math">\(T(\vx)\)</span> as the input into the transformation <span class="process-math">\(S\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-402"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1338">Let <span class="process-math">\(\vx = \left[ \begin{array}{c} x \\ y \end{array} \right]\text{.}\)</span> Determine the components of <span class="process-math">\(T(\vx)\text{.}\)</span></p></article><article class="task exercise-like" id="task-403"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-1339">Find the components of <span class="process-math">\(S\circ T(\vx)=S(T(\vx))\text{.}\)</span></p></article><article class="task exercise-like" id="task-404"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-1340">Find a matrix <span class="process-math">\(C\)</span> so that <span class="process-math">\(S(T(\vx)) = C\vx\text{.}\)</span></p></article><article class="task exercise-like" id="task-405"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-1341">Use the definition of composition of transformations and the definitions of the <span class="process-math">\(S\)</span> and <span class="process-math">\(T\)</span> transformations to explain why it is reasonable to define <span class="process-math">\(AB\)</span> to be the matrix <span class="process-math">\(C\text{.}\)</span> Does the matrix <span class="process-math">\(C\)</span> agree with the</p>
+<p id="p-1336">What are the domains and codomains of <span class="process-math">\(S\)</span> and <span class="process-math">\(T\text{?}\)</span> Why is the composite transformation <span class="process-math">\(S \circ T\)</span> defined? What is the domain of <span class="process-math">\(S\circ T\text{?}\)</span> What is the codomain of <span class="process-math">\(S\circ T\text{?}\)</span> (Recall that <span class="process-math">\(S \circ T\)</span> is defined by <span class="process-math">\((S \circ T)(\vx) = S(T(\vx))\text{,}\)</span> i.e., we substitute the output <span class="process-math">\(T(\vx)\)</span> as the input into the transformation <span class="process-math">\(S\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-402"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1337">Let <span class="process-math">\(\vx = \left[ \begin{array}{c} x \\ y \end{array} \right]\text{.}\)</span> Determine the components of <span class="process-math">\(T(\vx)\text{.}\)</span></p></article><article class="task exercise-like" id="task-403"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-1338">Find the components of <span class="process-math">\(S\circ T(\vx)=S(T(\vx))\text{.}\)</span></p></article><article class="task exercise-like" id="task-404"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-1339">Find a matrix <span class="process-math">\(C\)</span> so that <span class="process-math">\(S(T(\vx)) = C\vx\text{.}\)</span></p></article><article class="task exercise-like" id="task-405"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-1340">Use the definition of composition of transformations and the definitions of the <span class="process-math">\(S\)</span> and <span class="process-math">\(T\)</span> transformations to explain why it is reasonable to define <span class="process-math">\(AB\)</span> to be the matrix <span class="process-math">\(C\text{.}\)</span> Does the matrix <span class="process-math">\(C\)</span> agree with the</p>
 <div class="displaymath process-math">
 \begin{equation*}
 AB = \left[ \begin{array}{cr} 13 \amp  -4 \\ 5 \amp  -1 \end{array}  \right]
 \end{equation*}
 </div>
-<p class="continuation">you found in <a href="" class="xref" data-knowl="./knowl/pa_2_a.html" title="Preview Activity 8.1">Preview Activity 8.1</a> using technology?</p></article></article><p id="p-1342">We now consider this result in the general case of a <span class="process-math">\(k\times m\)</span> matrix <span class="process-math">\(A\)</span> and an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B\text{,}\)</span> where <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> define matrix transformations <span class="process-math">\(S\)</span> and <span class="process-math">\(T\text{,}\)</span> respectively. In other words, <span class="process-math">\(S\)</span> and <span class="process-math">\(T\)</span> are matrix transformations defined by <span class="process-math">\(S(\vx) = A\vx\)</span> and <span class="process-math">\(T(\vx) = B\vx\text{.}\)</span> The domain of <span class="process-math">\(S\)</span> is <span class="process-math">\(\R^m\)</span> and the codomain is <span class="process-math">\(\R^k\text{.}\)</span> The domain of <span class="process-math">\(T\)</span> is <span class="process-math">\(\R^n\)</span> and the codomain is <span class="process-math">\(\R^m\text{.}\)</span> The composition <span class="process-math">\(S\circ T\)</span> is defined because the output vectors of <span class="process-math">\(T\)</span> are in <span class="process-math">\(\R^m\)</span> and they lie in the domain of <span class="process-math">\(S\text{.}\)</span> The domain of <span class="process-math">\(S\circ T\)</span> is the same as the domain of <span class="process-math">\(T\)</span> since the input vectors first go through the <span class="process-math">\(T\)</span> transformation. The codomain of <span class="process-math">\(S\circ T\)</span> is the same as the codomain of <span class="process-math">\(S\)</span> since the final output vectors are produced by applying the <span class="process-math">\(S\)</span> transformation.</p>
-<p id="p-1343">Let us see how we can obtain the matrix corresponding to the transformation <span class="process-math">\(S\circ T\text{.}\)</span> Let <span class="process-math">\(B = \left[ \vb_1 \ \vb_2  \  \cdots \ \vb_n  \right]\text{,}\)</span> where <span class="process-math">\(\vb_j\)</span> is the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(B\text{,}\)</span> and let <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]\text{.}\)</span> Recall that the matrix vector product <span class="process-math">\(B\vx\)</span> is the linear combination of the columns of <span class="process-math">\(B\)</span> with the corresponding weights from <span class="process-math">\(\vx\text{.}\)</span> So</p>
+<p class="continuation">you found in <a href="" class="xref" data-knowl="./knowl/pa_2_a.html" title="Preview Activity 8.1">Preview Activity 8.1</a> using technology?</p></article></article><p id="p-1341">We now consider this result in the general case of a <span class="process-math">\(k\times m\)</span> matrix <span class="process-math">\(A\)</span> and an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(B\text{,}\)</span> where <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> define matrix transformations <span class="process-math">\(S\)</span> and <span class="process-math">\(T\text{,}\)</span> respectively. In other words, <span class="process-math">\(S\)</span> and <span class="process-math">\(T\)</span> are matrix transformations defined by <span class="process-math">\(S(\vx) = A\vx\)</span> and <span class="process-math">\(T(\vx) = B\vx\text{.}\)</span> The domain of <span class="process-math">\(S\)</span> is <span class="process-math">\(\R^m\)</span> and the codomain is <span class="process-math">\(\R^k\text{.}\)</span> The domain of <span class="process-math">\(T\)</span> is <span class="process-math">\(\R^n\)</span> and the codomain is <span class="process-math">\(\R^m\text{.}\)</span> The composition <span class="process-math">\(S\circ T\)</span> is defined because the output vectors of <span class="process-math">\(T\)</span> are in <span class="process-math">\(\R^m\)</span> and they lie in the domain of <span class="process-math">\(S\text{.}\)</span> The domain of <span class="process-math">\(S\circ T\)</span> is the same as the domain of <span class="process-math">\(T\)</span> since the input vectors first go through the <span class="process-math">\(T\)</span> transformation. The codomain of <span class="process-math">\(S\circ T\)</span> is the same as the codomain of <span class="process-math">\(S\)</span> since the final output vectors are produced by applying the <span class="process-math">\(S\)</span> transformation.</p>
+<p id="p-1342">Let us see how we can obtain the matrix corresponding to the transformation <span class="process-math">\(S\circ T\text{.}\)</span> Let <span class="process-math">\(B = \left[ \vb_1 \ \vb_2  \  \cdots \ \vb_n  \right]\text{,}\)</span> where <span class="process-math">\(\vb_j\)</span> is the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(B\text{,}\)</span> and let <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]\text{.}\)</span> Recall that the matrix vector product <span class="process-math">\(B\vx\)</span> is the linear combination of the columns of <span class="process-math">\(B\)</span> with the corresponding weights from <span class="process-math">\(\vx\text{.}\)</span> So</p>
 <div class="displaymath process-math">
 \begin{equation*}
 T(\vx) = B\vx = x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n\text{.}
 \end{equation*}
 </div>
-<p id="p-1344">Note that each of the <span class="process-math">\(\vb_j\)</span> vectors are in <span class="process-math">\(\R^m\)</span> since <span class="process-math">\(B\)</span> is an <span class="process-math">\(m\times n\)</span> matrix. Therefore, each of these vectors can be multiplied by matrix <span class="process-math">\(A\)</span> and we can evaluate <span class="process-math">\(S(B\vx)\text{.}\)</span> Therefore, <span class="process-math">\(S\circ T\)</span> is defined and</p>
+<p id="p-1343">Note that each of the <span class="process-math">\(\vb_j\)</span> vectors are in <span class="process-math">\(\R^m\)</span> since <span class="process-math">\(B\)</span> is an <span class="process-math">\(m\times n\)</span> matrix. Therefore, each of these vectors can be multiplied by matrix <span class="process-math">\(A\)</span> and we can evaluate <span class="process-math">\(S(B\vx)\text{.}\)</span> Therefore, <span class="process-math">\(S\circ T\)</span> is defined and</p>
 <div class="displaymath process-math">
 \begin{equation}
 (S \circ T)(\vx) = S(T(\vx))= A(B\vx) = A\left( x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n\right)\text{.}\label{eq_2_a_1}\tag{8.1}
 \end{equation}
 </div>
-<p id="p-1345">The properties of matrix-vector products show that</p>
+<p id="p-1344">The properties of matrix-vector products show that</p>
 <div class="displaymath process-math">
 \begin{equation}
 A\left( x_1 \vb_1 + x_2 \vb_2 + \cdots + x_n \vb_n\right) = x_1 A\vb_1 + x_2 A\vb_2 + \cdots + x_n A\vb_n\text{.}\label{eq_2_a_2}\tag{8.2}
 \end{equation}
 </div>
-<p id="p-1346">This expression is a linear combination of <span class="process-math">\(A\vb_i\)</span>'s with <span class="process-math">\(x_i\)</span>'s being the weights. Therefore, if we let <span class="process-math">\(C\)</span> be the matrix with columns <span class="process-math">\(A \vb_1\text{,}\)</span> <span class="process-math">\(A\vb_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(A\vb_n\text{,}\)</span> that is</p>
+<p id="p-1345">This expression is a linear combination of <span class="process-math">\(A\vb_i\)</span>'s with <span class="process-math">\(x_i\)</span>'s being the weights. Therefore, if we let <span class="process-math">\(C\)</span> be the matrix with columns <span class="process-math">\(A \vb_1\text{,}\)</span> <span class="process-math">\(A\vb_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(A\vb_n\text{,}\)</span> that is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 C = [A \vb_1 \ A\vb_2 \ \cdots \ A\vb_n]\text{,}
@@ -833,73 +832,73 @@ x_1 A\vb_1 + x_2 A\vb_2 + \cdots + x_n A\vb_n = C \vx\label{eq_2_a_3}\tag{8.3}
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(C = [A \vb_1 \ A\vb_2 \ \cdots \ A\vb_n]\text{.}\)</span></p>
-<p id="p-1347">Also note that since <span class="process-math">\(T(\vx)=B\vx\)</span> and <span class="process-math">\(S(\vy)=A\vy\text{,}\)</span> we find</p>
+<p id="p-1346">Also note that since <span class="process-math">\(T(\vx)=B\vx\)</span> and <span class="process-math">\(S(\vy)=A\vy\text{,}\)</span> we find</p>
 <div class="displaymath process-math">
 \begin{equation}
 (S\circ T)(\vx)= S(T(\vx))= S(B\vx)=A(B(\vx)) \,\text{.}\label{eq_2_a_4}\tag{8.4}
 \end{equation}
 </div>
-<p id="p-1348">Since the matrix representing the transformation <span class="process-math">\(S\circ T\)</span> is the matrix</p>
+<p id="p-1347">Since the matrix representing the transformation <span class="process-math">\(S\circ T\)</span> is the matrix</p>
 <div class="displaymath process-math">
 \begin{equation*}
 [A \vb_1 \ A\vb_2 \ \cdots \ A\vb_n]
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(\vb_1\text{,}\)</span> <span class="process-math">\(\vb_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vb_n\)</span> are the columns of the matrix <span class="process-math">\(B\text{,}\)</span> it is natural to define <span class="process-math">\(AB\)</span> to be this matrix in light of equation <a href="" class="xref" data-knowl="./knowl/eq_2_a_4.html" title="Equation 8.4">(8.4)</a>.</p>
-<p id="p-1349">Matrix multiplication has some properties that are unfamiliar to us as the next activity illustrates.</p>
+<p id="p-1348">Matrix multiplication has some properties that are unfamiliar to us as the next activity illustrates.</p>
 <article class="activity project-like" id="act_A2_1_2"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-120"><p id="p-1350">Let <span class="process-math">\(A~=~\left[ \begin{array}{rr} 3 \amp -1 \\ -2 \amp 6 \end{array} \right]\text{,}\)</span> <span class="process-math">\(B~=~\left[ \begin{array}{cc} 0 \amp 2 \\ 1 \amp 3 \end{array} \right]\text{,}\)</span> <span class="process-math">\(C~=~\left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(D~=~\left[ \begin{array}{rr} 3 \amp -3 \\ -3 \amp 3 \end{array} \right]\)</span> and <span class="process-math">\(E~=~\left[ \begin{array}{cc} 1 \amp 0 \\ 0 \amp 1 \end{array} \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-119"><p id="p-1349">Let <span class="process-math">\(A~=~\left[ \begin{array}{rr} 3 \amp -1 \\ -2 \amp 6 \end{array} \right]\text{,}\)</span> <span class="process-math">\(B~=~\left[ \begin{array}{cc} 0 \amp 2 \\ 1 \amp 3 \end{array} \right]\text{,}\)</span> <span class="process-math">\(C~=~\left[ \begin{array}{cc} 1 \amp 1 \\ 1 \amp 1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(D~=~\left[ \begin{array}{rr} 3 \amp -3 \\ -3 \amp 3 \end{array} \right]\)</span> and <span class="process-math">\(E~=~\left[ \begin{array}{cc} 1 \amp 0 \\ 0 \amp 1 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-406"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1351">Find the indicated products (by hand or using a calculator).</p>
+<p id="p-1350">Find the indicated products (by hand or using a calculator).</p>
 <div class="displaymath process-math">
 \begin{equation*}
 AB \qquad BA \qquad DC \qquad AC \qquad BC \qquad AE \qquad EB
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-407"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1352">Is matrix multiplication commutative? Explain.</p></article><article class="task exercise-like" id="task-408"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-1353">Is there an identity element for matrix multiplication? In other words, is there a matrix <span class="process-math">\(I\)</span> for which <span class="process-math">\(AI=IA=A\)</span> for any matrix <span class="process-math">\(A\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-409"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-1354">If <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are real numbers with <span class="process-math">\(ab=0\text{,}\)</span> then we know that either <span class="process-math">\(a=0\)</span> or <span class="process-math">\(b=0\text{.}\)</span> Is this same property true with matrix multiplication? Explain.</p></article><article class="task exercise-like" id="task-410"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-1355">If <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> are real numbers with <span class="process-math">\(c \neq 0\)</span> and <span class="process-math">\(ac = bc\text{,}\)</span> we know that <span class="process-math">\(a=b\text{.}\)</span> Is this same property true with matrix multiplication? Explain.</p></article></article><p id="p-1356">As we saw in <a href="" class="xref" data-knowl="./knowl/act_A2_1_2.html" title="Activity 8.3">Activity 8.3</a>, there are matrices <span class="process-math">\(A, B\)</span> for which <span class="process-math">\(AB\neq BA\text{.}\)</span> On the other hand, there are matrices for which <span class="process-math">\(AB=BA\text{.}\)</span> For example, this equality will always hold for a square matrix <span class="process-math">\(A\)</span> and if <span class="process-math">\(B\)</span> is the identity matrix of the same size. It also holds if <span class="process-math">\(A=B\text{.}\)</span> If the equality <span class="process-math">\(AB=BA\)</span> holds, we say that matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> <dfn class="terminology">commute</dfn>. So the identity matrix commutes with all square matrices of the same size and every matrix <span class="process-math">\(A\)</span> commutes with <span class="process-math">\(A^k\)</span> for any power <span class="process-math">\(k\text{.}\)</span></p>
-<p id="p-1357">There is an alternative method of calculating a matrix product that we will often use that we illustrate in the next activity. This alternate version depends on the product of a row matrix with a vector. Suppose <span class="process-math">\(A = [a_1 \ a_2 \ \cdots \ a_n]\)</span> is a <span class="process-math">\(1 \times n\)</span> matrix and <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]\)</span> is an <span class="process-math">\(n \times 1\)</span> vector. Then the product <span class="process-math">\(A \vx\)</span> is the <span class="process-math">\(1 \times 1\)</span> vector</p>
+<p id="p-1351">Is matrix multiplication commutative? Explain.</p></article><article class="task exercise-like" id="task-408"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-1352">Is there an identity element for matrix multiplication? In other words, is there a matrix <span class="process-math">\(I\)</span> for which <span class="process-math">\(AI=IA=A\)</span> for any matrix <span class="process-math">\(A\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-409"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-1353">If <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are real numbers with <span class="process-math">\(ab=0\text{,}\)</span> then we know that either <span class="process-math">\(a=0\)</span> or <span class="process-math">\(b=0\text{.}\)</span> Is this same property true with matrix multiplication? Explain.</p></article><article class="task exercise-like" id="task-410"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-1354">If <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> are real numbers with <span class="process-math">\(c \neq 0\)</span> and <span class="process-math">\(ac = bc\text{,}\)</span> we know that <span class="process-math">\(a=b\text{.}\)</span> Is this same property true with matrix multiplication? Explain.</p></article></article><p id="p-1355">As we saw in <a href="" class="xref" data-knowl="./knowl/act_A2_1_2.html" title="Activity 8.3">Activity 8.3</a>, there are matrices <span class="process-math">\(A, B\)</span> for which <span class="process-math">\(AB\neq BA\text{.}\)</span> On the other hand, there are matrices for which <span class="process-math">\(AB=BA\text{.}\)</span> For example, this equality will always hold for a square matrix <span class="process-math">\(A\)</span> and if <span class="process-math">\(B\)</span> is the identity matrix of the same size. It also holds if <span class="process-math">\(A=B\text{.}\)</span> If the equality <span class="process-math">\(AB=BA\)</span> holds, we say that matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> <dfn class="terminology">commute</dfn>. So the identity matrix commutes with all square matrices of the same size and every matrix <span class="process-math">\(A\)</span> commutes with <span class="process-math">\(A^k\)</span> for any power <span class="process-math">\(k\text{.}\)</span></p>
+<p id="p-1356">There is an alternative method of calculating a matrix product that we will often use that we illustrate in the next activity. This alternate version depends on the product of a row matrix with a vector. Suppose <span class="process-math">\(A = [a_1 \ a_2 \ \cdots \ a_n]\)</span> is a <span class="process-math">\(1 \times n\)</span> matrix and <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right]\)</span> is an <span class="process-math">\(n \times 1\)</span> vector. Then the product <span class="process-math">\(A \vx\)</span> is the <span class="process-math">\(1 \times 1\)</span> vector</p>
 <div class="displaymath process-math">
 \begin{equation*}
 [a_1 \ a_2 \ \cdots \ a_n]\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right] = [a_1x_1+a_2x_2 + \cdots + a_nx_n]\text{.}
 \end{equation*}
 </div>
-<p id="p-1358">In this situation, we usually identify the <span class="process-math">\(1 \times 1\)</span> matrix with its scalar entry and write</p>
+<p id="p-1357">In this situation, we usually identify the <span class="process-math">\(1 \times 1\)</span> matrix with its scalar entry and write</p>
 <div class="displaymath process-math">
 \begin{equation}
 [a_1 \ a_2 \ \cdots \ a_n] \cdot \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right] = a_1x_1+a_2x_2 + \cdots + a_nx_n\text{.}\label{eq_2_a_5}\tag{8.5}
 \end{equation}
 </div>
-<p id="p-1359"> The product <span class="process-math">\(\cdot\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_2_a_5.html" title="Equation 8.5">(8.5)</a> is called the <dfn class="terminology">scalar</dfn> or <dfn class="terminology">dot</dfn> product of <span class="process-math">\([a_1 \ a_2 \ \cdots \ a_n]\)</span> with <span class="process-math">\(\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right]\text{.}\)</span></p>
+<p id="p-1358"> The product <span class="process-math">\(\cdot\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_2_a_5.html" title="Equation 8.5">(8.5)</a> is called the <dfn class="terminology">scalar</dfn> or <dfn class="terminology">dot</dfn> product of <span class="process-math">\([a_1 \ a_2 \ \cdots \ a_n]\)</span> with <span class="process-math">\(\left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array} \right]\text{.}\)</span></p>
 <article class="activity project-like" id="act_A2_1_3"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4</span><span class="period">.</span>
 </h3>
-<p id="p-1360">Let <span class="process-math">\(A = \left[ \begin{array}{crr} 1\amp -1\amp 2 \\ 3\amp 0\amp -4 \\ 2\amp -5\amp 1 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{cr} 4\amp -2 \\ 6\amp 0 \\ 1\amp 3 \end{array} \right]\text{.}\)</span></p>
-<p id="p-1361">Let <span class="process-math">\(\va_i\)</span> be the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A\)</span> and <span class="process-math">\(\vb_j\)</span> the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(B\text{.}\)</span> For example, <span class="process-math">\(\va_1=[ \, 1 \; -1 \; 2 \, ]\)</span> and <span class="process-math">\(\vb_2 = \left[ \begin{array}{r} -2 \\ 0 \\ 3 \end{array} \right]\text{.}\)</span></p>
-<p id="p-1362">Calculate the entries of the matrix <span class="process-math">\(C\text{,}\)</span> where</p>
+<p id="p-1359">Let <span class="process-math">\(A = \left[ \begin{array}{crr} 1\amp -1\amp 2 \\ 3\amp 0\amp -4 \\ 2\amp -5\amp 1 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{cr} 4\amp -2 \\ 6\amp 0 \\ 1\amp 3 \end{array} \right]\text{.}\)</span></p>
+<p id="p-1360">Let <span class="process-math">\(\va_i\)</span> be the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A\)</span> and <span class="process-math">\(\vb_j\)</span> the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(B\text{.}\)</span> For example, <span class="process-math">\(\va_1=[ \, 1 \; -1 \; 2 \, ]\)</span> and <span class="process-math">\(\vb_2 = \left[ \begin{array}{r} -2 \\ 0 \\ 3 \end{array} \right]\text{.}\)</span></p>
+<p id="p-1361">Calculate the entries of the matrix <span class="process-math">\(C\text{,}\)</span> where</p>
 <div class="displaymath process-math">
 \begin{equation*}
 C = \left[ \begin{array}{cc} \va_1 \cdot \vb_1 \amp  \va_1 \cdot \vb_2 \\ \va_2 \cdot \vb_1 \amp  \va_2 \cdot \vb_2 \\ \va_3 \cdot \vb_1 \amp  \va_3 \cdot \vb_2 \end{array}  \right]\,\text{,}
 \end{equation*}
 </div>
-<p class="continuation">where <span class="process-math">\(\va_i \cdot \vb_j\)</span> refers to the scalar product of row <span class="process-math">\(i\)</span> of <span class="process-math">\(A\)</span> with column <span class="process-math">\(j\)</span> of <span class="process-math">\(B\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-11" id="fn-11"><sup> 11 </sup></a> Compare your result with the result of <span class="process-math">\(AB\)</span> calculated via the product of <span class="process-math">\(A\)</span> with the columns of <span class="process-math">\(B\text{.}\)</span></p></article><p id="p-1363"><a href="" class="xref" data-knowl="./knowl/act_A2_1_3.html" title="Activity 8.4">Activity 8.4</a> shows that these is an alternate way to calculate a matrix product. To see how this works in general, let <span class="process-math">\(A = [a_{ij}]\)</span> be a <span class="process-math">\(k \times m\)</span> matrix and <span class="process-math">\(B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]\)</span> an <span class="process-math">\(m \times n\)</span> matrix. We know that</p>
+<p class="continuation">where <span class="process-math">\(\va_i \cdot \vb_j\)</span> refers to the scalar product of row <span class="process-math">\(i\)</span> of <span class="process-math">\(A\)</span> with column <span class="process-math">\(j\)</span> of <span class="process-math">\(B\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-11" id="fn-11"><sup> 11 </sup></a> Compare your result with the result of <span class="process-math">\(AB\)</span> calculated via the product of <span class="process-math">\(A\)</span> with the columns of <span class="process-math">\(B\text{.}\)</span></p></article><p id="p-1362"><a href="" class="xref" data-knowl="./knowl/act_A2_1_3.html" title="Activity 8.4">Activity 8.4</a> shows that these is an alternate way to calculate a matrix product. To see how this works in general, let <span class="process-math">\(A = [a_{ij}]\)</span> be a <span class="process-math">\(k \times m\)</span> matrix and <span class="process-math">\(B = [\vb_1 \ \vb_2 \ \cdots \ \vb_n]\)</span> an <span class="process-math">\(m \times n\)</span> matrix. We know that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 AB = [A\vb_1 \ A\vb_2 \ \cdots \ A\vb_n]\text{.}
 \end{equation*}
 </div>
-<p id="p-1364">Now let <span class="process-math">\(\vr_1\text{,}\)</span> <span class="process-math">\(\vr_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vr_k\)</span> be the rows of <span class="process-math">\(A\)</span> so that <span class="process-math">\(A = \left[ \begin{array}{c} \vr_1 \\ \vr_2 \\ \vdots \\ \vr_k \end{array}  \right]\text{.}\)</span> First we argue that if <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_m \end{array}  \right]\text{,}\)</span> then</p>
+<p id="p-1363">Now let <span class="process-math">\(\vr_1\text{,}\)</span> <span class="process-math">\(\vr_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vr_k\)</span> be the rows of <span class="process-math">\(A\)</span> so that <span class="process-math">\(A = \left[ \begin{array}{c} \vr_1 \\ \vr_2 \\ \vdots \\ \vr_k \end{array}  \right]\text{.}\)</span> First we argue that if <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_m \end{array}  \right]\text{,}\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A \vx = \left[ \begin{array}{c} \vr_1 \cdot \vx \\ \vr_2 \cdot \vx \\ \vdots \\ \vr_k \cdot \vx \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-1365">This is the <dfn class="terminology">scalar product</dfn> (or <dfn class="terminology">dot product</dfn>) definition of the matrix-vector product.</p>
-<p id="p-1366">To show that this definition gives the same result as the linear combination definition of matrix-vector product, we first let <span class="process-math">\(A = [\vc_1 \ \vc_2 \ \cdots \ \vc_m]\text{,}\)</span> where <span class="process-math">\(\vc_1\text{,}\)</span> <span class="process-math">\(\vc_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vc_m\)</span> are the columns of <span class="process-math">\(A\text{.}\)</span> By our linear combination definition of the matrix-vector product, we obtain</p>
+<p id="p-1364">This is the <dfn class="terminology">scalar product</dfn> (or <dfn class="terminology">dot product</dfn>) definition of the matrix-vector product.</p>
+<p id="p-1365">To show that this definition gives the same result as the linear combination definition of matrix-vector product, we first let <span class="process-math">\(A = [\vc_1 \ \vc_2 \ \cdots \ \vc_m]\text{,}\)</span> where <span class="process-math">\(\vc_1\text{,}\)</span> <span class="process-math">\(\vc_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vc_m\)</span> are the columns of <span class="process-math">\(A\text{.}\)</span> By our linear combination definition of the matrix-vector product, we obtain</p>
 <div class="displaymath process-math">
 \begin{align*}
 A \vx \amp = x_1\vc_1 + x_2 \vc_2 + \cdots + x_m \vc_m\\
@@ -923,14 +922,14 @@ a_{k1}x_1+a_{k2}x_2+ \cdots + a_{km}x_m \end{array} \right]\\
 \vr_k \cdot \vx \end{array} \right]\text{.}
 \end{align*}
 </div>
-<p id="p-1367">Therefore, the above work shows that both linear combination and scalar product definitions give the same matrix-vector product.</p>
-<p id="p-1368">Applying this to the matrix product <span class="process-math">\(AB\)</span> defined in terms of the matrix-vector product, we see that</p>
+<p id="p-1366">Therefore, the above work shows that both linear combination and scalar product definitions give the same matrix-vector product.</p>
+<p id="p-1367">Applying this to the matrix product <span class="process-math">\(AB\)</span> defined in terms of the matrix-vector product, we see that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A \vb_j = \left[ \begin{array}{c} \vr_1 \cdot \vb_j \\ \vr_2 \cdot \vb_j \\ \vdots \\ \vr_k \cdot \vb_j \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-1369">So the <span class="process-math">\(i,j\)</span>th entry of the matrix product <span class="process-math">\(AB\)</span> is found by taking the scalar product of the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A\)</span> with the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(B\text{.}\)</span> In other words,</p>
+<p id="p-1368">So the <span class="process-math">\(i,j\)</span>th entry of the matrix product <span class="process-math">\(AB\)</span> is found by taking the scalar product of the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A\)</span> with the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(B\text{.}\)</span> In other words,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (AB)_{ij} = \vr_i \cdot \vb_j
@@ -939,7 +938,7 @@ A \vb_j = \left[ \begin{array}{c} \vr_1 \cdot \vb_j \\ \vr_2 \cdot \vb_j \\ \vdo
 <p class="continuation">where <span class="process-math">\(\vr_i\)</span> is the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A\)</span> and <span class="process-math">\(\vb_j\)</span> is the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(B\text{.}\)</span></p></section><section class="subsection" id="subsection-2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Properties of Matrix Multiplication</span>
 </h3>
-<p id="p-1370"><a href="" class="xref" data-knowl="./knowl/act_A2_1_2.html" title="Activity 8.3">Activity 8.3</a> shows that we must be very careful not to assume that matrix multiplication behaves like multiplication of real numbers. However, matrix multiplication does satisfy some familiar properties. For example, we now have an addition and multiplication of matrices under certain conditions, so we might ask if matrix multiplication distributes over matrix addition. To answer this question we take two <dfn class="terminology">arbitrary</dfn> <span class="process-math">\(k \times m\)</span> matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> and an <dfn class="terminology">arbitrary</dfn> <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(C =  [\vc_1 \ \vc_2 \ \cdots \ \vc_n]\text{.}\)</span> Then</p>
+<p id="p-1369"><a href="" class="xref" data-knowl="./knowl/act_A2_1_2.html" title="Activity 8.3">Activity 8.3</a> shows that we must be very careful not to assume that matrix multiplication behaves like multiplication of real numbers. However, matrix multiplication does satisfy some familiar properties. For example, we now have an addition and multiplication of matrices under certain conditions, so we might ask if matrix multiplication distributes over matrix addition. To answer this question we take two <dfn class="terminology">arbitrary</dfn> <span class="process-math">\(k \times m\)</span> matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> and an <dfn class="terminology">arbitrary</dfn> <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(C =  [\vc_1 \ \vc_2 \ \cdots \ \vc_n]\text{.}\)</span> Then</p>
 <div class="displaymath process-math">
 \begin{align*}
 (A+B)C \amp = [(A+B)\vc_1 \ (A+B)\vc_2 \ \cdots \ (A+B)\vc_n]\\
@@ -948,28 +947,28 @@ A \vb_j = \left[ \begin{array}{c} \vr_1 \cdot \vb_j \\ \vr_2 \cdot \vb_j \\ \vdo
 \amp = AC + BC\text{.}
 \end{align*}
 </div>
-<p id="p-1371">Similar arguments can be used to show the following properties of matrix multiplication.</p>
+<p id="p-1370">Similar arguments can be used to show the following properties of matrix multiplication.</p>
 <article class="theorem theorem-like" id="thm_matrix_product_properties"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.3</span><span class="period">.</span>
 </h4>
-<p id="p-1372">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> be matrices of the appropriate sizes for all sums and products to be defined and let <span class="process-math">\(a\)</span> be a scalar. Then</p>
+<p id="p-1371">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> be matrices of the appropriate sizes for all sums and products to be defined and let <span class="process-math">\(a\)</span> be a scalar. Then</p>
 <ol class="decimal">
-<li id="li-252"><p id="p-1373"><span class="process-math">\((AB)C = A(BC)\)</span> (this property tells us that matrix multiplication is <dfn class="terminology">associative</dfn>)</p></li>
-<li id="li-253"><p id="p-1374"><span class="process-math">\((A+B)C = AC + BC\)</span> (this property tells us that matrix multiplication on the right <dfn class="terminology">distributes over matrix addition</dfn>)</p></li>
-<li id="li-254"><p id="p-1375"><span class="process-math">\(A(B+C) = AB + AC\)</span> (this property tells us that matrix multiplication on the left <dfn class="terminology">distributes over matrix addition</dfn>)</p></li>
-<li id="li-255"><p id="p-1376">There is a square matrix <span class="process-math">\(I_n\)</span> with the property that <span class="process-math">\(AI_n = A\)</span> or <span class="process-math">\(I_nA = A\)</span> for whichever product is defined.</p></li>
-<li id="li-256"><p id="p-1377"><span class="process-math">\(\displaystyle a(AB) = (aA)B = A(aB)\)</span></p></li>
-</ol></article><p id="p-1378">We verified the second part of this theorem and will assume that all of the properties of this theorem hold. The matrix <span class="process-math">\(I_n\)</span> introduced in <a href="" class="xref" data-knowl="./knowl/thm_matrix_product_properties.html" title="Theorem 8.3">Theorem 8.3</a> is called the <dfn class="terminology">(multiplicative) identity matrix</dfn>. We usually omit the word multiplicative and refer to the <span class="process-math">\(I_n\)</span> simply as the identity matrix. This does not cause any confusion since we refer to the additive identity matrix as simply the zero matrix.</p>
+<li id="li-252"><p id="p-1372"><span class="process-math">\((AB)C = A(BC)\)</span> (this property tells us that matrix multiplication is <dfn class="terminology">associative</dfn>)</p></li>
+<li id="li-253"><p id="p-1373"><span class="process-math">\((A+B)C = AC + BC\)</span> (this property tells us that matrix multiplication on the right <dfn class="terminology">distributes over matrix addition</dfn>)</p></li>
+<li id="li-254"><p id="p-1374"><span class="process-math">\(A(B+C) = AB + AC\)</span> (this property tells us that matrix multiplication on the left <dfn class="terminology">distributes over matrix addition</dfn>)</p></li>
+<li id="li-255"><p id="p-1375">There is a square matrix <span class="process-math">\(I_n\)</span> with the property that <span class="process-math">\(AI_n = A\)</span> or <span class="process-math">\(I_nA = A\)</span> for whichever product is defined.</p></li>
+<li id="li-256"><p id="p-1376"><span class="process-math">\(\displaystyle a(AB) = (aA)B = A(aB)\)</span></p></li>
+</ol></article><p id="p-1377">We verified the second part of this theorem and will assume that all of the properties of this theorem hold. The matrix <span class="process-math">\(I_n\)</span> introduced in <a href="" class="xref" data-knowl="./knowl/thm_matrix_product_properties.html" title="Theorem 8.3">Theorem 8.3</a> is called the <dfn class="terminology">(multiplicative) identity matrix</dfn>. We usually omit the word multiplicative and refer to the <span class="process-math">\(I_n\)</span> simply as the identity matrix. This does not cause any confusion since we refer to the additive identity matrix as simply the zero matrix.</p>
 <article class="definition definition-like" id="definition-20"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.4</span><span class="period">.</span>
 </h4>
-<p id="p-1379">Let <span class="process-math">\(n\)</span> be a positive integer. The <span class="process-math">\(n \times n\)</span> <dfn class="terminology">identity matrix</dfn> <span class="process-math">\(I_n\)</span> is the matrix <span class="process-math">\(I_n = [a_{ij}]\text{,}\)</span> where <span class="process-math">\(a_{ii} = 1\)</span> for each <span class="process-math">\(i\)</span> and <span class="process-math">\(a_{ij} = 0\)</span> if <span class="process-math">\(i \neq j\text{.}\)</span></p></article><p id="p-1380">We also write the matrix <span class="process-math">\(I_n\)</span> as</p>
+<p id="p-1378">Let <span class="process-math">\(n\)</span> be a positive integer. The <span class="process-math">\(n \times n\)</span> <dfn class="terminology">identity matrix</dfn> <span class="process-math">\(I_n\)</span> is the matrix <span class="process-math">\(I_n = [a_{ij}]\text{,}\)</span> where <span class="process-math">\(a_{ii} = 1\)</span> for each <span class="process-math">\(i\)</span> and <span class="process-math">\(a_{ij} = 0\)</span> if <span class="process-math">\(i \neq j\text{.}\)</span></p></article><p id="p-1379">We also write the matrix <span class="process-math">\(I_n\)</span> as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 I_n = \left[ \begin{array}{ccccccc} 1 \amp  0 \amp  0 \amp  0 \amp  \cdots \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \amp  0 \amp  \cdots \amp  0 \amp  0 \\ 0 \amp  0 \amp  1 \amp  0 \amp  \cdots \amp  0 \amp  0 \\ \vdots \amp  \amp  \amp  \amp  \ddots \amp  \amp  \vdots \\ 0 \amp  0 \amp  0 \amp  0 \amp  \cdots \amp  1 \amp  0 \\ 0 \amp  0\amp  0 \amp  0 \amp  \cdots \amp  0 \amp  1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-1381">The matrix <span class="process-math">\(I_n\)</span> has the property that for any <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span></p>
+<p id="p-1380">The matrix <span class="process-math">\(I_n\)</span> has the property that for any <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span></p>
 <div class="displaymath process-math">
 \begin{equation*}
 AI_n = I_n A = A\,\text{.}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:24:38-04:00       *-->
+<!--*       on 2022-03-21T15:34:28-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,10 +751,10 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Summary</span>
 </h2>
 <ul class="disc">
-<li id="li-602"><p id="p-3555">For a real matrix, complex eigenvalues appear in conjugate pairs. Specifically, if <span class="process-math">\(\lambda=a+ib\)</span> is an eigenvalue of a real matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\overline{\lambda}=a-ib\)</span> is also an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></li>
-<li id="li-603"><p id="p-3556">For a real matrix, if a <span class="process-math">\(\vv\)</span> is an eigenvector corresponding to <span class="process-math">\(\lambda\text{,}\)</span> then the vector <span class="process-math">\(\overline{\vv}\)</span> obtained by taking the complex conjugate of each entry in <span class="process-math">\(\vv\)</span> is an eigenvector corresponding to <span class="process-math">\(\overline{\lambda}\text{.}\)</span></p></li>
+<li id="li-602"><p id="p-3554">For a real matrix, complex eigenvalues appear in conjugate pairs. Specifically, if <span class="process-math">\(\lambda=a+ib\)</span> is an eigenvalue of a real matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\overline{\lambda}=a-ib\)</span> is also an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></li>
+<li id="li-603"><p id="p-3555">For a real matrix, if a <span class="process-math">\(\vv\)</span> is an eigenvector corresponding to <span class="process-math">\(\lambda\text{,}\)</span> then the vector <span class="process-math">\(\overline{\vv}\)</span> obtained by taking the complex conjugate of each entry in <span class="process-math">\(\vv\)</span> is an eigenvector corresponding to <span class="process-math">\(\overline{\lambda}\text{.}\)</span></p></li>
 <li id="li-604">
-<p id="p-3557">The rotation-scaling matrix <span class="process-math">\(A=\left[ \begin{array}{cr} a\amp -b \\ b\amp a \end{array}  \right]\)</span> can be written as</p>
+<p id="p-3556">The rotation-scaling matrix <span class="process-math">\(A=\left[ \begin{array}{cr} a\amp -b \\ b\amp a \end{array}  \right]\)</span> can be written as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{array}{cc} \sqrt{a^2+b^2} \amp 0 \\ 0\amp \sqrt{a^2+b^2} \end{array}  \right] \left[ \begin{array}{cc} \frac{a}{\sqrt{a^2+b^2}}\amp \frac{-b}{\sqrt{a^2+b^2}} \\ \frac{b}{\sqrt{a^2+b^2}}\amp \frac{a}{\sqrt{a^2+b^2}} \end{array}  \right] \,\text{.}
@@ -764,7 +763,7 @@
 <p class="continuation">This decomposition geometrically means that the transformation corresponding to <span class="process-math">\(A\)</span> can be viewed as a rotation by angle <span class="process-math">\(\theta=\arccos\left(\frac{a}{\sqrt{a^2+b^2}}\right)\)</span> if <span class="process-math">\(b\geq 0\text{,}\)</span> or <span class="process-math">\(\theta=-\arccos\left(\frac{a}{\sqrt{a^2+b^2}}\right)\)</span> if <span class="process-math">\(b\lt 0\text{,}\)</span> followed by a scaling by factor <span class="process-math">\(\sqrt{a^2+b^2}\text{.}\)</span></p>
 </li>
 <li id="li-605">
-<p id="p-3558">If <span class="process-math">\(A\)</span> is a real <span class="process-math">\(2\times 2\)</span> matrix with complex eigenvalue <span class="process-math">\(a-bi\)</span> and corresponding eigenvector <span class="process-math">\(\vv=\vu+i\vw\text{,}\)</span> then <span class="process-math">\(A\)</span> is similar to the rotation-scaling matrix <span class="process-math">\(R=\left[ \begin{array}{cr} a\amp -b \\ b\amp a \end{array}  \right]\text{.}\)</span> More specifically,</p>
+<p id="p-3557">If <span class="process-math">\(A\)</span> is a real <span class="process-math">\(2\times 2\)</span> matrix with complex eigenvalue <span class="process-math">\(a-bi\)</span> and corresponding eigenvector <span class="process-math">\(\vv=\vu+i\vw\text{,}\)</span> then <span class="process-math">\(A\)</span> is similar to the rotation-scaling matrix <span class="process-math">\(R=\left[ \begin{array}{cr} a\amp -b \\ b\amp a \end{array}  \right]\text{.}\)</span> More specifically,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=PRP^{-1} \; , \text{ where }  P=[ \vu \ \vw ]\,\text{.}

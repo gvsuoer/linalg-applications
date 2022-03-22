@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:38:55-04:00       *-->
+<!--*       on 2022-03-22T13:04:47-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,18 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Using these facts we can show that the triangle inequality is true for complex numbers. That is,</p>
+<p>To see why, notice that</p>
 <div class="displaymath process-math">
-\begin{equation*}
-|z+w| \leq |z| + |w|\text{.}
-\end{equation*}
+\begin{align*}
+|z+w|^2 \amp = (z+w)(\overline{z+w})\\
+\amp = (z+w)(\overline{z} + \overline{w})\\
+\amp = z\overline{z} + z\overline{w} + w \overline{z} + w \overline{w}\\
+\amp = z\overline{z} + z\overline{w} + \overline{zw\overline{w}} + w \overline{w}\\
+\amp = |z|^2 + 2\text{ Re } (z\overline{w}) + |w|^2\\
+\amp \leq |z|^2 + 2|zw| + |w|^2\\
+\amp = |z|^2 + 2|z| |w| + |w|^2\\
+\amp = (|z|+|w|)^2\text{.}
+\end{align*}
 </div>
 <span class="incontext"><a href="sec_proj_gershgorin.html#p-3601">in-context</a></span>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:24:24-04:00       *-->
+<!--*       on 2022-03-21T15:34:06-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,18 +750,18 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_app_eigen_exam"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Examples</span>
 </h2>
-<p id="p-3399">What follows are worked examples that use the concepts from this section.</p>
+<p id="p-3398">What follows are worked examples that use the concepts from this section.</p>
 <article class="example example-like" id="example-40"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">20.5</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-324"><p id="p-3400">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-323"><p id="p-3399">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 1\amp 2\amp 3\\4\amp 5\amp 6\\7\amp 8\amp 9 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1126"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3401">Approximate the dominant eigenvalue of <span class="process-math">\(A\)</span> accurate to two decimal places using the power method. Use technology as appropriate.</p>
+<p id="p-3400">Approximate the dominant eigenvalue of <span class="process-math">\(A\)</span> accurate to two decimal places using the power method. Use technology as appropriate.</p>
 <div class="solution solution-like" id="solution-122">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-3402">We use technology to calculate the scaled vectors <span class="process-math">\(A^k \vx_0\)</span> for values of <span class="process-math">\(k\)</span> until the components don't change in the second decimal place. We start with the seed <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\text{.}\)</span> For example, to two decimal places we have <span class="process-math">\(\vx_k = [0.28 \ 0.64 \ 1.00]^{\tr}\)</span> for <span class="process-math">\(k  \geq 20\text{.}\)</span> So we suspect that <span class="process-math">\(\left[ 0.28 \ 0.64 \ 1.00 \right]^{\tr}\)</span> is close to a dominant eigenvector for <span class="process-math">\(A\text{.}\)</span> For the dominant eigenvalue, we can calculate the Rayleigh quotients <span class="process-math">\(\frac{(A\vx_k) \cdot \vx_k}{\vx_k \cdot \vx_k}\)</span> until they do not change to two decimal places. For <span class="process-math">\(k \geq 4\text{,}\)</span> our Rayleigh quotients are all (to two decimal places) equal to <span class="process-math">\(16.12\text{.}\)</span> So we expect that the dominant eigenvalue of <span class="process-math">\(A\)</span> is close to <span class="process-math">\(16.12\text{.}\)</span> Notice that</p>
+<p id="p-3401">We use technology to calculate the scaled vectors <span class="process-math">\(A^k \vx_0\)</span> for values of <span class="process-math">\(k\)</span> until the components don't change in the second decimal place. We start with the seed <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\text{.}\)</span> For example, to two decimal places we have <span class="process-math">\(\vx_k = [0.28 \ 0.64 \ 1.00]^{\tr}\)</span> for <span class="process-math">\(k  \geq 20\text{.}\)</span> So we suspect that <span class="process-math">\(\left[ 0.28 \ 0.64 \ 1.00 \right]^{\tr}\)</span> is close to a dominant eigenvector for <span class="process-math">\(A\text{.}\)</span> For the dominant eigenvalue, we can calculate the Rayleigh quotients <span class="process-math">\(\frac{(A\vx_k) \cdot \vx_k}{\vx_k \cdot \vx_k}\)</span> until they do not change to two decimal places. For <span class="process-math">\(k \geq 4\text{,}\)</span> our Rayleigh quotients are all (to two decimal places) equal to <span class="process-math">\(16.12\text{.}\)</span> So we expect that the dominant eigenvalue of <span class="process-math">\(A\)</span> is close to <span class="process-math">\(16.12\text{.}\)</span> Notice that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A [0.28 \ 0.64 \ 1.00]^{\tr} =  [4.56 \ 10.32 \ 16.08]^{\tr}\text{,}
@@ -770,12 +769,12 @@ A [0.28 \ 0.64 \ 1.00]^{\tr} =  [4.56 \ 10.32 \ 16.08]^{\tr}\text{,}
 </div>
 <p class="continuation">which is not far off from <span class="process-math">\(16.12 [0.28 \ 0.64 \ 1.00]^{\tr}\text{.}\)</span></p>
 </div></article><article class="task exercise-like" id="task-1127"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3403">Find the characteristic polynomial <span class="process-math">\(p(\lambda)\)</span> of <span class="process-math">\(A\text{.}\)</span> Then find the the root of <span class="process-math">\(p(\lambda)\)</span> farthest from the origin. Compare to the result of part (a). Use technology as appropriate.</p>
+<p id="p-3402">Find the characteristic polynomial <span class="process-math">\(p(\lambda)\)</span> of <span class="process-math">\(A\text{.}\)</span> Then find the the root of <span class="process-math">\(p(\lambda)\)</span> farthest from the origin. Compare to the result of part (a). Use technology as appropriate.</p>
 <div class="solution solution-like" id="solution-123">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-3404">The characteristic polynomial of <span class="process-math">\(A\)</span> is</p>
+<p id="p-3403">The characteristic polynomial of <span class="process-math">\(A\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 p(\lambda) =-\lambda^3 + 15 \lambda^2 + 18 \lambda = -\lambda(\lambda^2-15\lambda-18)\text{.}
@@ -791,14 +790,14 @@ p(\lambda) =-\lambda^3 + 15 \lambda^2 + 18 \lambda = -\lambda(\lambda^2-15\lambd
 </div></article></article><article class="example example-like" id="example-41"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">20.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-325"><p id="p-3405">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 1\amp 3\amp 1 \\ 0\amp 1\amp 2 \end{array} \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-324"><p id="p-3404">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 2\amp 1\amp 0 \\ 1\amp 3\amp 1 \\ 0\amp 1\amp 2 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1128"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3406">Use the power method to approximate the dominant eigenvalue and a corresponding eigenvector (using scaling) accurate to two decimal places. Use <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\)</span> as the seed.</p>
+<p id="p-3405">Use the power method to approximate the dominant eigenvalue and a corresponding eigenvector (using scaling) accurate to two decimal places. Use <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\)</span> as the seed.</p>
 <div class="solution solution-like" id="solution-124">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-3407">We use technology to calculate the scaled vectors <span class="process-math">\(A^k \vx_0\)</span> for values of <span class="process-math">\(k\)</span> until the components don't change in the second decimal place. For example, to two decimal places we have <span class="process-math">\(\vx_k = [0.50 \ 1.00 \ 0.50]^{\tr}\)</span> for <span class="process-math">\(k \geq 4\text{.}\)</span> So we suspect that <span class="process-math">\(\left[ \frac{1}{2} \ 1 \ \frac{1}{2} \right]^{\tr}\)</span> is a dominant eigenvector for <span class="process-math">\(A\text{.}\)</span> For the dominant eigenvalue, we can calculate the Rayleigh quotients <span class="process-math">\(\frac{(A\vx_k) \cdot \vx_k}{\vx_k \cdot \vx_k}\)</span> until they do not change to two decimal places. For <span class="process-math">\(k \geq 2\text{,}\)</span> our Rayleigh quotients are all (to two decimal places) equal to <span class="process-math">\(4\text{.}\)</span> So we expect that the dominant eigenvalue of <span class="process-math">\(A\)</span> is <span class="process-math">\(4\text{.}\)</span> We could also use the fact that</p>
+<p id="p-3406">We use technology to calculate the scaled vectors <span class="process-math">\(A^k \vx_0\)</span> for values of <span class="process-math">\(k\)</span> until the components don't change in the second decimal place. For example, to two decimal places we have <span class="process-math">\(\vx_k = [0.50 \ 1.00 \ 0.50]^{\tr}\)</span> for <span class="process-math">\(k \geq 4\text{.}\)</span> So we suspect that <span class="process-math">\(\left[ \frac{1}{2} \ 1 \ \frac{1}{2} \right]^{\tr}\)</span> is a dominant eigenvector for <span class="process-math">\(A\text{.}\)</span> For the dominant eigenvalue, we can calculate the Rayleigh quotients <span class="process-math">\(\frac{(A\vx_k) \cdot \vx_k}{\vx_k \cdot \vx_k}\)</span> until they do not change to two decimal places. For <span class="process-math">\(k \geq 2\text{,}\)</span> our Rayleigh quotients are all (to two decimal places) equal to <span class="process-math">\(4\text{.}\)</span> So we expect that the dominant eigenvalue of <span class="process-math">\(A\)</span> is <span class="process-math">\(4\text{.}\)</span> We could also use the fact that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A \left[ \frac{1}{2} \ 1 \ \frac{1}{2} \right]^{\tr} = [2 \ 4 \ 2]^{\tr} = 4\left[ \frac{1}{2} \ 1 \ \frac{1}{2} \right]^{\tr}
@@ -806,12 +805,12 @@ A \left[ \frac{1}{2} \ 1 \ \frac{1}{2} \right]^{\tr} = [2 \ 4 \ 2]^{\tr} = 4\lef
 </div>
 <p class="continuation">to see that <span class="process-math">\(\left[ \frac{1}{2} \ 1 \ \frac{1}{2} \right]^{\tr}\)</span> is a dominant eigenvector for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(4\text{.}\)</span></p>
 </div></article><article class="task exercise-like" id="task-1129"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3408">Determine the exact value of the dominant eigenvalue of <span class="process-math">\(A\)</span> and compare to your result from part (a).</p>
+<p id="p-3407">Determine the exact value of the dominant eigenvalue of <span class="process-math">\(A\)</span> and compare to your result from part (a).</p>
 <div class="solution solution-like" id="solution-125">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-3409">Technology shows that the characteristic polynomial of <span class="process-math">\(A - \lambda I_3\)</span> is</p>
+<p id="p-3408">Technology shows that the characteristic polynomial of <span class="process-math">\(A - \lambda I_3\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 p(\lambda) = -\lambda^3 + 7\lambda^2 - 14 \lambda + 8 = -(\lambda-1)(\lambda-2)(\lambda-4)\text{.}
@@ -819,18 +818,18 @@ p(\lambda) = -\lambda^3 + 7\lambda^2 - 14 \lambda + 8 = -(\lambda-1)(\lambda-2)(
 </div>
 <p class="continuation">We can see from the characteristic polynomial that <span class="process-math">\(4\)</span> is the dominant eigenvalue of <span class="process-math">\(A\text{.}\)</span></p>
 </div></article><article class="task exercise-like" id="task-1130"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3410">Approximate the remaining eigenvalues of <span class="process-math">\(A\)</span> using the inverse power method.</p>
+<p id="p-3409">Approximate the remaining eigenvalues of <span class="process-math">\(A\)</span> using the inverse power method.</p>
 <div class="hint solution-like" id="hint-26">
 <h4 class="heading">
 <span class="type">Hint</span><span class="period">.</span>
 </h4>
-<p id="p-3411">Try <span class="process-math">\(\alpha = 0.5\)</span> and <span class="process-math">\(\alpha = 1.8\text{.}\)</span></p>
+<p id="p-3410">Try <span class="process-math">\(\alpha = 0.5\)</span> and <span class="process-math">\(\alpha = 1.8\text{.}\)</span></p>
 </div>
 <div class="solution solution-like" id="solution-126">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-3412">Applying the power method to <span class="process-math">\(B = (A-0.5I_3)^{-1}\)</span> with seed <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\)</span> gives <span class="process-math">\(\vx_k \approx [ 0.50 \ 1.00 \ 0.50]^{\tr}\)</span> for <span class="process-math">\(k \geq 5\text{,}\)</span> with Rayleigh quotients of <span class="process-math">\(2\)</span> (to several decimal places). So <span class="process-math">\(2\)</span> is the dominant eigenvalue of <span class="process-math">\(B\text{.}\)</span> But <span class="process-math">\(\frac{1}{\lambda-0.5}\)</span> is also the dominant eigenvalue of <span class="process-math">\(B\text{,}\)</span> where <span class="process-math">\(\lambda\)</span> is the corresponding eigenvalue of <span class="process-math">\(A\text{.}\)</span> . So to find <span class="process-math">\(\lambda\text{,}\)</span> we note that <span class="process-math">\(\frac{1}{\lambda-0.5} = 2\)</span> implies that <span class="process-math">\(\lambda = 1\)</span> is an eigenvalue of <span class="process-math">\(A\text{.}\)</span> Now applying the power method to <span class="process-math">\(B = (A-1.8I_3)^{-1}\)</span> with seed <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\)</span> gives <span class="process-math">\(\vx_k \approx [ 1.00 \ -1.00 \ 1.00]^{\tr}\)</span> for large enough <span class="process-math">\(k\text{,}\)</span> with Rayleigh quotients of <span class="process-math">\(5\)</span> (to several decimal places). To find the corresponding eigenvalue <span class="process-math">\(\lambda\)</span> for <span class="process-math">\(A\text{,}\)</span> we note that <span class="process-math">\(\frac{1}{\lambda-1.8} = 5\text{,}\)</span> or <span class="process-math">\(\lambda = 2\)</span> is an eigenvalue of <span class="process-math">\(A\text{.}\)</span> Admittedly, this method is very limited. Finding good choices for <span class="process-math">\(\alpha\)</span> often depends on having some information about the eigenvalues of <span class="process-math">\(A\text{.}\)</span> Choosing <span class="process-math">\(\alpha\)</span> close to an eigenvalue provides the best chance of obtaining that eigenvalue.</p>
+<p id="p-3411">Applying the power method to <span class="process-math">\(B = (A-0.5I_3)^{-1}\)</span> with seed <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\)</span> gives <span class="process-math">\(\vx_k \approx [ 0.50 \ 1.00 \ 0.50]^{\tr}\)</span> for <span class="process-math">\(k \geq 5\text{,}\)</span> with Rayleigh quotients of <span class="process-math">\(2\)</span> (to several decimal places). So <span class="process-math">\(2\)</span> is the dominant eigenvalue of <span class="process-math">\(B\text{.}\)</span> But <span class="process-math">\(\frac{1}{\lambda-0.5}\)</span> is also the dominant eigenvalue of <span class="process-math">\(B\text{,}\)</span> where <span class="process-math">\(\lambda\)</span> is the corresponding eigenvalue of <span class="process-math">\(A\text{.}\)</span> . So to find <span class="process-math">\(\lambda\text{,}\)</span> we note that <span class="process-math">\(\frac{1}{\lambda-0.5} = 2\)</span> implies that <span class="process-math">\(\lambda = 1\)</span> is an eigenvalue of <span class="process-math">\(A\text{.}\)</span> Now applying the power method to <span class="process-math">\(B = (A-1.8I_3)^{-1}\)</span> with seed <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\)</span> gives <span class="process-math">\(\vx_k \approx [ 1.00 \ -1.00 \ 1.00]^{\tr}\)</span> for large enough <span class="process-math">\(k\text{,}\)</span> with Rayleigh quotients of <span class="process-math">\(5\)</span> (to several decimal places). To find the corresponding eigenvalue <span class="process-math">\(\lambda\)</span> for <span class="process-math">\(A\text{,}\)</span> we note that <span class="process-math">\(\frac{1}{\lambda-1.8} = 5\text{,}\)</span> or <span class="process-math">\(\lambda = 2\)</span> is an eigenvalue of <span class="process-math">\(A\text{.}\)</span> Admittedly, this method is very limited. Finding good choices for <span class="process-math">\(\alpha\)</span> often depends on having some information about the eigenvalues of <span class="process-math">\(A\text{.}\)</span> Choosing <span class="process-math">\(\alpha\)</span> close to an eigenvalue provides the best chance of obtaining that eigenvalue.</p>
 </div></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>

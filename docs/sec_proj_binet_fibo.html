@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:24:16-04:00       *-->
+<!--*       on 2022-03-21T15:33:57-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,24 +750,24 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proj_binet_fibo"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Binet's Formula for the Fibonacci Numbers</span>
 </h2>
-<p id="p-3331">We return to the Fibonacci sequence <span class="process-math">\(F_n\)</span> where <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\text{,}\)</span> for <span class="process-math">\(n \geq 0\text{,}\)</span> <span class="process-math">\(F_0 = 0\text{,}\)</span> and <span class="process-math">\(F_1=1\text{.}\)</span> Since <span class="process-math">\(F_{n+2}\)</span> is determined by previous values <span class="process-math">\(F_{n+1}\)</span> and <span class="process-math">\(F_n\text{,}\)</span> the relation <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\)</span> is called a <dfn class="terminology">recurrence relation</dfn>. The recurrence relation <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\)</span> is very time consuming to use to compute <span class="process-math">\(F_n\)</span> for large values of <span class="process-math">\(n\text{.}\)</span> It turns out that there is a fascinating formula that gives the <span class="process-math">\(n\)</span>th term of the Fibonacci sequence directly, without using the relation <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\text{.}\)</span></p>
+<p id="p-3330">We return to the Fibonacci sequence <span class="process-math">\(F_n\)</span> where <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\text{,}\)</span> for <span class="process-math">\(n \geq 0\text{,}\)</span> <span class="process-math">\(F_0 = 0\text{,}\)</span> and <span class="process-math">\(F_1=1\text{.}\)</span> Since <span class="process-math">\(F_{n+2}\)</span> is determined by previous values <span class="process-math">\(F_{n+1}\)</span> and <span class="process-math">\(F_n\text{,}\)</span> the relation <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\)</span> is called a <dfn class="terminology">recurrence relation</dfn>. The recurrence relation <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\)</span> is very time consuming to use to compute <span class="process-math">\(F_n\)</span> for large values of <span class="process-math">\(n\text{.}\)</span> It turns out that there is a fascinating formula that gives the <span class="process-math">\(n\)</span>th term of the Fibonacci sequence directly, without using the relation <span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\text{.}\)</span></p>
 <article class="project project-like" id="project-62"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.7</span><span class="period">.</span>
 </h3>
-<p id="p-3332">The recurrence relation<span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\)</span> gives the equations</p>
+<p id="p-3331">The recurrence relation<span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\)</span> gives the equations</p>
 <div class="displaymath process-math">
 \begin{align}
 F_{n+1} \amp = F_{n} + F_{n-1}\label{eq_Fib_1}\tag{19.3}\\
 F_{n} \amp = F_{n}\text{.}\label{eq_Fib_2}\tag{19.4}
 \end{align}
 </div>
-<p id="p-3333">Let <span class="process-math">\(\vx_{n} = \left[ \begin{array}{c} F_{n+1} \\ F_{n} \end{array}  \right]\)</span> for <span class="process-math">\(n \geq 0\text{.}\)</span> Explain how the equations <a href="" class="xref" data-knowl="./knowl/eq_Fib_1.html" title="Equation 19.3">(19.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_Fib_1.html" title="Equation 19.3">(19.3)</a> can be described with the matrix equation</p>
+<p id="p-3332">Let <span class="process-math">\(\vx_{n} = \left[ \begin{array}{c} F_{n+1} \\ F_{n} \end{array}  \right]\)</span> for <span class="process-math">\(n \geq 0\text{.}\)</span> Explain how the equations <a href="" class="xref" data-knowl="./knowl/eq_Fib_1.html" title="Equation 19.3">(19.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_Fib_1.html" title="Equation 19.3">(19.3)</a> can be described with the matrix equation</p>
 <div class="displaymath process-math">
 \begin{equation}
 \vx_n = A \vx_{n-1}\text{,}\label{eq_Fib_matrix}\tag{19.5}
 \end{equation}
 </div>
-<p class="continuation">where <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array}  \right]\text{.}\)</span></p></article><p id="p-3334">The matrix equation <a href="" class="xref" data-knowl="./knowl/eq_Fib_matrix.html" title="Equation 19.5">(19.5)</a> shows us how to find the vectors <span class="process-math">\(\vx_n\)</span> using powers of the matrix <span class="process-math">\(A\text{:}\)</span></p>
+<p class="continuation">where <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array}  \right]\text{.}\)</span></p></article><p id="p-3333">The matrix equation <a href="" class="xref" data-knowl="./knowl/eq_Fib_matrix.html" title="Equation 19.5">(19.5)</a> shows us how to find the vectors <span class="process-math">\(\vx_n\)</span> using powers of the matrix <span class="process-math">\(A\text{:}\)</span></p>
 <div class="displaymath process-math">
 \begin{align*}
 \vx_1 \amp = A\vx_0\\
@@ -778,48 +777,48 @@ F_{n} \amp = F_{n}\text{.}\label{eq_Fib_2}\tag{19.4}
 \vx_n \amp = A^n\vx_0\text{.}
 \end{align*}
 </div>
-<p id="p-3335">So if we can somehow easily find the powers of the matrix <span class="process-math">\(A\text{,}\)</span> then we can find a convenient formula for <span class="process-math">\(F_n\text{.}\)</span> As we have seen, we know how to do this if <span class="process-math">\(A\)</span> is diagonalizable</p>
+<p id="p-3334">So if we can somehow easily find the powers of the matrix <span class="process-math">\(A\text{,}\)</span> then we can find a convenient formula for <span class="process-math">\(F_n\text{.}\)</span> As we have seen, we know how to do this if <span class="process-math">\(A\)</span> is diagonalizable</p>
 <article class="project project-like" id="project-63"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.8</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-316"><p id="p-3336">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array} \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-315"><p id="p-3335">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1108"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3337">Show that the eigenvalues of <span class="process-math">\(A\)</span> are <span class="process-math">\(\varphi = \frac{1 + \sqrt{5}}{2}\)</span> and <span class="process-math">\(\overline{\varphi} = \frac{1 - \sqrt{5}}{2}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1109"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3338">Find bases for each eigenspace of <span class="process-math">\(A\text{.}\)</span></p></article></article><p id="p-3339">Now that we have the eigenvalues and know corresponding eigenvectors for <span class="process-math">\(A\text{,}\)</span> we can return to the problem of diagonalizing <span class="process-math">\(A\text{.}\)</span></p>
+<p id="p-3336">Show that the eigenvalues of <span class="process-math">\(A\)</span> are <span class="process-math">\(\varphi = \frac{1 + \sqrt{5}}{2}\)</span> and <span class="process-math">\(\overline{\varphi} = \frac{1 - \sqrt{5}}{2}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1109"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3337">Find bases for each eigenspace of <span class="process-math">\(A\text{.}\)</span></p></article></article><p id="p-3338">Now that we have the eigenvalues and know corresponding eigenvectors for <span class="process-math">\(A\text{,}\)</span> we can return to the problem of diagonalizing <span class="process-math">\(A\text{.}\)</span></p>
 <article class="project project-like" id="project-64"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.9</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-1110"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3340">Why do we know that <span class="process-math">\(A\)</span> is diagonalizable?</p></article><article class="task exercise-like" id="task-1111"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3341">Find a matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix. What is the diagonal matrix?</p></article></article><p id="p-3342">Now we can find a formula for the <span class="process-math">\(n\)</span>th Fibonacci number.</p>
+<p id="p-3339">Why do we know that <span class="process-math">\(A\)</span> is diagonalizable?</p></article><article class="task exercise-like" id="task-1111"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3340">Find a matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix. What is the diagonal matrix?</p></article></article><p id="p-3341">Now we can find a formula for the <span class="process-math">\(n\)</span>th Fibonacci number.</p>
 <article class="project project-like" id="project-65"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.10</span><span class="period">.</span>
 </h3>
-<p id="p-3343">Since <span class="process-math">\(P^{-1}AP = D\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix, we also have <span class="process-math">\(A = PDP^{-1}\text{.}\)</span> Recall that when <span class="process-math">\(A = PDP^{-1}\text{,}\)</span> it follows that <span class="process-math">\(A^n = PD^nP^{-1}\text{.}\)</span> Use the equation <span class="process-math">\(A^n = PD^nP^{-1}\)</span> to show that</p>
+<p id="p-3342">Since <span class="process-math">\(P^{-1}AP = D\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix, we also have <span class="process-math">\(A = PDP^{-1}\text{.}\)</span> Recall that when <span class="process-math">\(A = PDP^{-1}\text{,}\)</span> it follows that <span class="process-math">\(A^n = PD^nP^{-1}\text{.}\)</span> Use the equation <span class="process-math">\(A^n = PD^nP^{-1}\)</span> to show that</p>
 <div class="displaymath process-math">
 \begin{equation}
 F_n = \frac{\varphi^n - \overline{\varphi}^n}{\sqrt{5}}\text{.}\label{eq_Binet}\tag{19.6}
 \end{equation}
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-25" id="hint-25"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-25"><div class="hint solution-like"><p id="p-3344">We just need to calculate the second component of <span class="process-math">\(A^n \vx_0\text{.}\)</span></p></div></div>
-</div></article><p id="p-3345"> Formula <a href="" class="xref" data-knowl="./knowl/eq_Binet.html" title="Equation 19.6">(19.6)</a> is called <em class="emphasis">Binet's formula</em>. It is a very surprising formula in the fact that the expression on the right hand side of <a href="" class="xref" data-knowl="./knowl/eq_Binet.html" title="Equation 19.6">(19.6)</a> is an integer for each positive integer <span class="process-math">\(n\text{.}\)</span> Note that with Binet's formula we can quickly compute <span class="process-math">\(F_n\)</span> for very large values of <span class="process-math">\(n\text{.}\)</span> For example,</p>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-25" id="hint-25"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-25"><div class="hint solution-like"><p id="p-3343">We just need to calculate the second component of <span class="process-math">\(A^n \vx_0\text{.}\)</span></p></div></div>
+</div></article><p id="p-3344"> Formula <a href="" class="xref" data-knowl="./knowl/eq_Binet.html" title="Equation 19.6">(19.6)</a> is called <em class="emphasis">Binet's formula</em>. It is a very surprising formula in the fact that the expression on the right hand side of <a href="" class="xref" data-knowl="./knowl/eq_Binet.html" title="Equation 19.6">(19.6)</a> is an integer for each positive integer <span class="process-math">\(n\text{.}\)</span> Note that with Binet's formula we can quickly compute <span class="process-math">\(F_n\)</span> for very large values of <span class="process-math">\(n\text{.}\)</span> For example,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 F_{150} = 9969216677189303386214405760200\text{.}
 \end{equation*}
 </div>
-<p id="p-3346">The number <span class="process-math">\(\varphi = \frac{1+\sqrt{5}}{2}\text{,}\)</span> called the <dfn class="terminology">golden mean</dfn> or <dfn class="terminology">golden ratio</dfn> is intimately related to the Fibonacci sequence. Binet's formula provides a fascinating relationship between the Fibonacci numbers and the golden ratio. The golden ratio also occurs often in other areas of mathematics. It was an important number to the ancient Greek mathematicians who felt that the most aesthetically pleasing rectangles had sides in the ratio of <span class="process-math">\(\varphi:1\text{.}\)</span></p>
+<p id="p-3345">The number <span class="process-math">\(\varphi = \frac{1+\sqrt{5}}{2}\text{,}\)</span> called the <dfn class="terminology">golden mean</dfn> or <dfn class="terminology">golden ratio</dfn> is intimately related to the Fibonacci sequence. Binet's formula provides a fascinating relationship between the Fibonacci numbers and the golden ratio. The golden ratio also occurs often in other areas of mathematics. It was an important number to the ancient Greek mathematicians who felt that the most aesthetically pleasing rectangles had sides in the ratio of <span class="process-math">\(\varphi:1\text{.}\)</span></p>
 <article class="project project-like" id="project-66"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.11</span><span class="period">.</span>
 </h3>
-<p id="p-3347">You might wonder what happens if we use negative integer exponents in Binet's formula. In other words, are there negatively indexed Fibonacci numbers? For any integer <span class="process-math">\(n\text{,}\)</span> including negative integers, let</p>
+<p id="p-3346">You might wonder what happens if we use negative integer exponents in Binet's formula. In other words, are there negatively indexed Fibonacci numbers? For any integer <span class="process-math">\(n\text{,}\)</span> including negative integers, let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 F_n = \frac{\varphi^n - \overline{\varphi}^n}{\sqrt{5}}
 \end{equation*}
 </div>
-<p id="p-3348">There is a specific relationship between <span class="process-math">\(F_{-n}\)</span> and <span class="process-math">\(F_n\text{.}\)</span> Find it and verify it.</p></article></section></div></main>
+<p id="p-3347">There is a specific relationship between <span class="process-math">\(F_{-n}\)</span> and <span class="process-math">\(F_n\text{.}\)</span> Find it and verify it.</p></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

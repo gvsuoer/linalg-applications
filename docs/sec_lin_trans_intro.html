@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:29:11-04:00       *-->
+<!--*       on 2022-03-21T15:39:32-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,16 +750,16 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_lin_trans_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-6446">We have encountered functions throughout our study of mathematics — we explore graphs of functions in algebra and differentiate and integrate functions in calculus. In linear algebra we have investigated special types of functions, e.g., matrix and coordinate transformations, that preserve the vector space structure. Any function that has the same properties as matrix and coordinate transformations is a <dfn class="terminology">linear transformation</dfn>. Linear transformations are important in linear algebra in that we can study similarities and connections between vector spaces by examining transformations between them. Linear transformations model or approximately model certain real-life processes (like discrete dynamical systems, geometrical transformations, Google PageRank, etc.). Also, we can determine the behavior of an entire linear transformation by knowing how it acts on just a basis.</p>
+<p id="p-6445">We have encountered functions throughout our study of mathematics — we explore graphs of functions in algebra and differentiate and integrate functions in calculus. In linear algebra we have investigated special types of functions, e.g., matrix and coordinate transformations, that preserve the vector space structure. Any function that has the same properties as matrix and coordinate transformations is a <dfn class="terminology">linear transformation</dfn>. Linear transformations are important in linear algebra in that we can study similarities and connections between vector spaces by examining transformations between them. Linear transformations model or approximately model certain real-life processes (like discrete dynamical systems, geometrical transformations, Google PageRank, etc.). Also, we can determine the behavior of an entire linear transformation by knowing how it acts on just a basis.</p>
 <article class="definition definition-like" id="definition-87"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">37.2</span><span class="period">.</span>
 </h3>
-<p id="p-6447">A <dfn class="terminology">linear transformation</dfn> from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\)</span> is a function <span class="process-math">\(T: V \to W\)</span> such that</p>
+<p id="p-6446">A <dfn class="terminology">linear transformation</dfn> from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\)</span> is a function <span class="process-math">\(T: V \to W\)</span> such that</p>
 <ol class="decimal">
-<li id="li-941"><p id="p-6448"><span class="process-math">\(T(\vu + \vv) = T(\vu) + T(\vv)\)</span> and</p></li>
-<li id="li-942"><p id="p-6449"><span class="process-math">\(\displaystyle T(c\vv) = cT(\vv)\)</span></p></li>
+<li id="li-941"><p id="p-6447"><span class="process-math">\(T(\vu + \vv) = T(\vu) + T(\vv)\)</span> and</p></li>
+<li id="li-942"><p id="p-6448"><span class="process-math">\(\displaystyle T(c\vv) = cT(\vv)\)</span></p></li>
 </ol>
-<p id="p-6450">for all <span class="process-math">\(\vu, \vv\)</span> in <span class="process-math">\(V\)</span> and all scalars <span class="process-math">\(c\text{.}\)</span></p></article><p id="p-6451">These transformations are called <dfn class="terminology">linear</dfn> because they respect linear combinations. We can combine both parts of this definition into one statement and say that a mapping <span class="process-math">\(T\)</span> from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\)</span> is a linear transformation if</p>
+<p id="p-6449">for all <span class="process-math">\(\vu, \vv\)</span> in <span class="process-math">\(V\)</span> and all scalars <span class="process-math">\(c\text{.}\)</span></p></article><p id="p-6450">These transformations are called <dfn class="terminology">linear</dfn> because they respect linear combinations. We can combine both parts of this definition into one statement and say that a mapping <span class="process-math">\(T\)</span> from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\)</span> is a linear transformation if</p>
 <div class="displaymath process-math">
 \begin{equation*}
 T(a\vu + b \vv) = aT(\vu) + bT(\vv)
@@ -772,29 +771,29 @@ T(a\vu + b \vv) = aT(\vu) + bT(\vv)
 T(c_1 \vv_1 + c_2 \vv_2 + \cdots + c_k \vv_k) = c_1 T(\vv_1) + c_2 T(\vv_2) + \cdots + c_k T(\vv_k)\text{.}
 \end{equation*}
 </div>
-<p id="p-6452">This is the property that <span class="process-math">\(T\)</span> respects linear combinations.</p>
+<p id="p-6451">This is the property that <span class="process-math">\(T\)</span> respects linear combinations.</p>
 <article class="exploration project-like" id="pa_8_a"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">37.1</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-2185"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6453">Consider the transformation <span class="process-math">\(T: \R^3 \to \R^2\)</span> defined by</p>
+<p id="p-6452">Consider the transformation <span class="process-math">\(T: \R^3 \to \R^2\)</span> defined by</p>
 <div class="displaymath process-math">
 \begin{equation*}
 T\left( \left[ \begin{array}{cc} x\\y\\z \end{array}  \right] \right) = \left[ \begin{array}{c} x+y\\z+3 \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">Check that <span class="process-math">\(T\)</span> is not linear by finding two vectors <span class="process-math">\(\vu, \vv\)</span> which violate the additive property of linear transformations.</p></article><article class="task exercise-like" id="task-2186"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6454">Consider the transformation <span class="process-math">\(T : \pol_2 \to \pol_3\)</span> defined by</p>
+<p id="p-6453">Consider the transformation <span class="process-math">\(T : \pol_2 \to \pol_3\)</span> defined by</p>
 <div class="displaymath process-math">
 \begin{equation*}
 T(a_0+a_1t+a_2t^2) = (a_0+a_1) + a_2t + a_1t^3
 \end{equation*}
 </div>
 <p class="continuation">Check that <span class="process-math">\(T\)</span> is a linear transformation.</p></article><article class="task exercise-like" id="task-2187"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6455">Let <span class="process-math">\(\D\)</span> be the set of all differentiable functions from <span class="process-math">\(\R\)</span> to <span class="process-math">\(\R\text{.}\)</span> Since <span class="process-math">\(\frac{d}{dx}(0) = 0\text{,}\)</span> <span class="process-math">\((f+g)'(x) = f'(x)+g'(x)\)</span> and <span class="process-math">\((cf)'(x) = cf'(x)\)</span> for any differentiable functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> and any scalar <span class="process-math">\(c\text{,}\)</span> it follows that <span class="process-math">\(\D\)</span> is a subspace of <span class="process-math">\(\F\text{,}\)</span> the vector space of all functions from <span class="process-math">\(\R\)</span> to <span class="process-math">\(\R\text{.}\)</span> Let <span class="process-math">\(T: \D \to \F\)</span> be defined by <span class="process-math">\(T(f) = f'\text{.}\)</span> Check that <span class="process-math">\(T\)</span> is a linear transformation.</p></article><article class="task exercise-like" id="task-2188"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-6456">Every matrix transformation is a linear transformation, so we might expect that general linear transformations share some of the properties of matrix transformations. Let <span class="process-math">\(T\)</span> be a linear transformation from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\text{.}\)</span> Use the linearity properties to show that <span class="process-math">\(T(\vzero_V) = \vzero_W\text{,}\)</span> where <span class="process-math">\(\vzero_V\)</span> is the additive identity in <span class="process-math">\(V\)</span> and <span class="process-math">\(\vzero_W\)</span> is the additive identity in <span class="process-math">\(W\text{.}\)</span></p>
+<p id="p-6454">Let <span class="process-math">\(\D\)</span> be the set of all differentiable functions from <span class="process-math">\(\R\)</span> to <span class="process-math">\(\R\text{.}\)</span> Since <span class="process-math">\(\frac{d}{dx}(0) = 0\text{,}\)</span> <span class="process-math">\((f+g)'(x) = f'(x)+g'(x)\)</span> and <span class="process-math">\((cf)'(x) = cf'(x)\)</span> for any differentiable functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> and any scalar <span class="process-math">\(c\text{,}\)</span> it follows that <span class="process-math">\(\D\)</span> is a subspace of <span class="process-math">\(\F\text{,}\)</span> the vector space of all functions from <span class="process-math">\(\R\)</span> to <span class="process-math">\(\R\text{.}\)</span> Let <span class="process-math">\(T: \D \to \F\)</span> be defined by <span class="process-math">\(T(f) = f'\text{.}\)</span> Check that <span class="process-math">\(T\)</span> is a linear transformation.</p></article><article class="task exercise-like" id="task-2188"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-6455">Every matrix transformation is a linear transformation, so we might expect that general linear transformations share some of the properties of matrix transformations. Let <span class="process-math">\(T\)</span> be a linear transformation from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\text{.}\)</span> Use the linearity properties to show that <span class="process-math">\(T(\vzero_V) = \vzero_W\text{,}\)</span> where <span class="process-math">\(\vzero_V\)</span> is the additive identity in <span class="process-math">\(V\)</span> and <span class="process-math">\(\vzero_W\)</span> is the additive identity in <span class="process-math">\(W\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-108" id="hint-108"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-108"><div class="hint solution-like"><p id="p-6457"><span class="process-math">\(0_V + 0_V = 0_V\text{.}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-108" id="hint-108"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-108"><div class="hint solution-like"><p id="p-6456"><span class="process-math">\(0_V + 0_V = 0_V\text{.}\)</span></p></div></div>
 </div></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>

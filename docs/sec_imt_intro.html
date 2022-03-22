@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:21:57-04:00       *-->
+<!--*       on 2022-03-21T15:31:36-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,30 +751,30 @@
 <section class="section" id="sec_imt_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-1862">This section is different than others in this book in that it contains only one long proof of the equivalence of statements that we have already discussed. As such, this is a theoretical section and there is no application connected to it.</p>
-<p id="p-1863"> The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to having a matrix be invertible. To understand the Invertible Matrix Theorem, we need to know what it means for two statements to be <dfn class="terminology">equivalent</dfn>. By equivalent, we mean that if one of the statements is true, then so is the other. We examine this idea in this preview activity.</p>
+<p id="p-1861">This section is different than others in this book in that it contains only one long proof of the equivalence of statements that we have already discussed. As such, this is a theoretical section and there is no application connected to it.</p>
+<p id="p-1862"> The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to having a matrix be invertible. To understand the Invertible Matrix Theorem, we need to know what it means for two statements to be <dfn class="terminology">equivalent</dfn>. By equivalent, we mean that if one of the statements is true, then so is the other. We examine this idea in this preview activity.</p>
 <article class="exploration project-like" id="pa_2_d"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">11.1</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-173">
-<p id="p-1864">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. In this activity we endeavor to understand why the two statements</p>
+<div class="introduction" id="introduction-172">
+<p id="p-1863">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. In this activity we endeavor to understand why the two statements</p>
 <ol class="upper-roman">
-<li id="li-327"><p id="p-1865">The matrix <span class="process-math">\(A\)</span> is invertible.</p></li>
-<li id="li-328"><p id="p-1866">The matrix <span class="process-math">\(A^{\tr}\)</span> is invertible.</p></li>
+<li id="li-327"><p id="p-1864">The matrix <span class="process-math">\(A\)</span> is invertible.</p></li>
+<li id="li-328"><p id="p-1865">The matrix <span class="process-math">\(A^{\tr}\)</span> is invertible.</p></li>
 </ol>
 <p class="continuation">are equivalent. To demonstrate that statements I and II are equivalent, we need to argue that if statement I is true, then so is statement II, and if statement II is true then so is statement I.</p>
 </div>
 <article class="task exercise-like" id="task-603"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-174"><p id="p-1867">Let's first show that if statement I is true, then so is statement II. So we assume statement I. That is, we assume that <span class="process-math">\(A\)</span> is an invertible matrix. So we know that there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(B\)</span> such that <span class="process-math">\(AB = BA = I_n\text{,}\)</span> where <span class="process-math">\(I_n\)</span> is the <span class="process-math">\(n \times n\)</span> identity matrix. To demonstrate that statement II must also be true, we need to verify that <span class="process-math">\(A^{\tr}\)</span> is an invertible matrix.</p></div>
+<div class="introduction" id="introduction-173"><p id="p-1866">Let's first show that if statement I is true, then so is statement II. So we assume statement I. That is, we assume that <span class="process-math">\(A\)</span> is an invertible matrix. So we know that there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(B\)</span> such that <span class="process-math">\(AB = BA = I_n\text{,}\)</span> where <span class="process-math">\(I_n\)</span> is the <span class="process-math">\(n \times n\)</span> identity matrix. To demonstrate that statement II must also be true, we need to verify that <span class="process-math">\(A^{\tr}\)</span> is an invertible matrix.</p></div>
 <article class="task exercise-like" id="task-604"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-1868">What is <span class="process-math">\(I_n^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-605"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-1869">Take the transpose of both sides of the equation <span class="process-math">\(AB = I_n\)</span> and use the properties of the transpose to write <span class="process-math">\((AB)^{\tr}\)</span> in terms of <span class="process-math">\(A^{\tr}\)</span> and <span class="process-math">\(B^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-606"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-1870">Take the transpose of both sides of the equation <span class="process-math">\(BA = I_n\)</span> and use the properties of the transpose to write <span class="process-math">\((BA)^{\tr}\)</span> in terms of <span class="process-math">\(A^{\tr}\)</span> and <span class="process-math">\(B^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-607"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-1871">Explain how the previous two parts show that <span class="process-math">\(B^{\tr}\)</span> is the inverse of <span class="process-math">\(A^{\tr}\text{,}\)</span> so that <span class="process-math">\(A^{\tr}\)</span> is invertible. So we have shown that if statement I is true, so is statement II.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-22" id="fn-22"><sup> 22 </sup></a></p></article></article><article class="task exercise-like" id="task-608"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="introduction" id="introduction-175"><p id="p-1872">Now we prove that if statement II is true, then so is statement I. So we assume statement II. That is, we assume that the matrix <span class="process-math">\(A^{\tr}\)</span> is invertible. We could do this in the same manner as part (a), or we could be a bit clever. Let's try to be clever.</p></div>
+<p id="p-1867">What is <span class="process-math">\(I_n^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-605"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-1868">Take the transpose of both sides of the equation <span class="process-math">\(AB = I_n\)</span> and use the properties of the transpose to write <span class="process-math">\((AB)^{\tr}\)</span> in terms of <span class="process-math">\(A^{\tr}\)</span> and <span class="process-math">\(B^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-606"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-1869">Take the transpose of both sides of the equation <span class="process-math">\(BA = I_n\)</span> and use the properties of the transpose to write <span class="process-math">\((BA)^{\tr}\)</span> in terms of <span class="process-math">\(A^{\tr}\)</span> and <span class="process-math">\(B^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-607"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
+<p id="p-1870">Explain how the previous two parts show that <span class="process-math">\(B^{\tr}\)</span> is the inverse of <span class="process-math">\(A^{\tr}\text{,}\)</span> so that <span class="process-math">\(A^{\tr}\)</span> is invertible. So we have shown that if statement I is true, so is statement II.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-22" id="fn-22"><sup> 22 </sup></a></p></article></article><article class="task exercise-like" id="task-608"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction" id="introduction-174"><p id="p-1871">Now we prove that if statement II is true, then so is statement I. So we assume statement II. That is, we assume that the matrix <span class="process-math">\(A^{\tr}\)</span> is invertible. We could do this in the same manner as part (a), or we could be a bit clever. Let's try to be clever.</p></div>
 <article class="task exercise-like" id="task-609"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-1873">What matrix is <span class="process-math">\(\left(A^{\tr}\right)^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-610"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-1874">Why can we use the result of part (a) with <span class="process-math">\(A^{\tr}\)</span> in place of <span class="process-math">\(A\)</span> to conclude that <span class="process-math">\(A\)</span> is invertible? As a consequence, we have demonstrated that <span class="process-math">\(A\)</span> is invertible if <span class="process-math">\(A^{\tr}\)</span> is invertible. This concludes our argument that statements I and II are equivalent.</p></article></article></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-22"><div class="fn">Note that statement I does not have to be true. We are only assuming that IF statement I is true, then statement II must also be true.</div></div>
+<p id="p-1872">What matrix is <span class="process-math">\(\left(A^{\tr}\right)^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-610"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-1873">Why can we use the result of part (a) with <span class="process-math">\(A^{\tr}\)</span> in place of <span class="process-math">\(A\)</span> to conclude that <span class="process-math">\(A\)</span> is invertible? As a consequence, we have demonstrated that <span class="process-math">\(A\)</span> is invertible if <span class="process-math">\(A^{\tr}\)</span> is invertible. This concludes our argument that statements I and II are equivalent.</p></article></article></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-22"><div class="fn">Note that statement I does not have to be true. We are only assuming that IF statement I is true, then statement II must also be true.</div></div>
 </div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>

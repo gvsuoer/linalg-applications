@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:27:47-04:00       *-->
+<!--*       on 2022-03-21T15:37:53-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,12 +750,12 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_bases_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-5550">In <span class="process-math">\(\R^n\)</span> we defined a basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> to be a minimal spanning set for <span class="process-math">\(W\text{,}\)</span> or a linearly independent spanning set (see <a href="" class="xref" data-knowl="./knowl/def_1_f_basis.html" title="Definition 6.8">Definition 6.8</a>). So to consider the idea of a basis in a vector space, we will need the notion of linear independence in that context.</p>
-<p id="p-5551">Since we can add vectors and multiply vectors by scalars in any vector space, and because we have a zero vector in any vector space, we can define linear independence of a finite set of vectors in any vector space as follows (compare to <a href="" class="xref" data-knowl="./knowl/def_linear_independence_Rn.html" title="Definition 6.2">Definition 6.2</a>).</p>
+<p id="p-5549">In <span class="process-math">\(\R^n\)</span> we defined a basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> to be a minimal spanning set for <span class="process-math">\(W\text{,}\)</span> or a linearly independent spanning set (see <a href="" class="xref" data-knowl="./knowl/def_1_f_basis.html" title="Definition 6.8">Definition 6.8</a>). So to consider the idea of a basis in a vector space, we will need the notion of linear independence in that context.</p>
+<p id="p-5550">Since we can add vectors and multiply vectors by scalars in any vector space, and because we have a zero vector in any vector space, we can define linear independence of a finite set of vectors in any vector space as follows (compare to <a href="" class="xref" data-knowl="./knowl/def_linear_independence_Rn.html" title="Definition 6.2">Definition 6.2</a>).</p>
 <article class="definition definition-like" id="def_vs_linear_independence"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">32.2</span><span class="period">.</span>
 </h3>
-<p id="p-5552">A set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> of vectors in a vector space <span class="process-math">\(V\)</span> is <dfn class="terminology">linearly independent</dfn> if the vector equation</p>
+<p id="p-5551">A set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> of vectors in a vector space <span class="process-math">\(V\)</span> is <dfn class="terminology">linearly independent</dfn> if the vector equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k = \vzero
@@ -769,13 +768,13 @@ x_k\)</span> has only the trivial solution</p>
 x_1 = x_2 = x_3 = \cdots = x_k = 0\text{.}
 \end{equation*}
 </div>
-<p id="p-5553">If a set of vectors is not linearly independent, then the set is <dfn class="terminology">linearly dependent</dfn>.</p></article><p id="p-5554">Alternatively, we say that the vectors <span class="process-math">\(\vv_1, \vv_2, \ldots, \vv_k\)</span> are linearly independent (or dependent) if the set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> is linearly independent (or dependent).</p>
+<p id="p-5552">If a set of vectors is not linearly independent, then the set is <dfn class="terminology">linearly dependent</dfn>.</p></article><p id="p-5553">Alternatively, we say that the vectors <span class="process-math">\(\vv_1, \vv_2, \ldots, \vv_k\)</span> are linearly independent (or dependent) if the set <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> is linearly independent (or dependent).</p>
 <article class="exploration project-like" id="pa_5_b"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">32.1</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-1872"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-547">
-<p id="p-5555">We can use the tools we developed to determine if a set of vectors in <span class="process-math">\(\R^n\)</span> is linearly independent to answer the same questions for sets of vectors in other vector spaces. For example, consider the question of whether the set <span class="process-math">\(\{1+t, 1-t\}\)</span> in <span class="process-math">\(\pol_1\)</span> is linearly independent or dependent. To answer this question we need to determine if there is a non-trivial solution to the equation</p>
+<div class="introduction" id="introduction-546">
+<p id="p-5554">We can use the tools we developed to determine if a set of vectors in <span class="process-math">\(\R^n\)</span> is linearly independent to answer the same questions for sets of vectors in other vector spaces. For example, consider the question of whether the set <span class="process-math">\(\{1+t, 1-t\}\)</span> in <span class="process-math">\(\pol_1\)</span> is linearly independent or dependent. To answer this question we need to determine if there is a non-trivial solution to the equation</p>
 <div class="displaymath process-math">
 \begin{equation}
 x_1 (1+t) + x_2(1-t) = 0\text{.}\label{eq_PA_5_b_1}\tag{32.2}
@@ -789,11 +788,11 @@ x_1 (1+t) + x_2(1-t) = 0\text{.}\label{eq_PA_5_b_1}\tag{32.2}
 </div>
 </div>
 <article class="task exercise-like" id="task-1873"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-5556">Recall that two polynomials are equal if all coefficients of like powers are the same. By equating coefficients of like power terms, rewrite equation <a href="" class="xref" data-knowl="./knowl/eq_PA_5_b_1.html" title="Equation 32.2">(32.2)</a> as an equivalent system of two equations in the two unknowns <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{,}\)</span> and solve for <span class="process-math">\(x_1, x_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-1874"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-5557">What does your answer to the previous part tell you about the linear independence or dependence of the set <span class="process-math">\(\{1+t, 1-t\}\)</span> in <span class="process-math">\(\pol_1\text{?}\)</span></p></article><article class="task exercise-like" id="task-1875"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-5558">Recall that in <span class="process-math">\(\R^n\text{,}\)</span> a set of two vectors is linearly dependent if and only if one of the vectors in the set is a scalar multiple of the other and linearly independent if neither vector is a scalar multiple of the other. Verify your answer to part (c) from a similar perspective in <span class="process-math">\(\pol_1\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-1876"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="introduction" id="introduction-548">
-<p id="p-5559">We can use the same type of method as in problem (1) to address the question of whether the set</p>
+<p id="p-5555">Recall that two polynomials are equal if all coefficients of like powers are the same. By equating coefficients of like power terms, rewrite equation <a href="" class="xref" data-knowl="./knowl/eq_PA_5_b_1.html" title="Equation 32.2">(32.2)</a> as an equivalent system of two equations in the two unknowns <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{,}\)</span> and solve for <span class="process-math">\(x_1, x_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-1874"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-5556">What does your answer to the previous part tell you about the linear independence or dependence of the set <span class="process-math">\(\{1+t, 1-t\}\)</span> in <span class="process-math">\(\pol_1\text{?}\)</span></p></article><article class="task exercise-like" id="task-1875"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-5557">Recall that in <span class="process-math">\(\R^n\text{,}\)</span> a set of two vectors is linearly dependent if and only if one of the vectors in the set is a scalar multiple of the other and linearly independent if neither vector is a scalar multiple of the other. Verify your answer to part (c) from a similar perspective in <span class="process-math">\(\pol_1\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-1876"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction" id="introduction-547">
+<p id="p-5558">We can use the same type of method as in problem (1) to address the question of whether the set</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left\{ \left[ \begin{array}{cc} 1\amp 3 \\ 1\amp 2 \end{array}  \right], \left[ \begin{array}{cr} 1\amp -9 \\ 1\amp 8 \end{array}  \right], \left[ \begin{array}{cr} 1\amp -1 \\ 1\amp 4 \end{array}  \right] \right\}
@@ -813,16 +812,16 @@ x_1\left[ \begin{array}{cc} 1\amp 3 \\ 1\amp 2 \end{array}  \right] + x_2\left[ 
 </div>
 </div>
 <article class="task exercise-like" id="task-1877"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-5560">Recall that two matrices are equal if all corresponding entries are the same. Equate corresponding entries of the matrices in equation <a href="" class="xref" data-knowl="./knowl/eq_PA_5_b_2.html" title="Equation 32.3">(32.3)</a> to rewrite the equation as an equivalent system of four equations in the three unknowns <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\text{.}\)</span></p></article><article class="task exercise-like" id="task-1878"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-5561">Use appropriate matrix tools and techniques to find all solutions to the system from part (a).</p></article><article class="task exercise-like" id="task-1879"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-5562">What does the set of solutions to the system from part (a) tell you about the linear independence or dependence of the set</p>
+<p id="p-5559">Recall that two matrices are equal if all corresponding entries are the same. Equate corresponding entries of the matrices in equation <a href="" class="xref" data-knowl="./knowl/eq_PA_5_b_2.html" title="Equation 32.3">(32.3)</a> to rewrite the equation as an equivalent system of four equations in the three unknowns <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\text{.}\)</span></p></article><article class="task exercise-like" id="task-1878"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-5560">Use appropriate matrix tools and techniques to find all solutions to the system from part (a).</p></article><article class="task exercise-like" id="task-1879"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-5561">What does the set of solutions to the system from part (a) tell you about the linear independence or dependence of the set</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left\{ \left[ \begin{array}{cc} 1\amp 3 \\ 1\amp 2 \end{array}  \right], \left[ \begin{array}{cr} 1\amp -9 \\ 1\amp 8 \end{array}  \right], \left[ \begin{array}{cr} 1\amp -1 \\ 1\amp 4 \end{array}  \right] \right\}?
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-1880"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-5563">Recall that in <span class="process-math">\(\R^n\text{,}\)</span> a set of vectors is linearly dependent if and only if one of the vectors in the set is a linear combination of the others and linearly independent if no vector in the set is a linear combination of the others. Verify your answer to part (c) from a similar perspective in <span class="process-math">\(\M_{2 \times 2}\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-1881"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-5564">We will define a basis for a vector space to be a linearly independent spanning set. Which, if any, of the sets in parts (1) and (2) is a basis for its vector space? Explain.</p></article></article></section></div></main>
+<p id="p-5562">Recall that in <span class="process-math">\(\R^n\text{,}\)</span> a set of vectors is linearly dependent if and only if one of the vectors in the set is a linear combination of the others and linearly independent if no vector in the set is a linear combination of the others. Verify your answer to part (c) from a similar perspective in <span class="process-math">\(\M_{2 \times 2}\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-1881"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-5563">We will define a basis for a vector space to be a linearly independent spanning set. Which, if any, of the sets in parts (1) and (2) is a basis for its vector space? Explain.</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

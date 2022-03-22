@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:23:42-04:00       *-->
+<!--*       on 2022-03-21T15:33:25-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,12 +750,12 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proj_det_area_vol"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Area and Volume Using Determinants</span>
 </h2>
-<p id="p-2989">The approach we will take to connecting area (volume) to the determinant will help shed light on properties of the determinant that we will discuss from an algebraic perspective in a later section. First, we mention some basic properties of area (we focus on area for now, but these same properties are valid for volumes as well). volume). As a shorthand, we denote the area of a region <span class="process-math">\(R\)</span> by <span class="process-math">\(\Area(R)\text{.}\)</span></p>
+<p id="p-2988">The approach we will take to connecting area (volume) to the determinant will help shed light on properties of the determinant that we will discuss from an algebraic perspective in a later section. First, we mention some basic properties of area (we focus on area for now, but these same properties are valid for volumes as well). volume). As a shorthand, we denote the area of a region <span class="process-math">\(R\)</span> by <span class="process-math">\(\Area(R)\text{.}\)</span></p>
 <ul class="disc">
-<li id="li-533"><p id="p-2990">Area cannot be negative.</p></li>
-<li id="li-534"><p id="p-2991">If two regions <span class="process-math">\(R_1\)</span> and <span class="process-math">\(R_2\)</span> don't overlap, then the area of the union of the regions is equal to the sum of the areas of the regions. That is, if <span class="process-math">\(R_1 \cap R_2 = \emptyset\text{,}\)</span> then <span class="process-math">\(\Area(R_1 \cup R_2) = \Area(R_1) + \Area(R_2)\text{.}\)</span></p></li>
+<li id="li-533"><p id="p-2989">Area cannot be negative.</p></li>
+<li id="li-534"><p id="p-2990">If two regions <span class="process-math">\(R_1\)</span> and <span class="process-math">\(R_2\)</span> don't overlap, then the area of the union of the regions is equal to the sum of the areas of the regions. That is, if <span class="process-math">\(R_1 \cap R_2 = \emptyset\text{,}\)</span> then <span class="process-math">\(\Area(R_1 \cup R_2) = \Area(R_1) + \Area(R_2)\text{.}\)</span></p></li>
 <li id="li-535">
-<p id="p-2992">Area is invariant under translation. That is, if we move a geometric region by the same amount uniformly in a given direction, the area of the original region and the area of the transformed region are the same. A translation of a region is done by just adding a fixed vector to each vector in the region. That is, a translation by a vector <span class="process-math">\(\vv\)</span> is a function <span class="process-math">\(T_{\vv}\)</span> such that the image <span class="process-math">\(T_{\vv}(R)\)</span> of a region <span class="process-math">\(R\)</span> is defined as</p>
+<p id="p-2991">Area is invariant under translation. That is, if we move a geometric region by the same amount uniformly in a given direction, the area of the original region and the area of the transformed region are the same. A translation of a region is done by just adding a fixed vector to each vector in the region. That is, a translation by a vector <span class="process-math">\(\vv\)</span> is a function <span class="process-math">\(T_{\vv}\)</span> such that the image <span class="process-math">\(T_{\vv}(R)\)</span> of a region <span class="process-math">\(R\)</span> is defined as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 T_{\vv}(R) = \{\vr+\vv : \vr \in R\}\text{.}
@@ -764,73 +763,73 @@ T_{\vv}(R) = \{\vr+\vv : \vr \in R\}\text{.}
 </div>
 <p class="continuation">Since area is translation invariant, <span class="process-math">\(\Area(T_{\vv}(R)) = \Area(R)\text{.}\)</span></p>
 </li>
-<li id="li-536"><p id="p-2993">The area of a one-dimensional object like a line segment is <span class="process-math">\(0\text{.}\)</span></p></li>
+<li id="li-536"><p id="p-2992">The area of a one-dimensional object like a line segment is <span class="process-math">\(0\text{.}\)</span></p></li>
 </ul>
-<p id="p-2994">Now we turn our attention to areas of parallelograms. Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors in <span class="process-math">\(\R^2\text{.}\)</span> The parallelogram <span class="process-math">\(P(\vu,\vv)\)</span> defined by <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> with point <span class="process-math">\(Q\)</span> as basepoint is the set</p>
+<p id="p-2993">Now we turn our attention to areas of parallelograms. Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors in <span class="process-math">\(\R^2\text{.}\)</span> The parallelogram <span class="process-math">\(P(\vu,\vv)\)</span> defined by <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> with point <span class="process-math">\(Q\)</span> as basepoint is the set</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P(\vu, \vv) = \{\overrightarrow{OQ}+r \vu + s \vv : 0 \leq r, s \leq 1\}\text{.}
 \end{equation*}
 </div>
-<p id="p-2995">An illustration of such a parallelogram is shown at left in <a href="" class="xref" data-knowl="./knowl/F_parallelograms.html" title="Figure 17.8">Figure 17.8</a>.</p>
+<p id="p-2994">An illustration of such a parallelogram is shown at left in <a href="" class="xref" data-knowl="./knowl/F_parallelograms.html" title="Figure 17.8">Figure 17.8</a>.</p>
 <figure class="figure figure-like" id="F_parallelograms"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/4_a_parallelogram_rotated.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">17.8<span class="period">.</span></span><span class="space"> </span>A parallelogram and a translated, rotated parallelogram.</figcaption></figure><p id="p-2996">If <span class="process-math">\(\vu = [u_1 \ u_2]^{\tr}\)</span> and <span class="process-math">\(\vv = [v_1 \ v_2]^{\tr}\text{,}\)</span> then we will also represent <span class="process-math">\(P(\vu,\vv)\)</span> as <span class="process-math">\(P\left( \left[ \begin{array}{cc}u_1\amp u_2 \\ v_1\amp v_2 \end{array} \right] \right)\text{.}\)</span></p>
-<p id="p-2997">Since area is translation and rotation invariant, we can translate our parallelogram by <span class="process-math">\(-\overrightarrow{OQ}\)</span> to place its basepoint at the origin, then rotate by an angle <span class="process-math">\(\theta\)</span> (as shown at left in <a href="" class="xref" data-knowl="./knowl/F_parallelograms.html" title="Figure 17.8">Figure 17.8</a>. This transforms the vector <span class="process-math">\(\vv\)</span> to a vector <span class="process-math">\(\vv'\)</span> and the vector <span class="process-math">\(\vu\)</span> to a vector <span class="process-math">\(\vu'\)</span> as shown at right in <a href="" class="xref" data-knowl="./knowl/F_parallelograms.html" title="Figure 17.8">Figure 17.8</a>. With this in mind we can always assume that our parallelograms have one vertex at the origin, with <span class="process-math">\(\vu\)</span> along the <span class="process-math">\(x\)</span>-axis, and <span class="process-math">\(\vv\)</span> in standard position. Now we can investigate how to calculate the area of a parallelogram.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">17.8<span class="period">.</span></span><span class="space"> </span>A parallelogram and a translated, rotated parallelogram.</figcaption></figure><p id="p-2995">If <span class="process-math">\(\vu = [u_1 \ u_2]^{\tr}\)</span> and <span class="process-math">\(\vv = [v_1 \ v_2]^{\tr}\text{,}\)</span> then we will also represent <span class="process-math">\(P(\vu,\vv)\)</span> as <span class="process-math">\(P\left( \left[ \begin{array}{cc}u_1\amp u_2 \\ v_1\amp v_2 \end{array} \right] \right)\text{.}\)</span></p>
+<p id="p-2996">Since area is translation and rotation invariant, we can translate our parallelogram by <span class="process-math">\(-\overrightarrow{OQ}\)</span> to place its basepoint at the origin, then rotate by an angle <span class="process-math">\(\theta\)</span> (as shown at left in <a href="" class="xref" data-knowl="./knowl/F_parallelograms.html" title="Figure 17.8">Figure 17.8</a>. This transforms the vector <span class="process-math">\(\vv\)</span> to a vector <span class="process-math">\(\vv'\)</span> and the vector <span class="process-math">\(\vu\)</span> to a vector <span class="process-math">\(\vu'\)</span> as shown at right in <a href="" class="xref" data-knowl="./knowl/F_parallelograms.html" title="Figure 17.8">Figure 17.8</a>. With this in mind we can always assume that our parallelograms have one vertex at the origin, with <span class="process-math">\(\vu\)</span> along the <span class="process-math">\(x\)</span>-axis, and <span class="process-math">\(\vv\)</span> in standard position. Now we can investigate how to calculate the area of a parallelogram.</p>
 <article class="project project-like" id="act_parallelogram_area"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">17.3</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-275">
-<p id="p-2998">There are two situations to consider when we want to find the area of a parallelogram determined by vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> both shown in <a href="" class="xref" data-knowl="./knowl/F_parallelogram_area.html" title="Figure 17.9">Figure 17.9</a>. The parallelogram will be determined by the lengths of these vectors.</p>
+<div class="introduction" id="introduction-274">
+<p id="p-2997">There are two situations to consider when we want to find the area of a parallelogram determined by vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> both shown in <a href="" class="xref" data-knowl="./knowl/F_parallelogram_area.html" title="Figure 17.9">Figure 17.9</a>. The parallelogram will be determined by the lengths of these vectors.</p>
 <figure class="figure figure-like" id="F_parallelogram_area"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/4_a_parallelogram_area.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">17.9<span class="period">.</span></span><span class="space"> </span>Parallelograms formed by <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span></figcaption></figure>
 </div>
 <article class="task exercise-like" id="task-985"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2999">In the situation depicted at left in <a href="" class="xref" data-knowl="./knowl/F_parallelogram_area.html" title="Figure 17.9">Figure 17.9</a>, use geometry to explain why <span class="process-math">\(\Area(P(\vu,\vv)) = h |\vu|\text{.}\)</span></p>
+<p id="p-2998">In the situation depicted at left in <a href="" class="xref" data-knowl="./knowl/F_parallelogram_area.html" title="Figure 17.9">Figure 17.9</a>, use geometry to explain why <span class="process-math">\(\Area(P(\vu,\vv)) = h |\vu|\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-20" id="hint-20"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-20"><div class="hint solution-like"><p id="p-3000">What can we say about the triangles <span class="process-math">\(ODB\)</span> and <span class="process-math">\(EAC\text{?}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-20" id="hint-20"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-20"><div class="hint solution-like"><p id="p-2999">What can we say about the triangles <span class="process-math">\(ODB\)</span> and <span class="process-math">\(EAC\text{?}\)</span></p></div></div>
 </div></article><article class="task exercise-like" id="task-986"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3001">In the situation depicted at right in <a href="" class="xref" data-knowl="./knowl/F_parallelogram_area.html" title="Figure 17.9">Figure 17.9</a>, use geometry to again explain why <span class="process-math">\(\Area(P(\vu,\vv)) = h |\vu|\text{.}\)</span> (Hint: What can we say about <span class="process-math">\(\Area(AEC)\)</span> and <span class="process-math">\(\Area(ODB)\text{?}\)</span>)</p></article></article><p id="p-3002">The result of <a href="" class="xref" data-knowl="./knowl/act_parallelogram_area.html" title="Project Activity 17.3">Project Activity 17.3</a> is that the area of <span class="process-math">\(P(\vu,\vv)\)</span> is given by <span class="process-math">\(h |\vu|\text{,}\)</span> where <span class="process-math">\(h\)</span> is the height of the parallelogram determined by dropping a perpendicular from the terminal point of <span class="process-math">\(\vv\)</span> to the line determined by the vector <span class="process-math">\(\vu\text{.}\)</span></p>
-<p id="p-3003">Now we turn to the question of how the determinant is related to area of a parallelogram. Our approach will use some properties of the area of <span class="process-math">\(P(\vu, \vv)\text{.}\)</span></p>
+<p id="p-3000">In the situation depicted at right in <a href="" class="xref" data-knowl="./knowl/F_parallelogram_area.html" title="Figure 17.9">Figure 17.9</a>, use geometry to again explain why <span class="process-math">\(\Area(P(\vu,\vv)) = h |\vu|\text{.}\)</span> (Hint: What can we say about <span class="process-math">\(\Area(AEC)\)</span> and <span class="process-math">\(\Area(ODB)\text{?}\)</span>)</p></article></article><p id="p-3001">The result of <a href="" class="xref" data-knowl="./knowl/act_parallelogram_area.html" title="Project Activity 17.3">Project Activity 17.3</a> is that the area of <span class="process-math">\(P(\vu,\vv)\)</span> is given by <span class="process-math">\(h |\vu|\text{,}\)</span> where <span class="process-math">\(h\)</span> is the height of the parallelogram determined by dropping a perpendicular from the terminal point of <span class="process-math">\(\vv\)</span> to the line determined by the vector <span class="process-math">\(\vu\text{.}\)</span></p>
+<p id="p-3002">Now we turn to the question of how the determinant is related to area of a parallelogram. Our approach will use some properties of the area of <span class="process-math">\(P(\vu, \vv)\text{.}\)</span></p>
 <article class="project project-like" id="act_P_area_properties"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">17.4</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-276">
-<p id="p-3004">Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors that determine a parallelogram in <span class="process-math">\(\R^2\text{.}\)</span></p>
+<div class="introduction" id="introduction-275">
+<p id="p-3003">Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors that determine a parallelogram in <span class="process-math">\(\R^2\text{.}\)</span></p>
 <figure class="figure figure-like" id="F_area_propertities"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/4_a_parallelogram_shear.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">17.10<span class="period">.</span></span><span class="space"> </span>Parallelograms formed by <span class="process-math">\(k\vu\)</span> and <span class="process-math">\(\vv\)</span> and by <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv+k\vu\text{.}\)</span></figcaption></figure>
 </div>
 <article class="task exercise-like" id="task-987"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3005">Explain why</p>
+<p id="p-3004">Explain why</p>
 <div class="displaymath process-math">
 \begin{equation}
 \Area(P(\vu,\vv)) = \Area(P(\vv,\vu))\label{eq_P_area_properties_1}\tag{17.3}
 \end{equation}
 </div></article><article class="task exercise-like" id="task-988"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3006">If <span class="process-math">\(k\)</span> is any scalar, then <span class="process-math">\(k\vu\)</span> either stretches or compresses <span class="process-math">\(\vu\text{.}\)</span> Use this idea, and the result of <a href="" class="xref" data-knowl="./knowl/act_parallelogram_area.html" title="Project Activity 17.3">Project Activity 17.3</a>, to explain why</p>
+<p id="p-3005">If <span class="process-math">\(k\)</span> is any scalar, then <span class="process-math">\(k\vu\)</span> either stretches or compresses <span class="process-math">\(\vu\text{.}\)</span> Use this idea, and the result of <a href="" class="xref" data-knowl="./knowl/act_parallelogram_area.html" title="Project Activity 17.3">Project Activity 17.3</a>, to explain why</p>
 <div class="displaymath process-math">
 \begin{equation}
 \Area(P(k\vu,\vv)) = \Area(P(\vu,k\vv)) = |k| \Area(P(\vu,\vv))\label{eq_P_area_properties_2}\tag{17.4}
 \end{equation}
 </div>
 <p class="continuation">for any real number <span class="process-math">\(k\text{.}\)</span> A representative picture of this situation is shown at left in <a href="" class="xref" data-knowl="./knowl/F_parallelogram_area.html" title="Figure 17.9">Figure 17.9</a> for a value of <span class="process-math">\(k &gt; 1\text{.}\)</span> You will also need to consider what happens when <span class="process-math">\(k \lt  0\text{.}\)</span></p></article><article class="task exercise-like" id="task-989"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3007">Finally, use the result of <a href="" class="xref" data-knowl="./knowl/act_parallelogram_area.html" title="Project Activity 17.3">Project Activity 17.3</a> to explain why</p>
+<p id="p-3006">Finally, use the result of <a href="" class="xref" data-knowl="./knowl/act_parallelogram_area.html" title="Project Activity 17.3">Project Activity 17.3</a> to explain why</p>
 <div class="displaymath process-math">
 \begin{equation}
 \Area(P(\vu+k\vv,\vv)) = \Area(P(\vu,\vv+k\vu)) = \Area(P(\vu,\vv))\label{eq_P_area_properties_3}\tag{17.5}
 \end{equation}
 </div>
-<p class="continuation">for any real number <span class="process-math">\(k\text{.}\)</span> A representative picture is shown at right in <a href="" class="xref" data-knowl="./knowl/F_area_propertities.html" title="Figure 17.10">Figure 17.10</a>.</p></article></article><p id="p-3008">Properties <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_2.html" title="Equation 17.4">(17.4)</a> and <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_3.html" title="Equation 17.5">(17.5)</a> will allow us to calculate the area of the parallelogram determined by vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p>
+<p class="continuation">for any real number <span class="process-math">\(k\text{.}\)</span> A representative picture is shown at right in <a href="" class="xref" data-knowl="./knowl/F_area_propertities.html" title="Figure 17.10">Figure 17.10</a>.</p></article></article><p id="p-3007">Properties <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_2.html" title="Equation 17.4">(17.4)</a> and <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_3.html" title="Equation 17.5">(17.5)</a> will allow us to calculate the area of the parallelogram determined by vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p>
 <article class="project project-like" id="act_det_area"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">17.5</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-277">
-<p id="p-3009">Let <span class="process-math">\(\vu = [u_1 \ u_2]^{\tr}\)</span> and <span class="process-math">\(\vv = [v_1 \ v_2]^{\tr}\text{.}\)</span> We will now demonstrate that</p>
+<div class="introduction" id="introduction-276">
+<p id="p-3008">Let <span class="process-math">\(\vu = [u_1 \ u_2]^{\tr}\)</span> and <span class="process-math">\(\vv = [v_1 \ v_2]^{\tr}\text{.}\)</span> We will now demonstrate that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Area(P(\vu,\vv)) = \left|\det\left(\left| \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array}  \right] \right)\right|\text{.}
 \end{equation*}
 </div>
-<p id="p-3010">Before we begin, note that if both <span class="process-math">\(u_1\)</span> and <span class="process-math">\(v_1\)</span> are <span class="process-math">\(0\text{,}\)</span> then <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are parallel. This makes <span class="process-math">\(P(\vu, \vv)\)</span> a line segment and so <span class="process-math">\(\Area(P(\vu,\vv)) = 0\text{.}\)</span> But if <span class="process-math">\(u_1 = v_1 = 0\text{,}\)</span> it is also the case that</p>
+<p id="p-3009">Before we begin, note that if both <span class="process-math">\(u_1\)</span> and <span class="process-math">\(v_1\)</span> are <span class="process-math">\(0\text{,}\)</span> then <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are parallel. This makes <span class="process-math">\(P(\vu, \vv)\)</span> a line segment and so <span class="process-math">\(\Area(P(\vu,\vv)) = 0\text{.}\)</span> But if <span class="process-math">\(u_1 = v_1 = 0\text{,}\)</span> it is also the case that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \det\left(\left| \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array}  \right] \right) = u_1v_2-u_2v_1 = 0
@@ -839,14 +838,14 @@ P(\vu, \vv) = \{\overrightarrow{OQ}+r \vu + s \vv : 0 \leq r, s \leq 1\}\text{.}
 <p class="continuation">as well. So we can assume that at least one of <span class="process-math">\(u_1\text{,}\)</span> <span class="process-math">\(v_1\)</span> is not <span class="process-math">\(0\text{.}\)</span> Since <span class="process-math">\(P(\vu, \vv) = P(\vv, \vu)\text{,}\)</span> we can assume without loss of generality that <span class="process-math">\(u_1 \neq 0\text{.}\)</span></p>
 </div>
 <article class="task exercise-like" id="task-990"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3011">Explain using properties <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_2.html" title="Equation 17.4">(17.4)</a> and  <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_3.html" title="Equation 17.5">(17.5)</a> as appropriate why</p>
+<p id="p-3010">Explain using properties <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_2.html" title="Equation 17.4">(17.4)</a> and  <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_3.html" title="Equation 17.5">(17.5)</a> as appropriate why</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Area(P(\vu,\vv)) =\Area\left(P\left(\vu, \left[0 \ v_2-\frac{v_1}{u_1}u_2\right] \right) \right)\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-991"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="introduction" id="introduction-278">
-<p id="p-3012">Let <span class="process-math">\(\vv_1 = \left[0 \ v_2-\frac{v_1}{u_1}u_2\right]^{\tr}\text{.}\)</span> Recall that our alternate representation of <span class="process-math">\(P(\vu,\vv))\)</span> allows us to write</p>
+<div class="introduction" id="introduction-277">
+<p id="p-3011">Let <span class="process-math">\(\vv_1 = \left[0 \ v_2-\frac{v_1}{u_1}u_2\right]^{\tr}\text{.}\)</span> Recall that our alternate representation of <span class="process-math">\(P(\vu,\vv))\)</span> allows us to write</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Area(P(\vu, \vv_1)) = \Area\left( P\left(  \left[ \begin{array}{cc} u_1\amp u_2 \\ 0\amp v_2-\frac{v_1}{u_1}u_2 \end{array}  \right] \right) \right)\text{.}
@@ -855,19 +854,19 @@ P(\vu, \vv) = \{\overrightarrow{OQ}+r \vu + s \vv : 0 \leq r, s \leq 1\}\text{.}
 <p class="continuation">This should seem very suggestive. We are essentially applying the process of Gaussian elimination to our parallelogram matrix to reduce it to a diagonal matrix. From there, we can calculate the area. The matrix form should indicate the next step —  applying an operation to eliminate the entry in the first row and second column. To do this, we need to consider what happens if <span class="process-math">\(v_2-\frac{v_1}{u_1}u_2 = 0\)</span> and if <span class="process-math">\(v_2-\frac{v_1}{u_1}u_2 \neq 0\text{.}\)</span></p>
 </div>
 <article class="task exercise-like" id="task-992"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-3013">Assume that <span class="process-math">\(v_2-\frac{v_1}{u_1}u_2 = 0\text{.}\)</span> Explain why <span class="process-math">\(\Area(P(\vu,\vv)) = 0\text{.}\)</span> Then explain why <span class="process-math">\(\Area(P(\vu,\vv)) = 0 = \det\left(\left[ \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array} \right]\right)\text{.}\)</span></p></article><article class="task exercise-like" id="task-993"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-3014">Now we consider the case when <span class="process-math">\(v_2-\frac{v_1}{u_1}u_2 \neq 0\text{.}\)</span> Complete the process as in part (a), using properties <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_2.html" title="Equation 17.4">(17.4)</a> and  <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_3.html" title="Equation 17.5">(17.5)</a> (compare to Gaussian elimination) to continue to reduce the problem of calculating <span class="process-math">\(\Area(P(\vu,\vv))\)</span> to one of calculating <span class="process-math">\(\Area(P(\ve_1, \ve_2))\text{.}\)</span> Use this process to conclude that</p>
+<p id="p-3012">Assume that <span class="process-math">\(v_2-\frac{v_1}{u_1}u_2 = 0\text{.}\)</span> Explain why <span class="process-math">\(\Area(P(\vu,\vv)) = 0\text{.}\)</span> Then explain why <span class="process-math">\(\Area(P(\vu,\vv)) = 0 = \det\left(\left[ \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array} \right]\right)\text{.}\)</span></p></article><article class="task exercise-like" id="task-993"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-3013">Now we consider the case when <span class="process-math">\(v_2-\frac{v_1}{u_1}u_2 \neq 0\text{.}\)</span> Complete the process as in part (a), using properties <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_2.html" title="Equation 17.4">(17.4)</a> and  <a href="" class="xref" data-knowl="./knowl/eq_P_area_properties_3.html" title="Equation 17.5">(17.5)</a> (compare to Gaussian elimination) to continue to reduce the problem of calculating <span class="process-math">\(\Area(P(\vu,\vv))\)</span> to one of calculating <span class="process-math">\(\Area(P(\ve_1, \ve_2))\text{.}\)</span> Use this process to conclude that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Area(P(\vu,\vv)) = \left| \det\left(\left[ \begin{array}{cc} u_1\amp u_2\\v_1\amp v_2 \end{array}  \right]\right)\right|\text{.}
 \end{equation*}
-</div></article></article></article><p id="p-3015">We can apply the same arguments as above using rotations, translations, shearings, and scalings to show that the properties of area given above work in any dimension. Given vectors <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_n\)</span> in <span class="process-math">\(\R^n\text{,}\)</span> we let</p>
+</div></article></article></article><p id="p-3014">We can apply the same arguments as above using rotations, translations, shearings, and scalings to show that the properties of area given above work in any dimension. Given vectors <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_n\)</span> in <span class="process-math">\(\R^n\text{,}\)</span> we let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P(\vu_1, \vu_2, \ldots, \vu_n) = \{\overrightarrow{OQ}+x_1 \vu_1 + x_2 \vu_2 + \cdots + x_n \vu_n : 0 \leq x_i \leq 1 \text{ for each }  i\}\text{.}
 \end{equation*}
 </div>
-<p id="p-3016">If <span class="process-math">\(n = 2\text{,}\)</span> then <span class="process-math">\(P(\vu_1,\vu_2)\)</span> is the parallelogram determined by <span class="process-math">\(\vu_1\)</span> and <span class="process-math">\(\vu_2\)</span> with basepoint <span class="process-math">\(Q\text{.}\)</span> If <span class="process-math">\(n = 3\text{,}\)</span> then <span class="process-math">\(P(\vu_1, \vu_2, \vu_3)\)</span> is the parallelepiped with basepoint <span class="process-math">\(Q\)</span> determined by <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> and <span class="process-math">\(\vu_3\text{.}\)</span> In higher dimensions the sets <span class="process-math">\(P(\vu_1, \vu_2, \ldots,\vu_n)\)</span> are called parallelotopes, and we use the notation <span class="process-math">\(\Vol(P(\vu_1, \vu_2, \ldots,\vu_n))\)</span> for their volume. The <span class="process-math">\(n\)</span>-dimensional volumes of these paralleotopes satisfy the following properties:</p>
+<p id="p-3015">If <span class="process-math">\(n = 2\text{,}\)</span> then <span class="process-math">\(P(\vu_1,\vu_2)\)</span> is the parallelogram determined by <span class="process-math">\(\vu_1\)</span> and <span class="process-math">\(\vu_2\)</span> with basepoint <span class="process-math">\(Q\text{.}\)</span> If <span class="process-math">\(n = 3\text{,}\)</span> then <span class="process-math">\(P(\vu_1, \vu_2, \vu_3)\)</span> is the parallelepiped with basepoint <span class="process-math">\(Q\)</span> determined by <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> and <span class="process-math">\(\vu_3\text{.}\)</span> In higher dimensions the sets <span class="process-math">\(P(\vu_1, \vu_2, \ldots,\vu_n)\)</span> are called parallelotopes, and we use the notation <span class="process-math">\(\Vol(P(\vu_1, \vu_2, \ldots,\vu_n))\)</span> for their volume. The <span class="process-math">\(n\)</span>-dimensional volumes of these paralleotopes satisfy the following properties:</p>
 <div class="displaymath process-math">
 \begin{align}
 \Vol\amp (P(\vu_1, \vu_2, \ldots, \vu_{i-1}, \vu_i, \vu_{i+1}, \ldots, \vu_{j-1}, \vu_j, \vu_{j+1}, \ldots,\vu_n))\notag\\
@@ -890,18 +889,18 @@ P(\vu_1, \vu_2, \ldots, \vu_n) = \{\overrightarrow{OQ}+x_1 \vu_1 + x_2 \vu_2 + \
 <article class="project project-like" id="act_det_vol"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">17.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-279"><p id="p-3017">We now show that <span class="process-math">\(\Vol(P(\vu_1, \vu_2, \vu_3))\)</span> is the absolute value of the determinant of <span class="process-math">\(\left[ \begin{array}{c} \vu_1 \\ \vu_2 \\ \vu_3 \end{array}  \right]\text{.}\)</span> For easier notation, let <span class="process-math">\(\vu = [u_1 \ u_2 \ u_3]^{\tr}\text{,}\)</span> <span class="process-math">\(\vv = [v_1 \ v_2 \ v_3]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vw = [w_1 \ w_2 \ w_3]^{\tr}\text{.}\)</span> As we argued in the 2-dimensional case, we can assume that all terms that we need to be nonzero are nonzero, and we can do so without verification.</p></div>
+<div class="introduction" id="introduction-278"><p id="p-3016">We now show that <span class="process-math">\(\Vol(P(\vu_1, \vu_2, \vu_3))\)</span> is the absolute value of the determinant of <span class="process-math">\(\left[ \begin{array}{c} \vu_1 \\ \vu_2 \\ \vu_3 \end{array}  \right]\text{.}\)</span> For easier notation, let <span class="process-math">\(\vu = [u_1 \ u_2 \ u_3]^{\tr}\text{,}\)</span> <span class="process-math">\(\vv = [v_1 \ v_2 \ v_3]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vw = [w_1 \ w_2 \ w_3]^{\tr}\text{.}\)</span> As we argued in the 2-dimensional case, we can assume that all terms that we need to be nonzero are nonzero, and we can do so without verification.</p></div>
 <article class="task exercise-like" id="task-994"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3018">Explain how property <a href="" class="xref" data-knowl="./knowl/eq_vol_property_2.html" title="Equation 17.7">(17.7)</a> shows that <span class="process-math">\(\Vol(P(\vu, \vv, \vw))\)</span> is equal to</p>
+<p id="p-3017">Explain how property <a href="" class="xref" data-knowl="./knowl/eq_vol_property_2.html" title="Equation 17.7">(17.7)</a> shows that <span class="process-math">\(\Vol(P(\vu, \vv, \vw))\)</span> is equal to</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Vol\left(P\left( \left[ \begin{array}{ccc} u_{1}\amp u_{2}\amp u_{3} \\ 0\amp \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2})\amp \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\\ 0\amp \frac{1}{u_1}(w_{2}u_1-w_{1}u_{2})\amp \frac{1}{u_1}(w_{3}u_1-w_{1}u_{3}) \end{array}  \right] \right)\right)\text{.}
 \end{equation*}
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-21" id="hint-21"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-21"><div class="hint solution-like"><p id="p-3019">Think about how these properties are related to row operations.</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-21" id="hint-21"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-21"><div class="hint solution-like"><p id="p-3018">Think about how these properties are related to row operations.</p></div></div>
 </div></article><article class="task exercise-like" id="task-995"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3020">Now let <span class="process-math">\(\vv_1 = \left[ 0 \ \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2}) \ \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\right]^{\tr}\)</span> and  <span class="process-math">\(\vw_1 = \left[ 0 \ \frac{1}{u_1}(w_{2}u_1-w_{1}u_{2}) \ \frac{1}{u_1}(w_{3}u_1-w_{1}u_{3})\right]^{\tr}\text{.}\)</span> Explain how property <a href="" class="xref" data-knowl="./knowl/eq_vol_property_2.html" title="Equation 17.7">(17.7)</a> shows that <span class="process-math">\(\Vol(P(\vu, \vv, \vw))\)</span> is equal to</p>
+<p id="p-3019">Now let <span class="process-math">\(\vv_1 = \left[ 0 \ \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2}) \ \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\right]^{\tr}\)</span> and  <span class="process-math">\(\vw_1 = \left[ 0 \ \frac{1}{u_1}(w_{2}u_1-w_{1}u_{2}) \ \frac{1}{u_1}(w_{3}u_1-w_{1}u_{3})\right]^{\tr}\text{.}\)</span> Explain how property <a href="" class="xref" data-knowl="./knowl/eq_vol_property_2.html" title="Equation 17.7">(17.7)</a> shows that <span class="process-math">\(\Vol(P(\vu, \vv, \vw))\)</span> is equal to</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Vol\left(P\left( \left[ \begin{array}{ccc} u_{1}\amp u_{2}\amp u_{3} \\ 0\amp \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2})\amp \frac{1}{u_1}(v_{3}u_1-v_{1}u_{3})\\ 0\amp 0\amp d \end{array}  \right] \right)\right)\text{,}
@@ -913,7 +912,7 @@ P(\vu_1, \vu_2, \ldots, \vu_n) = \{\overrightarrow{OQ}+x_1 \vu_1 + x_2 \vu_2 + \
 d = \frac{1}{u_1v_2-u_2v_1}(u_1(v_2w_3-v_3w_2)-u_2(v_1w_3-v_{3}w_1)+u_3(v_1w_2-v_2w_1))\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-996"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3021">Just as we saw in the 2-dimensional case, we can proceed to use the diagonal entries to eliminate the entries above the diagonal without changing the volume to see that</p>
+<p id="p-3020">Just as we saw in the 2-dimensional case, we can proceed to use the diagonal entries to eliminate the entries above the diagonal without changing the volume to see that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Vol(P(\vu, \vv, \vw)) = \Vol\left(P\left( \left[ \begin{array}{ccc} u_{1}\amp 0\amp 0 \\ 0\amp \frac{1}{u_1}(v_{2}u_1-v_{1}u_{2})\amp 0\\ 0\amp 0\amp d \end{array}  \right] \right)\right)\text{.}
@@ -925,7 +924,7 @@ d = \frac{1}{u_1v_2-u_2v_1}(u_1(v_2w_3-v_3w_2)-u_2(v_1w_3-v_{3}w_1)+u_3(v_1w_2-v
 \Vol(P(\vu, \vv, \vw)) = x \Vol(P(\ve_1, \ve_2, \ve_3))
 \end{equation*}
 </div>
-<p class="continuation">for some constant <span class="process-math">\(x\text{.}\)</span> Find the constant and, as a result, find a specific expression for <span class="process-math">\(\Vol(P(\vu, \vv, \vw))\)</span> involving a determinant.</p></article></article><p id="p-3022">Properties <a href="" class="xref" data-knowl="./knowl/eq_vol_property_1.html" title="Equation 17.6">(17.6)</a>, <a href="" class="xref" data-knowl="./knowl/eq_vol_property_2.html" title="Equation 17.7">(17.7)</a>, and <a href="" class="xref" data-knowl="./knowl/eq_vol_property_3.html" title="Equation 17.8">(17.8)</a> involve the analogs of row operations on matrices, and we will prove algebraically that the determinant exhibits the same properties. In fact, the determinant can be uniquely defined by these properties. So in a sense, the determinant is an area or volume function.</p></section></div></main>
+<p class="continuation">for some constant <span class="process-math">\(x\text{.}\)</span> Find the constant and, as a result, find a specific expression for <span class="process-math">\(\Vol(P(\vu, \vv, \vw))\)</span> involving a determinant.</p></article></article><p id="p-3021">Properties <a href="" class="xref" data-knowl="./knowl/eq_vol_property_1.html" title="Equation 17.6">(17.6)</a>, <a href="" class="xref" data-knowl="./knowl/eq_vol_property_2.html" title="Equation 17.7">(17.7)</a>, and <a href="" class="xref" data-knowl="./knowl/eq_vol_property_3.html" title="Equation 17.8">(17.8)</a> involve the analogs of row operations on matrices, and we will prove algebraically that the determinant exhibits the same properties. In fact, the determinant can be uniquely defined by these properties. So in a sense, the determinant is an area or volume function.</p></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

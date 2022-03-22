@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:23:29-04:00       *-->
+<!--*       on 2022-03-21T15:33:12-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,32 +750,32 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_det_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-2875">We know that a non-zero vector <span class="process-math">\(\vx\)</span> is an eigenvector of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> if <span class="process-math">\(A \vx = \lambda \vx\)</span> for some scalar <span class="process-math">\(\lambda\text{.}\)</span> Note that this equation can be written as <span class="process-math">\((A-\lambda I_n)\vx=\vzero\text{.}\)</span> Until now, we were given eigenvalues of matrices and have used the eigenvalues to find the eigenvectors. In this section we will learn an algebraic technique to find the eigenvalues ourselves. We will also be able to justify why an <span class="process-math">\(n\times n\)</span> matrix has at most <span class="process-math">\(n\)</span> eigenvalues.</p>
-<p id="p-2876">A scalar <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if <span class="process-math">\((A - \lambda I_n)\vx=\vzero\)</span> has a non-trivial solution <span class="process-math">\(\vx\text{,}\)</span> which happens if and only if <span class="process-math">\(A-\lambda I_n\)</span> is not invertible. In this section we will find a scalar whose value will tell us when a matrix is invertible and when it is not, and use this scalar to find the eigenvalues of a matrix.</p>
+<p id="p-2874">We know that a non-zero vector <span class="process-math">\(\vx\)</span> is an eigenvector of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> if <span class="process-math">\(A \vx = \lambda \vx\)</span> for some scalar <span class="process-math">\(\lambda\text{.}\)</span> Note that this equation can be written as <span class="process-math">\((A-\lambda I_n)\vx=\vzero\text{.}\)</span> Until now, we were given eigenvalues of matrices and have used the eigenvalues to find the eigenvectors. In this section we will learn an algebraic technique to find the eigenvalues ourselves. We will also be able to justify why an <span class="process-math">\(n\times n\)</span> matrix has at most <span class="process-math">\(n\)</span> eigenvalues.</p>
+<p id="p-2875">A scalar <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if <span class="process-math">\((A - \lambda I_n)\vx=\vzero\)</span> has a non-trivial solution <span class="process-math">\(\vx\text{,}\)</span> which happens if and only if <span class="process-math">\(A-\lambda I_n\)</span> is not invertible. In this section we will find a scalar whose value will tell us when a matrix is invertible and when it is not, and use this scalar to find the eigenvalues of a matrix.</p>
 <article class="exploration project-like" id="pa_4_a"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">17.1</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-270">
-<p id="p-2877">In this activity, we will focus on <span class="process-math">\(2\times 2\)</span> matrices. Let <span class="process-math">\(A = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]\)</span> be a <span class="process-math">\(2\times 2\)</span> matrix. To see if <span class="process-math">\(A\)</span> is invertible, we row reduce <span class="process-math">\(A\)</span> by replacing row 2 with <span class="process-math">\(a\cdot\)</span>(row 2) <span class="process-math">\(- c \cdot\)</span>(row 1):</p>
+<div class="introduction" id="introduction-269">
+<p id="p-2876">In this activity, we will focus on <span class="process-math">\(2\times 2\)</span> matrices. Let <span class="process-math">\(A = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]\)</span> be a <span class="process-math">\(2\times 2\)</span> matrix. To see if <span class="process-math">\(A\)</span> is invertible, we row reduce <span class="process-math">\(A\)</span> by replacing row 2 with <span class="process-math">\(a\cdot\)</span>(row 2) <span class="process-math">\(- c \cdot\)</span>(row 1):</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \left[ \begin{array}{cc} a\amp b \\ 0\amp ad-bc \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-2878">So the only way <span class="process-math">\(A\)</span> can be reduced <span class="process-math">\(I_2\)</span> is if <span class="process-math">\(ad - bc \neq 0\text{.}\)</span> We call this quantity <span class="process-math">\(ad-bc\)</span> the <dfn class="terminology">determinant</dfn> of <span class="process-math">\(A\text{,}\)</span> and denote the determinant of <span class="process-math">\(A\)</span> as <span class="process-math">\(\det(A)\)</span> or <span class="process-math">\(|A|\text{.}\)</span> When <span class="process-math">\(\det(A)\neq 0\text{,}\)</span> we know that</p>
+<p id="p-2877">So the only way <span class="process-math">\(A\)</span> can be reduced <span class="process-math">\(I_2\)</span> is if <span class="process-math">\(ad - bc \neq 0\text{.}\)</span> We call this quantity <span class="process-math">\(ad-bc\)</span> the <dfn class="terminology">determinant</dfn> of <span class="process-math">\(A\text{,}\)</span> and denote the determinant of <span class="process-math">\(A\)</span> as <span class="process-math">\(\det(A)\)</span> or <span class="process-math">\(|A|\text{.}\)</span> When <span class="process-math">\(\det(A)\neq 0\text{,}\)</span> we know that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A^{-1} = \frac{1}{ad-bc} \left[ \begin{array}{rr} d\amp -b \\ -c\amp a \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-2879">We now consider how we can use the determinant to find eigenvalues and other information about the invertibility of a matrix.</p>
+<p id="p-2878">We now consider how we can use the determinant to find eigenvalues and other information about the invertibility of a matrix.</p>
 </div>
 <article class="task exercise-like" id="task-957"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2880">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 4 \end{array} \right]\text{.}\)</span> Find <span class="process-math">\(\det(A)\)</span> by hand. What does this mean about the matrix <span class="process-math">\(A\text{?}\)</span> Can you confirm this with other methods?</p></article><article class="task exercise-like" id="task-958"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2881">One of the eigenvalues of <span class="process-math">\(A=\left[ \begin{array}{cc} 1\amp 3 \\ 2\amp 2 \end{array} \right]\)</span> is <span class="process-math">\(\lambda=4\text{.}\)</span> Recall that we can rewrite the matrix equation <span class="process-math">\(A\vx=4\vx\)</span> in the form <span class="process-math">\((A-4I_2) \vx = \vzero\text{.}\)</span> What must be true about <span class="process-math">\(A-4I_2\)</span> in order for 4 to be an eigenvalue of <span class="process-math">\(A\text{?}\)</span> How does this relate to <span class="process-math">\(\det(A-4I_2)\text{?}\)</span></p></article><article class="task exercise-like" id="task-959"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-2882">Another eigenvalue of <span class="process-math">\(A=\left[ \begin{array}{cc} 1\amp 3 \\ 2\amp 2 \end{array} \right]\)</span> is <span class="process-math">\(\lambda=-1\text{.}\)</span> What must be true about <span class="process-math">\(A+I_2\)</span> in order for <span class="process-math">\(-1\)</span> to be an eigenvalue of <span class="process-math">\(A\text{?}\)</span> How does this relate to <span class="process-math">\(\det(A+I_2)\text{?}\)</span></p></article><article class="task exercise-like" id="task-960"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-2883">To find the eigenvalues of the matrix <span class="process-math">\(A=\left[ \begin{array}{cc} 3\amp 2\\2\amp 6 \end{array} \right]\text{,}\)</span> we rewrite the equation <span class="process-math">\(A \vx = \lambda \vx\)</span> as <span class="process-math">\((A - \lambda I_2) \vx = \vzero\text{.}\)</span> The coefficient matrix of this last system has the form <span class="process-math">\(A-\lambda I_2 = \left[ \begin{array}{cc} 3-\lambda \amp 2 \\ 2\amp 6-\lambda \end{array} \right]\text{.}\)</span> The determinant of this matrix is a quadratic expression in <span class="process-math">\(\lambda\text{.}\)</span> Since the eigenvalues will occur when the determinant is 0, we need to solve a quadratic equation. Find the resulting eigenvalues. (Note: One of the eigenvalues is 2.)</p></article><article class="task exercise-like" id="task-961"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-2884">Can you explain why a <span class="process-math">\(2\times 2\)</span> matrix can have at most two eigenvalues?</p></article></article></section></div></main>
+<p id="p-2879">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 4 \end{array} \right]\text{.}\)</span> Find <span class="process-math">\(\det(A)\)</span> by hand. What does this mean about the matrix <span class="process-math">\(A\text{?}\)</span> Can you confirm this with other methods?</p></article><article class="task exercise-like" id="task-958"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2880">One of the eigenvalues of <span class="process-math">\(A=\left[ \begin{array}{cc} 1\amp 3 \\ 2\amp 2 \end{array} \right]\)</span> is <span class="process-math">\(\lambda=4\text{.}\)</span> Recall that we can rewrite the matrix equation <span class="process-math">\(A\vx=4\vx\)</span> in the form <span class="process-math">\((A-4I_2) \vx = \vzero\text{.}\)</span> What must be true about <span class="process-math">\(A-4I_2\)</span> in order for 4 to be an eigenvalue of <span class="process-math">\(A\text{?}\)</span> How does this relate to <span class="process-math">\(\det(A-4I_2)\text{?}\)</span></p></article><article class="task exercise-like" id="task-959"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-2881">Another eigenvalue of <span class="process-math">\(A=\left[ \begin{array}{cc} 1\amp 3 \\ 2\amp 2 \end{array} \right]\)</span> is <span class="process-math">\(\lambda=-1\text{.}\)</span> What must be true about <span class="process-math">\(A+I_2\)</span> in order for <span class="process-math">\(-1\)</span> to be an eigenvalue of <span class="process-math">\(A\text{?}\)</span> How does this relate to <span class="process-math">\(\det(A+I_2)\text{?}\)</span></p></article><article class="task exercise-like" id="task-960"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-2882">To find the eigenvalues of the matrix <span class="process-math">\(A=\left[ \begin{array}{cc} 3\amp 2\\2\amp 6 \end{array} \right]\text{,}\)</span> we rewrite the equation <span class="process-math">\(A \vx = \lambda \vx\)</span> as <span class="process-math">\((A - \lambda I_2) \vx = \vzero\text{.}\)</span> The coefficient matrix of this last system has the form <span class="process-math">\(A-\lambda I_2 = \left[ \begin{array}{cc} 3-\lambda \amp 2 \\ 2\amp 6-\lambda \end{array} \right]\text{.}\)</span> The determinant of this matrix is a quadratic expression in <span class="process-math">\(\lambda\text{.}\)</span> Since the eigenvalues will occur when the determinant is 0, we need to solve a quadratic equation. Find the resulting eigenvalues. (Note: One of the eigenvalues is 2.)</p></article><article class="task exercise-like" id="task-961"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-2883">Can you explain why a <span class="process-math">\(2\times 2\)</span> matrix can have at most two eigenvalues?</p></article></article></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>

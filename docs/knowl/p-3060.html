@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:37:44-04:00       *-->
+<!--*       on 2022-03-22T13:03:38-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,11 +15,13 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Recall that for each eigenvalue <span class="process-math">\(\lambda\)</span> of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda\)</span> is <span class="process-math">\(\Nul (A - \lambda I_n)\text{.}\)</span> These eigenspaces can tell us important information about the matrix transformation defined by <span class="process-math">\(A\text{.}\)</span> For example, consider the matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^3\)</span> to <span class="process-math">\(\R^3\)</span> defined by <span class="process-math">\(T(\vx) = A \vx\text{,}\)</span> where</p>
+<p>We are interested in understanding what this matrix transformation does to vectors in <span class="process-math">\(\R^3\text{.}\)</span> First we note that <span class="process-math">\(A\)</span> has eigenvalues <span class="process-math">\(\lambda_1 = 1\)</span> and <span class="process-math">\(\lambda_2 = 2\text{,}\)</span> with <span class="process-math">\(\lambda_1\)</span> having multiplicity <span class="process-math">\(2\text{.}\)</span> There is a pair <span class="process-math">\(\vv_1 = \left[ \begin{array}{c} 1\\0\\0 \end{array}  \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 0\\1\\0 \end{array}  \right]\)</span> of linearly independent eigenvectors for <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_1\)</span> and an eigenvector <span class="process-math">\(\vv_3=\left[ \begin{array}{c} 1\\1\\1 \end{array}  \right]\)</span> for <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_2\text{.}\)</span> Note that the vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_3\)</span> are linearly independent (recall from Theorem that eigenvectors corresponding to different eigenvalues are always linearly independent). So any vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^3\)</span> can be written uniquely as a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_3\text{.}\)</span> Let's now consider the action of the matrix transformation <span class="process-math">\(T\)</span> on a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span> Note that</p>
 <div class="displaymath process-math">
-\begin{equation*}
-A = \left[ \begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp 1\\0\amp 0\amp 2 \end{array}  \right]\text{.}
-\end{equation*}
+\begin{align}
+T(c_1\vv_1 + c_2 \vv_2 + c_3 \vv_3) \amp = c_1T(\vv_1) + c_2T(\vv_2) + c_3 T(\vv_3)\notag\\
+\amp = c_1 \lambda_1 \vv_1 + c_2 \lambda_1 \vv_2 + c_3 \lambda_2 \vv_3\notag\\
+\amp = (1)(c_1\vv_1 + c_2 \vv_2) + (2)c_3 \vv_3\text{.}\tag{18.3}
+\end{align}
 </div>
 <span class="incontext"><a href="sec_egspace_geom.html#p-3060">in-context</a></span>
 </body>

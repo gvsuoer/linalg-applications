@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:22:00-04:00       *-->
+<!--*       on 2022-03-21T15:31:41-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,67 +751,67 @@
 <section class="section" id="sec_imt"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Invertible Matrix Theorem</span>
 </h2>
-<p id="p-1875">We have been introduced to many statements about existence and uniqueness of solutions to systems of linear equations, linear independence of columns of coefficient matrices, onto linear transformations, and many other items. In this section we will analyze these statements in light of how they are related to invertible matrices, with the main goal to understand the Invertible Matrix Theorem.</p>
-<p id="p-1876">Recall that an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is invertible if there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(B\)</span> such that <span class="process-math">\(AB = BA = I_n\text{,}\)</span> where <span class="process-math">\(I_n\)</span> is the <span class="process-math">\(n \times n\)</span> identity matrix. The Invertible Matrix Theorem is an important theorem in that it provides us with a wealth of statements that are all equivalent to the statement that an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is invertible, and connects many of the topics we have been discussing so far this semester into one big picture.</p>
+<p id="p-1874">We have been introduced to many statements about existence and uniqueness of solutions to systems of linear equations, linear independence of columns of coefficient matrices, onto linear transformations, and many other items. In this section we will analyze these statements in light of how they are related to invertible matrices, with the main goal to understand the Invertible Matrix Theorem.</p>
+<p id="p-1875">Recall that an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is invertible if there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(B\)</span> such that <span class="process-math">\(AB = BA = I_n\text{,}\)</span> where <span class="process-math">\(I_n\)</span> is the <span class="process-math">\(n \times n\)</span> identity matrix. The Invertible Matrix Theorem is an important theorem in that it provides us with a wealth of statements that are all equivalent to the statement that an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is invertible, and connects many of the topics we have been discussing so far this semester into one big picture.</p>
 <article class="theorem theorem-like" id="theorem-23"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">11.1</span><span class="period">.</span><span class="space"> </span><span class="title">The Invertible Matrix Theorem.</span>
 </h3>
-<p id="p-1877">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. The following statements are equivalent:</p>
+<p id="p-1876">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. The following statements are equivalent:</p>
 <ol class="decimal">
-<li id="li-329"><p id="p-1878"><span class="process-math">\(A\)</span> is an invertible matrix.</p></li>
-<li id="item_trivial_soln"><p id="p-1879">The equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution.</p></li>
-<li id="li-331"><p id="p-1880"><span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> pivot columns.</p></li>
-<li id="li-332"><p id="p-1881">The columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span></p></li>
-<li id="li-333"><p id="p-1882"><span class="process-math">\(A\)</span> is row equivalent to the identity matrix <span class="process-math">\(I_n\text{.}\)</span></p></li>
-<li id="li-334"><p id="p-1883">The columns of <span class="process-math">\(A\)</span> are linearly independent.</p></li>
-<li id="li-335"><p id="p-1884">The columns of <span class="process-math">\(A\)</span> form a basis for <span class="process-math">\(\R^n\text{.}\)</span></p></li>
-<li id="li-336"><p id="p-1885">The matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^n\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is one-to-one.</p></li>
-<li id="li-337"><p id="p-1886">The matrix equation <span class="process-math">\(A \vx = \vb\)</span> has exactly one solution for each vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></li>
-<li id="li-338"><p id="p-1887">The matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^n\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is onto.</p></li>
-<li id="item_AC_I"><p id="p-1888">There is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(C\)</span> so that <span class="process-math">\(AC = I_n\text{.}\)</span></p></li>
-<li id="item_DA_I"><p id="p-1889">There is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(D\)</span> so that <span class="process-math">\(DA = I_n\text{.}\)</span></p></li>
-<li id="li-341"><p id="p-1890">The scalar 0 is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></li>
-<li id="li-342"><p id="p-1891"><span class="process-math">\(A^{\tr}\)</span> is invertible.</p></li>
-</ol></article><p id="p-1892">The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to a matrix being invertible. As discussed in <a href="" class="xref" data-knowl="./knowl/pa_2_d.html" title="Preview Activity 11.1">Preview Activity 11.1</a>, two statements are said to be <dfn class="terminology">equivalent</dfn> if, whenever one of the statements is true, then the other is also true. So to demonstrate, say, statements I and II are equivalent, we need to argue that</p>
+<li id="li-329"><p id="p-1877"><span class="process-math">\(A\)</span> is an invertible matrix.</p></li>
+<li id="item_trivial_soln"><p id="p-1878">The equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution.</p></li>
+<li id="li-331"><p id="p-1879"><span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> pivot columns.</p></li>
+<li id="li-332"><p id="p-1880">The columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span></p></li>
+<li id="li-333"><p id="p-1881"><span class="process-math">\(A\)</span> is row equivalent to the identity matrix <span class="process-math">\(I_n\text{.}\)</span></p></li>
+<li id="li-334"><p id="p-1882">The columns of <span class="process-math">\(A\)</span> are linearly independent.</p></li>
+<li id="li-335"><p id="p-1883">The columns of <span class="process-math">\(A\)</span> form a basis for <span class="process-math">\(\R^n\text{.}\)</span></p></li>
+<li id="li-336"><p id="p-1884">The matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^n\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is one-to-one.</p></li>
+<li id="li-337"><p id="p-1885">The matrix equation <span class="process-math">\(A \vx = \vb\)</span> has exactly one solution for each vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></li>
+<li id="li-338"><p id="p-1886">The matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^n\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is onto.</p></li>
+<li id="item_AC_I"><p id="p-1887">There is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(C\)</span> so that <span class="process-math">\(AC = I_n\text{.}\)</span></p></li>
+<li id="item_DA_I"><p id="p-1888">There is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(D\)</span> so that <span class="process-math">\(DA = I_n\text{.}\)</span></p></li>
+<li id="li-341"><p id="p-1889">The scalar 0 is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></li>
+<li id="li-342"><p id="p-1890"><span class="process-math">\(A^{\tr}\)</span> is invertible.</p></li>
+</ol></article><p id="p-1891">The Invertible Matrix Theorem is a theorem that provides many different statements that are equivalent to a matrix being invertible. As discussed in <a href="" class="xref" data-knowl="./knowl/pa_2_d.html" title="Preview Activity 11.1">Preview Activity 11.1</a>, two statements are said to be <dfn class="terminology">equivalent</dfn> if, whenever one of the statements is true, then the other is also true. So to demonstrate, say, statements I and II are equivalent, we need to argue that</p>
 <ul class="disc">
-<li id="li-343"><p id="p-1893">if statement I is true, then so is statement II, and</p></li>
-<li id="li-344"><p id="p-1894">if statement II is true then so is statement I.</p></li>
+<li id="li-343"><p id="p-1892">if statement I is true, then so is statement II, and</p></li>
+<li id="li-344"><p id="p-1893">if statement II is true then so is statement I.</p></li>
 </ul>
-<p id="p-1895">The Invertible Matrix Theorem, however, provides a long list of statements that are equivalent. It would be inefficient to prove, one by one, that each pair of statements is equivalent. (There are <span class="process-math">\(\binom{14}{2} = 91\)</span> such pairs.) Fortunately, there is a shorter method that we can use.</p>
+<p id="p-1894">The Invertible Matrix Theorem, however, provides a long list of statements that are equivalent. It would be inefficient to prove, one by one, that each pair of statements is equivalent. (There are <span class="process-math">\(\binom{14}{2} = 91\)</span> such pairs.) Fortunately, there is a shorter method that we can use.</p>
 <article class="activity project-like" id="act_2_d_1"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">11.2</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-176"><p id="p-1896">In this activity, we will consider certain parts of the Invertible Matrix Theorem and show that one implies another in a specific order. For all parts in this activity, we assume <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix.</p></div>
+<div class="introduction" id="introduction-175"><p id="p-1895">In this activity, we will consider certain parts of the Invertible Matrix Theorem and show that one implies another in a specific order. For all parts in this activity, we assume <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix.</p></div>
 <article class="task exercise-like" id="task-611"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1897">Consider the following implication: <span class="process-math">\((2) \implies (6)\text{:}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-23" id="fn-23"><sup> 23 </sup></a>  If the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution, then the columns of <span class="process-math">\(A\)</span> are linearly independent. This shows that part 2 of the IMT implies part 6 of the IMT. Justify this implication as if it is a T/F problem.</p></article><article class="task exercise-like" id="task-612"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1898">Justify the following implication: <span class="process-math">\((6) \implies (9)\text{:}\)</span> If the columns of <span class="process-math">\(A\)</span> are linearly independent, then the matrix equation <span class="process-math">\(A\vx =\vb\)</span> has exactly one solution for each vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></article><article class="task exercise-like" id="task-613"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-1899">Justify the following implication: <span class="process-math">\((9) \implies (4)\text{:}\)</span> If the equation <span class="process-math">\(A \vx = \vb\)</span> has exactly one solution for every vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{,}\)</span> then the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span></p></article><article class="task exercise-like" id="task-614"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-1900">Justify the following implication: <span class="process-math">\((4) \implies (2)\text{:}\)</span> If the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution.</p></article><article class="task exercise-like" id="task-615"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-1901">Using the above implications you proved, explain why we can conclude the following implication must also be true: <span class="process-math">\((2) \implies (9)\text{:}\)</span> If the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution, then the matrix equation <span class="process-math">\(A\vx =\vb\)</span> has exactly one solution for each vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></article><article class="task exercise-like" id="task-616"><h4 class="heading"><span class="codenumber">(f)</span></h4>
-<p id="p-1902">Using the above implications you proved, explain why any one of the implications <span class="process-math">\((2)\text{,}\)</span> <span class="process-math">\((6)\text{,}\)</span> <span class="process-math">\((9)\text{,}\)</span> and <span class="process-math">\((4)\)</span> implies any of the others.</p></article></article><p id="p-1903">Using a similar ordering of circular implications as in <a href="" class="xref" data-knowl="./knowl/act_2_d_1.html" title="Activity 11.2">Activity 11.2</a>, we can prove the Invertible Matrix Theorem by showing that each statement in the list implies the next statement, and that the last statement implies the first.</p>
+<p id="p-1896">Consider the following implication: <span class="process-math">\((2) \implies (6)\text{:}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-23" id="fn-23"><sup> 23 </sup></a>  If the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution, then the columns of <span class="process-math">\(A\)</span> are linearly independent. This shows that part 2 of the IMT implies part 6 of the IMT. Justify this implication as if it is a T/F problem.</p></article><article class="task exercise-like" id="task-612"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1897">Justify the following implication: <span class="process-math">\((6) \implies (9)\text{:}\)</span> If the columns of <span class="process-math">\(A\)</span> are linearly independent, then the matrix equation <span class="process-math">\(A\vx =\vb\)</span> has exactly one solution for each vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></article><article class="task exercise-like" id="task-613"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-1898">Justify the following implication: <span class="process-math">\((9) \implies (4)\text{:}\)</span> If the equation <span class="process-math">\(A \vx = \vb\)</span> has exactly one solution for every vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{,}\)</span> then the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span></p></article><article class="task exercise-like" id="task-614"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-1899">Justify the following implication: <span class="process-math">\((4) \implies (2)\text{:}\)</span> If the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution.</p></article><article class="task exercise-like" id="task-615"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-1900">Using the above implications you proved, explain why we can conclude the following implication must also be true: <span class="process-math">\((2) \implies (9)\text{:}\)</span> If the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution, then the matrix equation <span class="process-math">\(A\vx =\vb\)</span> has exactly one solution for each vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></article><article class="task exercise-like" id="task-616"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<p id="p-1901">Using the above implications you proved, explain why any one of the implications <span class="process-math">\((2)\text{,}\)</span> <span class="process-math">\((6)\text{,}\)</span> <span class="process-math">\((9)\text{,}\)</span> and <span class="process-math">\((4)\)</span> implies any of the others.</p></article></article><p id="p-1902">Using a similar ordering of circular implications as in <a href="" class="xref" data-knowl="./knowl/act_2_d_1.html" title="Activity 11.2">Activity 11.2</a>, we can prove the Invertible Matrix Theorem by showing that each statement in the list implies the next statement, and that the last statement implies the first.</p>
 <article class="proof" id="proof-4"><h3 class="heading"><span class="title">Proof of the Invertible Matrix Theorem.</span></h3>
-<dl id="p-1904" class="description-list">
+<dl id="p-1903" class="description-list">
 <dt id="li-345">Statement (1) implies Statement (2)</dt>
-<dd><p id="p-1905">This follows from work done in <a href="" class="xref" data-knowl="./knowl/act_2_d_1.html" title="Activity 11.2">Activity 11.2</a>.</p></dd>
+<dd><p id="p-1904">This follows from work done in <a href="" class="xref" data-knowl="./knowl/act_2_d_1.html" title="Activity 11.2">Activity 11.2</a>.</p></dd>
 <dt id="li-346">Statement (2) implies Statement (3)</dt>
-<dd><p id="p-1906">This was done in <a href="" class="xref" data-knowl="./knowl/act_2_d_1.html" title="Activity 11.2">Activity 11.2</a>.</p></dd>
+<dd><p id="p-1905">This was done in <a href="" class="xref" data-knowl="./knowl/act_2_d_1.html" title="Activity 11.2">Activity 11.2</a>.</p></dd>
 <dt id="li-347">Statement (3) implies Statement (4)</dt>
-<dd><p id="p-1907">Suppose that every column of <span class="process-math">\(A\)</span> is a pivot column. The fact that <span class="process-math">\(A\)</span> is square means that every row of <span class="process-math">\(A\)</span> contains a pivot, and hence the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span></p></dd>
+<dd><p id="p-1906">Suppose that every column of <span class="process-math">\(A\)</span> is a pivot column. The fact that <span class="process-math">\(A\)</span> is square means that every row of <span class="process-math">\(A\)</span> contains a pivot, and hence the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span></p></dd>
 <dt id="li-348">Statement (4) implies Statement (5)</dt>
-<dd><p id="p-1908">Since the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{,}\)</span> it must be the case that every row of <span class="process-math">\(A\)</span> contains a pivot. This means that <span class="process-math">\(A\)</span> must be row equivalent to <span class="process-math">\(I_n\text{.}\)</span></p></dd>
+<dd><p id="p-1907">Since the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{,}\)</span> it must be the case that every row of <span class="process-math">\(A\)</span> contains a pivot. This means that <span class="process-math">\(A\)</span> must be row equivalent to <span class="process-math">\(I_n\text{.}\)</span></p></dd>
 <dt id="li-349">Statement (5) implies Statement (6)</dt>
-<dd><p id="p-1909">If <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I_n\text{,}\)</span> there must be a pivot in every column, which means that the columns of <span class="process-math">\(A\)</span> are linearly independent.</p></dd>
+<dd><p id="p-1908">If <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I_n\text{,}\)</span> there must be a pivot in every column, which means that the columns of <span class="process-math">\(A\)</span> are linearly independent.</p></dd>
 <dt id="li-350">Statement (6) implies Statement (7)</dt>
-<dd><p id="p-1910">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then there is a pivot in every column. Since <span class="process-math">\(A\)</span> is a square matrix, there is a pivot in every row as well. So the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span> Since they are also linearly independent, the columns form a minimal spanning set, which is a basis of <span class="process-math">\(\R^n\text{.}\)</span></p></dd>
+<dd><p id="p-1909">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then there is a pivot in every column. Since <span class="process-math">\(A\)</span> is a square matrix, there is a pivot in every row as well. So the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\R^n\text{.}\)</span> Since they are also linearly independent, the columns form a minimal spanning set, which is a basis of <span class="process-math">\(\R^n\text{.}\)</span></p></dd>
 <dt id="li-351">Statement (7) implies Statement (8)</dt>
-<dd><p id="p-1911">If the columns form a basis of <span class="process-math">\(\R^n\text{,}\)</span> then the columns are linearly independent. This means that each column is a pivot column, which also implies <span class="process-math">\(A\vx=\vzero\)</span> has a unique solution and that <span class="process-math">\(T\)</span> is one-to-one.</p></dd>
+<dd><p id="p-1910">If the columns form a basis of <span class="process-math">\(\R^n\text{,}\)</span> then the columns are linearly independent. This means that each column is a pivot column, which also implies <span class="process-math">\(A\vx=\vzero\)</span> has a unique solution and that <span class="process-math">\(T\)</span> is one-to-one.</p></dd>
 <dt id="li-352">Statement (8) implies Statement (9)</dt>
-<dd><p id="p-1912">If <span class="process-math">\(T\)</span> is one-to-one, then <span class="process-math">\(A\)</span> has a pivot in every column. Since <span class="process-math">\(A\)</span> is square, every row of <span class="process-math">\(A\)</span> contains a pivot. Therefore, the system <span class="process-math">\(A \vx = \vb\)</span> is consistent for every <span class="process-math">\(\vb \in \R^n\)</span> and has a unique solution.</p></dd>
+<dd><p id="p-1911">If <span class="process-math">\(T\)</span> is one-to-one, then <span class="process-math">\(A\)</span> has a pivot in every column. Since <span class="process-math">\(A\)</span> is square, every row of <span class="process-math">\(A\)</span> contains a pivot. Therefore, the system <span class="process-math">\(A \vx = \vb\)</span> is consistent for every <span class="process-math">\(\vb \in \R^n\)</span> and has a unique solution.</p></dd>
 <dt id="li-353">Statement (9) implies Statement (10)</dt>
-<dd><p id="p-1913">If <span class="process-math">\(A\vx=\vb\)</span> has a unique solution for every <span class="process-math">\(\vb\text{,}\)</span> then the transformation <span class="process-math">\(T\)</span> is onto since <span class="process-math">\(T(\vx)=\vb\)</span> has a solution for every <span class="process-math">\(\vb\text{.}\)</span></p></dd>
+<dd><p id="p-1912">If <span class="process-math">\(A\vx=\vb\)</span> has a unique solution for every <span class="process-math">\(\vb\text{,}\)</span> then the transformation <span class="process-math">\(T\)</span> is onto since <span class="process-math">\(T(\vx)=\vb\)</span> has a solution for every <span class="process-math">\(\vb\text{.}\)</span></p></dd>
 <dt id="li-354">Statement (10) implies Statement (11)</dt>
 <dd>
-<p id="p-1914">Assume that <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is onto. For each <span class="process-math">\(i\text{,}\)</span> let <span class="process-math">\(\ve_i\)</span> be the <span class="process-math">\(i\)</span>th column of the <span class="process-math">\(n \times n\)</span> identity matrix <span class="process-math">\(I_n\text{.}\)</span> That is, <span class="process-math">\(\ve_i\)</span> is the vector in <span class="process-math">\(\R^n\)</span> with 1 in the <span class="process-math">\(i\)</span>th component and 0 everywhere else. Since <span class="process-math">\(T\)</span> is onto, for each <span class="process-math">\(i\)</span> there is a vector <span class="process-math">\(\vc_i\)</span> such that <span class="process-math">\(T(\vc_i) = A \vc_i = \ve_i\text{.}\)</span> Let <span class="process-math">\(C = [\vc_1  \ \vc_2 \ \cdots \ \vc_n]\text{.}\)</span> Then</p>
+<p id="p-1913">Assume that <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is onto. For each <span class="process-math">\(i\text{,}\)</span> let <span class="process-math">\(\ve_i\)</span> be the <span class="process-math">\(i\)</span>th column of the <span class="process-math">\(n \times n\)</span> identity matrix <span class="process-math">\(I_n\text{.}\)</span> That is, <span class="process-math">\(\ve_i\)</span> is the vector in <span class="process-math">\(\R^n\)</span> with 1 in the <span class="process-math">\(i\)</span>th component and 0 everywhere else. Since <span class="process-math">\(T\)</span> is onto, for each <span class="process-math">\(i\)</span> there is a vector <span class="process-math">\(\vc_i\)</span> such that <span class="process-math">\(T(\vc_i) = A \vc_i = \ve_i\text{.}\)</span> Let <span class="process-math">\(C = [\vc_1  \ \vc_2 \ \cdots \ \vc_n]\text{.}\)</span> Then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 AC = A[\vc_1  \ \vc_2 \ \cdots \ \vc_n] = [A\vc_1 \ A\vc_2 \ \cdots \ A\vc_n] = [\ve_1 \ \ve_2 \ \cdots \ \ve_n] = I_n\text{.}
@@ -821,7 +820,7 @@ AC = A[\vc_1  \ \vc_2 \ \cdots \ \vc_n] = [A\vc_1 \ A\vc_2 \ \cdots \ A\vc_n] = 
 </dd>
 <dt id="li-355">Statement (11) implies Statement (12)</dt>
 <dd>
-<p id="p-1915">Assume <span class="process-math">\(C\)</span> is an <span class="process-math">\(n \times n\)</span> matrix so that <span class="process-math">\(AC = I_n\text{.}\)</span> First we show that the matrix equation <span class="process-math">\(C \vx = \vzero\)</span> has only the trivial solution. Suppose <span class="process-math">\(C \vx = \vzero\text{.}\)</span> Then multiplying both sides on the left by <span class="process-math">\(A\)</span> gives us</p>
+<p id="p-1914">Assume <span class="process-math">\(C\)</span> is an <span class="process-math">\(n \times n\)</span> matrix so that <span class="process-math">\(AC = I_n\text{.}\)</span> First we show that the matrix equation <span class="process-math">\(C \vx = \vzero\)</span> has only the trivial solution. Suppose <span class="process-math">\(C \vx = \vzero\text{.}\)</span> Then multiplying both sides on the left by <span class="process-math">\(A\)</span> gives us</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A(C \vx) = A \vzero\text{.}
@@ -856,7 +855,7 @@ CA = I_n\text{.}
 </dd>
 <dt id="li-356">Statement (12) implies Statement (13)</dt>
 <dd>
-<p id="p-1916">Assume that there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(D\)</span> so that <span class="process-math">\(DA = I_n\text{.}\)</span> Suppose <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Then multiplying both sides by <span class="process-math">\(A\)</span> on the left, we find that</p>
+<p id="p-1915">Assume that there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(D\)</span> so that <span class="process-math">\(DA = I_n\text{.}\)</span> Suppose <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Then multiplying both sides by <span class="process-math">\(A\)</span> on the left, we find that</p>
 <div class="displaymath process-math">
 \begin{align*}
 D(A\vx) \amp = D\vzero\\
@@ -868,7 +867,7 @@ D(A\vx) \amp = D\vzero\\
 </dd>
 <dt id="li-357">Statement (13) implies Statement (14)</dt>
 <dd>
-<p id="p-1917">If 0 is not an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution. Since <a href="" class="xref" data-knowl="./knowl/item_trivial_soln.html" title="Item 2">statement 2</a> implies <a href="" class="xref" data-knowl="./knowl/item_AC_I.html" title="Item 11">statement 11</a>, there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(C\)</span> such that <span class="process-math">\(AC = I_n\text{.}\)</span> The proof that <a href="" class="xref" data-knowl="./knowl/item_AC_I.html" title="Item 11">statement 11</a> implies <a href="" class="xref" data-knowl="./knowl/item_DA_I.html" title="Item 12">statement 12</a> shows that <span class="process-math">\(CA = I_n\)</span> as well. So <span class="process-math">\(A\)</span> is invertible. By taking the transpose of both sides of the equation <span class="process-math">\(AA^{-1}=A^{-1}A=I_n\)</span> (remembering <span class="process-math">\((AB)^{\tr}= B^{\tr}A^{\tr}\)</span>) we find</p>
+<p id="p-1916">If 0 is not an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution. Since <a href="" class="xref" data-knowl="./knowl/item_trivial_soln.html" title="Item 2">statement 2</a> implies <a href="" class="xref" data-knowl="./knowl/item_AC_I.html" title="Item 11">statement 11</a>, there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(C\)</span> such that <span class="process-math">\(AC = I_n\text{.}\)</span> The proof that <a href="" class="xref" data-knowl="./knowl/item_AC_I.html" title="Item 11">statement 11</a> implies <a href="" class="xref" data-knowl="./knowl/item_DA_I.html" title="Item 12">statement 12</a> shows that <span class="process-math">\(CA = I_n\)</span> as well. So <span class="process-math">\(A\)</span> is invertible. By taking the transpose of both sides of the equation <span class="process-math">\(AA^{-1}=A^{-1}A=I_n\)</span> (remembering <span class="process-math">\((AB)^{\tr}= B^{\tr}A^{\tr}\)</span>) we find</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (A^{-1})^{\tr} A^{\tr} = A^{\tr} (A^{-1})^{\tr} = I_n^{\tr}=I_n \,\text{.}
@@ -877,8 +876,8 @@ D(A\vx) \amp = D\vzero\\
 <p class="continuation">Therefore, <span class="process-math">\((A^{-1})^{\tr}\)</span> is the inverse of <span class="process-math">\(A^{\tr}\)</span> by definition of the inverse.</p>
 </dd>
 <dt id="li-358">Statement (14) implies Statement (1)</dt>
-<dd><p id="p-1918">Since statement (1) implies statement (14), we proved ‘If <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A^{\tr}\)</span> is invertible.’' Using this implication with <span class="process-math">\(A^{\tr}\)</span> replaced by <span class="process-math">\(A\text{,}\)</span> we find that ‘If <span class="process-math">\(A^{\tr}\)</span> is invertible, then <span class="process-math">\((A^{\tr})^{\tr}\)</span> is invertible.’' But <span class="process-math">\((A^{\tr})^{\tr}=A\text{,}\)</span> which proves that statement (14) implies statement (1).</p></dd>
-</dl></article><p id="p-1919">This concludes our proof of the Invertible Matrix Theorem.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-23"><div class="fn">The symbol <span class="process-math">\(\implies\)</span> is the implication symbol, so <span class="process-math">\((1) \implies (12)\)</span> is read to mean that statement <span class="process-math">\((1)\)</span> of the theorem implies statement <span class="process-math">\((12)\text{.}\)</span>
+<dd><p id="p-1917">Since statement (1) implies statement (14), we proved ‘If <span class="process-math">\(A\)</span> is invertible, then <span class="process-math">\(A^{\tr}\)</span> is invertible.’' Using this implication with <span class="process-math">\(A^{\tr}\)</span> replaced by <span class="process-math">\(A\text{,}\)</span> we find that ‘If <span class="process-math">\(A^{\tr}\)</span> is invertible, then <span class="process-math">\((A^{\tr})^{\tr}\)</span> is invertible.’' But <span class="process-math">\((A^{\tr})^{\tr}=A\text{,}\)</span> which proves that statement (14) implies statement (1).</p></dd>
+</dl></article><p id="p-1918">This concludes our proof of the Invertible Matrix Theorem.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-23"><div class="fn">The symbol <span class="process-math">\(\implies\)</span> is the implication symbol, so <span class="process-math">\((1) \implies (12)\)</span> is read to mean that statement <span class="process-math">\((1)\)</span> of the theorem implies statement <span class="process-math">\((12)\text{.}\)</span>
 </div></div>
 </div></main>
 </div>

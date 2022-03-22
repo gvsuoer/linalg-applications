@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:25:33-04:00       *-->
+<!--*       on 2022-03-21T15:35:28-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,12 +751,12 @@
 <section class="section" id="sec_orthog_mtx"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Orthogonal Matrices</span>
 </h2>
-<p id="p-4093">We have seen in the diagonalization process that we diagonalize a matrix <span class="process-math">\(A\)</span> with a matrix <span class="process-math">\(P\)</span> whose columns are linearly independent eigenvectors of <span class="process-math">\(A\text{.}\)</span> In general, calculating the inverse of the matrix whose columns are eigenvectors of <span class="process-math">\(A\)</span> in the diagonalization process can be time consuming, but if the columns form an orthonormal set, then the calculation is very straightforward.</p>
+<p id="p-4092">We have seen in the diagonalization process that we diagonalize a matrix <span class="process-math">\(A\)</span> with a matrix <span class="process-math">\(P\)</span> whose columns are linearly independent eigenvectors of <span class="process-math">\(A\text{.}\)</span> In general, calculating the inverse of the matrix whose columns are eigenvectors of <span class="process-math">\(A\)</span> in the diagonalization process can be time consuming, but if the columns form an orthonormal set, then the calculation is very straightforward.</p>
 <article class="activity project-like" id="act_6_b_orthogonal_inverse"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">24.5</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-392">
-<p id="p-4094">Let <span class="process-math">\(\vu_1 = \frac{1}{3}[2 \ 1 \ 2]^{\tr}\text{,}\)</span> <span class="process-math">\(\vu_2 = \frac{1}{3}[-2 \ 2 \ 1]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vu_3 = \frac{1}{3}[1 \ 2 \ -2]^{\tr}\text{.}\)</span> It is not difficult to see that the set <span class="process-math">\(\{\vu_1, \vu_2, \vu_3\}\)</span> is an orthonormal basis for <span class="process-math">\(\R^3\text{.}\)</span> Let</p>
+<div class="introduction" id="introduction-391">
+<p id="p-4093">Let <span class="process-math">\(\vu_1 = \frac{1}{3}[2 \ 1 \ 2]^{\tr}\text{,}\)</span> <span class="process-math">\(\vu_2 = \frac{1}{3}[-2 \ 2 \ 1]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vu_3 = \frac{1}{3}[1 \ 2 \ -2]^{\tr}\text{.}\)</span> It is not difficult to see that the set <span class="process-math">\(\{\vu_1, \vu_2, \vu_3\}\)</span> is an orthonormal basis for <span class="process-math">\(\R^3\text{.}\)</span> Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = [\vu_1 \ \vu_2 \ \vu_3] = \frac{1}{3} \left[ \begin{array}{crr} 2\amp -2\amp 1\\1\amp 2\amp 2\\2\amp 1\amp -2 \end{array}  \right]\text{.}
@@ -765,28 +764,28 @@ A = [\vu_1 \ \vu_2 \ \vu_3] = \frac{1}{3} \left[ \begin{array}{crr} 2\amp -2\amp
 </div>
 </div>
 <article class="task exercise-like" id="task-1350"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4095">Use the definition of the matrix-matrix product to find the entries of the second row of the matrix product <span class="process-math">\(A^{\tr}A\text{.}\)</span> Why should you have expected the result?</p>
+<p id="p-4094">Use the definition of the matrix-matrix product to find the entries of the second row of the matrix product <span class="process-math">\(A^{\tr}A\text{.}\)</span> Why should you have expected the result?</p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-31" id="hint-31"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-31"><div class="hint solution-like"><p id="p-4096">How are the rows of <span class="process-math">\(A^{\tr}\)</span> related to the columns of <span class="process-math">\(A\text{?}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-31" id="hint-31"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-31"><div class="hint solution-like"><p id="p-4095">How are the rows of <span class="process-math">\(A^{\tr}\)</span> related to the columns of <span class="process-math">\(A\text{?}\)</span></p></div></div>
 </div></article><article class="task exercise-like" id="task-1351"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4097">With the result of part (a) in mind, what is the matrix product <span class="process-math">\(A^{\tr}A\text{?}\)</span> What does this tell us about the relationship between <span class="process-math">\(A^{\tr}\)</span> and <span class="process-math">\(A^{-1}\text{?}\)</span> Use technology to calculate <span class="process-math">\(A^{-1}\)</span> and confirm your answer.</p></article><article class="task exercise-like" id="task-1352"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4098">Suppose <span class="process-math">\(P\)</span> is an <span class="process-math">\(n \times n\)</span> matrix whose columns form an orthonormal basis for <span class="process-math">\(\R^n\text{.}\)</span> Explain why <span class="process-math">\(P^{\tr}P = I_n\text{.}\)</span></p></article></article><p id="p-4099">The result of <a href="" class="xref" data-knowl="./knowl/act_6_b_orthogonal_inverse.html" title="Activity 24.5">Activity 24.5</a> is that if the columns of a square matrix <span class="process-math">\(P\)</span> form an orthonormal set, then <span class="process-math">\(P^{-1} = P^{\tr}\text{.}\)</span> This makes calculating <span class="process-math">\(P^{-1}\)</span> very easy. Note, however, that this only works if the columns of <span class="process-math">\(P\)</span> form an orthonormal basis for <span class="process-math">\(\Col P\text{.}\)</span> You should also note that if <span class="process-math">\(P\)</span> is an <span class="process-math">\(n \times n\)</span> matrix satisfying <span class="process-math">\(P^{\tr}P = I_n\text{,}\)</span> then the columns of <span class="process-math">\(P\)</span> must form an orthonormal set. Matrices like this appear quite often and are given a special name.</p>
+<p id="p-4096">With the result of part (a) in mind, what is the matrix product <span class="process-math">\(A^{\tr}A\text{?}\)</span> What does this tell us about the relationship between <span class="process-math">\(A^{\tr}\)</span> and <span class="process-math">\(A^{-1}\text{?}\)</span> Use technology to calculate <span class="process-math">\(A^{-1}\)</span> and confirm your answer.</p></article><article class="task exercise-like" id="task-1352"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4097">Suppose <span class="process-math">\(P\)</span> is an <span class="process-math">\(n \times n\)</span> matrix whose columns form an orthonormal basis for <span class="process-math">\(\R^n\text{.}\)</span> Explain why <span class="process-math">\(P^{\tr}P = I_n\text{.}\)</span></p></article></article><p id="p-4098">The result of <a href="" class="xref" data-knowl="./knowl/act_6_b_orthogonal_inverse.html" title="Activity 24.5">Activity 24.5</a> is that if the columns of a square matrix <span class="process-math">\(P\)</span> form an orthonormal set, then <span class="process-math">\(P^{-1} = P^{\tr}\text{.}\)</span> This makes calculating <span class="process-math">\(P^{-1}\)</span> very easy. Note, however, that this only works if the columns of <span class="process-math">\(P\)</span> form an orthonormal basis for <span class="process-math">\(\Col P\text{.}\)</span> You should also note that if <span class="process-math">\(P\)</span> is an <span class="process-math">\(n \times n\)</span> matrix satisfying <span class="process-math">\(P^{\tr}P = I_n\text{,}\)</span> then the columns of <span class="process-math">\(P\)</span> must form an orthonormal set. Matrices like this appear quite often and are given a special name.</p>
 <article class="definition definition-like" id="definition-57"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">24.6</span><span class="period">.</span>
 </h3>
-<p id="p-4100">An <dfn class="terminology">orthogonal</dfn> matrix is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{\tr}P = I_n\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-39" id="fn-39"><sup> 39 </sup></a></p></article><article class="activity project-like" id="activity-95"><h3 class="heading">
+<p id="p-4099">An <dfn class="terminology">orthogonal</dfn> matrix is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{\tr}P = I_n\text{.}\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-39" id="fn-39"><sup> 39 </sup></a></p></article><article class="activity project-like" id="activity-95"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">24.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-393"><p id="p-4101">As a special case, we apply the result of <a href="" class="xref" data-knowl="./knowl/act_6_b_orthogonal_inverse.html" title="Activity 24.5">Activity 24.5</a> to a <span class="process-math">\(2 \times 2\)</span> rotation matrix <span class="process-math">\(P = \left[ \begin{array}{cr} \cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta) \end{array} \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-392"><p id="p-4100">As a special case, we apply the result of <a href="" class="xref" data-knowl="./knowl/act_6_b_orthogonal_inverse.html" title="Activity 24.5">Activity 24.5</a> to a <span class="process-math">\(2 \times 2\)</span> rotation matrix <span class="process-math">\(P = \left[ \begin{array}{cr} \cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta) \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1353"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4102">Show that the columns of <span class="process-math">\(P\)</span> form an orthonormal set.</p></article><article class="task exercise-like" id="task-1354"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4103">Use the fact that <span class="process-math">\(P^{-1} = P^{\tr}\)</span> to find <span class="process-math">\(P^{-1}\text{.}\)</span> Explain how this shows that the inverse of a rotation matrix by an angle <span class="process-math">\(\theta\)</span> is just another rotation matrix but by the angle <span class="process-math">\(-\theta\text{.}\)</span></p></article></article><p id="p-4104">Orthogonal matrices are useful because they satisfy some special properties. For example, if <span class="process-math">\(P\)</span> is an orthogonal <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(\vx, \vy \in \R^n\text{,}\)</span> then</p>
+<p id="p-4101">Show that the columns of <span class="process-math">\(P\)</span> form an orthonormal set.</p></article><article class="task exercise-like" id="task-1354"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4102">Use the fact that <span class="process-math">\(P^{-1} = P^{\tr}\)</span> to find <span class="process-math">\(P^{-1}\text{.}\)</span> Explain how this shows that the inverse of a rotation matrix by an angle <span class="process-math">\(\theta\)</span> is just another rotation matrix but by the angle <span class="process-math">\(-\theta\text{.}\)</span></p></article></article><p id="p-4103">Orthogonal matrices are useful because they satisfy some special properties. For example, if <span class="process-math">\(P\)</span> is an orthogonal <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(\vx, \vy \in \R^n\text{,}\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (P\vx) \cdot (P\vy) = (P\vx)^{\tr}(P\vy) = \vx^{\tr}P^{\tr}P\vy = \vx^{\tr}\vy = \vx \cdot \vy\text{.}
 \end{equation*}
 </div>
-<p id="p-4105"> This property tells us that the matrix transformation <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx) = P\vx\)</span> preserves dot products and, hence, orthogonality. In addition,</p>
+<p id="p-4104"> This property tells us that the matrix transformation <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx) = P\vx\)</span> preserves dot products and, hence, orthogonality. In addition,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 ||P\vx||^2 = P\vx \cdot P\vx = \vx \cdot \vx = ||\vx||^2\text{,}
@@ -798,19 +797,19 @@ A = [\vu_1 \ \vu_2 \ \vu_3] = \frac{1}{3} \left[ \begin{array}{crr} 2\amp -2\amp
 \frac{P\vx \cdot P\vy}{||P\vx|| \ ||P\vy||} = \frac{\vx \cdot \vy}{||\vx|| \ ||\vy||}\text{.}
 \end{equation*}
 </div>
-<p id="p-4106">Thus <span class="process-math">\(T\)</span> also preserves angles. Transformations defined by orthogonal matrices are very well behaved transformations. To summarize,</p>
+<p id="p-4105">Thus <span class="process-math">\(T\)</span> also preserves angles. Transformations defined by orthogonal matrices are very well behaved transformations. To summarize,</p>
 <article class="theorem theorem-like" id="theorem-59"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">24.7</span><span class="period">.</span>
 </h3>
-<p id="p-4107">Let <span class="process-math">\(P\)</span> be an <span class="process-math">\(n \times n\)</span> orthogonal matrix and let <span class="process-math">\(\vx, \vy \in \R^n\text{.}\)</span> Then</p>
+<p id="p-4106">Let <span class="process-math">\(P\)</span> be an <span class="process-math">\(n \times n\)</span> orthogonal matrix and let <span class="process-math">\(\vx, \vy \in \R^n\text{.}\)</span> Then</p>
 <ol class="decimal">
-<li id="li-662"><p id="p-4108"><span class="process-math">\((P\vx) \cdot (P\vy) = \vx \cdot \vy\text{,}\)</span></p></li>
-<li id="li-663"><p id="p-4109"><span class="process-math">\(||P\vx|| = ||\vx||\text{,}\)</span> and</p></li>
-<li id="li-664"><p id="p-4110"><span class="process-math">\(\frac{P\vx \cdot P\vy}{||P\vx|| \ ||P\vy||} = \frac{\vx \cdot \vy}{||\vx|| \ ||\vy||}\)</span> if <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vy\)</span> are nonzero.</p></li>
-</ol></article><p id="p-4111">We have discussed orthogonal and orthonormal bases for subspaces of <span class="process-math">\(\R^n\)</span> in this section. There are reasonable questions that follow, such as</p>
+<li id="li-662"><p id="p-4107"><span class="process-math">\((P\vx) \cdot (P\vy) = \vx \cdot \vy\text{,}\)</span></p></li>
+<li id="li-663"><p id="p-4108"><span class="process-math">\(||P\vx|| = ||\vx||\text{,}\)</span> and</p></li>
+<li id="li-664"><p id="p-4109"><span class="process-math">\(\frac{P\vx \cdot P\vy}{||P\vx|| \ ||P\vy||} = \frac{\vx \cdot \vy}{||\vx|| \ ||\vy||}\)</span> if <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vy\)</span> are nonzero.</p></li>
+</ol></article><p id="p-4110">We have discussed orthogonal and orthonormal bases for subspaces of <span class="process-math">\(\R^n\)</span> in this section. There are reasonable questions that follow, such as</p>
 <ul class="disc">
-<li id="li-665"><p id="p-4112">Can we always find an orthogonal (or orthonormal) basis for any subspace of <span class="process-math">\(\R^n\text{?}\)</span></p></li>
-<li id="li-666"><p id="p-4113">Given a vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(W\text{,}\)</span> can we find an orthogonal basis of <span class="process-math">\(W\)</span> that contain <span class="process-math">\(\vv\text{?}\)</span></p></li>
+<li id="li-665"><p id="p-4111">Can we always find an orthogonal (or orthonormal) basis for any subspace of <span class="process-math">\(\R^n\text{?}\)</span></p></li>
+<li id="li-666"><p id="p-4112">Given a vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(W\text{,}\)</span> can we find an orthogonal basis of <span class="process-math">\(W\)</span> that contain <span class="process-math">\(\vv\text{?}\)</span></p></li>
 </ul>
 <p class="continuation">We will answer these questions in subsequent sections.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-39"><div class="fn">It isn't clear why such matrices are called orthogonal since the columns are actually orthonormal, but that is the standard terminology in mathematics.</div></div>
 </div></main>

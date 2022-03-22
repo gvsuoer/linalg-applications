@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:25:12-04:00       *-->
+<!--*       on 2022-03-21T15:35:09-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -751,16 +750,16 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_dist_vec"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Distance Between Vectors</span>
 </h2>
-<p id="p-3898">Finding optimal solutions to systems is an important problem in applied mathematics. It is often the case that we cannot find an exact solution that satisfies certain constraints, so we look instead for the “best” solution that satisfies the constraints. An example of this is fitting a least squares line to a set of data. As we will see, the dot product will allow us to find “best” solutions to certain types of problems, where we measure accuracy using the notion of a distance between vectors. Geometrically, we can represent a vector <span class="process-math">\(\vu\)</span> as a directed line segment from the origin to the point defined by <span class="process-math">\(\vu\text{.}\)</span> If we have two vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> we can think of the length of the difference <span class="process-math">\(\vu - \vv\)</span> as a measure of how far apart the two vectors are from each other. It is natural, then to define the distance between vectors as follows.</p>
+<p id="p-3897">Finding optimal solutions to systems is an important problem in applied mathematics. It is often the case that we cannot find an exact solution that satisfies certain constraints, so we look instead for the “best” solution that satisfies the constraints. An example of this is fitting a least squares line to a set of data. As we will see, the dot product will allow us to find “best” solutions to certain types of problems, where we measure accuracy using the notion of a distance between vectors. Geometrically, we can represent a vector <span class="process-math">\(\vu\)</span> as a directed line segment from the origin to the point defined by <span class="process-math">\(\vu\text{.}\)</span> If we have two vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> we can think of the length of the difference <span class="process-math">\(\vu - \vv\)</span> as a measure of how far apart the two vectors are from each other. It is natural, then to define the distance between vectors as follows.</p>
 <article class="definition definition-like" id="def_6_a_distance"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">23.8</span><span class="period">.</span>
 </h3>
-<p id="p-3899">Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors in <span class="process-math">\(\R^n\text{.}\)</span> The <dfn class="terminology">distance</dfn> between <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> is the length of the difference <span class="process-math">\(\vu - \vv\)</span> or</p>
+<p id="p-3898">Let <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> be vectors in <span class="process-math">\(\R^n\text{.}\)</span> The <dfn class="terminology">distance</dfn> between <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> is the length of the difference <span class="process-math">\(\vu - \vv\)</span> or</p>
 <div class="displaymath process-math">
 \begin{equation*}
 || \vu - \vv ||\text{.}
 \end{equation*}
-</div></article><p id="p-3900">As <a href="" class="xref" data-knowl="./knowl/F_6_a_vector_difference.html" title="Figure 23.9">Figure 23.9</a> illustrates, if vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> emanate from the same initial point, and <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> are the terminal points of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> respectively, then the difference <span class="process-math">\(|| \vu - \vv||\)</span> is the standard Euclidean distance between the points <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{.}\)</span></p>
+</div></article><p id="p-3899">As <a href="" class="xref" data-knowl="./knowl/F_6_a_vector_difference.html" title="Figure 23.9">Figure 23.9</a> illustrates, if vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> emanate from the same initial point, and <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> are the terminal points of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> respectively, then the difference <span class="process-math">\(|| \vu - \vv||\)</span> is the standard Euclidean distance between the points <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{.}\)</span></p>
 <figure class="figure figure-like" id="F_6_a_vector_difference"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/6_a_vector_difference.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.9<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(|| \vu - \vv||\text{.}\)</span></figcaption></figure></section></div></main>
 </div>

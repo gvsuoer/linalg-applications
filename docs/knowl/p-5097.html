@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:42:22-04:00       *-->
+<!--*       on 2022-03-22T13:08:16-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,19 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Notice that some of these singular values are very small compared to others. As in <a href="" class="xref" data-knowl="./knowl/pa_7_d_1.html" title="Preview Activity 30.1">Preview Activity 30.1</a>, the terms with the largest singular values contain most of the information about the matrix. Thus, we shouldn't lose much information if we eliminate the small singular values. In this particular example, the last 4 singular values are significantly smaller than the rest. If we let</p>
+<p>This small example illustrates the general idea. Suppose we had a satellite image that was <span class="process-math">\(1000 \times 1000\)</span> pixels and we let <span class="process-math">\(M\)</span> represent this image. If we have a singular value decomposition of this image <span class="process-math">\(M\text{,}\)</span> say</p>
 <div class="displaymath process-math">
 \begin{equation*}
-M_{12} = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{12} \vu_{12}\vv_{12}^{\tr}\text{,}
+M = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{r} \vu_{r}\vv_{r}^{\tr}\text{,}
 \end{equation*}
 </div>
-<p class="continuation">then we should expect the image determined by <span class="process-math">\(M_{12}\)</span> to be close to the image made by <span class="process-math">\(M\text{.}\)</span> The two images are presented side by side in <a href="" class="xref" data-knowl="./knowl/F_7_c_Compress.html" title="Figure 30.2">Figure 30.2</a>.</p>
+<p class="continuation">if the rank of <span class="process-math">\(M\)</span> is large, it is likely that many of the singular values will be very small. If we only keep <span class="process-math">\(s\)</span> of the singular values, we can approximate <span class="process-math">\(M\)</span> by</p>
+<div class="displaymath process-math">
+\begin{equation*}
+M_s = \sigma_1 \vu_1\vv_1^{\tr} + \sigma_2 \vu_2\vv_2^{\tr} + \sigma_3 \vu_3\vv_3^{\tr} + \cdots + \sigma_{s} \vu_{s}\vv_{s}^{\tr}
+\end{equation*}
+</div>
+<p class="continuation">and store the image with only the vectors <span class="process-math">\(\sigma_1 \vu_1\text{,}\)</span> <span class="process-math">\(\sigma_2 \vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\sigma_{s}\vu_s\text{,}\)</span> <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_s\text{.}\)</span> For example, if we only need 10 of the singular values of a satellite image (<span class="process-math">\(s = 10\)</span>), then we can store the satellite image with only 20 vectors in <span class="process-math">\(\R^{1000}\)</span> or with <span class="process-math">\(20 \times 1000 = 20,000\)</span> numbers instead of <span class="process-math">\(1000 \times 1000 = 1,000,000\)</span> numbers.</p>
 <span class="incontext"><a href="sec_img_conpress.html#p-5097">in-context</a></span>
 </body>
 </html>

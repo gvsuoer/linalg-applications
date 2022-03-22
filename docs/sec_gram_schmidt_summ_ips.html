@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:29:02-04:00       *-->
+<!--*       on 2022-03-21T15:39:23-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,12 +751,12 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Summary</span>
 </h2>
 <ul class="disc"><li id="li-930">
-<p id="p-6364">The Gram-Schmidt process produces an orthogonal basis from any basis. It works as follows. Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\text{.}\)</span> The set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> defined by</p>
+<p id="p-6363">The Gram-Schmidt process produces an orthogonal basis from any basis. It works as follows. Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\text{.}\)</span> The set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> defined by</p>
 <ul class="circle">
-<li id="li-931"><p id="p-6365"><span class="process-math">\(\vw_1 = \vv_1\text{,}\)</span></p></li>
-<li id="li-932"><p id="p-6366"><span class="process-math">\(\vw_2 = \vv_2 - \ds \frac{\vv_2 \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1\text{,}\)</span></p></li>
-<li id="li-933"><p id="p-6367"><span class="process-math">\(\vw_3 = \vv_3 - \ds \frac{ \vv_3 \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_3 \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2\text{,}\)</span> <span class="process-math">\(\vdots\)</span></p></li>
-<li id="li-934"><p id="p-6368"><span class="process-math">\(\vw_m = \vv_m - \ds \frac{ \vv_m \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_m \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2 - \cdots - \frac{ \vv_m \cdot \vw_{m-1} }{ \vw_{m-1} \cdot \vw_{m-1} } \vw_{m-1}\text{.}\)</span></p></li>
+<li id="li-931"><p id="p-6364"><span class="process-math">\(\vw_1 = \vv_1\text{,}\)</span></p></li>
+<li id="li-932"><p id="p-6365"><span class="process-math">\(\vw_2 = \vv_2 - \ds \frac{\vv_2 \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1\text{,}\)</span></p></li>
+<li id="li-933"><p id="p-6366"><span class="process-math">\(\vw_3 = \vv_3 - \ds \frac{ \vv_3 \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_3 \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2\text{,}\)</span> <span class="process-math">\(\vdots\)</span></p></li>
+<li id="li-934"><p id="p-6367"><span class="process-math">\(\vw_m = \vv_m - \ds \frac{ \vv_m \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_m \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2 - \cdots - \frac{ \vv_m \cdot \vw_{m-1} }{ \vw_{m-1} \cdot \vw_{m-1} } \vw_{m-1}\text{.}\)</span></p></li>
 </ul>
 <p class="continuation">is an orthogonal basis for <span class="process-math">\(W\text{.}\)</span> Moreover,</p>
 <div class="displaymath process-math">

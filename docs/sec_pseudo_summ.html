@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-16T15:27:13-04:00       *-->
+<!--*       on 2022-03-21T15:37:18-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -55,8 +55,8 @@
 <!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\Z}{\mathbb{Z}}
-\def\cleardoublepage{\clearemptydoublepage}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
 \newcommand{\N}{\mathbb{N}}
@@ -92,7 +92,6 @@
 \newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
 \newcommand{\Ker}{\text{Ker}}
 \newcommand{\Image}{\text{Im}}
-\renewcommand{\qedsymbol}{\blacksquare}
 \newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
 \newcommand{\GL}{\text{GL}}
 \newcommand{\SL}{\text{SL}}
@@ -117,7 +116,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\newcommand{\CD}{\mathcal{D}}
+\renewcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -752,9 +751,9 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Summary</span>
 </h2>
 <ul class="disc">
-<li id="li-784"><p id="p-5207">The condition number of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is the number <span class="process-math">\(||A^{-1}|| \ ||A||\text{.}\)</span> The condition number provides a measure of how well the relative error in a calculated value <span class="process-math">\(\Delta \vb\)</span> predicts the relative error in <span class="process-math">\(\Delta \vx\)</span> when we are trying to solve a system <span class="process-math">\(A \vx = \vb\text{.}\)</span></p></li>
+<li id="li-784"><p id="p-5206">The condition number of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> is the number <span class="process-math">\(||A^{-1}|| \ ||A||\text{.}\)</span> The condition number provides a measure of how well the relative error in a calculated value <span class="process-math">\(\Delta \vb\)</span> predicts the relative error in <span class="process-math">\(\Delta \vx\)</span> when we are trying to solve a system <span class="process-math">\(A \vx = \vb\text{.}\)</span></p></li>
 <li id="li-785">
-<p id="p-5208">A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> can be found through a singular value decomposition. Let <span class="process-math">\(U \Sigma V^{\tr}\)</span> be a singular value decomposition of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> of rank <span class="process-math">\(r\text{,}\)</span> with</p>
+<p id="p-5207">A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> can be found through a singular value decomposition. Let <span class="process-math">\(U \Sigma V^{\tr}\)</span> be a singular value decomposition of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> of rank <span class="process-math">\(r\text{,}\)</span> with</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \Sigma = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp \amp  \\ \amp  \sigma_2\amp \amp 0\amp \amp  \\ \amp \amp  \sigma_3\amp \amp \amp 0 \\ \amp  0 \amp  \amp  \ddots \amp  \amp  \\ \amp \amp \amp \amp  \sigma_r \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]
@@ -768,7 +767,7 @@
 </div>
 <p class="continuation">then <span class="process-math">\(A^{+} = V\Sigma^{+}U^{\tr}\text{.}\)</span></p>
 </li>
-<li id="li-786"><p id="p-5209">A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> acts like an inverse for <span class="process-math">\(A\text{.}\)</span> So if we can't solve a matrix equation <span class="process-math">\(A \vx = \vb\)</span> because <span class="process-math">\(\vb\)</span> isn't in <span class="process-math">\(\Col A\text{,}\)</span> we can use the pseudoinverse of <span class="process-math">\(A\)</span> to “solve” the equation <span class="process-math">\(A \vx = \vb\)</span> with the “solution” <span class="process-math">\(A^+ \vb\text{.}\)</span> While not an exact solution, <span class="process-math">\(A^+ \vb\)</span> turns out to be the best approximation to a solution in the least squares sense.</p></li>
+<li id="li-786"><p id="p-5208">A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> acts like an inverse for <span class="process-math">\(A\text{.}\)</span> So if we can't solve a matrix equation <span class="process-math">\(A \vx = \vb\)</span> because <span class="process-math">\(\vb\)</span> isn't in <span class="process-math">\(\Col A\text{,}\)</span> we can use the pseudoinverse of <span class="process-math">\(A\)</span> to “solve” the equation <span class="process-math">\(A \vx = \vb\)</span> with the “solution” <span class="process-math">\(A^+ \vb\text{.}\)</span> While not an exact solution, <span class="process-math">\(A^+ \vb\)</span> turns out to be the best approximation to a solution in the least squares sense.</p></li>
 </ul></section></div></main>
 </div>
 <script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
