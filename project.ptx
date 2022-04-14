@@ -11,7 +11,6 @@
       <source>source/main.ptx</source>
       <publication>publication/publication.ptx</publication>
       <output-dir>output/html</output-dir>
-      <!-- <stringparam key="toc.level" value="2"/> -->
     </target>
     <target name="latex">
       <format>latex</format>
@@ -19,10 +18,9 @@
       <publication>publication/publication.ptx</publication>
       <output-dir>output/latex</output-dir>
       
-      <!-- <stringparam key="exercise.divisional.hint" value="no"/> -->
-      <stringparam key="exercise.divisional.answer" value="no"/>
-      <stringparam key="latex.geometry" value="paperheight=11.00215in, paperwidth=8.50166in, top=0.30447in, bottom=1in"/>
-      <!-- <xsl>xsl/custom-latex.xsl</xsl> -->
+      <!-- <stringparam key="exercise.divisional.answer" value="no"/> -->
+      <stringparam key="latex.geometry" value="top=1in, bottom=1in, outer=1.4in, inner=2in"/>
+      <xsl>xsl/custom-latex.xsl</xsl>
     </target>
     <target name="pdf">
       <format>pdf</format>
@@ -39,6 +37,7 @@
       <publication>publication/publication.ptx</publication>
       <output-dir>output/subset</output-dir>
       <stringparam key="debug.skip-knowls" value="yes"/>
+      <xsl>xsl/custom-latex.xsl</xsl>
     </target>
   </targets>
   <executables>
