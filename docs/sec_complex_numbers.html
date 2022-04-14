@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:31:34-04:00       *-->
+<!--*       on 2022-04-14T13:09:34-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,61 +748,61 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_complex_numbers"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Complex Numbers</span>
 </h2>
-<p id="p-7238">Complex numbers are usually introduced as a tool to solve the quadratic equation <span class="process-math">\(x^2+1 = 0\text{.}\)</span> However, that is not how complex numbers first came to light. The story actually involves solutions to the general cubic equation. The interested reader could consult Chapter 6 of William Dunham's excellent book <span class="booktitle">Journey Through Genius</span>. In this appendix we touch on the basics of complex numbers to provide enough context for the section on complex eigenvalues.</p>
-<p id="p-7239">A complex number is defined by a pair of real numbers - the <dfn class="terminology">real part</dfn> of the complex number and the <dfn class="terminology">imaginary part</dfn> of the complex number.</p>
+<p id="p-7203">Complex numbers are usually introduced as a tool to solve the quadratic equation <span class="process-math">\(x^2+1 = 0\text{.}\)</span> However, that is not how complex numbers first came to light. The story actually involves solutions to the general cubic equation. The interested reader could consult Chapter 6 of William Dunham's excellent book <span class="booktitle">Journey Through Genius</span>. In this appendix we touch on the basics of complex numbers to provide enough context for the section on complex eigenvalues.</p>
+<p id="p-7204">A complex number is defined by a pair of real numbers - the <dfn class="terminology">real part</dfn> of the complex number and the <dfn class="terminology">imaginary part</dfn> of the complex number.</p>
 <article class="definition definition-like" id="definition-103"><h2 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">A.1</span><span class="period">.</span>
 </h2>
-<p id="p-7240">A <dfn class="terminology">complex number</dfn> is a number of the form</p>
-<div class="displaymath process-math">
+<p id="p-7205">A <dfn class="terminology">complex number</dfn> is a number of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a+bi
 \end{equation*}
 </div>
-<p class="continuation">where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are real numbers and <span class="process-math">\(i^2 = -1\text{.}\)</span></p></article><p id="p-7241"> The number <span class="process-math">\(a\)</span> is the real part of the complex number and the number <span class="process-math">\(b\)</span> is the imaginary part. We often write</p>
-<div class="displaymath process-math">
+<p class="continuation">where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are real numbers and <span class="process-math">\(i^2 = -1\text{.}\)</span></p></article><p id="p-7206"> The number <span class="process-math">\(a\)</span> is the real part of the complex number and the number <span class="process-math">\(b\)</span> is the imaginary part. We often write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 z = a+bi
 \end{equation*}
 </div>
 <p class="continuation">for a complex number <span class="process-math">\(z\text{,}\)</span> <span class="process-math">\(\text{ Re } (z)\)</span> for the real part of <span class="process-math">\(z\)</span> and <span class="process-math">\(\text{ Im } (z)\)</span> for the imaginary part of <span class="process-math">\(z\text{.}\)</span> That is, if <span class="process-math">\(z = a+bi\)</span> with <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> real numbers, then <span class="process-math">\(\text{ Re } (z) = a\)</span> and <span class="process-math">\(\text{ Im } (z) = b\text{.}\)</span> We say that two complex numbers <span class="process-math">\(a+bi\)</span> and <span class="process-math">\(c+di\)</span> are equal if <span class="process-math">\(a=c\)</span> and <span class="process-math">\(b=d\text{.}\)</span></p>
-<p id="p-7242">There is an arithmetic of complex numbers that is determined by an addition and multiplication of complex numbers. Adding complex numbers is natural:</p>
-<div class="displaymath process-math">
+<p id="p-7207">There is an arithmetic of complex numbers that is determined by an addition and multiplication of complex numbers. Adding complex numbers is natural:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (a+bi) + (c+di) = (a+c) + (b+d)i\text{.}
 \end{equation*}
 </div>
-<p id="p-7243">That is, to add two complex numbers we add their real parts together and their imaginary parts together.</p>
+<p id="p-7208">That is, to add two complex numbers we add their real parts together and their imaginary parts together.</p>
 <article class="activity project-like" id="activity-163"><h2 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">A.1</span><span class="period">.</span>
 </h2>
-<div class="introduction" id="introduction-728"><p id="p-7244">Multiplication of complex numbers is is also done in a natural way.</p></div>
-<article class="task exercise-like" id="task-2476"><h3 class="heading"><span class="codenumber">(a)</span></h3>
-<p id="p-7245">By expanding the product as usual, treating <span class="process-math">\(i\)</span> as we would any real number, and exploiting the fact that <span class="process-math">\(i^2 = -1\text{,}\)</span> explain why we define the product of complex numbers <span class="process-math">\(a+bi\)</span> and <span class="process-math">\(c+di\)</span> as</p>
-<div class="displaymath process-math">
+<div class="introduction" id="introduction-723"><p id="p-7209">Multiplication of complex numbers is is also done in a natural way.</p></div>
+<article class="task exercise-like" id="task-2466"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<p id="p-7210">By expanding the product as usual, treating <span class="process-math">\(i\)</span> as we would any real number, and exploiting the fact that <span class="process-math">\(i^2 = -1\text{,}\)</span> explain why we define the product of complex numbers <span class="process-math">\(a+bi\)</span> and <span class="process-math">\(c+di\)</span> as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (a+bi)(c+di) = (ac-bd) + (bc+ad)i\text{.}
 \end{equation*}
-</div></article><article class="task exercise-like" id="task-2477"><h3 class="heading"><span class="codenumber">(b)</span></h3>
-<div class="introduction" id="introduction-729"><p id="p-7246">Use the definitions of addition and multiplication to write each of the sums or products as a complex number in the form <span class="process-math">\(a+bi\text{.}\)</span></p></div>
-<article class="task exercise-like" id="task-2478"><h4 class="heading"><span class="codenumber">(i)</span></h4>
-<p id="p-7247"><span class="process-math">\((2+3i) + (7-4i)\)</span></p></article><article class="task exercise-like" id="task-2479"><h4 class="heading"><span class="codenumber">(ii)</span></h4>
-<p id="p-7248"><span class="process-math">\((4-2i)(3+i)\)</span></p></article><article class="task exercise-like" id="task-2480"><h4 class="heading"><span class="codenumber">(iii)</span></h4>
-<p id="p-7249"><span class="process-math">\((2+i)i - (3+4i)\)</span></p></article></article></article><p id="p-7250">It isn't difficult to show that the set of complex numbers, which we denote by <span class="process-math">\(\C\text{,}\)</span> satisfies many useful and familiar properties.</p>
+</div></article><article class="task exercise-like" id="task-2467"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="introduction" id="introduction-724"><p id="p-7211">Use the definitions of addition and multiplication to write each of the sums or products as a complex number in the form <span class="process-math">\(a+bi\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-2468"><h4 class="heading"><span class="codenumber">(i)</span></h4>
+<p id="p-7212"><span class="process-math">\((2+3i) + (7-4i)\)</span></p></article><article class="task exercise-like" id="task-2469"><h4 class="heading"><span class="codenumber">(ii)</span></h4>
+<p id="p-7213"><span class="process-math">\((4-2i)(3+i)\)</span></p></article><article class="task exercise-like" id="task-2470"><h4 class="heading"><span class="codenumber">(iii)</span></h4>
+<p id="p-7214"><span class="process-math">\((2+i)i - (3+4i)\)</span></p></article></article></article><p id="p-7215">It isn't difficult to show that the set of complex numbers, which we denote by <span class="process-math">\(\C\text{,}\)</span> satisfies many useful and familiar properties.</p>
 <article class="activity project-like" id="act_complex_field"><h2 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">A.2</span><span class="period">.</span>
 </h2>
-<div class="introduction" id="introduction-730"><p id="p-7251">Show that <span class="process-math">\(\C\)</span> has the same structure as <span class="process-math">\(\R\text{.}\)</span> That is, show that for all <span class="process-math">\(u\text{,}\)</span> <span class="process-math">\(w\text{,}\)</span> and <span class="process-math">\(z\)</span> in <span class="process-math">\(\C\text{,}\)</span> the following properties are satisfied.</p></div>
-<article class="task exercise-like" id="task-2481"><h3 class="heading"><span class="codenumber">(a)</span></h3>
-<p id="p-7252"><span class="process-math">\(w+z \in \C\)</span> and <span class="process-math">\(wz \in \C\)</span></p></article><article class="task exercise-like" id="task-2482"><h3 class="heading"><span class="codenumber">(b)</span></h3>
-<p id="p-7253"><span class="process-math">\(w+z=z+w\)</span> and <span class="process-math">\(wz=zw\)</span></p></article><article class="task exercise-like" id="task-2483"><h3 class="heading"><span class="codenumber">(c)</span></h3>
-<p id="p-7254"><span class="process-math">\((w+z) + u = w + (z + u)\)</span> and <span class="process-math">\((wz)u = w(zu)\)</span></p></article><article class="task exercise-like" id="task-2484"><h3 class="heading"><span class="codenumber">(d)</span></h3>
-<p id="p-7255">There is an element <span class="process-math">\(0\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\(z+ 0 = z\)</span></p></article><article class="task exercise-like" id="task-2485"><h3 class="heading"><span class="codenumber">(e)</span></h3>
-<p id="p-7256">There is an element <span class="process-math">\(1\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\((1)z = z\)</span></p></article><article class="task exercise-like" id="task-2486"><h3 class="heading"><span class="codenumber">(f)</span></h3>
-<p id="p-7257">There is an element <span class="process-math">\(-z\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\(z+(-z) = 0\)</span></p></article><article class="task exercise-like" id="task-2487"><h3 class="heading"><span class="codenumber">(g)</span></h3>
-<p id="p-7258">If <span class="process-math">\(z \neq 0\text{,}\)</span> there is an element <span class="process-math">\(\frac{1}{z}\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\(z\left(\frac{1}{z}\right) = 1\)</span></p></article><article class="task exercise-like" id="task-2488"><h3 class="heading"><span class="codenumber">(h)</span></h3>
-<p id="p-7259"><span class="process-math">\(u (w + z) = (u w) + (u z)\)</span></p></article></article><p id="p-7260">The result of <a href="" class="xref" data-knowl="./knowl/act_complex_field.html" title="Activity A.2">Activity A.2</a> is that, just like <span class="process-math">\(\R\text{,}\)</span> the set <span class="process-math">\(\C\)</span> is a field. If we wanted to, we could define vector spaces over <span class="process-math">\(\C\)</span> just like we did over <span class="process-math">\(\R\text{.}\)</span> The same results hold.</p></section></div></main>
+<div class="introduction" id="introduction-725"><p id="p-7216">Show that <span class="process-math">\(\C\)</span> has the same structure as <span class="process-math">\(\R\text{.}\)</span> That is, show that for all <span class="process-math">\(u\text{,}\)</span> <span class="process-math">\(w\text{,}\)</span> and <span class="process-math">\(z\)</span> in <span class="process-math">\(\C\text{,}\)</span> the following properties are satisfied.</p></div>
+<article class="task exercise-like" id="task-2471"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<p id="p-7217"><span class="process-math">\(w+z \in \C\)</span> and <span class="process-math">\(wz \in \C\)</span></p></article><article class="task exercise-like" id="task-2472"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<p id="p-7218"><span class="process-math">\(w+z=z+w\)</span> and <span class="process-math">\(wz=zw\)</span></p></article><article class="task exercise-like" id="task-2473"><h3 class="heading"><span class="codenumber">(c)</span></h3>
+<p id="p-7219"><span class="process-math">\((w+z) + u = w + (z + u)\)</span> and <span class="process-math">\((wz)u = w(zu)\)</span></p></article><article class="task exercise-like" id="task-2474"><h3 class="heading"><span class="codenumber">(d)</span></h3>
+<p id="p-7220">There is an element <span class="process-math">\(0\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\(z+ 0 = z\)</span></p></article><article class="task exercise-like" id="task-2475"><h3 class="heading"><span class="codenumber">(e)</span></h3>
+<p id="p-7221">There is an element <span class="process-math">\(1\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\((1)z = z\)</span></p></article><article class="task exercise-like" id="task-2476"><h3 class="heading"><span class="codenumber">(f)</span></h3>
+<p id="p-7222">There is an element <span class="process-math">\(-z\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\(z+(-z) = 0\)</span></p></article><article class="task exercise-like" id="task-2477"><h3 class="heading"><span class="codenumber">(g)</span></h3>
+<p id="p-7223">If <span class="process-math">\(z \neq 0\text{,}\)</span> there is an element <span class="process-math">\(\frac{1}{z}\)</span> in <span class="process-math">\(\C\)</span> such that <span class="process-math">\(z\left(\frac{1}{z}\right) = 1\)</span></p></article><article class="task exercise-like" id="task-2478"><h3 class="heading"><span class="codenumber">(h)</span></h3>
+<p id="p-7224"><span class="process-math">\(u (w + z) = (u w) + (u z)\)</span></p></article></article><p id="p-7225">The result of <a href="" class="xref" data-knowl="./knowl/act_complex_field.html" title="Activity A.2">Activity A.2</a> is that, just like <span class="process-math">\(\R\text{,}\)</span> the set <span class="process-math">\(\C\)</span> is a field. If we wanted to, we could define vector spaces over <span class="process-math">\(\C\)</span> just like we did over <span class="process-math">\(\R\text{.}\)</span> The same results hold.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

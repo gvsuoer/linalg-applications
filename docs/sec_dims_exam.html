@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:28:58-04:00       *-->
+<!--*       on 2022-04-14T13:07:18-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,38 +748,38 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_dims_exam"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Examples</span>
 </h2>
-<p id="p-5766">What follows are worked examples that use the concepts from this section.</p>
+<p id="p-5730">What follows are worked examples that use the concepts from this section.</p>
 <article class="example example-like" id="example-69"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">33.5</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-568"><p id="p-5767">Find a basis and dimension for each of the indicated subspaces of the given vector spaces.</p></div>
-<article class="task exercise-like" id="task-1948"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5768"><span class="process-math">\(\{a+b(t+t^2) : a, b \in \R\}\)</span> in <span class="process-math">\(\pol_2\)</span></p>
+<div class="introduction" id="introduction-563"><p id="p-5731">Find a basis and dimension for each of the indicated subspaces of the given vector spaces.</p></div>
+<article class="task exercise-like" id="task-1938"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-5732"><span class="process-math">\(\{a+b(t+t^2) : a, b \in \R\}\)</span> in <span class="process-math">\(\pol_2\)</span></p>
 <div class="solution solution-like" id="solution-197">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-5769">Let <span class="process-math">\(W = \{a+b(t+t^2) : a, b \in \R\}\text{.}\)</span> Every element in <span class="process-math">\(W\)</span> has the form</p>
-<div class="displaymath process-math">
+<p id="p-5733">Let <span class="process-math">\(W = \{a+b(t+t^2) : a, b \in \R\}\text{.}\)</span> Every element in <span class="process-math">\(W\)</span> has the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a+b(t+t^2) = a(1) + b(t+t^2)\text{.}
 \end{equation*}
 </div>
 <p class="continuation">So <span class="process-math">\(W = \Span\{1, t+t^2\}\text{.}\)</span> Since neither <span class="process-math">\(1\)</span> nor <span class="process-math">\(t+t^2\)</span> is a scalar multiple of the other, the set <span class="process-math">\(\{1, t+t^2\}\)</span> is linearly independent. Thus, <span class="process-math">\(\{1, t+t^2\}\)</span> is a basis for <span class="process-math">\(W\)</span> and <span class="process-math">\(\dim(W) = 2\text{.}\)</span></p>
-</div></article><article class="task exercise-like" id="task-1949"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5770"><span class="process-math">\(\Span\left\{1, \frac{1}{1+x^2}, \frac{2+x^2}{1+x^2}, \arctan(x)\right\}\)</span> in <span class="process-math">\(\F\)</span></p>
+</div></article><article class="task exercise-like" id="task-1939"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5734"><span class="process-math">\(\Span\left\{1, \frac{1}{1+x^2}, \frac{2+x^2}{1+x^2}, \arctan(x)\right\}\)</span> in <span class="process-math">\(\F\)</span></p>
 <div class="solution solution-like" id="solution-198">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-5771">Let <span class="process-math">\(W = \Span\left\{1, \frac{1}{1+x^2}, \frac{2+x^2}{1+x^2}, \arctan(x)\right\}\text{.}\)</span> To find a basis for <span class="process-math">\(W\text{,}\)</span> we find a linearly independent subset of <span class="process-math">\(\left\{1, \frac{1}{1+x^2}, \frac{2+x^2}{1+x^2}, \arctan(x)\right\}\text{.}\)</span> Consider the equation</p>
-<div class="displaymath process-math">
+<p id="p-5735">Let <span class="process-math">\(W = \Span\left\{1, \frac{1}{1+x^2}, \frac{2+x^2}{1+x^2}, \arctan(x)\right\}\text{.}\)</span> To find a basis for <span class="process-math">\(W\text{,}\)</span> we find a linearly independent subset of <span class="process-math">\(\left\{1, \frac{1}{1+x^2}, \frac{2+x^2}{1+x^2}, \arctan(x)\right\}\text{.}\)</span> Consider the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 c_1 (1) + c_2\left(\frac{1}{1+x^2}\right) + c_3\left(\frac{2+x^2}{1+x^2}\right) + c_4 \arctan(x) = 0\text{.}
 \end{equation*}
 </div>
 <p class="continuation">To find the weights <span class="process-math">\(c_i\)</span> for which this equality of functions holds, we use the fact that the we must have equality for every <span class="process-math">\(x\text{.}\)</span> So we pick four different values for <span class="process-math">\(x\)</span> to obtain a linear system that we can solve for the weights. Evaluating both sides of the equation at <span class="process-math">\(x=0\text{,}\)</span> <span class="process-math">\(x=1\text{,}\)</span> <span class="process-math">\(x=-1\text{,}\)</span> and <span class="process-math">\(x=2\)</span> yields the equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-223">
 \begin{align*}
 {}c_1   \amp {}+{}   \amp {}c_2    \amp {}+{}  \amp {2}c_3  \amp {}  \amp {}    \amp = \ \amp 0\amp {}\\
 {}c_1   \amp {}+{}   \amp {\frac{1}{2}}c_2  \amp {}+{}    \amp {\frac{3}{2}}c_3    \amp {}+{}  \amp {\frac{\pi}{4}}c_4    \amp = \ \amp 0\amp {}\\
@@ -790,56 +788,56 @@ c_1 (1) + c_2\left(\frac{1}{1+x^2}\right) + c_3\left(\frac{2+x^2}{1+x^2}\right) 
 \end{align*}
 </div>
 <p class="continuation">The reduced row echelon form of the coefficient matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[  \begin{array}{cccr} 1\amp 1\amp 2\amp 0 \\ 1\amp \frac{1}{2}\amp \frac{3}{2}\amp \frac{\pi}{4} \\ 1\amp \frac{1}{2}\amp \frac{3}{2}\amp -\frac{\pi}{4} \\ 1\amp \frac{1}{5}\amp \frac{6}{5}\amp \arctan(2) \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">is <span class="process-math">\(\left[ \begin{array}{cccc} 1\amp 0\amp 1\amp 0 \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]\text{.}\)</span> The general solution to this linear system is <span class="process-math">\(c_1 = c_2 = -c_3\)</span> and <span class="process-math">\(c_4 = 0\text{.}\)</span> Notice that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (-1)(1) + (-1)\left( \frac{1}{1+x^2}\right) + \frac{2+x^2}{1+x^2} = 0
 \end{equation*}
 </div>
 <p class="continuation">or</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{2+x^2}{1+x^2} = 1 + \left( \frac{1}{1+x^2}\right)\text{,}
 \end{equation*}
 </div>
 <p class="continuation">so <span class="process-math">\(\frac{2+x^2}{1+x^2}\)</span> is a linear combination of the other vectors. The vectors corresponding to the pivot columns are linearly independent, so it follows that <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(\frac{1}{1+x^2}\text{,}\)</span> and <span class="process-math">\(\arctan(x)\)</span> are linearly independent. We conclude that <span class="process-math">\(\left\{1, \frac{1}{1+x^2},  \arctan(x)\right\}\)</span> is a basis for <span class="process-math">\(W\)</span> and <span class="process-math">\(\dim(W) = 3\text{.}\)</span></p>
-</div></article><article class="task exercise-like" id="task-1950"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-5772"><span class="process-math">\(\{p(t) \in \pol_n : p(-t) = p(t)\}\)</span> in <span class="process-math">\(\pol_4\)</span> (The polynomials with the property that <span class="process-math">\(p(-t) = p(t)\)</span> are called <em class="emphasis">even</em> polynomials.)</p>
+</div></article><article class="task exercise-like" id="task-1940"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-5736"><span class="process-math">\(\{p(t) \in \pol_n : p(-t) = p(t)\}\)</span> in <span class="process-math">\(\pol_4\)</span> (The polynomials with the property that <span class="process-math">\(p(-t) = p(t)\)</span> are called <em class="emphasis">even</em> polynomials.)</p>
 <div class="solution solution-like" id="solution-199">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-5773">Let <span class="process-math">\(W = \{p(t) \in \pol_n : p(-t) = p(t)\}\)</span> in <span class="process-math">\(\pol_4\text{.}\)</span> Let <span class="process-math">\(p(t) \in W\)</span> and suppose that <span class="process-math">\(p(t) = a_0 + a_1t+a_2t^2+a_3t^3+a_4t^4\text{.}\)</span> Since <span class="process-math">\(p(-t)=p(t)\text{,}\)</span> we must have <span class="process-math">\(p(1) = p(-1)\)</span> and <span class="process-math">\(p(3) = p(-3)\text{.}\)</span> Since <span class="process-math">\(p(1) = p(-1)\text{,}\)</span> it follows that</p>
-<div class="displaymath process-math">
+<p id="p-5737">Let <span class="process-math">\(W = \{p(t) \in \pol_n : p(-t) = p(t)\}\)</span> in <span class="process-math">\(\pol_4\text{.}\)</span> Let <span class="process-math">\(p(t) \in W\)</span> and suppose that <span class="process-math">\(p(t) = a_0 + a_1t+a_2t^2+a_3t^3+a_4t^4\text{.}\)</span> Since <span class="process-math">\(p(-t)=p(t)\text{,}\)</span> we must have <span class="process-math">\(p(1) = p(-1)\)</span> and <span class="process-math">\(p(3) = p(-3)\text{.}\)</span> Since <span class="process-math">\(p(1) = p(-1)\text{,}\)</span> it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_0+a_1+a_2+a_3+a_4 = a_0-a_1+a_2-a_3+a_4
 \end{equation*}
 </div>
 <p class="continuation">or</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_1+a_3 = 0\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Similarly, the fact that <span class="process-math">\(p(3) = p(-3)\)</span> yields the equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_0+3a_1+9a_2+27a_3+81a_4 = a_0-3a_1+9a_2-27a_3+81a_4
 \end{equation*}
 </div>
 <p class="continuation">or</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_1+9a_3 = 0\text{.}
 \end{equation*}
 </div>
 <p class="continuation">The reduced row echelon form of the coefficient matrix of system <span class="process-math">\(a_1+a_3 = 0\)</span> and <span class="process-math">\(a_1+9a_3 = 0\)</span> is <span class="process-math">\(I_2\text{,}\)</span> so it follows that <span class="process-math">\(a_1=a_3=0\text{.}\)</span> Thus, <span class="process-math">\(p(t) = a_0 + a_2t^2+a_4t^4\)</span> and so <span class="process-math">\(W = \Span\{1, t^2, t^4\}\text{.}\)</span> Equating like terms in the equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 c_1(1) + c_2(t^2) + c_3(t^4) = 0
 \end{equation*}
@@ -848,52 +846,52 @@ c_1(1) + c_2(t^2) + c_3(t^4) = 0
 </div></article></article><article class="example example-like" id="example-70"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">33.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-569"><p id="p-5774">Let <span class="process-math">\(U_{n \times n}\)</span> be the set of all <span class="process-math">\(n \times n\)</span> upper triangular matrices. Recall that a matrix <span class="process-math">\(A = [a_{ij}]\)</span> is upper triangular if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i &gt; j\text{.}\)</span> That is, a matrix is upper triangular if all entries below the diagonal are 0.</p></div>
-<article class="task exercise-like" id="task-1951"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5775">Show that <span class="process-math">\(U_{n \times n}\)</span> is a subspace of <span class="process-math">\(\M_{n \times n}\text{.}\)</span></p>
+<div class="introduction" id="introduction-564"><p id="p-5738">Let <span class="process-math">\(U_{n \times n}\)</span> be the set of all <span class="process-math">\(n \times n\)</span> upper triangular matrices. Recall that a matrix <span class="process-math">\(A = [a_{ij}]\)</span> is upper triangular if <span class="process-math">\(a_{ij} = 0\)</span> whenever <span class="process-math">\(i &gt; j\text{.}\)</span> That is, a matrix is upper triangular if all entries below the diagonal are 0.</p></div>
+<article class="task exercise-like" id="task-1941"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-5739">Show that <span class="process-math">\(U_{n \times n}\)</span> is a subspace of <span class="process-math">\(\M_{n \times n}\text{.}\)</span></p>
 <div class="solution solution-like" id="solution-200">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-5776">Since the <span class="process-math">\(n \times n\)</span> zero matrix <span class="process-math">\(0_{n \times n}\)</span> has all entries equal to 0, it follows that <span class="process-math">\(0_{n \times n}\)</span> is in <span class="process-math">\(U_{n \times n}\text{.}\)</span> Let <span class="process-math">\(A = [a_{ij}]\)</span> and <span class="process-math">\(B = [b_{ij}]\)</span> be in <span class="process-math">\(U_{n \times n}\text{,}\)</span> and let <span class="process-math">\(C = [c_{ij}] = A+B\text{.}\)</span> Then <span class="process-math">\(c_{ij} = a_{ij} + b_{ij} = 0 + 0\)</span> when <span class="process-math">\(i &gt; j\text{.}\)</span> So <span class="process-math">\(C\)</span> is an upper triangular matrix and <span class="process-math">\(U_{n \times n}\)</span> is closed under addition. Let <span class="process-math">\(c\)</span> be a scalar. The <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(cA\)</span> is <span class="process-math">\(ca_{ij} = c(0) = 0\)</span> whenever <span class="process-math">\(i &gt; j\text{.}\)</span> So <span class="process-math">\(cA\)</span> is an upper triangular matrix and <span class="process-math">\(U_{n \times n}\)</span> is closed under multiplication by scalars. We conclude that <span class="process-math">\(U_{n \times n}\)</span> is a subspace of <span class="process-math">\(\M_{n \times n}\text{.}\)</span></p>
-</div></article><article class="task exercise-like" id="task-1952"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5777">Find the dimensions of <span class="process-math">\(U_{2 \times 2}\)</span> and <span class="process-math">\(U_{3 \times 3}\text{.}\)</span> Explain. Make a conjecture as to what <span class="process-math">\(\dim(U_{n \times n})\)</span> is in terms of <span class="process-math">\(n\text{.}\)</span></p>
+<p id="p-5740">Since the <span class="process-math">\(n \times n\)</span> zero matrix <span class="process-math">\(0_{n \times n}\)</span> has all entries equal to 0, it follows that <span class="process-math">\(0_{n \times n}\)</span> is in <span class="process-math">\(U_{n \times n}\text{.}\)</span> Let <span class="process-math">\(A = [a_{ij}]\)</span> and <span class="process-math">\(B = [b_{ij}]\)</span> be in <span class="process-math">\(U_{n \times n}\text{,}\)</span> and let <span class="process-math">\(C = [c_{ij}] = A+B\text{.}\)</span> Then <span class="process-math">\(c_{ij} = a_{ij} + b_{ij} = 0 + 0\)</span> when <span class="process-math">\(i &gt; j\text{.}\)</span> So <span class="process-math">\(C\)</span> is an upper triangular matrix and <span class="process-math">\(U_{n \times n}\)</span> is closed under addition. Let <span class="process-math">\(c\)</span> be a scalar. The <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(cA\)</span> is <span class="process-math">\(ca_{ij} = c(0) = 0\)</span> whenever <span class="process-math">\(i &gt; j\text{.}\)</span> So <span class="process-math">\(cA\)</span> is an upper triangular matrix and <span class="process-math">\(U_{n \times n}\)</span> is closed under multiplication by scalars. We conclude that <span class="process-math">\(U_{n \times n}\)</span> is a subspace of <span class="process-math">\(\M_{n \times n}\text{.}\)</span></p>
+</div></article><article class="task exercise-like" id="task-1942"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5741">Find the dimensions of <span class="process-math">\(U_{2 \times 2}\)</span> and <span class="process-math">\(U_{3 \times 3}\text{.}\)</span> Explain. Make a conjecture as to what <span class="process-math">\(\dim(U_{n \times n})\)</span> is in terms of <span class="process-math">\(n\text{.}\)</span></p>
 <div class="solution solution-like" id="solution-201">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-5778">Let <span class="process-math">\(M_{11} = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \end{array}  \right]\text{,}\)</span> <span class="process-math">\(M_{12} = \left[ \begin{array}{cc} 0\amp 1 \\ 0\amp 0 \end{array}  \right]\text{,}\)</span> and <span class="process-math">\(M_{22}=\left[ \begin{array}{cc} 0\amp 0 \\ 0\amp 1 \end{array}  \right]\text{.}\)</span> We will show that <span class="process-math">\(S = \{M_{11}, M_{12}, M_{22}\}\)</span> is a basis for <span class="process-math">\(U_{2 \times 2}\text{.}\)</span> Consider the equation</p>
-<div class="displaymath process-math">
+<p id="p-5742">Let <span class="process-math">\(M_{11} = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \end{array}  \right]\text{,}\)</span> <span class="process-math">\(M_{12} = \left[ \begin{array}{cc} 0\amp 1 \\ 0\amp 0 \end{array}  \right]\text{,}\)</span> and <span class="process-math">\(M_{22}=\left[ \begin{array}{cc} 0\amp 0 \\ 0\amp 1 \end{array}  \right]\text{.}\)</span> We will show that <span class="process-math">\(S = \{M_{11}, M_{12}, M_{22}\}\)</span> is a basis for <span class="process-math">\(U_{2 \times 2}\text{.}\)</span> Consider the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 x_1M_{11} + x_2M_{12} + x_3 M_{22} = 0\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Equating like entries shows that <span class="process-math">\(x_1 = x_2 = x_3 = 0\text{,}\)</span> and so <span class="process-math">\(S\)</span> is linearly independent. If <span class="process-math">\(\left[ \begin{array}{cc} a\amp b \\ 0\amp c \end{array}  \right]\)</span> is in <span class="process-math">\(U_{2 \times 2}\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{cc} a\amp b \\ 0\amp c \end{array}  \right] = aM_{11} + bM_{12} + cM_{22}
 \end{equation*}
 </div>
 <p class="continuation">and so <span class="process-math">\(S\)</span> spans <span class="process-math">\(U_{2 \times 2}\text{.}\)</span> Thus, <span class="process-math">\(S\)</span> is a basis for <span class="process-math">\(U_{2 \times 2}\)</span> and so <span class="process-math">\(\dim(U_{2 \times 2}) = 3\text{.}\)</span> Similarly, for the <span class="process-math">\(3 \times 3\)</span> case let <span class="process-math">\(M_{ij}\)</span> for <span class="process-math">\(i \leq j\)</span> be the <span class="process-math">\(3 \times 3\)</span> matrix with a 1 in the <span class="process-math">\(ij\)</span> position and 0 in every other position. Let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 S = \{M_{11}, M_{12}, M_{13}, M_{22}, M_{23}, M_{33}\}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Equating corresponding entries shows that if</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 x_1M_{11} +  x_2M_{12} + x_3M_{13} + x_4 M_{22}+ x_5 M_{23} + x_6M_{33} = 0\text{,}
 \end{equation*}
 </div>
 <p class="continuation">then <span class="process-math">\(x_1 = x_2 = x_3 = x_4 = x_5 = x_6 = 0\text{.}\)</span> So <span class="process-math">\(S\)</span> is a linearly independent set. If <span class="process-math">\(A = [a_{ij}]\)</span> is in <span class="process-math">\(U_{3 \times 3}\text{,}\)</span> then <span class="process-math">\(A = \sum_{i \geq j} a_{ij}M_{ij}\)</span> and <span class="process-math">\(S\)</span> spans <span class="process-math">\(U_{3 \times 3}\text{.}\)</span> We conclude that <span class="process-math">\(S\)</span> is a basis for <span class="process-math">\(U_{3 \times 3}\)</span> and <span class="process-math">\(\dim(U_{3 \times 3}) = 6\text{.}\)</span> In general, for an <span class="process-math">\(n \times n\)</span> matrix, the set of matrices <span class="process-math">\(M_{ij}\text{,}\)</span> one for each entry on and above the diagonal, is a basis for <span class="process-math">\(U_{n \times n}\text{.}\)</span> There are <span class="process-math">\(n\)</span> such matrices for the entries on the diagonal. The number of entries above the diagonal is equal to half the total number of entries (<span class="process-math">\(n^2\)</span>) minus half the number of entries on the diagonal (<span class="process-math">\(n\)</span>). So there is a total of <span class="process-math">\(\frac{n^2-n}{2}\)</span> such matrices for the entries above the diagonal. Therefore,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \dim(U_{n \times n}) = n+\frac{n^2-n}{2} = \frac{n^2+n}{2}\text{.}
 \end{equation*}
 </div>
 </div></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

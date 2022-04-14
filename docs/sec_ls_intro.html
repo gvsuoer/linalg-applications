@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:37-04:00       *-->
+<!--*       on 2022-04-14T13:05:11-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,12 +748,12 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_ls_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-4383">In this section our focus is on fitting linear and polynomial functions to data sets.</p>
+<p id="p-4384">In this section our focus is on fitting linear and polynomial functions to data sets.</p>
 <article class="exploration project-like" id="pa_LS_1"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">26.1</span><span class="period">.</span>
 </h3>
 <div class="introduction" id="introduction-425">
-<p id="p-4384">NBC was awarded the U.S. television broadcast rights to the 2016 and 2020 summer Olympic games. <a href="" class="xref" data-knowl="./knowl/T_LS_Olympics.html" title="Table 26.1: Olympics television broadcast rights.">Table 26.1</a> lists the amounts paid (in millions of dollars) by NBC sports for the 2008 through 2012 summer Olympics plus the recently concluded bidding for the 2016 and 2020 Olympics, where year 0 is the year 2008. (We will assume a simple model here, ignoring variations such as value of money due to inflation, viewership data which might affect NBC's expected revenue, etc.) <a href="" class="xref" data-knowl="./knowl/F_LS_Olympics.html" title="Figure 26.2">Figure 26.2</a> shows a plot of the data. Our goal in this activity is to find a linear function <span class="process-math">\(f\)</span> defined by <span class="process-math">\(f(x) = a_0 + a_1x\)</span> that fits the data well.</p>
+<p id="p-4385">NBC was awarded the U.S. television broadcast rights to the 2016 and 2020 summer Olympic games. <a href="" class="xref" data-knowl="./knowl/T_LS_Olympics.html" title="Table 26.1: Olympics television broadcast rights.">Table 26.1</a> lists the amounts paid (in millions of dollars) by NBC sports for the 2008 through 2012 summer Olympics plus the recently concluded bidding for the 2016 and 2020 Olympics, where year 0 is the year 2008. (We will assume a simple model here, ignoring variations such as value of money due to inflation, viewership data which might affect NBC's expected revenue, etc.) <a href="" class="xref" data-knowl="./knowl/F_LS_Olympics.html" title="Figure 26.2">Figure 26.2</a> shows a plot of the data. Our goal in this activity is to find a linear function <span class="process-math">\(f\)</span> defined by <span class="process-math">\(f(x) = a_0 + a_1x\)</span> that fits the data well.</p>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel fixed-width top" style="width:50%;"><figure class="table table-like" id="T_LS_Olympics"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">26.1<span class="period">.</span></span><span class="space"> </span>Olympics television broadcast rights.</figcaption><table class="tabular">
 <tr>
@@ -781,8 +779,8 @@
 </table></figure></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="F_LS_Olympics"><img src="external/7_d_pa_3.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">26.2<span class="period">.</span></span><span class="space"> </span>A plot of the data.</figcaption></figure></div>
 </div></div>
-<p id="p-4385">If the data were actually linear, then the data would satisfy the system</p>
-<div class="displaymath process-math">
+<p id="p-4386">If the data were actually linear, then the data would satisfy the system</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-178">
 \begin{alignat*}{3}
 {}a_0 \amp {}+{}  \amp {0}a_1 \amp = \amp 894\amp {}\\
 {}a_0 \amp {}+{}  \amp {4}a_1 \amp = \amp 1180\amp {}\\
@@ -790,35 +788,35 @@
 {}a_0 \amp {}+{}  \amp {12}a_1 \amp = \amp 1418\amp {.}
 \end{alignat*}
 </div>
-<p id="p-4386">The vector form of this equation is</p>
-<div class="displaymath process-math">
+<p id="p-4387">The vector form of this equation is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_0 [1 \ 1 \ 1 \ 1]^{\tr} + a_1[0 \ 4 \ 8 \ 12]^{\tr} = [894 \ 1180 \ 1226 \ 1418]^{\tr}\text{.}
 \end{equation*}
 </div>
-<p id="p-4387">This equation does not have a solution, so we seek the best approximation to a solution we can find. That is, we want to find <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\)</span> so that the line <span class="process-math">\(f(x) = a_0+a_1x\)</span> provides a best fit to the data.</p>
-<p id="p-4388">Letting <span class="process-math">\(\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}\)</span> and <span class="process-math">\(\vv_2 = [0 \ 4 \ 8 \ 12]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vb = [894 \ 1180 \ 1226 \ 1418]^{\tr}\text{,}\)</span> our vector equation becomes</p>
-<div class="displaymath process-math">
+<p id="p-4388">This equation does not have a solution, so we seek the best approximation to a solution we can find. That is, we want to find <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\)</span> so that the line <span class="process-math">\(f(x) = a_0+a_1x\)</span> provides a best fit to the data.</p>
+<p id="p-4389">Letting <span class="process-math">\(\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}\)</span> and <span class="process-math">\(\vv_2 = [0 \ 4 \ 8 \ 12]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vb = [894 \ 1180 \ 1226 \ 1418]^{\tr}\text{,}\)</span> our vector equation becomes</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_0 \vv_1 + a_1\vv_2 = \vb\text{.}
 \end{equation*}
 </div>
-<p id="p-4389">To make a best fit, we will minimize the square of the distance between <span class="process-math">\(\vb\)</span> and a vector of the form <span class="process-math">\(a_0\vv_1 + a_1 \vv_2\text{.}\)</span> That is, minimize</p>
-<div class="displaymath process-math">
+<p id="p-4390">To make a best fit, we will minimize the square of the distance between <span class="process-math">\(\vb\)</span> and a vector of the form <span class="process-math">\(a_0\vv_1 + a_1 \vv_2\text{.}\)</span> That is, minimize</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_LS_line_1">
 \begin{equation}
-||\vb - (a_0 \vv_1 + a_1\vv_2)||^2\text{.}\label{eq_LS_line_1}\tag{26.1}
+||\vb - (a_0 \vv_1 + a_1\vv_2)||^2\text{.}\tag{26.1}
 \end{equation}
 </div>
-<p id="p-4390">Rephrasing this in terms of projections, we are looking for the vector in <span class="process-math">\(W = \Span\{\vv_1, \vv_2\}\)</span> that is closest to <span class="process-math">\(\vb\text{.}\)</span> In other words, the values of <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\)</span> will occur as the weights when we write <span class="process-math">\(\proj_{W} \vb\)</span> as a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span> The one wrinkle in this problem is that we need an orthogonal basis for <span class="process-math">\(W\)</span> to find this projection. Use appropriate technology throughout this activity.</p>
+<p id="p-4391">Rephrasing this in terms of projections, we are looking for the vector in <span class="process-math">\(W = \Span\{\vv_1, \vv_2\}\)</span> that is closest to <span class="process-math">\(\vb\text{.}\)</span> In other words, the values of <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\)</span> will occur as the weights when we write <span class="process-math">\(\proj_{W} \vb\)</span> as a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span> The one wrinkle in this problem is that we need an orthogonal basis for <span class="process-math">\(W\)</span> to find this projection. Use appropriate technology throughout this activity.</p>
 </div>
 <article class="task exercise-like" id="task-1448"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4391">Find an orthogonal basis <span class="process-math">\(\CB = \{\vw_1, \vw_2\}\)</span> for <span class="process-math">\(W\text{.}\)</span></p></article><article class="task exercise-like" id="task-1449"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4392">Use the basis <span class="process-math">\(\CB\)</span> to find <span class="process-math">\(\vy = \proj_{W} \vb\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/F_6_f_proj.html" title="Figure 26.3">Figure 26.3</a>.</p>
+<p id="p-4392">Find an orthogonal basis <span class="process-math">\(\CB = \{\vw_1, \vw_2\}\)</span> for <span class="process-math">\(W\text{.}\)</span></p></article><article class="task exercise-like" id="task-1449"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4393">Use the basis <span class="process-math">\(\CB\)</span> to find <span class="process-math">\(\vy = \proj_{W} \vb\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/F_6_f_proj.html" title="Figure 26.3">Figure 26.3</a>.</p>
 <figure class="figure figure-like" id="F_6_f_proj"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/6_f_O_proj.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">26.3<span class="period">.</span></span><span class="space"> </span>Projecting <span class="process-math">\(\vb\)</span> onto <span class="process-math">\(W\text{.}\)</span></figcaption></figure></article><article class="task exercise-like" id="task-1450"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4393">Find the values of <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\)</span> that give our best fit line by writing <span class="process-math">\(\vy\)</span> as a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-1451"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-4394">Draw a picture of your line from the previous part on the axes with the data set. How well do you think your line approximates the data? Explain.</p></article></article></section></div></main>
+<p id="p-4394">Find the values of <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\)</span> that give our best fit line by writing <span class="process-math">\(\vy\)</span> as a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-1451"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-4395">Draw a picture of your line from the previous part on the axes with the data set. How well do you think your line approximates the data? Explain.</p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

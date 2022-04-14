@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:23:36-04:00       *-->
+<!--*       on 2022-04-14T13:01:49-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -756,29 +754,29 @@
 </h3>
 <div class="introduction" id="introduction-216">
 <p id="p-2381">Let <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> be distinct eigenvalues of a matrix <span class="process-math">\(A\)</span> with corresponding eigenvectors <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span> The goal of this activity is to demonstrate that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are linearly independent. To prove that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are linearly independent, suppose that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_3_c_2">
 \begin{equation}
-x_1\vv_1 + x_2 \vv_2 = \vzero\text{.}\label{eq_3_c_2}\tag{14.2}
+x_1\vv_1 + x_2 \vv_2 = \vzero\text{.}\tag{14.2}
 \end{equation}
 </div>
 </div>
 <article class="task exercise-like" id="task-762"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-2382">Multiply both sides of equation <a href="" class="xref" data-knowl="./knowl/eq_3_c_2.html" title="Equation 14.2">(14.2)</a> on the left by the matrix <span class="process-math">\(A\)</span> and show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_3_c_2.html" id="eq_3_c_3">
 \begin{equation}
-x_1\lambda_1\vv_1 + x_2 \lambda_2\vv_2 = \vzero\text{.}\label{eq_3_c_3}\tag{14.3}
+x_1\lambda_1\vv_1 + x_2 \lambda_2\vv_2 = \vzero\text{.}\tag{14.3}
 \end{equation}
 </div></article><article class="task exercise-like" id="task-763"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-2383">Now multiply both sides of equation <a href="" class="xref" data-knowl="./knowl/eq_3_c_2.html" title="Equation 14.2">(14.2)</a> by the scalar <span class="process-math">\(\lambda_1\)</span> and show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_3_c_2.html" id="eq_3_c_4">
 \begin{equation}
-x_1\lambda_1\vv_1 + x_2 \lambda_1\vv_2 = \vzero\text{.}\label{eq_3_c_4}\tag{14.4}
+x_1\lambda_1\vv_1 + x_2 \lambda_1\vv_2 = \vzero\text{.}\tag{14.4}
 \end{equation}
 </div></article><article class="task exercise-like" id="task-764"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-2384">Combine equations <a href="" class="xref" data-knowl="./knowl/eq_3_c_3.html" title="Equation 14.3">(14.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_3_c_4.html" title="Equation 14.4">(14.4)</a> to obtain the equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_3_c_3.html ./knowl/eq_3_c_4.html" id="eq_3_c_5">
 \begin{equation}
-x_2(\lambda_2-\lambda_1)\vv_2 = \vzero\text{.}\label{eq_3_c_5}\tag{14.5}
+x_2(\lambda_2-\lambda_1)\vv_2 = \vzero\text{.}\tag{14.5}
 \end{equation}
 </div></article><article class="task exercise-like" id="task-765"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <p id="p-2385">Explain how we can conclude that <span class="process-math">\(x_2 = 0\text{.}\)</span> Why does it follow that <span class="process-math">\(x_1 = 0\text{?}\)</span> What does this tell us about <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{?}\)</span></p></article></article><p id="p-2386"><a href="" class="xref" data-knowl="./knowl/act_3_c_3.html" title="Activity 14.4">Activity 14.4</a> contains the basic elements of the proof of the next theorem.</p>
@@ -787,45 +785,45 @@ x_2(\lambda_2-\lambda_1)\vv_2 = \vzero\text{.}\label{eq_3_c_5}\tag{14.5}
 </h3>
 <p id="p-2387">Let <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_k\)</span> be <span class="process-math">\(k\)</span> distinct eigenvalues for a matrix <span class="process-math">\(A\)</span> and for each <span class="process-math">\(i\)</span> between 1 and <span class="process-math">\(k\)</span> let <span class="process-math">\(\vv_i\)</span> be an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda_i\text{.}\)</span> Then the vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are linearly independent.</p></article><article class="proof" id="proof-6"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <p id="p-2388">Let <span class="process-math">\(A\)</span> be a matrix with <span class="process-math">\(k\)</span> distinct eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_k\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\text{.}\)</span> To understand why <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are linearly independent, we will argue by contradiction and suppose that the vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are linearly dependent. Note that <span class="process-math">\(\vv_1\)</span> cannot be the zero vector (why?), so the set <span class="process-math">\(S_1=\{\vv_1\}\)</span> is linearly independent. If we include <span class="process-math">\(\vv_2\)</span> into this set, the set <span class="process-math">\(S_2 = \{\vv_1, \vv_2\}\)</span> may be linearly independent or dependent. If <span class="process-math">\(S_2\)</span> is linearly independent, then the set <span class="process-math">\(S_3 = \{\vv_1, \vv_2, \vv_3\}\)</span> may be linearly independent or dependent. We can continue adding additional vectors until we reach the set <span class="process-math">\(S_k = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_k\}\)</span> which we are assuming is linearly dependent. So there must be a smallest integer <span class="process-math">\(m \geq 2\)</span> such that the set <span class="process-math">\(S_m\)</span> is linearly dependent while <span class="process-math">\(S_{m-1}\)</span> is linearly independent. Since <span class="process-math">\(S_m = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_m\}\)</span> is linearly dependent, there is a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_m\)</span> with weights not all 0 that is the zero vector. Let <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\)</span> be such weights, not all zero, so that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_distinct_eigenvalues">
 \begin{equation}
-c_1\vv_1 + c_2\vv_2 + \cdots + c_{m-1} \vv_{m-1} + c_m \vv_m = \vzero\label{eq_distinct_eigenvalues}\tag{14.6}
+c_1\vv_1 + c_2\vv_2 + \cdots + c_{m-1} \vv_{m-1} + c_m \vv_m = \vzero\tag{14.6}
 \end{equation}
 </div>
 <p id="p-2389">If we multiply both sides of <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues.html" title="Equation 14.6">(14.6)</a> on the left by the matrix <span class="process-math">\(A\)</span> we obtain</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_distinct_eigenvalues.html" id="md-108">
 \begin{align}
 A(c_1\vv_1 + c_{2}\vv_{2} + \cdots + c_m \vv_m) \amp = A\vzero\notag\\
 c_1A\vv_1 + c_{2}A\vv_{2} + \cdots + c_m A\vv_m \amp = \vzero\notag\\
-c_1 \lambda_1\vv_1 + c_{2}\lambda_{2}\vv_{2} + \cdots + c_m \lambda_m\vv_m \amp = \vzero\text{.}\label{eq_distinct_eigenvalues2}\tag{14.7}
+c_1 \lambda_1\vv_1 + c_{2}\lambda_{2}\vv_{2} + \cdots + c_m \lambda_m\vv_m \amp = \vzero\text{.}\tag{14.7}
 \end{align}
 </div>
 <p id="p-2390">If we multiply both sides of <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues.html" title="Equation 14.6">(14.6)</a> by <span class="process-math">\(\lambda_m\)</span> we obtain the equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_distinct_eigenvalues.html" id="eq_distinct_eigenvalues3">
 \begin{equation}
-c_1\lambda_m\vv_1 + c_{2}\lambda_m\vv_{2} + \cdots + c_m \lambda_m\vv_m = \vzero\text{.}\label{eq_distinct_eigenvalues3}\tag{14.8}
+c_1\lambda_m\vv_1 + c_{2}\lambda_m\vv_{2} + \cdots + c_m \lambda_m\vv_m = \vzero\text{.}\tag{14.8}
 \end{equation}
 </div>
 <p id="p-2391">Subtracting corresponding sides of equation <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues3.html" title="Equation 14.8">(14.8)</a> from <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues2.html" title="Equation 14.7">(14.7)</a> gives us</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_distinct_eigenvalues3.html ./knowl/eq_distinct_eigenvalues2.html" id="eq_distinct_eigenvalues4">
 \begin{equation}
-c_{1}(\lambda_{1}-\lambda_m)\vv_{1} + c_{2}(\lambda_{2}-\lambda_m)\vv_{2} + \cdots + c_{m-1} (\lambda_{m-1}-\lambda_m) \vv_{m-1} = \vzero\text{.}\label{eq_distinct_eigenvalues4}\tag{14.9}
+c_{1}(\lambda_{1}-\lambda_m)\vv_{1} + c_{2}(\lambda_{2}-\lambda_m)\vv_{2} + \cdots + c_{m-1} (\lambda_{m-1}-\lambda_m) \vv_{m-1} = \vzero\text{.}\tag{14.9}
 \end{equation}
 </div>
 <p id="p-2392">Recall that <span class="process-math">\(S_{m-1}\)</span> is a linearly independent set, so the only way a linear combination of vectors in <span class="process-math">\(S_{m-1}\)</span> can be <span class="process-math">\(\vzero\)</span> is if all of the weights are 0. Therefore, we must have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 c_{1}(\lambda_{1}-\lambda_m) = 0, \ \ c_{2}(\lambda_{2}-\lambda_m) = 0, \ \ \ldots, \ \ c_{m-1} (\lambda_{m-1}-\lambda_m) = 0\text{.}
 \end{equation*}
 </div>
 <p id="p-2393">Since the eigenvalues are all distinct, this can only happen if</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 c_1 = c_2 = \cdots = c_{m-1} = 0\text{.}
 \end{equation*}
 </div>
 <p id="p-2394">But equation <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues.html" title="Equation 14.6">(14.6)</a> then implies that <span class="process-math">\(c_m = 0\)</span> and so all of the weights <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\)</span> are 0. However, when we assumed that the eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> were linearly dependent, this led to having at least one of the weights <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\)</span> be nonzero. This cannot happen, so our assumption that the eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> were linearly dependent must be false and we conclude that the eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are linearly independent.</p></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

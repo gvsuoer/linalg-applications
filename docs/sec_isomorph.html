@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:30:12-04:00       *-->
+<!--*       on 2022-04-14T13:08:26-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,24 +748,24 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_isomorph"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Isomorphisms</span>
 </h2>
-<p id="p-6485">If <span class="process-math">\(V\)</span> is a vector space with a basis <span class="process-math">\(\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}\text{,}\)</span> we have seen that the coordinate transformation <span class="process-math">\(T : V \to \R^n\)</span> defined by <span class="process-math">\(T(\vx) = [\vx]_{\CB}\)</span> is a linear transformation that is both one-to-one and onto. This allows us to uniquely identify any vector in <span class="process-math">\(V\)</span> with a vector in <span class="process-math">\(\R^n\)</span> so that the vector space structure is preserved. In other words, the vector space <span class="process-math">\(V\)</span> is for all intents and purposes the same as the vector space <span class="process-math">\(\R^n\text{,}\)</span> except for the way we represent the vectors. This is a very powerful idea in that it shows that any vector space of dimension <span class="process-math">\(n\)</span> is essentially the same as <span class="process-math">\(\R^n\text{.}\)</span> When this happens we say that the vectors spaces are <dfn class="terminology">isomorphic</dfn> and call the coordinate transformation an <dfn class="terminology">isomorphism</dfn>.</p>
+<p id="p-6449">If <span class="process-math">\(V\)</span> is a vector space with a basis <span class="process-math">\(\CB = \{\vv_1, \vv_2, \ldots, \vv_n\}\text{,}\)</span> we have seen that the coordinate transformation <span class="process-math">\(T : V \to \R^n\)</span> defined by <span class="process-math">\(T(\vx) = [\vx]_{\CB}\)</span> is a linear transformation that is both one-to-one and onto. This allows us to uniquely identify any vector in <span class="process-math">\(V\)</span> with a vector in <span class="process-math">\(\R^n\)</span> so that the vector space structure is preserved. In other words, the vector space <span class="process-math">\(V\)</span> is for all intents and purposes the same as the vector space <span class="process-math">\(\R^n\text{,}\)</span> except for the way we represent the vectors. This is a very powerful idea in that it shows that any vector space of dimension <span class="process-math">\(n\)</span> is essentially the same as <span class="process-math">\(\R^n\text{.}\)</span> When this happens we say that the vectors spaces are <dfn class="terminology">isomorphic</dfn> and call the coordinate transformation an <dfn class="terminology">isomorphism</dfn>.</p>
 <article class="definition definition-like" id="definition-92"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">37.11</span><span class="period">.</span>
 </h3>
-<p id="p-6486">An <dfn class="terminology">isomorphism</dfn>  from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\)</span> is a linear transformation <span class="process-math">\(T : V \to W\)</span> that is one-to-one and onto.</p></article><p id="p-6487">We this terminology, we summarize the discussion in the following theorem.</p>
+<p id="p-6450">An <dfn class="terminology">isomorphism</dfn>  from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\)</span> is a linear transformation <span class="process-math">\(T : V \to W\)</span> that is one-to-one and onto.</p></article><p id="p-6451">We this terminology, we summarize the discussion in the following theorem.</p>
 <article class="theorem theorem-like" id="theorem-100"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">37.12</span><span class="period">.</span>
 </h3>
-<p id="p-6488">If <span class="process-math">\(V\)</span> is a vector space of dimension <span class="process-math">\(n\text{,}\)</span> then any coordinate transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(\R^n\)</span> is an isomorphism.</p></article><p id="p-6489"> It is left for the exercises to show that if <span class="process-math">\(T: V \to W\)</span> is an isomorphism, then <span class="process-math">\(T^{-1}: W \to V\)</span> is also an isomorphism. So if there is an isomorphism from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\text{,}\)</span> then there is an isomorphism from <span class="process-math">\(W\)</span> to <span class="process-math">\(V\text{.}\)</span> As a result, we say that <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> are <dfn class="terminology">isomorphic</dfn> vector spaces. It is also true that any vector space is isomorphic to itself, and that if <span class="process-math">\(V\)</span> is isomorphic to <span class="process-math">\(W\)</span> and <span class="process-math">\(W\)</span> is isomorphic to <span class="process-math">\(U\text{,}\)</span> then <span class="process-math">\(V\)</span> and <span class="process-math">\(U\)</span> are also isomorphic. The proof of this result is left to the exercises. From this last property we can conclude that any two vector spaces of dimension <span class="process-math">\(n\)</span> are isomorphic vector spaces. This validates statement we made earlier that the vector space <span class="process-math">\(\pol_n\)</span> is for all intents and purposes the same as <span class="process-math">\(\R^{n+1}\text{,}\)</span> since the two spaces are isomorphic. So to understand all finite dimensional vector spaces, it is enough to understand <span class="process-math">\(\R^n\text{.}\)</span> The next activity provides a little practice with isomorphisms.</p>
+<p id="p-6452">If <span class="process-math">\(V\)</span> is a vector space of dimension <span class="process-math">\(n\text{,}\)</span> then any coordinate transformation from <span class="process-math">\(V\)</span> to <span class="process-math">\(\R^n\)</span> is an isomorphism.</p></article><p id="p-6453"> It is left for the exercises to show that if <span class="process-math">\(T: V \to W\)</span> is an isomorphism, then <span class="process-math">\(T^{-1}: W \to V\)</span> is also an isomorphism. So if there is an isomorphism from a vector space <span class="process-math">\(V\)</span> to a vector space <span class="process-math">\(W\text{,}\)</span> then there is an isomorphism from <span class="process-math">\(W\)</span> to <span class="process-math">\(V\text{.}\)</span> As a result, we say that <span class="process-math">\(V\)</span> and <span class="process-math">\(W\)</span> are <dfn class="terminology">isomorphic</dfn> vector spaces. It is also true that any vector space is isomorphic to itself, and that if <span class="process-math">\(V\)</span> is isomorphic to <span class="process-math">\(W\)</span> and <span class="process-math">\(W\)</span> is isomorphic to <span class="process-math">\(U\text{,}\)</span> then <span class="process-math">\(V\)</span> and <span class="process-math">\(U\)</span> are also isomorphic. The proof of this result is left to the exercises. From this last property we can conclude that any two vector spaces of dimension <span class="process-math">\(n\)</span> are isomorphic vector spaces. This validates statement we made earlier that the vector space <span class="process-math">\(\pol_n\)</span> is for all intents and purposes the same as <span class="process-math">\(\R^{n+1}\text{,}\)</span> since the two spaces are isomorphic. So to understand all finite dimensional vector spaces, it is enough to understand <span class="process-math">\(\R^n\text{.}\)</span> The next activity provides a little practice with isomorphisms.</p>
 <article class="activity project-like" id="activity-146"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">37.5</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-647"><p id="p-6490">Assume that each of the following maps is a linear transformation. Which, if any, is an isomorphism? Justify your reasoning.</p></div>
-<article class="task exercise-like" id="task-2193"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6491"><span class="process-math">\(T: \pol_1 \to \R^2\)</span> defined by <span class="process-math">\(T(a_0+a_1t) = \left[ \begin{array}{c} a_1\\a_1+a_0 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2194"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6492"><span class="process-math">\(T: \M_{2 \times 2} \to \pol_3\)</span> defined by <span class="process-math">\(T\left(\left[ \begin{array}{cc} a\amp b\\ c\amp d \end{array} \right] \right) = a+bt+ct^2+dt^3\text{.}\)</span></p></article><article class="task exercise-like" id="task-2195"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6493"><span class="process-math">\(T: \R^2 \to \pol_2\)</span> defined by <span class="process-math">\(T\left(\left[ \begin{array}{c} a\\ b \end{array} \right] \right) = a+bt+at^2\text{.}\)</span></p></article></article></section></div></main>
+<div class="introduction" id="introduction-642"><p id="p-6454">Assume that each of the following maps is a linear transformation. Which, if any, is an isomorphism? Justify your reasoning.</p></div>
+<article class="task exercise-like" id="task-2183"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-6455"><span class="process-math">\(T: \pol_1 \to \R^2\)</span> defined by <span class="process-math">\(T(a_0+a_1t) = \left[ \begin{array}{c} a_1\\a_1+a_0 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-2184"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6456"><span class="process-math">\(T: \M_{2 \times 2} \to \pol_3\)</span> defined by <span class="process-math">\(T\left(\left[ \begin{array}{cc} a\amp b\\ c\amp d \end{array} \right] \right) = a+bt+ct^2+dt^3\text{.}\)</span></p></article><article class="task exercise-like" id="task-2185"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6457"><span class="process-math">\(T: \R^2 \to \pol_2\)</span> defined by <span class="process-math">\(T\left(\left[ \begin{array}{c} a\\ b \end{array} \right] \right) = a+bt+at^2\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

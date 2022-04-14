@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:23:42-04:00       *-->
+<!--*       on 2022-04-14T13:01:56-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -753,86 +751,47 @@
 <article class="exercise exercise-like" id="exercise-129"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-221"><p id="p-2437">For each of the following, find a basis for the eigenspace of the indicated matrix corresponding to the given eigenvalue.</p></div>
 <article class="task exercise-like" id="task-782"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2438"><span class="process-math">\(\left[ \begin{array}{rr} 10\amp 7 \\ -14\amp -11 \end{array} \right]\)</span> with eigenvalue 3</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-171" id="answer-171"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-171"><div class="answer solution-like"><p id="p-2439"><span class="process-math">\(\left\{\left[ \begin{array}{r} -1 \\ 1 \end{array} \right]\right\}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-783"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2440"><span class="process-math">\(\left[ \begin{array}{rr} 11\amp 18 \\ -3\amp -4 \end{array} \right]\)</span> with eigenvalue 2</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-172" id="answer-172"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-172"><div class="answer solution-like"><p id="p-2441"><span class="process-math">\(\left\{\left[ \begin{array}{r} -2 \\ 1 \end{array} \right]\right\}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-784"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-2442"><span class="process-math">\(\left[ \begin{array}{rc} 2\amp 1 \\ -1\amp 0 \end{array} \right]\)</span> with eigenvalue 1</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-173" id="answer-173"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-173"><div class="answer solution-like"><p id="p-2443"><span class="process-math">\(\left\{\left[ \begin{array}{r} -1 \\ 1 \end{array} \right]\right\}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-785"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-2444"><span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0 \\ 0\amp 0\amp 2 \\ 1\amp 0\amp 2 \end{array} \right]\)</span> with eigenvalue 2</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-174" id="answer-174"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-174"><div class="answer solution-like"><p id="p-2445"><span class="process-math">\(\left\{\left[ \begin{array}{c} 0 \\ 1 \\ 1 \end{array} \right]\right\}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-786"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-2446"><span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0 \\ 0\amp 0\amp 2 \\ 1\amp 0\amp 2 \end{array} \right]\)</span> with eigenvalue 1</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-175" id="answer-175"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-175"><div class="answer solution-like"><p id="p-2447"><span class="process-math">\(\left\{\left[ \begin{array}{r} -1 \\ 2 \\ 1 \end{array} \right]\right\}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-787"><h4 class="heading"><span class="codenumber">(f)</span></h4>
-<p id="p-2448"><span class="process-math">\(\left[ \begin{array}{ccc} 2\amp 2\amp 4 \\ 1\amp 1\amp 2 \\ 3\amp 3\amp 6 \end{array} \right]\)</span> with eigenvalue 0</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-176" id="answer-176"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-176"><div class="answer solution-like"><p id="p-2449"><span class="process-math">\(\left\{\left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right], \left[ \begin{array}{r} -2 \\ 0 \\ 1 \end{array} \right]\right\}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-130"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-2438"><span class="process-math">\(\left[ \begin{array}{rr} 10\amp 7 \\ -14\amp -11 \end{array} \right]\)</span> with eigenvalue 3</p></article><article class="task exercise-like" id="task-783"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2440"><span class="process-math">\(\left[ \begin{array}{rr} 11\amp 18 \\ -3\amp -4 \end{array} \right]\)</span> with eigenvalue 2</p></article><article class="task exercise-like" id="task-784"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-2442"><span class="process-math">\(\left[ \begin{array}{rc} 2\amp 1 \\ -1\amp 0 \end{array} \right]\)</span> with eigenvalue 1</p></article><article class="task exercise-like" id="task-785"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-2444"><span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0 \\ 0\amp 0\amp 2 \\ 1\amp 0\amp 2 \end{array} \right]\)</span> with eigenvalue 2</p></article><article class="task exercise-like" id="task-786"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-2446"><span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0 \\ 0\amp 0\amp 2 \\ 1\amp 0\amp 2 \end{array} \right]\)</span> with eigenvalue 1</p></article><article class="task exercise-like" id="task-787"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<p id="p-2448"><span class="process-math">\(\left[ \begin{array}{ccc} 2\amp 2\amp 4 \\ 1\amp 1\amp 2 \\ 3\amp 3\amp 6 \end{array} \right]\)</span> with eigenvalue 0</p></article></article><article class="exercise exercise-like" id="exercise-130"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-222"><p id="p-2450">Suppose <span class="process-math">\(A\)</span> is an invertible matrix.</p></div>
 <article class="task exercise-like" id="task-788"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-2451">Use the definition of an eigenvalue and an eigenvector to algebraically explain why if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\lambda^{-1}\)</span> is an eigenvalue of <span class="process-math">\(A^{-1}\text{.}\)</span></p></article><article class="task exercise-like" id="task-789"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-2452">To provide an alternative explanation to the result in the previous part, let <span class="process-math">\(\vv\)</span> be an eigenvector of <span class="process-math">\(A\)</span> corresponding to <span class="process-math">\(\lambda\text{.}\)</span> Consider the matrix transformation <span class="process-math">\(T_A\)</span> corresponding to <span class="process-math">\(A\)</span> and <span class="process-math">\(T_{A^{-1}}\)</span> corresponding to <span class="process-math">\(A^{-1}\text{.}\)</span> Considering what happens to <span class="process-math">\(\vv\)</span> if <span class="process-math">\(T_A\)</span> and then <span class="process-math">\(T_{A^{-1}}\)</span> are applied, describe why this justifies <span class="process-math">\(\vv\)</span> is also an eigenvector of <span class="process-math">\(A^{-1}\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-131"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
-<p id="p-2453">If <span class="process-math">\(A=\left[ \begin{array}{cc} 0\amp 1\\a\amp b \end{array} \right]\)</span> has two eigenvalues 4 and 6, what are the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{?}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-177" id="answer-177"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-177"><div class="answer solution-like"><p id="p-2454"><span class="process-math">\(a=0\text{,}\)</span> <span class="process-math">\(b=4\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-132"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-2453">If <span class="process-math">\(A=\left[ \begin{array}{cc} 0\amp 1\\a\amp b \end{array} \right]\)</span> has two eigenvalues 4 and 6, what are the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{?}\)</span></p></article><article class="exercise exercise-like" id="exercise-132"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <article class="task exercise-like" id="task-790"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-2455">What are the eigenvalues of the identity matrix <span class="process-math">\(I_2\text{?}\)</span> Describe each eigenspace.</p></article><article class="task exercise-like" id="task-791"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-2456">Now let <span class="process-math">\(n &gt; 2\)</span> be a positive integer. What are the eigenvalues of the identity matrix <span class="process-math">\(I_n\text{?}\)</span> Describe each eigenspace.</p></article></article><article class="exercise exercise-like" id="exercise-133"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
 <article class="task exercise-like" id="task-792"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2457">What are the eigenvalues of the <span class="process-math">\(2 \times 2\)</span> zero matrix (the matrix all of whose entries are 0)? Describe each eigenspace.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-178" id="answer-178"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-178"><div class="answer solution-like"><p id="p-2458">Eigenvalue <span class="process-math">\(0\text{,}\)</span> eigenspace <span class="process-math">\(\R^2\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-793"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2459">Now let <span class="process-math">\(n &gt; 2\)</span> be a positive integer. What are the eigenvalues of the <span class="process-math">\(n \times n\)</span> zero matrix? Describe each eigenspace.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-179" id="answer-179"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-179"><div class="answer solution-like"><p id="p-2460">Eigenvalue <span class="process-math">\(0\text{,}\)</span> eigenspace <span class="process-math">\(\R^n\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-134"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<p id="p-2457">What are the eigenvalues of the <span class="process-math">\(2 \times 2\)</span> zero matrix (the matrix all of whose entries are 0)? Describe each eigenspace.</p></article><article class="task exercise-like" id="task-793"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2459">Now let <span class="process-math">\(n &gt; 2\)</span> be a positive integer. What are the eigenvalues of the <span class="process-math">\(n \times n\)</span> zero matrix? Describe each eigenspace.</p></article></article><article class="exercise exercise-like" id="exercise-134"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-223"><p id="p-2461">Label each of the following statements as True or False. Provide justification for your response.</p></div>
 <article class="task exercise-like" id="task-794"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2462">If <span class="process-math">\(A\vv = \lambda \vv\text{,}\)</span> then <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(\vv\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-180" id="answer-180"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-180"><div class="answer solution-like"><p id="p-2463">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-795"><h4 class="heading">
+<p id="p-2462">If <span class="process-math">\(A\vv = \lambda \vv\text{,}\)</span> then <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(\vv\text{.}\)</span></p></article><article class="task exercise-like" id="task-795"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2464">The scalar <span class="process-math">\(\lambda\)</span> is an eigenvalue of a square matrix <span class="process-math">\(A\)</span> if and only if the equation <span class="process-math">\((A - \lambda I_n) \vx = \vzero\)</span> has a nontrivial solution.</p></article><article class="task exercise-like" id="task-796"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2465">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of a matrix <span class="process-math">\(A\text{,}\)</span> then there is only one nonzero vector <span class="process-math">\(\vv\)</span> with <span class="process-math">\(A \vv = \lambda \vv\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-181" id="answer-181"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-181"><div class="answer solution-like"><p id="p-2466">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-797"><h4 class="heading">
+<p id="p-2465">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of a matrix <span class="process-math">\(A\text{,}\)</span> then there is only one nonzero vector <span class="process-math">\(\vv\)</span> with <span class="process-math">\(A \vv = \lambda \vv\text{.}\)</span></p></article><article class="task exercise-like" id="task-797"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2467">The eigenspace of an eigenvalue of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is the same as <span class="process-math">\(\Nul (A - \lambda I_n)\text{.}\)</span></p></article><article class="task exercise-like" id="task-798"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2468">If <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are eigenvectors of a matrix <span class="process-math">\(A\)</span> corresponding to the same eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(\vv_1 + \vv_2\)</span> is also an eigenvector of <span class="process-math">\(A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-182" id="answer-182"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-182"><div class="answer solution-like"><p id="p-2469">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-799"><h4 class="heading">
+<p id="p-2468">If <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are eigenvectors of a matrix <span class="process-math">\(A\)</span> corresponding to the same eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then <span class="process-math">\(\vv_1 + \vv_2\)</span> is also an eigenvector of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-799"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2470">If <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are eigenvectors of a matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\vv_1 + \vv_2\)</span> is also an eigenvector of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-800"><h4 class="heading">
 <span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2471">If <span class="process-math">\(\vv\)</span> is an eigenvector of an invertible matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is also an eigenvector of <span class="process-math">\(A^{-1}\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-183" id="answer-183"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-183"><div class="answer solution-like"><p id="p-2472">T</p></div></div>
-</div></article></article></section></div></main>
+<p id="p-2471">If <span class="process-math">\(\vv\)</span> is an eigenvector of an invertible matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is also an eigenvector of <span class="process-math">\(A^{-1}\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

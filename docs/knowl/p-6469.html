@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:47:43-04:00       *-->
+<!--*       on 2022-04-14T13:24:58-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,8 +14,17 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>The kernel of a linear transformation provides a convenient way to determine if the linear transformation is one-to-one. If <span class="process-math">\(T\)</span> is one-to-one, then the only solution to <span class="process-math">\(T(\vx) = \vzero_W\)</span> is <span class="process-math">\(\vzero_V\)</span> and <span class="process-math">\(\Ker(T)\)</span> contains only the zero vector. If <span class="process-math">\(T\)</span> is not one-to-one (and the domain of <span class="process-math">\(T\)</span> is not just <span class="process-math">\(\{\vzero\}\)</span>), then the number of solutions to <span class="process-math">\(T(\vx) = \vzero_W\)</span> is infinite and <span class="process-math">\(\Ker(T)\)</span> contains more than just the zero vector. We formalize this idea in the next theorem. (Compare to <a href="" class="xref" data-knowl="./knowl/thm_3_b_one_to_one_kernel.html" title="Theorem 13.3">Theorem 13.3</a>.) The formal proof is left for the exercises.</p>
-<span class="incontext"><a href="sec_kernel_range.html#p-6469">in-context</a></span>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>Let <span class="process-math">\(q(t)\)</span> be in <span class="process-math">\(\Range(T)\text{.}\)</span> Then <span class="process-math">\(q(t) = T(p(t))\)</span> for some polynomial <span class="process-math">\(p(t) = a_0+a_1t+a_2t^2 \in \pol_2\text{.}\)</span> Thus,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+q(t) \amp = T(p(t))\\
+\amp = tp(t) + p(0)\\
+\amp = a_0t+a_1t^2+a_2t^3 + a_0\\
+\amp = a_0(t+1) + a_1t^2 +a_2t^3\text{.}
+\end{align*}
+</div>
+<p class="continuation">Therefore, <span class="process-math">\(\Range(T) = \Span\{t+1, t^2, t^3\}\text{.}\)</span> Since the reduced row echelon form of <span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0\\1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array}  \right]\)</span> is <span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1\\0\amp 0\amp 0 \end{array}  \right]\text{,}\)</span> we conclude that the set <span class="process-math">\(\{t+1, t^2, t^3\}\)</span> is linearly independent. Thus, <span class="process-math">\(\dim(\Range(T)) = 3\text{.}\)</span> Since <span class="process-math">\(\Range(T)\)</span> is a three-dimensional subspace of the four-dimensional space <span class="process-math">\(\pol_3\text{,}\)</span> it follows that <span class="process-math">\(T\)</span> is not onto.</p>
+<span class="incontext"><a href="sec_lin_trans_exam.html#p-6469" class="internal">in-context</a></span>
 </body>
 </html>

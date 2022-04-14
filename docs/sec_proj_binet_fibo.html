@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:56-04:00       *-->
+<!--*       on 2022-04-14T13:03:32-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -755,20 +753,20 @@
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.7</span><span class="period">.</span>
 </h3>
 <p id="p-3331">The recurrence relation<span class="process-math">\(F_{n+2} = F_{n+1} + F_{n}\)</span> gives the equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="mdn-16">
 \begin{align}
-F_{n+1} \amp = F_{n} + F_{n-1}\label{eq_Fib_1}\tag{19.3}\\
-F_{n} \amp = F_{n}\text{.}\label{eq_Fib_2}\tag{19.4}
+F_{n+1} \amp = F_{n} + F_{n-1}\tag{19.3}\\
+F_{n} \amp = F_{n}\text{.}\tag{19.4}
 \end{align}
 </div>
 <p id="p-3332">Let <span class="process-math">\(\vx_{n} = \left[ \begin{array}{c} F_{n+1} \\ F_{n} \end{array}  \right]\)</span> for <span class="process-math">\(n \geq 0\text{.}\)</span> Explain how the equations <a href="" class="xref" data-knowl="./knowl/eq_Fib_1.html" title="Equation 19.3">(19.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_Fib_1.html" title="Equation 19.3">(19.3)</a> can be described with the matrix equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_Fib_1.html ./knowl/eq_Fib_1.html" id="eq_Fib_matrix">
 \begin{equation}
-\vx_n = A \vx_{n-1}\text{,}\label{eq_Fib_matrix}\tag{19.5}
+\vx_n = A \vx_{n-1}\text{,}\tag{19.5}
 \end{equation}
 </div>
 <p class="continuation">where <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 1\amp 0 \end{array}  \right]\text{.}\)</span></p></article><p id="p-3333">The matrix equation <a href="" class="xref" data-knowl="./knowl/eq_Fib_matrix.html" title="Equation 19.5">(19.5)</a> shows us how to find the vectors <span class="process-math">\(\vx_n\)</span> using powers of the matrix <span class="process-math">\(A\text{:}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_Fib_matrix.html" id="md-138">
 \begin{align*}
 \vx_1 \amp = A\vx_0\\
 \vx_2 \amp = A\vx_1 = A(A\vx_0) = A^2\vx_0\\
@@ -795,15 +793,15 @@ F_{n} \amp = F_{n}\text{.}\label{eq_Fib_2}\tag{19.4}
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.10</span><span class="period">.</span>
 </h3>
 <p id="p-3342">Since <span class="process-math">\(P^{-1}AP = D\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix, we also have <span class="process-math">\(A = PDP^{-1}\text{.}\)</span> Recall that when <span class="process-math">\(A = PDP^{-1}\text{,}\)</span> it follows that <span class="process-math">\(A^n = PD^nP^{-1}\text{.}\)</span> Use the equation <span class="process-math">\(A^n = PD^nP^{-1}\)</span> to show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_Binet">
 \begin{equation}
-F_n = \frac{\varphi^n - \overline{\varphi}^n}{\sqrt{5}}\text{.}\label{eq_Binet}\tag{19.6}
+F_n = \frac{\varphi^n - \overline{\varphi}^n}{\sqrt{5}}\text{.}\tag{19.6}
 \end{equation}
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-25" id="hint-25"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-25"><div class="hint solution-like"><p id="p-3343">We just need to calculate the second component of <span class="process-math">\(A^n \vx_0\text{.}\)</span></p></div></div>
 </div></article><p id="p-3344"> Formula <a href="" class="xref" data-knowl="./knowl/eq_Binet.html" title="Equation 19.6">(19.6)</a> is called <em class="emphasis">Binet's formula</em>. It is a very surprising formula in the fact that the expression on the right hand side of <a href="" class="xref" data-knowl="./knowl/eq_Binet.html" title="Equation 19.6">(19.6)</a> is an integer for each positive integer <span class="process-math">\(n\text{.}\)</span> Note that with Binet's formula we can quickly compute <span class="process-math">\(F_n\)</span> for very large values of <span class="process-math">\(n\text{.}\)</span> For example,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_Binet.html ./knowl/eq_Binet.html">
 \begin{equation*}
 F_{150} = 9969216677189303386214405760200\text{.}
 \end{equation*}
@@ -813,13 +811,13 @@ F_{150} = 9969216677189303386214405760200\text{.}
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">19.11</span><span class="period">.</span>
 </h3>
 <p id="p-3346">You might wonder what happens if we use negative integer exponents in Binet's formula. In other words, are there negatively indexed Fibonacci numbers? For any integer <span class="process-math">\(n\text{,}\)</span> including negative integers, let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 F_n = \frac{\varphi^n - \overline{\varphi}^n}{\sqrt{5}}
 \end{equation*}
 </div>
 <p id="p-3347">There is a specific relationship between <span class="process-math">\(F_{-n}\)</span> and <span class="process-math">\(F_n\text{.}\)</span> Find it and verify it.</p></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:51-04:00       *-->
+<!--*       on 2022-04-14T12:59:30-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -755,19 +753,19 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.4</span><span class="period">.</span>
 </h3>
 <p id="p-1157">The <dfn class="terminology">range</dfn> of a matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> is the set</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Range{T} = \{T(\vx) : \vx \in \R^n\}\text{.}
 \end{equation*}
 </div></article><p id="p-1158"> The range is always a subset of the codomain, but the two sets do not have to be equal. In addition, if a vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^m\)</span> satisfies <span class="process-math">\(\vb = T(\vx)\)</span> for some <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\text{,}\)</span> then we say that <span class="process-math">\(\vb\)</span> is the <dfn class="terminology">image</dfn> of <span class="process-math">\(\vx\)</span> under the transformation <span class="process-math">\(T\text{.}\)</span> For this reason we also use the term <dfn class="terminology">image</dfn> to also mean the range of a transformation, with the corresponding notation <span class="process-math">\(\Image(T)\text{.}\)</span></p>
 <p id="p-1159">Because of the properties of the matrix-vector product, if the matrix transformation <span class="process-math">\(T\)</span> is defined by <span class="process-math">\(T(\vx) = A\vx\)</span> for some <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(\vu + \vv) =  A(\vu + \vv) = A\vu + A\vv
 \end{equation*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(c\vu) = A(c\vu) = cA\vu = cT(\vu)
 \end{equation*}
@@ -785,26 +783,26 @@ T(c\vu) = A(c\vu) = cA\vu = cT(\vu)
 <article class="task exercise-like" id="task-343"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-1164">Exactly which vector is <span class="process-math">\(T(2\vu - 3\vv)\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-344"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-1165">If <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are any scalars, what is the vector <span class="process-math">\(T(a\vu + b\vv)\text{?}\)</span> Why?</p></article></article><p id="p-1166">As we saw in <a href="" class="xref" data-knowl="./knowl/act_1_g_2.html" title="Activity 7.2">Activity 7.2</a>, we can combine the two properties of a matrix transformation <span class="process-math">\(T\)</span> into one: for any scalars <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> and any vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> in the domain of <span class="process-math">\(T\)</span> we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_1_g_2.html" id="eq_1_g_1">
 \begin{equation}
-T(a\vu+b\vv) = aT(\vu) + bT(\vv)\text{.}\label{eq_1_g_1}\tag{7.1}
+T(a\vu+b\vv) = aT(\vu) + bT(\vv)\text{.}\tag{7.1}
 \end{equation}
 </div>
 <p id="p-1167">We can then extend equation <a href="" class="xref" data-knowl="./knowl/eq_1_g_1.html" title="Equation 7.1">(7.1)</a> (by mathematical induction) to any finite linear combination of vectors. That is, if <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are any vectors in the domain of a matrix transformation <span class="process-math">\(T\)</span> and if <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_k\)</span> are any scalars, then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_1_g_1.html" id="eq_1_g_2">
 \begin{equation}
-T(x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k) = x_1 T(\vv_1) + x_2 T(\vv_2) + \cdots + x_k T(\vv_k)\text{.}\label{eq_1_g_2}\tag{7.2}
+T(x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k) = x_1 T(\vv_1) + x_2 T(\vv_2) + \cdots + x_k T(\vv_k)\text{.}\tag{7.2}
 \end{equation}
 </div>
 <p id="p-1168">In other words, a matrix transformation preserves linear combinations. For this reason matrix transformations are examples of a larger set of transformation that are called <dfn class="terminology">linear</dfn> transformations. We will discuss general linear transformations in a later section.</p>
 <p id="p-1169">There is one other important property of a matrix transformation for us to consider. The functions we encountered in earlier mathematics courses, e.g., <span class="process-math">\(f(x) = 2x+1\text{,}\)</span> could send the input 0 to any output. However, as a consequence of the definition, any matrix transformation <span class="process-math">\(T\)</span> maps the zero vector to the zero vector because</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(\vzero) = A\vzero = \vzero \,\text{.}
 \end{equation*}
 </div>
 <p id="p-1170">Note that the two vectors <span class="process-math">\(\vzero\)</span> in the last equation may not be the same vector — if <span class="process-math">\(T : \R^n \to \R^m\text{,}\)</span> then the first <span class="process-math">\(\vzero\)</span> is in <span class="process-math">\(\R^n\)</span> and the second in <span class="process-math">\(\R^m\text{.}\)</span> It should be clear from the context which vector <span class="process-math">\(\vzero\)</span> is meant.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

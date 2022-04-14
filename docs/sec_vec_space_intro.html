@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:28:07-04:00       *-->
+<!--*       on 2022-04-14T13:06:24-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,101 +748,101 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_vec_space_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-5297">We have previously seen that <span class="process-math">\(\R^n\)</span> and the set of fixed size matrices have a nice algebraic structure when endowed with the addition and scalar multiplication operations. In fact, as we will see, there are many other sets of elements that have the same kind of structure with natural addition and scalar multiplication operations. Due to this underlying similar structure, these sets are connected in some way and can all be studied jointly. Mathematicians look for these kinds of connections between seemingly dissimilar objects and, from a mathematical standpoint, it is convenient to study all of these similar structures at once by combining them into a larger collection. This motivates the idea of a <dfn class="terminology">vector space</dfn> that we will investigate in this chapter.</p>
-<p id="p-5298">An example of a set that has a structure similar to vectors is a collection of polynomials. Let <span class="process-math">\(\pol_1\)</span> be the collection of all polynomials of degree less than or equal to 1 with real coefficients. That is,</p>
-<div class="displaymath process-math">
+<p id="p-5261">We have previously seen that <span class="process-math">\(\R^n\)</span> and the set of fixed size matrices have a nice algebraic structure when endowed with the addition and scalar multiplication operations. In fact, as we will see, there are many other sets of elements that have the same kind of structure with natural addition and scalar multiplication operations. Due to this underlying similar structure, these sets are connected in some way and can all be studied jointly. Mathematicians look for these kinds of connections between seemingly dissimilar objects and, from a mathematical standpoint, it is convenient to study all of these similar structures at once by combining them into a larger collection. This motivates the idea of a <dfn class="terminology">vector space</dfn> that we will investigate in this chapter.</p>
+<p id="p-5262">An example of a set that has a structure similar to vectors is a collection of polynomials. Let <span class="process-math">\(\pol_1\)</span> be the collection of all polynomials of degree less than or equal to 1 with real coefficients. That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \pol_1 = \{ a_0 + a_1t : a_0, a_1 \in \R\}\text{.}
 \end{equation*}
 </div>
-<p id="p-5299">So, for example, the polynomials <span class="process-math">\(2+t\text{,}\)</span> <span class="process-math">\(5t\text{,}\)</span> <span class="process-math">\(-7\text{,}\)</span> and <span class="process-math">\(\sqrt{12}-\pi t\)</span> are in <span class="process-math">\(\pol_1\text{,}\)</span> but <span class="process-math">\(\sqrt{t}\)</span> is not in <span class="process-math">\(\pol_1\text{.}\)</span> Two polynomials <span class="process-math">\(a(t)=a_0+a_1t\)</span> and <span class="process-math">\(b(t)=b_0+b_1t\)</span> in <span class="process-math">\(\pol_1\)</span> are equal if <span class="process-math">\(a_0=b_0\)</span> and <span class="process-math">\(a_1=b_1\text{.}\)</span></p>
-<p id="p-5300">We define addition of polynomials in <span class="process-math">\(\pol_1\)</span> by adding the coefficients of the like degree terms. So if <span class="process-math">\(a(t) = a_0+a_1t\)</span> and <span class="process-math">\(b(t) = b_0+b_1t\text{,}\)</span> then the polynomial sum of <span class="process-math">\(a(t)\)</span> and <span class="process-math">\(b(t)\)</span> is</p>
-<div class="displaymath process-math">
+<p id="p-5263">So, for example, the polynomials <span class="process-math">\(2+t\text{,}\)</span> <span class="process-math">\(5t\text{,}\)</span> <span class="process-math">\(-7\text{,}\)</span> and <span class="process-math">\(\sqrt{12}-\pi t\)</span> are in <span class="process-math">\(\pol_1\text{,}\)</span> but <span class="process-math">\(\sqrt{t}\)</span> is not in <span class="process-math">\(\pol_1\text{.}\)</span> Two polynomials <span class="process-math">\(a(t)=a_0+a_1t\)</span> and <span class="process-math">\(b(t)=b_0+b_1t\)</span> in <span class="process-math">\(\pol_1\)</span> are equal if <span class="process-math">\(a_0=b_0\)</span> and <span class="process-math">\(a_1=b_1\text{.}\)</span></p>
+<p id="p-5264">We define addition of polynomials in <span class="process-math">\(\pol_1\)</span> by adding the coefficients of the like degree terms. So if <span class="process-math">\(a(t) = a_0+a_1t\)</span> and <span class="process-math">\(b(t) = b_0+b_1t\text{,}\)</span> then the polynomial sum of <span class="process-math">\(a(t)\)</span> and <span class="process-math">\(b(t)\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a(t)+b(t) = (a_0+a_1t) + (b_0+b_1t) = (a_0+b_0) + (a_1+b_1)t\text{.}
 \end{equation*}
 </div>
-<p id="p-5301">So, for example,</p>
-<div class="displaymath process-math">
+<p id="p-5265">So, for example,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (2+3t)+(-1+5t) = (2+(-1)) + (3+5)t = 1+8 t\text{.}
 \end{equation*}
 </div>
-<p id="p-5302">We now consider the properties of the addition operation. For example, we can ask if polynomial addition is commutative. That is, if <span class="process-math">\(a(t)\)</span> and <span class="process-math">\(b(t)\)</span> are in <span class="process-math">\(\pol_1\text{,}\)</span> must it be the case that</p>
-<div class="displaymath process-math">
+<p id="p-5266">We now consider the properties of the addition operation. For example, we can ask if polynomial addition is commutative. That is, if <span class="process-math">\(a(t)\)</span> and <span class="process-math">\(b(t)\)</span> are in <span class="process-math">\(\pol_1\text{,}\)</span> must it be the case that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a(t)+b(t)~=~b(t)+a(t)?
 \end{equation*}
 </div>
-<p id="p-5303">To show that addition is commutative in <span class="process-math">\(\pol_1\text{,}\)</span> we choose arbitrary polynomials <span class="process-math">\(a(t) = a_0 + a_1t\)</span> and <span class="process-math">\(b(t) = b_0 + b_1t\)</span> in <span class="process-math">\(\pol_1\text{.}\)</span> Then we have</p>
-<div class="displaymath process-math">
+<p id="p-5267">To show that addition is commutative in <span class="process-math">\(\pol_1\text{,}\)</span> we choose arbitrary polynomials <span class="process-math">\(a(t) = a_0 + a_1t\)</span> and <span class="process-math">\(b(t) = b_0 + b_1t\)</span> in <span class="process-math">\(\pol_1\text{.}\)</span> Then we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-213">
 \begin{align*}
 a(t)+b(t) \amp = (a_0+b_0) + (a_1+b_1)t\\
 \amp = (b_0+a_0) + (b_1+a_1)t\\
 \amp = b(t)+a(t)\text{.}
 \end{align*}
 </div>
-<p id="p-5304">Note that in the middle step, we used the definition of equality of polynomials since <span class="process-math">\(a_0+b_0=b_0+a_0\)</span> and <span class="process-math">\(a_1+b_1=b_1+a_1\)</span> due to the fact that addition of real numbers is commutative. So addition of elements in <span class="process-math">\(\pol_1\)</span> is a commutative operation.</p>
+<p id="p-5268">Note that in the middle step, we used the definition of equality of polynomials since <span class="process-math">\(a_0+b_0=b_0+a_0\)</span> and <span class="process-math">\(a_1+b_1=b_1+a_1\)</span> due to the fact that addition of real numbers is commutative. So addition of elements in <span class="process-math">\(\pol_1\)</span> is a commutative operation.</p>
 <article class="exploration project-like" id="pa_5_a"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">31.1</span><span class="period">.</span>
 </h3>
-<article class="task exercise-like" id="task-1778"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-526"><p id="p-5305">Now we investigate other properties of addition in <span class="process-math">\(\pol_1\text{.}\)</span></p></div>
-<article class="task exercise-like" id="task-1779"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-5306">To show addition is associative in <span class="process-math">\(\pol_1\text{,}\)</span> we need to verify that if <span class="process-math">\(a(t) = a_0 + a_1t\text{,}\)</span> <span class="process-math">\(b(t) = b_0+b_1t\text{,}\)</span> and <span class="process-math">\(c(t) = c_0 + c_1t\)</span> are in <span class="process-math">\(\pol_1\text{,}\)</span> it must be the case that</p>
-<div class="displaymath process-math">
+<article class="task exercise-like" id="task-1768"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="introduction" id="introduction-521"><p id="p-5269">Now we investigate other properties of addition in <span class="process-math">\(\pol_1\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-1769"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-5270">To show addition is associative in <span class="process-math">\(\pol_1\text{,}\)</span> we need to verify that if <span class="process-math">\(a(t) = a_0 + a_1t\text{,}\)</span> <span class="process-math">\(b(t) = b_0+b_1t\text{,}\)</span> and <span class="process-math">\(c(t) = c_0 + c_1t\)</span> are in <span class="process-math">\(\pol_1\text{,}\)</span> it must be the case that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (a(t) + b(t)) + c(t) = a(t) + (b(t)+c(t))\text{.}
 \end{equation*}
 </div>
-<p class="continuation">Either verify this property by using the definition of two polynomials being equal, or give a counterexample to show the equality fails in that case.</p></article><article class="task exercise-like" id="task-1780"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-5307">Find a polynomial <span class="process-math">\(z(t) \in \pol_1\)</span> such that</p>
-<div class="displaymath process-math">
+<p class="continuation">Either verify this property by using the definition of two polynomials being equal, or give a counterexample to show the equality fails in that case.</p></article><article class="task exercise-like" id="task-1770"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-5271">Find a polynomial <span class="process-math">\(z(t) \in \pol_1\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a(t) + z(t) = a(t)
 \end{equation*}
 </div>
-<p class="continuation">for all <span class="process-math">\(a(t) \in \pol_1\text{.}\)</span> This polynomial is called the <em class="emphasis">zero</em> polynomial or the <em class="emphasis">additive identity</em> polynomial in <span class="process-math">\(\pol_1\text{.}\)</span></p></article><article class="task exercise-like" id="task-1781"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-5308">If <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element of <span class="process-math">\(\pol_1\text{,}\)</span> is there an element <span class="process-math">\(p(t) \in \pol_1\)</span> such that</p>
-<div class="displaymath process-math">
+<p class="continuation">for all <span class="process-math">\(a(t) \in \pol_1\text{.}\)</span> This polynomial is called the <em class="emphasis">zero</em> polynomial or the <em class="emphasis">additive identity</em> polynomial in <span class="process-math">\(\pol_1\text{.}\)</span></p></article><article class="task exercise-like" id="task-1771"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-5272">If <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element of <span class="process-math">\(\pol_1\text{,}\)</span> is there an element <span class="process-math">\(p(t) \in \pol_1\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a(t) + p(t) = z(t)\text{,}
 \end{equation*}
 </div>
-<p class="continuation">where <span class="process-math">\(z(t)\)</span> is the additive identity polynomial you found above? If not, why not? If so, what polynomial is <span class="process-math">\(p(t)\text{?}\)</span> Explain.</p></article></article><article class="task exercise-like" id="task-1782"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="introduction" id="introduction-527"><p id="p-5309">We can also define a multiplication of polynomials by scalars (real numbers).</p></div>
-<article class="task exercise-like" id="task-1783"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-5310">What element in <span class="process-math">\(\pol_1\)</span> could be the scalar multiple <span class="process-math">\(\frac{1}{2} (2+3t)\text{?}\)</span></p></article><article class="task exercise-like" id="task-1784"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-5311">In general, if <span class="process-math">\(k\)</span> is a scalar and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is in <span class="process-math">\(\pol_1\text{,}\)</span> how do we define the scalar multiple <span class="process-math">\(ka(t)\)</span> in <span class="process-math">\(\pol_1\text{?}\)</span></p></article><article class="task exercise-like" id="task-1785"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-5312">If <span class="process-math">\(k\)</span> is a scalar and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> and <span class="process-math">\(b(t) = b_0 + b_1t\)</span> are elements in <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
-<div class="displaymath process-math">
+<p class="continuation">where <span class="process-math">\(z(t)\)</span> is the additive identity polynomial you found above? If not, why not? If so, what polynomial is <span class="process-math">\(p(t)\text{?}\)</span> Explain.</p></article></article><article class="task exercise-like" id="task-1772"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction" id="introduction-522"><p id="p-5273">We can also define a multiplication of polynomials by scalars (real numbers).</p></div>
+<article class="task exercise-like" id="task-1773"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-5274">What element in <span class="process-math">\(\pol_1\)</span> could be the scalar multiple <span class="process-math">\(\frac{1}{2} (2+3t)\text{?}\)</span></p></article><article class="task exercise-like" id="task-1774"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-5275">In general, if <span class="process-math">\(k\)</span> is a scalar and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is in <span class="process-math">\(\pol_1\text{,}\)</span> how do we define the scalar multiple <span class="process-math">\(ka(t)\)</span> in <span class="process-math">\(\pol_1\text{?}\)</span></p></article><article class="task exercise-like" id="task-1775"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-5276">If <span class="process-math">\(k\)</span> is a scalar and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> and <span class="process-math">\(b(t) = b_0 + b_1t\)</span> are elements in <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 k(a(t) + b(t)) = ka(t) + kb(t)?
 \end{equation*}
 </div>
-<p class="continuation">If no, explain why. If yes, verify your answer using the definition of two polynomials being equal.</p></article><article class="task exercise-like" id="task-1786"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
-<p id="p-5313">If <span class="process-math">\(k\)</span> and <span class="process-math">\(m\)</span> are scalars and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element in <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
-<div class="displaymath process-math">
+<p class="continuation">If no, explain why. If yes, verify your answer using the definition of two polynomials being equal.</p></article><article class="task exercise-like" id="task-1776"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
+<p id="p-5277">If <span class="process-math">\(k\)</span> and <span class="process-math">\(m\)</span> are scalars and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element in <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (k+m)a(t) = ka(t) + ma(t)?
 \end{equation*}
 </div>
-<p class="continuation">If no, explain why. If yes, verify your answer.</p></article><article class="task exercise-like" id="task-1787"><h5 class="heading"><span class="codenumber">(v)</span></h5>
-<p id="p-5314">If <span class="process-math">\(k\)</span> and <span class="process-math">\(m\)</span> are scalars and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element in <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
-<div class="displaymath process-math">
+<p class="continuation">If no, explain why. If yes, verify your answer.</p></article><article class="task exercise-like" id="task-1777"><h5 class="heading"><span class="codenumber">(v)</span></h5>
+<p id="p-5278">If <span class="process-math">\(k\)</span> and <span class="process-math">\(m\)</span> are scalars and <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element in <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (km)a(t) = k(ma(t))?
 \end{equation*}
 </div>
-<p class="continuation">If no, explain why. If yes, verify your answer.</p></article><article class="task exercise-like" id="task-1788"><h5 class="heading"><span class="codenumber">(vi)</span></h5>
-<p id="p-5315">If <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element of <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
-<div class="displaymath process-math">
+<p class="continuation">If no, explain why. If yes, verify your answer.</p></article><article class="task exercise-like" id="task-1778"><h5 class="heading"><span class="codenumber">(vi)</span></h5>
+<p id="p-5279">If <span class="process-math">\(a(t) = a_0 + a_1t\)</span> is an element of <span class="process-math">\(\pol_1\text{,}\)</span> is it true that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 1a(t) = a(t)?
 \end{equation*}
 </div>
 <p class="continuation">If no, explain why. If yes, verify your answer.</p></article></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

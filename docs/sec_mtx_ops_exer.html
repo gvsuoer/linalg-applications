@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:22:22-04:00       *-->
+<!--*       on 2022-04-14T13:00:13-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -753,14 +751,8 @@
 <article class="exercise exercise-like" id="exercise-76"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-123"><p id="p-1434">Calculate <span class="process-math">\(AB\)</span> for each of the following matrix pairs by hand in two ways.</p></div>
 <article class="task exercise-like" id="task-425"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1435"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 0\\0\amp 1\\0\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(B = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-93" id="answer-93"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-93"><div class="answer solution-like"><p id="p-1436"><span class="process-math">\(AB = \left[ \begin{array}{cc} a\amp b \\ c\amp d \\ 0\amp 0 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-426"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1437"><span class="process-math">\(A = \left[ \begin{array}{ccr} 1\amp 0\amp -1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(B = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 3 \\ 3\amp 4 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-94" id="answer-94"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-94"><div class="answer solution-like"><p id="p-1438"><span class="process-math">\(AB = [-2 \ -2]\text{.}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-77"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-1435"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 0\\0\amp 1\\0\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(B = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-426"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1437"><span class="process-math">\(A = \left[ \begin{array}{ccr} 1\amp 0\amp -1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(B = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 3 \\ 3\amp 4 \end{array} \right]\)</span></p></article></article><article class="exercise exercise-like" id="exercise-77"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-124"><p id="p-1439">For each of the following <span class="process-math">\(A\)</span> matrices, find all <span class="process-math">\(2\times 2\)</span> matrices <span class="process-math">\(B=\left[ \begin{array}{cc} a\amp b\\c\amp d \end{array} \right]\)</span> which commute with the given <span class="process-math">\(A\text{.}\)</span> (Two matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> commute with each other if <span class="process-math">\(AB = BA\text{.}\)</span>)</p></div>
 <article class="task exercise-like" id="task-427"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-1440"><span class="process-math">\(A = \left[ \begin{array}{cc} 2\amp 0 \\ 0 \amp 2 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-428"><h4 class="heading"><span class="codenumber">(b)</span></h4>
@@ -768,60 +760,33 @@
 <p id="p-1442"><span class="process-math">\(A = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp 0 \end{array} \right]\)</span></p></article></article><article class="exercise exercise-like" id="exercise-78"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-125"><p id="p-1443">Find all possible, if any, <span class="process-math">\(X\)</span> matrices satisfying each of the following matrix equations.</p></div>
 <article class="task exercise-like" id="task-430"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1444"><span class="process-math">\(\left[ \begin{array}{cc} 1\amp 2 \\ 0 \amp 2 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp 0 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-95" id="answer-95"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-95"><div class="answer solution-like"><p id="p-1445"><span class="process-math">\(X = \left[ \begin{array}{cc} 0\amp 1\\0\amp 0 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-431"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-1446"><span class="process-math">\(\left[ \begin{array}{rr} 1\amp -2 \\ -2 \amp 4 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp 0 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-96" id="answer-96"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-96"><div class="answer solution-like"><p id="p-1447">There is no matrix <span class="process-math">\(X\)</span> with this property.</p></div></div>
-</div></article><article class="task exercise-like" id="task-432"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-1448"><span class="process-math">\(\left[ \begin{array}{rr} 1\amp -2 \\ -2 \amp 4 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp -2 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-97" id="answer-97"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-97"><div class="answer solution-like"><p id="p-1449"><span class="process-math">\(X = \left[ \begin{array}{cc} 2x_{21}\amp 1+2x_{22}\\x_{21}\amp x_{22} \end{array} \right]\text{,}\)</span> where <span class="process-math">\(x_{21}\)</span> and <span class="process-math">\(x_{22}\)</span> can be any scalars</p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-79"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-1444"><span class="process-math">\(\left[ \begin{array}{cc} 1\amp 2 \\ 0 \amp 2 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp 0 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-431"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1446"><span class="process-math">\(\left[ \begin{array}{rr} 1\amp -2 \\ -2 \amp 4 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp 0 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-432"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-1448"><span class="process-math">\(\left[ \begin{array}{rr} 1\amp -2 \\ -2 \amp 4 \end{array} \right] X = \left[ \begin{array}{cc} 0\amp 1 \\ 0 \amp -2 \end{array} \right]\)</span></p></article></article><article class="exercise exercise-like" id="exercise-79"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-126"><p id="p-1450">For each of the following <span class="process-math">\(A\)</span> matrices, compute <span class="process-math">\(A^2=AA, A^3=AAA, A^4\text{.}\)</span> Use your results to conjecture a formula for <span class="process-math">\(A^m\text{.}\)</span> Interpret your answer geometrically using the transformation interpretation.</p></div>
 <article class="task exercise-like" id="task-433"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-1451"><span class="process-math">\(A = \left[ \begin{array}{cc} 2\amp 0 \\ 0 \amp 3 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-434"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-1452"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1 \\ 0 \amp 1 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-435"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-1453"><span class="process-math">\(A = \left[ \begin{array}{cr} 0\amp -1 \\ 1 \amp 0 \end{array} \right]\)</span></p></article></article><article class="exercise exercise-like" id="exercise-80"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
-<p id="p-1454">If <span class="process-math">\(A\vv=2\vv\)</span> for unknown <span class="process-math">\(A\)</span> matrix and <span class="process-math">\(\vv\)</span> vector, determine an expression for <span class="process-math">\(A^2 \vv\text{,}\)</span> <span class="process-math">\(A^3\vv\text{,}\)</span> …, <span class="process-math">\(A^m\vv\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-98" id="answer-98"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-98"><div class="answer solution-like"><p id="p-1455"><span class="process-math">\(A^m \vv = 2^m \vv\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-81"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<p id="p-1454">If <span class="process-math">\(A\vv=2\vv\)</span> for unknown <span class="process-math">\(A\)</span> matrix and <span class="process-math">\(\vv\)</span> vector, determine an expression for <span class="process-math">\(A^2 \vv\text{,}\)</span> <span class="process-math">\(A^3\vv\text{,}\)</span> …, <span class="process-math">\(A^m\vv\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-81"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <p id="p-1456">If <span class="process-math">\(A\vv=2\vv\)</span> and <span class="process-math">\(A\vu=3\vu\text{,}\)</span> find an expression for <span class="process-math">\(A^m(a\vv+b\vu)\)</span> in terms of <span class="process-math">\(\vv\)</span> and <span class="process-math">\(\vu\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-82"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
 <p id="p-1457">A matrix <span class="process-math">\(A\)</span> is a <em class="emphasis">nilpotent</em> matrix if <span class="process-math">\(A^m=0\text{,}\)</span> i.e., <span class="process-math">\(A^m\)</span> is the zero matrix, for some positive integer <span class="process-math">\(m\text{.}\)</span> Explain why the matrices</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{cc} 0 \amp  a \\ 0 \amp  0 \end{array}  \right] \, , \, B = \left[ \begin{array}{ccc} 0 \amp  a \amp  b \\ 0 \amp  0\amp  c\\ 0\amp 0\amp 0 \end{array}  \right]
 \end{equation*}
 </div>
-<p class="continuation">are nilpotent matrices.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-99" id="answer-99"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-99"><div class="answer solution-like"><p id="p-1458"><span class="process-math">\(A^2=0\)</span> and <span class="process-math">\(B^3=0\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-83"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<p class="continuation">are nilpotent matrices.</p></article><article class="exercise exercise-like" id="exercise-83"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
 <p id="p-1459">Suppose <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix for which <span class="process-math">\(A^2=0\text{.}\)</span> Show that there is a matrix <span class="process-math">\(B\)</span> for which <span class="process-math">\((I_n+A)B=I_n\)</span> where <span class="process-math">\(I_n\)</span> is the identity matrix of size <span class="process-math">\(n\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-84"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-127"><p id="p-1460">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> be <span class="process-math">\(m \times n\)</span> matrices and let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be scalars. Verify <a href="" class="xref" data-knowl="./knowl/thm_matrix_sum_properties.html" title="Theorem 8.1">Theorem 8.1</a>. That is, show that</p></div>
 <article class="task exercise-like" id="task-436"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1461"><span class="process-math">\(A+B = B+A\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-100" id="answer-100"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-100"><div class="answer solution-like"><p id="p-1462"><span class="process-math">\([a_{ij} + b_{ij}] = [b_{ij} + a_{ij}]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-437"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1461"><span class="process-math">\(A+B = B+A\)</span></p></article><article class="task exercise-like" id="task-437"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-1463"><span class="process-math">\((A+B) + C = A + (B+C)\)</span></p></article><article class="task exercise-like" id="task-438"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-1464">The <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(0\)</span> whose entries are all 0 has the property that <span class="process-math">\(A + 0 = A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-101" id="answer-101"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-101"><div class="answer solution-like"><p id="p-1465"><span class="process-math">\([a_{ij} + 0] = [a_{ij}]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-439"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-1464">The <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(0\)</span> whose entries are all 0 has the property that <span class="process-math">\(A + 0 = A\text{.}\)</span></p></article><article class="task exercise-like" id="task-439"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <p id="p-1466">The scalar multiple <span class="process-math">\((-1)A\)</span> of the matrix <span class="process-math">\(A\)</span> has the property that <span class="process-math">\((-1)A + A = 0\text{.}\)</span></p></article><article class="task exercise-like" id="task-440"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-1467"><span class="process-math">\((a+b) A = aA + bA\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-102" id="answer-102"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-102"><div class="answer solution-like"><p id="p-1468"><span class="process-math">\([(a+b)a_{ij}] = [aa_{ij}] + [ba_{ij}]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-441"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<p id="p-1467"><span class="process-math">\((a+b) A = aA + bA\)</span></p></article><article class="task exercise-like" id="task-441"><h4 class="heading"><span class="codenumber">(f)</span></h4>
 <p id="p-1469"><span class="process-math">\(a(A+B) = aA + aB\)</span></p></article><article class="task exercise-like" id="task-442"><h4 class="heading"><span class="codenumber">(g)</span></h4>
-<p id="p-1470"><span class="process-math">\((ab) A = a(bA)\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-103" id="answer-103"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-103"><div class="answer solution-like"><p id="p-1471"><span class="process-math">\([(ab)a_{ij}] = a[ba_{ij}]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-443"><h4 class="heading"><span class="codenumber">(h)</span></h4>
+<p id="p-1470"><span class="process-math">\((ab) A = a(bA)\)</span></p></article><article class="task exercise-like" id="task-443"><h4 class="heading"><span class="codenumber">(h)</span></h4>
 <p id="p-1472"><span class="process-math">\(1A=A\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-85"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-128"><p id="p-1473">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> be matrices of the appropriate sizes for all sums and products to be defined and let <span class="process-math">\(a\)</span> be a scalar. Verify the remaining parts of <a href="" class="xref" data-knowl="./knowl/thm_matrix_product_properties.html" title="Theorem 8.3">Theorem 8.3</a>. That is, show that</p></div>
 <article class="task exercise-like" id="task-444"><h4 class="heading"><span class="codenumber">(a)</span></h4>
@@ -831,24 +796,18 @@ A = \left[ \begin{array}{cc} 0 \amp  a \\ 0 \amp  0 \end{array}  \right] \, , \,
 <p id="p-1477"><span class="process-math">\(a(AB) = (aA)B = A(aB)\)</span></p></article></article><article class="exercise exercise-like" id="exercise-86"><h3 class="heading"><span class="codenumber">11<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-129"><p id="p-1478">Let <span class="process-math">\(A = [a_{ij}]\)</span> and <span class="process-math">\(B = [b_{ij}]\)</span> be matrices of the appropriate sizes, and let <span class="process-math">\(a\)</span> be a scalar. Verify the remaining parts of <a href="" class="xref" data-knowl="./knowl/thm_transpose_props.html" title="Theorem 8.7">Theorem 8.7</a>. That is, show that</p></div>
 <article class="task exercise-like" id="task-448"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-1479"><span class="process-math">\(\left(A^{\tr}\right)^{\tr} = A\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-104" id="answer-104"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-104"><div class="answer solution-like"><p id="p-1480">Let <span class="process-math">\(A^{\tr} = [a'_{ij}]\text{.}\)</span> Then <span class="process-math">\(a'_{ij} = a_{ji}\)</span> by definition of the transpose. Let <span class="process-math">\(\left(A^{\tr}\right)^{\tr} = [a''_{ij}]\text{.}\)</span> Then <span class="process-math">\(a''_{ij} = a'_{ji} = a_{ij}\text{.}\)</span> So the <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(\left(A^{\tr}\right)^{\tr}\)</span> is the same as the <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(A\text{,}\)</span> and we conclude that <span class="process-math">\(\left(A^{\tr}\right)^{\tr} = A\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-449"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-1479"><span class="process-math">\(\left(A^{\tr}\right)^{\tr} = A\)</span></p></article><article class="task exercise-like" id="task-449"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-1481"><span class="process-math">\((A+B)^{\tr} = A^{\tr} + B^{\tr}\)</span></p></article><article class="task exercise-like" id="task-450"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-1482"><span class="process-math">\((aA)^{\tr} = aA^{\tr}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-105" id="answer-105"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-105"><div class="answer solution-like"><p id="p-1483">The <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(aA\)</span> is <span class="process-math">\(aa_{ij}\text{,}\)</span> so the <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\((aA)^{\tr}\)</span> is <span class="process-math">\(aa_{ji}\text{.}\)</span> But <span class="process-math">\(aa_{ji}\)</span> is also the <span class="process-math">\(ij\)</span>th entry of <span class="process-math">\(aA^{\tr}\text{.}\)</span> We conclude that <span class="process-math">\((aA)^{\tr} = aA^{\tr}\text{.}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="ex_2_a_matrix_exponential"><h3 class="heading"><span class="codenumber">12<span class="period">.</span></span></h3>
+<p id="p-1482"><span class="process-math">\((aA)^{\tr} = aA^{\tr}\)</span></p></article></article><article class="exercise exercise-like" id="ex_2_a_matrix_exponential"><h3 class="heading"><span class="codenumber">12<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-130">
 <p id="p-1484">The <dfn class="terminology">matrix exponential</dfn> is an important tool in solving differential equations. Recall from calculus that the Taylor series expansion for <span class="process-math">\(e^x\)</span> centered at <span class="process-math">\(x=0\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and that this Taylor series converges to <span class="process-math">\(e^x\)</span> for every real number <span class="process-math">\(x\text{.}\)</span> We extend this idea to define the matrix exponential <span class="process-math">\(e^A\)</span> for any square matrix <span class="process-math">\(A\)</span> with real entries as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 e^A = \sum_{n=0}^{\infty} \frac{1}{n!}A^n = I_n + A + \frac{1}{2!}A^2 + \frac{1}{3!}A^3 + \cdots
 \end{equation*}
@@ -858,55 +817,40 @@ e^A = \sum_{n=0}^{\infty} \frac{1}{n!}A^n = I_n + A + \frac{1}{2!}A^2 + \frac{1}
 <article class="task exercise-like" id="task-451"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-1485">Calculate <span class="process-math">\(B^2\text{,}\)</span> <span class="process-math">\(B^3\text{,}\)</span> <span class="process-math">\(B^4\text{.}\)</span> Explain why <span class="process-math">\(B^n = \left[ \begin{array}{cc} 2^n\amp 0\\0\amp (-1)^n \end{array} \right]\)</span> for any positive integer <span class="process-math">\(n\text{.}\)</span></p></article><article class="task exercise-like" id="task-452"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-1486">Show that  <span class="process-math">\(I_2 + B + B^2 + B^3 + B^4\)</span> is equal to</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{cc} 1+2+\frac{2^2}{2} + \frac{2^3}{3!} + \frac{2^4}{4!}\amp 0\\0\amp 1+(-1)+\frac{(-1)^2}{2} + \frac{(-1)^3}{3!} + \frac{(-1)^4}{4!} \end{array}  \right]\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-453"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-1487">Explain why <span class="process-math">\(e^B = \left[ \begin{array}{cc} e^2\amp 0\\0\amp e^{-1} \end{array} \right]\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-88"><h3 class="heading"><span class="codenumber">13<span class="period">.</span></span></h3>
-<p id="p-1488">Show that if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are <span class="process-math">\(2\times 2\)</span> rotation matrices, then <span class="process-math">\(AB\)</span> is also a <span class="process-math">\(2\times 2\)</span> rotation matrix.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-106" id="answer-106"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-106"><div class="answer solution-like"><p id="p-1489">If <span class="process-math">\(A=\left[ \begin{array}{cr} \cos(\alpha) \amp -\sin(\alpha) \\ \sin(\alpha) \amp \cos(\alpha) \end{array} \right]\text{,}\)</span> <span class="process-math">\(B = \left[ \begin{array}{cr} \cos(\beta) \amp -\sin(\beta) \\ \sin(\beta) \amp \cos(\beta) \end{array} \right]\text{,}\)</span> then <span class="process-math">\(AB\)</span> equals <span class="process-math">\(\left[ \begin{array}{cr} \cos(\alpha+\beta) \amp -\sin(\alpha+\beta) \\ \sin(\alpha+\beta) \amp \cos(\alpha+\beta) \end{array} \right]\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-89"><h3 class="heading"><span class="codenumber">14<span class="period">.</span></span></h3>
+<p id="p-1488">Show that if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are <span class="process-math">\(2\times 2\)</span> rotation matrices, then <span class="process-math">\(AB\)</span> is also a <span class="process-math">\(2\times 2\)</span> rotation matrix.</p></article><article class="exercise exercise-like" id="exercise-89"><h3 class="heading"><span class="codenumber">14<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-131"><p id="p-1490">Label each of the following statements as True or False. Provide justification for your response. Throughout, assume that matrices are of the appropriate sizes so that any matrix sums or products are defined.</p></div>
 <article class="task exercise-like" id="task-454"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-1491">For any three matrices <span class="process-math">\(A, B, C\)</span> with <span class="process-math">\(A \neq 0\text{,}\)</span> <span class="process-math">\(AB=AC\)</span> implies <span class="process-math">\(B=C\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-107" id="answer-107"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-107"><div class="answer solution-like"><p id="p-1492">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-455"><h4 class="heading">
+<p id="p-1491">For any three matrices <span class="process-math">\(A, B, C\)</span> with <span class="process-math">\(A \neq 0\text{,}\)</span> <span class="process-math">\(AB=AC\)</span> implies <span class="process-math">\(B=C\text{.}\)</span></p></article><article class="task exercise-like" id="task-455"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-1493">For any three matrices <span class="process-math">\(A, B, C\)</span> with <span class="process-math">\(A \neq 0\text{,}\)</span> <span class="process-math">\(AB=CA\)</span> implies <span class="process-math">\(B=C\text{.}\)</span></p></article><article class="task exercise-like" id="task-456"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-1494">If <span class="process-math">\(A^2\)</span> is the zero matrix, then <span class="process-math">\(A\)</span> itself is the zero matrix.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-108" id="answer-108"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-108"><div class="answer solution-like"><p id="p-1495">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-457"><h4 class="heading">
+<p id="p-1494">If <span class="process-math">\(A^2\)</span> is the zero matrix, then <span class="process-math">\(A\)</span> itself is the zero matrix.</p></article><article class="task exercise-like" id="task-457"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-1496">If <span class="process-math">\(AB=BA\)</span> for every <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(B\text{,}\)</span> then <span class="process-math">\(A\)</span> is the identity matrix <span class="process-math">\(I_n\text{.}\)</span></p></article><article class="task exercise-like" id="task-458"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-1497">If matrix products <span class="process-math">\(AB\)</span> and <span class="process-math">\(BA\)</span> are both defined, then <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are both square matrices of the same size.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-109" id="answer-109"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-109"><div class="answer solution-like"><p id="p-1498">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-459"><h4 class="heading">
+<p id="p-1497">If matrix products <span class="process-math">\(AB\)</span> and <span class="process-math">\(BA\)</span> are both defined, then <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are both square matrices of the same size.</p></article><article class="task exercise-like" id="task-459"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-1499">If <span class="process-math">\(\vx_1\)</span> is a solution for <span class="process-math">\(A\vx=\vb_1\)</span> (i.e., that <span class="process-math">\(A\vx_1 = \vb_1\)</span>) and <span class="process-math">\(\vx_2\)</span> is a solution for <span class="process-math">\(B\vx=\vb_2\text{,}\)</span> then <span class="process-math">\(\vx_1+\vx_2\)</span> is a solution for <span class="process-math">\((A+B)\vx=\vb_1+\vb_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-460"><h4 class="heading">
 <span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-1500">If <span class="process-math">\(B\)</span> is an <span class="process-math">\(m\times n\)</span> matrix with two equal columns, then the matrix <span class="process-math">\(AB\)</span> has two equal columns for every <span class="process-math">\(k \times m\)</span> matrix.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-110" id="answer-110"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-110"><div class="answer solution-like"><p id="p-1501">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-461"><h4 class="heading">
+<p id="p-1500">If <span class="process-math">\(B\)</span> is an <span class="process-math">\(m\times n\)</span> matrix with two equal columns, then the matrix <span class="process-math">\(AB\)</span> has two equal columns for every <span class="process-math">\(k \times m\)</span> matrix.</p></article><article class="task exercise-like" id="task-461"><h4 class="heading">
 <span class="codenumber">(h)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-1502">If <span class="process-math">\(A^2 = I_2\text{,}\)</span> then <span class="process-math">\(A=-I_2\)</span> or <span class="process-math">\(A=I_2\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

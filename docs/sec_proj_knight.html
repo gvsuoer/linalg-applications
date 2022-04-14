@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:07-04:00       *-->
+<!--*       on 2022-04-14T12:58:30-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -757,7 +755,7 @@
 </div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.13<span class="period">.</span></span><span class="space"> </span>Initial knight placement and moves.</figcaption></figure><p id="p-741">Each player has two knights to start the game, for one player the knights would begin in positions <span class="process-math">\((1,0)\)</span> and <span class="process-math">\((6,0)\text{.}\)</span> Because of the symmetry of the knight's moves, we will only analyze the moves of the knight that begins at position <span class="process-math">\((1,0)\text{.}\)</span> This knight has only three allowable moves from its starting point (assuming that the board is empty), as shown at right in <a href="" class="xref" data-knowl="./knowl/F_knight_2.html" title="Figure 4.13">Figure 4.13</a>. The questions we will ask are: given any position on the board, can the knight move from its start position to that position using only knight moves and, what sequence of moves will make that happen. To answer these questions we will use linear combinations of knight moves described as vectors.</p>
 <p id="p-742">Each knight move can be described by a vector. A move one position to the right and two up can be represented as <span class="process-math">\(\vn_1 = \left[ \begin{array}{c} 1\\2 \end{array}  \right]\text{.}\)</span> Three other moves are <span class="process-math">\(\vn_2 = \left[ \begin{array}{r} -1\\2 \end{array}  \right]\text{,}\)</span> <span class="process-math">\(\vn_3 = \left[ \begin{array}{c} 2\\1 \end{array}  \right]\text{,}\)</span> and <span class="process-math">\(\vn_4 = \left[ \begin{array}{r} -2\\1 \end{array}  \right]\text{.}\)</span> The other four knight moves are the additive inverses of these four. Any sequence of moves by the knight is given by the linear combination</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 x_1 \vn_1 + x_2 \vn_2 + x_3 \vn_3 + x_4 \vn_4\text{.}
 \end{equation*}
@@ -768,7 +766,7 @@ x_1 \vn_1 + x_2 \vn_2 + x_3 \vn_3 + x_4 \vn_4\text{.}
 </h3>
 <article class="task exercise-like" id="task-225"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-744">Explain why the vector equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{c} 1\\0 \end{array}  \right] + x_1 \vn_1 + x_2 \vn_2 + x_3 \vn_3 + x_4 \vn_4 = \left[ \begin{array}{c} 5\\2 \end{array}  \right]
 \end{equation*}
@@ -782,15 +780,15 @@ x_1 \vn_1 + x_2 \vn_2 + x_3 \vn_3 + x_4 \vn_4\text{.}
 <article class="task exercise-like" id="task-227"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-748">Write a vector equation whose solution will tell us if it is possible for our knight to move from its start position <span class="process-math">\((1,0)\)</span> to position <span class="process-math">\((a,b)\text{.}\)</span></p></article><article class="task exercise-like" id="task-228"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-749">Show that the solution to part (a) can be written in the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="mdn-8">
 \begin{align}
-x_1 \amp = \frac{1}{4}\left(-5x_3+3x_4+b+2(a-1)\right)\label{eq_knight_x1}\tag{4.3}\\
-x_2 \amp = \frac{1}{4}\left(3x_3-5x_4+b-2(a-1)\right)\label{eq_knight_x2}\tag{4.4}\\
+x_1 \amp = \frac{1}{4}\left(-5x_3+3x_4+b+2(a-1)\right)\tag{4.3}\\
+x_2 \amp = \frac{1}{4}\left(3x_3-5x_4+b-2(a-1)\right)\tag{4.4}\\
 x_3 \amp \text{ is free }\notag\\
 x_4 \amp \text{ is free. }\notag
 \end{align}
 </div></article></article><p id="p-750">To answer our question if our knight can reach any position, we now need to determine if we can always find integer values of <span class="process-math">\(x_3\)</span> and <span class="process-math">\(x_4\)</span> to make equations <a href="" class="xref" data-knowl="./knowl/eq_knight_x1.html" title="Equation 4.3">(4.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_knight_x2.html" title="Equation 4.4">(4.4)</a> have integer solutions. In other words, we need to find values of <span class="process-math">\(x_3\)</span> and <span class="process-math">\(x_4\)</span> so that <span class="process-math">\(-5x_3+3x_4+b+2(a-1)\)</span> and <span class="process-math">\(3x_3-5x_4+b-2(a-1)\)</span> are multiples of <span class="process-math">\(4\text{.}\)</span> How we do this could depend on the parity (even or odd) of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> For example, if <span class="process-math">\(a\)</span> is odd and <span class="process-math">\(b\)</span> is even, say <span class="process-math">\(a = 2r+1\)</span> and <span class="process-math">\(b = 2s\)</span> for some integers <span class="process-math">\(r\)</span> and <span class="process-math">\(s\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_knight_x1.html ./knowl/eq_knight_x2.html" id="md-62">
 \begin{align*}
 x_1 \amp = \frac{1}{4}\left( -5x_3 + 3x_4 + 2s + 4r\right)\\
 x_2 \amp = \frac{1}{4}\left( 3x_3 - 5x_4 + 2s - 4r \right)\text{.}
@@ -806,6 +804,6 @@ x_2 \amp = \frac{1}{4}\left( 3x_3 - 5x_4 + 2s - 4r \right)\text{.}
 <p id="p-754"><span class="process-math">\(a\)</span> even and <span class="process-math">\(b\)</span> even</p></article><article class="task exercise-like" id="task-231"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-755"><span class="process-math">\(a\)</span> even and <span class="process-math">\(b\)</span> odd.</p></article></article><p id="p-756"><a href="" class="xref" data-knowl="./knowl/act_knight_3.html" title="Project Activity 4.8">Project Activity 4.8</a> shows that for any position on the chess board, using linear combinations of move vectors, we can find a sequence of moves that takes our knight to that position. (We actually haven't shown that these moves can be made so that our knight always stays on the board — we leave that question to you.)</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

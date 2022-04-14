@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:22:32-04:00       *-->
+<!--*       on 2022-04-14T13:00:29-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -762,31 +760,31 @@
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-1582">Recall that a scalar <span class="process-math">\(\lambda\)</span> is a eigenvalue for <span class="process-math">\(A\)</span> if there is a nonzero vector <span class="process-math">\(\vx\)</span> such that <span class="process-math">\(A \vx = \lambda \vx\)</span> or <span class="process-math">\((A-\lambda I_2) \vx = \vzero\text{.}\)</span> For this matrix <span class="process-math">\(A\text{,}\)</span> we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A - \lambda I_2 = \left[ \begin{array}{cc} 1-\lambda\amp 2\\2\amp 4-\lambda \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">To solve the homogeneous system <span class="process-math">\((A-\lambda I_2) \vx = \vzero\text{,}\)</span> we row reduce <span class="process-math">\(A - \lambda I_2\text{.}\)</span> To do this, we first interchange rows to get the following matrix that is row equivalent to <span class="process-math">\(A - \lambda I_2\)</span> (we do this to ensure that we have a nonzero entry in the first row and column)</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{cc} 2\amp 4-\lambda \\ 1-\lambda\amp 2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Next we replace row two with <span class="process-math">\(\frac{1}{2}(1-\lambda)\)</span> times row one minus row two to obtain the row equivalent matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[  \begin{array}{cc} 2\amp 4-\lambda \\ 0\amp \frac{1}{2}(4-\lambda)(1-\lambda)-2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">There will be a nontrivial solution to <span class="process-math">\((A-\lambda I_2)\vx = \vzero\)</span> if there is a row of zeros in this row echelon form. Thus, we look for values of <span class="process-math">\(\lambda\)</span> that make</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{1}{2}(4-\lambda)(1-\lambda)-2 = 0\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Applying a little algebra shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-99">
 \begin{align*}
 \frac{1}{2}(4-\lambda)(1-\lambda)-2 \amp = 0\\
 (4-\lambda)(1-\lambda) - 4 \amp = 0\\
@@ -805,19 +803,19 @@ A - \lambda I_2 = \left[ \begin{array}{cc} 1-\lambda\amp 2\\2\amp 4-\lambda \end
 <ul class="disc">
 <li id="li-279">
 <p id="p-1585">When <span class="process-math">\(\lambda = 0\text{,}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A - 0 I_2 = A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Technology shows that the reduced row echelon form of <span class="process-math">\(A\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{cc} 1\amp 2 \\ 0\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">If <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1\\x_2 \end{array}  \right]\text{,}\)</span> then <span class="process-math">\(A \vx = \vzero\)</span> implies that <span class="process-math">\(x_2\)</span> is free and <span class="process-math">\(x_1 = -2x_2\text{.}\)</span> Choosing <span class="process-math">\(x_2 = 1\)</span> gives us the eigenvector <span class="process-math">\(\left[ \begin{array}{r} -2\\1 \end{array}  \right]\text{.}\)</span> As a check, note that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array}  \right] \left[ \begin{array}{r} -2\\1 \end{array}  \right] = \left[ \begin{array}{c} 0\\0 \end{array}  \right]\text{.}
 \end{equation*}
@@ -825,19 +823,19 @@ A - 0 I_2 = A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 4 \end{array}  \right]\t
 </li>
 <li id="li-280">
 <p id="p-1586">When <span class="process-math">\(\lambda = 5\text{,}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A - 5 I_2 = \left[ \begin{array}{rr} -4\amp 2\\2\amp -1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Technology shows that the reduced row echelon form of <span class="process-math">\(A-5I_2\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[  \begin{array}{cr} 1\amp -\frac{1}{2} \\ 0\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">If <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1\\x_2 \end{array}  \right]\text{,}\)</span> then <span class="process-math">\((A - 5I_2)\vx = \vzero\)</span> implies that <span class="process-math">\(x_2\)</span> is free and <span class="process-math">\(x_1 = \frac{1}{2}x_2\text{.}\)</span> Choosing <span class="process-math">\(x_2 = 2\)</span> gives us the eigenvector <span class="process-math">\(\left[ \begin{array}{c} 1\\2 \end{array}  \right]\text{.}\)</span> As a check, note that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[  \begin{array}{cr} 1\amp -\frac{1}{2} \\ 0\amp 0 \end{array}  \right] \left[ \begin{array}{c} 1\\2 \end{array}  \right] = \left[ \begin{array}{c} 0\\0 \end{array}  \right]\text{.}
 \end{equation*}
@@ -850,9 +848,9 @@ A - 5 I_2 = \left[ \begin{array}{rr} -4\amp 2\\2\amp -1 \end{array}  \right]\tex
 <div class="introduction" id="introduction-143">
 <p id="p-1587">Accurately predicting the weather has long been an important task. Meteorologists use science, mathematics, and technology to construct models that help us understand weather patterns. These models are very sophisticated, but we will consider only a simple model. Suppose, for example, we want to learn something about whether it will be wet or dry in Grand Rapids, Michigan. To do this, we might begin by collecting some data about weather conditions in Grand Rapids and then use that to make predictions. Information taken over the course of 2017 from the National Weather Service Climate Data shows that if it was dry (meaning no measurable precipitation, either rain or snow) on a given day in Grand Rapids, it would be dry the next day with a probability of 64% and wet with a probability of 36%. Similarly, if it was wet on a given day it would be dry the next day with a probability of 47% and dry with a probability of 53%. Assuming that this pattern is one that continues in the long run, we can develop a mathematical model to make predictions about the weather.</p>
 <p id="p-1588">This data tells us how the weather transitions from one day to the next, and we can succinctly represent this data in a <dfn class="terminology">transition matrix</dfn>:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_weather_transition">
 \begin{equation}
-T = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right]\text{.}\label{eq_weather_transition}\tag{9.5}
+T = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right]\text{.}\tag{9.5}
 \end{equation}
 </div>
 <p id="p-1589">Whether it is dry or wet on a given day is called the <dfn class="terminology">state</dfn> of that day. So our transition matrix tells us about the transition between states. Notice that if <span class="process-math">\(T = [t_{ij}]\text{,}\)</span> then the probability of moving from state <span class="process-math">\(j\)</span> to state <span class="process-math">\(i\)</span> is given by <span class="process-math">\(t_{ij}\text{.}\)</span> We can represent a state by a vector: the vector <span class="process-math">\(\left[ \begin{array}{c} 1\\0 \end{array} \right]\)</span> represents the dry state and the vector <span class="process-math">\(\left[ \begin{array}{c} 0\\1 \end{array} \right]\)</span> represents the wet state.</p>
@@ -864,7 +862,7 @@ T = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right]
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-1591">Here we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]\text{.}
 \end{equation*}
@@ -877,7 +875,7 @@ T\left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{cc} 0.
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-1593">Here we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{c} 0.47\\0.53 \end{array} \right]\text{.}
 \end{equation*}
@@ -890,7 +888,7 @@ T\left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{cc} 0.
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-1595">Here we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  \approx \left[ \begin{array}{c} 0.52\\0.48 \end{array} \right]\text{.}
 \end{equation*}
@@ -899,21 +897,21 @@ T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc
 </div></article><article class="task exercise-like" id="task-502"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="introduction" id="introduction-144">
 <p id="p-1596">We can use the transition matrix to build a chain of probability vectors. We begin with an initial state, say it is dry on a given day. This initial state is represented by the initial state vector <span class="process-math">\(\vx_0 = \left[ \begin{array}{c} 1\\0 \end{array} \right]\text{.}\)</span> The probabilities that it will be dry or wet the following day are given by the vector</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_3.html">
 \begin{equation*}
 \vx_1 = T\vx_0 = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">This output vector tells us that the next day will be dry with a 64% probability and wet with a 36% probability. For each <span class="process-math">\(k \geq 1\text{,}\)</span> we let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_3.html" id="eq_weather_chain">
 \begin{equation}
-\vx_{k} = T\vx_{k-1}\text{.}\label{eq_weather_chain}\tag{9.6}
+\vx_{k} = T\vx_{k-1}\text{.}\tag{9.6}
 \end{equation}
 </div>
 <p class="continuation">Thus we create a sequence of vectors that tell us the probabilities of it being dry or wet on subsequent days. The vector <span class="process-math">\(\vx_k\)</span> is called the <dfn class="terminology">state vector</dfn> of the system at time <span class="process-math">\(k\text{,}\)</span> because it describes the state of the whole system at time <span class="process-math">\(k\text{.}\)</span> We can rewrite the system of equations in <a href="" class="xref" data-knowl="./knowl/eq_PA5_1_3.html" title="Equation 9.1">(9.1)</a> as a matrix-vector equation in terms of the state vectors at time <span class="process-math">\(k\)</span> and <span class="process-math">\(k+1\text{.}\)</span> More specifically, the equation will be of the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_3.html" id="eq_weather_chain2">
 \begin{equation}
-\vx_{k+1} = T\vx_k\label{eq_weather_chain2}\tag{9.7}
+\vx_{k+1} = T\vx_k\tag{9.7}
 \end{equation}
 </div>
 <p class="continuation">for <span class="process-math">\(k \geq 0\text{.}\)</span></p>
@@ -925,7 +923,7 @@ T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc
 <span class="type">Solution</span><span class="period">.</span>
 </h5>
 <p id="p-1598">Technology shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \begin{array}{ll} \vx_1 = \left[ \begin{array}{c} 0.640\\0.360 \end{array}  \right] \amp \vx_2 = \left[ \begin{array}{c} 0.579\\0.421 \end{array}  \right]  \\ \vx_3 = \left[ \begin{array}{c} 0.568\\0.432 \end{array}  \right] \amp \vx_4 = \left[ \begin{array}{c} 0.567\\0.433 \end{array}  \right]    \\ \vx_5 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_6 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_7 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_8 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_9 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_{10} = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]. \end{array}
 \end{equation*}
@@ -940,7 +938,7 @@ T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc
 <p id="p-1600">Since our sequence seems to be converging to a vector <span class="process-math">\(\vx\)</span> satisfying <span class="process-math">\(T \vx = \vx\text{,}\)</span> we conclude that 1 is an eigenvalue of <span class="process-math">\(T\text{.}\)</span></p>
 </div></article><article class="task exercise-like" id="task-505"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p id="p-1601">Rewrite <span class="process-math">\(T\)</span> as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\text{.}
 \end{equation*}
@@ -951,13 +949,13 @@ T = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100
 <span class="type">Solution</span><span class="period">.</span>
 </h5>
 <p id="p-1602">A matrix vector multiplication shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T \vx = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right] = \left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">In other words, <span class="process-math">\(\vx\)</span> is an eigenvector for <span class="process-math">\(T\)</span> with eigenvalue 1. Notice that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{47}{83} \approx 0.566 \ \text{ and }  \ \frac{36}{83} \approx 0.434\text{,}
 \end{equation*}
@@ -975,6 +973,6 @@ T \vx = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}
 </ul>
 </div></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

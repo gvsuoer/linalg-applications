@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:45:59-04:00       *-->
+<!--*       on 2022-04-14T13:23:07-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,7 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>We return to the problem of image compression introduced at the beginning of this section. The first step in the wavelet compression process is to digitize an image. There are two important ideas about digitalization to understand here: intensity levels and resolution. In grayscale image processing, it is common to think of 256 different intensity levels, or scales, of gray ranging from 0 (black) to 255 (white). A digital image can be created by taking a small grid of squares (called pixels) and coloring each pixel with some shade of gray. The resolution of this grid is a measure of how many pixels are used per square inch. An example of a 16 by 16 pixel picture of a flower was shown in <a href="" class="xref" data-knowl="./knowl/F_Flower_1.html" title="Figure 32.1">Figure 32.1</a>.</p>
-<span class="incontext"><a href="sec_proj_img_compress.html#p-5679">in-context</a></span>
+<p>We now have introduced many zeros in our matrix. This is where we compress the image. To store the original image, we need to store every pixel. Once we introduce strings of zeros we can identify a new code (say 256) that indicates we have a string of zeros. We can then follow that code with the number of zeros in the string. So if we had a string of 15 zeros in a signal, we could store that information in 2 bytes rather than 15 and obtain significant savings in storage. This process removes some detail from our picture, but only the small detail. To convert back to an image, we just undo the forward processing by multiplying our thresholded matrix <span class="process-math">\(M_1\)</span> by <span class="process-math">\(A_{16}^{-1}\text{.}\)</span> The ultimate goal is to obtain significant compression but still have <span class="process-math">\(A_{16}^{-1}M_1\)</span> retain all of the essence of the original image.</p>
+<span class="incontext"><a href="sec_proj_img_compress.html#p-5679" class="internal">in-context</a></span>
 </body>
 </html>

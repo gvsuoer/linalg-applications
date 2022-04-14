@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:37-04:00       *-->
+<!--*       on 2022-04-14T13:03:05-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -753,87 +751,54 @@
 <article class="exercise exercise-like" id="ex_determinant_eigenvalues"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-285"><p id="p-3095">There is a useful relationship between the determinant and eigenvalues of a matrix <span class="process-math">\(A\)</span> that we explore in this exercise.</p></div>
 <article class="task exercise-like" id="task-1017"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3096">Let <span class="process-math">\(B = \left[ \begin{array}{cc} 2\amp 3\\8\amp 4 \end{array} \right]\text{.}\)</span> Find the determinant of <span class="process-math">\(B\)</span> and the eigenvalues of <span class="process-math">\(B\text{,}\)</span> and compare <span class="process-math">\(\det(B)\)</span> to the eigenvalues of <span class="process-math">\(B\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-226" id="answer-226"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-226"><div class="answer solution-like"><p id="p-3097"><span class="process-math">\(\det(B) = -16\text{,}\)</span> eigenvalues <span class="process-math">\(-2\)</span> and <span class="process-math">\(8\text{,}\)</span> <span class="process-math">\(\det(B)\)</span> is the product of the eigenvalues</p></div></div>
-</div></article><article class="task exercise-like" id="task-1018"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3096">Let <span class="process-math">\(B = \left[ \begin{array}{cc} 2\amp 3\\8\amp 4 \end{array} \right]\text{.}\)</span> Find the determinant of <span class="process-math">\(B\)</span> and the eigenvalues of <span class="process-math">\(B\text{,}\)</span> and compare <span class="process-math">\(\det(B)\)</span> to the eigenvalues of <span class="process-math">\(B\text{.}\)</span></p></article><article class="task exercise-like" id="task-1018"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="introduction" id="introduction-286"><p id="p-3098">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. In this part of the exercise we argue the general case illustrated in the previous part — that <span class="process-math">\(\det(A)\)</span> is the product of the eigenvalues of <span class="process-math">\(A\text{.}\)</span> Let <span class="process-math">\(p(\lambda) = \det(A - \lambda I_n)\)</span> be the characteristic polynomial of <span class="process-math">\(A\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1019"><h5 class="heading"><span class="codenumber">(i)</span></h5>
 <p id="p-3099">Let <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_n\)</span> be the eigenvalues of <span class="process-math">\(A\)</span> (note that these eigenvalues may not all be distinct). Recall that if <span class="process-math">\(r\)</span> is a root of a polynomial <span class="process-math">\(q(x)\text{,}\)</span> then <span class="process-math">\((x-r)\)</span> is a factor of <span class="process-math">\(q(x)\text{.}\)</span> Use this idea to explain why</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 p(\lambda) = (-1)^{n} (\lambda-\lambda_1)(\lambda- \lambda_2) \cdots (\lambda - \lambda_n)\text{.}
 \end{equation*}
-</div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-227" id="answer-227"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-227"><div class="answer solution-like"><p id="p-3100">Each <span class="process-math">\(\lambda_i\)</span> is a root of the characteristic polynomial.</p></div></div>
 </div></article><article class="task exercise-like" id="task-1020"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-3101">Explain why <span class="process-math">\(p(0) = \lambda_1 \lambda_2 \cdots \lambda_n\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-228" id="answer-228"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-228"><div class="answer solution-like"><p id="p-3102">Evaluate <span class="process-math">\(p(\lambda)\)</span> at <span class="process-math">\(\lambda = 0\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1021"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-3103">Why is <span class="process-math">\(p(0)\)</span> also equal to <span class="process-math">\(\det(A)\text{.}\)</span> Explain how we have shown that <span class="process-math">\(\det(A)\)</span> is the product of the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-229" id="answer-229"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-229"><div class="answer solution-like"><p id="p-3104">Use the fact that <span class="process-math">\(p(\lambda) = \det(A - \lambda I_n)\text{.}\)</span></p></div></div>
-</div></article></article></article><article class="exercise exercise-like" id="exercise-170"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-3101">Explain why <span class="process-math">\(p(0) = \lambda_1 \lambda_2 \cdots \lambda_n\text{.}\)</span></p></article><article class="task exercise-like" id="task-1021"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-3103">Why is <span class="process-math">\(p(0)\)</span> also equal to <span class="process-math">\(\det(A)\text{.}\)</span> Explain how we have shown that <span class="process-math">\(\det(A)\)</span> is the product of the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p></article></article></article><article class="exercise exercise-like" id="exercise-170"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-287"><p id="p-3105">Find the eigenvalues of the following matrices. For each eigenvalue, determine its algebraic and geometric multiplicity.</p></div>
 <article class="task exercise-like" id="task-1022"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3106"><span class="process-math">\(A=\left[ \begin{array}{ccc} 1\amp 1\amp 1\\1\amp 1\amp 1\\1\amp 1\amp 1 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1023"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3107"><span class="process-math">\(A=\left[ \begin{array}{ccc} 2\amp 0\amp 3\\0\amp 1\amp 0\\0\amp 1\amp 2 \end{array} \right]\)</span></p></article></article><article class="exercise exercise-like" id="exercise-171"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
-<p id="p-3108">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. Use the characteristic equation to explain why <span class="process-math">\(A\)</span> and <span class="process-math">\(A^\tr\)</span> have the same eigenvalues.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-230" id="answer-230"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-230"><div class="answer solution-like"><p id="p-3109">Explain why <span class="process-math">\((A - \lambda I_n)^{\tr} = A^{\tr} - \lambda I_n\text{.}\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-172"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-3108">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. Use the characteristic equation to explain why <span class="process-math">\(A\)</span> and <span class="process-math">\(A^\tr\)</span> have the same eigenvalues.</p></article><article class="exercise exercise-like" id="exercise-172"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <p id="p-3110">Find three <span class="process-math">\(3 \times 3\)</span> matrices whose eigenvalues are 2 and 3, and for which the dimensions of the eigenspaces for <span class="process-math">\(\lambda=2\)</span> and <span class="process-math">\(\lambda=3\)</span> are different.</p></article><article class="exercise exercise-like" id="exercise-173"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
-<p id="p-3111">Suppose <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix and <span class="process-math">\(B\)</span> is an invertible <span class="process-math">\(n\times n\)</span> matrix. Explain why the characteristic polynomial of <span class="process-math">\(A\)</span> is the same as the characteristic polynomial of <span class="process-math">\(BAB^{-1}\text{,}\)</span> and hence, as a result, the eigenvalues of <span class="process-math">\(A\)</span> and <span class="process-math">\(BAB^{-1}\)</span> are the same.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-231" id="answer-231"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-231"><div class="answer solution-like"><p id="p-3112">Write <span class="process-math">\(I_n\)</span> as <span class="process-math">\(B\lambda I_nB^{-1}\)</span> and then expand <span class="process-math">\(\det\left(BAB^{-1} - \lambda I_n \right)\text{.}\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-174"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<p id="p-3111">Suppose <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix and <span class="process-math">\(B\)</span> is an invertible <span class="process-math">\(n\times n\)</span> matrix. Explain why the characteristic polynomial of <span class="process-math">\(A\)</span> is the same as the characteristic polynomial of <span class="process-math">\(BAB^{-1}\text{,}\)</span> and hence, as a result, the eigenvalues of <span class="process-math">\(A\)</span> and <span class="process-math">\(BAB^{-1}\)</span> are the same.</p></article><article class="exercise exercise-like" id="exercise-174"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-288"><p id="p-3113">Label each of the following statements as True or False. Provide justification for your response.</p></div>
 <article class="task exercise-like" id="task-1024"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3114">If the determinant of a <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A\)</span> is positive, then <span class="process-math">\(A\)</span> has two distinct real eigenvalues.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-232" id="answer-232"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-232"><div class="answer solution-like"><p id="p-3115">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-1025"><h4 class="heading">
+<p id="p-3114">If the determinant of a <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A\)</span> is positive, then <span class="process-math">\(A\)</span> has two distinct real eigenvalues.</p></article><article class="task exercise-like" id="task-1025"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3116">If two <span class="process-math">\(2 \times 2\)</span> matrices have the same eigenvalues, then the have the same eigenvectors.</p></article><article class="task exercise-like" id="task-1026"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3117">The characteristic polynomial of an <span class="process-math">\(n \times n\)</span> matrix has degree <span class="process-math">\(n\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-233" id="answer-233"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-233"><div class="answer solution-like"><p id="p-3118">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1027"><h4 class="heading">
+<p id="p-3117">The characteristic polynomial of an <span class="process-math">\(n \times n\)</span> matrix has degree <span class="process-math">\(n\text{.}\)</span></p></article><article class="task exercise-like" id="task-1027"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3119">If <span class="process-math">\(R\)</span> is the reduced row echelon form of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A\)</span> and <span class="process-math">\(R\)</span> have the same eigenvalues.</p></article><article class="task exercise-like" id="task-1028"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3120">If <span class="process-math">\(R\)</span> is the reduced row echelon form of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(R\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-234" id="answer-234"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-234"><div class="answer solution-like"><p id="p-3121">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-1029"><h4 class="heading">
+<p id="p-3120">If <span class="process-math">\(R\)</span> is the reduced row echelon form of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is an eigenvector of <span class="process-math">\(R\text{.}\)</span></p></article><article class="task exercise-like" id="task-1029"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3122">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be <span class="process-math">\(n \times n\)</span> matrices with characteristic polynomials <span class="process-math">\(p_A(\lambda)\)</span> and <span class="process-math">\(p_B(\lambda)\text{,}\)</span> respectively. If <span class="process-math">\(A \neq B\text{,}\)</span> then <span class="process-math">\(p_A(\lambda) \neq p_B(\lambda)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1030"><h4 class="heading">
 <span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3123">Every matrix has at least one eigenvalue.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-235" id="answer-235"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-235"><div class="answer solution-like"><p id="p-3124">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1031"><h4 class="heading">
+<p id="p-3123">Every matrix has at least one eigenvalue.</p></article><article class="task exercise-like" id="task-1031"><h4 class="heading">
 <span class="codenumber">(h)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3125">Suppose <span class="process-math">\(A\)</span> is a <span class="process-math">\(3 \times 3\)</span> matrix with three distinct eigenvalues. Then any three eigenvectors, one for each eigenvalue, will form a basis of <span class="process-math">\(\R^3\text{.}\)</span></p></article><article class="task exercise-like" id="task-1032"><h4 class="heading">
 <span class="codenumber">(i)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3126">If an eigenvalue <span class="process-math">\(\lambda\)</span> is repeated 3 times among the eigenvalues of a matrix, then there are at most 3 linearly independent eigenvectors corresponding to <span class="process-math">\(\lambda\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-236" id="answer-236"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-236"><div class="answer solution-like"><p id="p-3127">T</p></div></div>
-</div></article></article></section></div></main>
+<p id="p-3126">If an eigenvalue <span class="process-math">\(\lambda\)</span> is repeated 3 times among the eigenvalues of a matrix, then there are at most 3 linearly independent eigenvectors corresponding to <span class="process-math">\(\lambda\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

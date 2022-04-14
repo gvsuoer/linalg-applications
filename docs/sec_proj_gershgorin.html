@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:25:21-04:00       *-->
+<!--*       on 2022-04-14T13:03:59-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,14 +749,14 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: Understanding the Gershgorin Disk Theorem</span>
 </h2>
 <p id="p-3588">To understand the Gershgorin Disk Theorem, we need to recall how to visualize a complex number in the plane. Recall that a complex number <span class="process-math">\(z\)</span> is a number of the form <span class="process-math">\(z = a+bi\)</span> where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are real numbers and <span class="process-math">\(i^2 = -1\text{.}\)</span> The number <span class="process-math">\(a\)</span> is the real part of <span class="process-math">\(z\text{,}\)</span> denoted as <span class="process-math">\(\text{ Re } (z)\text{,}\)</span> and <span class="process-math">\(b\)</span> is the imaginary part of <span class="process-math">\(z\text{,}\)</span> denoted <span class="process-math">\(\text{ Im } (z)\text{.}\)</span> The set of all complex numbers is denoted <span class="process-math">\(\C\text{.}\)</span> We define addition and multiplication on <span class="process-math">\(\C\)</span> as follows. For <span class="process-math">\(a+bi, c+di \in \C\text{,}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (a+bi) + (c+di) = (a+c) + (b+d)i \ \ \ \ \ \text{ and }  \ \ \ \ \ (a+bi)(c+di) = (ac-bd) + (ad+bc)i\text{.}
 \end{equation*}
 </div>
 <p id="p-3589">Note that the product is what we would expect if we “expanded” the product in the normal way and used the fact that <span class="process-math">\(i^2=-1\text{.}\)</span> The set of complex numbers forms a field — that is, <span class="process-math">\(\C\)</span> satisfies all of the same properties as <span class="process-math">\(\R\)</span> as stated in <a href="" class="xref" data-knowl="./knowl/thm_1_d_reals.html" title="Theorem 4.3">Theorem 4.3</a>.</p>
 <p id="p-3590">We can visualize the complex number <span class="process-math">\(a+bi\)</span> in the plane as the point <span class="process-math">\((a,b)\text{.}\)</span> Here we are viewing the horizontal axis as the real axis and the vertical axis as the imaginary axis. The length (or magnitude) of the complex number <span class="process-math">\(z = a+bi\text{,}\)</span> which we denote as <span class="process-math">\(|z|\text{,}\)</span> is the distance from the origin to <span class="process-math">\(z\text{.}\)</span> So by the Pythagorean Theorem we have <span class="process-math">\(|a+bi| = \sqrt{a^2+b^2}\text{.}\)</span> Note that the magnitude of <span class="process-math">\(z = a+bi\)</span> can be written as a complex product</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 |z| = \sqrt{(a+bi)(a-bi)}\text{.}
 \end{equation*}
@@ -775,13 +773,13 @@
 <li id="li-613"><p id="p-3599">If <span class="process-math">\(p(x)\)</span> is a polynomial with real coefficients and the complex number <span class="process-math">\(z\)</span> satisfies <span class="process-math">\(p(z) = 0\text{,}\)</span> then <span class="process-math">\(p\left(\overline{z}\right) = 0\)</span> as well.</p></li>
 </ul>
 <p id="p-3600">Using these facts we can show that the triangle inequality is true for complex numbers. That is,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 |z+w| \leq |z| + |w|\text{.}
 \end{equation*}
 </div>
 <p id="p-3601">To see why, notice that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-147">
 \begin{align*}
 |z+w|^2 \amp = (z+w)(\overline{z+w})\\
 \amp = (z+w)(\overline{z} + \overline{w})\\
@@ -794,13 +792,13 @@
 \end{align*}
 </div>
 <p id="p-3602">Since <span class="process-math">\(|z+w|\text{,}\)</span> <span class="process-math">\(|z|\text{,}\)</span> and <span class="process-math">\(|w|\)</span> are all non-negative, taking square roots of both sides gives us <span class="process-math">\(|z+w| \leq |z| + |w|\)</span> as desired. We can extend this triangle inequality to any number of complex numbers. That is, if <span class="process-math">\(z_1\text{,}\)</span> <span class="process-math">\(z_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(z_k\)</span> are complex numbers, then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_general_triangle_inequaltity">
 \begin{equation}
-|z_1+z_2+ \cdots + z_k| \leq |z_1| + |z_2| + \cdots + |z_k|\text{.}\label{eq_general_triangle_inequaltity}\tag{21.1}
+|z_1+z_2+ \cdots + z_k| \leq |z_1| + |z_2| + \cdots + |z_k|\text{.}\tag{21.1}
 \end{equation}
 </div>
 <p id="p-3603">We can prove Equation <a href="" class="xref" data-knowl="./knowl/eq_general_triangle_inequaltity.html" title="Equation 21.1">(21.1)</a> by mathematical induction. We have already done the <span class="process-math">\(k=2\)</span> case and so we assume that Equation <a href="" class="xref" data-knowl="./knowl/eq_general_triangle_inequaltity.html" title="Equation 21.1">(21.1)</a> is true for any sum of <span class="process-math">\(k\)</span> complex numbers. Now suppose that <span class="process-math">\(z_1\text{,}\)</span> <span class="process-math">\(z_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(z_k\text{,}\)</span> <span class="process-math">\(z_{k+1}\)</span> are complex numbers. Then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_general_triangle_inequaltity.html ./knowl/eq_general_triangle_inequaltity.html" id="md-148">
 \begin{align*}
 |z_1+z_2+ \cdots + z_k + z_{k+1}| \amp = |(z_1+z_2+ \cdots + z_k) + z_{k+1}|\\
 \amp \leq |z_1+z_2+ \cdots + z_k| + |z_{k+1}|\\
@@ -814,7 +812,7 @@
 </h3>
 <div class="introduction" id="introduction-348">
 <p id="p-3605">Let <span class="process-math">\(A = \left[ \begin{array}{rc} 3\amp 2 \\ -1\amp 4 \end{array}  \right]\text{.}\)</span> Since <span class="process-math">\(\det(A) \neq 0\text{,}\)</span> we know that <span class="process-math">\(A\)</span> is an invertible matrix. Let us assume for a moment that we don't know that <span class="process-math">\(A\)</span> is invertible and try to determine if 0 is an eigenvalue of <span class="process-math">\(A\text{.}\)</span> In other words, we want to know if there is a nonzero vector <span class="process-math">\(\vv\)</span> so that <span class="process-math">\(A \vv = \vzero\text{.}\)</span> Assuming the existence of such a vector <span class="process-math">\(\vv = [v_1 \ v_2]^{\tr}\text{,}\)</span> for <span class="process-math">\(A \vv\)</span> to be <span class="process-math">\(\vzero\)</span> it must be the case that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 3v_1 + 2v_2 = 0\ \text{ and }  \ -v_1 + 4v_2 = 0\text{.}
 \end{equation*}
@@ -830,19 +828,19 @@
 <p id="p-3610">Any square matrix <span class="process-math">\(A = [a_{ij}]\)</span> satisfying <span class="process-math">\(|a_{ii}| &gt; \sum_{j \neq i} |a_{ij}|\)</span> for all <span class="process-math">\(i\)</span> is invertible.</p></article><article class="proof" id="proof-7"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <p id="p-3611">Let <span class="process-math">\(A = [a_{ij}]\)</span> be an <span class="process-math">\(n \times n\)</span> matrix satisfying <span class="process-math">\(|a_{ii}| &gt; \sum_{j \neq i} |a_{ij}|\)</span> for all <span class="process-math">\(i\text{.}\)</span> Let us assume that <span class="process-math">\(A\)</span> is not invertible, that is that there is a vector <span class="process-math">\(\vv \neq \vzero\)</span> such that <span class="process-math">\(A \vv = \vzero\text{.}\)</span> Let <span class="process-math">\(\vv = [v_1 \ v_2 \ \cdots \ v_n]\)</span> and <span class="process-math">\(t\)</span> be between 1 and <span class="process-math">\(n\)</span> so that <span class="process-math">\(|v_t| \geq |v_i|\)</span> for all <span class="process-math">\(i\text{.}\)</span> That is, choose <span class="process-math">\(v_t\)</span> to be the component of <span class="process-math">\(\vv\)</span> with the largest absolute value.</p>
 <p id="p-3612">Expanding the product <span class="process-math">\(A\vv\)</span> using the row-column product along the <span class="process-math">\(t\)</span>th row shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{t1}v_1 + a_{t2}v_2 + \cdots a_{tn}v_n = 0\text{.}
 \end{equation*}
 </div>
 <p id="p-3613">Solving for the <span class="process-math">\(a_{tt}\)</span> term gives us</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{tt}v_t = -(a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1} + \cdots + a_{tn}v_n)\text{.}
 \end{equation*}
 </div>
 <p id="p-3614">Then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-149">
 \begin{align*}
 |a_{tt}| |v_t| \amp = |-(a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1} + \cdots + a_{tn}v_n|\\
 \amp = |a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1} + \cdots + a_{tn}v_n|\\
@@ -852,7 +850,7 @@ a_{tt}v_t = -(a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1}
 \end{align*}
 </div>
 <p id="p-3615">Since <span class="process-math">\(|v_t| \neq 0\text{,}\)</span> we cancel the <span class="process-math">\(|v_t|\)</span> term to conclude that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 |a_{tt}| \leq  |a_{t1}| + |a_{t2}| + \cdots |a_{t(t-1)}|  + |a_{t(t+1)}| + \cdots + |a_{tn}|\text{.}
 \end{equation*}
@@ -862,7 +860,7 @@ a_{tt}v_t = -(a_{t1}v_1 + a_{t2}v_2 + \cdots a_{t(t-1)}v_{t-1}+a_{t(t+1)}v_{t+1}
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">21.6</span><span class="period">.</span>
 </h3>
 <p id="p-3618">A square matrix <span class="process-math">\(A = [a_{ij}]\)</span> is <dfn class="terminology">strictly diagonally dominant</dfn> if <span class="process-math">\(|a_{ii}| &gt; \sum_{j \neq i} |a_{ij}|\)</span> for all <span class="process-math">\(i\text{.}\)</span></p></article><p id="p-3619">So any strictly diagonally dominant matrix is invertible. A quick glance can show that a matrix is strictly diagonally dominant. For example, since <span class="process-math">\(|3| &gt; |1| + |-1|\text{,}\)</span> <span class="process-math">\(|12| &gt; |5| +|6|\text{,}\)</span> and <span class="process-math">\(|-8| &gt; |-2| + |4|\text{,}\)</span> the matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{rcr} 3\amp 1\amp -1 \\ 5\amp 12\amp 6 \\ -2\amp 4\amp -8 \end{array}  \right]
 \end{equation*}
@@ -880,7 +878,7 @@ A = \left[ \begin{array}{rcr} 3\amp 1\amp -1 \\ 5\amp 12\amp 6 \\ -2\amp 4\amp -
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">21.7</span><span class="period">.</span><span class="space"> </span><span class="title">Gershgorin Disk Theorem.</span>
 </h5>
 <p id="p-3625">Let <span class="process-math">\(A=[a_{ij}]\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with complex entries. Then every eigenvalue of <span class="process-math">\(A\)</span> lies in one of the Gershgorin discs</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \{z \in \C : |z-a_{ii}| \leq r_i\}\text{,}
 \end{equation*}
@@ -895,6 +893,6 @@ A = \left[ \begin{array}{rcr} 3\amp 1\amp -1 \\ 5\amp 12\amp 6 \\ -2\amp 4\amp -
 <figure class="figure figure-like" id="F_Gershgorin_2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Gershgorin_2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">21.9<span class="period">.</span></span><span class="space"> </span>How eigenvalues move.</figcaption></figure><p id="p-3630">Let <span class="process-math">\(p(t,x)\)</span> be the characteristic polynomial of <span class="process-math">\(A(t)\text{.}\)</span> Note that these characteristic polynomials are functions of both <span class="process-math">\(t\)</span> and <span class="process-math">\(x\text{.}\)</span> Since polynomials are continuous functions, their roots (the eigenvalues of <span class="process-math">\(A(t)\)</span>) are continuous for <span class="process-math">\(t \in [0,1]\)</span> as well. Let <span class="process-math">\(\lambda(t)\)</span> be an eigenvalue of <span class="process-math">\(A(t)\text{.}\)</span> Note that <span class="process-math">\(\lambda(1)\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\lambda(0)\)</span> is one of the <span class="process-math">\(a_{ii}\)</span> and is therefore in <span class="process-math">\(S\text{.}\)</span> We will argue that <span class="process-math">\(\lambda(t)\)</span> is in <span class="process-math">\(S\)</span> for every value of <span class="process-math">\(t\)</span> in <span class="process-math">\([0,1]\text{.}\)</span> Let <span class="process-math">\(r_i\)</span> be the radius of <span class="process-math">\(D_i\)</span> and let <span class="process-math">\(D(t)_i\)</span> be the Gershgorin disk of <span class="process-math">\(A(t)\)</span> with the same center as <span class="process-math">\(D_i\)</span> and radius <span class="process-math">\(r(t)_i = tr_i\text{.}\)</span> Let <span class="process-math">\(S(t) = \cup_{1 \leq i \leq m} D(s)_i\text{.}\)</span> Since <span class="process-math">\(r(s)_i \leq r_i\text{,}\)</span> it follows that <span class="process-math">\(D(s)_i \subseteq D_i\)</span> and so <span class="process-math">\(S(t) \cap S' = \emptyset\)</span> as well. From topology, we know that since the disks <span class="process-math">\(D_i\)</span> are closed, the union <span class="process-math">\(S\)</span> of these disks is also closed. Similarly, <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(S'\)</span> are closed. Thus, <span class="process-math">\(\lambda(t)\)</span> is continuous in a closed set and so does not leave the set. Thus, <span class="process-math">\(\lambda(t)\)</span> is in <span class="process-math">\(S\)</span> for every value of <span class="process-math">\(t\)</span> in <span class="process-math">\([0,1]\text{.}\)</span></p></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

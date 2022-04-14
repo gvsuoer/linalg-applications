@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:23:17-04:00       *-->
+<!--*       on 2022-04-14T13:01:25-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -756,11 +754,11 @@
 </h3>
 <div class="introduction" id="introduction-193">
 <p id="p-2150">Suppose we want to fit a linear function <span class="process-math">\(p(x) = mx+b\)</span>to our data. For the sake of our argument, let us assume the general case where we have <span class="process-math">\(n\)</span>data points labeled as <span class="process-math">\((x_1,y_1)\text{,}\)</span> <span class="process-math">\((x_2, y_2)\text{,}\)</span> <span class="process-math">\((x_3, y_3)\text{,}\)</span>  <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((x_n, y_n)\text{.}\)</span> (In the GDP-consumption data <span class="process-math">\(n = 21\text{.}\)</span>) In the unlikely event that the graph of <span class="process-math">\(p(x)\)</span> actually passes through these data points, then we would have the system of equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="mdn-10">
 \begin{align}
 y_1 \amp = b + mx_1\notag\\
 y_2 \amp = b + mx_2\notag\\
-y_3 \amp = b + mx_3 \label{eq_LS_system}\tag{12.1}\\
+y_3 \amp = b + mx_3 \tag{12.1}\\
 \vdots \amp \hspace{0.39in} \vdots \notag\\
 y_n \amp = b + mx_n \notag\notag
 \end{align}
@@ -772,13 +770,13 @@ y_n \amp = b + mx_n \notag\notag
 <p id="p-2152">Identify the specific matrix <span class="process-math">\(M\)</span> and the specific vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vy\)</span> using the data inTable \ref{T:GDP_consumption}. Explain why the system <span class="process-math">\(M \va = \vy\)</span> is inconsistent.(Remember, we are treating consumption as the independent variable and GDP as the dependentvariable.) What does the result tell us about the data?</p></article></article><p id="p-2153"><a href="" class="xref" data-knowl="./knowl/act_ls_no_line.html" title="Project Activity 12.4">Project Activity 12.4</a> shows that the GDP-consumption data does not lie on a line. So instead of attempting to find coefficients <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> that give a solution to this system, which may be impossible, we instead look for a vector <span class="process-math">\(\va^*\)</span> that provides us with something that is “close” to a solution.</p>
 <p id="p-2154">If we could find <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> that give a solution to the system <span class="process-math">\(M\va = \vy\text{,}\)</span> then <span class="process-math">\(M\va - \vy\)</span> would be zero. If we can't make <span class="process-math">\(M\va - \vy\)</span> exactly equal to the vector <span class="process-math">\(\vzero\text{,}\)</span> we could instead try to minimize <span class="process-math">\(M\va-\vy\)</span> in some way. One way is to minimize the length <span class="process-math">\(||M\va-\vy||\)</span> of the vector <span class="process-math">\(M\va - \vy\text{.}\)</span></p>
 <p id="p-2155">If we minimize the quantity <span class="process-math">\(||M\va-\vy||\text{,}\)</span> then we will have minimized a function given by a sum of squares. That is, <span class="process-math">\(||M\va-\vy||\)</span> is calculated to be</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_GDP_error.html ./knowl/eq_ls_equation.html" id="eq_ls_equation">
 \begin{equation}
-\sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{.}\label{eq_ls_equation}\tag{12.2}
+\sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{.}\tag{12.2}
 \end{equation}
 </div>
 <p class="continuation">This is why the method we will derive is called the method of least squares. This method provides us with a vector “solution” in a subspace that is related to <span class="process-math">\(M\text{.}\)</span> We can visualize <span class="process-math">\(||M \va - \vy||\)</span> as in <a href="" class="xref" data-knowl="./knowl/F_GDP_error.html" title="Figure 12.10">Figure 12.10</a>. In this figure the data points are shown along with a linear approximation (not the best for illustrative purposes). The lengths of the vertical line segments are the summands <span class="process-math">\((b+mx_i-y_i)\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_ls_equation.html" title="Equation 12.2">(12.2)</a>. So we are trying to minimize the sum of the squares of these line segments.</p>
-<figure class="figure figure-like" id="F_GDP_error"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/GDP_error.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="F_GDP_error"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/GDP_error.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.10<span class="period">.</span></span><span class="space"> </span>Error in the linear approximation.</figcaption></figure><p id="p-2156">Suppose that <span class="process-math">\(\va^*\)</span> minimizes <span class="process-math">\(||M \va - \vy||\text{.}\)</span> Then the vector <span class="process-math">\(M \va^*\)</span> is the vector that is closest to <span class="process-math">\(\vy\)</span> of all of the vectors of the form <span class="process-math">\(M \vx\text{.}\)</span> The fact that the vectors of the form <span class="process-math">\(M \vx\)</span> make a subspace will be useful in what follows. We verify that fact in the next project activity.</p>
 <article class="project project-like" id="act_ls_subspace"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">12.5</span><span class="period">.</span>
@@ -789,23 +787,23 @@ y_n \amp = b + mx_n \notag\notag
 </h3>
 <div class="introduction" id="introduction-194">
 <p id="p-2159">Let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_ls_1.html ./knowl/eq_ls_2.html">
 \begin{equation*}
 S = \sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{,}
 \end{equation*}
 </div>
 <p class="continuation">the quantity we want to minimize. The variables in <span class="process-math">\(S\)</span> are <span class="process-math">\(m\)</span> and <span class="process-math">\(b\text{,}\)</span> so we can think of <span class="process-math">\(S\)</span> as a function of the two independent variables <span class="process-math">\(m\)</span> and <span class="process-math">\(b\text{.}\)</span> The square root makes calculations more complicated, so it is helpful to notice that <span class="process-math">\(S\)</span> will be a minimum when <span class="process-math">\(S^2\)</span> is a minimum. Since <span class="process-math">\(S^2\)</span> is also function of the two variables <span class="process-math">\(b\)</span> and <span class="process-math">\(m\text{,}\)</span> the minimum value of <span class="process-math">\(S^2\)</span> will occur when the partial derivatives of <span class="process-math">\(S^2\)</span> with respect to <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> are both <span class="process-math">\(0\)</span> (if you haven't yet taken a multivariable calculus course, you can just assume that this is correct). This yields the equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_ls_1.html ./knowl/eq_ls_2.html" id="mdn-11">
 \begin{align}
-0 \amp = \sum_{i=1}^n \left( mx_i + b - y_i\right)x_i\label{eq_ls_1}\tag{12.3}\\
-0 \amp = \sum_{i=1}^n \left( mx_i+b-y_i\right)\text{.}\label{eq_ls_2}\tag{12.4}
+0 \amp = \sum_{i=1}^n \left( mx_i + b - y_i\right)x_i\tag{12.3}\\
+0 \amp = \sum_{i=1}^n \left( mx_i+b-y_i\right)\text{.}\tag{12.4}
 \end{align}
 </div>
 <p class="continuation">In this activity we solve equations <a href="" class="xref" data-knowl="./knowl/eq_ls_1.html" title="Equation 12.3">(12.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_ls_2.html" title="Equation 12.4">(12.4)</a> for the unknowns <span class="process-math">\(b\)</span> and <span class="process-math">\(m\text{.}\)</span> (Do this in a general setting without using specific values for the <span class="process-math">\(x_i\)</span> and <span class="process-math">\(y_i\text{.}\)</span>)</p>
 </div>
 <article class="task exercise-like" id="task-691"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-2160">Let <span class="process-math">\(r=\sum_{i=1}^n x_i^2\text{,}\)</span> <span class="process-math">\(s=\sum_{i=1}^n x_i\text{,}\)</span> <span class="process-math">\(t = \sum_{i=1}^n y_i\text{,}\)</span> and <span class="process-math">\(u =\sum_{i=1}^n x_iy_i\text{.}\)</span> Show that the equations <a href="" class="xref" data-knowl="./knowl/eq_ls_1.html" title="Equation 12.3">(12.3)</a> and <a href="" class="xref" data-knowl="./knowl/eq_ls_2.html" title="Equation 12.4">(12.4)</a> can be written in the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_ls_1.html ./knowl/eq_ls_2.html" id="md-105">
 \begin{align*}
 0 \amp = bs + mr -u\\
 0 \amp = bn + ms - t\text{.}
@@ -813,20 +811,20 @@ S = \sqrt{(b+mx_1-y_1)^2 + (b+mx_2-y_2)^2 + \cdots + (b+mx_n-y_n)^2}\text{,}
 </div>
 <p class="continuation">Note that this is a system of two linear equations in the unknowns <span class="process-math">\(b\)</span> and <span class="process-math">\(m\text{.}\)</span></p></article><article class="task exercise-like" id="task-692"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-2161">Write the system from part (a) in matrix form <span class="process-math">\(A \vx = \vb\text{.}\)</span> Then use techniques from linear algebra to solve the linear system to show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_ls_b">
 \begin{equation}
-b = \frac{tr-us}{nr-s^2} = \frac{\left(\sum_{i=1}^n y_i\right) \left(\sum_{i=1}^n x_i^2\right) - \left(\sum_{i=1}^n x_i \right) \left(\sum_{i=1}^n x_iy_i \right)}{n\left(\sum_{i=1}^n x_i^2 \right) - \left(\sum_{i=1}^n x_i \right)^2}\label{eq_ls_b}\tag{12.5}
+b = \frac{tr-us}{nr-s^2} = \frac{\left(\sum_{i=1}^n y_i\right) \left(\sum_{i=1}^n x_i^2\right) - \left(\sum_{i=1}^n x_i \right) \left(\sum_{i=1}^n x_iy_i \right)}{n\left(\sum_{i=1}^n x_i^2 \right) - \left(\sum_{i=1}^n x_i \right)^2}\tag{12.5}
 \end{equation}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_ls_m">
 \begin{equation}
-m = \frac{nu-ts}{nr-s^2} =  \frac{n\left(\sum_{i=1}^n x_iy_i\right) - \left(\sum_{i=1}^n x_i \right) \left(\sum_{i=1}^n y_i \right)}{n\left(\sum_{i=1}^n x_i^2 \right) - \left(\sum_{i=1}^n x_i \right)^2}.\label{eq_ls_m}\tag{12.6}
+m = \frac{nu-ts}{nr-s^2} =  \frac{n\left(\sum_{i=1}^n x_iy_i\right) - \left(\sum_{i=1}^n x_i \right) \left(\sum_{i=1}^n y_i \right)}{n\left(\sum_{i=1}^n x_i^2 \right) - \left(\sum_{i=1}^n x_i \right)^2}.\tag{12.6}
 \end{equation}
 </div></article></article><article class="project project-like" id="project-37"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">12.7</span><span class="period">.</span>
 </h3>Use the formulas <a href="" class="xref" data-knowl="./knowl/eq_ls_b.html" title="Equation 12.5">(12.5)</a> and <a href="" class="xref" data-knowl="./knowl/eq_ls_m.html" title="Equation 12.6">(12.6)</a> to find the values of <span class="process-math">\(b\)</span> and <span class="process-math">\(m\)</span> for the regression line to fit the GDP-consumption data in <a href="" class="xref" data-knowl="./knowl/T_GDP_consumption.html" title="Table 12.1: GDP and consumption in Romania">Table 12.1</a>. You may use the fact that the sum of the GDP data is <span class="process-math">\(3.5164030 \times 10^6\text{,}\)</span> the sum of the consumption data is <span class="process-math">\(2.9233750 \times 10^6\text{,}\)</span> the sum of the squares of the consumption data is <span class="process-math">\(8.806564894 \times 10^{11}\text{,}\)</span> and the sum of the products of the GDP and consumption data is <span class="process-math">\(1.069946378 \times 10^{12}\text{.}\)</span> Compare to the results the authors obtained in the paper  <span class="articletitle">“A Statistical Analysis of GDP and Final Consumption Using Simple Linear Regression, the Case of Romania 1990-2010”</span>.</article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

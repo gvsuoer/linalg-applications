@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:20:32-04:00       *-->
+<!--*       on 2022-04-14T12:57:33-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,13 +749,13 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Application: Balancing Chemical Reactions</span>
 </h2>
 <p id="p-361">Linear systems have applications in chemistry when balancing chemical equations. When a chemical reaction occurs, molecules of different substances combine to create molecules of other substances. Chemists represent such reactions with chemical equations. To balance a chemical equation means to find the number of atoms of each element involved that will preserve the number of atoms in the reaction. As an example, consider the chemical equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_reaction1">
 \begin{equation}
-\text{C} _2\text{H} _6 + \text{O} _2 \to \text{ CO } _2 + \text{H} _2\text{O}\text{.}\label{eq_reaction1}\tag{3.1}
+\text{C} _2\text{H} _6 + \text{O} _2 \to \text{ CO } _2 + \text{H} _2\text{O}\text{.}\tag{3.1}
 \end{equation}
 </div>
 <p id="p-362">This equation asks about what will happen when the chemicals ethane (<span class="process-math">\(\text{C} _2\text{H} _6\)</span>) and oxygen (<span class="process-math">\(\text{O} _2\)</span>), called the <dfn class="terminology">reactants</dfn> of the reaction, combine to produce carbon dioxide (<span class="process-math">\(\text{ CO } _2\)</span>) and water (<span class="process-math">\(\text{H} _2\text{O}\)</span>), called the <dfn class="terminology">products</dfn> of the reaction (note that oxygen gas is <dfn class="terminology">diatomic</dfn>, so that oxygen atoms are paired). The arrow indicates that it is the reactants that combine to form the products. Any chemical reaction has to obey the Law of Conservation of Mass that says that mass can neither be created nor destroyed in a chemical reaction. Consequently, a chemical reaction requires the same number of atoms on both sides of the reaction. In other words, the total mass of the reactants must equal the total mass of the products. In reaction <a href="" class="xref" data-knowl="./knowl/eq_reaction1.html" title="Equation 3.1">(3.1)</a> the chemicals involved are made up of carbon (C), hydrogen (H), and oxygen (O) atoms. To balance the equation, we need to know how many molecules of each chemical are combined to preserve the number of atoms of C, H, and O. This can be done by setting up a linear system of equations of the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_reaction1.html" id="md-43">
 \begin{alignat*}{5}
 {2}x_1   \amp {}    \amp {}    \amp {}-{}  \amp {}x_3  \amp {}    \amp {}       \amp {}={}  \amp  \ 0\amp {}\\
 x_1  \amp {}     \amp {}     \amp {}    \amp {}    \amp {}-{}  \amp {2}x_4   \amp {}={}   \amp  \ 0\amp {}\\
@@ -766,6 +764,6 @@ x_1  \amp {}     \amp {}     \amp {}    \amp {}    \amp {}-{}  \amp {2}x_4   \am
 </div>
 <p class="continuation">where <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> <span class="process-math">\(x_3\text{,}\)</span> and <span class="process-math">\(x_4\)</span> represent the number of molecules of <span class="process-math">\(\text{C} _2\text{H} _6\text{,}\)</span> <span class="process-math">\(\text{O} _2\text{,}\)</span> <span class="process-math">\(\text{ CO } _2\text{,}\)</span> and <span class="process-math">\(\text{H} _2\text{O}\text{,}\)</span> respectively, in the reaction and then solving the system. Specific details can be found at the end of this section.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:20:23-04:00       *-->
+<!--*       on 2022-04-14T12:57:20-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -756,7 +754,7 @@
 </h3>
 <div class="introduction" id="introduction-19">
 <p id="p-246">Consider the system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-30">
 \begin{alignat*}{4}
 {}x_1  \amp {}+{}   \amp {2}x_2    \amp {}-{}  \amp {}x_3   \amp {}= \amp  \ 1\amp {}\\
 {}x_1  \amp {}+{}  \amp {}x_2     \amp {}-{}  \amp {3}x_3  \amp {}= \amp  \ 0\amp {}\\
@@ -769,13 +767,13 @@
 <p id="p-248">Without explicitly solving the system, show that <span class="process-math">\(x_1 = -1+5t\text{,}\)</span> <span class="process-math">\(x_2 = 1-2t\text{,}\)</span> and <span class="process-math">\(x_3 = t\)</span> is a solution to this system for any value of <span class="process-math">\(t\text{.}\)</span> What values of <span class="process-math">\(t\)</span> yield the solutions <span class="process-math">\((-1,1,0)\)</span> and <span class="process-math">\((4,-1,1)\)</span> from part (a)? The equations <span class="process-math">\(x_1 = -1+5t\text{,}\)</span> <span class="process-math">\(x_2 = 1-2t\text{,}\)</span> and <span class="process-math">\(x_3 = t\)</span> form what is called a <dfn class="terminology">parametric solution</dfn> to the system with <dfn class="terminology">parameter <span class="process-math">\(t\)</span></dfn>.</p></article><article class="task exercise-like" id="task-57"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="introduction" id="introduction-20">
 <p id="p-249">Part (b) shows that our system has infinitely many solutions. We were given solutions in part (b) — but how do we find these solutions and how do we know that these are all of the solutions? We address those questions now. If we apply row operations to the augmented matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccr|c} 1\amp 2\amp -1\amp 1 \\ 1\amp 1\amp -3\amp 0 \\ 2\amp 3\amp -4\amp 1 \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">of this system, we can reduce this system to one with augmented matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccr|c} 1\amp 2\amp -1\amp 1 \\ 0\amp 1\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
@@ -786,7 +784,7 @@
 <p id="p-251">Since the system has infinitely many solutions, we will not be able to explicitly determine values for each of the variables. Instead, at least one of the variables can be chosen arbitrarily. What is it about the reduced form of the augmented matrix that indicates that <span class="process-math">\(x_3\)</span> is convenient to choose as the arbitrary variable?</p></article><article class="task exercise-like" id="task-60"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p id="p-252">Letting <span class="process-math">\(x_3\)</span> be arbitrary (we call <span class="process-math">\(x_3\)</span> a <em class="emphasis">free</em> variable), use the second row to show that <span class="process-math">\(x_2 = 1-2x_3\)</span> (so that we can write <span class="process-math">\(x_2\)</span> in terms of the arbitrary variable <span class="process-math">\(x_3\)</span>).</p></article><article class="task exercise-like" id="task-61"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
 <p id="p-253">Use the first row to show that <span class="process-math">\(x_1 = 5x_3-1\)</span> (and we can write <span class="process-math">\(x_1\)</span> in terms of the arbitrary variable <span class="process-math">\(x_3\)</span>). Compare this to the solutions from part (b).</p></article></article></article><p id="p-254">After using the elimination method, the first non-zero coefficient (from the left) of each equation in the linear system is in a different position. We call each such coefficient a <dfn class="terminology">pivot</dfn> and a variable corresponding to a pivot a <dfn class="terminology">basic variable</dfn>. In the system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-31">
 \begin{alignat*}{5}
 {}a_2  \amp {}-{}   \amp {}a_1     \amp {}+{}  \amp {}a_0   \amp {}= \amp  \ {}\amp \amp {}2\\
 {}       \amp {}    \amp {2}a_1    \amp {}    \amp {}     \amp {}= \amp  \ {}\amp \amp {}4\\
@@ -794,7 +792,7 @@
 \end{alignat*}
 </div>
 <p class="continuation">the basic variables are <span class="process-math">\(a_2, a_1, a_0\)</span> for the first, second, and third equations, respectively. In the system,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-32">
 \begin{alignat*}{4}
 {}x_1  \amp {}+{}   \amp {2}x_2   \amp {}-{}  \amp {}x_3   \amp {}= \amp  \ 1\\
 {}       \amp {}    \amp {}x_2     \amp {}+{}  \amp {2}x_3  \amp {}= \amp  \ 1\\
@@ -817,6 +815,6 @@
 </h3>
 <p id="p-260">Does the existence of a row of 0's always mean a free variable? Can you think of an example where there is a row of 0's but none of the variables is free? How do the numbers of equations and the variables compare in that case?</p></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

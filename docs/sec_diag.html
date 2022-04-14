@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:43-04:00       *-->
+<!--*       on 2022-04-14T13:03:16-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -759,13 +757,13 @@
 <p id="p-3185">Show that <span class="process-math">\(D^2 = \left[ \begin{array}{cc} 2^2\amp 0 \\ 0\amp 3^2 \end{array} \right]\text{.}\)</span></p></article><article class="task exercise-like" id="task-1051"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3186">Show that <span class="process-math">\(D^3 = \left[ \begin{array}{cc} 2^3\amp 0 \\ 0\amp 3^3 \end{array} \right]\text{.}\)</span> <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-22" id="hint-22"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-22"><div class="hint solution-like"><p id="p-3187"><span class="process-math">\(D^3 = DD^2\text{.}\)</span></p></div></div></p></article><article class="task exercise-like" id="task-1052"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-3188">Explain in general why <span class="process-math">\(D^n = \left[ \begin{array}{cc} 2^n\amp 0 \\ 0\amp 3^n \end{array} \right]\)</span> for any positive integer <span class="process-math">\(n\text{.}\)</span></p></article></article><p id="p-3189"><a href="" class="xref" data-knowl="./knowl/act_4_c_0.html" title="Activity 19.2">Activity 19.2</a> illustrates that calculating powers of square matrices whose only nonzero entries are along the diagonal is rather simple. In general, if</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_4_c_0.html ./knowl/def_special_matrices.html">
 \begin{equation*}
 D = \left[ \begin{array}{cccccc} d_{11}   \amp 0       \amp 0        \amp \cdots      \amp 0    \amp 0 \\ 0       \amp  d_{22}   \amp 0        \amp \cdots      \amp 0    \amp 0 \\ \vdots  \amp  0          \amp 0        \amp \ddots      \amp       \amp \vdots \\ 0       \amp  0       \amp 0          \amp  \cdots    \amp 0    \amp d_{nn} \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_4_c_0.html ./knowl/def_special_matrices.html">
 \begin{equation*}
 D^k = \left[ \begin{array}{cccccc} d_{11}^k   \amp 0       \amp 0        \amp \cdots      \amp 0    \amp 0 \\ 0       \amp  d_{22}^k   \amp 0        \amp \cdots      \amp 0    \amp 0 \\ \vdots  \amp  0            \amp 0        \amp \ddots      \amp       \amp \vdots \\ 0       \amp  0         \amp 0          \amp  \cdots    \amp 0    \amp d_{nn}^k \end{array}  \right]
 \end{equation*}
@@ -781,6 +779,6 @@ D^k = \left[ \begin{array}{cccccc} d_{11}^k   \amp 0       \amp 0        \amp \c
 <p id="p-3193">Show that <span class="process-math">\(A^3 = P^{-1}D^3P\text{.}\)</span></p></article><article class="task exercise-like" id="task-1055"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-3194">Explain in general why <span class="process-math">\(A^n = P^{-1}D^nP\)</span> for positive integers <span class="process-math">\(n\text{.}\)</span></p></article></article><p id="p-3195">As <a href="" class="xref" data-knowl="./knowl/act_4_c_0_5.html" title="Activity 19.3">Activity 19.3</a> illustrates, to calculate the powers of a matrix of the form <span class="process-math">\(P^{-1}DP\)</span> we only need determine the powers of the matrix <span class="process-math">\(D\text{.}\)</span> If <span class="process-math">\(D\)</span> is a diagonal matrix, this is especially straightforward.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

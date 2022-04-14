@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:35:29-04:00       *-->
+<!--*       on 2022-04-14T13:13:25-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -20,7 +20,7 @@
 <div class="introduction">
 <p>Accurately predicting the weather has long been an important task. Meteorologists use science, mathematics, and technology to construct models that help us understand weather patterns. These models are very sophisticated, but we will consider only a simple model. Suppose, for example, we want to learn something about whether it will be wet or dry in Grand Rapids, Michigan. To do this, we might begin by collecting some data about weather conditions in Grand Rapids and then use that to make predictions. Information taken over the course of 2017 from the National Weather Service Climate Data shows that if it was dry (meaning no measurable precipitation, either rain or snow) on a given day in Grand Rapids, it would be dry the next day with a probability of 64% and wet with a probability of 36%. Similarly, if it was wet on a given day it would be dry the next day with a probability of 47% and dry with a probability of 53%. Assuming that this pattern is one that continues in the long run, we can develop a mathematical model to make predictions about the weather.</p>
 <p>This data tells us how the weather transitions from one day to the next, and we can succinctly represent this data in a <dfn class="terminology">transition matrix</dfn>:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation}
 T = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right]\text{.}\tag{9.5}
 \end{equation}
@@ -34,7 +34,7 @@ T = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right]
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p>Here we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]\text{.}
 \end{equation*}
@@ -47,7 +47,7 @@ T\left[ \begin{array}{c} 1\\0 \end{array} \right]  = \left[ \begin{array}{cc} 0.
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p>Here we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{c} 0.47\\0.53 \end{array} \right]\text{.}
 \end{equation*}
@@ -60,7 +60,7 @@ T\left[ \begin{array}{c} 0\\1 \end{array} \right]  = \left[ \begin{array}{cc} 0.
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p>Here we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc} 0.64\amp 0.47 \\ 0.36\amp 0.53 \end{array}  \right] \left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  \approx \left[ \begin{array}{c} 0.52\\0.48 \end{array} \right]\text{.}
 \end{equation*}
@@ -69,19 +69,19 @@ T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc
 </div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="introduction">
 <p>We can use the transition matrix to build a chain of probability vectors. We begin with an initial state, say it is dry on a given day. This initial state is represented by the initial state vector <span class="process-math">\(\vx_0 = \left[ \begin{array}{c} 1\\0 \end{array} \right]\text{.}\)</span> The probabilities that it will be dry or wet the following day are given by the vector</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_3.html">
 \begin{equation*}
 \vx_1 = T\vx_0 = \left[ \begin{array}{c} 0.64\\0.36 \end{array} \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">This output vector tells us that the next day will be dry with a 64% probability and wet with a 36% probability. For each <span class="process-math">\(k \geq 1\text{,}\)</span> we let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_3.html">
 \begin{equation}
 \vx_{k} = T\vx_{k-1}\text{.}\tag{9.6}
 \end{equation}
 </div>
 <p class="continuation">Thus we create a sequence of vectors that tell us the probabilities of it being dry or wet on subsequent days. The vector <span class="process-math">\(\vx_k\)</span> is called the <dfn class="terminology">state vector</dfn> of the system at time <span class="process-math">\(k\text{,}\)</span> because it describes the state of the whole system at time <span class="process-math">\(k\text{.}\)</span> We can rewrite the system of equations in <a href="" class="xref" data-knowl="./knowl/eq_PA5_1_3.html" title="Equation 9.1">(9.1)</a> as a matrix-vector equation in terms of the state vectors at time <span class="process-math">\(k\)</span> and <span class="process-math">\(k+1\text{.}\)</span> More specifically, the equation will be of the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_3.html">
 \begin{equation}
 \vx_{k+1} = T\vx_k\tag{9.7}
 \end{equation}
@@ -95,7 +95,7 @@ T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc
 <span class="type">Solution</span><span class="period">.</span>
 </h5>
 <p>Technology shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \begin{array}{ll} \vx_1 = \left[ \begin{array}{c} 0.640\\0.360 \end{array}  \right] \amp \vx_2 = \left[ \begin{array}{c} 0.579\\0.421 \end{array}  \right]  \\ \vx_3 = \left[ \begin{array}{c} 0.568\\0.432 \end{array}  \right] \amp \vx_4 = \left[ \begin{array}{c} 0.567\\0.433 \end{array}  \right]    \\ \vx_5 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_6 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_7 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_8 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]    \\ \vx_9 = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right] \amp \vx_{10} = \left[ \begin{array}{c} 0.566\\0.434 \end{array}  \right]. \end{array}
 \end{equation*}
@@ -110,7 +110,7 @@ T\left[ \begin{array}{c} 0.3\\0.7 \end{array} \right]  = \left[ \begin{array}{cc
 <p>Since our sequence seems to be converging to a vector <span class="process-math">\(\vx\)</span> satisfying <span class="process-math">\(T \vx = \vx\text{,}\)</span> we conclude that 1 is an eigenvalue of <span class="process-math">\(T\text{.}\)</span></p>
 </div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p>Rewrite <span class="process-math">\(T\)</span> as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\text{.}
 \end{equation*}
@@ -121,13 +121,13 @@ T = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100
 <span class="type">Solution</span><span class="period">.</span>
 </h5>
 <p>A matrix vector multiplication shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T \vx = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}{100}\amp \frac{53}{100} \end{array}  \right]\left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right] = \left[  \begin{array}{c} \frac{47}{83} \\ \frac{36}{83} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">In other words, <span class="process-math">\(\vx\)</span> is an eigenvector for <span class="process-math">\(T\)</span> with eigenvalue 1. Notice that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{47}{83} \approx 0.566 \ \text{ and }  \ \frac{36}{83} \approx 0.434\text{,}
 \end{equation*}
@@ -143,6 +143,6 @@ T \vx = \left[  \begin{array}{cc} \frac{64}{100}\amp \frac{47}{100} \\ \frac{36}
 <li><p>the total number of observations remains fixed (this is reflected in the fact that the sum of the entries in each column of the matrix <span class="process-math">\(T\)</span> is 1), and</p></li>
 <li><p>no observation is lost (this means the entries in the matrix <span class="process-math">\(T\)</span> cannot be negative).</p></li>
 </ul>
-</div></article><span class="incontext"><a href="sec_eigen_exam.html#example-18">in-context</a></span>
+</div></article><span class="incontext"><a href="sec_eigen_exam.html#example-18" class="internal">in-context</a></span>
 </body>
 </html>

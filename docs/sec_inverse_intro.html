@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:22:44-04:00       *-->
+<!--*       on 2022-04-14T13:00:44-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -771,7 +769,7 @@
 <p id="p-1722">What does the equation <span class="process-math">\(AB = I_2\)</span> tell us about the size of the matrix <span class="process-math">\(B\text{?}\)</span></p></article><article class="task exercise-like" id="task-551"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
 <div class="introduction" id="introduction-156">
 <p id="p-1723">Now let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2 \\ 1\amp 3 \end{array}  \right]\text{.}\)</span> We want to find a  matrix <span class="process-math">\(B\)</span> so that <span class="process-math">\(AB = I_2\text{.}\)</span> Suppose <span class="process-math">\(B\)</span> has columns <span class="process-math">\(\vb_1\)</span> and <span class="process-math">\(\vb_2\text{,}\)</span> i.e. <span class="process-math">\(B = [\vb_1 \ \vb_2]\text{.}\)</span> Our definition of matrix multiplication shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 AB = [A\vb_1 \ A\vb_2]\text{.}
 \end{equation*}
@@ -786,6 +784,6 @@ AB = [A\vb_1 \ A\vb_2]\text{.}
 <p id="p-1728">Consider the system <span class="process-math">\(A\vx=\vb\text{.}\)</span> Use the inverse of <span class="process-math">\(A\)</span> to show that this system has a solution for every <span class="process-math">\(\vb\)</span> and find an expression for this solution in terms of <span class="process-math">\(\vb\)</span> and <span class="process-math">\(A^{-1}\text{.}\)</span> (Note that since matrix multiplication is not commutative, we have to pay attention to the order in which we multiply matrices. For example, <span class="process-math">\(A^{-1}AB=B\)</span> while we cannot simplify <span class="process-math">\(ABA^{-1}\)</span> to <span class="process-math">\(B\)</span> unless <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> commute.)</p></article><article class="task exercise-like" id="task-557"><h6 class="heading"><span class="codenumber">(B)</span></h6>
 <p id="p-1729">If <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> are matrices and <span class="process-math">\(A+C = B+C\text{,}\)</span> then we can subtract the matrix <span class="process-math">\(C\)</span> from both sides to see that <span class="process-math">\(A = B\text{.}\)</span> We saw in <a href="chap_matrix_operations.html" class="internal" title="Chapter 8: Matrix Operations">Chapter 8</a> that there is no corresponding general cancellation property for matrix multiplication when we found that <span class="process-math">\(AB=AC\)</span> could hold while <span class="process-math">\(B\neq C\text{.}\)</span> However, we can cancel <span class="process-math">\(A\)</span> from this equation in certain circumstances. Suppose that <span class="process-math">\(AB=AC\)</span> and that <span class="process-math">\(A\)</span> is an invertible matrix. Show that we can cancel <span class="process-math">\(A\)</span> in this case and conclude that <span class="process-math">\(B=C\text{.}\)</span> (Note: When simplifying the product of matrices, again keep in mind that matrix multiplication is not commutative.)</p></article></article></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:30:50-04:00       *-->
+<!--*       on 2022-04-14T13:08:57-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,57 +748,57 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_eigen_trans_exam"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Examples</span>
 </h2>
-<p id="p-6817">What follows are worked examples that use the concepts from this section.</p>
+<p id="p-6782">What follows are worked examples that use the concepts from this section.</p>
 <article class="example example-like" id="example-81"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">39.5</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-684"><p id="p-6818">Let <span class="process-math">\(T : \M_{2 \times 2} \to \M_{2 \times 2}\)</span> be defined by <span class="process-math">\(T(A) = A^{\tr}\text{.}\)</span> Let <span class="process-math">\(M_1 = \left[ \begin{array}{cc} 1\amp 1\\0\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(M_2 = \left[ \begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(M_3 = \left[ \begin{array}{cc} 1\amp 0\\1\amp 0 \end{array} \right]\text{,}\)</span> and <span class="process-math">\(M_4 = \left[ \begin{array}{cc} 0\amp 0\\1\amp 1 \end{array} \right]\text{,}\)</span> and let <span class="process-math">\(\CB\)</span> be the ordered basis <span class="process-math">\(\{M_1, M_2, M_3, M_4\}\text{.}\)</span></p></div>
-<article class="task exercise-like" id="task-2323"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6819">Show that <span class="process-math">\(T\)</span> is a linear transformation.</p>
+<div class="introduction" id="introduction-679"><p id="p-6783">Let <span class="process-math">\(T : \M_{2 \times 2} \to \M_{2 \times 2}\)</span> be defined by <span class="process-math">\(T(A) = A^{\tr}\text{.}\)</span> Let <span class="process-math">\(M_1 = \left[ \begin{array}{cc} 1\amp 1\\0\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(M_2 = \left[ \begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(M_3 = \left[ \begin{array}{cc} 1\amp 0\\1\amp 0 \end{array} \right]\text{,}\)</span> and <span class="process-math">\(M_4 = \left[ \begin{array}{cc} 0\amp 0\\1\amp 1 \end{array} \right]\text{,}\)</span> and let <span class="process-math">\(\CB\)</span> be the ordered basis <span class="process-math">\(\{M_1, M_2, M_3, M_4\}\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-2313"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-6784">Show that <span class="process-math">\(T\)</span> is a linear transformation.</p>
 <div class="solution solution-like" id="solution-230">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6820">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be <span class="process-math">\(2 \times 2\)</span> matrices and let <span class="process-math">\(c\)</span> be a scalar. The properties of the transpose show that</p>
-<div class="displaymath process-math">
+<p id="p-6785">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be <span class="process-math">\(2 \times 2\)</span> matrices and let <span class="process-math">\(c\)</span> be a scalar. The properties of the transpose show that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(A+B) = (A+B)^{\tr} = A^{\tr}+B^{\tr} = T(A) + T(B)
 \end{equation*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(cA) = (cA)^{\tr} = cA^{\tr} = cT(A)\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Thus, <span class="process-math">\(T\)</span> is a linear transformation.</p>
-</div></article><article class="task exercise-like" id="task-2324"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6821">Find <span class="process-math">\([T]_{\CB}\text{.}\)</span></p>
+</div></article><article class="task exercise-like" id="task-2314"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6786">Find <span class="process-math">\([T]_{\CB}\text{.}\)</span></p>
 <div class="solution solution-like" id="solution-231">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6822">Notice that <span class="process-math">\(T(M_1) = M_3\text{,}\)</span> <span class="process-math">\(T(M_2) = M_2\text{,}\)</span> <span class="process-math">\(T(M_3) = M_1\text{,}\)</span> and <span class="process-math">\(T(M_4) = M_1-M_3+M_4\text{.}\)</span> So</p>
-<div class="displaymath process-math">
+<p id="p-6787">Notice that <span class="process-math">\(T(M_1) = M_3\text{,}\)</span> <span class="process-math">\(T(M_2) = M_2\text{,}\)</span> <span class="process-math">\(T(M_3) = M_1\text{,}\)</span> and <span class="process-math">\(T(M_4) = M_1-M_3+M_4\text{.}\)</span> So</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [T]_{\CB} = \left[ [T(M_1)_{\CB} \  [T(M_2)_{\CB} \  [T(M_3)_{\CB} \  [T(M_4)_{\CB} \right] = \left[ \begin{array}{cccr} 0\amp 0\amp 1\amp 1 \\ 0\amp 1\amp 0\amp 0 \\ 1\amp 0\amp 0\amp -1  \\ 0\amp 0\amp 0\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-</div></article><article class="task exercise-like" id="task-2325"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6823">Is the matrix <span class="process-math">\([T]_{\CB}\)</span> diagonalizable? If so, find a matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}[T]_{\CB}P\)</span> is a diagonal matrix. Use technology as appropriate.</p>
+</div></article><article class="task exercise-like" id="task-2315"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6788">Is the matrix <span class="process-math">\([T]_{\CB}\)</span> diagonalizable? If so, find a matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}[T]_{\CB}P\)</span> is a diagonal matrix. Use technology as appropriate.</p>
 <div class="solution solution-like" id="solution-232">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6824">Technology shows that the characteristic polynomial of <span class="process-math">\([T]_{\CB}\)</span> is <span class="process-math">\(p(\lambda) = (\lambda+1)(\lambda-1)^3\text{.}\)</span> It follows that the eigenvalues of <span class="process-math">\([T]_{\CB}\)</span> are <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\)</span> (with multiplicity <span class="process-math">\(3\)</span>). Technology also shows that <span class="process-math">\(\{[-1 \ 0 \ 1 \ 0]^{\tr}\}\)</span> is a basis for the eigenspace corresponding to the eigenvalue <span class="process-math">\(-1\)</span> and the vectors <span class="process-math">\([1 \ 0 \ 0 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\([1 \ 0 \ 1 \ 0]^{\tr}\text{,}\)</span> <span class="process-math">\([0 \ 1 \ 0 \ 0]^{\tr}\)</span> form a basis for the eigenspace corresponding to the eigenvalue <span class="process-math">\(1\text{.}\)</span> If we let <span class="process-math">\(P = \left[ \begin{array}{cccr} 1\amp 1\amp 0\amp -1 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 1\amp 0\amp 1 \\ 1\amp 0\amp 0\amp 0 \end{array} \right]\text{,}\)</span> then <span class="process-math">\(P^{-1}AP = \left[ \begin{array}{cccr} 1\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp -1 \end{array} \right]\text{.}\)</span></p>
-</div></article><article class="task exercise-like" id="task-2326"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-6825">Use part (c) to find a basis <span class="process-math">\(\CC\)</span> for <span class="process-math">\(\M_{2 \times 2}\)</span> for which <span class="process-math">\([T]_{\CC}\)</span> is a diagonal matrix.</p>
+<p id="p-6789">Technology shows that the characteristic polynomial of <span class="process-math">\([T]_{\CB}\)</span> is <span class="process-math">\(p(\lambda) = (\lambda+1)(\lambda-1)^3\text{.}\)</span> It follows that the eigenvalues of <span class="process-math">\([T]_{\CB}\)</span> are <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\)</span> (with multiplicity <span class="process-math">\(3\)</span>). Technology also shows that <span class="process-math">\(\{[-1 \ 0 \ 1 \ 0]^{\tr}\}\)</span> is a basis for the eigenspace corresponding to the eigenvalue <span class="process-math">\(-1\)</span> and the vectors <span class="process-math">\([1 \ 0 \ 0 \ 1]^{\tr}\text{,}\)</span> <span class="process-math">\([1 \ 0 \ 1 \ 0]^{\tr}\text{,}\)</span> <span class="process-math">\([0 \ 1 \ 0 \ 0]^{\tr}\)</span> form a basis for the eigenspace corresponding to the eigenvalue <span class="process-math">\(1\text{.}\)</span> If we let <span class="process-math">\(P = \left[ \begin{array}{cccr} 1\amp 1\amp 0\amp -1 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 1\amp 0\amp 1 \\ 1\amp 0\amp 0\amp 0 \end{array} \right]\text{,}\)</span> then <span class="process-math">\(P^{-1}AP = \left[ \begin{array}{cccr} 1\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp -1 \end{array} \right]\text{.}\)</span></p>
+</div></article><article class="task exercise-like" id="task-2316"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-6790">Use part (c) to find a basis <span class="process-math">\(\CC\)</span> for <span class="process-math">\(\M_{2 \times 2}\)</span> for which <span class="process-math">\([T]_{\CC}\)</span> is a diagonal matrix.</p>
 <div class="solution solution-like" id="solution-233">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6826">Suppose <span class="process-math">\(\CC = \{Q_1, Q_2, Q_3, Q_4\}\)</span> is a basis for <span class="process-math">\(\M_{2 \times 2}\)</span> satisfying <span class="process-math">\(P^{-1}[T]_{\CB}P = [T]_{\CC}\text{.}\)</span> This makes <span class="process-math">\([T]_{\CC}\)</span> a diagonal matrix with the eigenvalues of <span class="process-math">\([T]_{\CB}\)</span> along the diagonal. In this case we have</p>
-<div class="displaymath process-math">
+<p id="p-6791">Suppose <span class="process-math">\(\CC = \{Q_1, Q_2, Q_3, Q_4\}\)</span> is a basis for <span class="process-math">\(\M_{2 \times 2}\)</span> satisfying <span class="process-math">\(P^{-1}[T]_{\CB}P = [T]_{\CC}\text{.}\)</span> This makes <span class="process-math">\([T]_{\CC}\)</span> a diagonal matrix with the eigenvalues of <span class="process-math">\([T]_{\CB}\)</span> along the diagonal. In this case we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [T]_{\CC}[A]_{\CC} = P^{-1}[T]_{\CB}P[A]_{\CC}
 \end{equation*}
@@ -809,49 +807,49 @@ T(cA) = (cA)^{\tr} = cA^{\tr} = cT(A)\text{.}
 </div></article></article><article class="example example-like" id="example-82"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">39.6</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-685"><p id="p-6827">We have shown that every linear transformation from a finite dimensional vector space <span class="process-math">\(V\)</span> to <span class="process-math">\(V\)</span> can be represented as a matrix transformation. As a consequence, all such linear transformations have eigenvalues. In this example we consider the problem of determining eigenvalues and eigenvectors of the linear transformation <span class="process-math">\(T : V \to V\)</span> defined by <span class="process-math">\(T(f)(x) = \int_0^x f(t) \, dt\text{,}\)</span> where <span class="process-math">\(V\)</span> is the vector space of all infinitely differentiable functions from <span class="process-math">\(\R\)</span> to <span class="process-math">\(\R\text{.}\)</span> Suppose that <span class="process-math">\(f\)</span> is an eigenvector of <span class="process-math">\(T\)</span> with a nonzero eigenvalue.</p></div>
-<article class="task exercise-like" id="task-2327"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6828">Use the Fundamental Theorem of Calculus to show that <span class="process-math">\(f\)</span> must satisfy the equation <span class="process-math">\(f'(x) = \frac{1}{\lambda} f(x)\)</span> for some scalar nonzero scalar <span class="process-math">\(\lambda\text{.}\)</span></p>
+<div class="introduction" id="introduction-680"><p id="p-6792">We have shown that every linear transformation from a finite dimensional vector space <span class="process-math">\(V\)</span> to <span class="process-math">\(V\)</span> can be represented as a matrix transformation. As a consequence, all such linear transformations have eigenvalues. In this example we consider the problem of determining eigenvalues and eigenvectors of the linear transformation <span class="process-math">\(T : V \to V\)</span> defined by <span class="process-math">\(T(f)(x) = \int_0^x f(t) \, dt\text{,}\)</span> where <span class="process-math">\(V\)</span> is the vector space of all infinitely differentiable functions from <span class="process-math">\(\R\)</span> to <span class="process-math">\(\R\text{.}\)</span> Suppose that <span class="process-math">\(f\)</span> is an eigenvector of <span class="process-math">\(T\)</span> with a nonzero eigenvalue.</p></div>
+<article class="task exercise-like" id="task-2317"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-6793">Use the Fundamental Theorem of Calculus to show that <span class="process-math">\(f\)</span> must satisfy the equation <span class="process-math">\(f'(x) = \frac{1}{\lambda} f(x)\)</span> for some scalar nonzero scalar <span class="process-math">\(\lambda\text{.}\)</span></p>
 <div class="solution solution-like" id="solution-234">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6829">Assuming that <span class="process-math">\(f\)</span> is an eigenvector of <span class="process-math">\(T\)</span> with nonzero eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<p id="p-6794">Assuming that <span class="process-math">\(f\)</span> is an eigenvector of <span class="process-math">\(T\)</span> with nonzero eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_8_c_integral.html" id="eq_8_c_integral">
 \begin{equation}
-\lambda f(x) = T(f)(x) = \int_0^x f(t) \, dt\text{.}\label{eq_8_c_integral}\tag{39.2}
+\lambda f(x) = T(f)(x) = \int_0^x f(t) \, dt\text{.}\tag{39.2}
 \end{equation}
 </div>
 <p class="continuation">Recall that <span class="process-math">\(\frac{d}{dx}  \int_0^x f(t) \, dt = f(x)\)</span> by the Fundamental Theorem of Calculus. Differentiating both sides of <a href="" class="xref" data-knowl="./knowl/eq_8_c_integral.html" title="Equation 39.2">(39.2)</a> with respect to <span class="process-math">\(x\)</span> leaves us with <span class="process-math">\(\lambda f'(x) = f(x)\text{,}\)</span> or <span class="process-math">\(f'(x) = \frac{1}{\lambda} f(x)\text{.}\)</span></p>
-</div></article><article class="task exercise-like" id="task-2328"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6830">From calculus, we know that the functions <span class="process-math">\(f\)</span> that satisfy the equation <span class="process-math">\(f(x) = \frac{1}{\lambda} f'(x)\)</span> all have the form <span class="process-math">\(f(x) = Ae^{x/\lambda}\)</span> for some scalar <span class="process-math">\(A\text{.}\)</span> So if <span class="process-math">\(f\)</span> is an eigenvector of <span class="process-math">\(T\text{,}\)</span> then <span class="process-math">\(f(x) = Ae^{x/\lambda}\)</span> for some scalar <span class="process-math">\(A\text{.}\)</span> Show, however, that <span class="process-math">\(Ae^{x/\lambda}\)</span> cannot be an eigenvector of <span class="process-math">\(T\text{.}\)</span> Thus, <span class="process-math">\(T\)</span> has no eigenvectors with nonzero eigenvalues.</p>
+</div></article><article class="task exercise-like" id="task-2318"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6795">From calculus, we know that the functions <span class="process-math">\(f\)</span> that satisfy the equation <span class="process-math">\(f(x) = \frac{1}{\lambda} f'(x)\)</span> all have the form <span class="process-math">\(f(x) = Ae^{x/\lambda}\)</span> for some scalar <span class="process-math">\(A\text{.}\)</span> So if <span class="process-math">\(f\)</span> is an eigenvector of <span class="process-math">\(T\text{,}\)</span> then <span class="process-math">\(f(x) = Ae^{x/\lambda}\)</span> for some scalar <span class="process-math">\(A\text{.}\)</span> Show, however, that <span class="process-math">\(Ae^{x/\lambda}\)</span> cannot be an eigenvector of <span class="process-math">\(T\text{.}\)</span> Thus, <span class="process-math">\(T\)</span> has no eigenvectors with nonzero eigenvalues.</p>
 <div class="solution solution-like" id="solution-235">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6831">We can directly check from the definition that <span class="process-math">\(T(f)\)</span> is not a multiple of <span class="process-math">\(f(x)=Ae^{x/\lambda}\)</span> unless <span class="process-math">\(A=0\text{,}\)</span> which is not allowed. Another method is to note that <span class="process-math">\(T(f)(0) = \int_0^0 f(t) \, dt = 0\)</span> by definition. But if <span class="process-math">\(f(x) = Ae^{x/\lambda}\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<p id="p-6796">We can directly check from the definition that <span class="process-math">\(T(f)\)</span> is not a multiple of <span class="process-math">\(f(x)=Ae^{x/\lambda}\)</span> unless <span class="process-math">\(A=0\text{,}\)</span> which is not allowed. Another method is to note that <span class="process-math">\(T(f)(0) = \int_0^0 f(t) \, dt = 0\)</span> by definition. But if <span class="process-math">\(f(x) = Ae^{x/\lambda}\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 0 = T(f)(0) = \lambda f(0) = Ae^{0/\lambda} = A\text{.}
 \end{equation*}
 </div>
 <p class="continuation">This means that  <span class="process-math">\(f(x) = 0e^{x/\lambda} = 0\text{.}\)</span> But <span class="process-math">\(0\)</span> can never be an eigenvector by definition. So <span class="process-math">\(T\)</span> has no eigenvectors with nonzero eigenvalues.</p>
-</div></article><article class="task exercise-like" id="task-2329"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6832">Now show that <span class="process-math">\(0\)</span> is not an eigenvalue of <span class="process-math">\(T\text{.}\)</span> Conclude that <span class="process-math">\(T\)</span> has no eigenvalues or eigenvectors.</p>
+</div></article><article class="task exercise-like" id="task-2319"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6797">Now show that <span class="process-math">\(0\)</span> is not an eigenvalue of <span class="process-math">\(T\text{.}\)</span> Conclude that <span class="process-math">\(T\)</span> has no eigenvalues or eigenvectors.</p>
 <div class="solution solution-like" id="solution-236">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6833">Suppose that <span class="process-math">\(0\)</span> is an eigenvalue of <span class="process-math">\(T\text{.}\)</span> Then there is a nonzero function <span class="process-math">\(g\)</span> such that <span class="process-math">\(T(g) = 0\text{.}\)</span> In other words, <span class="process-math">\(0 = \int_0^x g(t) \, dt\text{.}\)</span> Again, differentiating with respect to <span class="process-math">\(x\)</span> yields the equation <span class="process-math">\(g(x) = 0\text{.}\)</span> So <span class="process-math">\(T\)</span> has no eigenvectors with eigenvalue <span class="process-math">\(0\text{.}\)</span> Since <span class="process-math">\(T\)</span> does not have a nonzero eigenvalue or zero as an eigenvalue, <span class="process-math">\(T\)</span> has no eigenvalues (and eigenvectors).</p>
-</div></article><article class="task exercise-like" id="task-2330"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-6834">Explain why this example does not contradict the statement that every linear transformation from a finite dimensional vector space <span class="process-math">\(V\)</span> to <span class="process-math">\(V\)</span> has eigenvalues.</p>
+<p id="p-6798">Suppose that <span class="process-math">\(0\)</span> is an eigenvalue of <span class="process-math">\(T\text{.}\)</span> Then there is a nonzero function <span class="process-math">\(g\)</span> such that <span class="process-math">\(T(g) = 0\text{.}\)</span> In other words, <span class="process-math">\(0 = \int_0^x g(t) \, dt\text{.}\)</span> Again, differentiating with respect to <span class="process-math">\(x\)</span> yields the equation <span class="process-math">\(g(x) = 0\text{.}\)</span> So <span class="process-math">\(T\)</span> has no eigenvectors with eigenvalue <span class="process-math">\(0\text{.}\)</span> Since <span class="process-math">\(T\)</span> does not have a nonzero eigenvalue or zero as an eigenvalue, <span class="process-math">\(T\)</span> has no eigenvalues (and eigenvectors).</p>
+</div></article><article class="task exercise-like" id="task-2320"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-6799">Explain why this example does not contradict the statement that every linear transformation from a finite dimensional vector space <span class="process-math">\(V\)</span> to <span class="process-math">\(V\)</span> has eigenvalues.</p>
 <div class="solution solution-like" id="solution-237">
 <h4 class="heading">
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
-<p id="p-6835">The reason this example does not contradict the statement is that <span class="process-math">\(V\)</span> is an infinite dimensional vector space. In fact, the linearly independent monomials <span class="process-math">\(t^m\)</span> are all in <span class="process-math">\(V\)</span> for any positive integer <span class="process-math">\(m\text{.}\)</span></p>
+<p id="p-6800">The reason this example does not contradict the statement is that <span class="process-math">\(V\)</span> is an infinite dimensional vector space. In fact, the linearly independent monomials <span class="process-math">\(t^m\)</span> are all in <span class="process-math">\(V\)</span> for any positive integer <span class="process-math">\(m\text{.}\)</span></p>
 </div></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:25:50-04:00       *-->
+<!--*       on 2022-04-14T13:04:31-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -762,7 +760,7 @@
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-3947">Any vector on the line <span class="process-math">\(\ell\)</span> is a  vector between two points on the line. Let <span class="process-math">\(Q = (x_1,y_1)\)</span> and <span class="process-math">\(R = (x_2,y_2)\)</span> be points on the line <span class="process-math">\(\ell\text{.}\)</span> Then <span class="process-math">\(\vu = \overrightarrow{QR} = [x_2-x_1 \ y_2-y_1]^{\tr}\)</span> is a vector on line <span class="process-math">\(\ell\text{.}\)</span> Since <span class="process-math">\(Q\)</span> and <span class="process-math">\(R\)</span> are on the line, we know that <span class="process-math">\(ax_1+by_1+c=0\)</span> and <span class="process-math">\(ax_2+by_2+c = 0\text{.}\)</span> So <span class="process-math">\(-c = ax_1+by_1 = ax_2+by_2\)</span> and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 0 = a(x_2-x_1) + b(y_2-y_1) = [a \ b]^{\tr} \vu\text{.}
 \end{equation*}
@@ -778,9 +776,9 @@
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.18<span class="period">.</span></span><span class="space"> </span>Distance from a point to a line.</figcaption></figure></p>
 </div></article><article class="task exercise-like" id="task-1298"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-3950">Use the idea from part (b) to show that the distance <span class="process-math">\(d\)</span> from <span class="process-math">\(P\)</span> to <span class="process-math">\(\ell\)</span> satisfies</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_dist_point_line">
 \begin{equation}
-d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\text{.}\label{eq_dist_point_line}\tag{23.3}
+d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\text{.}\tag{23.3}
 \end{equation}
 </div>
 <div class="solution solution-like" id="solution-140">
@@ -788,7 +786,7 @@ d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\text{.}\label{eq_dist_point_line}\tag{2
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-3951">Recall that <span class="process-math">\(\vn = [a \ b]^{\tr}\)</span> and <span class="process-math">\(\vv = \overrightarrow{PQ} = [x_1-x_0 \ y_1-y_0]^{\tr}\text{.}\)</span> Since <span class="process-math">\(ax_1+by_1+c = 0\text{,}\)</span> we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-162">
 \begin{align*}
 \proj_{\vn} \vv \amp = \frac{\vv \cdot \vv}{||\vn||^2} \vn\\
 \amp = \frac{a(x_1-x_0)+ b(y_1-y_0)}{a^2+b^2} [a \ b]^{\tr}\\
@@ -797,7 +795,7 @@ d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\text{.}\label{eq_dist_point_line}\tag{2
 \end{align*}
 </div>
 <p class="continuation">So</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 ||\proj_{\vn} \vv|| = \frac{|ax_0+by_0+c|}{a^2+b^2} \sqrt{a^2+b^2} = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\text{.}
 \end{equation*}
@@ -809,7 +807,7 @@ d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\text{.}\label{eq_dist_point_line}\tag{2
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-3953">Here we have <span class="process-math">\(P = (3,4)\text{,}\)</span> and the equation of our line is <span class="process-math">\(2x-y+1=0\text{.}\)</span> So <span class="process-math">\(a=2\text{,}\)</span> <span class="process-math">\(b=-1\text{,}\)</span> and <span class="process-math">\(c=-1\text{.}\)</span> Thus, the distance from <span class="process-math">\(P\)</span> to the line is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}} = \frac{|2(3)-(4)+1|}{\sqrt{4+1}} = \frac{3}{\sqrt{5}}\text{.}
 \end{equation*}
@@ -819,7 +817,7 @@ d = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}\text{.}\label{eq_dist_point_line}\tag{2
 </h3>
 <div class="introduction" id="introduction-379">
 <p id="p-3954">Let <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> be scalars with <span class="process-math">\(a \neq 0\text{,}\)</span> and let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 W = \{ax+by+cz=0 : x,y,z \in \R\} \,\text{.}
 \end{equation*}
@@ -832,7 +830,7 @@ W = \{ax+by+cz=0 : x,y,z \in \R\} \,\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-3956">The coefficient matrix for the system <span class="process-math">\(ax+by+cz = 0\)</span> is <span class="process-math">\([a \ b \ c]^{\tr}\text{.}\)</span> The first column is a pivot column and the others are not. So <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> are free variables and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [x \ y \ z]^{\tr} = \left[-\frac{b}{a}y - \frac{c}{a}z, y, z\right]^{\tr} = y\left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr} + z\left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}\text{.}
 \end{equation*}
@@ -845,7 +843,7 @@ W = \{ax+by+cz=0 : x,y,z \in \R\} \,\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-3958">If we let <span class="process-math">\(\vn = [a \ b \ c]^{\tr}\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-163">
 \begin{align*}
 \vn \cdot \left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr} \amp = -b+b = 0\\
 \vn \cdot \left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}\ \amp = -c+c = 0\text{.}
@@ -859,13 +857,13 @@ W = \{ax+by+cz=0 : x,y,z \in \R\} \,\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-3960">Let <span class="process-math">\(\vu = \left[ -\frac{b}{a} \ 1 \ 0\right]^{\tr}\)</span> and <span class="process-math">\(\vv = \left[ -\frac{c}{a} \ 0 \ 1\right]^{\tr}\text{.}\)</span> Every vector in <span class="process-math">\(W\)</span> has the form <span class="process-math">\(x\vu + y\vv\)</span> for some scalars <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vn \cdot (x\vu + y\vv) = x(\vn \cdot \vu) + y (\vn \cdot \vv) = 0\text{.}
 \end{equation*}
 </div>
 <p class="continuation">So <span class="process-math">\(\vn \in W^{\perp}\text{.}\)</span> Now we need to verify that <span class="process-math">\(\{\vn\}\)</span> spans <span class="process-math">\(W^{\perp}\text{.}\)</span> Let <span class="process-math">\(\vw = [w_1 \ w_2 \ w_3]^{\tr}\)</span> be in <span class="process-math">\(W^{\perp}\text{.}\)</span> Then <span class="process-math">\(\vw \cdot \vz = 0\)</span> for every <span class="process-math">\(\vz \in W\text{.}\)</span> In particular, <span class="process-math">\(\vw \cdot \vu = 0\)</span> or <span class="process-math">\(-\frac{b}{a}w_1 + w_2 = 0\text{,}\)</span> and <span class="process-math">\(\vw \cdot \vv = 0\)</span> or <span class="process-math">\(-\frac{c}{a}w_1 + w_3 = 0\text{.}\)</span> Equivalently, we have <span class="process-math">\(w_2 = \frac{b}{a}w_1\)</span> and <span class="process-math">\(w_3 = \frac{c}{a}w_1\text{.}\)</span> So</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-164">
 \begin{align*}
 \vw \amp =  [w_1 \ w_2 \ w_3]^{\tr}\\
 \amp = \left[ w_1 \ \frac{b}{a}w_1 \ \frac{c}{a}w_1\right]^{\tr}\\
@@ -876,6 +874,6 @@ W = \{ax+by+cz=0 : x,y,z \in \R\} \,\text{.}
 <p class="continuation">So every vector in <span class="process-math">\(W^{\perp}\)</span> is a multiple of <span class="process-math">\(\vn\text{,}\)</span> and <span class="process-math">\(\{\vn\}\)</span> spans <span class="process-math">\(W^{\perp}\text{.}\)</span> We conclude that <span class="process-math">\(\{\vn\}\)</span> is a basis for <span class="process-math">\(W^{\perp}\text{.}\)</span> Thus, the vector <span class="process-math">\([a \ b \ c]^{\tr}\)</span> is a normal vector to the plane <span class="process-math">\(ax+by+cz=0\)</span> if <span class="process-math">\(a \neq 0\text{.}\)</span> The same reasoning works if at least one of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span>or <span class="process-math">\(c\)</span> is nonzero, so we can say in every case that <span class="process-math">\([a \ b \ c]^{\tr}\)</span> is a normal vector to the plane <span class="process-math">\(ax+by+cz=0\text{.}\)</span></p>
 </div></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

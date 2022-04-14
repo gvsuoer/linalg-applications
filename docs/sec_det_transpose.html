@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:25:31-04:00       *-->
+<!--*       on 2022-04-14T13:04:09-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -752,66 +750,66 @@
 </h2>
 <p id="p-3734">In this section we establish the fact that the determinant of a square matrix is the same as the determinant of its transpose.</p>
 <p id="p-3735">The result is easily verified for <span class="process-math">\(2 \times 2\)</span> matrices, so we will proceed by induction and assume that the determinant of the transpose of any <span class="process-math">\((n-1) \times (n-1)\)</span> matrix is the same as the determinant of its transpose. Suppose <span class="process-math">\(A = [a_{ij}]\)</span> is an <span class="process-math">\(n \times n\)</span> matrix. By definition,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} + \cdots + a_{1n}C_{1n}
 \end{equation*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(A^{\tr}) = a_{11}C_{11} + a_{21}C_{21} + a_{31}C_{31} + \cdots + a_{n1}C_{n1}\text{.}
 \end{equation*}
 </div>
 <p id="p-3736">Note that the only terms in either determinant that contains <span class="process-math">\(a_{11}\)</span> is <span class="process-math">\(a_{11}C_{11}\text{.}\)</span> This term is the same in both determinants, so we proceed to examine other elements. Let us consider all terms in the cofactor expansion for <span class="process-math">\(\det(A^{\tr})\)</span> that contain <span class="process-math">\(a_{i1}a_{1j}\text{.}\)</span> The only summand that contains <span class="process-math">\(a_{i1}\)</span> is <span class="process-math">\(a_{i1}C_{i1}\text{.}\)</span> Letting <span class="process-math">\(A_{ij}\)</span> be the sub-matrix of <span class="process-math">\(A\)</span> obtained by deleting the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column, we see that <span class="process-math">\(a_{i1}C_{i1} = (-1)^{i+1}a_{i1}\det(A_{i1})\text{.}\)</span> Now let's examine the sub-matrix <span class="process-math">\(A_{i1}\text{:}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccccccc} \boldsymbol{a_{12}} \amp  \boldsymbol{a_{13}} \amp  \boldsymbol{\cdots}    \amp \boldsymbol{a_{1j}} \amp \boldsymbol{\cdots} \amp  \boldsymbol{a_{1n-1}} \amp  \boldsymbol{a_{1n}} \\ a_{22} \amp  a_{23} \amp  \cdots    \amp \boldsymbol{a_{2j}} \amp \cdots \amp  a_{2n-1} \amp  a_{2n} \\ \boldsymbol{\vdots} \amp        \amp  \ddots    \amp  \vdots          \amp \ddots \amp  \amp  \\ a_{i-12} \amp  a_{i-13} \amp  \cdots    \amp \boldsymbol{a_{i-1j}} \amp \cdots \amp  a_{i-1n-1} \amp  a_{i-1n} \\ a_{i+12} \amp  a_{i+13} \amp  \cdots    \amp \boldsymbol{a_{i+1j}} \amp \cdots \amp  a_{i+1n-1} \amp  a_{i+1n} \\ a_{n2} \amp  a_{n3} \amp  \cdots    \amp \boldsymbol{a_{nj}} \amp \cdots \amp  a_{nn-1} \amp  a_{nn} \end{array}  \right]
 \end{equation*}
 </div>
 <p id="p-3737">When we expand along the first row to calculate <span class="process-math">\(\det(A_{i1})\text{,}\)</span> the only term that will involve <span class="process-math">\(a_{1j}\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (-1)^{j-1+1}a_{1j}\det(A_{i1, 1j})\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(A_{ik,jm}\)</span> denotes the sub-matrix of <span class="process-math">\(A\)</span> obtained by deleting rows <span class="process-math">\(i\)</span> and <span class="process-math">\(k\)</span> and columns <span class="process-math">\(j\)</span> and <span class="process-math">\(m\)</span> from <span class="process-math">\(A\text{.}\)</span> So the term that contains <span class="process-math">\(a_{i1}a_{1j}\)</span> in the cofactor expansion for <span class="process-math">\(\det(A^{\tr})\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_det_transpose_1">
 \begin{equation}
-(-1){i+1}a_{i1}(-1)^{j}a_{1j}\det(A_{i1_{1j}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{i1, 1j})\text{.}\label{eq_det_transpose_1}\tag{22.5}
+(-1){i+1}a_{i1}(-1)^{j}a_{1j}\det(A_{i1_{1j}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{i1, 1j})\text{.}\tag{22.5}
 \end{equation}
 </div>
 <p id="p-3738">Now we examine the cofactor expansion for <span class="process-math">\(\det(A)\)</span> to find the terms that contain <span class="process-math">\(a_{i1}a_{1j}\text{.}\)</span> The quantity <span class="process-math">\(a_{1j}\)</span> only appears in the cofactor expansion as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{1j}C_{1j} = (-1)^{1+j}a_{1j}\det(A_{1j})\text{.}
 \end{equation*}
 </div>
 <p id="p-3739">Now let's examine the sub-matrix <span class="process-math">\(A_{1j}\text{:}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccccccc} \boldsymbol{a_{21}}   \amp  a_{22}   \amp  \cdots    \amp a_{2j-1} \amp a_{2j+1} \amp \cdots \amp  a_{2n} \\ \boldsymbol{a_{31}}   \amp  a_{32}   \amp  \cdots    \amp a_{3j-1} \amp a_{3j+1} \amp \cdots \amp  a_{3n} \\ \boldsymbol{\vdots}   \amp            \amp  \ddots    \amp  \vdots   \amp \ddots    \amp       \amp  \\  \boldsymbol{a_{i1}}   \amp  \boldsymbol{a_{i2}}   \amp  \boldsymbol{\cdots}     \amp \boldsymbol{a_{ij-1}} \amp \boldsymbol{a_{ij+1}}   \amp \boldsymbol{\cdots} \amp  \boldsymbol{a_{in}} \\ \boldsymbol{\vdots}   \amp            \amp             \amp  \vdots   \amp          \amp \vdots \amp \\ \boldsymbol{a_{n1}}   \amp  a_{n2}   \amp  \cdots    \amp a_{nj-1} \amp a_{nj+1}  \amp \cdots \amp  a_{nn} \end{array}  \right]
 \end{equation*}
 </div>
 <p id="p-3740">Here is where we use the induction hypothesis. Since <span class="process-math">\(A_{1j}\)</span> is an <span class="process-math">\((n-1) \times (n-1)\)</span> matrix, its determinant can be found with a cofactor expansion down the first column. The only term in this cofactor expansion that will involve <span class="process-math">\(a_{i1}\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (-1)^{i-1+1}a_{i1} \det(A_{1i, j1})\text{.}
 \end{equation*}
 </div>
 <p id="p-3741">So the term that contains <span class="process-math">\(a_{i1}a_{1j}\)</span> in the cofactor expansion for <span class="process-math">\(\det(A)\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_det_transpose_2">
 \begin{equation}
-(-1)^{1+j}a_{1j}(-1)^{i-1+1}a_{i1} \det(A_{1j_{i1}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{1i, j1})\text{.}\label{eq_det_transpose_2}\tag{22.6}
+(-1)^{1+j}a_{1j}(-1)^{i-1+1}a_{i1} \det(A_{1j_{i1}}) = (-1)^{i+j+1} a_{i1}a_{1j}\det(A_{1i, j1})\text{.}\tag{22.6}
 \end{equation}
 </div>
 <p id="p-3742">Since the quantities in <a href="" class="xref" data-knowl="./knowl/eq_det_transpose_1.html" title="Equation 22.5">(22.5)</a> and <a href="" class="xref" data-knowl="./knowl/eq_det_transpose_2.html" title="Equation 22.6">(22.6)</a> are equal, we conclude that the terms in the two cofactor expansions are the same and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_det_transpose_1.html ./knowl/eq_det_transpose_2.html">
 \begin{equation*}
 \det(A^{\tr}) = \det(A)\text{.}
 \end{equation*}
 </div></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

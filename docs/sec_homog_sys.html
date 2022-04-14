@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:13-04:00       *-->
+<!--*       on 2022-04-14T12:58:42-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -757,33 +755,33 @@
 <div class="introduction" id="introduction-70"><p id="p-814">In this activity we will consider the relationship between the solution sets of nonhomogeneous systems and those of the corresponding homogeneous systems.</p></div>
 <article class="task exercise-like" id="task-247"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-815">Find the solution sets of the system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A \vx = \vb
 \end{equation*}
 </div>
 <p class="continuation">where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{ccc} 1 \amp  1 \amp  2  \\ 1 \amp  2 \amp  1 \end{array}  \right], \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} 0 \\ -2 \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">and the corresponding homogeneous system (i.e. where we replace <span class="process-math">\(\vb\)</span> with <span class="process-math">\(\vzero\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-248"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-816">Find the solution sets of the system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A \vx = \vb
 \end{equation*}
 </div>
 <p class="continuation">where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 4\amp -2 \end{array}  \right], \ \vx =  \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} -1 \\ 1 \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">and the corresponding homogeneous system.</p></article><article class="task exercise-like" id="task-249"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-817">What are the similarities/differences between solutions of the nonhomogeneous system and its homogeneous counterpart?</p></article></article><p id="p-818">As we saw in the above activity, there is a relationship between solutions of a nonhomogeneous and the corresponding homogeneous system. Let us formalize this relationship. If the general solution of a system involves free variables, we can represent the solutions in <dfn class="terminology">parametric vector form</dfn> to have a better idea about the geometric representation of the solution set. Suppose the solution is that <span class="process-math">\(x_3\)</span> is free, <span class="process-math">\(x_2 = -2+x_3\text{,}\)</span> and <span class="process-math">\(x_1 = 2-3x_3\text{.}\)</span> In vector form, we can represent this general solution as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="men-12">
 \begin{equation}
 \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2-3x_3 \\ x_3-2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{r} 2 \\ -2 \\ 0 \end{array}  \right] + x_3\left[ \begin{array}{r} -3 \\ 1 \\ 1 \end{array}  \right]\text{.}\tag{5.4}
 \end{equation}
@@ -796,14 +794,14 @@ A = \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 4\amp -2 \end{array}  \rig
 <li id="li-160"><p id="p-823">if <span class="process-math">\(\vv_h\)</span> is an arbitrary solution to the homogeneous system, then <span class="process-math">\(\vp + \vv_h\)</span> is a solution to the nonhomogeneous system.</p></li>
 </ul>
 <p id="p-824">To verify the first condition, suppose that <span class="process-math">\(\vv\)</span> is a solution to the nonhomogeneous system <span class="process-math">\(A \vx = \vb\text{.}\)</span> Since we want <span class="process-math">\(\vv=\vp+\vv_h\text{,}\)</span> we need to verify that <span class="process-math">\(\vv-\vp\)</span> is a solution for the homogeneous system so that we can assign <span class="process-math">\(\vv_h=\vv-\vp\text{.}\)</span> Note that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A(\vv - \vp) = A\vv - A\vp = \vb - \vb = \vzero \,\text{,}
 \end{equation*}
 </div>
 <p class="continuation">using the distributive property of matrix-vector product over vector addition. Hence <span class="process-math">\(\vv\)</span> is of the form <span class="process-math">\(\vp + \vv_h\)</span> with <span class="process-math">\(\vv_h = \vzero\text{.}\)</span></p>
 <p id="p-825">To verify the second condition, consider a vector of the form <span class="process-math">\(\vp + \vv_h\text{,}\)</span> where <span class="process-math">\(\vv_h\)</span> is a homogeneous solution. We have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A(\vp + \vv_h) = A\vp + A\vv_h = \vb + \vzero = \vb\text{,}
 \end{equation*}
@@ -815,6 +813,6 @@ A(\vp + \vv_h) = A\vp + A\vv_h = \vb + \vzero = \vb\text{,}
 </h3>
 <p id="p-827">Suppose the equation <span class="process-math">\(A\vx=\vb\)</span> is consistent for some <span class="process-math">\(\vb\)</span> and <span class="process-math">\(\vp\)</span> is a solution. Then the solution set of <span class="process-math">\(A\vx=\vb\)</span> consists of all vectors of the form <span class="process-math">\(\vv=\vp+\vv_h\)</span> where <span class="process-math">\(\vv_h\)</span> is a solution to <span class="process-math">\(A\vx=\vzero\text{.}\)</span></p></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

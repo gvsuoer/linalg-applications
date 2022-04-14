@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:47-04:00       *-->
+<!--*       on 2022-04-14T13:05:19-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -752,7 +750,7 @@
 </h2>
 <article class="exercise exercise-like" id="exercise-257"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-432">
-<p id="p-4438">The University of Denver Infant Study Center investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. The study sought a relationship between babies' first crawling age and the average temperature during the month they first try to crawl (about 6 months after birth). Some of the data from the study is in <a href="" class="xref" data-knowl="./knowl/T_7_d_infants.html" title="Table 26.12: Crawling age">Table 26.12</a>. Let <span class="process-math">\(x\)</span> represent the temperature in degrees Fahrenheit and <span class="process-math">\(C(x)\)</span> the average crawling age in months.</p>
+<p id="p-4439">The University of Denver Infant Study Center investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. The study sought a relationship between babies' first crawling age and the average temperature during the month they first try to crawl (about 6 months after birth). Some of the data from the study is in <a href="" class="xref" data-knowl="./knowl/T_7_d_infants.html" title="Table 26.12: Crawling age">Table 26.12</a>. Let <span class="process-math">\(x\)</span> represent the temperature in degrees Fahrenheit and <span class="process-math">\(C(x)\)</span> the average crawling age in months.</p>
 <figure class="table table-like" id="T_7_d_infants"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">26.12<span class="period">.</span></span><span class="space"> </span>Crawling age</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b1 r2 l1 t1 lines"><span class="process-math">\(x\)</span></td>
@@ -771,16 +769,10 @@
 </table></div></figure>
 </div>
 <article class="task exercise-like" id="task-1466"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4439">Find the least squares line to fit this data. Plot the data and your line on the same set of axes. (We aren't concerned about whether a linear fit is really a good choice outside of this data set, we just fit a line to it to see what happens.)</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-332" id="answer-332"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-332"><div class="answer solution-like"><p id="p-4440"><span class="process-math">\(f(x) \approx 35.5273 - 0.0527x\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1467"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4441">Use your least squares line to predict the average crawling age when the temperature is 65.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-333" id="answer-333"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-333"><div class="answer solution-like"><p id="p-4442">Approximately <span class="process-math">\(32.10\text{.}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-258"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-4440">Find the least squares line to fit this data. Plot the data and your line on the same set of axes. (We aren't concerned about whether a linear fit is really a good choice outside of this data set, we just fit a line to it to see what happens.)</p></article><article class="task exercise-like" id="task-1467"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4442">Use your least squares line to predict the average crawling age when the temperature is 65.</p></article></article><article class="exercise exercise-like" id="exercise-258"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-433">
-<p id="p-4443">The cost, in cents, of a first class postage stamp in years from 1981 to 1995 is shown in <a href="" class="xref" data-knowl="./knowl/T_7_d_stamps.html" title="Table 26.13: Cost of postage">Table 26.13</a>.</p>
+<p id="p-4444">The cost, in cents, of a first class postage stamp in years from 1981 to 1995 is shown in <a href="" class="xref" data-knowl="./knowl/T_7_d_stamps.html" title="Table 26.13: Cost of postage">Table 26.13</a>.</p>
 <figure class="table table-like" id="T_7_d_stamps"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">26.13<span class="period">.</span></span><span class="space"> </span>Cost of postage</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b1 r2 l1 t1 lines">Year</td>
@@ -801,10 +793,10 @@
 </table></div></figure>
 </div>
 <article class="task exercise-like" id="task-1468"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4444">Find the least squares line to fit this data. Plot the data and your line on the same set of axes.</p></article><article class="task exercise-like" id="task-1469"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4445">Now find the least squares quadratic approximation to this data. Plot the quadratic function on same axes as your linear function.</p></article><article class="task exercise-like" id="task-1470"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4446">Use your least squares line and quadratic to predict the cost of a postage stamp in this year. Look up the cost of a stamp today and determine how accurate your prediction is. Which function gives a better approximation? Provide reasons for any discrepancies.</p></article></article><article class="exercise exercise-like" id="exercise-259"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
-<p id="p-4447">According to <span class="booktitle">The Song of Insects</span> by G.W. Pierce (Harvard College Press, 1948) the sound of striped ground crickets chirping, in number of chirps per second, is related to the temperature. So the number of chirps per second could be a predictor of temperature. The data Pierce collected is shown in the table and scatterplot below, where <span class="process-math">\(x\)</span> is the (average) number of chirps per second and <span class="process-math">\(y\)</span> is the temperature in degrees Fahrenheit.</p>
+<p id="p-4445">Find the least squares line to fit this data. Plot the data and your line on the same set of axes.</p></article><article class="task exercise-like" id="task-1469"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4446">Now find the least squares quadratic approximation to this data. Plot the quadratic function on same axes as your linear function.</p></article><article class="task exercise-like" id="task-1470"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4447">Use your least squares line and quadratic to predict the cost of a postage stamp in this year. Look up the cost of a stamp today and determine how accurate your prediction is. Which function gives a better approximation? Provide reasons for any discrepancies.</p></article></article><article class="exercise exercise-like" id="exercise-259"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
+<p id="p-4448">According to <span class="booktitle">The Song of Insects</span> by G.W. Pierce (Harvard College Press, 1948) the sound of striped ground crickets chirping, in number of chirps per second, is related to the temperature. So the number of chirps per second could be a predictor of temperature. The data Pierce collected is shown in the table and scatterplot below, where <span class="process-math">\(x\)</span> is the (average) number of chirps per second and <span class="process-math">\(y\)</span> is the temperature in degrees Fahrenheit.</p>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel fixed-width top" style="width:50%;"><table class="tabular">
 <tr>
@@ -874,40 +866,25 @@
 </table></div>
 <div class="sbspanel top" style="width:50%;"><img src="external/10_7_crickets.svg" role="img" class="contained"></div>
 </div></div>
-<p id="p-4448">The relationship between <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> is not exactly linear, but looks to have a linear pattern. It could be that the relationship is really linear but experimental error causes the data to be slightly inaccurate. Or perhaps the data is not linear, but only approximately linear. Find the least squares linear approximation to the data.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-334" id="answer-334"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-334"><div class="answer solution-like"><p id="p-4449"><span class="process-math">\(f(x) \approx 25.124 + 3.297x\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-260"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
-<p id="p-4450">We showed that if the columns of <span class="process-math">\(A\)</span> are linearly independent, then <span class="process-math">\(A^{\tr}A\)</span> is invertible. Show that the reverse implication is also true. That is, show that if <span class="process-math">\(A^{\tr}A\)</span> is invertible, then the columns of <span class="process-math">\(A\)</span> are linearly independent.</p></article><article class="exercise exercise-like" id="ex_6_f_not_li"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
-<div class="introduction" id="introduction-434"><p id="p-4451">Consider the small data set of points <span class="process-math">\(S = \{(2,1), (2,2), (2,3)\}\text{.}\)</span></p></div>
+<p id="p-4449">The relationship between <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> is not exactly linear, but looks to have a linear pattern. It could be that the relationship is really linear but experimental error causes the data to be slightly inaccurate. Or perhaps the data is not linear, but only approximately linear. Find the least squares linear approximation to the data.</p></article><article class="exercise exercise-like" id="exercise-260"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-4451">We showed that if the columns of <span class="process-math">\(A\)</span> are linearly independent, then <span class="process-math">\(A^{\tr}A\)</span> is invertible. Show that the reverse implication is also true. That is, show that if <span class="process-math">\(A^{\tr}A\)</span> is invertible, then the columns of <span class="process-math">\(A\)</span> are linearly independent.</p></article><article class="exercise exercise-like" id="ex_6_f_not_li"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-434"><p id="p-4452">Consider the small data set of points <span class="process-math">\(S = \{(2,1), (2,2), (2,3)\}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1471"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4452">Find a linear system <span class="process-math">\(A \vx = \vb\)</span> whose solution would define a least squares linear approximation to the data in set <span class="process-math">\(S\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-335" id="answer-335"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-335"><div class="answer solution-like"><p id="p-4453"><span class="process-math">\(\left[ \begin{array}{cc} 1\amp 2 \\ 1\amp 2 \\ 1\amp 2 \end{array} \right] \left[ \begin{array}{c} a_0 \\ a_1 \end{array} \right] = \left[ \begin{array}{c} 1\\2\\3 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1472"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4454">Explain what happens when we attempt to find the least squares solution <span class="process-math">\(\vx^*\)</span> using the matrix <span class="process-math">\(\left(A^{\tr}A\right)^{-1}A^{\tr}\text{.}\)</span> Why does this happen?</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-336" id="answer-336"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-336"><div class="answer solution-like"><p id="p-4455"><span class="process-math">\(A^{\tr}A\)</span> is not invertible</p></div></div>
-</div></article><article class="task exercise-like" id="task-1473"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4456">Does the system <span class="process-math">\(A \vx = \vb\)</span> have a least squares solution? If so, how many and what are they? If not, why not?</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-337" id="answer-337"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-337"><div class="answer solution-like"><p id="p-4457">Infinitely many.</p></div></div>
-</div></article><article class="task exercise-like" id="task-1474"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-4458">Fit a linear function of the form <span class="process-math">\(x = a_0 + a_1y\)</span> to the data. Why should you have expected the answer?</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-338" id="answer-338"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-338"><div class="answer solution-like"><p id="p-4459"><span class="process-math">\(x=2\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="ex_6_f_ranks"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
-<div class="introduction" id="introduction-435"><p id="p-4460">Let <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> be any matrices such that <span class="process-math">\(MN\)</span> is defined. In this exercise we investigate relationships between ranks of various matrices.</p></div>
+<p id="p-4453">Find a linear system <span class="process-math">\(A \vx = \vb\)</span> whose solution would define a least squares linear approximation to the data in set <span class="process-math">\(S\text{.}\)</span></p></article><article class="task exercise-like" id="task-1472"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4455">Explain what happens when we attempt to find the least squares solution <span class="process-math">\(\vx^*\)</span> using the matrix <span class="process-math">\(\left(A^{\tr}A\right)^{-1}A^{\tr}\text{.}\)</span> Why does this happen?</p></article><article class="task exercise-like" id="task-1473"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4457">Does the system <span class="process-math">\(A \vx = \vb\)</span> have a least squares solution? If so, how many and what are they? If not, why not?</p></article><article class="task exercise-like" id="task-1474"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-4459">Fit a linear function of the form <span class="process-math">\(x = a_0 + a_1y\)</span> to the data. Why should you have expected the answer?</p></article></article><article class="exercise exercise-like" id="ex_6_f_ranks"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-435"><p id="p-4461">Let <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> be any matrices such that <span class="process-math">\(MN\)</span> is defined. In this exercise we investigate relationships between ranks of various matrices.</p></div>
 <article class="task exercise-like" id="task-1475"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4461">Show that <span class="process-math">\(\Col MN\)</span> is a subspace of <span class="process-math">\(\Col M\text{.}\)</span> Use this result to explain why <span class="process-math">\(\rank(MN) \leq \rank(M)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1476"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4462">Show that <span class="process-math">\(\rank\left(M^{\tr}M\right) = \rank(M) = \rank\left(M^{\tr}\right)\text{.}\)</span></p>
+<p id="p-4462">Show that <span class="process-math">\(\Col MN\)</span> is a subspace of <span class="process-math">\(\Col M\text{.}\)</span> Use this result to explain why <span class="process-math">\(\rank(MN) \leq \rank(M)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1476"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4463">Show that <span class="process-math">\(\rank\left(M^{\tr}M\right) = \rank(M) = \rank\left(M^{\tr}\right)\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-50" id="hint-50"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-50"><div class="hint solution-like"><p id="p-4463">For part, see Exercise 12 in Section 15.</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-51" id="hint-51"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-51"><div class="hint solution-like"><p id="p-4464">For part, see Exercise 12 in Section 15.</p></div></div>
 </div></article><article class="task exercise-like" id="task-1477"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4464">Show that <span class="process-math">\(\rank(MN) \leq \min\{\rank(M), \rank(N)\}\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-263"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
+<p id="p-4465">Show that <span class="process-math">\(\rank(MN) \leq \min\{\rank(M), \rank(N)\}\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-263"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-436">
-<p id="p-4465">We have seen that if the columns of a matrix <span class="process-math">\(M\)</span> are linearly independent, then</p>
-<div class="displaymath process-math">
+<p id="p-4466">We have seen that if the columns of a matrix <span class="process-math">\(M\)</span> are linearly independent, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \va^* = \left(M^{\tr}M\right)^{-1}M^{\tr} \vb
 \end{equation*}
@@ -915,69 +892,57 @@
 <p class="continuation">is a least squares solution to <span class="process-math">\(M \va = \vy\text{.}\)</span> What if the columns of <span class="process-math">\(M\)</span> are linearly dependent? From Activity 26.1, a least squares solution to <span class="process-math">\(M \va = \vy\)</span> is a solution to the equation <span class="process-math">\(\left(M^{\tr}M\right)\va = M^{\tr}\vy\text{.}\)</span> In this exercise we demonstrate that <span class="process-math">\(\left(M^{\tr}M\right)\va = M^{\tr}\vy\)</span> always has a solution.</p>
 </div>
 <article class="task exercise-like" id="task-1478"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4466">Explain why it is enough to show that the rank of the augmented matrix <span class="process-math">\([M^{\tr}M \ | \ M^{\tr}\vy]\)</span> is the same as the rank of <span class="process-math">\(M^{\tr}M\text{.}\)</span></p>
+<p id="p-4467">Explain why it is enough to show that the rank of the augmented matrix <span class="process-math">\([M^{\tr}M \ | \ M^{\tr}\vy]\)</span> is the same as the rank of <span class="process-math">\(M^{\tr}M\text{.}\)</span></p></article><article class="task exercise-like" id="task-1479"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4469">Explain why <span class="process-math">\(\rank\left([M^{\tr}M \ | \ M^{\tr}\vy]\right) \geq \rank(M)\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-339" id="answer-339"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-339"><div class="answer solution-like"><p id="p-4467">The augmented column of <span class="process-math">\([M^{\tr}M \ | \ M^{\tr}\vy]\)</span> cannot be a pivot column.</p></div></div>
-</div></article><article class="task exercise-like" id="task-1479"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4468">Explain why <span class="process-math">\(\rank\left([M^{\tr}M \ | \ M^{\tr}\vy]\right) \geq \rank(M)\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-51" id="hint-51"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-51"><div class="hint solution-like"><p id="p-4469">See <a href="" class="xref" data-knowl="./knowl/ex_6_f_ranks.html" title="Exercise 6">Exercise 6</a>.</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-52" id="hint-52"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-52"><div class="hint solution-like"><p id="p-4470">See <a href="" class="xref" data-knowl="./knowl/ex_6_f_ranks.html" title="Exercise 6">Exercise 6</a>.</p></div></div>
 </div></article><article class="task exercise-like" id="task-1480"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4470">Explain why <span class="process-math">\([M^{\tr}M \ | \ M^{\tr}\vy] = M^{\tr}[M \ | \ \vy]\text{.}\)</span></p>
+<p id="p-4471">Explain why <span class="process-math">\([M^{\tr}M \ | \ M^{\tr}\vy] = M^{\tr}[M \ | \ \vy]\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-52" id="hint-52"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-52"><div class="hint solution-like"><p id="p-4471">Use the definition of the matrix product.</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-53" id="hint-53"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-53"><div class="hint solution-like"><p id="p-4472">Use the definition of the matrix product.</p></div></div>
 </div></article><article class="task exercise-like" id="task-1481"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-4472">Explain why <span class="process-math">\(\rank\left([M^{\tr}M \ | \ M^{\tr}\vy]\right) \leq \rank\left(M^{\tr} \right)\text{.}\)</span></p>
+<p id="p-4473">Explain why <span class="process-math">\(\rank\left([M^{\tr}M \ | \ M^{\tr}\vy]\right) \leq \rank\left(M^{\tr} \right)\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-53" id="hint-53"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-53"><div class="hint solution-like"><p id="p-4473">See <a href="" class="xref" data-knowl="./knowl/ex_6_f_ranks.html" title="Exercise 6">Exercise 6</a>.</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-54" id="hint-54"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-54"><div class="hint solution-like"><p id="p-4474">See <a href="" class="xref" data-knowl="./knowl/ex_6_f_ranks.html" title="Exercise 6">Exercise 6</a>.</p></div></div>
 </div></article><article class="task exercise-like" id="task-1482"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-4474">Finally, explain why <span class="process-math">\(\rank\left([M^{\tr}M \ | \ M^{\tr}\vy]\right) = \rank\left(M^{\tr}M\right)\text{.}\)</span></p>
+<p id="p-4475">Finally, explain why <span class="process-math">\(\rank\left([M^{\tr}M \ | \ M^{\tr}\vy]\right) = \rank\left(M^{\tr}M\right)\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-54" id="hint-54"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-54"><div class="hint solution-like"><p id="p-4475">Combine parts (b) and (d).</p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-55" id="hint-55"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-55"><div class="hint solution-like"><p id="p-4476">Combine parts (b) and (d).</p></div></div>
 </div></article></article><article class="exercise exercise-like" id="exercise-264"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
-<div class="introduction" id="introduction-437"><p id="p-4476">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix with linearly independent columns, the least squares solution <span class="process-math">\(\vx^* = \left(A^{\tr}A\right)^{-1}A^{\tr} \vb\)</span> to <span class="process-math">\(A \vx = \vb\)</span> has the property that <span class="process-math">\(A \vx^* = A\left(A^{\tr}A\right)^{-1}A^{\tr} \vb\)</span> is the vector in <span class="process-math">\(\Col A\)</span> that is closest to <span class="process-math">\(\vb\text{.}\)</span> That is, <span class="process-math">\(A\left(A^{\tr}A\right)^{-1}A^{\tr} \vb\)</span> is the projection of <span class="process-math">\(\vb\)</span> onto <span class="process-math">\(\Col A\text{.}\)</span> The matrix <span class="process-math">\(P = A\left(A^{\tr}A\right)^{-1}A^{\tr}\)</span> is called a <dfn class="terminology">projection matrix</dfn>. Projection matrices have special properties.</p></div>
+<div class="introduction" id="introduction-437"><p id="p-4477">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix with linearly independent columns, the least squares solution <span class="process-math">\(\vx^* = \left(A^{\tr}A\right)^{-1}A^{\tr} \vb\)</span> to <span class="process-math">\(A \vx = \vb\)</span> has the property that <span class="process-math">\(A \vx^* = A\left(A^{\tr}A\right)^{-1}A^{\tr} \vb\)</span> is the vector in <span class="process-math">\(\Col A\)</span> that is closest to <span class="process-math">\(\vb\text{.}\)</span> That is, <span class="process-math">\(A\left(A^{\tr}A\right)^{-1}A^{\tr} \vb\)</span> is the projection of <span class="process-math">\(\vb\)</span> onto <span class="process-math">\(\Col A\text{.}\)</span> The matrix <span class="process-math">\(P = A\left(A^{\tr}A\right)^{-1}A^{\tr}\)</span> is called a <dfn class="terminology">projection matrix</dfn>. Projection matrices have special properties.</p></div>
 <article class="task exercise-like" id="task-1483"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4477">Show that <span class="process-math">\(P^2 = P = P^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1484"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4478">In general, we define projection matrices as follows. <article class="definition definition-like" id="definition-59"><h5 class="heading">
+<p id="p-4478">Show that <span class="process-math">\(P^2 = P = P^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1484"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4479">In general, we define projection matrices as follows. <article class="definition definition-like" id="definition-59"><h5 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">26.14</span><span class="period">.</span>
 </h5>
-<p id="p-4479">A square matrix <span class="process-math">\(E\)</span> is a <dfn class="terminology">projection matrix</dfn> if <span class="process-math">\(E^2 = E\text{.}\)</span></p></article> Show that <span class="process-math">\(E = \left[ \begin{array}{cc} 0\amp 1\\ 0\amp 1 \end{array} \right]\)</span> is a projection matrix. Onto what does <span class="process-math">\(E\)</span> project?</p></article><article class="task exercise-like" id="task-1485"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4480">Notice that the projection matrix from part (b) is not an orthogonal matrix. <article class="definition definition-like" id="definition-60"><h5 class="heading">
+<p id="p-4480">A square matrix <span class="process-math">\(E\)</span> is a <dfn class="terminology">projection matrix</dfn> if <span class="process-math">\(E^2 = E\text{.}\)</span></p></article> Show that <span class="process-math">\(E = \left[ \begin{array}{cc} 0\amp 1\\ 0\amp 1 \end{array} \right]\)</span> is a projection matrix. Onto what does <span class="process-math">\(E\)</span> project?</p></article><article class="task exercise-like" id="task-1485"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4481">Notice that the projection matrix from part (b) is not an orthogonal matrix. <article class="definition definition-like" id="definition-60"><h5 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">26.15</span><span class="period">.</span>
 </h5>
-<p id="p-4481">A square matrix <span class="process-math">\(E\)</span> is a <dfn class="terminology">orthogonal projection matrix</dfn> if <span class="process-math">\(E^2 = E = E^{\tr}\text{.}\)</span></p></article> Show that <span class="process-math">\(E = \left[ \begin{array}{cc} \frac{1}{2}\amp \frac{1}{2} \\ \frac{1}{2}\amp \frac{1}{2} \end{array} \right]\)</span> is an orthogonal projection matrix. Onto what does <span class="process-math">\(E\)</span> project?</p></article><article class="task exercise-like" id="task-1486"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-4482">If <span class="process-math">\(E\)</span> is an <span class="process-math">\(n \times n\)</span> orthogonal projection matrix, show that if <span class="process-math">\(\vb\)</span> is in <span class="process-math">\(\R^n\text{,}\)</span> then <span class="process-math">\(\vb - E\vb\)</span> is orthogonal to every vector in <span class="process-math">\(\Col E\text{.}\)</span> (Hence, <span class="process-math">\(E\)</span> projects orthogonally onto <span class="process-math">\(\Col E\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-1487"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<p id="p-4483">Recall the projection <span class="process-math">\(\proj_{\vv} \vu\)</span> of a vector <span class="process-math">\(\vu\)</span> in the direction of a vector <span class="process-math">\(\vv\)</span> is give by <span class="process-math">\(\proj_{\vv} \vu = \frac{\vu \cdot \vv}{\vv \cdot \vv} \vv\text{.}\)</span> Show that <span class="process-math">\(\proj_{\vv} \vu = E\vu\text{,}\)</span> where <span class="process-math">\(E\)</span> is the orthogonal projection matrix <span class="process-math">\(\frac{1}{\vv \cdot \vv} \left(\vv \vv^{\tr} \right)\text{.}\)</span> Illustrate with <span class="process-math">\(\vv = [1 \ 1]^{\tr}\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-265"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
-<div class="introduction" id="introduction-438"><p id="p-4484">Label each of the following statements as True or False. Provide justification for your response.</p></div>
+<p id="p-4482">A square matrix <span class="process-math">\(E\)</span> is a <dfn class="terminology">orthogonal projection matrix</dfn> if <span class="process-math">\(E^2 = E = E^{\tr}\text{.}\)</span></p></article> Show that <span class="process-math">\(E = \left[ \begin{array}{cc} \frac{1}{2}\amp \frac{1}{2} \\ \frac{1}{2}\amp \frac{1}{2} \end{array} \right]\)</span> is an orthogonal projection matrix. Onto what does <span class="process-math">\(E\)</span> project?</p></article><article class="task exercise-like" id="task-1486"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-4483">If <span class="process-math">\(E\)</span> is an <span class="process-math">\(n \times n\)</span> orthogonal projection matrix, show that if <span class="process-math">\(\vb\)</span> is in <span class="process-math">\(\R^n\text{,}\)</span> then <span class="process-math">\(\vb - E\vb\)</span> is orthogonal to every vector in <span class="process-math">\(\Col E\text{.}\)</span> (Hence, <span class="process-math">\(E\)</span> projects orthogonally onto <span class="process-math">\(\Col E\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-1487"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<p id="p-4484">Recall the projection <span class="process-math">\(\proj_{\vv} \vu\)</span> of a vector <span class="process-math">\(\vu\)</span> in the direction of a vector <span class="process-math">\(\vv\)</span> is give by <span class="process-math">\(\proj_{\vv} \vu = \frac{\vu \cdot \vv}{\vv \cdot \vv} \vv\text{.}\)</span> Show that <span class="process-math">\(\proj_{\vv} \vu = E\vu\text{,}\)</span> where <span class="process-math">\(E\)</span> is the orthogonal projection matrix <span class="process-math">\(\frac{1}{\vv \cdot \vv} \left(\vv \vv^{\tr} \right)\text{.}\)</span> Illustrate with <span class="process-math">\(\vv = [1 \ 1]^{\tr}\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-265"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
+<div class="introduction" id="introduction-438"><p id="p-4485">Label each of the following statements as True or False. Provide justification for your response.</p></div>
 <article class="task exercise-like" id="task-1488"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-4485">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then there is a unique least squares solution to <span class="process-math">\(A\vx = \vb\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-340" id="answer-340"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-340"><div class="answer solution-like"><p id="p-4486">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1489"><h4 class="heading">
+<p id="p-4486">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then there is a unique least squares solution to <span class="process-math">\(A\vx = \vb\text{.}\)</span></p></article><article class="task exercise-like" id="task-1489"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-4487">Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_n\}\)</span> be an orthonormal basis for <span class="process-math">\(\R^n\text{.}\)</span> The least squares solution to <span class="process-math">\([\vv_1 \ \vv_2 \ \cdots \ \vv_{n-1}] \vx = \vv_n\)</span> is <span class="process-math">\(\vx = \vzero\text{.}\)</span></p></article><article class="task exercise-like" id="task-1490"><h4 class="heading">
+<p id="p-4488">Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_n\}\)</span> be an orthonormal basis for <span class="process-math">\(\R^n\text{.}\)</span> The least squares solution to <span class="process-math">\([\vv_1 \ \vv_2 \ \cdots \ \vv_{n-1}] \vx = \vv_n\)</span> is <span class="process-math">\(\vx = \vzero\text{.}\)</span></p></article><article class="task exercise-like" id="task-1490"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-4488">The least squares line to the data points <span class="process-math">\((0,0)\text{,}\)</span> <span class="process-math">\((1,0)\text{,}\)</span> and <span class="process-math">\((0,1)\)</span> is <span class="process-math">\(y=x\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-341" id="answer-341"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-341"><div class="answer solution-like"><p id="p-4489">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-1491"><h4 class="heading">
+<p id="p-4489">The least squares line to the data points <span class="process-math">\((0,0)\text{,}\)</span> <span class="process-math">\((1,0)\text{,}\)</span> and <span class="process-math">\((0,1)\)</span> is <span class="process-math">\(y=x\text{.}\)</span></p></article><article class="task exercise-like" id="task-1491"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-4490">If the columns of a matrix <span class="process-math">\(A\)</span> are not invertible and the vector <span class="process-math">\(\vb\)</span> is not in <span class="process-math">\(\Col A\text{,}\)</span> then there is no least squares solution to <span class="process-math">\(A \vx = \vb\text{.}\)</span></p></article><article class="task exercise-like" id="task-1492"><h4 class="heading">
+<p id="p-4491">If the columns of a matrix <span class="process-math">\(A\)</span> are not invertible and the vector <span class="process-math">\(\vb\)</span> is not in <span class="process-math">\(\Col A\text{,}\)</span> then there is no least squares solution to <span class="process-math">\(A \vx = \vb\text{.}\)</span></p></article><article class="task exercise-like" id="task-1492"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-4491">Every matrix equation of the form <span class="process-math">\(A \vx = \vb\)</span> has a least squares solution.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-342" id="answer-342"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-342"><div class="answer solution-like"><p id="p-4492">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1493"><h4 class="heading">
+<p id="p-4492">Every matrix equation of the form <span class="process-math">\(A \vx = \vb\)</span> has a least squares solution.</p></article><article class="task exercise-like" id="task-1493"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-4493">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then the least squares solution to <span class="process-math">\(A \vx = \vb\)</span> is the orthogonal projection of <span class="process-math">\(\vb\)</span> onto <span class="process-math">\(\Col A\text{.}\)</span></p></article></article></section></div></main>
+<p id="p-4494">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then the least squares solution to <span class="process-math">\(A \vx = \vb\)</span> is the orthogonal projection of <span class="process-math">\(\vb\)</span> onto <span class="process-math">\(\Col A\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

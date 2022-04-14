@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:30:58-04:00       *-->
+<!--*       on 2022-04-14T13:09:05-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,14 +748,14 @@
 <main class="main"><div id="content" class="pretext-content"><section class="chapter" id="chap_JCF"><h2 class="heading">
 <span class="type">Chapter</span> <span class="codenumber">40</span> <span class="title">The Jordan Canonical Form</span>
 </h2>
-<section class="introduction" id="introduction-697"><article class="objectives goal-like" id="objectives-40"><h2 class="heading"><span class="type">Focus Questions</span></h2>
-<div class="introduction" id="introduction-698"><p id="p-6915">By the end of this section, you should be able to give precise and thorough answers to the questions listed below. You may want to keep these questions in mind to focus your thoughts as you complete the section.</p></div>
+<section class="introduction" id="introduction-692"><article class="objectives goal-like" id="objectives-40"><h2 class="heading"><span class="type">Focus Questions</span></h2>
+<div class="introduction" id="introduction-693"><p id="p-6880">By the end of this section, you should be able to give precise and thorough answers to the questions listed below. You may want to keep these questions in mind to focus your thoughts as you complete the section.</p></div>
 <ul class="disc">
-<li id="li-969"><p id="p-6916">What is the Jordan canonical form of a square matrix?</p></li>
-<li id="li-970"><p id="p-6917">What is a generalized eigenvector of a matrix and how are generalized eigenvectors related to the Jordan canonical form of a matrix?</p></li>
-<li id="li-971"><p id="p-6918">What does it mean for a vector space <span class="process-math">\(V\)</span> to be a direct sum of subspaces <span class="process-math">\(V_1\text{,}\)</span> <span class="process-math">\(V_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(V_m\text{?}\)</span></p></li>
-<li id="li-972"><p id="p-6919">What is a nilpotent matrix? How do nilpotent matrices play a role in the Jordan canonical form?</p></li>
-<li id="li-973"><p id="p-6920">What does it mean for a subspace <span class="process-math">\(W\)</span> of a vector space <span class="process-math">\(V\)</span> to be invariant under a linear transformation <span class="process-math">\(T: V \to V\text{?}\)</span></p></li>
+<li id="li-960"><p id="p-6881">What is the Jordan canonical form of a square matrix?</p></li>
+<li id="li-961"><p id="p-6882">What is a generalized eigenvector of a matrix and how are generalized eigenvectors related to the Jordan canonical form of a matrix?</p></li>
+<li id="li-962"><p id="p-6883">What does it mean for a vector space <span class="process-math">\(V\)</span> to be a direct sum of subspaces <span class="process-math">\(V_1\text{,}\)</span> <span class="process-math">\(V_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(V_m\text{?}\)</span></p></li>
+<li id="li-963"><p id="p-6884">What is a nilpotent matrix? How do nilpotent matrices play a role in the Jordan canonical form?</p></li>
+<li id="li-964"><p id="p-6885">What does it mean for a subspace <span class="process-math">\(W\)</span> of a vector space <span class="process-math">\(V\)</span> to be invariant under a linear transformation <span class="process-math">\(T: V \to V\text{?}\)</span></p></li>
 </ul></article></section><nav class="summary-links"><ul>
 <li><a href="sec_appl_epidemic.html" class="internal"><span class="title">Application: The Bailey Model of an Epidemic</span></a></li>
 <li><a href="sec_jordan_intro.html" class="internal"><span class="title">Introduction</span></a></li>
@@ -773,6 +771,6 @@
 <li><a href="sec_proj_epidemic.html" class="internal"><span class="title">Project: Modeling an Epidemic</span></a></li>
 </ul></nav></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

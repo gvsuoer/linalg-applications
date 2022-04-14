@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:17-04:00       *-->
+<!--*       on 2022-04-14T13:02:39-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -754,14 +752,14 @@
 <p id="p-2884">Around 1900 or so determinants were deemed much more important than they are today. In fact, determinants were used even before matrices. According to Tucker<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-31" id="fn-31"><sup> 31 </sup></a> determinants (not matrices) developed out of the study of coefficients of systems of linear equations and were used by Leibniz 150 years before the term matrix was coined by J. J. Sylvester in 1848. Even though determinants are not as important as they once were, the determinant of a matrix is still a useful quantity. We saw in <a href="" class="xref" data-knowl="./knowl/pa_4_a.html" title="Preview Activity 17.1">Preview Activity 17.1</a> that the determinant of a matrix tells us if the matrix is invertible and how it can help us find eigenvalues. In this section, we will see how to find the determinant of any size matrix and how to use this determinant to find the eigenvalues.</p>
 <p id="p-2885">The determinant of a <span class="process-math">\(2 \times 2\)</span> matrix <span class="process-math">\(A = \left[ \begin{array}{cc} a\amp b \\ c\amp d \end{array}  \right]\)</span> is <span class="process-math">\(\det(A)=ad-bc\text{.}\)</span> The matrix <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(\det(A) \neq 0\text{.}\)</span> We will use a recursive approach to find the determinants of larger size matrices building from the <span class="process-math">\(2\times 2\)</span> determinants. We present the result in the <span class="process-math">\(3 \times 3\)</span> case here — a more detailed analysis can be found at the end of this section.</p>
 <p id="p-2886">To find the determinant of a <span class="process-math">\(3 \times 3\)</span> matrix <span class="process-math">\(A = \left[ \begin{array}{ccc} a_{11}\amp a_{12}\amp a_{13} \\ a_{21}\amp a_{22}\amp a_{23}\\ a_{31}\amp a_{32}\amp a_{33} \end{array}  \right]\text{,}\)</span> we will use the determinants of three <span class="process-math">\(2\times 2\)</span> matrices. More specifically, the determinant of <span class="process-math">\(A\text{,}\)</span> denoted <span class="process-math">\(\det(A)\)</span> is the quantity</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_det_3by3">
 \begin{equation}
-a_{11} \det\left(\left[ \begin{array}{cc} a_{22}\amp a_{23} \\ a_{32}\amp a_{33} \end{array}  \right] \right)- a_{12} \det \left(\left[ \begin{array}{cc} a_{21}\amp a_{23} \\ a_{31}\amp a_{33} \end{array}  \right] \right) + a_{13} \det \left(\left[ \begin{array}{cc} a_{21}\amp a_{22} \\ a_{31}\amp a_{32} \end{array}  \right] \right)\text{.}\label{eq_det_3by3}\tag{17.1}
+a_{11} \det\left(\left[ \begin{array}{cc} a_{22}\amp a_{23} \\ a_{32}\amp a_{33} \end{array}  \right] \right)- a_{12} \det \left(\left[ \begin{array}{cc} a_{21}\amp a_{23} \\ a_{31}\amp a_{33} \end{array}  \right] \right) + a_{13} \det \left(\left[ \begin{array}{cc} a_{21}\amp a_{22} \\ a_{31}\amp a_{32} \end{array}  \right] \right)\text{.}\tag{17.1}
 \end{equation}
 </div>
 <p id="p-2887">This sum is called a <dfn class="terminology">cofactor expansion</dfn> of the determinant of <span class="process-math">\(A\text{.}\)</span> The smaller matrices in this expansion are obtained by deleting certain rows and columns of the matrix <span class="process-math">\(A\text{.}\)</span> In general, when finding the determinant of an <span class="process-math">\(n\times n\)</span> matrix, we find determinants of <span class="process-math">\((n-1)\times (n-1)\)</span> matrices, which we can again reduce to smaller matrices to calculate.</p>
 <p id="p-2888">We will use the specific matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_det_3by3.html">
 \begin{equation*}
 A = \left[ \begin{array}{ccc} 1 \amp  2 \amp  0 \\ 1 \amp  4 \amp  3 \\ 2 \amp  2 \amp  1 \end{array}  \right]
 \end{equation*}
@@ -771,19 +769,19 @@ A = \left[ \begin{array}{ccc} 1 \amp  2 \amp  0 \\ 1 \amp  4 \amp  3 \\ 2 \amp  
 <li id="li-503"><p id="p-2889">We first pick a row or column of <span class="process-math">\(A\text{.}\)</span> We will pick the first row of <span class="process-math">\(A\)</span> for this example.</p></li>
 <li id="li-504">
 <p id="p-2890">For each entry in the row (or column) we choose, in this case the first row, we will calculate the determinant of a smaller matrix obtained by removing the row and the column the entry is in. Let <span class="process-math">\(A_{ij}\)</span> be the smaller matrix found by deleting the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column of <span class="process-math">\(A\text{.}\)</span> For entry <span class="process-math">\(a_{11}\text{,}\)</span> we find the matrix <span class="process-math">\(A_{11}\)</span> obtained by removing first row and first column:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A_{11} = \left[ \begin{array}{cc} 4 \amp  3 \\ 2 \amp  1 \end{array}  \right]\,\text{.}
 \end{equation*}
 </div>
 <p class="continuation">For entry <span class="process-math">\(a_{12}\text{,}\)</span> we find</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A_{12} = \left[ \begin{array}{cc} 1 \amp  3 \\ 2 \amp  1 \end{array}  \right]\,\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Finally, for entry <span class="process-math">\(a_{13}\text{,}\)</span> we find</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A_{13} = \left[ \begin{array}{cc} 1 \amp  4 \\ 2 \amp  2 \end{array}  \right] \,\text{.}
 \end{equation*}
@@ -791,7 +789,7 @@ A_{13} = \left[ \begin{array}{cc} 1 \amp  4 \\ 2 \amp  2 \end{array}  \right] \,
 </li>
 <li id="li-505">
 <p id="p-2891">Notice that in the <span class="process-math">\(3 \times 3\)</span> determinant formula in <a href="" class="xref" data-knowl="./knowl/eq_det_3by3.html" title="Equation 17.1">(17.1)</a> above, the middle term had a (-) sign. The signs of the terms in the cofactor expansion alternate within each row and each column. More specifically, the sign of a term in the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(j\)</span>th column is <span class="process-math">\((-1)^{i+j}\text{.}\)</span> We then obtain the following pattern of the signs within each row and column:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_det_3by3.html">
 \begin{equation*}
 \left[ \begin{array}{cccc} + \amp  - \amp  + \amp  \cdots \\ - \amp  + \amp  - \amp  \cdots \\ + \amp  - \amp  + \amp  \cdots \\ \vdots \amp  \amp  \amp \end{array}  \right]
 \end{equation*}
@@ -800,17 +798,17 @@ A_{13} = \left[ \begin{array}{cc} 1 \amp  4 \\ 2 \amp  2 \end{array}  \right] \,
 </li>
 <li id="li-506">
 <p id="p-2892">For each entry <span class="process-math">\(a_{ij}\)</span> in the row (or column) of <span class="process-math">\(A\)</span> we chose, we multiply the entry <span class="process-math">\(a_{ij}\)</span> by the determinant of <span class="process-math">\(A_{ij}\)</span> and the sign <span class="process-math">\((-1)^{i+j}\text{.}\)</span> In this case, we obtain the following numbers</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{11} (-1)^{1+1} \det(A_{11})  = 1 \det \left[ \begin{array}{cc} 4 \amp  3 \\ 2 \amp  1 \end{array}  \right] = 1(4-6)=-2
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{12} (-1)^{1+2} \det(A_{12}) = -2 \det \left[ \begin{array}{cc} 1 \amp  3 \\ 2 \amp  1 \end{array}  \right] = -2(1-6)=10
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{13} (-1)^{1+3} \det(A_{13}) = 0
 \end{equation*}
@@ -819,7 +817,7 @@ a_{13} (-1)^{1+3} \det(A_{13}) = 0
 </li>
 <li id="li-507">
 <p id="p-2893">Finally, we find the determinant by adding all these values:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-114">
 \begin{align*}
 \det(A) \amp = a_{11} (-1)^{1+1} \det(A_{11}) + a_{12} (-1)^{1+2} \det(A_{12})\\
 \amp \qquad + a_{13} (-1)^{1+3} \det(A_{13})\\
@@ -830,6 +828,6 @@ a_{13} (-1)^{1+3} \det(A_{13}) = 0
 </ul></section><div class="hidden-content tex2jax_ignore" id="hk-fn-31"><div class="fn">Tucker, Alan. (1993). The Growing Importance of Linear Algebra in Undergraduate Mathematics. <span class="booktitle">The College Mathematics Journal</span>, 1, 3-9.</div></div>
 </div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

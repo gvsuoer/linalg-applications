@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:24-04:00       *-->
+<!--*       on 2022-04-14T13:05:04-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -752,8 +750,8 @@
 </h2>
 <ul class="disc">
 <li id="li-686">
-<p id="p-4292">The projection of the vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> onto <span class="process-math">\(W\)</span> is the vector</p>
-<div class="displaymath process-math">
+<p id="p-4293">The projection of the vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> onto <span class="process-math">\(W\)</span> is the vector</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \proj_W \vv = \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m\text{,}
 \end{equation*}
@@ -761,8 +759,8 @@
 <p class="continuation">where <span class="process-math">\(W\)</span> is the a subspace of <span class="process-math">\(\R^n\)</span> with orthogonal basis <span class="process-math">\(\{\vw_1, \vw_2, \ldots, \vw_m\}\text{.}\)</span> These projections are important in that <span class="process-math">\(\proj_W \vv\)</span> is the best approximation of the vector <span class="process-math">\(\vv\)</span> by a vector in <span class="process-math">\(W\)</span> in the least squares sense.</p>
 </li>
 <li id="li-687">
-<p id="p-4293">With <span class="process-math">\(W\)</span> as in (a), the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\)</span> is the vector</p>
-<div class="displaymath process-math">
+<p id="p-4294">With <span class="process-math">\(W\)</span> as in (a), the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\)</span> is the vector</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \proj_{\perp W} \vv = \vv - \proj_W \vv\text{.}
 \end{equation*}
@@ -770,15 +768,15 @@
 <p class="continuation">The norm of <span class="process-math">\(\proj_{\perp W} \vv\)</span> provides a measure of how well <span class="process-math">\(\proj_W \vv\)</span> approximates the vector <span class="process-math">\(\vv\text{.}\)</span></p>
 </li>
 <li id="li-688">
-<p id="p-4294">The Gram-Schmidt process produces an orthogonal basis from any basis. It works as follows. Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\text{.}\)</span> The set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> defined by</p>
+<p id="p-4295">The Gram-Schmidt process produces an orthogonal basis from any basis. It works as follows. Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\text{.}\)</span> The set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> defined by</p>
 <ul class="circle">
-<li id="li-689"><p id="p-4295"><span class="process-math">\(\vw_1 = \vv_1\text{,}\)</span></p></li>
-<li id="li-690"><p id="p-4296"><span class="process-math">\(\vw_2 = \vv_2 - \ds \frac{\vv_2 \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1\text{,}\)</span></p></li>
-<li id="li-691"><p id="p-4297"><span class="process-math">\(\vw_3 = \vv_3 - \ds \frac{ \vv_3 \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_3 \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2\text{,}\)</span> <span class="process-math">\(\vdots\)</span></p></li>
-<li id="li-692"><p id="p-4298"><span class="process-math">\(\vw_m = \vv_m - \ds \frac{ \vv_m \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_m \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2 - \cdots - \frac{ \vv_m \cdot \vw_{m-1} }{ \vw_{m-1} \cdot \vw_{m-1} } \vw_{m-1}\text{.}\)</span></p></li>
+<li id="li-689"><p id="p-4296"><span class="process-math">\(\vw_1 = \vv_1\text{,}\)</span></p></li>
+<li id="li-690"><p id="p-4297"><span class="process-math">\(\vw_2 = \vv_2 - \ds \frac{\vv_2 \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1\text{,}\)</span></p></li>
+<li id="li-691"><p id="p-4298"><span class="process-math">\(\vw_3 = \vv_3 - \ds \frac{ \vv_3 \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_3 \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2\text{,}\)</span> <span class="process-math">\(\vdots\)</span></p></li>
+<li id="li-692"><p id="p-4299"><span class="process-math">\(\vw_m = \vv_m - \ds \frac{ \vv_m \cdot \vw_1 }{ \vw_1 \cdot \vw_1 } \vw_1 - \frac{ \vv_m \cdot \vw_2 }{ \vw_2 \cdot \vw_2 } \vw_2 - \cdots - \frac{ \vv_m \cdot \vw_{m-1} }{ \vw_{m-1} \cdot \vw_{m-1} } \vw_{m-1}\text{.}\)</span></p></li>
 </ul>
 <p class="continuation">is an orthogonal basis for <span class="process-math">\(W\text{.}\)</span> Moreover,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\} = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k}\}
 \end{equation*}
@@ -786,8 +784,8 @@
 <p class="continuation">for each <span class="process-math">\(k\)</span> between 1 and <span class="process-math">\(m\text{.}\)</span></p>
 </li>
 <li id="li-693">
-<p id="p-4299">The QR factorization has applications to solving least squares problems and approximating eigenvalues of matrices. The QR factorization writes an <span class="process-math">\(m \times n\)</span> matrix with rank <span class="process-math">\(n\)</span> as a product <span class="process-math">\(A = QR\text{,}\)</span> where the columns of <span class="process-math">\(Q\)</span> form an orthonormal basis for <span class="process-math">\(\Col A\)</span> and</p>
-<div class="displaymath process-math">
+<p id="p-4300">The QR factorization has applications to solving least squares problems and approximating eigenvalues of matrices. The QR factorization writes an <span class="process-math">\(m \times n\)</span> matrix with rank <span class="process-math">\(n\)</span> as a product <span class="process-math">\(A = QR\text{,}\)</span> where the columns of <span class="process-math">\(Q\)</span> form an orthonormal basis for <span class="process-math">\(\Col A\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 R = [\vr_1 \ | \ \vr_2 \ | \ \vr_3 \ | \ \cdots \ | \ \vr_n ] = \left[ \begin{array}{cccccc} r_{11}\amp r_{12}\amp r_{13}\amp  \cdots \amp r_{1n-1}\amp r_{1n} \\ 0\amp r_{22}\amp r_{23}\amp  \cdots \amp r_{2n-1}\amp r_{2n} \\ 0\amp 0\amp r_{33}\amp  \cdots \amp r_{3n-1}\amp r_{3n} \\ \vdots\amp \vdots \amp \vdots \amp \vdots \amp \vdots \amp \vdots \\ 0\amp 0\amp 0\amp  \cdots \amp 0\amp r_{nn} \end{array}  \right]
 \end{equation*}
@@ -796,6 +794,6 @@ R = [\vr_1 \ | \ \vr_2 \ | \ \vr_3 \ | \ \cdots \ | \ \vr_n ] = \left[ \begin{ar
 </li>
 </ul></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

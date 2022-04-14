@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:49:07-04:00       *-->
+<!--*       on 2022-04-14T13:26:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,24 +15,45 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Let <span class="process-math">\(q_1(t) = 1+t^3\text{,}\)</span> <span class="process-math">\(q_2(t) = 1+t^2\text{,}\)</span> <span class="process-math">\(q_3(t) = 1-t\text{,}\)</span> <span class="process-math">\(q_4(t) = t^4\text{,}\)</span> and <span class="process-math">\(q_5(t) = -t^3\text{,}\)</span> and let <span class="process-math">\(\CC = \{q_1(t), q_2(t),
-q_3(t), q_4(t), q_5(t)\}\text{.}\)</span> Since</p>
-<div class="displaymath process-math">
-\begin{align*}
-T(q_1(t)) \amp = q_1(t)+q_2(t)\\
-T(q_2(t)) \amp = q_2(t)+q_3(t)\\
-T(q_3(t)) \amp = q_3(t)\\
-T(q_4(t)) \amp = 2q_4(t)+q_5(t)\\
-T(q_5(t)) \amp = 2q_5(t)
-\end{align*}
-</div>
-<p class="continuation">it follows that</p>
-<div class="displaymath process-math">
+<p>A polynomial in two variables is an object of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-[T]_{\CC} = \left[ \begin{array}{ccccc} 1\amp 1\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 2 \end{array}  \right]\text{,}
+p(s,t) = \sum a_{ij}s^it^j
 \end{equation*}
 </div>
-<p class="continuation">and we have found a basis for <span class="process-math">\(\pol_4\)</span> for which the matrix <span class="process-math">\(T\)</span> has a Jordan canonical form.</p>
-<span class="incontext"><a href="sec_jordan.html#p-7079">in-context</a></span>
+<p class="continuation">where <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> are integers greater than or equal to 0. For example,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+q(s,t) = 3 + 2st + 4s^2t - 10st^3+5s^2t^2
+\end{equation*}
+</div>
+<p class="continuation">is a polynomial in two variables. The degree of a monomial <span class="process-math">\(s^it^j\)</span> is <span class="process-math">\(i+j\text{.}\)</span> The degree of a polynomial <span class="process-math">\(p(s,t)\)</span> is the largest degree of any monomial summand of <span class="process-math">\(p(s,t)\text{.}\)</span> So the degree of the example polynomial <span class="process-math">\(q(s,t)\)</span> is 4. Two polynomials in <span class="process-math">\(V\)</span> are equal if they have the same coefficients on like terms. We add two polynomials in the variables <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> by adding coefficients of like terms. Scalar multiplication is done by multiplying each coefficient by the given scalar. Let <span class="process-math">\(V\)</span> be the set of all polynomials of two variables of degree less than or equal to 2. You may assume that <span class="process-math">\(V\)</span> is a vector space under this addition and multiplication by scalars and has the standard additive identity and additive inverses. Define <span class="process-math">\(F: V \to V\)</span> and <span class="process-math">\(G: V \to V\)</span> by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+F(p(s,t)) = s\frac{\partial p}{\partial s}(s,t) + \frac{\partial p}{\partial t}(s,t)
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(p(s,t)) = \frac{\partial p}{\partial s}(s,t) + t\frac{\partial p}{\partial t}(s,t)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+F(a_0+a_1s+a_2t+a_3st +a_4s^2+a_5t^2) \amp = s(a_1+a_3t+2a_4s) + (a_2+a_3s+2a_5t)\\
+\amp = a_2 + (a_1+a_3)s + 2a_5t + a_3st + 2a_4s^2
+\end{align*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+G(a_0+a_1s+a_2t+a_3st +a_4s^2+a_5t^2) \amp = (a_1+a_3t+2a_4s) + t(a_2+a_3s+2a_5t)\\
+\amp = a_1 + 2a_4s + (a_2+a_3)t + a_3st + 2a_5t^2\text{.}
+\end{align*}
+</div>
+<p class="continuation">You may assume that <span class="process-math">\(F\)</span> and <span class="process-math">\(G\)</span> are linear transformations.</p>
+<span class="incontext"><a href="sec_jordan_exer.html#p-7079" class="internal">in-context</a></span>
 </body>
 </html>

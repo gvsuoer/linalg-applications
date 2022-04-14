@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:20:31-04:00       *-->
+<!--*       on 2022-04-14T12:57:31-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -758,22 +756,22 @@
 <div class="sbspanel top" style="width:50%;"><img src="external/1_b_Archimedes_2.svg" role="img" class="contained"></div>
 </div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.9<span class="period">.</span></span><span class="space"> </span>Archimedes method.</figcaption></figure><p id="p-335">Although we won't go through the details, a conclusion we can draw from Archimedes argument, using the formula for the area of a rectangle and the area of a triangle, is that the area between the graph of a quadratic with equation <span class="process-math">\(q(x) = ax^2+bx+c\)</span> and the <span class="process-math">\(x\)</span>-axis on an interval <span class="process-math">\([x_1, x_2]\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/F_1_b_quad_area.html" title="Figure 2.10">Figure 2.10</a> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_1_b_quad_area.html" id="eq_quad_area">
 \begin{equation}
-\frac{a}{3}(x_2^3-x_1^3) + \frac{b}{2}(x_2^2-x_1^2) + c(x_2-x_1)\text{.}\label{eq_quad_area}\tag{2.3}
+\frac{a}{3}(x_2^3-x_1^3) + \frac{b}{2}(x_2^2-x_1^2) + c(x_2-x_1)\text{.}\tag{2.3}
 \end{equation}
 </div>
 <figure class="figure figure-like" id="F_1_b_quad_area"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/1_b_quad_area.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.10<span class="period">.</span></span><span class="space"> </span>Region between a parabola and the <span class="process-math">\(x\)</span>-axis.</figcaption></figure><p id="p-336">To approximate the area under the graph of a function, we will approximate the function itself with a collection of quadratics, and then use equation <a href="" class="xref" data-knowl="./knowl/eq_quad_area.html" title="Equation 2.3">(2.3)</a> repeatedly. To do this, we need to know how to fit a quadratic curve to a three points. We consider that question now.</p>
 <p id="p-337"> Suppose we are given a collection of three points in the plane: <span class="process-math">\((x_1, y_1), (x_2, y_2)\)</span> and <span class="process-math">\((x_3, y_3)\text{.}\)</span> There is exactly one quadratic polynomial <span class="process-math">\(p(x)\)</span> which goes through these points, i.e. there is exactly one quadratic <span class="process-math">\(p(x)\)</span> such that for each <span class="process-math">\(x_i\text{,}\)</span> <span class="process-math">\(p(x_i)=y_i\text{.}\)</span> This is an example of <dfn class="terminology">polynomial curve fitting</dfn>.</p>
 <p id="p-338">As an example, we use the points <span class="process-math">\((-1, 2)\text{,}\)</span> <span class="process-math">\((1,6)\text{,}\)</span> <span class="process-math">\((2,5)\text{.}\)</span> To fit a quadratic to these points, consider a general quadratic of the form <span class="process-math">\(p(x)=a_2x^2+a_1x+a_0\text{.}\)</span> By substituting the <span class="process-math">\(x\)</span> value of each of the given points and setting that equal to the <span class="process-math">\(y\)</span> value of that point, we find three equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (-1)^2a_2-a_1+a_0=2 \; , \;  a_2+a_1+a_0=6 \; , \;  (2)^2a_2 +2a_1+a_0=5
 \end{equation*}
 </div>
 <p class="continuation">that give us a system of three equations in the three unknowns <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> and <span class="process-math">\(a_0\text{:}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-42">
 \begin{alignat*}{3}
 {}a_2  \amp {}-{}   \amp {}a_1   \amp {}+{}  \amp {}a_0   \amp = 2\\
 {}a_2   \amp {}+{}  \amp {}a_1   \amp {}+{}  \amp {}a_0  \amp = 6\\
@@ -805,22 +803,22 @@ a_2  \amp {}+{}   \amp {2}a_1  \amp {}+{}   \amp {}a_0   \amp = 5\text{.}
 <article class="task exercise-like" id="task-94"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-349">Set up a linear system that will determine the coefficients <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(c_1\text{,}\)</span> and <span class="process-math">\(c_0\)</span> so that the polynomial <span class="process-math">\(Q(x) = c_2x^2+c_1x+c_0\)</span> passes through the points <span class="process-math">\((-r, y_k)\text{,}\)</span> <span class="process-math">\((0, y_{k+1})\text{,}\)</span> and <span class="process-math">\((r, y_{k+2})\)</span> with <span class="process-math">\(r \neq 0\text{.}\)</span> Remember that the unknowns in this system are <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(c_1\text{,}\)</span> and <span class="process-math">\(c_0\text{.}\)</span></p></article><article class="task exercise-like" id="task-95"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-350">Explain why the coefficient matrix of the system in part (a) is <span class="process-math">\(\left[ \begin{array}{crc} r^2\amp -r\amp 1 \\ 0\amp 0\amp 1 \\ r^2\amp r\amp 1 \end{array}  \right]\text{.}\)</span> Then explain why row reducing the matrix <span class="process-math">\(\left[ \begin{array}{crcc} r^2\amp -r\amp 1\amp y_k \\ 0\amp 0\amp 1\amp y_{k+1} \\ r^2\amp r\amp 1\amp y_{k+2} \end{array}  \right]\)</span> will find the coefficients we want. Assume that a row echelon form of the matrix <span class="process-math">\(\left[ \begin{array}{crcc} r^2\amp -r\amp 1\amp y_k \\ 0\amp 0\amp 1\amp y_{k+1} \\ r^2\amp r\amp 1\amp y_{k+2} \end{array}  \right]\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crcc} r^2\amp -r\amp 1\amp y_k \\ 0\amp 2r\amp 0\amp y_{k+2}-y_k \\ 0\amp 0\amp 1\amp y_{k+1} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Use these matrices to explain why <span class="process-math">\(c_2=\frac{y_k-2y_{k+1}+y_{k+2}}{2r^2}\text{,}\)</span> <span class="process-math">\(c_1=\frac{y_{k+2}-y_k}{2r}\text{,}\)</span> and <span class="process-math">\(c_0 = y_{k+1}\text{.}\)</span></p></article><article class="task exercise-like" id="task-96"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-351">Our goal is to ultimately approximate the area under the curve on the interval <span class="process-math">\([a,b]\)</span> by approximating <span class="process-math">\(f\)</span> with quadratics on each subinterval. Use the Archimedean formula <a href="" class="xref" data-knowl="./knowl/eq_quad_area.html" title="Equation 2.3">(2.3)</a> to show that the area under the quadratic <span class="process-math">\(Q(x)\)</span> from part (a) is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_quad_area.html">
 \begin{equation*}
 \frac{1}{3}  \left(y_k+4y_{k+1}+y_{k+2}\right) \Delta x\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-97"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <p id="p-352">Now add up all of the area approximations on each subinterval to show that the approximate area under the graph is given by the formula</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_1_b_Simpson_sum">
 \begin{equation}
-S(n) = \left(y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \cdots 2y_{n-2} + 4y_{n-1} + y_n\right) \frac{\Delta x}{3}\text{.}\label{eq_1_b_Simpson_sum}\tag{2.4}
+S(n) = \left(y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \cdots 2y_{n-2} + 4y_{n-1} + y_n\right) \frac{\Delta x}{3}\text{.}\tag{2.4}
 \end{equation}
 </div></article></article><p id="p-353">We conclude with an example.</p>
 <article class="project project-like" id="project-6"><h3 class="heading">
@@ -828,6 +826,6 @@ S(n) = \left(y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \cdots 2y_{n-2} + 4y_{n-1} + y_n\
 </h3>
 <p id="p-354">Let <span class="process-math">\(f(x) = \left(\frac{1}{2}\right)^x\)</span> on the interval <span class="process-math">\([1,6]\text{.}\)</span> A graph of <span class="process-math">\(f\)</span> is shown in <a href="" class="xref" data-knowl="./knowl/F_1_b_area.html" title="Figure 2.8">Figure 2.8</a>. Use our approximation formula with <span class="process-math">\(n=8\)</span> to approximate the area of the shaded region in <a href="" class="xref" data-knowl="./knowl/F_1_b_area.html" title="Figure 2.8">Figure 2.8</a>. Show all of your work and round all calculations to the nearest thousandth.</p></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:31-04:00       *-->
+<!--*       on 2022-04-14T13:02:57-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,23 +749,23 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Eigenspaces, A Geometric Example</span>
 </h2>
 <p id="p-3059">Recall that for each eigenvalue <span class="process-math">\(\lambda\)</span> of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda\)</span> is <span class="process-math">\(\Nul (A - \lambda I_n)\text{.}\)</span> These eigenspaces can tell us important information about the matrix transformation defined by <span class="process-math">\(A\text{.}\)</span> For example, consider the matrix transformation <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^3\)</span> to <span class="process-math">\(\R^3\)</span> defined by <span class="process-math">\(T(\vx) = A \vx\text{,}\)</span> where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{ccc} 1\amp 0\amp 1\\0\amp 1\amp 1\\0\amp 0\amp 2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-3060">We are interested in understanding what this matrix transformation does to vectors in <span class="process-math">\(\R^3\text{.}\)</span> First we note that <span class="process-math">\(A\)</span> has eigenvalues <span class="process-math">\(\lambda_1 = 1\)</span> and <span class="process-math">\(\lambda_2 = 2\text{,}\)</span> with <span class="process-math">\(\lambda_1\)</span> having multiplicity <span class="process-math">\(2\text{.}\)</span> There is a pair <span class="process-math">\(\vv_1 = \left[ \begin{array}{c} 1\\0\\0 \end{array}  \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 0\\1\\0 \end{array}  \right]\)</span> of linearly independent eigenvectors for <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_1\)</span> and an eigenvector <span class="process-math">\(\vv_3=\left[ \begin{array}{c} 1\\1\\1 \end{array}  \right]\)</span> for <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda_2\text{.}\)</span> Note that the vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_3\)</span> are linearly independent (recall from Theorem that eigenvectors corresponding to different eigenvalues are always linearly independent). So any vector <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^3\)</span> can be written uniquely as a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_3\text{.}\)</span> Let's now consider the action of the matrix transformation <span class="process-math">\(T\)</span> on a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span> Note that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="mdn-15">
 \begin{align}
 T(c_1\vv_1 + c_2 \vv_2 + c_3 \vv_3) \amp = c_1T(\vv_1) + c_2T(\vv_2) + c_3 T(\vv_3)\notag\\
 \amp = c_1 \lambda_1 \vv_1 + c_2 \lambda_1 \vv_2 + c_3 \lambda_2 \vv_3\notag\\
-\amp = (1)(c_1\vv_1 + c_2 \vv_2) + (2)c_3 \vv_3\text{.}\label{eq_4_b_2}\tag{18.3}
+\amp = (1)(c_1\vv_1 + c_2 \vv_2) + (2)c_3 \vv_3\text{.}\tag{18.3}
 \end{align}
 </div>
 <p id="p-3061">Equation <a href="" class="xref" data-knowl="./knowl/eq_4_b_2.html" title="Equation 18.3">(18.3)</a> illustrates that it is most convenient to view the action of <span class="process-math">\(T\)</span> in the coordinate system where <span class="process-math">\(\Span \{\vv_1\}\)</span> serves as the <span class="process-math">\(x\)</span>-axis, <span class="process-math">\(\Span \{\vv_2\}\)</span> serves as the <span class="process-math">\(y\)</span>-axis, and <span class="process-math">\(\Span \{\vv_3\}\)</span> as the <span class="process-math">\(z\)</span>-axis. In this case, we can visualize that when we apply the transformation <span class="process-math">\(T\)</span> to a vector <span class="process-math">\(\vb = c_1 \vv_1 + c_2 \vv_2 + c_3 \vv_3\)</span> in <span class="process-math">\(\R^3\)</span> the result is an output vector that is unchanged in the <span class="process-math">\(\vv_1\)</span>-<span class="process-math">\(\vv_2\)</span> plane and scaled by a factor of <span class="process-math">\(2\)</span> in the <span class="process-math">\(\vv_3\)</span> direction. For example, consider the box whose sides are determined by the vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_3\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F_4_b_1.html" title="Figure 18.4">Figure 18.4</a>. The transformation <span class="process-math">\(T\)</span> stretches this box by a factor of <span class="process-math">\(2\)</span> in the <span class="process-math">\(\vv_3\)</span> direction and leaves everything else alone, as illustrated in <a href="" class="xref" data-knowl="./knowl/F_4_b_1.html" title="Figure 18.4">Figure 18.4</a>. So the entire <span class="process-math">\(\Span \{\vv_1, \vv_2\})\)</span> is unchanged by <span class="process-math">\(T\text{,}\)</span> but <span class="process-math">\(\Span \{\vv_3\})\)</span> is scaled by <span class="process-math">\(2\text{.}\)</span> In this situation, the eigenvalues and eigenvectors provide the most convenient perspective through which to visualize the action of the transformation <span class="process-math">\(T\text{.}\)</span></p>
 <figure class="figure figure-like" id="F_4_b_1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/4_b_Eigenspaces.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">18.4<span class="period">.</span></span><span class="space"> </span>A box and a transformed box.</figcaption></figure><p id="p-3062">This geometric perspective illustrates how each eigenvalue and the corresponding eigenspace of <span class="process-math">\(A\)</span> tells us something important about <span class="process-math">\(A\text{.}\)</span> So it behooves us to learn a little more about eigenspaces.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

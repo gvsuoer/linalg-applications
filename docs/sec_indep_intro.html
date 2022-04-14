@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:26-04:00       *-->
+<!--*       on 2022-04-14T12:59:02-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,19 +749,19 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
 <p id="p-955">In <a href="chap_vector_representation.html" class="internal" title="Chapter 4: Vector Representation">Chapter 4</a> we saw how to represent water-benzene-acetic acid chemical solutions with vectors, where the components represent the water, benzene and acid percentages. We then considered a problem of determining if a given chemical solution could be made by mixing other chemical solutions. Suppose we now have three different water-benzene-acetic acid chemical solutions, one with 40% water, 50% benzene and 10% acetic acid, the second with 52% water, 42% benzene and 6% acid, and a third with 46% water, 46% benzene and 8% acid. We represent the first chemical solution with the vector <span class="process-math">\(\vv_1 = \left[ \begin{array}{c} 40\\50\\10 \end{array}  \right]\text{,}\)</span> the second with the vector <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 52\\42\\6 \end{array}  \right]\text{,}\)</span> and the third with the vector <span class="process-math">\(\vv_3 = \left[ \begin{array}{c} 46\\46\\8 \end{array}  \right]\text{.}\)</span> By combining these three chemical solutions we can make a chemical solution with 43% water, 48% benzene and 9% acid as follows</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/chap_vector_representation.html">
 \begin{equation*}
 \frac{7}{12}\vv_1 + \frac{1}{12} \vv_2 + \frac{1}{3}\vv_3 = \left[ \begin{array}{c} 43\\48\\9 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-956">However, if we had noticed that the third chemical solution can actually be made from the first two, that is,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{1}{2}\vv_1 + \frac{1}{2} \vv_2 = \vv_3\text{,}
 \end{equation*}
 </div>
 <p class="continuation">we might have realized that we don't need the third chemical solution to make the 43% water, 48% benzene and 9% acid chemical solution. In fact,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{3}{4}\vv_1 + \frac{1}{4} \vv_2 = \left[ \begin{array}{c} 43\\48\\9 \end{array}  \right]\text{.}
 \end{equation*}
@@ -772,26 +770,26 @@
 <p id="p-958">Information is often contained in and conveyed through vectors — especially linear combinations of vectors. In this section we will investigate the concepts of linear dependence and independence of a set of vectors. Our goal is to be able to efficiently determine when a given set of vectors forms a <dfn class="terminology">minimal spanning set</dfn>. A minimal spanning set is a spanning set that contains the smallest number of vectors to obtain all of the vectors in the span. An important aspect of a minimal spanning set is that every vector in the span can be written in one and only one way as a linear combination of the vectors in the minimal spanning set. This will allow us to define the important notion of the dimension of a vector space.</p>
 <section class="paragraphs" id="paragraphs-16"><h3 class="heading"><span class="title">Review of useful information.</span></h3>
 <p id="p-959">Recall that a linear combination of vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> in <span class="process-math">\(\R^n\)</span> is a sum of scalar multiples of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\text{.}\)</span> That is, a linear combination of the vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> is a vector of the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 c_1\vv_1 + c_2\vv_2 + \cdots + c_k\vv_k\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_k\)</span> are scalars.</p>
 <p id="p-960">Recall also that the collection of all linear combinations of a set <span class="process-math">\(\{\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\}\)</span> of vectors in <span class="process-math">\(\R^n\)</span> is called the span of the set of vectors. That is, the span <span class="process-math">\(\Span \{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> of the set <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> of vectors in <span class="process-math">\(\R^n\)</span> is the set</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \{c_1\vv_1 + c_2\vv_2 + \cdots + c_k\vv_k : \text{ where }  c_1, c_2, \ldots, c_k \text{ are scalars } \}\text{.}
 \end{equation*}
 </div>
 <p id="p-961">For example, a linear combination of vectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{c} 1\\1\\2 \end{array}  \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{r} 0\\-2\\1 \end{array}  \right]\)</span> is <span class="process-math">\(2 \vv_1-3\vv_2 = \left[ \begin{array}{c} 2\\8\\1 \end{array}  \right]\text{.}\)</span> All linear combinations of these two vectors can be expressed as the collection of vectors of the form <span class="process-math">\(\left[ \begin{array}{c} c_1\\c_1-2c_2\\2c_1+c_2 \end{array}  \right]\)</span> where <span class="process-math">\(c_1, c_2\)</span> are scalars. Suppose we want to determine whether <span class="process-math">\(\vw=\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right]\)</span> is in the span, in other words if <span class="process-math">\(\vw\)</span> is a linear combination of <span class="process-math">\(\vv_1, \vv_2\text{.}\)</span> This means we are looking for <span class="process-math">\(c_1, c_2\)</span> such that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{c} c_1\\c_1-2c_2\\2c_1+c_2 \end{array}  \right] = \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] \,\text{.}
 \end{equation*}
 </div>
 <p class="continuation">we solve for the system represented with the augmented matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[\begin{array}{crc|c} 1\amp 0\amp \amp 1\\ 1\amp -2\amp \amp 2 \\ 2\amp 1\amp \amp 3 \end{array}  \right] \,\text{.}
 \end{equation*}
@@ -803,7 +801,7 @@ c_1\vv_1 + c_2\vv_2 + \cdots + c_k\vv_k\text{,}
 <article class="task exercise-like" id="act_PA1_f_1"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="introduction" id="introduction-82">
 <p id="p-964">The vector <span class="process-math">\(\vb\)</span> is in <span class="process-math">\(\Span \{\vv_1, \vv_2, \vv_3\}\)</span> if there exist <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> so that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3 = \vb\text{.}
 \end{equation*}
@@ -825,6 +823,6 @@ x_1 \vv_1 + x_2 \vv_2 + x_3 \vv_3 = \vb\text{.}
 <p id="p-972">Can <span class="process-math">\(\vv_3\)</span> be written as a linear combination of the vectors <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{?}\)</span> If not, why not? If so, write <span class="process-math">\(\vv_3\)</span> as a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-293"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
 <p id="p-973">Use the result of part (a) to decide if <em class="emphasis">any</em> vector in <span class="process-math">\(\Span\{\vv_1, \vv_2, \vv_3\}\)</span> is also in <span class="process-math">\(\Span\{\vv_1, \vv_2\}\text{.}\)</span></p></article></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

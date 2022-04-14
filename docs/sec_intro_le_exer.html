@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:20:14-04:00       *-->
+<!--*       on 2022-04-14T12:57:06-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -753,7 +751,7 @@
 <article class="exercise exercise-like" id="exercise-1"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-7">
 <p id="p-108">In the method of elimination there are three operations we can apply to solve a system of linear equations. For this exercise we focus on a system of equations in three unknowns <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\text{,}\)</span> but the arguments generalize to a system with any number of variables. Consider the general system of three equations in three unknowns</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-18">
 \begin{alignat*}{3}
 4x_1   \amp {}-{}  \amp 4x_2  \amp {}+{}  \amp 4x_3   \amp = 0\\
 4x_1   \amp {}+{}  \amp 2x_2  \amp {}    \amp {}     \amp = 8\\
@@ -763,32 +761,10 @@
 <p class="continuation">The goal of this exercise is to understand why the three operations on a system do not change the solutions to the system. Recall that a solution to a system with unknowns <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> is a set of three numbers, one for <span class="process-math">\(x_1\text{,}\)</span> one for <span class="process-math">\(x_2\text{,}\)</span> and one for <span class="process-math">\(x_3\)</span> that satisfy all of the equations in the system.</p>
 </div>
 <article class="task exercise-like" id="task-16"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-109">Explain why, if we have a solution to this system, then that solution is also a solution to any constant <span class="process-math">\(k\)</span> times the second equation.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-1" id="answer-1"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-1"><div class="answer solution-like">
-<p id="p-110">Consider the equations</p>
-<div class="displaymath process-math">
-\begin{equation*}
-b_1x_1+b_2x_2 + b_3x_3 = s\text{,}
-\end{equation*}
-</div>
-<p class="continuation">and</p>
-<div class="displaymath process-math">
-\begin{equation*}
-k(b_1x_1+b_2x_2 + b_3x_3) = ks\text{.}
-\end{equation*}
-</div>
-</div></div>
-</div></article><article class="task exercise-like" id="task-17"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-111">Explain why, if we have a solution to this system, then that solution is also a solution to the sum of the first equation and <span class="process-math">\(k\)</span> times the third equation for any constant <span class="process-math">\(k\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-2" id="answer-2"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-2"><div class="answer solution-like"><p id="p-112">Similar to part (a)</p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-2"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-109">Explain why, if we have a solution to this system, then that solution is also a solution to any constant <span class="process-math">\(k\)</span> times the second equation.</p></article><article class="task exercise-like" id="task-17"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-111">Explain why, if we have a solution to this system, then that solution is also a solution to the sum of the first equation and <span class="process-math">\(k\)</span> times the third equation for any constant <span class="process-math">\(k\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-2"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <p id="p-113">Alice stopped by a coffee shop two days in a row at a conference to buy drinks and pastries. On the first day, she bought a cup of coffee and two muffins for which she paid $6.87. The next day she bought two cups of coffee and three muffins (for herself and a friend). Her bill was $11.25. Use the method of elimination to determine the price of a cup of coffee, and the price of a muffin. Clearly explain your set-up for the problem. (Assume you are explaining your solution to someone who has not solved the problem herself/himself).</p></article><article class="exercise exercise-like" id="exercise-3"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
-<p id="p-114">Alice stopped by a coffee shop three days in a row at a conference to buy drinks and pastries. On the first day, she bought a cup of coffee, a muffin and a scone for which she paid $6.15. The next day she bought two cups of coffee, three muffins and a scone (for herself and friends). Her bill was $12.20. The last day she bought a cup of coffee, two muffins and two scones, and paid $10.35. Determine the price of a cup of coffee, the price of a muffin and the price of a scone. Clearly explain your set-up for the problem. (Assume you are explaining your solution to someone who has not solved the problem herself/himself).</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><p id="p-115">A cup of coffee costs $<span class="process-math">\(1.95\text{,}\)</span> a muffin costs $<span class="process-math">\(2.05\text{,}\)</span> and a scone costs $<span class="process-math">\(2.15\text{.}\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-4"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-114">Alice stopped by a coffee shop three days in a row at a conference to buy drinks and pastries. On the first day, she bought a cup of coffee, a muffin and a scone for which she paid $6.15. The next day she bought two cups of coffee, three muffins and a scone (for herself and friends). Her bill was $12.20. The last day she bought a cup of coffee, two muffins and two scones, and paid $10.35. Determine the price of a cup of coffee, the price of a muffin and the price of a scone. Clearly explain your set-up for the problem. (Assume you are explaining your solution to someone who has not solved the problem herself/himself).</p></article><article class="exercise exercise-like" id="exercise-4"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <article class="task exercise-like" id="task-18"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="introduction" id="introduction-8"><p id="p-116">Find an example of a system of two linear equations in variables <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> for each of the following three cases:</p></div>
 <article class="task exercise-like" id="task-19"><h5 class="heading"><span class="codenumber">(i)</span></h5>
@@ -798,7 +774,7 @@ k(b_1x_1+b_2x_2 + b_3x_3) = ks\text{.}
 <p id="p-120">Describe how the relationship between the coefficients of the variables of the two equations in parts (ii) and (iii) are different than the relationship between those coefficients in part (i) (Note: Please make sure your system examples are different than the examples in the activities, and that they are your own examples.)</p></article></article><article class="exercise exercise-like" id="exercise-5"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-9">
 <p id="p-121">In a grid of wires in thermal equilibrium, the temperature at interior nodes is the average of the temperatures at adjacent nodes. Consider the grid as shown in <a href="" class="xref" data-knowl="./knowl/F_Grid.html" title="Figure 1.10">Figure 1.10</a>, with <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> the temperatures (in degrees Centigrade) at the indicated interior nodes, and fixed temperatures at the other nodes as shown. For example, the nodes adjacent to the node with temperature <span class="process-math">\(x_1\)</span> have temperatures of <span class="process-math">\(x_2\text{,}\)</span> <span class="process-math">\(200\text{,}\)</span> <span class="process-math">\(0\text{,}\)</span> and <span class="process-math">\(0\text{,}\)</span> so when the grid is in thermal equilibrium <span class="process-math">\(x_1\)</span> is the average of these temperatures:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_Grid.html">
 \begin{equation*}
 x_1 = \frac{x_2+200+0+0}{4}\text{.}
 \end{equation*}
@@ -807,20 +783,8 @@ x_1 = \frac{x_2+200+0+0}{4}\text{.}
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.10<span class="period">.</span></span><span class="space"> </span>A grid of wires.</figcaption></figure>
 </div>
 <article class="task exercise-like" id="task-23"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-122">Determine equations for the temperatures <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_3\)</span> if the grid is in thermal equilibrium to construct a system of three linear equations in <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> that models node temperatures in the grid in thermal equilibrium.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-4" id="answer-4"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-4"><div class="answer solution-like"><div class="displaymath process-math" id="p-123">
-\begin{align*}
-x_1 \amp = \frac{x_2+200+0+0}{4}\\
-x_2 \amp = \frac{x_1+x_3+200+0}{4}\\
-x_3 \amp = \frac{x_2+0+400+0}{4}
-\end{align*}
-</div></div></div>
-</div></article><article class="task exercise-like" id="task-24"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-124">Use the method of elimination to find a specific solution to the system that makes sense in context.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><p id="p-125"><span class="process-math">\(x_1 = 75\text{,}\)</span> <span class="process-math">\(x_2 = 100\)</span> and <span class="process-math">\(x_3 = 125\text{.}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-6"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<p id="p-122">Determine equations for the temperatures <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_3\)</span> if the grid is in thermal equilibrium to construct a system of three linear equations in <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> that models node temperatures in the grid in thermal equilibrium.</p></article><article class="task exercise-like" id="task-24"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-124">Use the method of elimination to find a specific solution to the system that makes sense in context.</p></article></article><article class="exercise exercise-like" id="exercise-6"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-10"><p id="p-126">We have seen that a linear system of two equations in two unknowns can have no solutions, one solution, or infinitely many solutions. Find, if possible, a specific example of each of the following. If not possible, explain why.</p></div>
 <article class="task exercise-like" id="task-25"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-127">A linear system of three equations in two unknowns with no solutions.</p></article><article class="task exercise-like" id="task-26"><h4 class="heading"><span class="codenumber">(b)</span></h4>
@@ -829,36 +793,14 @@ x_3 \amp = \frac{x_2+0+400+0}{4}
 <p id="p-130">A linear system of three equations in two unknowns with infinitely many solutions.</p></article></article><article class="exercise exercise-like" id="exercise-7"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-11"><p id="p-131">We have seen that a linear system of three equations in three unknowns can have no solutions, one solution, or infinitely many solutions. Find, if possible, a specific example of each of the following. If not possible, explain why.</p></div>
 <article class="task exercise-like" id="task-29"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-132">A linear system of two equations in three unknowns with no solutions.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like"><div class="displaymath process-math" id="p-133">
-\begin{alignat*}{4}
-{}x_1   \amp {}+{}  \amp {}x_2  \amp {}+{}  \amp {}x_3  \amp = \amp \ 0\amp {}\\
-{}x_1   \amp {}+{}  \amp {}x_2  \amp {}+{}  \amp {}x_3  \amp = \amp \ 1\amp {.}
-\end{alignat*}
-</div></div></div>
-</div></article><article class="task exercise-like" id="task-30"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-134">A linear system of two equations in three unknowns with exactly one solution.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-7" id="answer-7"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-7"><div class="answer solution-like"><p id="p-135">Impossible.</p></div></div>
-</div></article><article class="task exercise-like" id="task-31"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-136">A linear system of two equations in three unknowns with exactly two solutions.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-8" id="answer-8"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-8"><div class="answer solution-like"><p id="p-137">Impossible.</p></div></div>
-</div></article><article class="task exercise-like" id="task-32"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-138">A linear system of two equations in three unknowns with infinitely many solutions.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-9" id="answer-9"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-9"><div class="answer solution-like"><div class="displaymath process-math" id="p-139">
-\begin{alignat*}{4}
-{}x_1   \amp {}+{}  \amp {}x_2  \amp {}+{}  \amp {}x_3  \amp = \amp  \ 0\amp {}\\
-{2}x_1   \amp {}+{}  \amp {2}x_2  \amp {}+{}  \amp {2}x_3  \amp = \amp  \ 0\amp {.}
-\end{alignat*}
-</div></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-8"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<p id="p-132">A linear system of two equations in three unknowns with no solutions.</p></article><article class="task exercise-like" id="task-30"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-134">A linear system of two equations in three unknowns with exactly one solution.</p></article><article class="task exercise-like" id="task-31"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-136">A linear system of two equations in three unknowns with exactly two solutions.</p></article><article class="task exercise-like" id="task-32"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-138">A linear system of two equations in three unknowns with infinitely many solutions.</p></article></article><article class="exercise exercise-like" id="exercise-8"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
 <p id="p-140">Find a system of three linear equations in two variables <span class="process-math">\(u\text{,}\)</span> <span class="process-math">\(v\)</span> whose solution is <span class="process-math">\(u=2\text{,}\)</span> <span class="process-math">\(v=1\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-9"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-12">
 <p id="p-141">Consider the system of linear equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-22">
 \begin{alignat*}{3}
 {3} x_1   \amp  {}+{} \amp  hx_2 \amp  {}={} \amp  2\\
 3x_1   \amp  {}+{} \amp  5x_2 \amp  {}={} \amp  1
@@ -867,19 +809,13 @@ x_3 \amp = \frac{x_2+0+400+0}{4}
 <p class="continuation">where <span class="process-math">\(h\)</span> is an unknown constant.</p>
 </div>
 <article class="task exercise-like" id="task-33"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-142">Determine the solution(s) of this system for all possible <span class="process-math">\(h\)</span> values, if a solution exists. (Note: Your answers for the variables will depend on the <span class="process-math">\(h\text{.}\)</span>)</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-10" id="answer-10"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-10"><div class="answer solution-like"><p id="p-143">This system has the solution <span class="process-math">\(x_1 = \frac{h-10}{3h-5}\)</span> and <span class="process-math">\(x_2 = \frac{5}{3h-5}\)</span> as long as <span class="process-math">\(h \neq \frac{5}{3}\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-34"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-144">How do your answers change if the second equation in the system above is changed to <span class="process-math">\(3x_1+5x_2=6\text{?}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-11" id="answer-11"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-11"><div class="answer solution-like"><p id="p-145">When <span class="process-math">\(h = \frac{5}{3}\text{,}\)</span> <span class="process-math">\(x_1 = 2-\frac{5}{3}x_2\)</span> and <span class="process-math">\(x_2\)</span> is free.</p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-10"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
+<p id="p-142">Determine the solution(s) of this system for all possible <span class="process-math">\(h\)</span> values, if a solution exists. (Note: Your answers for the variables will depend on the <span class="process-math">\(h\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-34"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-144">How do your answers change if the second equation in the system above is changed to <span class="process-math">\(3x_1+5x_2=6\text{?}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-10"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
 <p id="p-146">Suppose we are given a system of two linear equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_1.html ./knowl/eq_2.html ./knowl/eq_1.html ./knowl/eq_2.html" id="mdn-5">
 \begin{alignat}{4}
-{4} x_1   \amp  {}+{} \amp  2x_2   \amp  {}-{}   \amp  x_3{}={}   \amp  { } \amp 1\amp {}\label{eq_1}\tag{1.7}\\
-3x_1   \amp  {}+{} \amp  x_2   \amp  {}+{}   \amp  2x_3{}={}   \amp  {-} \amp 1\amp \text{.}\label{eq_2}\tag{1.8}
+{4} x_1   \amp  {}+{} \amp  2x_2   \amp  {}-{}   \amp  x_3{}={}   \amp  { } \amp 1\amp {}\tag{1.7}\\
+3x_1   \amp  {}+{} \amp  x_2   \amp  {}+{}   \amp  2x_3{}={}   \amp  {-} \amp 1\amp \text{.}\tag{1.8}
 \end{alignat}
 </div>
 <p class="continuation">Find another system of two linear equations <span class="process-math">\(E_1\)</span> and <span class="process-math">\(E_2\)</span> in the variables <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> that are not multiples of each other or of equations <a href="" class="xref" data-knowl="./knowl/eq_1.html" title="Equation 1.7">(1.7)</a> or <a href="" class="xref" data-knowl="./knowl/eq_2.html" title="Equation 1.8">(1.8)</a> so that any solution <span class="process-math">\((x_1, x_2, x_3)\)</span> to the system <a href="" class="xref" data-knowl="./knowl/eq_1.html" title="Equation 1.7">(1.7)</a> and <a href="" class="xref" data-knowl="./knowl/eq_2.html" title="Equation 1.8">(1.8)</a> is a solution to the system <span class="process-math">\(E_1\)</span> and <span class="process-math">\(E_2\text{.}\)</span></p></article><article class="exercise exercise-like" id="sec_intro_le_tf"><h3 class="heading">
@@ -896,29 +832,20 @@ x_3 \amp = \frac{x_2+0+400+0}{4}
 <article class="task exercise-like" id="task-35"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-153">The set of all solutions of a linear equation can be represented graphically as a line.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-12" id="answer-12"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-12"><div class="answer solution-like"><p id="p-154">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-36"><h4 class="heading">
+<p id="p-153">The set of all solutions of a linear equation can be represented graphically as a line.</p></article><article class="task exercise-like" id="task-36"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-155">The set of all solutions of a linear equation in two variables can be represented graphically as a line.</p></article><article class="task exercise-like" id="task-37"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-156">The set of all solutions of an equation in two variables can be represented graphically as a line.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-13" id="answer-13"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-13"><div class="answer solution-like"><p id="p-157">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-38"><h4 class="heading">
+<p id="p-156">The set of all solutions of an equation in two variables can be represented graphically as a line.</p></article><article class="task exercise-like" id="task-38"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-158">A system of three linear equations in two unknowns cannot have a unique solution.</p></article><article class="task exercise-like" id="task-39"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-159">A system of three linear equations in three unknowns has a unique solution.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-14" id="answer-14"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-14"><div class="answer solution-like"><p id="p-160">F</p></div></div>
-</div></article></article></section></div></main>
+<p id="p-159">A system of three linear equations in three unknowns has a unique solution.</p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

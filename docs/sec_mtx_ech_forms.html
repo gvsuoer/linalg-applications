@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:20:36-04:00       *-->
+<!--*       on 2022-04-14T12:57:37-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -765,31 +763,31 @@
 </h3>
 <p id="p-379">Compare the row echelon form of an augmented matrix to the corresponding system. Do you clearly see the correspondence between the requirements of the row echelon form and the properly eliminated variables in the system? Can you quickly come up with a system which will be in row echelon form when represented in augmented matrix form? Can you modify the standard row echelon form definition to cover cases where the elimination process eliminates the variables from last to first? For example, in a system with three equations in three unknowns, the last variable, say <span class="process-math">\(x_3\text{,}\)</span> can be eliminated from the second equation, and the last two variables, say <span class="process-math">\(x_2, x_3\)</span> can be eliminated from the last equation. How would you define this modified row echelon form for a general system with this modified elimination process?</p></article><p id="p-380">Once an augmented matrix is in row echelon form, we can use back substitution to solve the corresponding system. However, we can make solving much easier with just a little more elimination work.</p>
 <p id="p-381">Row operations are easy to apply, so if we are inclined, there is no reason to stop at the row echelon form. For example, starting with the following matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crcr|r} 2\amp -1\amp 2\amp 2\amp 7 \\ 0\amp 1\amp 3\amp -1\amp -1 \\ 0\amp 0\amp 0\amp 2\amp 4 \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">in row echelon form, we could take the row operations even farther and avoid the process of back substitution altogether. First, we multiply the last row by <span class="process-math">\(1/2\)</span> to simplify that row:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-\begin{array}{c} \text{ } \\ \text{ } \\ \scriptstyle{ \(\frac{1}{2} R_3 \to R_3\)} \end{array}  \left[ \begin{array}{crcr|r} 2\amp -1\amp 2\amp 2\amp 7 \\ 0\amp 1\amp 3\amp -1\amp -1 \\ 0\amp 0\amp 0\amp 1\amp 2 \end{array}  \right]\text{.}
+\begin{array}{c} \text{ } \\ \text{ } \\  \frac{1}{2} R_3 \to R_3 \end{array}  \left[ \begin{array}{crcr|r} 2\amp -1\amp 2\amp 2\amp 7 \\ 0\amp 1\amp 3\amp -1\amp -1 \\ 0\amp 0\amp 0\amp 1\amp 2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Then we use the third row to eliminate entries above the third pivot:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-\begin{array}{c} \scriptstyle{ \(R_1-2R_3 \to R_1\) } \\ \scriptstyle{ \(R_2+R_3 \to R_2\) }  \\ \text{ } \end{array}   \left[ \begin{array}{crcr|r} 2\amp -1\amp 2\amp 0\amp 3 \\ 0\amp 1\amp 3\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 1\amp 2 \end{array}  \right]\text{.}
+\begin{array}{c}  R_1-2R_3 \to R_1  \\  R_2+R_3 \to R_2   \\ \text{ } \end{array}   \left[ \begin{array}{crcr|r} 2\amp -1\amp 2\amp 0\amp 3 \\ 0\amp 1\amp 3\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 1\amp 2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-382">We can continue in this manner (we call this process <dfn class="terminology">backward elimination</dfn>) to make 0 all of the entries above the pivots (one in the second column, and one in the fourth) with the pivots being 1, to ultimately obtain the equivalent augmented matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crcr|r} 1\amp 0\amp 1\amp 0\amp 2 \\ 0\amp 1\amp 3\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 1\amp 2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-383">The system corresponding to this augmented matrix is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-46">
 \begin{alignat*}{5}
 {}x_1   \amp {}     \amp {}    \amp {}+{}  \amp {}x_3    \amp {}    \amp {}     \amp {}={}  \amp  \ 2\\
 {}      \amp {}     \amp {}x_2   \amp {}+{}  \amp {3}x_3    \amp { }              \amp {}     \amp {}={}   \amp  \ 1\\
@@ -821,6 +819,6 @@
 <p id="p-395"><span class="process-math">\(\left[ \begin{array}{cccc} 1 \amp 2 \amp 3 \amp 4 \\ 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-108"><h4 class="heading"><span class="codenumber">(e)</span></h4>
 <p id="p-396"><span class="process-math">\(\left[ \begin{array}{cc} 0 \amp 0 \\ 0 \amp 0 \end{array} \right]\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

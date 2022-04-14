@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:25-04:00       *-->
+<!--*       on 2022-04-14T13:02:49-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,34 +749,19 @@
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h2>
 <article class="exercise exercise-like" id="exercise-162"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
-<p id="p-2954">Use the cofactor expansion to explain why multiplying each of the entries of a <span class="process-math">\(3\times 3\)</span> matrix <span class="process-math">\(A\)</span> by 2 multiplies the determinant of <span class="process-math">\(A\)</span> by 8.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-215" id="answer-215"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-215"><div class="answer solution-like"><p id="p-2955"><span class="process-math">\(\det(2A) = \\ (8a_{11})\left[(a_{22})(a_{33}) - (a_{23})(a_{32})\right] - (8a_{12})\left[(a_{21})(a_{33}) - (a_{23})(a_{31})\right] + (8a_{13})\left[(a_{21})(a_{32}) - (a_{22})(a_{31})\right] = 8 \det(A)\text{.}\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-163"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-2954">Use the cofactor expansion to explain why multiplying each of the entries of a <span class="process-math">\(3\times 3\)</span> matrix <span class="process-math">\(A\)</span> by 2 multiplies the determinant of <span class="process-math">\(A\)</span> by 8.</p></article><article class="exercise exercise-like" id="exercise-163"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <p id="p-2956">Use the determinant criterion to determine for which <span class="process-math">\(c\)</span> the matrix <span class="process-math">\(A=\left[ \begin{array}{crc} 1\amp 1\amp 2\\ 1\amp 0\amp c\\ 2\amp -1\amp 2 \end{array} \right]\)</span> is invertible.</p></article><article class="exercise exercise-like" id="exercise-164"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-271"><p id="p-2957">Let <span class="process-math">\(A\)</span> be a square matrix.</p></div>
 <article class="task exercise-like" id="task-969"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-2958">Explain why <span class="process-math">\(\det(A^2) = [\det(A)]^2\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-216" id="answer-216"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-216"><div class="answer solution-like"><p id="p-2959"><span class="process-math">\(\det(A^2) = \det(AA) = \det(A) \det(A) = [\det(A)]^2\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-970"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-2960">Expand on the argument from (a) to explain why <span class="process-math">\(\det(A^k) = [\det(A)]^k\)</span> for any positive integer <span class="process-math">\(k\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-217" id="answer-217"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-217"><div class="answer solution-like"><p id="p-2961"><span class="process-math">\(\det(A^k) = \det(AA^{k-1}) = \det(A) [\det(A)]^{k-1} = [\det(A)]^k\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-971"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-2962">Suppose that <span class="process-math">\(A\)</span> is an invertible matrix and <span class="process-math">\(k\)</span> is a positive integer. Must <span class="process-math">\(A^k\)</span> be an invertible matrix? Why or why not?</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-218" id="answer-218"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-218"><div class="answer solution-like"><p id="p-2963">Yes.</p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-165"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-2958">Explain why <span class="process-math">\(\det(A^2) = [\det(A)]^2\)</span></p></article><article class="task exercise-like" id="task-970"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-2960">Expand on the argument from (a) to explain why <span class="process-math">\(\det(A^k) = [\det(A)]^k\)</span> for any positive integer <span class="process-math">\(k\text{.}\)</span></p></article><article class="task exercise-like" id="task-971"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-2962">Suppose that <span class="process-math">\(A\)</span> is an invertible matrix and <span class="process-math">\(k\)</span> is a positive integer. Must <span class="process-math">\(A^k\)</span> be an invertible matrix? Why or why not?</p></article></article><article class="exercise exercise-like" id="exercise-165"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <p id="p-2964">Let <span class="process-math">\(A\)</span> be an invertible matrix. Explain why <span class="process-math">\(\det(A^{-1})= \dfrac{1}{\det(A)}\)</span> using determinant properties.</p></article><article class="exercise exercise-like" id="exercise-166"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
 <p id="p-2965">Simplify the following determinant expression using determinant properties:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(PA^4P^{-1}A^T(A^{-1})^3)
 \end{equation*}
-</div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-219" id="answer-219"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-219"><div class="answer solution-like"><p id="p-2966"><span class="process-math">\((\det(A))^2\)</span></p></div></div>
 </div></article><article class="exercise exercise-like" id="exercise-167"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-272"><p id="p-2967">Find the eigenvalues of the following matrices. Find a basis for and the dimension of each eigenspace.</p></div>
 <article class="task exercise-like" id="task-972"><h4 class="heading"><span class="codenumber">(a)</span></h4>
@@ -788,56 +771,38 @@
 <article class="task exercise-like" id="task-974"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2971">For any two <span class="process-math">\(n\times n\)</span> matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> <span class="process-math">\(\det (A+B) = \det A + \det B\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-220" id="answer-220"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-220"><div class="answer solution-like"><p id="p-2972">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-975"><h4 class="heading">
+<p id="p-2971">For any two <span class="process-math">\(n\times n\)</span> matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> <span class="process-math">\(\det (A+B) = \det A + \det B\text{.}\)</span></p></article><article class="task exercise-like" id="task-975"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2973">For any square matrix <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(\det(-A)= -\det(A)\text{.}\)</span></p></article><article class="task exercise-like" id="task-976"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2974">For any square matrix <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(\det(-A)= \det(A)\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-221" id="answer-221"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-221"><div class="answer solution-like"><p id="p-2975">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-977"><h4 class="heading">
+<p id="p-2974">For any square matrix <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(\det(-A)= \det(A)\text{.}\)</span></p></article><article class="task exercise-like" id="task-977"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2976">The determinant of a square matrix with all non-zero entries is non-zero.</p></article><article class="task exercise-like" id="task-978"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2977">If the determinant of <span class="process-math">\(A\)</span> is non-zero, then so is the determinant of <span class="process-math">\(A^2\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-222" id="answer-222"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-222"><div class="answer solution-like"><p id="p-2978">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-979"><h4 class="heading">
+<p id="p-2977">If the determinant of <span class="process-math">\(A\)</span> is non-zero, then so is the determinant of <span class="process-math">\(A^2\text{.}\)</span></p></article><article class="task exercise-like" id="task-979"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2979">If the determinant of a matrix <span class="process-math">\(A\)</span> is 0, then one of the rows of <span class="process-math">\(A\)</span> is a linear combination of the other rows.</p></article><article class="task exercise-like" id="task-980"><h4 class="heading">
 <span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2980">For any square matrix <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(\det(A^2)&gt;\det(A)\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-223" id="answer-223"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-223"><div class="answer solution-like"><p id="p-2981">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-981"><h4 class="heading">
+<p id="p-2980">For any square matrix <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(\det(A^2)&gt;\det(A)\text{.}\)</span></p></article><article class="task exercise-like" id="task-981"><h4 class="heading">
 <span class="codenumber">(h)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2982">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are <span class="process-math">\(n \times n\)</span> matrices and <span class="process-math">\(AB\)</span> is invertible, then <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are invertible.</p></article><article class="task exercise-like" id="task-982"><h4 class="heading">
 <span class="codenumber">(i)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2983">If <span class="process-math">\(A^2\)</span> is the zero matrix, then the only eigenvalue of <span class="process-math">\(A\)</span> is 0.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-224" id="answer-224"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-224"><div class="answer solution-like"><p id="p-2984">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-983"><h4 class="heading">
+<p id="p-2983">If <span class="process-math">\(A^2\)</span> is the zero matrix, then the only eigenvalue of <span class="process-math">\(A\)</span> is 0.</p></article><article class="task exercise-like" id="task-983"><h4 class="heading">
 <span class="codenumber">(j)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-2985">If 0 is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then 0 is an eigenvalue of <span class="process-math">\(AB\)</span> for any <span class="process-math">\(B\)</span> of the same size as <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-984"><h4 class="heading">
 <span class="codenumber">(k)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-2986">Suppose <span class="process-math">\(A\)</span> is a <span class="process-math">\(3 \times 3\)</span> matrix. Then any three eigenvectors of <span class="process-math">\(A\)</span> will form a basis of <span class="process-math">\(\R^3\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-225" id="answer-225"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-225"><div class="answer solution-like"><p id="p-2987">F</p></div></div>
-</div></article></article></section></div></main>
+<p id="p-2986">Suppose <span class="process-math">\(A\)</span> is a <span class="process-math">\(3 \times 3\)</span> matrix. Then any three eigenvectors of <span class="process-math">\(A\)</span> will form a basis of <span class="process-math">\(\R^3\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:30:44-04:00       *-->
+<!--*       on 2022-04-14T13:08:53-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,14 +748,14 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_appl_diff_eq"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Application: Linear Differential Equations</span>
 </h2>
-<p id="p-6783">A body in motion obeys Newton's second law that force equals mass times acceleration, or <span class="process-math">\(F = ma\text{.}\)</span> Here <span class="process-math">\(F\)</span> is the force acting on the object, <span class="process-math">\(m\)</span> the mass of the object, and <span class="process-math">\(a\)</span> the acceleration of the object. For example, if a mass is hanging from a spring, gravity acts to pull the mass downward and the spring acts to pull the mass up. Hooke?s law says that the force of the spring acting on mass is proportional to the displacement <span class="process-math">\(y\)</span> of the spring from equilibrium. There is also a damping force that weakens the action of the spring that might be due to air resistance or the medium in which the system is enclosed. If this mass is not too large, then the resistance can be taken to be proportional to the velocity <span class="process-math">\(v\)</span> of the mass. This produces forces <span class="process-math">\(F = ma\)</span> acting to pull the mass down and forces <span class="process-math">\(-ky\)</span> and <span class="process-math">\(- bv\)</span> acting in the opposite direction, where <span class="process-math">\(k\)</span> and <span class="process-math">\(b\)</span> are constant. A similar type of analysis would apply to an object falling through the air, where the resistant to falling could be proportional to the velocity of the object. Since <span class="process-math">\(v = y'\)</span> and <span class="process-math">\(a = y''\text{,}\)</span> equating the forces produces the equation'</p>
-<div class="displaymath process-math">
+<p id="p-6748">A body in motion obeys Newton's second law that force equals mass times acceleration, or <span class="process-math">\(F = ma\text{.}\)</span> Here <span class="process-math">\(F\)</span> is the force acting on the object, <span class="process-math">\(m\)</span> the mass of the object, and <span class="process-math">\(a\)</span> the acceleration of the object. For example, if a mass is hanging from a spring, gravity acts to pull the mass downward and the spring acts to pull the mass up. Hooke?s law says that the force of the spring acting on mass is proportional to the displacement <span class="process-math">\(y\)</span> of the spring from equilibrium. There is also a damping force that weakens the action of the spring that might be due to air resistance or the medium in which the system is enclosed. If this mass is not too large, then the resistance can be taken to be proportional to the velocity <span class="process-math">\(v\)</span> of the mass. This produces forces <span class="process-math">\(F = ma\)</span> acting to pull the mass down and forces <span class="process-math">\(-ky\)</span> and <span class="process-math">\(- bv\)</span> acting in the opposite direction, where <span class="process-math">\(k\)</span> and <span class="process-math">\(b\)</span> are constant. A similar type of analysis would apply to an object falling through the air, where the resistant to falling could be proportional to the velocity of the object. Since <span class="process-math">\(v = y'\)</span> and <span class="process-math">\(a = y''\text{,}\)</span> equating the forces produces the equation'</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_de_1">
 \begin{equation}
-my'' = -ky-by'\text{.}\label{eq_de_1}\tag{39.1}
+my'' = -ky-by'\text{.}\tag{39.1}
 \end{equation}
 </div>
-<p id="p-6784"> Any equation that involves one or more derivatives of a function is called a <dfn class="terminology">differential equation</dfn>. Differential equations are used to model many different types of behavior in disciplines including engineering, physics, economics, and biology. Later in this section we will see how differential equations can be represented by linear transformations, and see how we can exploit this idea to solve certain types of differential equations (including <a href="" class="xref" data-knowl="./knowl/eq_de_1.html" title="Equation 39.1">(39.1)</a>).</p></section></div></main>
+<p id="p-6749"> Any equation that involves one or more derivatives of a function is called a <dfn class="terminology">differential equation</dfn>. Differential equations are used to model many different types of behavior in disciplines including engineering, physics, economics, and biology. Later in this section we will see how differential equations can be represented by linear transformations, and see how we can exploit this idea to solve certain types of differential equations (including <a href="" class="xref" data-knowl="./knowl/eq_de_1.html" title="Equation 39.1">(39.1)</a>).</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

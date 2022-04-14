@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:31:13-04:00       *-->
+<!--*       on 2022-04-14T13:09:19-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,194 +748,194 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_jordan"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Jordan Canonical Form</span>
 </h2>
-<p id="p-7027">We are now ready to prove the existence of the Jordan canonical form.</p>
+<p id="p-6992">We are now ready to prove the existence of the Jordan canonical form.</p>
 <article class="lemma theorem-like" id="lem_JCF_1"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">40.14</span><span class="period">.</span>
 </h3>
-<p id="p-7028">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span>-dimensional vector space and let <span class="process-math">\(T: V \to V\)</span> be a linear transformation. Let <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_r\)</span> be the distinct eigenvalues for <span class="process-math">\(T\text{.}\)</span> Then there are integers <span class="process-math">\(s_1\text{,}\)</span> <span class="process-math">\(s_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(s_r\)</span> such that</p>
-<div class="displaymath process-math">
+<p id="p-6993">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span>-dimensional vector space and let <span class="process-math">\(T: V \to V\)</span> be a linear transformation. Let <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_r\)</span> be the distinct eigenvalues for <span class="process-math">\(T\text{.}\)</span> Then there are integers <span class="process-math">\(s_1\text{,}\)</span> <span class="process-math">\(s_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(s_r\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V = \Ker(T-\lambda_1 I)^{s_1} \oplus \Ker(T-\lambda_2 I)^{s_2} \oplus \Ker(T-\lambda_3 I)^{s_3} \oplus \cdots \oplus \Ker(T-\lambda_r I)^{s_r}\text{.}
 \end{equation*}
-</div></article><p id="p-7029">An example might help illustrate the lemma.</p>
+</div></article><p id="p-6994">An example might help illustrate the lemma.</p>
 <article class="activity project-like" id="act_JCF_Lemma_1"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">40.10</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-708">
-<p id="p-7030">Let <span class="process-math">\(T:\pol_4 \to \pol_4\)</span> be defined by</p>
-<div class="displaymath process-math">
+<div class="introduction" id="introduction-703">
+<p id="p-6995">Let <span class="process-math">\(T:\pol_4 \to \pol_4\)</span> be defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-262">
 \begin{align*}
 T\left(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4\right) = (2a_0+a_1) \amp + (a_1-a_2)t + (a_0+a_1)t^2\\
 \amp \qquad + (-a_0-a_1+a_2+2a_3-a_4)t^3 + (2a_4)t^4\text{.}
 \end{align*}
 </div>
-<p id="p-7031">The matrix of <span class="process-math">\(T\)</span> with respect to the standard basis <span class="process-math">\(\CS = \{1,t,t^2,t^3,t^4\}\)</span> is</p>
-<div class="displaymath process-math">
+<p id="p-6996">The matrix of <span class="process-math">\(T\)</span> with respect to the standard basis <span class="process-math">\(\CS = \{1,t,t^2,t^3,t^4\}\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = [T]_{\CS} = \left[ \begin{array}{rrrcc} 2\amp 1\amp 0\amp 0\amp 0\\0\amp 1\amp -1\amp 0\amp 0 \\ 1\amp 1\amp 0\amp 0\amp 0 \\ -1\amp -1\amp 1\amp 2\amp -1 \\ 0\amp 0\amp 0\amp 0\amp 2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-7032">The eigenvalues of <span class="process-math">\(A\)</span> (and <span class="process-math">\(T\)</span>) are <span class="process-math">\(2\)</span> and <span class="process-math">\(1\text{,}\)</span> and the algebraic multiplicity of the eigenvalue <span class="process-math">\(2\)</span> is 2 while its geometric multiplicity is 1, and the algebraic multiplicity of the eigenvalue <span class="process-math">\(1\)</span> is 3 while its geometric multiplicity is also 1.</p>
-<p id="p-7033">For every <span class="process-math">\(t\text{,}\)</span> we can find <span class="process-math">\(\Ker(T-\lambda I)^t\)</span> using <span class="process-math">\(\Nul (A- \lambda I)^t\text{.}\)</span></p>
+<p id="p-6997">The eigenvalues of <span class="process-math">\(A\)</span> (and <span class="process-math">\(T\)</span>) are <span class="process-math">\(2\)</span> and <span class="process-math">\(1\text{,}\)</span> and the algebraic multiplicity of the eigenvalue <span class="process-math">\(2\)</span> is 2 while its geometric multiplicity is 1, and the algebraic multiplicity of the eigenvalue <span class="process-math">\(1\)</span> is 3 while its geometric multiplicity is also 1.</p>
+<p id="p-6998">For every <span class="process-math">\(t\text{,}\)</span> we can find <span class="process-math">\(\Ker(T-\lambda I)^t\)</span> using <span class="process-math">\(\Nul (A- \lambda I)^t\text{.}\)</span></p>
 </div>
-<article class="task exercise-like" id="task-2410"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-7034">Technology shows that <span class="process-math">\(\dim(\Nul A-I) = 1\text{,}\)</span> <span class="process-math">\(\dim(\Nul A-I)^2 = 2\text{,}\)</span> and <span class="process-math">\(\dim(\Nul A-I)^3 = 3\text{.}\)</span> A basis for <span class="process-math">\(\Nul (A-I)^3\)</span> is <span class="process-math">\(\CC_1 = \left\{ [-1 \ 1 \ 0 \ 0 \ 0]^{\tr}, [1 \ 0 \ 1 \ 0 \ 0]^{\tr}, [1 \ 0 \ 0 \ 1 \ 0]^{\tr}\right\}\text{.}\)</span> Find a basis <span class="process-math">\(\CB_1\)</span> for <span class="process-math">\(\Ker\left((T-I)^3\right)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2411"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-7035">Technology also shows that <span class="process-math">\(\dim(\Nul A-2I) = 1\)</span> and <span class="process-math">\(\dim(\Nul A-2I)^2 = 2\text{.}\)</span> A basis for <span class="process-math">\(\Nul (A-2I)^2\)</span> is <span class="process-math">\(\CC_2 = \left\{ [0 \ 0 \ 0 \ 1 \ 0]^{\tr}, [0 \ 0 \ 0 \ 0 \ 1]^{\tr}\right\}\text{.}\)</span> Find a basis <span class="process-math">\(\CC_2\)</span> for <span class="process-math">\(\Ker\left((T-2I)^2\right)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2412"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-7036">Identify the <span class="process-math">\(\lambda_i\)</span> and <span class="process-math">\(s_i\)</span> in <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a>. Let <span class="process-math">\(\CB = \CB_1 \cup \CB_2\text{.}\)</span> Find the matrix <span class="process-math">\([T]_{\CB}\text{.}\)</span></p></article></article><p id="p-7037">Since each <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> in <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a> is <span class="process-math">\(T\)</span> invariant, <span class="process-math">\(T\)</span> maps vectors in <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> back into <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\text{.}\)</span> So <span class="process-math">\(T\)</span> applied to each <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> provides a matrix <span class="process-math">\(B_i\text{.}\)</span> Applying <span class="process-math">\(T\)</span> to each <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> produces the matrix</p>
-<div class="displaymath process-math">
+<article class="task exercise-like" id="task-2400"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-6999">Technology shows that <span class="process-math">\(\dim(\Nul A-I) = 1\text{,}\)</span> <span class="process-math">\(\dim(\Nul A-I)^2 = 2\text{,}\)</span> and <span class="process-math">\(\dim(\Nul A-I)^3 = 3\text{.}\)</span> A basis for <span class="process-math">\(\Nul (A-I)^3\)</span> is <span class="process-math">\(\CC_1 = \left\{ [-1 \ 1 \ 0 \ 0 \ 0]^{\tr}, [1 \ 0 \ 1 \ 0 \ 0]^{\tr}, [1 \ 0 \ 0 \ 1 \ 0]^{\tr}\right\}\text{.}\)</span> Find a basis <span class="process-math">\(\CB_1\)</span> for <span class="process-math">\(\Ker\left((T-I)^3\right)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2401"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-7000">Technology also shows that <span class="process-math">\(\dim(\Nul A-2I) = 1\)</span> and <span class="process-math">\(\dim(\Nul A-2I)^2 = 2\text{.}\)</span> A basis for <span class="process-math">\(\Nul (A-2I)^2\)</span> is <span class="process-math">\(\CC_2 = \left\{ [0 \ 0 \ 0 \ 1 \ 0]^{\tr}, [0 \ 0 \ 0 \ 0 \ 1]^{\tr}\right\}\text{.}\)</span> Find a basis <span class="process-math">\(\CC_2\)</span> for <span class="process-math">\(\Ker\left((T-2I)^2\right)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2402"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-7001">Identify the <span class="process-math">\(\lambda_i\)</span> and <span class="process-math">\(s_i\)</span> in <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a>. Let <span class="process-math">\(\CB = \CB_1 \cup \CB_2\text{.}\)</span> Find the matrix <span class="process-math">\([T]_{\CB}\text{.}\)</span></p></article></article><p id="p-7002">Since each <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> in <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a> is <span class="process-math">\(T\)</span> invariant, <span class="process-math">\(T\)</span> maps vectors in <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> back into <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\text{.}\)</span> So <span class="process-math">\(T\)</span> applied to each <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> provides a matrix <span class="process-math">\(B_i\text{.}\)</span> Applying <span class="process-math">\(T\)</span> to each <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> produces the matrix</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_JCF_Lemma_1.html ./knowl/lem_JCF_2.html">
 \begin{equation*}
 \left[ \begin{array}{cccc} B_1  \amp  \amp \cdots \amp    \\  \amp B_2 \amp \cdots \amp  0  \\ 0  \amp  \amp  \ddots \amp    \\   \amp  \amp \cdots \amp   B_r \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where the <span class="process-math">\(B_i\)</span> are square matrices corresponding to the eigenvalues of <span class="process-math">\(T\text{.}\)</span> These blocks are determined by the restriction of <span class="process-math">\(T\)</span> to the spaces <span class="process-math">\(\Ker(T-\lambda_i I)^{s_i}\)</span> with respect to the found basis. To obtain the Jordan canonical form, we need to know that we can always choose these basis to create the correct block matrices. <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> will provide those details.</p>
 <article class="proof" id="proof-20"><h3 class="heading"><span class="title">Proof of Lemma 40.14.</span></h3>
-<p id="p-7038">Choose a <span class="process-math">\(\lambda_i\)</span> and, for convenience, label it <span class="process-math">\(\lambda\text{.}\)</span> For each positive integer <span class="process-math">\(j\text{,}\)</span> let <span class="process-math">\(W_j = \Ker(T - \lambda I)^j\text{.}\)</span> If <span class="process-math">\((T-\lambda I)^j\vx = \vzero\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<p id="p-7003">Choose a <span class="process-math">\(\lambda_i\)</span> and, for convenience, label it <span class="process-math">\(\lambda\text{.}\)</span> For each positive integer <span class="process-math">\(j\text{,}\)</span> let <span class="process-math">\(W_j = \Ker(T - \lambda I)^j\text{.}\)</span> If <span class="process-math">\((T-\lambda I)^j\vx = \vzero\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (T-\lambda I)^{j+1}(\vx) = (T-\lambda I) (T-\lambda I)^j(\vx) = (T-\lambda I)(\vzero) = \vzero\text{,}
 \end{equation*}
 </div>
 <p class="continuation">so <span class="process-math">\(W_j \subseteq W_{j+1}\text{.}\)</span> Thus we have the containments</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 W_1 \subseteq W_2 \subseteq W_3 \subseteq \cdots W_k \subseteq \cdots\text{.}
 \end{equation*}
 </div>
-<p id="p-7039">Now <span class="process-math">\(V\)</span> is finite dimensional, so this sequence must reach equality at some integer <span class="process-math">\(t\text{.}\)</span> That is, <span class="process-math">\(W_t = W_{t+1} = \cdots\text{.}\)</span> Let <span class="process-math">\(s\)</span> be the smallest positive integer for which this happens.</p>
-<p id="p-7040">We plan to show that <span class="process-math">\(V = \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s\text{.}\)</span> We begin by demonstrating that <span class="process-math">\(\Ker(T - \lambda I)^s\cap \Range(T - \lambda I)^s = \{0\}\text{.}\)</span> Let <span class="process-math">\(\vv \in \Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s\text{.}\)</span> Then <span class="process-math">\((T - \lambda I)^s(\vv) = \vzero\)</span> and there exists <span class="process-math">\(\vu \in V\)</span> such that <span class="process-math">\((T-\lambda I)^s(\vu) = \vv\text{.}\)</span> It follows that</p>
-<div class="displaymath process-math">
+<p id="p-7004">Now <span class="process-math">\(V\)</span> is finite dimensional, so this sequence must reach equality at some integer <span class="process-math">\(t\text{.}\)</span> That is, <span class="process-math">\(W_t = W_{t+1} = \cdots\text{.}\)</span> Let <span class="process-math">\(s\)</span> be the smallest positive integer for which this happens.</p>
+<p id="p-7005">We plan to show that <span class="process-math">\(V = \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s\text{.}\)</span> We begin by demonstrating that <span class="process-math">\(\Ker(T - \lambda I)^s\cap \Range(T - \lambda I)^s = \{0\}\text{.}\)</span> Let <span class="process-math">\(\vv \in \Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s\text{.}\)</span> Then <span class="process-math">\((T - \lambda I)^s(\vv) = \vzero\)</span> and there exists <span class="process-math">\(\vu \in V\)</span> such that <span class="process-math">\((T-\lambda I)^s(\vu) = \vv\text{.}\)</span> It follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (T-\lambda I)^{2s}(\vu) = (T-\lambda I)^s(T-\lambda I)^{s}(\vu) = (T-\lambda I)^s(\vv) = \vzero\text{.}
 \end{equation*}
 </div>
-<p id="p-7041">But <span class="process-math">\(\Ker(T - \lambda I)^{2s} = \Ker(T- \lambda I)^s\text{,}\)</span> so</p>
-<div class="displaymath process-math">
+<p id="p-7006">But <span class="process-math">\(\Ker(T - \lambda I)^{2s} = \Ker(T- \lambda I)^s\text{,}\)</span> so</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vzero = (T-\lambda I)^{2s}(\vu) = (T-\lambda I)^{s}(\vu) = \vv\text{.}
 \end{equation*}
 </div>
-<p id="p-7042">We conclude that <span class="process-math">\(\Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s = \{\vzero\}\text{.}\)</span></p>
-<p id="p-7043">Now we will show that <span class="process-math">\(V =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s\text{.}\)</span> Let <span class="process-math">\(\vz = \vz_1 + \vz_2\)</span> with <span class="process-math">\(\vz_1 \in  \Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\vz_2 \in  \Range(T - \lambda I)^s\text{.}\)</span> First we will show that <span class="process-math">\(\vz\)</span> is uniquely represented in this way. Suppose <span class="process-math">\(\vz = \vz'_1+\vz'_2\)</span> with <span class="process-math">\(\vz'_1 \in  \Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\vz'_2 \in  \Range(T - \lambda I)^s\text{.}\)</span> Then</p>
-<div class="displaymath process-math">
+<p id="p-7007">We conclude that <span class="process-math">\(\Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s = \{\vzero\}\text{.}\)</span></p>
+<p id="p-7008">Now we will show that <span class="process-math">\(V =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s\text{.}\)</span> Let <span class="process-math">\(\vz = \vz_1 + \vz_2\)</span> with <span class="process-math">\(\vz_1 \in  \Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\vz_2 \in  \Range(T - \lambda I)^s\text{.}\)</span> First we will show that <span class="process-math">\(\vz\)</span> is uniquely represented in this way. Suppose <span class="process-math">\(\vz = \vz'_1+\vz'_2\)</span> with <span class="process-math">\(\vz'_1 \in  \Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\vz'_2 \in  \Range(T - \lambda I)^s\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vz_1+\vz_2 = \vz'_1+\vz'_2
 \end{equation*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vz_1-\vz'_1 = \vz'_2-\vz_2\text{.}
 \end{equation*}
 </div>
-<p id="p-7044">But <span class="process-math">\(\Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s = \{\vzero\}\text{,}\)</span> so <span class="process-math">\(\vz_1-\vz'_1 = \vzero\)</span> and <span class="process-math">\(\vz'_2-\vz_2=\vzero\)</span> which means <span class="process-math">\(\vz_1=\vz'_1\)</span> and <span class="process-math">\(\vz_2 = \vz'_2\text{.}\)</span> Now let <span class="process-math">\(Z =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s\text{.}\)</span> We then know that</p>
-<div class="displaymath process-math">
+<p id="p-7009">But <span class="process-math">\(\Ker(T - \lambda I)^s \cap \Range(T - \lambda I)^s = \{\vzero\}\text{,}\)</span> so <span class="process-math">\(\vz_1-\vz'_1 = \vzero\)</span> and <span class="process-math">\(\vz'_2-\vz_2=\vzero\)</span> which means <span class="process-math">\(\vz_1=\vz'_1\)</span> and <span class="process-math">\(\vz_2 = \vz'_2\text{.}\)</span> Now let <span class="process-math">\(Z =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s\text{.}\)</span> We then know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \dim(Z) = \dim\left(\Ker(T - \lambda I)^s\right) + \dim\left(\Range(T - \lambda I)^s\right)\text{.}
 \end{equation*}
 </div>
-<p id="p-7045">Also, the Rank-Nullity Theorem shows that</p>
-<div class="displaymath process-math">
+<p id="p-7010">Also, the Rank-Nullity Theorem shows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \dim(V) =  \dim\left(\Ker(T - \lambda I)^s\right) + \dim\left(\Range(T - \lambda I)^s\right)\text{.}
 \end{equation*}
 </div>
-<p id="p-7046">So <span class="process-math">\(Z\)</span> is a subspace of <span class="process-math">\(V\)</span> with <span class="process-math">\(\dim(Z) = \dim(V)\text{.}\)</span> We conclude that <span class="process-math">\(Z = V\)</span> and that</p>
-<div class="displaymath process-math">
+<p id="p-7011">So <span class="process-math">\(Z\)</span> is a subspace of <span class="process-math">\(V\)</span> with <span class="process-math">\(\dim(Z) = \dim(V)\text{.}\)</span> We conclude that <span class="process-math">\(Z = V\)</span> and that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V =  \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s\text{.}
 \end{equation*}
 </div>
-<p id="p-7047">Next we demonstrate that <span class="process-math">\(\Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\Range(T - \lambda I)^s\)</span> are invariant under <span class="process-math">\(T\text{.}\)</span> Note that</p>
-<div class="displaymath process-math">
+<p id="p-7012">Next we demonstrate that <span class="process-math">\(\Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\Range(T - \lambda I)^s\)</span> are invariant under <span class="process-math">\(T\text{.}\)</span> Note that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(T - \lambda I) = T^2 - \lambda T = (T-\lambda I)T\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and <span class="process-math">\(T\)</span> commutes with <span class="process-math">\((T - \lambda I)\text{.}\)</span> By induction, <span class="process-math">\(T\)</span> commutes with <span class="process-math">\((T - \lambda I)^s\text{.}\)</span> Suppose that <span class="process-math">\(\vv \in \Ker(T - \lambda I)^s\text{.}\)</span> Then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (T - \lambda I)^sT(\vv) = T(T - \lambda I)^s(\vv) = T(\vzero) = \vzero\text{.}
 \end{equation*}
 </div>
-<p id="p-7048">So <span class="process-math">\(T(\vv) \in \Ker(T - \lambda I)^s\text{.}\)</span> Similarly, suppose that <span class="process-math">\(\vv \in \Range(T - \lambda I)^s\text{.}\)</span> Then there is a <span class="process-math">\(\vu \in V\)</span> such that <span class="process-math">\((T - \lambda I)^s(\vu) = \vv\text{.}\)</span> Then</p>
-<div class="displaymath process-math">
+<p id="p-7013">So <span class="process-math">\(T(\vv) \in \Ker(T - \lambda I)^s\text{.}\)</span> Similarly, suppose that <span class="process-math">\(\vv \in \Range(T - \lambda I)^s\text{.}\)</span> Then there is a <span class="process-math">\(\vu \in V\)</span> such that <span class="process-math">\((T - \lambda I)^s(\vu) = \vv\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(\vv) = T\left((T - \lambda I)^s(\vu)\right) = \left(T(T - \lambda I)^s\right)(\vu) = \left((T - \lambda I)^sT\right)(\vu) = (T - \lambda I)^s(T(\vu))\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and <span class="process-math">\(T(\vv) \in \Range(T - \lambda I)^s\text{.}\)</span></p>
-<p id="p-7049">We conclude our proof by induction on the number <span class="process-math">\(r\)</span> of eigenvalues of <span class="process-math">\(T\text{.}\)</span> Suppose that <span class="process-math">\(r=1\)</span> and so <span class="process-math">\(T\)</span> has exactly one eigenvalue <span class="process-math">\(\lambda\text{.}\)</span> Then <span class="process-math">\(T-\lambda I\)</span> has only zero as an eigenvalue (otherwise, there is <span class="process-math">\(\mu \neq 0\)</span> such that <span class="process-math">\((T - \lambda I) - \mu I = T - (\lambda+\mu)I\)</span> has a nontrivial kernel. This makes <span class="process-math">\(\lambda+\mu\)</span> an eigenvalue of <span class="process-math">\(T\text{.}\)</span>) In this situation, <span class="process-math">\(T - \lambda I\)</span> is nilpotent and so <span class="process-math">\((T - \lambda I)^t = 0\)</span> for some positive integer <span class="process-math">\(t\text{.}\)</span> If <span class="process-math">\(s\)</span> is the smallest such power, then <span class="process-math">\(V =  \Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\Range(T - \lambda I)^s = \{\vzero\}\text{.}\)</span> So every vector in <span class="process-math">\(V\)</span> is in <span class="process-math">\(\Ker(T - ]lambda I)^s\)</span> and</p>
-<div class="displaymath process-math">
+<p id="p-7014">We conclude our proof by induction on the number <span class="process-math">\(r\)</span> of eigenvalues of <span class="process-math">\(T\text{.}\)</span> Suppose that <span class="process-math">\(r=1\)</span> and so <span class="process-math">\(T\)</span> has exactly one eigenvalue <span class="process-math">\(\lambda\text{.}\)</span> Then <span class="process-math">\(T-\lambda I\)</span> has only zero as an eigenvalue (otherwise, there is <span class="process-math">\(\mu \neq 0\)</span> such that <span class="process-math">\((T - \lambda I) - \mu I = T - (\lambda+\mu)I\)</span> has a nontrivial kernel. This makes <span class="process-math">\(\lambda+\mu\)</span> an eigenvalue of <span class="process-math">\(T\text{.}\)</span>) In this situation, <span class="process-math">\(T - \lambda I\)</span> is nilpotent and so <span class="process-math">\((T - \lambda I)^t = 0\)</span> for some positive integer <span class="process-math">\(t\text{.}\)</span> If <span class="process-math">\(s\)</span> is the smallest such power, then <span class="process-math">\(V =  \Ker(T - \lambda I)^s\)</span> and <span class="process-math">\(\Range(T - \lambda I)^s = \{\vzero\}\text{.}\)</span> So every vector in <span class="process-math">\(V\)</span> is in <span class="process-math">\(\Ker(T - ]lambda I)^s\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V = \Ker(T - \lambda I)^s \oplus \Range(T - \lambda I)^s = \Ker(T - \lambda I)^s\text{.}
 \end{equation*}
 </div>
-<p id="p-7050">Thus, the statement is true when <span class="process-math">\(r=1\text{.}\)</span> Assume that the statement is true for linear transformations with fewer than <span class="process-math">\(r\)</span> eigenvalues. Now assume that <span class="process-math">\(T\)</span> has distinct eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_r\text{.}\)</span> By our previous work, we know that</p>
-<div class="displaymath process-math">
+<p id="p-7015">Thus, the statement is true when <span class="process-math">\(r=1\text{.}\)</span> Assume that the statement is true for linear transformations with fewer than <span class="process-math">\(r\)</span> eigenvalues. Now assume that <span class="process-math">\(T\)</span> has distinct eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_r\text{.}\)</span> By our previous work, we know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V = \Ker(T - \lambda_1 I)^{s_1} \oplus \Range(T - \lambda_1 I)^{s_1}
 \end{equation*}
 </div>
 <p class="continuation">for some positive integer <span class="process-math">\(s_1\text{.}\)</span> Let <span class="process-math">\(V_1 = \Range(T - \lambda_1 I)^{s_1}\text{.}\)</span> Since <span class="process-math">\(\Range(T - \lambda_1 I)^{s_1}\)</span> is <span class="process-math">\(T\)</span> invariant, we know that <span class="process-math">\(T\)</span> maps <span class="process-math">\(V_1\)</span> to <span class="process-math">\(V_1\text{.}\)</span> The eigenvalues of <span class="process-math">\(T\)</span> on <span class="process-math">\(V_1\)</span> are <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\lambda_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_r\text{.}\)</span> By our induction hypothesis, we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V_1 = \Ker(T-\lambda_2 I)^{s_2} \oplus \Ker(T-\lambda_3 I)^{s_3} \oplus \cdots \oplus \Ker(T-\lambda_r I)^{s_r}\text{,}
 \end{equation*}
 </div>
 <p class="continuation">for some positive integers <span class="process-math">\(s_2\text{,}\)</span> <span class="process-math">\(s_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(s_r\text{,}\)</span> which makes</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 V = \Ker(T-\lambda_1 I)^{s_1} \oplus \Ker(T-\lambda_2 I)^{s_2} \oplus \Ker(T-\lambda_3 I)^{s_3} \oplus \cdots \oplus \Ker(T-\lambda_r I)^{s_r}\text{.}
 \end{equation*}
-</div></article><p id="p-7051"><a href="" class="xref" data-knowl="./knowl/lem_JCF_1.html" title="Lemma 40.14">Lemma 40.14</a> tells us that <span class="process-math">\(T\)</span> has a diagonal form with block matrices down the diagonal. To obtain a Jordan canonical form, we need to identify the correct bases for the summands of <span class="process-math">\(V\text{.}\)</span> (Lemma is due to Mark Wildon from <span class="articletitle">“A SHORT PROOF OF THE EXISTENCE OF JORDAN NORMAL FORM”</span>.)</p>
+</div></article><p id="p-7016"><a href="" class="xref" data-knowl="./knowl/lem_JCF_1.html" title="Lemma 40.14">Lemma 40.14</a> tells us that <span class="process-math">\(T\)</span> has a diagonal form with block matrices down the diagonal. To obtain a Jordan canonical form, we need to identify the correct bases for the summands of <span class="process-math">\(V\text{.}\)</span> (Lemma is due to Mark Wildon from <span class="articletitle">“A SHORT PROOF OF THE EXISTENCE OF JORDAN NORMAL FORM”</span>.)</p>
 <article class="lemma theorem-like" id="lem_JCF_2"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">40.15</span><span class="period">.</span>
 </h3>
-<p id="p-7052">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span>-dimensional vector space and let <span class="process-math">\(T : V \to V\)</span> be a linear transformation such that <span class="process-math">\(T^s = 0\)</span> for some positive integer <span class="process-math">\(s\text{.}\)</span> Then there exist vectors <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_k\)</span> and natural numbers <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_k\)</span> such that <span class="process-math">\(T^{a_i}(\vu_i) = 0\)</span> for <span class="process-math">\(i\)</span> from <span class="process-math">\(1\)</span> to <span class="process-math">\(k\)</span> and the vectors</p>
-<div class="displaymath process-math">
+<p id="p-7017">Let <span class="process-math">\(V\)</span> be an <span class="process-math">\(n\)</span>-dimensional vector space and let <span class="process-math">\(T : V \to V\)</span> be a linear transformation such that <span class="process-math">\(T^s = 0\)</span> for some positive integer <span class="process-math">\(s\text{.}\)</span> Then there exist vectors <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_k\)</span> and natural numbers <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_k\)</span> such that <span class="process-math">\(T^{a_i}(\vu_i) = 0\)</span> for <span class="process-math">\(i\)</span> from <span class="process-math">\(1\)</span> to <span class="process-math">\(k\)</span> and the vectors</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vu_1, T(\vu_1), \ldots,T^{a_1-1}(\vu_1), \vu_2, T(\vu_2), \ldots,T^{a_2-1}(\vu_2), \ldots, \vu_k, T(\vu_k), \ldots,T^{a_k-1}(\vu_k)
 \end{equation*}
 </div>
-<p class="continuation">are non-zero vectors that form a basis of <span class="process-math">\(V\text{.}\)</span></p></article><p id="p-7053">Notice the similarity of <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> to chains of generalized eigenvectors. An example might help illustrate <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a>.</p>
+<p class="continuation">are non-zero vectors that form a basis of <span class="process-math">\(V\text{.}\)</span></p></article><p id="p-7018">Notice the similarity of <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> to chains of generalized eigenvectors. An example might help illustrate <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a>.</p>
 <article class="activity project-like" id="act_JCF_Lem_2"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">40.11</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-709">
-<p id="p-7054">Let <span class="process-math">\(T: \pol_5 \to \pol_5\)</span> be defined by</p>
-<div class="displaymath process-math">
+<div class="introduction" id="introduction-704">
+<p id="p-7019">Let <span class="process-math">\(T: \pol_5 \to \pol_5\)</span> be defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4+a_5t^5) = (-a_1-a_4+a_5)t + (-a_0-a_1+a_3-a_4+a_5)t^2 + (a_1+a_4)t^4\text{.}
 \end{equation*}
 </div>
-<p id="p-7055">Let <span class="process-math">\(\CS = \{1,t,t^2,t^3,t^4,t^5\}\)</span> be the standard basis for <span class="process-math">\(\pol_5\text{.}\)</span> Then</p>
-<div class="displaymath process-math">
+<p id="p-7020">Let <span class="process-math">\(\CS = \{1,t,t^2,t^3,t^4,t^5\}\)</span> be the standard basis for <span class="process-math">\(\pol_5\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = [T]_{\CS} = \left[ \begin{array}{rrccrc} 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp -1\amp 0\amp 0\amp -1\amp 1 \\ -1\amp -1\amp 0\amp 1\amp -1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array} \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-7056">Technology shows that the only eigenvalue of <span class="process-math">\(A\)</span> is <span class="process-math">\(0\)</span> and that the geometric multiplicity of <span class="process-math">\(0\)</span> is <span class="process-math">\(3\text{.}\)</span> Since <span class="process-math">\(0\)</span> is the only eigenvalue of <span class="process-math">\(A\text{,}\)</span> we know that <span class="process-math">\(A\)</span> (and <span class="process-math">\(T\)</span>) is nilpotent. Using technology we find that the reduced row echelon forms of <span class="process-math">\(A\)</span> and <span class="process-math">\(A^2\)</span> and respectively,</p>
-<div class="displaymath process-math">
+<p id="p-7021">Technology shows that the only eigenvalue of <span class="process-math">\(A\)</span> is <span class="process-math">\(0\)</span> and that the geometric multiplicity of <span class="process-math">\(0\)</span> is <span class="process-math">\(3\text{.}\)</span> Since <span class="process-math">\(0\)</span> is the only eigenvalue of <span class="process-math">\(A\text{,}\)</span> we know that <span class="process-math">\(A\)</span> (and <span class="process-math">\(T\)</span>) is nilpotent. Using technology we find that the reduced row echelon forms of <span class="process-math">\(A\)</span> and <span class="process-math">\(A^2\)</span> and respectively,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{cccrcc} 1\amp 0\amp 0\amp -1\amp 0\amp 0 \\ 0\amp 1\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right], \ \left[ \begin{array}{cccrcc} 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">while <span class="process-math">\(A^3 = 0\text{.}\)</span> We see that <span class="process-math">\(\dim(\Ker(T^3)) \dim(\Nul A^3) = 6\)</span> while <span class="process-math">\(\dim(\Ker(T^2)) = \dim(\Nul A^2) = 5\text{.}\)</span></p>
 </div>
-<article class="task exercise-like" id="task-2413"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-7057">Notice that the vector <span class="process-math">\(\vv_1 = [0 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}\)</span> is in <span class="process-math">\(\Nul A^3\)</span> but not in <span class="process-math">\(\Nul A^2\text{.}\)</span> Use this vector to construct one chain <span class="process-math">\(u_1\text{,}\)</span> <span class="process-math">\(T(u_1)\text{,}\)</span> and <span class="process-math">\(T^2(u_1)\)</span> of generalized eigenvectors starting with a vector <span class="process-math">\(u_1\)</span> that is in <span class="process-math">\(\Ker(T^3)\)</span> but not in <span class="process-math">\(\Ker(T^2)\text{.}\)</span> What can we say about the vector <span class="process-math">\(T^2(u_1)\)</span> in relation to eigenvectors of <span class="process-math">\(T\text{?}\)</span></p></article><article class="task exercise-like" id="task-2414"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-7058">We know two other eigenvectors of <span class="process-math">\(T\text{,}\)</span> so we need another chain of generalized eigenvectors to provide a basis of <span class="process-math">\(\pol_5\)</span> of generalized eigenvectors. Use the fact that <span class="process-math">\(\vv_2 = [1 \ 0 \ 0 \ 0 \ 0 \ 0]^{\tr}\)</span> is in <span class="process-math">\(\Nul A^2\)</span> but not in <span class="process-math">\(\Nul A\)</span> to find another generalized eigenvector <span class="process-math">\(u_2\)</span> in <span class="process-math">\(\Ker(T^2)\)</span> that is not in <span class="process-math">\(\Ker(T)\text{.}\)</span> Then create a chain <span class="process-math">\(u_2\)</span> and <span class="process-math">\(T(u_2)\)</span> of generalized eigenvectors. What is true about <span class="process-math">\(T(u_2)\)</span> in relation to eigenvectors of <span class="process-math">\(T\text{?}\)</span></p></article><article class="task exercise-like" id="task-2415"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-7059">Let <span class="process-math">\(u_3 = 1+t^3\)</span> be a third eigenvector of <span class="process-math">\(T\text{.}\)</span> Explain why <span class="process-math">\(\{u_1, T(u_1), T^2(u_1),
-u_2, T(u_2), u_3\}\)</span> is a basis of <span class="process-math">\(\pol_5\text{.}\)</span> Identify the values of <span class="process-math">\(k\)</span> and the <span class="process-math">\(a_i\)</span> in Lemma 40.12.</p></article></article><p id="p-7060">Notice that if we let <span class="process-math">\(C = [[T^2(\vu_1)]_{\CS} \ [T(\vu_1)]_{\CS} \ [\vu_1]_{\CS} \  [T(\vu_4)]_{|CS} \ [\vu_4]_{|CS} \ [\vu_6]_{\CS}]\)</span> using the vectors from <a href="" class="xref" data-knowl="./knowl/act_JCF_Lem_2.html" title="Activity 40.11">Activity 40.11</a> we should find that</p>
-<div class="displaymath process-math">
+<article class="task exercise-like" id="task-2403"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-7022">Notice that the vector <span class="process-math">\(\vv_1 = [0 \ 0 \ 0 \ 0 \ 0 \ 1]^{\tr}\)</span> is in <span class="process-math">\(\Nul A^3\)</span> but not in <span class="process-math">\(\Nul A^2\text{.}\)</span> Use this vector to construct one chain <span class="process-math">\(u_1\text{,}\)</span> <span class="process-math">\(T(u_1)\text{,}\)</span> and <span class="process-math">\(T^2(u_1)\)</span> of generalized eigenvectors starting with a vector <span class="process-math">\(u_1\)</span> that is in <span class="process-math">\(\Ker(T^3)\)</span> but not in <span class="process-math">\(\Ker(T^2)\text{.}\)</span> What can we say about the vector <span class="process-math">\(T^2(u_1)\)</span> in relation to eigenvectors of <span class="process-math">\(T\text{?}\)</span></p></article><article class="task exercise-like" id="task-2404"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-7023">We know two other eigenvectors of <span class="process-math">\(T\text{,}\)</span> so we need another chain of generalized eigenvectors to provide a basis of <span class="process-math">\(\pol_5\)</span> of generalized eigenvectors. Use the fact that <span class="process-math">\(\vv_2 = [1 \ 0 \ 0 \ 0 \ 0 \ 0]^{\tr}\)</span> is in <span class="process-math">\(\Nul A^2\)</span> but not in <span class="process-math">\(\Nul A\)</span> to find another generalized eigenvector <span class="process-math">\(u_2\)</span> in <span class="process-math">\(\Ker(T^2)\)</span> that is not in <span class="process-math">\(\Ker(T)\text{.}\)</span> Then create a chain <span class="process-math">\(u_2\)</span> and <span class="process-math">\(T(u_2)\)</span> of generalized eigenvectors. What is true about <span class="process-math">\(T(u_2)\)</span> in relation to eigenvectors of <span class="process-math">\(T\text{?}\)</span></p></article><article class="task exercise-like" id="task-2405"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-7024">Let <span class="process-math">\(u_3 = 1+t^3\)</span> be a third eigenvector of <span class="process-math">\(T\text{.}\)</span> Explain why <span class="process-math">\(\{u_1, T(u_1), T^2(u_1),
+u_2, T(u_2), u_3\}\)</span> is a basis of <span class="process-math">\(\pol_5\text{.}\)</span> Identify the values of <span class="process-math">\(k\)</span> and the <span class="process-math">\(a_i\)</span> in Lemma 40.12.</p></article></article><p id="p-7025">Notice that if we let <span class="process-math">\(C = [[T^2(\vu_1)]_{\CS} \ [T(\vu_1)]_{\CS} \ [\vu_1]_{\CS} \  [T(\vu_4)]_{|CS} \ [\vu_4]_{|CS} \ [\vu_6]_{\CS}]\)</span> using the vectors from <a href="" class="xref" data-knowl="./knowl/act_JCF_Lem_2.html" title="Activity 40.11">Activity 40.11</a> we should find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_JCF_Lem_2.html">
 \begin{equation*}
 C^{-1}AC = \left[ \begin{array}{cccccc} 0\amp 1\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and this basis provides a matrix that produces a Jordan canonical form of <span class="process-math">\(A\text{.}\)</span></p>
-<p id="p-7061"><a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> provides the sequences of generalized eigenvectors that we need to make the block matrices in Jordan canonical form. This works as follows. Start, for example, with <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(T(\vu_1)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span><span class="process-math">\(T^{a_1-1}(\vu_1)\text{.}\)</span> Since <span class="process-math">\(T^s = 0\text{,}\)</span> we know that <span class="process-math">\(T\)</span> is nilpotent and so has only <span class="process-math">\(0\)</span> as an eigenvalue. If <span class="process-math">\(T\)</span> has a nonzero eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> we replace <span class="process-math">\(T\)</span> with <span class="process-math">\(T - \lambda I\text{.}\)</span></p>
-<p id="p-7062">Let <span class="process-math">\(\CB = \{T^{a_1-1}(\vu_1), T^{a_1-2}(\vu_1), \ldots, T^2(\vu_1), T(\vu_1), \vu_1\}\text{.}\)</span> Then</p>
-<div class="displaymath process-math">
+<p id="p-7026"><a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> provides the sequences of generalized eigenvectors that we need to make the block matrices in Jordan canonical form. This works as follows. Start, for example, with <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(T(\vu_1)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span><span class="process-math">\(T^{a_1-1}(\vu_1)\text{.}\)</span> Since <span class="process-math">\(T^s = 0\text{,}\)</span> we know that <span class="process-math">\(T\)</span> is nilpotent and so has only <span class="process-math">\(0\)</span> as an eigenvalue. If <span class="process-math">\(T\)</span> has a nonzero eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> we replace <span class="process-math">\(T\)</span> with <span class="process-math">\(T - \lambda I\text{.}\)</span></p>
+<p id="p-7027">Let <span class="process-math">\(\CB = \{T^{a_1-1}(\vu_1), T^{a_1-2}(\vu_1), \ldots, T^2(\vu_1), T(\vu_1), \vu_1\}\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-263">
 \begin{align*}
 _{\CB} \amp = [T^{a_1}(\vu_1)]_{\CB} = [0 \ 0 \ 0 \  \  \ldots \ 0 \ 0]^{\tr}\\
 [T(T^{a_1-2}(\vu_1))]_{\CB} \amp = [T^{a_1-1}(\vu_1)]_{\CB} = [1 \ 0 \ 0 \ \  \ldots \ 0 \ 0]^{\tr}\\
@@ -948,130 +946,130 @@ _{\CB} \amp = [T^{a_1}(\vu_1)]_{\CB} = [0 \ 0 \ 0 \  \  \ldots \ 0 \ 0]^{\tr}\\
 [T(\vu_1)]_{\CB} \amp = [T(\vu_1)]_{\CB} = [0 \ 0 \ 0 \  \ \ldots \ 0 \ 0 \ 0 \ 1 \ 0]^{\tr}\text{.}
 \end{align*}
 </div>
-<p id="p-7063">This makes</p>
-<div class="displaymath process-math">
+<p id="p-7028">This makes</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [T]_{\CB} =  \left[ \begin{array}{cccccccc} 0\amp 1\amp 0\amp 0\amp \cdots \amp  0 \amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp \cdots \amp  0\amp 0\amp 0 \\ \amp \amp \ddots\amp \ddots \amp \amp   \amp \amp \\ \amp \amp \amp \amp \vdots \amp \amp \amp   \\ 0\amp 0\amp 0\amp 0\amp \cdots \amp  0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp \cdots \amp  0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp \cdots \amp  0\amp 0\amp 0 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">which gives one Jordan block.</p>
 <article class="proof" id="proof-21"><h3 class="heading"><span class="title">Proof of Lemma 40.15.</span></h3>
-<p id="p-7064">If <span class="process-math">\(T(\vx) = \vzero\)</span> for all <span class="process-math">\(\vx \in V\text{,}\)</span> then we can choose <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_{\dim(V)}\)</span> to form any basis of <span class="process-math">\(V\)</span> and all <span class="process-math">\(a_i = 1\text{.}\)</span> So we can assume that <span class="process-math">\(T\)</span> is a nonzero transformation. Also, we claim that <span class="process-math">\(T(V)\)</span> is a proper subset of <span class="process-math">\(V\)</span> (recall that <span class="process-math">\(T(V)\)</span> is the same as <span class="process-math">\(\Range(T)\)</span>). If not, <span class="process-math">\(V = T(V) = T^2(V) = \cdots = T^m(V)\)</span> for any positive integer <span class="process-math">\(m\text{.}\)</span> But this contradicts the fact that <span class="process-math">\(T^s = 0\text{.}\)</span></p>
-<p id="p-7065">We proceed by induction on <span class="process-math">\(\dim(V)\text{.}\)</span> If <span class="process-math">\(\dim(V) = 1\text{,}\)</span> since<span class="process-math">\(T(V)\)</span> is a proper subset of <span class="process-math">\(V\)</span> the only possibility is that <span class="process-math">\(T(V) = \{\vzero\}\text{.}\)</span> We have already discussed this case. For the inductive step assume that the lemma is true for any vector space of positive integer dimension less than <span class="process-math">\(\dim(V)\text{.}\)</span> Our assumption that <span class="process-math">\(T\)</span> is a nonzero transformation allows us to conclude that <span class="process-math">\(0 \subset T(V) \subset V\text{.}\)</span> Thus, <span class="process-math">\(1 \leq \dim(T(V)) \lt  \dim(V)\text{.}\)</span> We apply the inductive hypothesis to the transformation <span class="process-math">\(T: T(V) \to T(V)\)</span> to find integers <span class="process-math">\(b_1\text{,}\)</span> <span class="process-math">\(b_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(b_{\ell}\)</span> and vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_{\ell}\)</span> in <span class="process-math">\(T(V)\)</span> such that the vectors</p>
-<div class="displaymath process-math">
+<p id="p-7029">If <span class="process-math">\(T(\vx) = \vzero\)</span> for all <span class="process-math">\(\vx \in V\text{,}\)</span> then we can choose <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_{\dim(V)}\)</span> to form any basis of <span class="process-math">\(V\)</span> and all <span class="process-math">\(a_i = 1\text{.}\)</span> So we can assume that <span class="process-math">\(T\)</span> is a nonzero transformation. Also, we claim that <span class="process-math">\(T(V)\)</span> is a proper subset of <span class="process-math">\(V\)</span> (recall that <span class="process-math">\(T(V)\)</span> is the same as <span class="process-math">\(\Range(T)\)</span>). If not, <span class="process-math">\(V = T(V) = T^2(V) = \cdots = T^m(V)\)</span> for any positive integer <span class="process-math">\(m\text{.}\)</span> But this contradicts the fact that <span class="process-math">\(T^s = 0\text{.}\)</span></p>
+<p id="p-7030">We proceed by induction on <span class="process-math">\(\dim(V)\text{.}\)</span> If <span class="process-math">\(\dim(V) = 1\text{,}\)</span> since<span class="process-math">\(T(V)\)</span> is a proper subset of <span class="process-math">\(V\)</span> the only possibility is that <span class="process-math">\(T(V) = \{\vzero\}\text{.}\)</span> We have already discussed this case. For the inductive step assume that the lemma is true for any vector space of positive integer dimension less than <span class="process-math">\(\dim(V)\text{.}\)</span> Our assumption that <span class="process-math">\(T\)</span> is a nonzero transformation allows us to conclude that <span class="process-math">\(0 \subset T(V) \subset V\text{.}\)</span> Thus, <span class="process-math">\(1 \leq \dim(T(V)) \lt  \dim(V)\text{.}\)</span> We apply the inductive hypothesis to the transformation <span class="process-math">\(T: T(V) \to T(V)\)</span> to find integers <span class="process-math">\(b_1\text{,}\)</span> <span class="process-math">\(b_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(b_{\ell}\)</span> and vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_{\ell}\)</span> in <span class="process-math">\(T(V)\)</span> such that the vectors</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_JCF_TV_basis">
 \begin{equation}
-\vv_1, T(\vv_1), \ldots, T^{b_1-1}(\vv_1), \ldots, \vv_{\ell}, T(\vv_{\ell}), \ldots, T^{b_{\ell}-1}(\vv_{\ell})\label{eq_JCF_TV_basis}\tag{40.4}
+\vv_1, T(\vv_1), \ldots, T^{b_1-1}(\vv_1), \ldots, \vv_{\ell}, T(\vv_{\ell}), \ldots, T^{b_{\ell}-1}(\vv_{\ell})\tag{40.4}
 \end{equation}
 </div>
 <p class="continuation">form a basis for <span class="process-math">\(T(V)\)</span> and <span class="process-math">\(T^{b_i}(\vv_i) = \vzero\)</span> for <span class="process-math">\(1 \leq i \leq \ell\text{.}\)</span></p>
-<p id="p-7066">Now <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_{\ell}\)</span> are in <span class="process-math">\(T(V)\text{,}\)</span> so there exist <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_{\ell}\)</span> in <span class="process-math">\(V\)</span> such that <span class="process-math">\(T(\vu_i) = \vv_i\)</span> for each <span class="process-math">\(1 \leq i \leq \ell\text{.}\)</span> This implies that <span class="process-math">\(T^j(\vu_i) = T^{j-1}(T(\vu_i)) = T^{j-1}(\vv_i)\)</span> for all <span class="process-math">\(i\)</span> and all positive integers <span class="process-math">\(j\text{.}\)</span> The vectors <span class="process-math">\(T^{b_1-1}(\vv_1)\text{,}\)</span> <span class="process-math">\(T^{b_2-1}(\vv_2)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_{\ell}-1}(\vv_{\ell})\)</span> are linearly independent and <span class="process-math">\(T\left(T^{b_i-1}(\vv_i)\right) = T^{b_i}(\vv_i) = 0\)</span> for <span class="process-math">\(1 \leq i \leq \ell\text{,}\)</span> so the vectors <span class="process-math">\(T^{b_1-1}(\vv_1)\text{,}\)</span> <span class="process-math">\(T^{b_2-1}(\vv_2)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_{\ell}-1}(\vv_{\ell})\)</span> are all in <span class="process-math">\(\Ker(T)\text{.}\)</span> Extend the set <span class="process-math">\(\left\{T^{b_1-1}(\vv_1), T^{b_2-1}(\vv_2), \ldots, T^{b_{\ell}-1}(\vv_{\ell})\right\}\)</span> to a basis of <span class="process-math">\(\Ker(T)\)</span> with the vectors <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_m\)</span> for <span class="process-math">\(m = \dim(\Ker(T)) - \ell\text{.}\)</span> That is, the set</p>
-<div class="displaymath process-math">
+<p id="p-7031">Now <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_{\ell}\)</span> are in <span class="process-math">\(T(V)\text{,}\)</span> so there exist <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(\vu_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_{\ell}\)</span> in <span class="process-math">\(V\)</span> such that <span class="process-math">\(T(\vu_i) = \vv_i\)</span> for each <span class="process-math">\(1 \leq i \leq \ell\text{.}\)</span> This implies that <span class="process-math">\(T^j(\vu_i) = T^{j-1}(T(\vu_i)) = T^{j-1}(\vv_i)\)</span> for all <span class="process-math">\(i\)</span> and all positive integers <span class="process-math">\(j\text{.}\)</span> The vectors <span class="process-math">\(T^{b_1-1}(\vv_1)\text{,}\)</span> <span class="process-math">\(T^{b_2-1}(\vv_2)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_{\ell}-1}(\vv_{\ell})\)</span> are linearly independent and <span class="process-math">\(T\left(T^{b_i-1}(\vv_i)\right) = T^{b_i}(\vv_i) = 0\)</span> for <span class="process-math">\(1 \leq i \leq \ell\text{,}\)</span> so the vectors <span class="process-math">\(T^{b_1-1}(\vv_1)\text{,}\)</span> <span class="process-math">\(T^{b_2-1}(\vv_2)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_{\ell}-1}(\vv_{\ell})\)</span> are all in <span class="process-math">\(\Ker(T)\text{.}\)</span> Extend the set <span class="process-math">\(\left\{T^{b_1-1}(\vv_1), T^{b_2-1}(\vv_2), \ldots, T^{b_{\ell}-1}(\vv_{\ell})\right\}\)</span> to a basis of <span class="process-math">\(\Ker(T)\)</span> with the vectors <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_m\)</span> for <span class="process-math">\(m = \dim(\Ker(T)) - \ell\text{.}\)</span> That is, the set</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_JCF_Ker_basis">
 \begin{equation}
-\left\{T^{b_1-1}(\vv_1), T^{b_2-1}(\vv_2), \ldots, T^{b_{\ell}-1}(\vv_{\ell}), \vw_1, \vw_2, \ldots, \vw_m\right\}\label{eq_JCF_Ker_basis}\tag{40.5}
+\left\{T^{b_1-1}(\vv_1), T^{b_2-1}(\vv_2), \ldots, T^{b_{\ell}-1}(\vv_{\ell}), \vw_1, \vw_2, \ldots, \vw_m\right\}\tag{40.5}
 \end{equation}
 </div>
 <p class="continuation">is a basis for <span class="process-math">\(\Ker(T)\text{.}\)</span> We will now show that the vectors</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_JCF_V_basis">
 \begin{equation}
-\vu_1, T(\vu_1), \ldots, T^{b_1}(\vu_1), \ldots, \vu_{\ell}, T(\vu_{\ell}), \ldots, T^{b_{\ell}}(\vu_{\ell}), \vw_1, \ldots, \vw_m\label{eq_JCF_V_basis}\tag{40.6}
+\vu_1, T(\vu_1), \ldots, T^{b_1}(\vu_1), \ldots, \vu_{\ell}, T(\vu_{\ell}), \ldots, T^{b_{\ell}}(\vu_{\ell}), \vw_1, \ldots, \vw_m\tag{40.6}
 \end{equation}
 </div>
 <p class="continuation">form a basis for <span class="process-math">\(V\text{.}\)</span> To demonstrate linear independence, suppose that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="mdn-27">
 \begin{align}
 c_{1,0}\vu_1\amp +c_{1,1}T(\vu_1)+ \cdots + c_{1,b_1}T^{b_1}(\vu_1) +  \cdots\notag\\
-\amp + c_{\ell,0}\vu_{\ell} +  c_{\ell,1}T(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vu_{\ell}) +  d_1\vw_1+  \cdots +  d_m\vw_m = \vzero\label{eq_JCF_Lemma_2}\tag{40.7}
+\amp + c_{\ell,0}\vu_{\ell} +  c_{\ell,1}T(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vu_{\ell}) +  d_1\vw_1+  \cdots +  d_m\vw_m = \vzero\tag{40.7}
 \end{align}
 </div>
 <p class="continuation">for some scalars <span class="process-math">\(c_{i,j}\)</span> and <span class="process-math">\(d_k\text{.}\)</span> Apply <span class="process-math">\(T\)</span> to this linear combination to obtain the vector equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-264">
 \begin{align*}
 c_{1,0}T(\vu_1)\amp +c_{1,1}T^2(\vu_1)+ \cdots + c_{1,b_1}T^{b_1+1}(\vu_1) +  \cdots\\
 \amp + c_{\ell,0}T(\vu_{\ell}) +  c_{\ell,1}T^2(\vu_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}+1}(\vu_{\ell}) +  d_1T(\vw_1)+  \cdots \\
 \amp +  d_mT(\vw_m) = \vzero\text{.}
 \end{align*}
 </div>
-<p id="p-7067">Using the relationship <span class="process-math">\(T^j(\vu_i) = T^{j-1}(\vv_i)\)</span> gives us the equation</p>
-<div class="displaymath process-math">
+<p id="p-7032">Using the relationship <span class="process-math">\(T^j(\vu_i) = T^{j-1}(\vv_i)\)</span> gives us the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-265">
 \begin{align*}
 c_{1,0}\vv_1\amp +c_{1,1}T(\vv_1)+ \cdots + c_{1,b_1}T^{b_1}(\vv_1) +  \cdots\\
 \amp + c_{\ell,0}\vv_{\ell} +  c_{\ell,1}T(\vv_{\ell})+ \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vv_{\ell}) +  d_1T(\vw_1)+  \cdots +  d_mT(\vw_m) = \vzero\text{.}
 \end{align*}
 </div>
-<p id="p-7068">Recall that <span class="process-math">\(T^{b_i}(\vv_i) = 0\)</span> and that <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_m\)</span> are in <span class="process-math">\(\Ker(T)\)</span> to obtain the equation</p>
-<div class="displaymath process-math">
+<p id="p-7033">Recall that <span class="process-math">\(T^{b_i}(\vv_i) = 0\)</span> and that <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_m\)</span> are in <span class="process-math">\(\Ker(T)\)</span> to obtain the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-266">
 \begin{align*}
 c_{1,0}\vv_1 \amp +c_{1,1}T(\vv_1)+ \cdots + c_{1,b_1-1}T^{b_1-1}(\vv_1) +  \cdots + c_{\ell,0}\vv_{\ell} +  c_{\ell,1}T(\vv_{\ell})+ \cdots\\
 \amp + c_{\ell,b_{\ell}-1}T^{b_{\ell}-1}(\vv_{\ell}) = \vzero\text{.}
 \end{align*}
 </div>
-<p id="p-7069">But this final equation is a linear combination of the basis elements in <a href="" class="xref" data-knowl="./knowl/eq_JCF_TV_basis.html" title="Equation 40.4">(40.4)</a> of <span class="process-math">\(T(V)\text{,}\)</span> and so the scalars are all <span class="process-math">\(0\text{.}\)</span> Replacing these scalars with <span class="process-math">\(0\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_JCF_Lemma_2.html" title="Equation 40.7">(40.7)</a> results in</p>
-<div class="displaymath process-math">
+<p id="p-7034">But this final equation is a linear combination of the basis elements in <a href="" class="xref" data-knowl="./knowl/eq_JCF_TV_basis.html" title="Equation 40.4">(40.4)</a> of <span class="process-math">\(T(V)\text{,}\)</span> and so the scalars are all <span class="process-math">\(0\text{.}\)</span> Replacing these scalars with <span class="process-math">\(0\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_JCF_Lemma_2.html" title="Equation 40.7">(40.7)</a> results in</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_JCF_TV_basis.html ./knowl/eq_JCF_Lemma_2.html">
 \begin{equation*}
 c_{1,b_1}T^{b_1}(\vu_1) +  \cdots + c_{\ell,b_{\ell}}T^{b_{\ell}}(\vu_{\ell}) +  d_1\vw_1+  \cdots +  d_m\vw_m = 0\text{.}
 \end{equation*}
 </div>
-<p id="p-7070">But this is a linear combination of vectors in a basis for <span class="process-math">\(\Ker(T)\)</span> and so all of the scalars are also <span class="process-math">\(0\text{.}\)</span> Hence, the vectors <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(T(\vu_1)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_1}(\vu_1)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_{\ell}\text{,}\)</span> <span class="process-math">\(T(\vu_{\ell})\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_{\ell}}(\vu_{\ell})\text{,}\)</span> <span class="process-math">\(\vw_1\text{,}\)</span> …, <span class="process-math">\(\vw_m\)</span> are linearly independent.</p>
-<p id="p-7071">The Rank-Nullity Theorem shows tells us that <span class="process-math">\(\dim(V) = \dim(T(V)) + \dim(\Ker(T))\text{.}\)</span> The vectors in <a href="" class="xref" data-knowl="./knowl/eq_JCF_Ker_basis.html" title="Equation 40.5">(40.5)</a> form a basis for <span class="process-math">\(\Ker(T)\text{,}\)</span> and so <span class="process-math">\(\dim(\Ker(T)) = \ell + m\text{.}\)</span> The vectors in <a href="" class="xref" data-knowl="./knowl/eq_JCF_TV_basis.html" title="Equation 40.4">(40.4)</a> form a basis for <span class="process-math">\(T(V)\text{,}\)</span> so <span class="process-math">\(\dim(T(V)) = b_1+b_2+ \cdots + b_{\ell}\text{.}\)</span> Thus,</p>
-<div class="displaymath process-math">
+<p id="p-7035">But this is a linear combination of vectors in a basis for <span class="process-math">\(\Ker(T)\)</span> and so all of the scalars are also <span class="process-math">\(0\text{.}\)</span> Hence, the vectors <span class="process-math">\(\vu_1\text{,}\)</span> <span class="process-math">\(T(\vu_1)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_1}(\vu_1)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vu_{\ell}\text{,}\)</span> <span class="process-math">\(T(\vu_{\ell})\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(T^{b_{\ell}}(\vu_{\ell})\text{,}\)</span> <span class="process-math">\(\vw_1\text{,}\)</span> …, <span class="process-math">\(\vw_m\)</span> are linearly independent.</p>
+<p id="p-7036">The Rank-Nullity Theorem shows tells us that <span class="process-math">\(\dim(V) = \dim(T(V)) + \dim(\Ker(T))\text{.}\)</span> The vectors in <a href="" class="xref" data-knowl="./knowl/eq_JCF_Ker_basis.html" title="Equation 40.5">(40.5)</a> form a basis for <span class="process-math">\(\Ker(T)\text{,}\)</span> and so <span class="process-math">\(\dim(\Ker(T)) = \ell + m\text{.}\)</span> The vectors in <a href="" class="xref" data-knowl="./knowl/eq_JCF_TV_basis.html" title="Equation 40.4">(40.4)</a> form a basis for <span class="process-math">\(T(V)\text{,}\)</span> so <span class="process-math">\(\dim(T(V)) = b_1+b_2+ \cdots + b_{\ell}\text{.}\)</span> Thus,</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_JCF_Ker_basis.html ./knowl/eq_JCF_TV_basis.html">
 \begin{equation*}
 \dim(V) = \ell+m + b_1+b_2+ \cdots + b_{\ell} = m + (b_1-1) + (b_2-1) + \cdots + (b_{\ell}-1)\text{.}
 \end{equation*}
 </div>
-<p id="p-7072">But this is exactly the number of vectors in our claimed basis <a href="" class="xref" data-knowl="./knowl/eq_JCF_V_basis.html" title="Equation 40.6">(40.6)</a>. This verifies <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> with <span class="process-math">\(k=\ell+m\text{,}\)</span> <span class="process-math">\(a_i=b_i+1\)</span> for <span class="process-math">\(1 \leq i \leq \ell\text{,}\)</span> <span class="process-math">\(u_{j+\ell} = w_j\)</span> and <span class="process-math">\(a_{j+\ell} = 1\)</span> for <span class="process-math">\(1 \leq m\text{.}\)</span></p></article><p id="p-7073">We return to <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a> to illustrate the use of <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a>.</p>
+<p id="p-7037">But this is exactly the number of vectors in our claimed basis <a href="" class="xref" data-knowl="./knowl/eq_JCF_V_basis.html" title="Equation 40.6">(40.6)</a>. This verifies <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> with <span class="process-math">\(k=\ell+m\text{,}\)</span> <span class="process-math">\(a_i=b_i+1\)</span> for <span class="process-math">\(1 \leq i \leq \ell\text{,}\)</span> <span class="process-math">\(u_{j+\ell} = w_j\)</span> and <span class="process-math">\(a_{j+\ell} = 1\)</span> for <span class="process-math">\(1 \leq m\text{.}\)</span></p></article><p id="p-7038">We return to <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a> to illustrate the use of <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a>.</p>
 <article class="example example-like" id="ex_JCF_Lemma_2_2"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">40.16</span><span class="period">.</span>
 </h3>
-<p id="p-7074">We work with the transformation <span class="process-math">\(T:\pol_4 \to \pol_4\)</span> defined by</p>
-<div class="displaymath process-math">
+<p id="p-7039">We work with the transformation <span class="process-math">\(T:\pol_4 \to \pol_4\)</span> defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-267">
 \begin{align*}
 T\left(a_0+a_1t+a_2t^2+a_3t^3+a_4t^4\right) = (2a_0+a_1) \amp + (a_1-a_2)t + (a_0+a_1)t^2\\
 \amp + (-a_0-a_1+a_2+2a_3-a_4)t^3 \\
 \amp + (2a_4)t^4\text{.}
 \end{align*}
 </div>
-<p id="p-7075">Recall from <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a> that</p>
-<div class="displaymath process-math">
+<p id="p-7040">Recall from <a href="" class="xref" data-knowl="./knowl/act_JCF_Lemma_1.html" title="Activity 40.10">Activity 40.10</a> that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_JCF_Lemma_1.html">
 \begin{equation*}
 \pol_4 = \Ker(T-I)^{3} \oplus \Ker(T-2 I)^{2}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">and a basis for <span class="process-math">\(\Ker(T-I)^3\)</span> is <span class="process-math">\(\CB_1 = \{p_1(t), p_2(t),
 p_3(t)\}\)</span> with <span class="process-math">\(p_1(t) = -1+t\text{,}\)</span> <span class="process-math">\(p_2(t) = 1+t^2\text{,}\)</span> and <span class="process-math">\(p_3(t)= 1+t^3\text{.}\)</span> Since</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_JCF_Lemma_1.html">
 \begin{equation*}
 (T-I)(p_1(t)) = 0, \ (T-I)(p_2(t)) = -p_1(t), \ \text{ and }  \ (T-I)(p_3(t)) = p_2(t)
 \end{equation*}
 </div>
 <p class="continuation">we see that <span class="process-math">\(T-I\)</span> maps <span class="process-math">\(\Ker(T-I)^3\)</span> to <span class="process-math">\(\Ker(T-I)^3\text{.}\)</span> The matrix of <span class="process-math">\(T-I\)</span> with respect to <span class="process-math">\(\CB_1\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_JCF_Lemma_1.html">
 \begin{equation*}
 [T-I]_{\CB_1} = \left[ \begin{array}{crc} 0\amp -1\amp 0 \\ 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-7076">The reduced row echelon form of <span class="process-math">\([T-I]_{\CB_1}\)</span> and <span class="process-math">\([T-I]_{\CB_1}^2\)</span> are</p>
-<div class="displaymath process-math">
+<p id="p-7041">The reduced row echelon form of <span class="process-math">\([T-I]_{\CB_1}\)</span> and <span class="process-math">\([T-I]_{\CB_1}^2\)</span> are</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem_JCF_2.html">
 \begin{equation*}
 \left[ \begin{array}{ccc} 0\amp 1\amp 0 \\ 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \end{array}  \right] \ \text{ and }  \ \left[ \begin{array}{ccr} 0\amp 0\amp 1 \\ 0\amp 0\amp 0 \\ 0\amp 0\amp 0 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">while <span class="process-math">\([T-I]_{\CB_1}^3 = 0\text{.}\)</span> This makes <span class="process-math">\((T-I)^3 = 0\text{.}\)</span> We apply <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> to <span class="process-math">\(T-I : \Ker(T-I)^3 \to \Ker(T-I)^3\text{.}\)</span> We choose <span class="process-math">\(u_1\)</span> to be a vector in <span class="process-math">\(\Ker(T-I)^3\)</span> that is not in <span class="process-math">\(\Ker(T-I)^2\text{.}\)</span> Once such vector has <span class="process-math">\([u_1]_{\CB_1} = [0 \ 0 \ 1]^{\tr}\text{,}\)</span> or <span class="process-math">\(u_1=1+t^3\text{.}\)</span> We then let <span class="process-math">\(u_2 = (T-I)(u_1) = 1+t^2\)</span> and <span class="process-math">\(u_1 = (T-I)(u_2) = 1-t\text{.}\)</span> This gives us the basis <span class="process-math">\(\{1-t, 1+t^2, 1+t^3\}\)</span> for <span class="process-math">\(\Ker(T-I)^3\text{.}\)</span></p>
-<p id="p-7077">We can also apply <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> to <span class="process-math">\(T-2I : \Ker(T-I)^2 \to \Ker(T-I)^2\text{.}\)</span> Since</p>
-<div class="displaymath process-math">
+<p id="p-7042">We can also apply <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> to <span class="process-math">\(T-2I : \Ker(T-I)^2 \to \Ker(T-I)^2\text{.}\)</span> Since</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem_JCF_2.html">
 \begin{equation*}
 (T-2I)(p_4(t)) = 0 \ \text{ and }  \ (T-2I)(p_5(t)) = -p_4(t)\text{,}
 \end{equation*}
 </div>
 <p class="continuation">we have that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/lem_JCF_2.html">
 \begin{equation*}
 [T-2I]_{\CB_2} = \left[ \begin{array}{cr} 0\amp -1 \\ 0\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-7078">It follows that <span class="process-math">\((T-2I)^2 = 0\text{.}\)</span> Selecting <span class="process-math">\(u_4 = t^4\)</span> and letting <span class="process-math">\(u_5 = (T-2I)(u_4) = -p_4(t)\text{,}\)</span> we obtain the basis <span class="process-math">\(\{-t^3, t^4\}\)</span> for <span class="process-math">\(\Ker(T-I)^2\text{.}\)</span></p>
-<p id="p-7079">Let <span class="process-math">\(q_1(t) = 1+t^3\text{,}\)</span> <span class="process-math">\(q_2(t) = 1+t^2\text{,}\)</span> <span class="process-math">\(q_3(t) = 1-t\text{,}\)</span> <span class="process-math">\(q_4(t) = t^4\text{,}\)</span> and <span class="process-math">\(q_5(t) = -t^3\text{,}\)</span> and let <span class="process-math">\(\CC = \{q_1(t), q_2(t),
+<p id="p-7043">It follows that <span class="process-math">\((T-2I)^2 = 0\text{.}\)</span> Selecting <span class="process-math">\(u_4 = t^4\)</span> and letting <span class="process-math">\(u_5 = (T-2I)(u_4) = -p_4(t)\text{,}\)</span> we obtain the basis <span class="process-math">\(\{-t^3, t^4\}\)</span> for <span class="process-math">\(\Ker(T-I)^2\text{.}\)</span></p>
+<p id="p-7044">Let <span class="process-math">\(q_1(t) = 1+t^3\text{,}\)</span> <span class="process-math">\(q_2(t) = 1+t^2\text{,}\)</span> <span class="process-math">\(q_3(t) = 1-t\text{,}\)</span> <span class="process-math">\(q_4(t) = t^4\text{,}\)</span> and <span class="process-math">\(q_5(t) = -t^3\text{,}\)</span> and let <span class="process-math">\(\CC = \{q_1(t), q_2(t),
 q_3(t), q_4(t), q_5(t)\}\text{.}\)</span> Since</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-268">
 \begin{align*}
 T(q_1(t)) \amp = q_1(t)+q_2(t)\\
 T(q_2(t)) \amp = q_2(t)+q_3(t)\\
@@ -1081,13 +1079,13 @@ T(q_5(t)) \amp = 2q_5(t)
 \end{align*}
 </div>
 <p class="continuation">it follows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [T]_{\CC} = \left[ \begin{array}{ccccc} 1\amp 1\amp 0\amp 0\amp 0 \\ 0\amp 1\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 2\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 2 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and we have found a basis for <span class="process-math">\(\pol_4\)</span> for which the matrix <span class="process-math">\(T\)</span> has a Jordan canonical form.</p></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:16-04:00       *-->
+<!--*       on 2022-04-14T13:04:57-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,33 +748,33 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proj_subsp_orth"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Projections onto Subspaces and Orthogonal Projections</span>
 </h2>
-<p id="p-4225"><a href="" class="xref" data-knowl="./knowl/pa_6_e_1.html" title="Preview Activity 25.1">Preview Activity 25.1</a> gives an indication of how we can project a vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^n\)</span> onto a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\text{.}\)</span> If we have an orthogonal basis for <span class="process-math">\(W\text{,}\)</span> we can just add the projections of <span class="process-math">\(\vv\)</span> onto each basis vector. The resulting vector is called the projection of <span class="process-math">\(\vv\)</span> onto the subspace <span class="process-math">\(W\text{.}\)</span> As we did with projections onto vectors, we can also define the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\text{.}\)</span> Note that to make this all work out properly, we will see that we need an orthogonal basis for <span class="process-math">\(W\text{.}\)</span></p>
+<p id="p-4226"><a href="" class="xref" data-knowl="./knowl/pa_6_e_1.html" title="Preview Activity 25.1">Preview Activity 25.1</a> gives an indication of how we can project a vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^n\)</span> onto a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\text{.}\)</span> If we have an orthogonal basis for <span class="process-math">\(W\text{,}\)</span> we can just add the projections of <span class="process-math">\(\vv\)</span> onto each basis vector. The resulting vector is called the projection of <span class="process-math">\(\vv\)</span> onto the subspace <span class="process-math">\(W\text{.}\)</span> As we did with projections onto vectors, we can also define the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\text{.}\)</span> Note that to make this all work out properly, we will see that we need an orthogonal basis for <span class="process-math">\(W\text{.}\)</span></p>
 <article class="definition definition-like" id="definition-58"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">25.3</span><span class="period">.</span>
 </h3>
-<p id="p-4226">Let <span class="process-math">\(W\)</span> be a subspace of <span class="process-math">\(\R^n\)</span> and let <span class="process-math">\(\{\vw_1, \vw_2, \ldots, \vw_m\}\)</span> be an orthogonal basis for <span class="process-math">\(W\text{.}\)</span> The <dfn class="terminology">projection of the vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> onto <span class="process-math">\(W\)</span></dfn> is the vector</p>
-<div class="displaymath process-math">
+<p id="p-4227">Let <span class="process-math">\(W\)</span> be a subspace of <span class="process-math">\(\R^n\)</span> and let <span class="process-math">\(\{\vw_1, \vw_2, \ldots, \vw_m\}\)</span> be an orthogonal basis for <span class="process-math">\(W\text{.}\)</span> The <dfn class="terminology">projection of the vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(V\)</span> onto <span class="process-math">\(W\)</span></dfn> is the vector</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \proj_W \vv = \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m\text{.}
 \end{equation*}
 </div>
-<p id="p-4227">The <dfn class="terminology">projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\)</span></dfn> is the vector</p>
-<div class="displaymath process-math">
+<p id="p-4228">The <dfn class="terminology">projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\)</span></dfn> is the vector</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \proj_{\perp W} \vv = \vv - \proj_W \vv\text{.}
 \end{equation*}
-</div></article><p id="p-4228">The notation <span class="process-math">\(\proj_{\perp W} \vv\)</span> indicates that we expect this vector to be orthogonal to every vector in <span class="process-math">\(W\text{.}\)</span> We address this in the following activity.</p>
+</div></article><p id="p-4229">The notation <span class="process-math">\(\proj_{\perp W} \vv\)</span> indicates that we expect this vector to be orthogonal to every vector in <span class="process-math">\(W\text{.}\)</span> We address this in the following activity.</p>
 <article class="activity project-like" id="act_6_e_orth_projection"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">25.2</span><span class="period">.</span>
 </h3>
-<p id="p-4229">Let <span class="process-math">\(W = \Span \{\vw_1, \vw_2\}\)</span> in <span class="process-math">\(\R^3\text{,}\)</span> with <span class="process-math">\(\vw_1=[1 \ 0 \ 0]^{\tr}\)</span> and <span class="process-math">\(\vw_2= [0 \ 1 \ 0]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vv = [1 \ 2 \ 1]^{\tr}\)</span> as in <a href="" class="xref" data-knowl="./knowl/pa_6_e_1.html" title="Preview Activity 25.1">Preview Activity 25.1</a>. Recall that <span class="process-math">\(\proj_W \vv = [1 \ 2 \ 0]^{\tr}\text{.}\)</span> Find the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\)</span> and show directly that <span class="process-math">\(\proj_{\perp W} \vv\)</span> is orthogonal to the basis vectors for <span class="process-math">\(W\)</span> (and hence to every vector in <span class="process-math">\(W\)</span>).</p></article><p id="p-4230"><a href="" class="xref" data-knowl="./knowl/act_6_e_orth_projection.html" title="Activity 25.2">Activity 25.2</a> indicates that the vector <span class="process-math">\(\proj_{\perp W} \vv\)</span> is in fact orthogonal to every vector in <span class="process-math">\(W\text{.}\)</span> To see that this is true in general, let <span class="process-math">\(\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}\)</span> be an orthogonal basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> and let <span class="process-math">\(\vv\)</span> be a vector in <span class="process-math">\(\R^n\text{.}\)</span> Let</p>
-<div class="displaymath process-math">
+<p id="p-4230">Let <span class="process-math">\(W = \Span \{\vw_1, \vw_2\}\)</span> in <span class="process-math">\(\R^3\text{,}\)</span> with <span class="process-math">\(\vw_1=[1 \ 0 \ 0]^{\tr}\)</span> and <span class="process-math">\(\vw_2= [0 \ 1 \ 0]^{\tr}\text{,}\)</span> and <span class="process-math">\(\vv = [1 \ 2 \ 1]^{\tr}\)</span> as in <a href="" class="xref" data-knowl="./knowl/pa_6_e_1.html" title="Preview Activity 25.1">Preview Activity 25.1</a>. Recall that <span class="process-math">\(\proj_W \vv = [1 \ 2 \ 0]^{\tr}\text{.}\)</span> Find the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\)</span> and show directly that <span class="process-math">\(\proj_{\perp W} \vv\)</span> is orthogonal to the basis vectors for <span class="process-math">\(W\)</span> (and hence to every vector in <span class="process-math">\(W\)</span>).</p></article><p id="p-4231"><a href="" class="xref" data-knowl="./knowl/act_6_e_orth_projection.html" title="Activity 25.2">Activity 25.2</a> indicates that the vector <span class="process-math">\(\proj_{\perp W} \vv\)</span> is in fact orthogonal to every vector in <span class="process-math">\(W\text{.}\)</span> To see that this is true in general, let <span class="process-math">\(\CB = \{\vw_1, \vw_2, \ldots, \vw_m\}\)</span> be an orthogonal basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> and let <span class="process-math">\(\vv\)</span> be a vector in <span class="process-math">\(\R^n\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_6_e_orth_projection.html">
 \begin{equation*}
 \vw =  \proj_W \vv = \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m\text{.}
 \end{equation*}
 </div>
-<p id="p-4231">Then <span class="process-math">\(\vv - \vw\)</span> is the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\text{.}\)</span> We will show that <span class="process-math">\(\vv - \vw\)</span> is orthogonal to every basis vector for <span class="process-math">\(W\text{.}\)</span> Since <span class="process-math">\(\CB\)</span> is an orthogonal basis for <span class="process-math">\(W\text{,}\)</span> we know that <span class="process-math">\(\vw_i \cdot \vw_j = 0\)</span> for <span class="process-math">\(i \neq j\text{.}\)</span> So if <span class="process-math">\(k\)</span> is between 1 and <span class="process-math">\(m\)</span> then</p>
-<div class="displaymath process-math">
+<p id="p-4232">Then <span class="process-math">\(\vv - \vw\)</span> is the projection of <span class="process-math">\(\vv\)</span> orthogonal to <span class="process-math">\(W\text{.}\)</span> We will show that <span class="process-math">\(\vv - \vw\)</span> is orthogonal to every basis vector for <span class="process-math">\(W\text{.}\)</span> Since <span class="process-math">\(\CB\)</span> is an orthogonal basis for <span class="process-math">\(W\text{,}\)</span> we know that <span class="process-math">\(\vw_i \cdot \vw_j = 0\)</span> for <span class="process-math">\(i \neq j\text{.}\)</span> So if <span class="process-math">\(k\)</span> is between 1 and <span class="process-math">\(m\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-168">
 \begin{align*}
 \vw_k \cdot (\vv - \vw) \amp = (\vw_k \cdot \vv) - (\vw_k \cdot \vw)\\
 \amp = (\vw_k \cdot \vv) - \left[\vw_k \cdot \left(\ds \frac{\vv \cdot \vw_1}{\vw_1 \cdot \vw_1} \vw_1 + \frac{\vv \cdot \vw_2}{\vw_2 \cdot \vw_2}  \vw_2 + \cdots + \frac{\vv \cdot \vw_m}{\vw_m \cdot \vw_m}  \vw_m \right)\right]\\
@@ -785,20 +783,20 @@
 \amp = 0\text{.}
 \end{align*}
 </div>
-<p id="p-4232">So the vector <span class="process-math">\(\vv - \vw\)</span> is orthogonal to every basis vector for <span class="process-math">\(W\text{,}\)</span> and therefore to every vector in <span class="process-math">\(W\)</span> (<a href="" class="xref" data-knowl="./knowl/thm_6_a_dot_pd_orth_complement_basis.html" title="Theorem 23.16">Theorem 23.16</a>). Because <span class="process-math">\(\CB\)</span> is a basis for <span class="process-math">\(W\text{,}\)</span> if <span class="process-math">\(\vx\)</span> is in <span class="process-math">\(W\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<p id="p-4233">So the vector <span class="process-math">\(\vv - \vw\)</span> is orthogonal to every basis vector for <span class="process-math">\(W\text{,}\)</span> and therefore to every vector in <span class="process-math">\(W\)</span> (<a href="" class="xref" data-knowl="./knowl/thm_6_a_dot_pd_orth_complement_basis.html" title="Theorem 23.16">Theorem 23.16</a>). Because <span class="process-math">\(\CB\)</span> is a basis for <span class="process-math">\(W\text{,}\)</span> if <span class="process-math">\(\vx\)</span> is in <span class="process-math">\(W\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_6_a_dot_pd_orth_complement_basis.html">
 \begin{equation*}
 \vx = c_1 \vw_1 + c_2 \vw_2 + \cdots + c_m \vw_m
 \end{equation*}
 </div>
 <p class="continuation">for some scalars <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\text{.}\)</span> So</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_6_a_dot_pd_orth_complement_basis.html">
 \begin{equation*}
 (\vv - \vw) \cdot \vx = \sum_{k=1}^m c_k (\vv - \vw) \cdot \vw_k = 0\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and so <span class="process-math">\(\vv - \vw\)</span> is orthogonal to every vector in <span class="process-math">\(W\text{.}\)</span></p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

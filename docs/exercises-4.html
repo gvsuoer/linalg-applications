@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:05-04:00       *-->
+<!--*       on 2022-04-14T12:58:27-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,15 +749,9 @@
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h2>
 <article class="exercise exercise-like" id="sec_vec_rep_exer"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
-<p id="p-682">Given vectors <span class="process-math">\(\vu=\left[ \begin{array}{c} 1 \\ 2 \end{array} \right]\)</span> and <span class="process-math">\(\vv=\left[ \begin{array}{r} -1 \\ 2 \end{array} \right]\)</span> in <span class="process-math">\(\R^2\text{,}\)</span> determine if <span class="process-math">\(\vw=\left[ \begin{array}{r} -4 \\ -1 \end{array} \right]\)</span> can be written as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span> If so, determine the weights of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> which produce <span class="process-math">\(\vw\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-39" id="answer-39"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-39"><div class="answer solution-like"><p id="p-683"><span class="process-math">\(\vw = \left(-\frac{9}{4}\right) \vu + \left(\frac{7}{4}\right) \vv\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-31"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-682">Given vectors <span class="process-math">\(\vu=\left[ \begin{array}{c} 1 \\ 2 \end{array} \right]\)</span> and <span class="process-math">\(\vv=\left[ \begin{array}{r} -1 \\ 2 \end{array} \right]\)</span> in <span class="process-math">\(\R^2\text{,}\)</span> determine if <span class="process-math">\(\vw=\left[ \begin{array}{r} -4 \\ -1 \end{array} \right]\)</span> can be written as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span> If so, determine the weights of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> which produce <span class="process-math">\(\vw\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-31"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <p id="p-684">Given vectors <span class="process-math">\(\vv_1=\left[ \begin{array}{c} 1 \\ 2 \\1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\vv_2=\left[ \begin{array}{r} -2 \\ 1 \\2 \end{array} \right]\)</span> and <span class="process-math">\(\vv_3=\left[ \begin{array}{r} -1 \\ 3\\3 \end{array} \right]\)</span> in <span class="process-math">\(\R^3\text{,}\)</span> determine if <span class="process-math">\(\vw=\left[ \begin{array}{c} 5\\ 5\\ 1 \end{array} \right]\)</span> can be written as a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\)</span> and <span class="process-math">\(\vv_3\text{.}\)</span> If so, determine the weights of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\)</span> and <span class="process-math">\(\vv_3\)</span> which produce <span class="process-math">\(\vw\text{.}\)</span> Reflect on the result. Is there anything special about the given vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\)</span> and <span class="process-math">\(\vv_3\text{?}\)</span></p></article><article class="exercise exercise-like" id="exercise-32"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
-<p id="p-685">Let <span class="process-math">\(\vu=\left[ \begin{array}{c} 1 \\ 2 \\1 \end{array} \right]\)</span> and <span class="process-math">\(\vv=\left[ \begin{array}{r} -1 \\ 1 \\ 1 \end{array} \right]\)</span> in <span class="process-math">\(\R^3\text{.}\)</span> Determine which vectors <span class="process-math">\(\vw= \left[ \begin{array}{c} w_1 \\ w_2 \\ w_3 \end{array} \right]\)</span> in <span class="process-math">\(\R^3\)</span> can be written as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span> Does the set of <span class="process-math">\(\vw\)</span>'s include the 0 vector? If so, determine which weights in the linear combination produce the 0 vector. If not, explain why not.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-40" id="answer-40"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-40"><div class="answer solution-like"><p id="p-686">Only when <span class="process-math">\(w_1 = 2w_2 - 3w_3\text{.}\)</span> <span class="process-math">\(0 \vu + 0\vv = \vzero\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-33"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-685">Let <span class="process-math">\(\vu=\left[ \begin{array}{c} 1 \\ 2 \\1 \end{array} \right]\)</span> and <span class="process-math">\(\vv=\left[ \begin{array}{r} -1 \\ 1 \\ 1 \end{array} \right]\)</span> in <span class="process-math">\(\R^3\text{.}\)</span> Determine which vectors <span class="process-math">\(\vw= \left[ \begin{array}{c} w_1 \\ w_2 \\ w_3 \end{array} \right]\)</span> in <span class="process-math">\(\R^3\)</span> can be written as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span> Does the set of <span class="process-math">\(\vw\)</span>'s include the 0 vector? If so, determine which weights in the linear combination produce the 0 vector. If not, explain why not.</p></article><article class="exercise exercise-like" id="exercise-33"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-56"><p id="p-687">Consider vectors <span class="process-math">\(\vu=\left[ \begin{array}{c} 0\\ 2\\0 \end{array} \right]\)</span> and <span class="process-math">\(\vv=\left[ \begin{array}{c} 1\\ 1\\1 \end{array} \right]\)</span> in <span class="process-math">\(\R^3\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-193"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-688">Find four specific linear combinations of the vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p></article><article class="task exercise-like" id="task-194"><h4 class="heading"><span class="codenumber">(b)</span></h4>
@@ -768,32 +760,17 @@
 <p id="p-691">Can we obtain any vector in <span class="process-math">\(\R^3\)</span> as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{?}\)</span> Explain.</p></article></article><article class="exercise exercise-like" id="ex_1_d_acid"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-57"><p id="p-692">Suppose we have two different water-benzene-acetic acid solutions, one with 40% water, 50% benzene and 10% acetic acid, the other with 52% water, 42% benzene and 6% acid.</p></div>
 <article class="task exercise-like" id="task-197"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-693">An experiment we want to conduct requires a solution with 43% water, 48% benzene and 9% acid. Representing each acid solution as a vector, determine if we can we make this new acid solution by mixing the first two solutions, or do we have to run to the chemical solutions market to get the solution we want?</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-41" id="answer-41"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-41"><div class="answer solution-like"><p id="p-694">We cannot make the desired solution.</p></div></div>
-</div></article><article class="task exercise-like" id="task-198"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-695">Using the water-benzene-acetic acid solutions in the previous problem, can we obtain an acid solution which contains 50% water, 43% benzene and 7% acid?</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-42" id="answer-42"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-42"><div class="answer solution-like"><p id="p-696">We can make the desired chemical solution with <span class="process-math">\(\frac{3}{4}\)</span> of solution <span class="process-math">\(\vv_1\)</span> for every <span class="process-math">\(\frac{1}{4}\)</span> of solution <span class="process-math">\(\vv_2\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-199"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-697">Determine the relationship between the percentages of water, benzene, and acid in solutions which can be obtained by mixing the two given water-benzene-acetic acid solutions above.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-43" id="answer-43"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-43"><div class="answer solution-like"><p id="p-698">If <span class="process-math">\(\vw = \left[ \begin{array}{c} w_1\\w_2\\w_3 \end{array} \right]\)</span> can be made from our original two chemical solutions, then <span class="process-math">\(w_3+\frac{3}{23}w_1-\frac{7}{23}w_2 = 0\text{.}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-35"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<p id="p-693">An experiment we want to conduct requires a solution with 43% water, 48% benzene and 9% acid. Representing each acid solution as a vector, determine if we can we make this new acid solution by mixing the first two solutions, or do we have to run to the chemical solutions market to get the solution we want?</p></article><article class="task exercise-like" id="task-198"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-695">Using the water-benzene-acetic acid solutions in the previous problem, can we obtain an acid solution which contains 50% water, 43% benzene and 7% acid?</p></article><article class="task exercise-like" id="task-199"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-697">Determine the relationship between the percentages of water, benzene, and acid in solutions which can be obtained by mixing the two given water-benzene-acetic acid solutions above.</p></article></article><article class="exercise exercise-like" id="exercise-35"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <p id="p-699">Is the vector <span class="process-math">\(\vb = \left[ \begin{array}{c} 0\\1\\2 \end{array} \right]\)</span> in <span class="process-math">\(\Span\left\{ \left[ \begin{array}{r} 2\\-1\\0 \end{array} \right], \left[ \begin{array}{r} -3\\0\\-5 \end{array} \right], \left[ \begin{array}{c} 1\\1\\0 \end{array} \right] \right\}\text{?}\)</span> Justify your answer.</p></article><article class="exercise exercise-like" id="exercise-36"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-58"><p id="p-700">Describe geometrically each of the following sets.</p></div>
 <article class="task exercise-like" id="task-200"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-701"><span class="process-math">\(\Span\left\{\left[ \begin{array}{c} 1\\1 \end{array} \right], \left[ \begin{array}{r} -1\\-1 \end{array} \right]\right\}\)</span> in <span class="process-math">\(\R^2\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-44" id="answer-44"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-44"><div class="answer solution-like"><p id="p-702"><span class="process-math">\(\Span\{\vv_1\}\)</span> is the line in <span class="process-math">\(\R^2\)</span> through the origin and the point <span class="process-math">\((1,1)\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-201"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-703"><span class="process-math">\(\Span\left\{\left[ \begin{array}{c} 1\\1\\1 \end{array} \right], \left[ \begin{array}{r} -1\\-1\\-1 \end{array} \right], \left[ \begin{array}{c} 2\\0\\1 \end{array} \right]\right\}\)</span> in <span class="process-math">\(\R^3\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-45" id="answer-45"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-45"><div class="answer solution-like"><p id="p-704"><span class="process-math">\(\Span\{\vv_1,\vv_3\}\)</span> is the plane in <span class="process-math">\(\R^3\)</span> through the origin and the points <span class="process-math">\((1,1,1)\)</span> and <span class="process-math">\((2,0,1)\text{.}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-37"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<p id="p-701"><span class="process-math">\(\Span\left\{\left[ \begin{array}{c} 1\\1 \end{array} \right], \left[ \begin{array}{r} -1\\-1 \end{array} \right]\right\}\)</span> in <span class="process-math">\(\R^2\)</span></p></article><article class="task exercise-like" id="task-201"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-703"><span class="process-math">\(\Span\left\{\left[ \begin{array}{c} 1\\1\\1 \end{array} \right], \left[ \begin{array}{r} -1\\-1\\-1 \end{array} \right], \left[ \begin{array}{c} 2\\0\\1 \end{array} \right]\right\}\)</span> in <span class="process-math">\(\R^3\)</span></p></article></article><article class="exercise exercise-like" id="exercise-37"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-59">
 <p id="p-705">Consider the linear system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-61">
 \begin{alignat*}{5}
 {2}x_1  \amp {}+{}  \amp {3}x_2 \amp {}+{}  \amp {3}x_3  \amp {}    \amp {}    \amp {}={} \amp 0\amp {}\\
 x_1  \amp {}    \amp {}     \amp {}+{}  \amp {6}x_3  \amp {}+{}  \amp {6}x_4  \amp {}={} \amp 0\amp {}\\
@@ -804,10 +781,7 @@ x_1  \amp {}    \amp {}     \amp {}+{}  \amp {6}x_3  \amp {}+{}  \amp {6}x_4  \a
 <article class="task exercise-like" id="task-202"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-706">Find the general solution to this system.</p></article><article class="task exercise-like" id="task-203"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-707">Find two specific vectors <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> so that the solution set to this system is <span class="process-math">\(\Span\{\vv_1, \vv_2\}\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-38"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
-<p id="p-708">Answer the following question as yes or no. Verify your answer. If <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are vectors in <span class="process-math">\(\R^n\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is in <span class="process-math">\(\Span\{\vu, \vu-\vv\}\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-46" id="answer-46"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-46"><div class="answer solution-like"><p id="p-709">Yes.</p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-39"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
+<p id="p-708">Answer the following question as yes or no. Verify your answer. If <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are vectors in <span class="process-math">\(\R^n\text{,}\)</span> then <span class="process-math">\(\vv\)</span> is in <span class="process-math">\(\Span\{\vu, \vu-\vv\}\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-39"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-60"><p id="p-710">Let <span class="process-math">\(\vv\text{,}\)</span> <span class="process-math">\(\vu\text{,}\)</span> and <span class="process-math">\(\vw\)</span> be vectors in <span class="process-math">\(\R^n\)</span> and let <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> be scalars. Verify <a href="" class="xref" data-knowl="./knowl/thm_vector_properties.html" title="Theorem 4.4">Theorem 4.4</a>. That is, show that</p></div>
 <article class="task exercise-like" id="task-204"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-711"><span class="process-math">\(\vv + \vu = \vu + \vv\)</span></p></article><article class="task exercise-like" id="task-205"><h4 class="heading"><span class="codenumber">(b)</span></h4>
@@ -822,65 +796,44 @@ x_1  \amp {}    \amp {}     \amp {}+{}  \amp {6}x_3  \amp {}+{}  \amp {6}x_4  \a
 <article class="task exercise-like" id="task-212"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-720">A vector in <span class="process-math">\(\R^2\text{,}\)</span> i.e. a two-dimensional vector, is also a vector in <span class="process-math">\(\R^3\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-47" id="answer-47"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-47"><div class="answer solution-like"><p id="p-721">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-213"><h4 class="heading">
+<p id="p-720">A vector in <span class="process-math">\(\R^2\text{,}\)</span> i.e. a two-dimensional vector, is also a vector in <span class="process-math">\(\R^3\text{.}\)</span></p></article><article class="task exercise-like" id="task-213"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-722">Any vector in <span class="process-math">\(\R^2\)</span> can be visualized as a vector in <span class="process-math">\(\R^3\)</span> by adding a 0 as the last coordinate.</p></article><article class="task exercise-like" id="task-214"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-723">The zero vector is a scalar multiple of any other vector (of the same size).</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-48" id="answer-48"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-48"><div class="answer solution-like"><p id="p-724">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-215"><h4 class="heading">
+<p id="p-723">The zero vector is a scalar multiple of any other vector (of the same size).</p></article><article class="task exercise-like" id="task-215"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-725">The zero vector cannot be a linear combination of two non-zero vectors.</p></article><article class="task exercise-like" id="task-216"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-726">Given two vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> the vector <span class="process-math">\(\frac{1}{2}\vu\)</span> is a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-49" id="answer-49"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-49"><div class="answer solution-like"><p id="p-727">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-217"><h4 class="heading">
+<p id="p-726">Given two vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{,}\)</span> the vector <span class="process-math">\(\frac{1}{2}\vu\)</span> is a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p></article><article class="task exercise-like" id="task-217"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-728">Given any two non-zero vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^2\text{,}\)</span> we can obtain any vector in <span class="process-math">\(\R^2\)</span> as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p></article><article class="task exercise-like" id="task-218"><h4 class="heading">
 <span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-729">Given any two distinct vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^2\text{,}\)</span> we can obtain any vector in <span class="process-math">\(\R^2\)</span> as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-50" id="answer-50"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-50"><div class="answer solution-like"><p id="p-730">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-219"><h4 class="heading">
+<p id="p-729">Given any two distinct vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^2\text{,}\)</span> we can obtain any vector in <span class="process-math">\(\R^2\)</span> as a linear combination of <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\text{.}\)</span></p></article><article class="task exercise-like" id="task-219"><h4 class="heading">
 <span class="codenumber">(h)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-731">If <span class="process-math">\(\vu\)</span> can be expressed as a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{,}\)</span> then <span class="process-math">\(2\vu\)</span> can also be expressed as a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-220"><h4 class="heading">
 <span class="codenumber">(i)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-732">The span of any two vectors neither of which is a multiple of the other can be visualized as a plane through the origin.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-51" id="answer-51"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-51"><div class="answer solution-like"><p id="p-733">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-221"><h4 class="heading">
+<p id="p-732">The span of any two vectors neither of which is a multiple of the other can be visualized as a plane through the origin.</p></article><article class="task exercise-like" id="task-221"><h4 class="heading">
 <span class="codenumber">(j)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-734">Given any vector, the collection of all linear combinations of this vector can be visualized as a line through the origin.</p></article><article class="task exercise-like" id="task-222"><h4 class="heading">
 <span class="codenumber">(k)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-735">The span of any collection of vectors includes the <span class="process-math">\(\vzero\)</span> vector.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-52" id="answer-52"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-52"><div class="answer solution-like"><p id="p-736">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-223"><h4 class="heading">
+<p id="p-735">The span of any collection of vectors includes the <span class="process-math">\(\vzero\)</span> vector.</p></article><article class="task exercise-like" id="task-223"><h4 class="heading">
 <span class="codenumber">(l)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-737">If the span of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> is all of <span class="process-math">\(\R^2\text{,}\)</span> then so is the span of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_1+\vv_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-224"><h4 class="heading">
 <span class="codenumber">(m)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-738">If the span of <span class="process-math">\(\vv_1, \vv_2\)</span> and <span class="process-math">\(\vv_3\)</span> is all of <span class="process-math">\(\R^3\text{,}\)</span> then so is the span of <span class="process-math">\(\vv_1+\vv_2\)</span> and <span class="process-math">\(\vv_2+\vv_3\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-53" id="answer-53"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-53"><div class="answer solution-like"><p id="p-739">F</p></div></div>
-</div></article></article></section></div></main>
+<p id="p-738">If the span of <span class="process-math">\(\vv_1, \vv_2\)</span> and <span class="process-math">\(\vv_3\)</span> is all of <span class="process-math">\(\R^3\text{,}\)</span> then so is the span of <span class="process-math">\(\vv_1+\vv_2\)</span> and <span class="process-math">\(\vv_2+\vv_3\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

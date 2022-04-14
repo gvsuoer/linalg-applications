@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:25:27-04:00       *-->
+<!--*       on 2022-04-14T13:04:05-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -755,7 +753,7 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">22.2</span><span class="period">.</span>
 </h3>
 <p id="p-3666">An <dfn class="terminology">elementary matrix</dfn> is a matrix obtained by performing a single elementary row operation on an identity matrix.</p></article><p id="p-3667">The following elementary matrices correspond, respectively, to an elementary row operation which swaps rows 2 and 4; an elementary row operation which multiplies the third row by 5; and an elementary row operation which adds four times the third row to the first row on any <span class="process-math">\(4\times 4\)</span> matrix:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 E_1 = \left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 0\\0\amp 0\amp 0\amp 1\\0\amp 0\amp 1\amp 0\\ 0\amp 1\amp 0\amp 0 \end{array}  \right], \ \ E_2 = \left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 0\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 5\amp 0 \\ 0\amp 0\amp 0\amp 1 \end{array}  \right], \ \ \text{ and }  \ \ E_3 = \left[ \begin{array}{cccc} 1\amp 0\amp 4\amp 0\\0\amp 1\amp 0\amp 0\\0\amp 0\amp 1\amp 0\\0\amp 0\amp 0\amp 1 \end{array}  \right]\,\text{.}
 \end{equation*}
@@ -766,7 +764,7 @@ E_1 = \left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 0\\0\amp 0\amp 0\amp 1\\0\amp
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">22.3</span><span class="period">.</span>
 </h3>
 <p id="p-3670">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> matrix. If <span class="process-math">\(E\)</span> is an <span class="process-math">\(n\times n\)</span> elementary matrix, then <span class="process-math">\(\det(EA)=\det(E)\det(A)\)</span> where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(E) = \left\{ \begin{array}{rl} r \amp  \text{ if \(E\) corresponds to multiplying a row by \(r\) }  \\ -1\amp  \text{ if \(E\) corresponds to swapping two rows }  \\ 1 \amp  \text{ if \(E\) corresponds to adding a multiple of a row to another. } \end{array}  \right.
 \end{equation*}
@@ -775,13 +773,13 @@ E_1 = \left[ \begin{array}{cccc} 1\amp 0\amp 0\amp 0\\0\amp 0\amp 0\amp 1\\0\amp
 <p id="p-3672">We will prove the result by induction on <span class="process-math">\(n\text{,}\)</span> the size of the matrix <span class="process-math">\(A\text{.}\)</span> We verified these results in <a href="" class="xref" data-knowl="./knowl/pa_4_f.html" title="Preview Activity 22.1">Preview Activity 22.1</a> for <span class="process-math">\(n=2\)</span> using elementary row operations. The elementary matrix versions follow immediately.</p>
 <p id="p-3673">Now assume the theorem is true for <span class="process-math">\(k\times k\)</span> matrices with <span class="process-math">\(k\geq 2\)</span> and consider an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> where <span class="process-math">\(n=k+1\text{.}\)</span> If <span class="process-math">\(E\)</span> is an <span class="process-math">\(n\times n\)</span> elementary matrix, we want to show that <span class="process-math">\(\det(EA)=\det(E)\det(A)\text{.}\)</span> Let <span class="process-math">\(EA=B\text{.}\)</span> (Although it is an abuse of language, we will refer to both the elementary matrix and the elementary row operation corresponding to it by <span class="process-math">\(E\text{.}\)</span>)</p>
 <p id="p-3674">When finding <span class="process-math">\(\det(B)=\det(EA)\)</span> we will use a cofactor expansion along a row which is not affected by the elementary row operation <span class="process-math">\(E\text{.}\)</span> Since <span class="process-math">\(E\)</span> affects at most two rows and <span class="process-math">\(A\)</span> has <span class="process-math">\(n\geq 3\)</span> rows, it is possible to find such a row, say row <span class="process-math">\(i\text{.}\)</span> The cofactor expansion along row <span class="process-math">\(i\)</span> of <span class="process-math">\(B\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_4_f_1">
 \begin{equation}
-b_{i1} (-1)^{i+1} \det(B_{i1}) + b_{i2} (-1)^{i+2} \det(B_{i2}) + \cdots + b_{in} (-1)^{i+n} \det(B_{in}) \,\text{.}\label{eq_4_f_1}\tag{22.1}
+b_{i1} (-1)^{i+1} \det(B_{i1}) + b_{i2} (-1)^{i+2} \det(B_{i2}) + \cdots + b_{in} (-1)^{i+n} \det(B_{in}) \,\text{.}\tag{22.1}
 \end{equation}
 </div>
 <p id="p-3675">Since we chose a row of <span class="process-math">\(A\)</span> which was not affected by the elementary row operation, it follows that <span class="process-math">\(b_{ij}=a_{ij}\)</span> for <span class="process-math">\(1\leq j\leq n\text{.}\)</span> Also, the matrix <span class="process-math">\(B_{ij}\)</span> obtained by removing row <span class="process-math">\(i\)</span> and column <span class="process-math">\(j\)</span> from matrix <span class="process-math">\(B=EA\)</span> can be obtained from <span class="process-math">\(A_{ij}\)</span> by an elementary row operation of the same type as <span class="process-math">\(E\text{.}\)</span> Hence there is an elementary matrix <span class="process-math">\(E_k\)</span> of the same type as <span class="process-math">\(E\)</span> with <span class="process-math">\(B_{ij}=E_k A_{ij}\text{.}\)</span> Therefore, by induction, <span class="process-math">\(\det(B_{ij})=\det(E_k)\det(A_{ij})\)</span> and <span class="process-math">\(\det(E_k)\)</span> is equal to 1, -1 or <span class="process-math">\(r\)</span> depending on the type of elementary row operation. If we substitute this information into equation <a href="" class="xref" data-knowl="./knowl/eq_4_f_1.html" title="Equation 22.1">(22.1)</a>, we obtain</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_4_f_1.html">
 \begin{equation*}
 \begin{split} \det(B)\amp = a_{i1} (-1)^{i+1} \det(E_k) \det(A_{i1}) + a_{i2} (-1)^{i+2} \det(E_k) \det(A_{i2}) \\ \amp \qquad + \cdots + a_{in} (-1)^{i+n} \det(E_k) \det(A_{in})\\ \amp = \det(E_k) \det(A) \, . \end{split}
 \end{equation*}
@@ -793,38 +791,38 @@ b_{i1} (-1)^{i+1} \det(B_{i1}) + b_{i2} (-1)^{i+2} \det(B_{i2}) + \cdots + b_{in
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">22.4</span><span class="period">.</span>
 </h3>
 <p id="p-3680">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be <span class="process-math">\(n\times n\)</span> matrices. Then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(AB)=\det(A)\det(B) \,\text{.}
 \end{equation*}
 </div></article><article class="proof" id="proof-10"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
 <p id="p-3681">If <span class="process-math">\(A\)</span> is non-invertible, then <span class="process-math">\(AB\)</span> is also non-invertible and both <span class="process-math">\(\det(A)\)</span> and <span class="process-math">\(\det(AB)\)</span> are 0, proving the equality in this case.</p>
 <p id="p-3682">Suppose now that <span class="process-math">\(A\)</span> is invertible. By the Invertible Matrix Theorem, we know that <span class="process-math">\(A\)</span> is row equivalent to <span class="process-math">\(I_n\text{.}\)</span> Expressed in terms of elementary matrices, this means that there are elementary matrices <span class="process-math">\(E_1, E_2, \ldots, E_\ell\)</span> such that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_4_f_2">
 \begin{equation}
-A= E_1 E_2 \cdots E_\ell I_n = E_1 E_2 \cdots E_\ell \,\text{.}\label{eq_4_f_2}\tag{22.2}
+A= E_1 E_2 \cdots E_\ell I_n = E_1 E_2 \cdots E_\ell \,\text{.}\tag{22.2}
 \end{equation}
 </div>
 <p id="p-3683">Therefore, repeatedly applying <a href="" class="xref" data-knowl="./knowl/thm_4_f_2.html" title="Theorem 22.3">Theorem 22.3</a>, we find that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_4_f_2.html" id="eq_4_f_3">
 \begin{equation}
-\det(A) = \det(E_1) \det(E_2) \cdots \det(E_\ell) \,\text{.}\label{eq_4_f_3}\tag{22.3}
+\det(A) = \det(E_1) \det(E_2) \cdots \det(E_\ell) \,\text{.}\tag{22.3}
 \end{equation}
 </div>
 <p id="p-3684">If we multiply equation <a href="" class="xref" data-knowl="./knowl/eq_4_f_2.html" title="Equation 22.2">(22.2)</a> by <span class="process-math">\(B\)</span> on the right, we obtain</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_4_f_2.html">
 \begin{equation*}
 AB = E_1 E_2 \cdots E_\ell B \,\text{.}
 \end{equation*}
 </div>
 <p id="p-3685">Again, by repeatedly applying <a href="" class="xref" data-knowl="./knowl/thm_4_f_2.html" title="Theorem 22.3">Theorem 22.3</a> with this product of matrices, we find</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_4_f_2.html">
 \begin{equation*}
 \det(AB) = \det(E_1 E_2 \cdots E_\ell B ) = \det(E_1) \det(E_2) \cdots \det(E_\ell) \det(B) \,\text{.}
 \end{equation*}
 </div>
 <p id="p-3686">From equation <a href="" class="xref" data-knowl="./knowl/eq_4_f_3.html" title="Equation 22.3">(22.3)</a>, the product of <span class="process-math">\(\det(E_i)\)</span>'s equals <span class="process-math">\(\det(A)\text{,}\)</span> so</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_4_f_3.html">
 \begin{equation*}
 \det(AB) = \det(A) \det(B)
 \end{equation*}
@@ -837,13 +835,13 @@ AB = E_1 E_2 \cdots E_\ell B \,\text{.}
 <article class="task exercise-like" id="task-1223"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3689">Use elementary row operations to reduce <span class="process-math">\(A\)</span> to a row echelon form. Keep track of the elementary row operation you use.</p></article><article class="task exercise-like" id="task-1224"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3690">Taking into account how elementary row operations affect the determinant, use the row echelon form of <span class="process-math">\(A\)</span> to calculate <span class="process-math">\(\det(A)\text{.}\)</span></p></article></article><p id="p-3691">Your work in <a href="" class="xref" data-knowl="./knowl/act_4_f_2.html" title="Activity 22.3">Activity 22.3</a> provides an efficient method for calculating the determinant. If <span class="process-math">\(A\)</span> is a square matrix, we use row operations given by elementary matrices <span class="process-math">\(E_1\text{,}\)</span> <span class="process-math">\(E_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(E_k\)</span> to row reduce <span class="process-math">\(A\)</span> to row echelon form <span class="process-math">\(R\text{.}\)</span> That is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act_4_f_2.html">
 \begin{equation*}
 R = E_kE_{k-1} \cdots E_2E_1A\text{.}
 \end{equation*}
 </div>
 <p id="p-3692">We know <span class="process-math">\(\det(E_i)\)</span> for each <span class="process-math">\(i\text{,}\)</span> and since <span class="process-math">\(R\)</span> is a triangular matrix we can find its determinant. Then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(A) = \det(E_1)^{-1}\det(E_2)^{-1} \cdots \det(E_2)^{-1}\det(R)\text{.}
 \end{equation*}
@@ -854,7 +852,7 @@ R = E_kE_{k-1} \cdots E_2E_1A\text{.}
 </h3>
 <div class="introduction" id="introduction-357">
 <p id="p-3694"><a href="" class="xref" data-knowl="./knowl/thm_4_f_2.html" title="Theorem 22.3">Theorem 22.3</a> and <a href="" class="xref" data-knowl="./knowl/thm_determinant_product.html" title="Theorem 22.4">Theorem 22.4</a> can be used to prove the following (part c of <a href="" class="xref" data-knowl="./knowl/thm_determinant_properties.html" title="Theorem 17.3">Theorem 17.3</a>) that <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(\det(A) \neq 0\text{.}\)</span> We see how in this activity. Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix. We can row reduce <span class="process-math">\(A\)</span> to its reduced row echelon form <span class="process-math">\(R\)</span> by elementary matrices <span class="process-math">\(E_1\text{,}\)</span> <span class="process-math">\(E_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(E_k\)</span> so that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_4_f_2.html ./knowl/thm_determinant_product.html ./knowl/thm_determinant_properties.html">
 \begin{equation*}
 R = E_1E_2 \cdots E_kA\text{.}
 \end{equation*}
@@ -866,6 +864,6 @@ R = E_1E_2 \cdots E_kA\text{.}
 <p id="p-3697">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> matrix. Suppose we swap rows <span class="process-math">\(s\)</span> times and divide rows by constants <span class="process-math">\(k_1, k_2, \ldots,
 k_r\)</span> while computing a row echelon form <span class="process-math">\(\text{ REF } (A)\)</span> of <span class="process-math">\(A\text{.}\)</span> Then <span class="process-math">\(\det(A)=(-1)^s k_1 k_2\cdots k_r \det(\text{ REF } (A))\text{.}\)</span></p></section></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

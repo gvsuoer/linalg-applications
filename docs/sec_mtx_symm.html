@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:56-04:00       *-->
+<!--*       on 2022-04-14T13:05:26-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,9 +748,9 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_mtx_symm"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Symmetric Matrices</span>
 </h2>
-<p id="p-4536">As we saw in <a href="" class="xref" data-knowl="./knowl/pa_7_a.html" title="Preview Activity 27.1">Preview Activity 27.1</a>, matrices that are not symmetric need not be orthogonally diagonalizable, but the symmetric matrix examples are orthogonally diagonalizable. We explore that idea in this section.</p>
-<p id="p-4537">If <span class="process-math">\(P\)</span> is a matrix that orthogonally diagonalizes the matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(P^{\tr}AP = D\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix. Since <span class="process-math">\(D^{\tr} = D\)</span> and <span class="process-math">\(A = PDP^{\tr}\text{,}\)</span> we have</p>
-<div class="displaymath process-math">
+<p id="p-4537">As we saw in <a href="" class="xref" data-knowl="./knowl/pa_7_a.html" title="Preview Activity 27.1">Preview Activity 27.1</a>, matrices that are not symmetric need not be orthogonally diagonalizable, but the symmetric matrix examples are orthogonally diagonalizable. We explore that idea in this section.</p>
+<p id="p-4538">If <span class="process-math">\(P\)</span> is a matrix that orthogonally diagonalizes the matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(P^{\tr}AP = D\text{,}\)</span> where <span class="process-math">\(D\)</span> is a diagonal matrix. Since <span class="process-math">\(D^{\tr} = D\)</span> and <span class="process-math">\(A = PDP^{\tr}\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-182">
 \begin{align*}
 A \amp = PDP^{\tr}\\
 \amp = PD^{\tr}P^{\tr}\\
@@ -761,63 +759,63 @@ A \amp = PDP^{\tr}\\
 \amp = A^{\tr}\text{.}
 \end{align*}
 </div>
-<p id="p-4538">Therefore, <span class="process-math">\(A^{\tr} = A\)</span> and matrices with this property are the only matrices that can be orthogonally diagonalized. Recall that any matrix <span class="process-math">\(A\)</span> satisfying <span class="process-math">\(A^{\tr} = A\)</span> is a symmetric matrix.</p>
-<p id="p-4539">While we have just shown that the only matrices that can be orthogonally diagonalized are the symmetric matrices, the amazing thing about symmetric matrices is that <em class="emphasis">every</em> symmetric matrix can be orthogonally diagonalized. We will prove this shortly.</p>
-<p id="p-4540">Symmetric matrices have useful properties, a few of which are given in the following activity (we will use some of these properties later in this section).</p>
+<p id="p-4539">Therefore, <span class="process-math">\(A^{\tr} = A\)</span> and matrices with this property are the only matrices that can be orthogonally diagonalized. Recall that any matrix <span class="process-math">\(A\)</span> satisfying <span class="process-math">\(A^{\tr} = A\)</span> is a symmetric matrix.</p>
+<p id="p-4540">While we have just shown that the only matrices that can be orthogonally diagonalized are the symmetric matrices, the amazing thing about symmetric matrices is that <em class="emphasis">every</em> symmetric matrix can be orthogonally diagonalized. We will prove this shortly.</p>
+<p id="p-4541">Symmetric matrices have useful properties, a few of which are given in the following activity (we will use some of these properties later in this section).</p>
 <article class="activity project-like" id="act_7_a_symmetric"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">27.2</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-444"><p id="p-4541">Let <span class="process-math">\(A\)</span> be a symmetric <span class="process-math">\(n \times n\)</span> matrix and let <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vy\)</span> be vectors in <span class="process-math">\(\R^n\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-444"><p id="p-4542">Let <span class="process-math">\(A\)</span> be a symmetric <span class="process-math">\(n \times n\)</span> matrix and let <span class="process-math">\(\vx\)</span> and <span class="process-math">\(\vy\)</span> be vectors in <span class="process-math">\(\R^n\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1506"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4542">Show that <span class="process-math">\(\vx^{\tr} A \vy = (A\vx)^{\tr} \vy\text{.}\)</span></p></article><article class="task exercise-like" id="task-1507"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4543">Show that <span class="process-math">\((A\vx) \cdot \vy = \vx \cdot (A\vy)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1508"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4544">Show that the eigenvalues of a <span class="process-math">\(2 \times 2\)</span> symmetric matrix <span class="process-math">\(A = \left[ \begin{array}{cc} a\amp b\\b\amp c \end{array} \right]\)</span> are real.</p></article></article><p id="p-4545"><a href="" class="xref" data-knowl="./knowl/act_7_a_symmetric.html" title="Activity 27.2">Activity 27.2</a> (c) shows that a <span class="process-math">\(2 \times 2\)</span> symmetric matrix has real eigenvalues. This is a general result about real symmetric matrices.</p>
+<p id="p-4543">Show that <span class="process-math">\(\vx^{\tr} A \vy = (A\vx)^{\tr} \vy\text{.}\)</span></p></article><article class="task exercise-like" id="task-1507"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4544">Show that <span class="process-math">\((A\vx) \cdot \vy = \vx \cdot (A\vy)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1508"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4545">Show that the eigenvalues of a <span class="process-math">\(2 \times 2\)</span> symmetric matrix <span class="process-math">\(A = \left[ \begin{array}{cc} a\amp b\\b\amp c \end{array} \right]\)</span> are real.</p></article></article><p id="p-4546"><a href="" class="xref" data-knowl="./knowl/act_7_a_symmetric.html" title="Activity 27.2">Activity 27.2</a> (c) shows that a <span class="process-math">\(2 \times 2\)</span> symmetric matrix has real eigenvalues. This is a general result about real symmetric matrices.</p>
 <article class="theorem theorem-like" id="thm_7_a_symmetric_eigenvalues"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">27.4</span><span class="period">.</span>
 </h3>
-<p id="p-4546">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> symmetric matrix with real entries. Then the eigenvalues of <span class="process-math">\(A\)</span> are real.</p></article><article class="proof" id="proof-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<p id="p-4547">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> symmetric matrix with real entries and let <span class="process-math">\(\lambda\)</span> be an eigenvalue of <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(\vv\text{.}\)</span> To show that <span class="process-math">\(\lambda\)</span> is real, we will show that <span class="process-math">\(\overline{\lambda} = \lambda\text{.}\)</span> We know</p>
-<div class="displaymath process-math">
+<p id="p-4547">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> symmetric matrix with real entries. Then the eigenvalues of <span class="process-math">\(A\)</span> are real.</p></article><article class="proof" id="proof-14"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<p id="p-4548">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n\times n\)</span> symmetric matrix with real entries and let <span class="process-math">\(\lambda\)</span> be an eigenvalue of <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(\vv\text{.}\)</span> To show that <span class="process-math">\(\lambda\)</span> is real, we will show that <span class="process-math">\(\overline{\lambda} = \lambda\text{.}\)</span> We know</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_symm1">
 \begin{equation}
-A \vv = \lambda \vv\text{.}\label{eq_symm1}\tag{27.1}
+A \vv = \lambda \vv\text{.}\tag{27.1}
 \end{equation}
 </div>
-<p id="p-4548">Since <span class="process-math">\(A\)</span> has real entries, we also know that <span class="process-math">\(\overline{\lambda}\)</span> is an eigenvalue for <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(\overline{\vv}\text{.}\)</span> Multiply both sides of <a href="" class="xref" data-knowl="./knowl/eq_symm1.html" title="Equation 27.1">(27.1)</a> on the left by <span class="process-math">\(\overline{\vv}^{\tr}\)</span> to obtain</p>
-<div class="displaymath process-math">
+<p id="p-4549">Since <span class="process-math">\(A\)</span> has real entries, we also know that <span class="process-math">\(\overline{\lambda}\)</span> is an eigenvalue for <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(\overline{\vv}\text{.}\)</span> Multiply both sides of <a href="" class="xref" data-knowl="./knowl/eq_symm1.html" title="Equation 27.1">(27.1)</a> on the left by <span class="process-math">\(\overline{\vv}^{\tr}\)</span> to obtain</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_symm1.html" id="eq_symm2">
 \begin{equation}
-\overline{\vv}^{\tr} A \vv = \overline{\vv}^{\tr} \lambda \vv = \lambda \left(\overline{\vv}^{\tr} \vv \right)\text{.}\label{eq_symm2}\tag{27.2}
+\overline{\vv}^{\tr} A \vv = \overline{\vv}^{\tr} \lambda \vv = \lambda \left(\overline{\vv}^{\tr} \vv \right)\text{.}\tag{27.2}
 \end{equation}
 </div>
-<p id="p-4549">Now</p>
-<div class="displaymath process-math">
+<p id="p-4550">Now</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_symm2.html">
 \begin{equation*}
 \overline{\vv}^{\tr} A \vv = (A\overline{\vv})^{\tr} \vv = (\overline{\lambda} \ \overline{\vv})^{\tr} \vv = \overline{\lambda} \left(\overline{\vv}^{\tr} \vv \right)
 \end{equation*}
 </div>
 <p class="continuation">and equation <a href="" class="xref" data-knowl="./knowl/eq_symm2.html" title="Equation 27.2">(27.2)</a> becomes</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_symm2.html">
 \begin{equation*}
 \overline{\lambda} \left(\overline{\vv}^{\tr} \vv \right) = \lambda \left(\overline{\vv}^{\tr} \vv \right)\text{.}
 \end{equation*}
 </div>
-<p id="p-4550">Since <span class="process-math">\(\vv \neq \vzero\text{,}\)</span> this implies that <span class="process-math">\(\overline{\lambda} = \lambda\)</span> and <span class="process-math">\(\lambda\)</span> is real.</p></article><p id="p-4551">To orthogonally diagonalize a matrix, it must be the case that eigenvectors corresponding to different eigenvalues are orthogonal. This is an important property and it would be useful to know when it happens.</p>
+<p id="p-4551">Since <span class="process-math">\(\vv \neq \vzero\text{,}\)</span> this implies that <span class="process-math">\(\overline{\lambda} = \lambda\)</span> and <span class="process-math">\(\lambda\)</span> is real.</p></article><p id="p-4552">To orthogonally diagonalize a matrix, it must be the case that eigenvectors corresponding to different eigenvalues are orthogonal. This is an important property and it would be useful to know when it happens.</p>
 <article class="activity project-like" id="act_7_a_symmetric_eigenvalues"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">27.3</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-445"><p id="p-4552">Let <span class="process-math">\(A\)</span> be a real symmetric matrix with eigenvalues <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{,}\)</span> respectively.</p></div>
+<div class="introduction" id="introduction-445"><p id="p-4553">Let <span class="process-math">\(A\)</span> be a real symmetric matrix with eigenvalues <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{,}\)</span> respectively.</p></div>
 <article class="task exercise-like" id="task-1509"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4553">Use <a href="" class="xref" data-knowl="./knowl/act_7_a_symmetric.html" title="Activity 27.2">Activity 27.2</a> (b) to show that <span class="process-math">\(\lambda_1 \vv_1\cdot \vv_2 = \lambda_2 \vv_1 \cdot \vv_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-1510"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4554">Explain why the result of part (a) shows that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are orthogonal if <span class="process-math">\(\lambda_1\neq \lambda_2\text{.}\)</span></p></article></article><p id="p-4555"><a href="" class="xref" data-knowl="./knowl/act_7_a_symmetric_eigenvalues.html" title="Activity 27.3">Activity 27.3</a> proves the following theorem.</p>
+<p id="p-4554">Use <a href="" class="xref" data-knowl="./knowl/act_7_a_symmetric.html" title="Activity 27.2">Activity 27.2</a> (b) to show that <span class="process-math">\(\lambda_1 \vv_1\cdot \vv_2 = \lambda_2 \vv_1 \cdot \vv_2\text{.}\)</span></p></article><article class="task exercise-like" id="task-1510"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4555">Explain why the result of part (a) shows that <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\)</span> are orthogonal if <span class="process-math">\(\lambda_1\neq \lambda_2\text{.}\)</span></p></article></article><p id="p-4556"><a href="" class="xref" data-knowl="./knowl/act_7_a_symmetric_eigenvalues.html" title="Activity 27.3">Activity 27.3</a> proves the following theorem.</p>
 <article class="theorem theorem-like" id="theorem-67"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">27.5</span><span class="period">.</span>
 </h3>
-<p id="p-4556">If <span class="process-math">\(A\)</span> is a real symmetric matrix, then eigenvectors corresponding to distinct eigenvalues are orthogonal.</p></article><p id="p-4557">Recall that the only matrices that can be orthogonally diagonalized are the symmetric matrices. Now we show that every real symmetric matrix can be orthogonally diagonalized, which completely characterizes the matrices that are orthogonally diagonalizable. The proof of the following theorem proceeds by induction. A reader who has not yet encountered this technique of proof can safely skip the proof of this theorem without loss of continuity.</p>
+<p id="p-4557">If <span class="process-math">\(A\)</span> is a real symmetric matrix, then eigenvectors corresponding to distinct eigenvalues are orthogonal.</p></article><p id="p-4558">Recall that the only matrices that can be orthogonally diagonalized are the symmetric matrices. Now we show that every real symmetric matrix can be orthogonally diagonalized, which completely characterizes the matrices that are orthogonally diagonalizable. The proof of the following theorem proceeds by induction. A reader who has not yet encountered this technique of proof can safely skip the proof of this theorem without loss of continuity.</p>
 <article class="theorem theorem-like" id="theorem-68"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">27.6</span><span class="period">.</span>
 </h3>
-<p id="p-4558">Let <span class="process-math">\(A\)</span> be a real symmetric matrix. Then <span class="process-math">\(A\)</span> is orthogonally diagonalizable.</p></article><article class="proof" id="proof-15"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
-<p id="p-4559">Let <span class="process-math">\(A\)</span> be a real <span class="process-math">\(n \times n\)</span> symmetric matrix. The proof proceeds by induction on <span class="process-math">\(n\text{.}\)</span> If <span class="process-math">\(n = 1\text{,}\)</span> then <span class="process-math">\(A\)</span> is diagonal and orthogonally diagonalizable. So assume that any real <span class="process-math">\((n-1) \times (n-1)\)</span> symmetric matrix is orthogonally diagonalizable. Assume that <span class="process-math">\(A\)</span> is a real <span class="process-math">\(n \times n\)</span> symmetric matrix. By Theorem 25.4 (find reference), the eigenvalues of <span class="process-math">\(A\)</span> are real. Let <span class="process-math">\(\lambda_1\)</span> be a real eigenvalue of <span class="process-math">\(A\)</span> with corresponding unit eigenvector <span class="process-math">\(\vp_1\text{.}\)</span> We can use the Gram-Schmidt process to extend <span class="process-math">\(\{\vp_1\}\)</span> to an orthonormal basis <span class="process-math">\(\{\vp_1, \vp_2, \ldots, \vp_n\}\)</span> for <span class="process-math">\(\R^n\text{.}\)</span> Let <span class="process-math">\(P_1 = [\vp_1 \ \vp_2 \ \ldots \ \vp_n]\text{.}\)</span> Then <span class="process-math">\(P_1\)</span> is an orthogonal matrix. Also,</p>
-<div class="displaymath process-math">
+<p id="p-4559">Let <span class="process-math">\(A\)</span> be a real symmetric matrix. Then <span class="process-math">\(A\)</span> is orthogonally diagonalizable.</p></article><article class="proof" id="proof-15"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3>
+<p id="p-4560">Let <span class="process-math">\(A\)</span> be a real <span class="process-math">\(n \times n\)</span> symmetric matrix. The proof proceeds by induction on <span class="process-math">\(n\text{.}\)</span> If <span class="process-math">\(n = 1\text{,}\)</span> then <span class="process-math">\(A\)</span> is diagonal and orthogonally diagonalizable. So assume that any real <span class="process-math">\((n-1) \times (n-1)\)</span> symmetric matrix is orthogonally diagonalizable. Assume that <span class="process-math">\(A\)</span> is a real <span class="process-math">\(n \times n\)</span> symmetric matrix. By Theorem 25.4 (find reference), the eigenvalues of <span class="process-math">\(A\)</span> are real. Let <span class="process-math">\(\lambda_1\)</span> be a real eigenvalue of <span class="process-math">\(A\)</span> with corresponding unit eigenvector <span class="process-math">\(\vp_1\text{.}\)</span> We can use the Gram-Schmidt process to extend <span class="process-math">\(\{\vp_1\}\)</span> to an orthonormal basis <span class="process-math">\(\{\vp_1, \vp_2, \ldots, \vp_n\}\)</span> for <span class="process-math">\(\R^n\text{.}\)</span> Let <span class="process-math">\(P_1 = [\vp_1 \ \vp_2 \ \ldots \ \vp_n]\text{.}\)</span> Then <span class="process-math">\(P_1\)</span> is an orthogonal matrix. Also,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-183">
 \begin{align*}
 P_1^{-1}AP_1 \amp = P_1^{\tr}AP_1\\
 \amp = P_1^{\tr} [A\vp_1 \ A\vp_2 \ \ldots \ A\vp_n]\\
@@ -838,25 +836,25 @@ P_1^{-1}AP_1 \amp = P_1^{\tr}AP_1\\
 \end{align*}
 </div>
 <p class="continuation">where <span class="process-math">\(\vx\)</span> is a <span class="process-math">\((n-1)\times 1\)</span> vector, <span class="process-math">\(\vzero\)</span> is the zero vector in <span class="process-math">\(\R^{n-1}\text{,}\)</span> and <span class="process-math">\(A_1\)</span> is an <span class="process-math">\((n-1) \times (n-1)\)</span> matrix. Letting <span class="process-math">\(R = P_1^{\tr}AP_1\)</span> we have that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 R^{\tr} = \left(P_1^{\tr}AP_1\right)^{\tr} = P_1^{\tr}A^{\tr}P_1 = P_1^{\tr}AP_1 = R\text{,}
 \end{equation*}
 </div>
 <p class="continuation">so <span class="process-math">\(R\)</span> is a symmetric matrix. Therefore, <span class="process-math">\(\vx = \vzero\)</span> and <span class="process-math">\(A_1\)</span> is a symmetric matrix. By our induction hypothesis, <span class="process-math">\(A_1\)</span> is orthogonally diagonalizable. That is, there exists an <span class="process-math">\((n-1) \times (n-1)\)</span> orthogonal matrix <span class="process-math">\(Q\)</span> such that <span class="process-math">\(Q^{\tr}A_1Q = D_1\text{,}\)</span> where <span class="process-math">\(D_1\)</span> is a diagonal matrix. Now define <span class="process-math">\(P_2\)</span> by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 P_2 = \left[ \begin{array}{cc} 1\amp \vzero^{\tr} \\ \vzero \amp  Q \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(\vzero\)</span> is the zero vector in <span class="process-math">\(\R^{n-1}\text{.}\)</span> By construction, the columns of <span class="process-math">\(P_2\)</span> are orthonormal, so <span class="process-math">\(P_2\)</span> is an orthogonal matrix. Since <span class="process-math">\(P_1\)</span> is also an orthogonal matrix,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 P^{\tr} = (P_1P_2)^{\tr} = P_2^{\tr}P_1^{\tr} = P_2^{-1}P_1^{-1} = (P_1P_2)^{-1}  = P^{-1}
 \end{equation*}
 </div>
 <p class="continuation">and <span class="process-math">\(P\)</span> is an orthogonal matrix. Finally,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-184">
 \begin{align*}
 P^{\tr}AP \amp = (P_1P_2)^{\tr}A(P_1P_2)\\
 \amp = P_2^{\tr}\left(P_1^{\tr}AP_1\right)P_2\\
@@ -874,27 +872,27 @@ P^{\tr}AP \amp = (P_1P_2)^{\tr}A(P_1P_2)\\
 \vzero \amp  D_1 \end{array} \right]\text{.}
 \end{align*}
 </div>
-<p id="p-4560">Therefore, <span class="process-math">\(P^{\tr}AP\)</span> is a diagonal matrix and <span class="process-math">\(P\)</span> orthogonally diagonalizes <span class="process-math">\(A\text{.}\)</span> This completes our proof.</p></article><p id="p-4561"> The set of eigenvalues of a matrix <span class="process-math">\(A\)</span> is called the <dfn class="terminology">spectrum</dfn> of <span class="process-math">\(A\)</span> and we have just proved the following theorem.</p>
+<p id="p-4561">Therefore, <span class="process-math">\(P^{\tr}AP\)</span> is a diagonal matrix and <span class="process-math">\(P\)</span> orthogonally diagonalizes <span class="process-math">\(A\text{.}\)</span> This completes our proof.</p></article><p id="p-4562"> The set of eigenvalues of a matrix <span class="process-math">\(A\)</span> is called the <dfn class="terminology">spectrum</dfn> of <span class="process-math">\(A\)</span> and we have just proved the following theorem.</p>
 <article class="theorem theorem-like" id="theorem-69"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">27.7</span><span class="period">.</span><span class="space"> </span><span class="title">The Spectral Theorem for Real Symmetric Matrices.</span>
 </h3>
-<p id="p-4562">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> symmetric matrix with real entries. Then</p>
+<p id="p-4563">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> symmetric matrix with real entries. Then</p>
 <ol class="decimal">
-<li id="li-717"><p id="p-4563"><span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> real eigenvalues (counting multiplicities)</p></li>
-<li id="li-718"><p id="p-4564">the dimension of each eigenspace of <span class="process-math">\(A\)</span> is the multiplicity of the corresponding eigenvalue as a root of the characteristic polynomial</p></li>
-<li id="li-719"><p id="p-4565">eigenvectors corresponding to different eigenvalues are orthogonal</p></li>
-<li id="li-720"><p id="p-4566"><span class="process-math">\(A\)</span> is orthogonally diagonalizable.</p></li>
-</ol></article><p id="p-4567">So <em class="emphasis">any</em> real symmetric matrix is orthogonally diagonalizable. We have seen examples of the orthogonal diagonalization of <span class="process-math">\(n \times n\)</span> real symmetric matrices with <span class="process-math">\(n\)</span> distinct eigenvalues, but how do we orthogonally diagonalize a symmetric matrix having eigenvalues of multiplicity greater than 1? The next activity shows us the process.</p>
+<li id="li-717"><p id="p-4564"><span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> real eigenvalues (counting multiplicities)</p></li>
+<li id="li-718"><p id="p-4565">the dimension of each eigenspace of <span class="process-math">\(A\)</span> is the multiplicity of the corresponding eigenvalue as a root of the characteristic polynomial</p></li>
+<li id="li-719"><p id="p-4566">eigenvectors corresponding to different eigenvalues are orthogonal</p></li>
+<li id="li-720"><p id="p-4567"><span class="process-math">\(A\)</span> is orthogonally diagonalizable.</p></li>
+</ol></article><p id="p-4568">So <em class="emphasis">any</em> real symmetric matrix is orthogonally diagonalizable. We have seen examples of the orthogonal diagonalization of <span class="process-math">\(n \times n\)</span> real symmetric matrices with <span class="process-math">\(n\)</span> distinct eigenvalues, but how do we orthogonally diagonalize a symmetric matrix having eigenvalues of multiplicity greater than 1? The next activity shows us the process.</p>
 <article class="activity project-like" id="act_7_a_3"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">27.4</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-446"><p id="p-4568">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 4\amp 2\amp 2 \\ 2\amp 4\amp 2 \\ 2\amp 2\amp 4 \end{array} \right]\text{.}\)</span> The eigenvalues of <span class="process-math">\(A\)</span> are 2 and 8, with eigenspace of dimension 2 and dimension 1, respectively.</p></div>
+<div class="introduction" id="introduction-446"><p id="p-4569">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} 4\amp 2\amp 2 \\ 2\amp 4\amp 2 \\ 2\amp 2\amp 4 \end{array} \right]\text{.}\)</span> The eigenvalues of <span class="process-math">\(A\)</span> are 2 and 8, with eigenspace of dimension 2 and dimension 1, respectively.</p></div>
 <article class="task exercise-like" id="task-1511"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4569">Explain why <span class="process-math">\(A\)</span> can be orthogonally diagonalized.</p></article><article class="task exercise-like" id="task-1512"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4570">Two linearly independent eigenvectors for <span class="process-math">\(A\)</span> corresponding to the eigenvalue 2 are <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 1 \end{array} \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]\text{.}\)</span> Note that <span class="process-math">\(\vv_1, \vv_2\)</span> are not orthogonal, so cannot be in an orthogonal basis of <span class="process-math">\(\R^3\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{.}\)</span> So find a set <span class="process-math">\(\{\vw_1, \vw_2\}\)</span> of orthogonal eigenvectors of <span class="process-math">\(A\)</span> so that <span class="process-math">\(\Span\{\vw_1, \vw_2\} = \Span\{\vv_1, \vv_2\}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1513"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4571">The vector <span class="process-math">\(\vv_3=\left[ \begin{array}{c} 1 \\ 1 \\ 1 \end{array} \right]\)</span> is an eigenvector for <span class="process-math">\(A\)</span> corresponding to the eigenvalue 8. What can you say about the orthogonality relationship between <span class="process-math">\(\vw_i\)</span>'s and <span class="process-math">\(\vv_3\text{?}\)</span></p></article><article class="task exercise-like" id="task-1514"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-4572">Find a matrix <span class="process-math">\(P\)</span> that orthogonally diagonalizes <span class="process-math">\(A\text{.}\)</span> Verify your work.</p></article></article></section></div></main>
+<p id="p-4570">Explain why <span class="process-math">\(A\)</span> can be orthogonally diagonalized.</p></article><article class="task exercise-like" id="task-1512"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4571">Two linearly independent eigenvectors for <span class="process-math">\(A\)</span> corresponding to the eigenvalue 2 are <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1 \\ 0 \\ 1 \end{array} \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]\text{.}\)</span> Note that <span class="process-math">\(\vv_1, \vv_2\)</span> are not orthogonal, so cannot be in an orthogonal basis of <span class="process-math">\(\R^3\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{.}\)</span> So find a set <span class="process-math">\(\{\vw_1, \vw_2\}\)</span> of orthogonal eigenvectors of <span class="process-math">\(A\)</span> so that <span class="process-math">\(\Span\{\vw_1, \vw_2\} = \Span\{\vv_1, \vv_2\}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1513"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4572">The vector <span class="process-math">\(\vv_3=\left[ \begin{array}{c} 1 \\ 1 \\ 1 \end{array} \right]\)</span> is an eigenvector for <span class="process-math">\(A\)</span> corresponding to the eigenvalue 8. What can you say about the orthogonality relationship between <span class="process-math">\(\vw_i\)</span>'s and <span class="process-math">\(\vv_3\text{?}\)</span></p></article><article class="task exercise-like" id="task-1514"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-4573">Find a matrix <span class="process-math">\(P\)</span> that orthogonally diagonalizes <span class="process-math">\(A\text{.}\)</span> Verify your work.</p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

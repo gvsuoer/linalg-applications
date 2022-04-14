@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:22:59-04:00       *-->
+<!--*       on 2022-04-14T13:01:05-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -812,7 +810,7 @@
 <dt id="li-354">Statement (10) implies Statement (11)</dt>
 <dd>
 <p id="p-1913">Assume that <span class="process-math">\(T\)</span> defined by <span class="process-math">\(T(\vx) = A\vx\)</span> is onto. For each <span class="process-math">\(i\text{,}\)</span> let <span class="process-math">\(\ve_i\)</span> be the <span class="process-math">\(i\)</span>th column of the <span class="process-math">\(n \times n\)</span> identity matrix <span class="process-math">\(I_n\text{.}\)</span> That is, <span class="process-math">\(\ve_i\)</span> is the vector in <span class="process-math">\(\R^n\)</span> with 1 in the <span class="process-math">\(i\)</span>th component and 0 everywhere else. Since <span class="process-math">\(T\)</span> is onto, for each <span class="process-math">\(i\)</span> there is a vector <span class="process-math">\(\vc_i\)</span> such that <span class="process-math">\(T(\vc_i) = A \vc_i = \ve_i\text{.}\)</span> Let <span class="process-math">\(C = [\vc_1  \ \vc_2 \ \cdots \ \vc_n]\text{.}\)</span> Then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 AC = A[\vc_1  \ \vc_2 \ \cdots \ \vc_n] = [A\vc_1 \ A\vc_2 \ \cdots \ A\vc_n] = [\ve_1 \ \ve_2 \ \cdots \ \ve_n] = I_n\text{.}
 \end{equation*}
@@ -821,31 +819,31 @@ AC = A[\vc_1  \ \vc_2 \ \cdots \ \vc_n] = [A\vc_1 \ A\vc_2 \ \cdots \ A\vc_n] = 
 <dt id="li-355">Statement (11) implies Statement (12)</dt>
 <dd>
 <p id="p-1914">Assume <span class="process-math">\(C\)</span> is an <span class="process-math">\(n \times n\)</span> matrix so that <span class="process-math">\(AC = I_n\text{.}\)</span> First we show that the matrix equation <span class="process-math">\(C \vx = \vzero\)</span> has only the trivial solution. Suppose <span class="process-math">\(C \vx = \vzero\text{.}\)</span> Then multiplying both sides on the left by <span class="process-math">\(A\)</span> gives us</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A(C \vx) = A \vzero\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Simplifying this equation using <span class="process-math">\(AC=I_n\text{,}\)</span> we find <span class="process-math">\(\vx = \vzero\text{.}\)</span> Since <span class="process-math">\(C \vx = \vzero\)</span> has only the trivial solution, every column of <span class="process-math">\(C\)</span> must be a pivot column. Since <span class="process-math">\(C\)</span> is an <span class="process-math">\(n \times n\)</span> matrix, it follows that every row of <span class="process-math">\(C\)</span> contains a pivot position. Thus, the matrix equation <span class="process-math">\(C \vx = \vb\)</span> is consistent and has a unique solution for every <span class="process-math">\(\vb\)</span> in <span class="process-math">\(\R^n\text{.}\)</span> Let <span class="process-math">\(\vv_i\)</span> be the vector in <span class="process-math">\(\R^n\)</span> satisfying <span class="process-math">\(C \vv_i = \ve_i\)</span> for each <span class="process-math">\(i\)</span> between 1 and <span class="process-math">\(n\)</span> and let <span class="process-math">\(M = [\vv_1 \ \vv_2 \ \cdots \ \vv_n]\text{.}\)</span> Then <span class="process-math">\(CM = I_n\text{.}\)</span> Now we show that <span class="process-math">\(CA = I_n\text{.}\)</span> Since</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 AC = I_n
 \end{equation*}
 </div>
 <p class="continuation">we can multiply both sides on the left by <span class="process-math">\(C\)</span> to see that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 C(AC) = CI_n\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Now we multiply both sides on the right by <span class="process-math">\(M\)</span> and obtain</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (C(AC))M = CM\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Using the associative property of matrix multiplication and the fact that <span class="process-math">\(CM = I_n\)</span> shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-102">
 \begin{align*}
 (CA)(CM) \amp = CM\\
 CA = I_n\text{.}
@@ -856,7 +854,7 @@ CA = I_n\text{.}
 <dt id="li-356">Statement (12) implies Statement (13)</dt>
 <dd>
 <p id="p-1915">Assume that there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(D\)</span> so that <span class="process-math">\(DA = I_n\text{.}\)</span> Suppose <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Then multiplying both sides by <span class="process-math">\(A\)</span> on the left, we find that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-103">
 \begin{align*}
 D(A\vx) \amp = D\vzero\\
 (DA) \vx \amp = \vzero\\
@@ -868,7 +866,7 @@ D(A\vx) \amp = D\vzero\\
 <dt id="li-357">Statement (13) implies Statement (14)</dt>
 <dd>
 <p id="p-1916">If 0 is not an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vzero\)</span> has only the trivial solution. Since <a href="" class="xref" data-knowl="./knowl/item_trivial_soln.html" title="Item 2">statement 2</a> implies <a href="" class="xref" data-knowl="./knowl/item_AC_I.html" title="Item 11">statement 11</a>, there is an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(C\)</span> such that <span class="process-math">\(AC = I_n\text{.}\)</span> The proof that <a href="" class="xref" data-knowl="./knowl/item_AC_I.html" title="Item 11">statement 11</a> implies <a href="" class="xref" data-knowl="./knowl/item_DA_I.html" title="Item 12">statement 12</a> shows that <span class="process-math">\(CA = I_n\)</span> as well. So <span class="process-math">\(A\)</span> is invertible. By taking the transpose of both sides of the equation <span class="process-math">\(AA^{-1}=A^{-1}A=I_n\)</span> (remembering <span class="process-math">\((AB)^{\tr}= B^{\tr}A^{\tr}\)</span>) we find</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/item_trivial_soln.html ./knowl/item_AC_I.html ./knowl/item_AC_I.html ./knowl/item_DA_I.html">
 \begin{equation*}
 (A^{-1})^{\tr} A^{\tr} = A^{\tr} (A^{-1})^{\tr} = I_n^{\tr}=I_n \,\text{.}
 \end{equation*}
@@ -881,6 +879,6 @@ D(A\vx) \amp = D\vzero\\
 </div></div>
 </div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

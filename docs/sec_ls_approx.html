@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:40-04:00       *-->
+<!--*       on 2022-04-14T13:05:13-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,17 +748,17 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_ls_approx"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Least Squares Approximations</span>
 </h2>
-<p id="p-4395">In <a href="chap_gram_schmidt.html" class="internal" title="Chapter 25: Projections onto Subspaces and the Gram-Schmidt Process in \R^n">Chapter 25</a> we saw that the projection of a vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^n\)</span> onto a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> is the best approximation to <span class="process-math">\(\vv\)</span> of all the vectors in <span class="process-math">\(W\text{.}\)</span> In fact, if <span class="process-math">\(\vv = [v_1 \ v_2 \ \ldots \ v_n]^{\tr}\)</span> and <span class="process-math">\(\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}\text{,}\)</span> then the error in approximating <span class="process-math">\(\vv\)</span> by <span class="process-math">\(\vw\)</span> is given by</p>
-<div class="displaymath process-math">
+<p id="p-4396">In <a href="chap_gram_schmidt.html" class="internal" title="Chapter 25: Projections onto Subspaces and the Gram-Schmidt Process in \R^n">Chapter 25</a> we saw that the projection of a vector <span class="process-math">\(\vv\)</span> in <span class="process-math">\(\R^n\)</span> onto a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\R^n\)</span> is the best approximation to <span class="process-math">\(\vv\)</span> of all the vectors in <span class="process-math">\(W\text{.}\)</span> In fact, if <span class="process-math">\(\vv = [v_1 \ v_2 \ \ldots \ v_n]^{\tr}\)</span> and <span class="process-math">\(\proj_W \vv =  [w_1 \ w_2 \ w_3 \ \ldots \ w_m]^{\tr}\text{,}\)</span> then the error in approximating <span class="process-math">\(\vv\)</span> by <span class="process-math">\(\vw\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/chap_gram_schmidt.html ./knowl/pa_LS_1.html ./knowl/F_6_f_proj.html ./knowl/F_LS_Olympics2.html">
 \begin{equation*}
 || \vv - \proj_W \vv ||^2 = \sum_{i=1}^m (v_i - w_i)^2\text{.}
 \end{equation*}
 </div>
 <p class="continuation">In the context of <a href="" class="xref" data-knowl="./knowl/pa_LS_1.html" title="Preview Activity 26.1">Preview Activity 26.1</a>, we projected the vector <span class="process-math">\(\vb\)</span> onto the span of  the vectors <span class="process-math">\(\vv_1 = [1 \ 1 \ 1 \ 1]^{\tr}\)</span> and <span class="process-math">\(\vv_2 = [0 \ 4 \ 8 \ 12]^{\tr}\text{.}\)</span> The projection   minimizes the distance between the vectors in <span class="process-math">\(W\)</span> and the vector <span class="process-math">\(\vb\)</span> (as shown in <a href="" class="xref" data-knowl="./knowl/F_6_f_proj.html" title="Figure 26.3">Figure 26.3</a>), and also produces a line which minimizes the sums of the squares of the vertical  distances from the line to the data set as illustrated in <a href="" class="xref" data-knowl="./knowl/F_LS_Olympics2.html" title="Figure 26.4">Figure 26.4</a> with the olympics data. This is why these approximations are called least squares approximations.</p>
 <figure class="figure figure-like" id="F_LS_Olympics2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/Regression1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">26.4<span class="period">.</span></span><span class="space"> </span>Least squares linear approximation</figcaption></figure><p id="p-4396">While we can always solve least squares problems using projections, we can often avoid having to create an orthogonal basis when fitting functions to data. We work in a more general setting, showing how to fit a polynomial of degree <span class="process-math">\(n\)</span> to a set of data points. Our goal is to fit a polynomial <span class="process-math">\(p(x) = a_0+a_1x+a_2x^2+ \cdots + 
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">26.4<span class="period">.</span></span><span class="space"> </span>Least squares linear approximation</figcaption></figure><p id="p-4397">While we can always solve least squares problems using projections, we can often avoid having to create an orthogonal basis when fitting functions to data. We work in a more general setting, showing how to fit a polynomial of degree <span class="process-math">\(n\)</span> to a set of data points. Our goal is to fit a polynomial <span class="process-math">\(p(x) = a_0+a_1x+a_2x^2+ \cdots + 
 a_nx^n\)</span> of degree <span class="process-math">\(n\)</span> to <span class="process-math">\(m\)</span> data points <span class="process-math">\((x_1,y_1)\text{,}\)</span> <span class="process-math">\((x_2,y_2)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((x_m,y_m)\text{,}\)</span> no two of which have the same <span class="process-math">\(x\)</span> coordinate. In the unlikely event that the polynomial <span class="process-math">\(p(x)\)</span> actually passes through the <span class="process-math">\(m\)</span> points, then we would have the <span class="process-math">\(m\)</span> equations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="mdn-19">
 \begin{alignat}{7}
 y_1 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_1 \amp{}+{} \amp{a_2}x_1^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_1^{n-1} \amp{}+{} \amp{a_n}x_1^n\tag{26.2}\\
 y_2 \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_2 \amp{}+{} \amp{a_2}x_2^2 \amp{}+{} \amp\cdots \amp{}+{} \amp{a_{n-1}}x_2^{n-1} \amp{}+{} \amp{a_n}x_2^n\tag{26.3}\\
@@ -770,55 +768,55 @@ y_m \amp{}={} \amp{a_0} \amp{}+{} \amp{a_1}x_m \amp{}+{} \amp{a_2}x_m^2 \amp{}+{
 \end{alignat}
 </div>
 <p class="continuation">in the <span class="process-math">\(n+1\)</span> unknowns <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_{n-1}\text{,}\)</span> and <span class="process-math">\(a_n\text{.}\)</span></p>
-<p id="p-4397">The <span class="process-math">\(m\)</span> data points are known in this situation and the coefficients <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_n\)</span> are the unknowns. To write the system in matrix-vector form, the coefficient matrix <span class="process-math">\(M\)</span> is</p>
-<div class="displaymath process-math">
+<p id="p-4398">The <span class="process-math">\(m\)</span> data points are known in this situation and the coefficients <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_n\)</span> are the unknowns. To write the system in matrix-vector form, the coefficient matrix <span class="process-math">\(M\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 M = \left[ \begin{array}{cccccc} 1 \amp x_1 \amp x_1^2\amp \cdots  \amp x_1^{n-1} \amp x_1^{n} \\ 1 \amp x_2 \amp x_2^2\amp \cdots  \amp x_2^{n-1} \amp x_2^{n} \\ 1 \amp x_3 \amp x_3^2\amp \cdots  \amp x_3^{n-1} \amp x_3^{n} \\ \vdots \amp \vdots \amp \vdots \amp \cdots \amp\vdots \amp\vdots \\ 1 \amp x_m \amp x_m^2\amp \cdots  \amp x_m^{n-1} \amp x_m^{n} \end{array} \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">while the vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vy\)</span> are</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \va = \left[ \begin{array}{c} a_{0} \\ a_{1} \\ a_{2} \\ \vdots \\ a_{n-1} \\a_{n} \end{array} \right] \text{ and } \vy = \left[ \begin{array}{c} y_{1} \\ y_{2} \\ y_{3} \\ \vdots \\ y_{m-1} \\ y_{m} \end{array} \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Letting <span class="process-math">\(\vy = [y_1 \ y_2 \ \ldots \ y_m]^{\tr}\)</span> and <span class="process-math">\(\vv_i = [x_1^{i-1} \ x_2^{i-1} \ \ldots \ x_m^{i-1}]^{\tr}\)</span> for <span class="process-math">\(1 \leq i \leq n+1\text{,}\)</span> the vector form of the system is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vy = a_0\vv_1 + a_1 \vv_2 +  \cdots + a_n \vv_{n+1}\text{.}
 \end{equation*}
 </div>
-<p id="p-4398">Of course, it is unlikely that the <span class="process-math">\(m\)</span> data points already lie on a polynomial of degree <span class="process-math">\(n\text{,}\)</span> so the system will usually have no solution. So instead of attempting to find coefficients <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_n\)</span> that give a solution to this system, which may be impossible, we instead look for a vector that is ``close" to a solution. As we have seen, the vector <span class="process-math">\(\proj_{W} \vy\text{,}\)</span> where <span class="process-math">\(W\)</span> is the span of the columns of <span class="process-math">\(M\text{,}\)</span> minimizes the sum of the squares of the differences of the components. That is, our desired approximation to a solution to <span class="process-math">\(M \vx = \vy\)</span> is the projection of <span class="process-math">\(\vy\)</span> onto <span class="process-math">\(\Col M\text{.}\)</span> Now <span class="process-math">\(\proj_W \vy\)</span> is a linear combination of the columns of <span class="process-math">\(M\text{,}\)</span> so <span class="process-math">\(\proj_W \vy = M \va^*\)</span> for some vector <span class="process-math">\(\va^*\text{.}\)</span> This vector <span class="process-math">\(\va^*\)</span> then minimizes <span class="process-math">\(|| \proj_{\perp W} \vy|| = ||\vy - M \va ||\text{.}\)</span> That is, if we let <span class="process-math">\((M\va)^{\tr} = [b_1 \ b_2 \ b_3 \ \cdots \ b_m]\text{,}\)</span> we are minimizing</p>
-<div class="displaymath process-math">
+<p id="p-4399">Of course, it is unlikely that the <span class="process-math">\(m\)</span> data points already lie on a polynomial of degree <span class="process-math">\(n\text{,}\)</span> so the system will usually have no solution. So instead of attempting to find coefficients <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_n\)</span> that give a solution to this system, which may be impossible, we instead look for a vector that is ``close" to a solution. As we have seen, the vector <span class="process-math">\(\proj_{W} \vy\text{,}\)</span> where <span class="process-math">\(W\)</span> is the span of the columns of <span class="process-math">\(M\text{,}\)</span> minimizes the sum of the squares of the differences of the components. That is, our desired approximation to a solution to <span class="process-math">\(M \vx = \vy\)</span> is the projection of <span class="process-math">\(\vy\)</span> onto <span class="process-math">\(\Col M\text{.}\)</span> Now <span class="process-math">\(\proj_W \vy\)</span> is a linear combination of the columns of <span class="process-math">\(M\text{,}\)</span> so <span class="process-math">\(\proj_W \vy = M \va^*\)</span> for some vector <span class="process-math">\(\va^*\text{.}\)</span> This vector <span class="process-math">\(\va^*\)</span> then minimizes <span class="process-math">\(|| \proj_{\perp W} \vy|| = ||\vy - M \va ||\text{.}\)</span> That is, if we let <span class="process-math">\((M\va)^{\tr} = [b_1 \ b_2 \ b_3 \ \cdots \ b_m]\text{,}\)</span> we are minimizing</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_ls_approx">
 \begin{equation}
-||\vy - M\va||^2 = (y_1-b_1)^2 + (t_2-b_2)^2 + \cdots + (y_m-b_m)^2\text{.}\label{eq_ls_approx}\tag{26.7}
+||\vy - M\va||^2 = (y_1-b_1)^2 + (t_2-b_2)^2 + \cdots + (y_m-b_m)^2\text{.}\tag{26.7}
 \end{equation}
 </div>
 <p class="continuation">The expression <span class="process-math">\(||\vy - M\va||^2\)</span> measures the error in our approximation.</p>
-<p id="p-4399">The question we want to answer is how we can find the vector <span class="process-math">\(\va^*\)</span> that minimizes <span class="process-math">\(||\vy -M\va||\)</span> in a way that is more convenient than computing a projection. We answer this question in a general setting in the next activity.</p>
+<p id="p-4400">The question we want to answer is how we can find the vector <span class="process-math">\(\va^*\)</span> that minimizes <span class="process-math">\(||\vy -M\va||\)</span> in a way that is more convenient than computing a projection. We answer this question in a general setting in the next activity.</p>
 <article class="activity project-like" id="act_LS_matrices"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">26.2</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-426"><p id="p-4400">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix and let <span class="process-math">\(\vb\)</span> be in <span class="process-math">\(\R^m\text{.}\)</span> Let <span class="process-math">\(W = \Col A\text{.}\)</span> Then <span class="process-math">\(\proj_W \vb\)</span> is in <span class="process-math">\(\Col A\text{,}\)</span> so let <span class="process-math">\(\vx^*\)</span> be in <span class="process-math">\(\R^{n}\)</span> such that <span class="process-math">\(A\vx^* = \proj_W \vb\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-426"><p id="p-4401">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix and let <span class="process-math">\(\vb\)</span> be in <span class="process-math">\(\R^m\text{.}\)</span> Let <span class="process-math">\(W = \Col A\text{.}\)</span> Then <span class="process-math">\(\proj_W \vb\)</span> is in <span class="process-math">\(\Col A\text{,}\)</span> so let <span class="process-math">\(\vx^*\)</span> be in <span class="process-math">\(\R^{n}\)</span> such that <span class="process-math">\(A\vx^* = \proj_W \vb\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1452"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4401">Explain why <span class="process-math">\(\vb - A\vx^*\)</span> is orthogonal to every vector of the form <span class="process-math">\(A\vx\text{,}\)</span> for any <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^{n}\text{.}\)</span> That is, <span class="process-math">\(\vb - A\vx^*\)</span> is orthogonal to <span class="process-math">\(\Col A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1453"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4402">Let <span class="process-math">\(\va_i\)</span> be the <span class="process-math">\(i\)</span>th column of <span class="process-math">\(A\text{.}\)</span> Explain why <span class="process-math">\(\va_i \cdot \left(\vb - A\vx^*\right) = 0\text{.}\)</span> From this, explain why <span class="process-math">\(A^{\tr}\left(\vb - A\vx^*\right) = 0\text{.}\)</span></p></article><article class="task exercise-like" id="task-1454"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4403">From the previous part, show that <span class="process-math">\(\vx^*\)</span> satisfies the equation</p>
-<div class="displaymath process-math">
+<p id="p-4402">Explain why <span class="process-math">\(\vb - A\vx^*\)</span> is orthogonal to every vector of the form <span class="process-math">\(A\vx\text{,}\)</span> for any <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^{n}\text{.}\)</span> That is, <span class="process-math">\(\vb - A\vx^*\)</span> is orthogonal to <span class="process-math">\(\Col A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1453"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4403">Let <span class="process-math">\(\va_i\)</span> be the <span class="process-math">\(i\)</span>th column of <span class="process-math">\(A\text{.}\)</span> Explain why <span class="process-math">\(\va_i \cdot \left(\vb - A\vx^*\right) = 0\text{.}\)</span> From this, explain why <span class="process-math">\(A^{\tr}\left(\vb - A\vx^*\right) = 0\text{.}\)</span></p></article><article class="task exercise-like" id="task-1454"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-4404">From the previous part, show that <span class="process-math">\(\vx^*\)</span> satisfies the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A^{\tr}A\vx^* = A^{\tr}\vb\text{.}
 \end{equation*}
-</div></article></article><p id="p-4404">The result of <a href="" class="xref" data-knowl="./knowl/act_LS_matrices.html" title="Activity 26.2">Activity 26.2</a> is that we can now do least squares polynomial approximations with just matrix operations. We summarize this in the following theorem.</p>
+</div></article></article><p id="p-4405">The result of <a href="" class="xref" data-knowl="./knowl/act_LS_matrices.html" title="Activity 26.2">Activity 26.2</a> is that we can now do least squares polynomial approximations with just matrix operations. We summarize this in the following theorem.</p>
 <article class="theorem theorem-like" id="thm_6_f_least_squares_1"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">26.5</span><span class="period">.</span>
 </h3>
-<p id="p-4405">The least squares solutions to the system <span class="process-math">\(A \vx = \vb\)</span> are the solutions to the corresponding system</p>
-<div class="displaymath process-math">
+<p id="p-4406">The least squares solutions to the system <span class="process-math">\(A \vx = \vb\)</span> are the solutions to the corresponding system</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_6_f_normal_equations">
 \begin{equation}
-A^{\tr}A\vx = A^{\tr}\vb\text{.}\label{eq_6_f_normal_equations}\tag{26.8}
+A^{\tr}A\vx = A^{\tr}\vb\text{.}\tag{26.8}
 \end{equation}
-</div></article><p id="p-4406">The equations in the system <a href="" class="xref" data-knowl="./knowl/eq_6_f_normal_equations.html" title="Equation 26.8">(26.8)</a> are called the <dfn class="terminology">normal equations</dfn> for <span class="process-math">\(A \vx = \vb\text{.}\)</span> To illustrate, with the Olympics data, our data points are <span class="process-math">\((0, 894)\text{,}\)</span> <span class="process-math">\((4, 1180)\text{,}\)</span> <span class="process-math">\((8, 1226)\text{,}\)</span> <span class="process-math">\((12,1418)\)</span> with <span class="process-math">\(\vy = [894 \ 1180 \ 1226 \ 1418]^{\tr}\text{.}\)</span> So <span class="process-math">\(M = \left[ \begin{array}{cc} 1\amp0 \\ 1\amp4 \\ 1\amp8 \\ 1\amp12 \end{array} \right]\text{.}\)</span> Notice that <span class="process-math">\(M^{\tr}M\)</span> is invertible, to find the degree 1 approximation to the data, technology shows that</p>
-<div class="displaymath process-math">
+</div></article><p id="p-4407">The equations in the system <a href="" class="xref" data-knowl="./knowl/eq_6_f_normal_equations.html" title="Equation 26.8">(26.8)</a> are called the <dfn class="terminology">normal equations</dfn> for <span class="process-math">\(A \vx = \vb\text{.}\)</span> To illustrate, with the Olympics data, our data points are <span class="process-math">\((0, 894)\text{,}\)</span> <span class="process-math">\((4, 1180)\text{,}\)</span> <span class="process-math">\((8, 1226)\text{,}\)</span> <span class="process-math">\((12,1418)\)</span> with <span class="process-math">\(\vy = [894 \ 1180 \ 1226 \ 1418]^{\tr}\text{.}\)</span> So <span class="process-math">\(M = \left[ \begin{array}{cc} 1\amp0 \\ 1\amp4 \\ 1\amp8 \\ 1\amp12 \end{array} \right]\text{.}\)</span> Notice that <span class="process-math">\(M^{\tr}M\)</span> is invertible, to find the degree 1 approximation to the data, technology shows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_6_f_normal_equations.html ./knowl/pa_LS_1.html">
 \begin{equation*}
 \va^* = \left(M^{\tr}M\right)^{-1}M^{\tr}\vy = \left[ \frac{4684}{5} \ \frac{809}{20}\right]
 \end{equation*}
@@ -827,31 +825,31 @@ A^{\tr}A\vx = A^{\tr}\vb\text{.}\label{eq_6_f_normal_equations}\tag{26.8}
 <article class="activity project-like" id="activity-102"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">26.3</span><span class="period">.</span>
 </h3>
-<p id="p-4407">Now use the least squares method to find the best polynomial approximations (in the least squares sense) of degrees 2 and 3 for the Olympics data set in <a href="" class="xref" data-knowl="./knowl/T_LS_Olympics.html" title="Table 26.1: Olympics television broadcast rights.">Table 26.1</a>. Which polynomial seems to give the “best” fit? Explain why. Include a discussion of the errors in your approximations. Use your “best” least squares approximation to estimate how much NBC might pay for the television rights to the 2024 Olympic games. Use technology as appropriate.</p></article><p id="p-4408">The solution with our Olympics data gave us the situation where <span class="process-math">\(M^{\tr}M\)</span> was invertible. This corresponded to a unique least squares solution <span class="process-math">\(\left(M^{\tr}M\right)^{-1}M^{\tr}\vy\text{.}\)</span> It is reasonable to ask when this happens in general. To conclude this section, we will demonstrate that if the columns of a matrix <span class="process-math">\(A\)</span> are linearly independent, then <span class="process-math">\(A^{\tr}A\)</span> is invertible.</p>
+<p id="p-4408">Now use the least squares method to find the best polynomial approximations (in the least squares sense) of degrees 2 and 3 for the Olympics data set in <a href="" class="xref" data-knowl="./knowl/T_LS_Olympics.html" title="Table 26.1: Olympics television broadcast rights.">Table 26.1</a>. Which polynomial seems to give the “best” fit? Explain why. Include a discussion of the errors in your approximations. Use your “best” least squares approximation to estimate how much NBC might pay for the television rights to the 2024 Olympic games. Use technology as appropriate.</p></article><p id="p-4409">The solution with our Olympics data gave us the situation where <span class="process-math">\(M^{\tr}M\)</span> was invertible. This corresponded to a unique least squares solution <span class="process-math">\(\left(M^{\tr}M\right)^{-1}M^{\tr}\vy\text{.}\)</span> It is reasonable to ask when this happens in general. To conclude this section, we will demonstrate that if the columns of a matrix <span class="process-math">\(A\)</span> are linearly independent, then <span class="process-math">\(A^{\tr}A\)</span> is invertible.</p>
 <article class="activity project-like" id="act_LS_invertible"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">26.4</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-427"><p id="p-4409">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix with linearly independent columns.</p></div>
+<div class="introduction" id="introduction-427"><p id="p-4410">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix with linearly independent columns.</p></div>
 <article class="task exercise-like" id="task-1455"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4410">What must be the relationship between <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-1456"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="introduction" id="introduction-428"><p id="p-4411">We know that an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(M\)</span> is invertible if and only if the only solution to the homogeneous system <span class="process-math">\(M \vx = \vzero\)</span> is <span class="process-math">\(\vx = \vzero\text{.}\)</span> Note that <span class="process-math">\(A^{\tr}A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix. Suppose that <span class="process-math">\(A^{\tr}A \vx = \vzero\)</span> for some <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></div>
+<p id="p-4411">What must be the relationship between <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-1456"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="introduction" id="introduction-428"><p id="p-4412">We know that an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(M\)</span> is invertible if and only if the only solution to the homogeneous system <span class="process-math">\(M \vx = \vzero\)</span> is <span class="process-math">\(\vx = \vzero\text{.}\)</span> Note that <span class="process-math">\(A^{\tr}A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix. Suppose that <span class="process-math">\(A^{\tr}A \vx = \vzero\)</span> for some <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1457"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-4412">Show that <span class="process-math">\(||A\vx|| = 0\text{.}\)</span></p>
+<p id="p-4413">Show that <span class="process-math">\(||A\vx|| = 0\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-48" id="hint-48"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-48"><div class="hint solution-like"><p id="p-4413">What is <span class="process-math">\(\vx^{\tr} (A^{\tr}A \vx)\text{?}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-49" id="hint-49"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-49"><div class="hint solution-like"><p id="p-4414">What is <span class="process-math">\(\vx^{\tr} (A^{\tr}A \vx)\text{?}\)</span></p></div></div>
 </div></article><article class="task exercise-like" id="task-1458"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-4414">What does <span class="process-math">\(||A\vx|| = 0\)</span> tell us about <span class="process-math">\(\vx\)</span> in relation to <span class="process-math">\(\Nul A\text{?}\)</span> Why?</p></article><article class="task exercise-like" id="task-1459"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-4415">What is <span class="process-math">\(\Nul A\text{?}\)</span> Why? What does this tell us about <span class="process-math">\(\vx\)</span> and then about <span class="process-math">\(A^{\tr}A\text{?}\)</span></p></article></article></article><p id="p-4416">We summarize the result of <a href="" class="xref" data-knowl="./knowl/act_LS_invertible.html" title="Activity 26.4">Activity 26.4</a> in the following theorem.</p>
+<p id="p-4415">What does <span class="process-math">\(||A\vx|| = 0\)</span> tell us about <span class="process-math">\(\vx\)</span> in relation to <span class="process-math">\(\Nul A\text{?}\)</span> Why?</p></article><article class="task exercise-like" id="task-1459"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-4416">What is <span class="process-math">\(\Nul A\text{?}\)</span> Why? What does this tell us about <span class="process-math">\(\vx\)</span> and then about <span class="process-math">\(A^{\tr}A\text{?}\)</span></p></article></article></article><p id="p-4417">We summarize the result of <a href="" class="xref" data-knowl="./knowl/act_LS_invertible.html" title="Activity 26.4">Activity 26.4</a> in the following theorem.</p>
 <article class="theorem theorem-like" id="thm_6_f_least_squares_2"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">26.6</span><span class="period">.</span>
 </h3>
-<p id="p-4417">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then the least squares solution <span class="process-math">\(\vx^*\)</span> to the system <span class="process-math">\(A \vx = \vb\)</span> is</p>
-<div class="displaymath process-math">
+<p id="p-4418">If the columns of <span class="process-math">\(A\)</span> are linearly independent, then the least squares solution <span class="process-math">\(\vx^*\)</span> to the system <span class="process-math">\(A \vx = \vb\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vx^* = \left(A^{\tr}A\right)^{-1}A^{\tr}\vb\text{.}
 \end{equation*}
-</div></article><p id="p-4418">If the columns of <span class="process-math">\(A\)</span> are linearly dependent, we can still solve the normal equations, but will obtain more than one solution. In a later section we will see that we can also use a pseudoinverse in these situations.</p></section></div></main>
+</div></article><p id="p-4419">If the columns of <span class="process-math">\(A\)</span> are linearly dependent, we can still solve the normal equations, but will obtain more than one solution. In a later section we will see that we can also use a pseudoinverse in these situations.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

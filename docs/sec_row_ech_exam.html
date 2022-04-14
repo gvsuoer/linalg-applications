@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:20:43-04:00       *-->
+<!--*       on 2022-04-14T12:57:48-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -755,7 +753,7 @@
 </h3>
 <div class="introduction" id="introduction-41">
 <p id="p-455">Consider the linear system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-49">
 \begin{alignat*}{1}
 2x_1 + 6x_3 \amp = x_2 + 2\\
 2x_3 - 4x_1  \amp =  2x_2\\
@@ -770,7 +768,7 @@ x_2 + 4x_3 - 2 \amp = 2x_1 + 6\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-457">Before we can find the augmented matrix of this system, we need to rewrite the system so that the variables are all on one side and the constant terms are on the other side of the equations. Doing so yields the equivalent system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-50">
 \begin{alignat*}{4}
 {2}x_1   \amp {}-{}    \amp {}x_2    \amp {}+{}  \amp {6}x_3  \amp {}={}  \amp  \ 2\amp {}\\
 {-4}x_1  \amp {}-{}     \amp {2}x_2     \amp {}+{}  \amp {2}x_3   \amp {}={}   \amp  \ 0\amp {}\\
@@ -779,7 +777,7 @@ x_2 + 4x_3 - 2 \amp = 2x_1 + 6\text{.}
 </div>
 <p id="p-458">Note that this is not the only way to rearrange the system. For example, for the second equation, could be written instead as <span class="process-math">\(4x_1+2x_2-2x_3=0\)</span> to minimize the number of negative signs in the equation.</p>
 <p id="p-459">The augmented matrix for this system is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{rrc|c} 2\amp -1\amp 6\amp 2 \\ -4\amp -2\amp 2\amp 0 \\ -2\amp 1\amp 4\amp 8 \end{array}  \right]\text{.}
 \end{equation*}
@@ -791,7 +789,7 @@ x_2 + 4x_3 - 2 \amp = 2x_1 + 6\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-461">Our first steps to row echelon form are to eliminate the entries below the leading entry in the first row. To do this we replace row two with row two plus 2 times row 1 and we replace row three with row three plus row one. This produces the row equivalent matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crc|c} 2\amp -1\amp 6\amp 2 \\ 0\amp -4\amp 14\amp 4 \\ 0\amp 0\amp 10\amp 10 \end{array}  \right]\text{.}
 \end{equation*}
@@ -804,25 +802,25 @@ x_2 + 4x_3 - 2 \amp = 2x_1 + 6\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-463">To continue to find the reduced row echelon form, we replace row two with row two times <span class="process-math">\(-\frac{1}{4}\)</span> to get a leading 1 in the second row, and we replace row three with row three times <span class="process-math">\(\frac{1}{10}\)</span> to get a leading 1 in the third row and obtain the row equivalent matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crr|r} 2\amp -1\amp 6\amp 2 \\ 0\amp 1\amp -\frac{7}{2}\amp -1 \\ 0\amp 0\amp 1\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Now we perform backwards elimination to make the entries above the leading <span class="process-math">\(1\)</span>s equal to <span class="process-math">\(0\text{,}\)</span> starting with the third column and working backwards. Replace row one with row one minus <span class="process-math">\(6\)</span> times row three and replace row two with row two plus <span class="process-math">\(\frac{7}{2}\)</span> row three to obtain the row equivalent matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crc|r} 2\amp -1\amp 0\amp -4 \\ 0\amp 1\amp 0\amp \frac{5}{2} \\ 0\amp 0\amp 1\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">For the second column, we replace row one with row one plus row two to obtain the row equivalent matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccc|r} 2\amp 0\amp 0\amp -\frac{3}{2} \\ 0\amp 1\amp 0\amp \frac{5}{2} \\ 0\amp 0\amp 1\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Since the leading entry in row one is not a one, we have one more step before we have the reduced row echelon form. Finally, we replace row one with row one times <span class="process-math">\(\frac{1}{2}\text{.}\)</span> This gives us the reduced row echelon form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccc|r} 1\amp 0\amp 0\amp -\frac{3}{4} \\ 0\amp 1\amp 0\amp \frac{5}{2} \\ 0\amp 0\amp 1\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
@@ -839,7 +837,7 @@ x_2 + 4x_3 - 2 \amp = 2x_1 + 6\text{.}
 </h3>
 <div class="introduction" id="introduction-42">
 <p id="p-466">In this example, <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are unknown scalars. Consider the system with augmented matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccc|c} 1\amp 2\amp a\amp 3 \\ 1\amp 0\amp 0\amp b \\ 0\amp 1\amp 1\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
@@ -853,26 +851,26 @@ x_2 + 4x_3 - 2 \amp = 2x_1 + 6\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-468">Let <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> be the variables corresponding to the first, second, and third columns, respectively, of the augmented matrix. To answer these questions, we row reduce the augmented matrix. We interchange rows one and two and then also rows two and three to obtain the matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccc|c} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 1\amp 2\amp a\amp 3 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-469">Now we replace row three with row three minus row one to produce the row equivalent matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crc|r} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 2\amp a\amp 3-b \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-470">Next, replace row three with row three minus <span class="process-math">\(2\)</span> times row two. This yields the row equivalent matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccc|c} 1\amp 0\amp 0\amp b  \\ 0\amp 1\amp 1\amp 0 \\ 0\amp 0\amp a-2\amp 3-b \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-471">We now have a row echelon form.</p>
 <p id="p-472">The system will have exactly one solution when the last row has the form <span class="process-math">\([0 \ 0 \ u \ v]\)</span> where <span class="process-math">\(u\)</span> is not zero. Thus, the system has exactly one solution when <span class="process-math">\(a-2 \neq 0\text{,}\)</span> or when <span class="process-math">\(a \neq 2\text{.}\)</span> In this case, the solution is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-51">
 \begin{alignat*}{1}
 x_3 \amp = \frac{3-b}{a-2},\\
 x_2 \amp = -x_3 = \frac{b-3}{a-2}\\
@@ -894,7 +892,7 @@ x_1 \amp = b\text{.}
 <span class="type">Solution</span><span class="period">.</span>
 </h4>
 <p id="p-476">When <span class="process-math">\(a=2\)</span> and <span class="process-math">\(b = 3\text{,}\)</span> then the last row is a row of all zeros. In this case, the system is consistent and <span class="process-math">\(x_3\)</span> is a free variable, so the system has infinitely many solutions. The solutions are</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-52">
 \begin{alignat*}{1}
 x_1 \amp = b\\
 x_2 \amp = -x_3\\
@@ -904,6 +902,6 @@ x_3 \amp \text{ is free. }
 <p class="continuation">You should check to ensure that this solution is correct.</p>
 </div></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:31:09-04:00       *-->
+<!--*       on 2022-04-14T13:09:15-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,37 +748,37 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_mtx_nilpotent"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Nilpotent Matrices and Invariant Subspaces</span>
 </h2>
-<p id="p-7010">We will prove the existence of the Jordan canonical form in two steps. In the next subsection <a href="" class="xref" data-knowl="./knowl/lem_JCF_1.html" title="Lemma 40.14">Lemma 40.14</a> will show that every linear transformation can be diagonalized in some form, and <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> will provide the specific Jordan canonical form. Before we proceed to the lemmas, there are two concepts we need to introduce — nilpotent matrices and invariant subspaces. We don't need these concepts beyond our proof, so we won't spend a lot of time on them.</p>
+<p id="p-6975">We will prove the existence of the Jordan canonical form in two steps. In the next subsection <a href="" class="xref" data-knowl="./knowl/lem_JCF_1.html" title="Lemma 40.14">Lemma 40.14</a> will show that every linear transformation can be diagonalized in some form, and <a href="" class="xref" data-knowl="./knowl/lem_JCF_2.html" title="Lemma 40.15">Lemma 40.15</a> will provide the specific Jordan canonical form. Before we proceed to the lemmas, there are two concepts we need to introduce — nilpotent matrices and invariant subspaces. We don't need these concepts beyond our proof, so we won't spend a lot of time on them.</p>
 <article class="activity project-like" id="act_nilpotent_intro"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">40.8</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-706"><p id="p-7011">Let <span class="process-math">\(A = \left[ \begin{array}{rr} 1\amp 1\\-1\amp -1 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{rcr} 2\amp 1\amp -3 \\ -2\amp 1\amp 1 \\ 2\amp 1\amp -3 \end{array} \right]\text{.}\)</span></p></div>
-<article class="task exercise-like" id="task-2405"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-7012">Calculate the positive integer powers of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> What do you notice?</p></article><article class="task exercise-like" id="task-2406"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-7013">Compare the eigenvalues of <span class="process-math">\(A\)</span> to the eigenvalues of <span class="process-math">\(B\text{.}\)</span> What do you notice?</p></article></article><p id="p-7014"><a href="" class="xref" data-knowl="./knowl/act_nilpotent_intro.html" title="Activity 40.8">Activity 40.8</a> shows that there are some matrices whose powers eventually become the zero matrix, and that there might be some connection to the eigenvalues of these matrices. Such matrices are given a special name.</p>
+<div class="introduction" id="introduction-701"><p id="p-6976">Let <span class="process-math">\(A = \left[ \begin{array}{rr} 1\amp 1\\-1\amp -1 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{rcr} 2\amp 1\amp -3 \\ -2\amp 1\amp 1 \\ 2\amp 1\amp -3 \end{array} \right]\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-2395"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-6977">Calculate the positive integer powers of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> What do you notice?</p></article><article class="task exercise-like" id="task-2396"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6978">Compare the eigenvalues of <span class="process-math">\(A\)</span> to the eigenvalues of <span class="process-math">\(B\text{.}\)</span> What do you notice?</p></article></article><p id="p-6979"><a href="" class="xref" data-knowl="./knowl/act_nilpotent_intro.html" title="Activity 40.8">Activity 40.8</a> shows that there are some matrices whose powers eventually become the zero matrix, and that there might be some connection to the eigenvalues of these matrices. Such matrices are given a special name.</p>
 <article class="definition definition-like" id="definition-101"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">40.11</span><span class="period">.</span>
 </h3>
-<p id="p-7015">A square matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">nilpotent</dfn> if <span class="process-math">\(A^m =0\)</span> for some positive integer <span class="process-math">\(m\text{.}\)</span> Correspondingly, a linear transformation <span class="process-math">\(T\)</span> from a <span class="process-math">\(n\)</span>-dimensional vector space <span class="process-math">\(V\)</span> to <span class="process-math">\(V\)</span> is <dfn class="terminology">nilpotent</dfn> if <span class="process-math">\(T^m = 0\)</span> for some positive integer <span class="process-math">\(m\text{.}\)</span></p></article><p id="p-7016"> Nilpotent matrices are the essential obstacle to the diagonalization process. If <span class="process-math">\(A\)</span> is a nilpotent matrix, the smallest positive integer <span class="process-math">\(m\)</span> such that <span class="process-math">\(A^m = 0\)</span> is called the <dfn class="terminology">index</dfn> of <span class="process-math">\(A\text{.}\)</span></p>
-<p id="p-7017">A characterization of nilpotent matrices is given in the following theorem.</p>
+<p id="p-6980">A square matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">nilpotent</dfn> if <span class="process-math">\(A^m =0\)</span> for some positive integer <span class="process-math">\(m\text{.}\)</span> Correspondingly, a linear transformation <span class="process-math">\(T\)</span> from a <span class="process-math">\(n\)</span>-dimensional vector space <span class="process-math">\(V\)</span> to <span class="process-math">\(V\)</span> is <dfn class="terminology">nilpotent</dfn> if <span class="process-math">\(T^m = 0\)</span> for some positive integer <span class="process-math">\(m\text{.}\)</span></p></article><p id="p-6981"> Nilpotent matrices are the essential obstacle to the diagonalization process. If <span class="process-math">\(A\)</span> is a nilpotent matrix, the smallest positive integer <span class="process-math">\(m\)</span> such that <span class="process-math">\(A^m = 0\)</span> is called the <dfn class="terminology">index</dfn> of <span class="process-math">\(A\text{.}\)</span></p>
+<p id="p-6982">A characterization of nilpotent matrices is given in the following theorem.</p>
 <article class="theorem theorem-like" id="thm_nilpotent_evals"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">40.12</span><span class="period">.</span>
 </h3>
-<p id="p-7018">A square matrix <span class="process-math">\(A\)</span> is nilpotent if and only if <span class="process-math">\(0\)</span> is the only eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-7019">The proof is left to the exercises.</p>
-<p id="p-7020">We have seen that if <span class="process-math">\(T: V \to V\)</span> is a linear transformation from a vector space to itself, and if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(T\)</span> with eigenvector <span class="process-math">\(\vv\text{,}\)</span> then <span class="process-math">\(T(\vv) = \lambda \vv\text{.}\)</span> In other words, <span class="process-math">\(T\)</span> maps every vector in <span class="process-math">\(W = \Span\{\vv\}\)</span> to a vector in <span class="process-math">\(W\text{.}\)</span> When this happens we say that <span class="process-math">\(W\)</span> is invariant under the transformation <span class="process-math">\(T\text{.}\)</span></p>
+<p id="p-6983">A square matrix <span class="process-math">\(A\)</span> is nilpotent if and only if <span class="process-math">\(0\)</span> is the only eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-6984">The proof is left to the exercises.</p>
+<p id="p-6985">We have seen that if <span class="process-math">\(T: V \to V\)</span> is a linear transformation from a vector space to itself, and if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(T\)</span> with eigenvector <span class="process-math">\(\vv\text{,}\)</span> then <span class="process-math">\(T(\vv) = \lambda \vv\text{.}\)</span> In other words, <span class="process-math">\(T\)</span> maps every vector in <span class="process-math">\(W = \Span\{\vv\}\)</span> to a vector in <span class="process-math">\(W\text{.}\)</span> When this happens we say that <span class="process-math">\(W\)</span> is invariant under the transformation <span class="process-math">\(T\text{.}\)</span></p>
 <article class="definition definition-like" id="def_JCF_invariant"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">40.13</span><span class="period">.</span>
 </h3>
-<p id="p-7021">A subspace <span class="process-math">\(W\)</span> of a vector space <span class="process-math">\(V\)</span> is <dfn class="terminology">invariant</dfn> under a linear transformation <span class="process-math">\(T: V \to V\)</span> if <span class="process-math">\(T(\vw) \in W\)</span> whenever <span class="process-math">\(\vw\)</span> is in <span class="process-math">\(W\text{.}\)</span></p></article><p id="p-7022">So, for example, every eigenspace of a transformation is invariant under the transformation. Other spaces that are always invariant are <span class="process-math">\(V\)</span> and <span class="process-math">\(\{\vzero\}\text{.}\)</span></p>
+<p id="p-6986">A subspace <span class="process-math">\(W\)</span> of a vector space <span class="process-math">\(V\)</span> is <dfn class="terminology">invariant</dfn> under a linear transformation <span class="process-math">\(T: V \to V\)</span> if <span class="process-math">\(T(\vw) \in W\)</span> whenever <span class="process-math">\(\vw\)</span> is in <span class="process-math">\(W\text{.}\)</span></p></article><p id="p-6987">So, for example, every eigenspace of a transformation is invariant under the transformation. Other spaces that are always invariant are <span class="process-math">\(V\)</span> and <span class="process-math">\(\{\vzero\}\text{.}\)</span></p>
 <article class="activity project-like" id="activity-160"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">40.9</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-707"><p id="p-7023">Let <span class="process-math">\(V\)</span> be a vector space and let <span class="process-math">\(T : V \to V\)</span> be a linear transformation.</p></div>
-<article class="task exercise-like" id="task-2407"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-7024">Let <span class="process-math">\(V = \R^2\)</span> and <span class="process-math">\(T\)</span> the linear transformation defined by <span class="process-math">\(T([x \ y]^{\tr}) = [x-y \ y-x]^{\tr}\text{.}\)</span> Find two invariant subspaces besides <span class="process-math">\(V\)</span> or <span class="process-math">\(\{\vzero\}\)</span> for <span class="process-math">\(T\text{.}\)</span></p></article><article class="task exercise-like" id="task-2408"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-7025">Recall that <span class="process-math">\(\Ker(T) = \{\vv \in V : T(\vv) = \vzero\}\text{.}\)</span> Is <span class="process-math">\(\Ker(T)\)</span> invariant under <span class="process-math">\(T\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-2409"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-7026">Recall that <span class="process-math">\(\Range(T) = \{\vw \in V : \vw = T(\vv) \text{ for some } \vv \in V\}\text{.}\)</span> Is <span class="process-math">\(\Range(T)\)</span> invariant under <span class="process-math">\(T\text{?}\)</span> Explain.</p></article></article></section></div></main>
+<div class="introduction" id="introduction-702"><p id="p-6988">Let <span class="process-math">\(V\)</span> be a vector space and let <span class="process-math">\(T : V \to V\)</span> be a linear transformation.</p></div>
+<article class="task exercise-like" id="task-2397"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-6989">Let <span class="process-math">\(V = \R^2\)</span> and <span class="process-math">\(T\)</span> the linear transformation defined by <span class="process-math">\(T([x \ y]^{\tr}) = [x-y \ y-x]^{\tr}\text{.}\)</span> Find two invariant subspaces besides <span class="process-math">\(V\)</span> or <span class="process-math">\(\{\vzero\}\)</span> for <span class="process-math">\(T\text{.}\)</span></p></article><article class="task exercise-like" id="task-2398"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6990">Recall that <span class="process-math">\(\Ker(T) = \{\vv \in V : T(\vv) = \vzero\}\text{.}\)</span> Is <span class="process-math">\(\Ker(T)\)</span> invariant under <span class="process-math">\(T\text{?}\)</span> Explain.</p></article><article class="task exercise-like" id="task-2399"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6991">Recall that <span class="process-math">\(\Range(T) = \{\vw \in V : \vw = T(\vv) \text{ for some } \vv \in V\}\text{.}\)</span> Is <span class="process-math">\(\Range(T)\)</span> invariant under <span class="process-math">\(T\text{?}\)</span> Explain.</p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

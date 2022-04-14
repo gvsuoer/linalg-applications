@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:12-04:00       *-->
+<!--*       on 2022-04-14T12:58:40-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -752,7 +750,7 @@
 </h2>
 <section class="introduction" id="introduction-68"><p id="p-790">As we saw in <a href="" class="xref" data-knowl="./knowl/pa_1_e.html" title="Preview Activity 5.1">Preview Activity 5.1</a>, the matrix-vector product provides us with a short hand way of representing a system of linear equations. In general, every linear system can be written in matrix-vector form as follows.</p>
 <p id="p-791">The linear system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-64">
 \begin{alignat*}{5}
 {a_{11}}x_1   \amp {}+{}   \amp {a_{12}}x_2   \amp {}+{}  \amp \cdots       \amp {}+{}  \amp {a_{1n}}x_n    \amp {}={}  \amp b_1\\
 {a_{21}}x_1   \amp {}+{}   \amp {a_{22}}x_2    \amp {}+{}  \amp \cdots      \amp {}+{}  \amp {a_{2n}}x_n    \amp {}={}  \amp b_2\\
@@ -761,19 +759,19 @@
 \end{alignat*}
 </div>
 <p class="continuation">of <span class="process-math">\(m\)</span> equations in <span class="process-math">\(n\)</span> unknowns can be written in matrix-vector form as <span class="process-math">\(A\vx = \vb\text{,}\)</span> where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{cccc} a_{11} \amp  a_{12} \amp  \cdots \amp  a_{1n} \\ a_{21} \amp  a_{22} \amp  \cdots \amp  a_{2n} \\ \vdots \amp         \amp  \ddots    \amp  \vdots \\ a_{m1} \amp  a_{m2} \amp  \cdots \amp  a_{mn} \end{array}  \right],  \ \ \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ \vdots \\ x_n \end{array}  \right],  \ \ \ \text{ and }  \ \ \ \vb = \left[ \begin{array}{c} b_1 \\ b_2 \\ \vdots \\ b_m \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-792">This general system can also be written in the vector form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 x_1  \left[ \begin{array}{c} a_{11}  \\ a_{21} \\ \vdots \\ a_{m1} \end{array}  \right] + x_2 \left[ \begin{array}{c} a_{12}  \\ a_{22} \\ \vdots \\ a_{m2} \end{array}  \right]  + \cdots + x_n \left[ \begin{array}{c} a_{1n}  \\ a_{2n}  \\ \vdots \\ a_{mn} \end{array}  \right] = \left[ \begin{array}{c} b_1 \\ b_2 \\ \vdots \\ b_m \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-793">With this last representation, we now have four different ways to represent a system of linear equations (as a system of linear equations, as an augmented matrix, in vector equation form, and in matrix-vector equation form), and it is important to be able to translate between them. As an example, the system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-65">
 \begin{alignat*}{5}
 x_1     \amp {}+{}   \amp {4}x_2   \amp {}+{}  \amp {2}x_3   \amp {}+{}  \amp {4}x_4  \amp {}={}  \amp 1\\
 {2}x_1   \amp {}-{}   \amp {}x_2     \amp {}-{}  \amp {5}x_3   \amp {}-{}  \amp {}x_4  \amp {}={}  \amp 2\\
@@ -781,19 +779,19 @@ x_1     \amp {}+{}   \amp {4}x_2   \amp {}+{}  \amp {2}x_3   \amp {}+{}  \amp {4
 \end{alignat*}
 </div>
 <p class="continuation">from the introduction to this section has corresponding augmented matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crrr|c} 1\amp 4\amp 2\amp 4\amp 1 \\ 2\amp -1\amp -5\amp -1\amp 2 \\ 3\amp 7\amp 1\amp 7\amp 3 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">is expressed in vector form as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 x_1\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] + x_2\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right] + x_3\left[ \begin{array}{r} 2\\-5\\1 \end{array}  \right] + x_4\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right]= \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and has matrix-vector form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{crrr} 1\amp 4\amp 2\amp 4 \\ 2\amp -1\amp -5\amp -1 \\ 3\amp 7\amp 1\amp 7 \end{array}  \right] \left[ \begin{array}{c} x_1 \\x_2 \\ x_3 \\ x_4 \end{array}  \right] = \left[ \begin{array}{c} 1 \\ 2 \\ 3 \end{array}  \right]\text{.}
 \end{equation*}
@@ -804,7 +802,7 @@ x_1\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] + x_2\left[ \begin{array
 <div class="introduction" id="introduction-69"><p id="p-794">In this activity, we will use the equivalence of the different representations of a system to make useful observations about when a system represented as <span class="process-math">\(A\vx=\vb\)</span> has a solution.</p></div>
 <article class="task exercise-like" id="task-242"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-795">Consider the system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 1\amp 3 \end{array}  \right] \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2 \\ 6 \end{array}  \right]\text{.}
 \end{equation*}
@@ -831,7 +829,7 @@ x_1\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] + x_2\left[ \begin{array
 </h4>
 <p id="p-807">In this activity, we consider whether the matrix-vector product distributes vector addition. In other words: Is <span class="process-math">\(A(\vu + \vv)\)</span> equal to <span class="process-math">\(A\vu + A\vv\text{?}\)</span></p>
 <p id="p-808">We work with arbitrary vectors <span class="process-math">\(\vu, \vv\)</span> in <span class="process-math">\(\R^3\)</span> and an arbitrary matrix <span class="process-math">\(A\)</span> with 3 columns (so that <span class="process-math">\(A\vu\)</span> and <span class="process-math">\(A\vv\)</span> are defined) to simplify notation. Let <span class="process-math">\(A = [\vc_1 \ \vc_2 \ \vc_3]\)</span> (note that each <span class="process-math">\(\vc_i\)</span> represents a column of <span class="process-math">\(A\)</span>), <span class="process-math">\(\vu = \left[ \begin{array}{c} u_1 \\ u_2 \\ u_3 \end{array}  \right]\text{,}\)</span> and <span class="process-math">\(\vv = \left[ \begin{array}{c} v_1 \\ v_2 \\ v_3 \end{array}  \right]\text{.}\)</span> Use the definition of the matrix-vector product along with the properties of vector operations to show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A(\vu + \vv)= A\vu + A\vv\text{.}
 \end{equation*}
@@ -845,6 +843,6 @@ A(\vu + \vv)= A\vu + A\vv\text{.}
 <li id="li-158"><p id="p-812"><span class="process-math">\(\displaystyle c(A\vv) = A(c\vv)\)</span></p></li>
 </ol></article></section></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

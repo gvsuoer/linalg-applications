@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:27:24-04:00       *-->
+<!--*       on 2022-04-14T13:05:51-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,73 +748,73 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_proj_tennis"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: The Tennis Racket Theorem</span>
 </h2>
-<p id="p-4869">If a particle of mass <span class="process-math">\(m\)</span> and velocity <span class="process-math">\(v\)</span> is moving in a straight line, its kinetic energy <span class="process-math">\(KE\)</span> is given by <span class="process-math">\(KE = \frac{1}{2}mv^2\text{.}\)</span> If, instead, the particle rotates around an axis with angular velocity <span class="process-math">\(\omega\)</span> (in radians per unit of time), its linear velocity is <span class="process-math">\(v = r \omega\text{,}\)</span> where <span class="process-math">\(r\)</span> is the radius of the particle's circular path. Substituting into the kinetic energy formula shows that the kinetic energy of the rotating particle is then <span class="process-math">\(KE = \frac{1}{2}\left(mr^2\right) \omega^2\text{.}\)</span> The quantity <span class="process-math">\(mr^2\)</span> is called the <dfn class="terminology">moment of inertia</dfn> of the particle and is denoted by <span class="process-math">\(I\text{.}\)</span> So <span class="process-math">\(KE = \frac{1}{2}I\omega^2\)</span> for a rotating particle. Notice that the larger the value of <span class="process-math">\(r\text{,}\)</span> the larger the inertia. You can imagine this with a figure skater. When a skater spins along their major axis with their arms outstretched, the speed at which they rotate is lower than when they bring their arms into their bodies. The moment of inertia for rotational motion plays a role similar to the mass in linear motion. Essentially, the inertia tells us how resistant the particle is to rotation.</p>
-<p id="p-4870">To understand the tennis racket effect, we are interested in rigid bodies as they move through space. Any rigid body in three space has three principal axes about which it likes to spin. These axes are at right angles to each other and pass through the center of mass. Think of enclosing the object in an ellipsoid — the longest axis is the <dfn class="terminology">primary</dfn> axis, the middle axis is the <dfn class="terminology">intermediate</dfn> axis, and the third axis is the third axis. As a rigid body moves through space, it rotates around these axes and there is inertia along each axis. Just like with a tennis racket, if you were to imagine an axle along any of the principal axes and spin the object along that axel, it will either rotate happily with no odd behavior like flipping, or it won't. The former behavior is that of a stable axis and the latter an unstable axis. The Tennis Racket Theorem is a statement about the rotation of the body. Essentially, the Tennis Racket Theorem states that the rotation of a rigid object around its primary and third principal axes is stable, while rotation around its intermediate axis is not. To understand why this is so, we need to return to moments of inertia.</p>
-<p id="p-4871">Assume that we have a rigid body moving through space. Euler's (rotation) equation describes the rotation of a rigid body with respect to the body's principal axes of inertia. Assume that <span class="process-math">\(I_1\text{,}\)</span> <span class="process-math">\(I_2\text{,}\)</span> and <span class="process-math">\(I_3\)</span> are the moments of inertia around the primary, intermediate, and third principal axes with <span class="process-math">\(I_1 &gt; I_2 &gt; I_3\text{.}\)</span> Also assume that <span class="process-math">\(\omega_1\text{,}\)</span> <span class="process-math">\(\omega_2\text{,}\)</span> and <span class="process-math">\(\omega_3\)</span> are the components of the angular velocity along each axis. When there is no torque applied, using a principal orthogonal coordinates, Euler's equation tells us that</p>
-<div class="displaymath process-math">
+<p id="p-4870">If a particle of mass <span class="process-math">\(m\)</span> and velocity <span class="process-math">\(v\)</span> is moving in a straight line, its kinetic energy <span class="process-math">\(KE\)</span> is given by <span class="process-math">\(KE = \frac{1}{2}mv^2\text{.}\)</span> If, instead, the particle rotates around an axis with angular velocity <span class="process-math">\(\omega\)</span> (in radians per unit of time), its linear velocity is <span class="process-math">\(v = r \omega\text{,}\)</span> where <span class="process-math">\(r\)</span> is the radius of the particle's circular path. Substituting into the kinetic energy formula shows that the kinetic energy of the rotating particle is then <span class="process-math">\(KE = \frac{1}{2}\left(mr^2\right) \omega^2\text{.}\)</span> The quantity <span class="process-math">\(mr^2\)</span> is called the <dfn class="terminology">moment of inertia</dfn> of the particle and is denoted by <span class="process-math">\(I\text{.}\)</span> So <span class="process-math">\(KE = \frac{1}{2}I\omega^2\)</span> for a rotating particle. Notice that the larger the value of <span class="process-math">\(r\text{,}\)</span> the larger the inertia. You can imagine this with a figure skater. When a skater spins along their major axis with their arms outstretched, the speed at which they rotate is lower than when they bring their arms into their bodies. The moment of inertia for rotational motion plays a role similar to the mass in linear motion. Essentially, the inertia tells us how resistant the particle is to rotation.</p>
+<p id="p-4871">To understand the tennis racket effect, we are interested in rigid bodies as they move through space. Any rigid body in three space has three principal axes about which it likes to spin. These axes are at right angles to each other and pass through the center of mass. Think of enclosing the object in an ellipsoid — the longest axis is the <dfn class="terminology">primary</dfn> axis, the middle axis is the <dfn class="terminology">intermediate</dfn> axis, and the third axis is the third axis. As a rigid body moves through space, it rotates around these axes and there is inertia along each axis. Just like with a tennis racket, if you were to imagine an axle along any of the principal axes and spin the object along that axel, it will either rotate happily with no odd behavior like flipping, or it won't. The former behavior is that of a stable axis and the latter an unstable axis. The Tennis Racket Theorem is a statement about the rotation of the body. Essentially, the Tennis Racket Theorem states that the rotation of a rigid object around its primary and third principal axes is stable, while rotation around its intermediate axis is not. To understand why this is so, we need to return to moments of inertia.</p>
+<p id="p-4872">Assume that we have a rigid body moving through space. Euler's (rotation) equation describes the rotation of a rigid body with respect to the body's principal axes of inertia. Assume that <span class="process-math">\(I_1\text{,}\)</span> <span class="process-math">\(I_2\text{,}\)</span> and <span class="process-math">\(I_3\)</span> are the moments of inertia around the primary, intermediate, and third principal axes with <span class="process-math">\(I_1 &gt; I_2 &gt; I_3\text{.}\)</span> Also assume that <span class="process-math">\(\omega_1\text{,}\)</span> <span class="process-math">\(\omega_2\text{,}\)</span> and <span class="process-math">\(\omega_3\)</span> are the components of the angular velocity along each axis. When there is no torque applied, using a principal orthogonal coordinates, Euler's equation tells us that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="mdn-22">
 \begin{align}
-I_1 \dot{\omega}_1 \amp = (I_2-I_3) \omega_2 \omega_3\label{eq_Euler_1}\tag{28.6}\\
-I_2 \dot{\omega}_2 \amp = (I_3-I_1) \omega_3 \omega_1\label{eq_Euler_2}\tag{28.7}\\
-I_3 \dot{\omega}_3 \amp = (I_1-I_2) \omega_1 \omega_2\text{.}\label{eq_Euler_3}\tag{28.8}
+I_1 \dot{\omega}_1 \amp = (I_2-I_3) \omega_2 \omega_3\tag{28.6}\\
+I_2 \dot{\omega}_2 \amp = (I_3-I_1) \omega_3 \omega_1\tag{28.7}\\
+I_3 \dot{\omega}_3 \amp = (I_1-I_2) \omega_1 \omega_2\text{.}\tag{28.8}
 \end{align}
 </div>
-<p id="p-4872">(The dots indicate a derivative with respect to time, which is common notation in physics.) We will use Euler's equations to understand the Tennis Racket Theorem.</p>
+<p id="p-4873">(The dots indicate a derivative with respect to time, which is common notation in physics.) We will use Euler's equations to understand the Tennis Racket Theorem.</p>
 <article class="project project-like" id="act_TRT_axes1"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">28.5</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-478"><p id="p-4873">To start, we consider rotation around the first principal axis. Our goal is to show that rotation around this axis is stable. That is, small perturbations in angular velocity will have only small effects on the rotation of the object. So we assume that <span class="process-math">\(\omega_2\)</span> and <span class="process-math">\(\omega_3\)</span> are small. In general, the product of two small quantities will be much smaller, so <a href="" class="xref" data-knowl="./knowl/eq_Euler_1.html" title="Equation 28.6">(28.6)</a> implies that <span class="process-math">\(\dot{\omega}_1\)</span> must be very small. So we can disregard <span class="process-math">\(\dot{\omega}_1\)</span> in our calculations.</p></div>
+<div class="introduction" id="introduction-478"><p id="p-4874">To start, we consider rotation around the first principal axis. Our goal is to show that rotation around this axis is stable. That is, small perturbations in angular velocity will have only small effects on the rotation of the object. So we assume that <span class="process-math">\(\omega_2\)</span> and <span class="process-math">\(\omega_3\)</span> are small. In general, the product of two small quantities will be much smaller, so <a href="" class="xref" data-knowl="./knowl/eq_Euler_1.html" title="Equation 28.6">(28.6)</a> implies that <span class="process-math">\(\dot{\omega}_1\)</span> must be very small. So we can disregard <span class="process-math">\(\dot{\omega}_1\)</span> in our calculations.</p></div>
 <article class="task exercise-like" id="task-1635"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4874">Differentiate <a href="" class="xref" data-knowl="./knowl/eq_Euler_2.html" title="Equation 28.7">(28.7)</a> with respect to time to explain why</p>
-<div class="displaymath process-math">
+<p id="p-4875">Differentiate <a href="" class="xref" data-knowl="./knowl/eq_Euler_2.html" title="Equation 28.7">(28.7)</a> with respect to time to explain why</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_Euler_2.html">
 \begin{equation*}
 I_2 \ddot{\omega}_2 \approx (I_3-I_1)  \dot{\omega}_3 \omega_1\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-1636"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4875">Substitute for <span class="process-math">\(\dot{\omega}_3\)</span> from <a href="" class="xref" data-knowl="./knowl/eq_Euler_3.html" title="Equation 28.8">(28.8)</a> to show that <span class="process-math">\(\omega_2\)</span> is an approximate solution to</p>
-<div class="displaymath process-math">
+<p id="p-4876">Substitute for <span class="process-math">\(\dot{\omega}_3\)</span> from <a href="" class="xref" data-knowl="./knowl/eq_Euler_3.html" title="Equation 28.8">(28.8)</a> to show that <span class="process-math">\(\omega_2\)</span> is an approximate solution to</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_Euler_3.html" id="eq_TRT_de_1">
 \begin{equation}
-\ddot{\omega}_2 = -k \omega_2\label{eq_TRT_de_1}\tag{28.9}
+\ddot{\omega}_2 = -k \omega_2\tag{28.9}
 \end{equation}
 </div>
 <p class="continuation">for some positive constant <span class="process-math">\(k\text{.}\)</span></p></article><article class="task exercise-like" id="task-1637"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4876">The equation <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a> is a differential equation because it is an equation that involves derivatives of a function. Show by differentiating twice that, if</p>
-<div class="displaymath process-math">
+<p id="p-4877">The equation <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a> is a differential equation because it is an equation that involves derivatives of a function. Show by differentiating twice that, if</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_TRT_de_1.html ./knowl/eq_TRT_de_1.html ./knowl/eq_TRT_de_1.html" id="eq_TRT_de_2">
 \begin{equation}
-\omega_2 = A\cos\left(\sqrt{k}t + B\right)\label{eq_TRT_de_2}\tag{28.10}
+\omega_2 = A\cos\left(\sqrt{k}t + B\right)\tag{28.10}
 \end{equation}
 </div>
-<p class="continuation">(where <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are any scalars), then <span class="process-math">\(\omega_2\)</span> is a solution to <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a>. (In fact, <span class="process-math">\(\omega_2\)</span> is the general solution to <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a>, which is verified in just about any course in differential equations.)</p></article></article><p id="p-4877">Equation <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_2.html" title="Equation 28.10">(28.10)</a> shows that <span class="process-math">\(\omega_2\)</span> is is bounded, so that any slight perturbations in angular velocity have a limited effect on <span class="process-math">\(\omega_2\text{.}\)</span> A similar argument can be made for <span class="process-math">\(\omega_3\text{.}\)</span> This implies that the rotation around the principal axes is stable — slight changes in angular velocity have limited effects on the rotations around the other axes.</p>
-<p id="p-4878">We can make a similar argument for rotation around the third principal axes.</p>
+<p class="continuation">(where <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are any scalars), then <span class="process-math">\(\omega_2\)</span> is a solution to <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a>. (In fact, <span class="process-math">\(\omega_2\)</span> is the general solution to <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a>, which is verified in just about any course in differential equations.)</p></article></article><p id="p-4878">Equation <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_2.html" title="Equation 28.10">(28.10)</a> shows that <span class="process-math">\(\omega_2\)</span> is is bounded, so that any slight perturbations in angular velocity have a limited effect on <span class="process-math">\(\omega_2\text{.}\)</span> A similar argument can be made for <span class="process-math">\(\omega_3\text{.}\)</span> This implies that the rotation around the principal axes is stable — slight changes in angular velocity have limited effects on the rotations around the other axes.</p>
+<p id="p-4879">We can make a similar argument for rotation around the third principal axes.</p>
 <article class="project project-like" id="act_TRT_axes3"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">28.6</span><span class="period">.</span>
 </h3>
-<p id="p-4879">In this activity, repeat the process from Project Activity to show that rotation around the third principal axis is stable. So assume that <span class="process-math">\(\omega_1\)</span> and <span class="process-math">\(\omega_3\)</span> are small, which implies by <a href="" class="xref" data-knowl="./knowl/eq_Euler_3.html" title="Equation 28.8">(28.8)</a> implies that <span class="process-math">\(\dot{\omega}_3\)</span> must be very small and can be disregarded in calculations.</p></article><p id="p-4880">Now the issue is why is rotation around the second principal axis different.</p>
+<p id="p-4880">In this activity, repeat the process from Project Activity to show that rotation around the third principal axis is stable. So assume that <span class="process-math">\(\omega_1\)</span> and <span class="process-math">\(\omega_3\)</span> are small, which implies by <a href="" class="xref" data-knowl="./knowl/eq_Euler_3.html" title="Equation 28.8">(28.8)</a> implies that <span class="process-math">\(\dot{\omega}_3\)</span> must be very small and can be disregarded in calculations.</p></article><p id="p-4881">Now the issue is why is rotation around the second principal axis different.</p>
 <article class="project project-like" id="act_TRT_axes2"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">28.7</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-479"><p id="p-4881">Now assume that <span class="process-math">\(\omega_1\)</span> and <span class="process-math">\(\omega_3\)</span> are small. Thus, <span class="process-math">\(\dot{\omega}_2\)</span> is very small by <a href="" class="xref" data-knowl="./knowl/eq_Euler_2.html" title="Equation 28.7">(28.7)</a>, and we consider <span class="process-math">\(\dot{\omega}_2\)</span> to be negligible.</p></div>
+<div class="introduction" id="introduction-479"><p id="p-4882">Now assume that <span class="process-math">\(\omega_1\)</span> and <span class="process-math">\(\omega_3\)</span> are small. Thus, <span class="process-math">\(\dot{\omega}_2\)</span> is very small by <a href="" class="xref" data-knowl="./knowl/eq_Euler_2.html" title="Equation 28.7">(28.7)</a>, and we consider <span class="process-math">\(\dot{\omega}_2\)</span> to be negligible.</p></div>
 <article class="task exercise-like" id="task-1638"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4882">Differentiate  <a href="" class="xref" data-knowl="./knowl/eq_Euler_1.html" title="Equation 28.6">(28.6)</a> to show that</p>
-<div class="displaymath process-math">
+<p id="p-4883">Differentiate  <a href="" class="xref" data-knowl="./knowl/eq_Euler_1.html" title="Equation 28.6">(28.6)</a> to show that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_Euler_1.html">
 \begin{equation*}
 I_1 \ddot{\omega}_1 \approx (I_2-I_3)  \omega_2 \dot{\omega}_3\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-1639"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4883">Substitute for <span class="process-math">\(\dot{\omega}_3\)</span> from <a href="" class="xref" data-knowl="./knowl/eq_Euler_3.html" title="Equation 28.8">(28.8)</a> to show that <span class="process-math">\(\omega_1\)</span> is an approximate solution to</p>
-<div class="displaymath process-math">
+<p id="p-4884">Substitute for <span class="process-math">\(\dot{\omega}_3\)</span> from <a href="" class="xref" data-knowl="./knowl/eq_Euler_3.html" title="Equation 28.8">(28.8)</a> to show that <span class="process-math">\(\omega_1\)</span> is an approximate solution to</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_Euler_3.html" id="eq_TRT_de_3">
 \begin{equation}
-\ddot{\omega}_1 = k \omega_1\label{eq_TRT_de_3}\tag{28.11}
+\ddot{\omega}_1 = k \omega_1\tag{28.11}
 \end{equation}
 </div>
 <p class="continuation">for some positive scalar <span class="process-math">\(k\text{.}\)</span></p></article><article class="task exercise-like" id="task-1640"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4884">The fact that  the constant multiplier in <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_3.html" title="Equation 28.11">(28.11)</a> is positive instead of negative as in <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a> completely changes the type of solution. Show that</p>
-<div class="displaymath process-math">
+<p id="p-4885">The fact that  the constant multiplier in <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_3.html" title="Equation 28.11">(28.11)</a> is positive instead of negative as in <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_1.html" title="Equation 28.9">(28.9)</a> completely changes the type of solution. Show that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_TRT_de_3.html ./knowl/eq_TRT_de_1.html ./knowl/eq_TRT_de_3.html" id="eq_TRT_de_4">
 \begin{equation}
-\omega_1 = Ae^{\sqrt{k}t+B}\label{eq_TRT_de_4}\tag{28.12}
+\omega_1 = Ae^{\sqrt{k}t+B}\tag{28.12}
 \end{equation}
 </div>
 <p class="continuation">(where <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are any scalars) is a solution to <a href="" class="xref" data-knowl="./knowl/eq_TRT_de_3.html" title="Equation 28.11">(28.11)</a> (and, in fact, is the general solution). Explain why this shows that rotation around the second principal axis is not stable.</p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

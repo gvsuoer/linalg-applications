@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:23:59-04:00       *-->
+<!--*       on 2022-04-14T13:02:18-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -754,13 +752,13 @@
 <p id="p-2656">A cryptographic system (or cryptosystem) allows for secure communication between two or more parties. These systems take messages (called <dfn class="terminology">plaintext</dfn>) and encrypt them in some way to produce what is called <dfn class="terminology">ciphertext</dfn>. This is the scrambled information that is transmitted to the receiver, from which it should not be possible for someone who does not have the proper key to recover the original message. When the message is received by the intended recipient, it must be unscrambled or <dfn class="terminology">decrypted</dfn>. Decryption is the process of converting ciphertext back to plaintext.</p>
 <p id="p-2657">The Goldreich-Goldwasser-Halevi (GGH) public key cryptosystem<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-28" id="fn-28"><sup> 28 </sup></a> uses lattices to encrypt plaintext. The security of the system depends on the fact that the Closest Vector Problem (CVP) is, in general, a very hard problem. To begin to understand these cryptosystems, we begin with lattices.</p>
 <p id="p-2658">Lattices are closely related to spans of sets of vectors in <span class="process-math">\(\R^n\text{.}\)</span> If we start with a linearly independent set <span class="process-math">\(S = \{\vb_1, \vb_2, \ldots, \vb_m\}\)</span> in <span class="process-math">\(\R^n\text{,}\)</span> we can create the span of <span class="process-math">\(S\)</span> — the set of all linear combinations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_Lattice_2.html">
 \begin{equation*}
 c_1 \vb_1 + c_2 \vb_2 + \cdots + c_m \vb_m\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\)</span> are real numbers. This span creates a subspace of <span class="process-math">\(\R^n\text{.}\)</span> If we restrict the set from which we choose the coefficients, we can create different types of structures. An important one is a lattice. The <em class="emphasis">lattice</em> <span class="process-math">\(\mathcal{L}(S)\)</span> defined by the linearly independent set <span class="process-math">\(S = \{\vb_1, \vb_2, \ldots, \vb_m\}\)</span> is the set of linear combinations</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_Lattice_2.html">
 \begin{equation*}
 c_1 \vb_1 + c_2 \vb_2 + \cdots + c_m \vb_m\text{,}
 \end{equation*}
@@ -784,7 +782,7 @@ c_1 \vb_1 + c_2 \vb_2 + \cdots + c_m \vb_m\text{,}
 <ul class="disc">
 <li id="li-488">
 <p id="p-2669">Create the message vector</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vm' = m_1 \vb'_1 +  m_2 \vb'_2 + \cdots +  m_n \vb'_n = B' \vm
 \end{equation*}
@@ -798,7 +796,7 @@ c_1 \vb_1 + c_2 \vb_2 + \cdots + c_m \vb_m\text{,}
 <li id="li-490"><p id="p-2672">Find the vector <span class="process-math">\(\va = a_1 \vb_1 + a_2 \vb_2 + \cdots + a_n \vb_n\)</span> in the good basis <span class="process-math">\(\CB\)</span> that is closest to <span class="process-math">\(\vc\text{.}\)</span></p></li>
 <li id="li-491">
 <p id="p-2673">We interpret the vector <span class="process-math">\([a_1 \ a_2 \ \ldots \ a_n]^{\tr}\)</span> as being the encoded vector without the error. So to recreate the original message vector we need to undo the encrypting using the bad basis <span class="process-math">\(\CB'\text{.}\)</span> That is, we need to find the weights <span class="process-math">\(y_1\text{,}\)</span> <span class="process-math">\(y_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(y_n\)</span> such that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [a_1 \ a_2 \ \ldots \ a_n]^{\tr} = y_1 \vb'_1 + y_2 \vb'_2 + \cdots + y_n \vb'_n = B' [y_1 \ y_2 \ \cdots \ y_n]^{\tr}\text{.}
 \end{equation*}
@@ -835,6 +833,6 @@ c_1 \vb_1 + c_2 \vb_2 + \cdots + c_m \vb_m\text{,}
 <div class="hidden-content tex2jax_ignore" id="hk-fn-29"><div class="fn">This is also a good property in vector spaces. We will see in a later section that perpendicular basis vectors make calculations in vector spaces relatively easy. A similar thing is true in lattices, where we are able to solve certain variants of closest vector problem very efficiently.</div></div>
 </div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

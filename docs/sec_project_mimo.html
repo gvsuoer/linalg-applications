@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:35-04:00       *-->
+<!--*       on 2022-04-14T13:05:09-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,9 +748,9 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_project_mimo"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Project: MIMO Systems and Householder Transformations</span>
 </h2>
-<section class="introduction" id="introduction-417"><p id="p-4349">In a simplified model, a MIMO system will have <span class="process-math">\(k\)</span> transmitting antennas and <span class="process-math">\(m\)</span> receiving antennas. We record a transmitted symbol in a vector <span class="process-math">\(\vx = [x_1 \ x_2 \ \ldots \ x_k]^{\tr}\)</span> (one <span class="process-math">\(x_i\)</span> for each transmitting antenna) and the received symbol as a vector <span class="process-math">\(\vy = [y_1 \ y_2 \ \ldots \ y_m]^{\tr}\)</span> (one <span class="process-math">\(y_j\)</span> for each received symbol).</p>
-<p id="p-4350">Between each transmit antenna and each receiver antenna is a fading channel. The MIMO system is the collection of fading channels. If we let <span class="process-math">\(h_{ij}\)</span> be the fading between the <span class="process-math">\(j\)</span>th transmitter and <span class="process-math">\(i\)</span>th receiver, then we can represent this multipath fading as an <span class="process-math">\(m \times k\)</span> matrix <span class="process-math">\(H = [h_{ij}]\text{.}\)</span> We assume that there is also some noise in the received signal that we represent by <span class="process-math">\(n_j\)</span> (for the <span class="process-math">\(j\)</span>th receiving antenna). Our MIMO system is then represented as the matrix-vector equation</p>
-<div class="displaymath process-math">
+<section class="introduction" id="introduction-417"><p id="p-4350">In a simplified model, a MIMO system will have <span class="process-math">\(k\)</span> transmitting antennas and <span class="process-math">\(m\)</span> receiving antennas. We record a transmitted symbol in a vector <span class="process-math">\(\vx = [x_1 \ x_2 \ \ldots \ x_k]^{\tr}\)</span> (one <span class="process-math">\(x_i\)</span> for each transmitting antenna) and the received symbol as a vector <span class="process-math">\(\vy = [y_1 \ y_2 \ \ldots \ y_m]^{\tr}\)</span> (one <span class="process-math">\(y_j\)</span> for each received symbol).</p>
+<p id="p-4351">Between each transmit antenna and each receiver antenna is a fading channel. The MIMO system is the collection of fading channels. If we let <span class="process-math">\(h_{ij}\)</span> be the fading between the <span class="process-math">\(j\)</span>th transmitter and <span class="process-math">\(i\)</span>th receiver, then we can represent this multipath fading as an <span class="process-math">\(m \times k\)</span> matrix <span class="process-math">\(H = [h_{ij}]\text{.}\)</span> We assume that there is also some noise in the received signal that we represent by <span class="process-math">\(n_j\)</span> (for the <span class="process-math">\(j\)</span>th receiving antenna). Our MIMO system is then represented as the matrix-vector equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vy = H\vx + \vn\text{,}
 \end{equation*}
@@ -761,32 +759,32 @@
 <article class="project project-like" id="act_QR_example_1"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">25.8</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-418"><p id="p-4351">To see why and how the QR decomposition is used in MIMO systems, we begin with an example. Assume that we have two transmitters and three receivers, and suppose <span class="process-math">\(H = \left[ \begin{array}{cc} 2\amp 1\\2\amp 1\\1\amp 5 \end{array}  \right]\text{.}\)</span> From this point, to simplify the situation we assume that noise is negligible and consider the system <span class="process-math">\(\vy = H\vx\text{.}\)</span> Assume that the received signal is <span class="process-math">\(\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]\text{.}\)</span></p></div>
+<div class="introduction" id="introduction-418"><p id="p-4352">To see why and how the QR decomposition is used in MIMO systems, we begin with an example. Assume that we have two transmitters and three receivers, and suppose <span class="process-math">\(H = \left[ \begin{array}{cc} 2\amp 1\\2\amp 1\\1\amp 5 \end{array}  \right]\text{.}\)</span> From this point, to simplify the situation we assume that noise is negligible and consider the system <span class="process-math">\(\vy = H\vx\text{.}\)</span> Assume that the received signal is <span class="process-math">\(\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1435"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-4352">Show that the system <span class="process-math">\(H \vx = \vy\)</span> is inconsistent.</p></article><article class="task exercise-like" id="task-1436"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4353">When we receive a signal, we need to interpret it, and that is difficult if we cannot find a solution. One reason that the system might not have a solution is that the elements in <span class="process-math">\(\vx\)</span> have to come from a specified alphabet, and so we are looking for solutions that are in that alphabet, and there may be no direct solution in that alphabet. As a result, we generally have to find a “best” solution in the alphabet space. That can be done with the QR decomposition. Assume that <span class="process-math">\(H\)</span> has a QR decomposition <span class="process-math">\(H = QR\)</span> with <span class="process-math">\(Q\)</span> having orthonormal columns and <span class="process-math">\(R\)</span> a diagonal matrix. Explain how the equation <span class="process-math">\(\vy = H\vx\)</span> can be transformed into</p>
-<div class="displaymath process-math">
+<p id="p-4353">Show that the system <span class="process-math">\(H \vx = \vy\)</span> is inconsistent.</p></article><article class="task exercise-like" id="task-1436"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4354">When we receive a signal, we need to interpret it, and that is difficult if we cannot find a solution. One reason that the system might not have a solution is that the elements in <span class="process-math">\(\vx\)</span> have to come from a specified alphabet, and so we are looking for solutions that are in that alphabet, and there may be no direct solution in that alphabet. As a result, we generally have to find a “best” solution in the alphabet space. That can be done with the QR decomposition. Assume that <span class="process-math">\(H\)</span> has a QR decomposition <span class="process-math">\(H = QR\)</span> with <span class="process-math">\(Q\)</span> having orthonormal columns and <span class="process-math">\(R\)</span> a diagonal matrix. Explain how the equation <span class="process-math">\(\vy = H\vx\)</span> can be transformed into</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_QR_system_example">
 \begin{equation}
-Q^{\tr} \vy = R\vx\text{.}\label{eq_QR_system_example}\tag{25.2}
+Q^{\tr} \vy = R\vx\text{.}\tag{25.2}
 \end{equation}
 </div></article><article class="task exercise-like" id="task-1437"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-4354">Return to our example of <span class="process-math">\(H = \left[ \begin{array}{cc} 2\amp 1\\2\amp 1\\1\amp 5 \end{array}  \right]\text{.}\)</span> Assume that</p>
-<div class="displaymath process-math">
+<p id="p-4355">Return to our example of <span class="process-math">\(H = \left[ \begin{array}{cc} 2\amp 1\\2\amp 1\\1\amp 5 \end{array}  \right]\text{.}\)</span> Assume that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_QR_system_example.html">
 \begin{equation*}
 H = QR =  \left[  \begin{array}{cr} \frac{2}{3}\amp  -\frac{\sqrt{2}}{6} \\ \frac{2}{3}\amp  -\frac{\sqrt{2}}{6} \\ \frac{1}{3}\amp  \frac{2\sqrt{2}}{3} \end{array}  \right] \left[ \begin{array}{cc} 3\amp 3\\0\amp 3\sqrt{2} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p class="continuation">Use <a href="" class="xref" data-knowl="./knowl/eq_QR_system_example.html" title="Equation 25.2">(25.2)</a> to find <span class="process-math">\(\vx\)</span> if <span class="process-math">\(\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]\text{.}\)</span></p></article></article><p id="p-4355">In <a href="" class="xref" data-knowl="./knowl/act_QR_example_1.html" title="Project Activity 25.8">Project Activity 25.8</a> we saw that a QR decomposition allows us to replace the system <span class="process-math">\(\vy = H\vx\)</span> with an upper triangular system <span class="process-math">\(Q^{\tr}\vy = R\vx\)</span> that has a solution. This solution is what is called a least squares solution (which we will discuss in more detail in a later section). The key to all of this is finding an efficient way to calculate a QR decomposition. This is the focus of the remainder of this project.</p></section><section class="subsection" id="subsection-3"><h3 class="heading hide-type">
+<p class="continuation">Use <a href="" class="xref" data-knowl="./knowl/eq_QR_system_example.html" title="Equation 25.2">(25.2)</a> to find <span class="process-math">\(\vx\)</span> if <span class="process-math">\(\vy = \left[ \begin{array}{c} 2\\1\\4 \end{array}  \right]\text{.}\)</span></p></article></article><p id="p-4356">In <a href="" class="xref" data-knowl="./knowl/act_QR_example_1.html" title="Project Activity 25.8">Project Activity 25.8</a> we saw that a QR decomposition allows us to replace the system <span class="process-math">\(\vy = H\vx\)</span> with an upper triangular system <span class="process-math">\(Q^{\tr}\vy = R\vx\)</span> that has a solution. This solution is what is called a least squares solution (which we will discuss in more detail in a later section). The key to all of this is finding an efficient way to calculate a QR decomposition. This is the focus of the remainder of this project.</p></section><section class="subsection" id="subsection-3"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Householder Transformations and the QR Decomposition</span>
 </h3>
-<p id="p-4356">There are three main ways to compute a QR decomposition.</p>
+<p id="p-4357">There are three main ways to compute a QR decomposition.</p>
 <ul class="disc">
-<li id="li-694"><p id="p-4357">The method discussed in this section uses Gram-Schmidt orthogonalization. This method is not recommended for numerical use as it is inherently numerically unstable. Under certain circumstances, cancellation can destroy the accuracy of the computed vectors and the resulting vectors may not be orthogonal.</p></li>
-<li id="li-695"><p id="p-4358">The method that we will discuss in this project using Householder transformations (developed by Alston S. Householder). In Gaussian elimination, we can zero out entries below the diagonal by multiplying by elementary matrices to perform row operations. Householder transformations do something similar, allowing us to replace columns with columns of mostly zeros, which then allow for more efficient computations.</p></li>
-<li id="li-696"><p id="p-4359">Givens (or Jacobi) rotations (used by W. Givens and originally invented by Jacobi for use with in solving the symmetric eigenvalue problem) is another method that allows us to selectively produce zeros into a matrix. We will focus on Householder transformations in this project.</p></li>
+<li id="li-694"><p id="p-4358">The method discussed in this section uses Gram-Schmidt orthogonalization. This method is not recommended for numerical use as it is inherently numerically unstable. Under certain circumstances, cancellation can destroy the accuracy of the computed vectors and the resulting vectors may not be orthogonal.</p></li>
+<li id="li-695"><p id="p-4359">The method that we will discuss in this project using Householder transformations (developed by Alston S. Householder). In Gaussian elimination, we can zero out entries below the diagonal by multiplying by elementary matrices to perform row operations. Householder transformations do something similar, allowing us to replace columns with columns of mostly zeros, which then allow for more efficient computations.</p></li>
+<li id="li-696"><p id="p-4360">Givens (or Jacobi) rotations (used by W. Givens and originally invented by Jacobi for use with in solving the symmetric eigenvalue problem) is another method that allows us to selectively produce zeros into a matrix. We will focus on Householder transformations in this project.</p></li>
 </ul>
-<p id="p-4360">The first step in a QR decomposition using Householder matrices is to create a matrix that is upper triangular. To get to this form, we use a <dfn class="terminology">Householder transformation</dfn>. A Householder transformation (or matrix) is a matrix of the form</p>
-<div class="displaymath process-math">
+<p id="p-4361">The first step in a QR decomposition using Householder matrices is to create a matrix that is upper triangular. To get to this form, we use a <dfn class="terminology">Householder transformation</dfn>. A Householder transformation (or matrix) is a matrix of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 H = I - 2 \frac{\vv \vv^{\tr}}{||\vv||^2}\text{,}
 \end{equation*}
@@ -795,10 +793,10 @@ H = I - 2 \frac{\vv \vv^{\tr}}{||\vv||^2}\text{,}
 <article class="project project-like" id="project-80"><h4 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">25.9</span><span class="period">.</span>
 </h4>
-<div class="introduction" id="introduction-419"><p id="p-4361">We will discover some properties of Householder transformations in this activity.</p></div>
+<div class="introduction" id="introduction-419"><p id="p-4362">We will discover some properties of Householder transformations in this activity.</p></div>
 <article class="task exercise-like" id="task-1438"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-4362">Let <span class="process-math">\(\vx\)</span> be any vector and let <span class="process-math">\(\vy\)</span> be a unit vector. In this part of the exercise we show that, with a suitable choice of <span class="process-math">\(\vv\text{,}\)</span> the Householder transformation <span class="process-math">\(H\)</span> transforms <span class="process-math">\(\vx\)</span> into a vector of the same length parallel to <span class="process-math">\(\vy\text{.}\)</span> That is,</p>
-<div class="displaymath process-math">
+<p id="p-4363">Let <span class="process-math">\(\vx\)</span> be any vector and let <span class="process-math">\(\vy\)</span> be a unit vector. In this part of the exercise we show that, with a suitable choice of <span class="process-math">\(\vv\text{,}\)</span> the Householder transformation <span class="process-math">\(H\)</span> transforms <span class="process-math">\(\vx\)</span> into a vector of the same length parallel to <span class="process-math">\(\vy\text{.}\)</span> That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 H \vx = -\sigma \vy
 \end{equation*}
@@ -806,47 +804,47 @@ H \vx = -\sigma \vy
 <p class="continuation">for some scalar <span class="process-math">\(\sigma\text{.}\)</span> A similar argument shows that <span class="process-math">\(H (\vx - \sigma \vy) = \sigma \vy\text{.}\)</span> Letting <span class="process-math">\(\vy = \ve_1\)</span> gives us the following result. <article class="lemma theorem-like" id="lem_Householder"><h6 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">25.9</span><span class="period">.</span>
 </h6>
-<p id="p-4363">Let <span class="process-math">\(\vx\)</span> be any vector, let <span class="process-math">\(\sigma = ||\vx||\text{,}\)</span> and let <span class="process-math">\(\vv = \vx \pm \sigma \ve_1\text{.}\)</span> Then <span class="process-math">\(H \vx = \mp \sigma \ve_1\text{.}\)</span></p></article></p>
+<p id="p-4364">Let <span class="process-math">\(\vx\)</span> be any vector, let <span class="process-math">\(\sigma = ||\vx||\text{,}\)</span> and let <span class="process-math">\(\vv = \vx \pm \sigma \ve_1\text{.}\)</span> Then <span class="process-math">\(H \vx = \mp \sigma \ve_1\text{.}\)</span></p></article></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-47" id="hint-47"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-47"><div class="hint solution-like"><p id="p-4364">Let <span class="process-math">\(\sigma = ||\vx||\text{,}\)</span> and let <span class="process-math">\(\vv = \vx + \sigma \vy\text{.}\)</span> Apply <span class="process-math">\(H\)</span> to <span class="process-math">\(\vx\text{,}\)</span> factor out <span class="process-math">\(\vx + \sigma \vy\text{,}\)</span> and ultimately show that <span class="process-math">\(H \vx = -\sigma \vy\text{.}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-48" id="hint-48"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-48"><div class="hint solution-like"><p id="p-4365">Let <span class="process-math">\(\sigma = ||\vx||\text{,}\)</span> and let <span class="process-math">\(\vv = \vx + \sigma \vy\text{.}\)</span> Apply <span class="process-math">\(H\)</span> to <span class="process-math">\(\vx\text{,}\)</span> factor out <span class="process-math">\(\vx + \sigma \vy\text{,}\)</span> and ultimately show that <span class="process-math">\(H \vx = -\sigma \vy\text{.}\)</span></p></div></div>
 </div></article><article class="task exercise-like" id="task-1439"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<p id="p-4365">The Householder matrix <span class="process-math">\(H\)</span> has two other important properties. Show that <span class="process-math">\(H\)</span> is symmetric and orthogonal.</p></article></article><p id="p-4366">There are many advantages to using Householder matrices. One is that instead of having to store all entries of the matrix <span class="process-math">\(H = I - 2 \frac{\vv \vv^{\tr}}{||\vv||^2}\text{,}\)</span> all we need to store is the entries of <span class="process-math">\(\vv\text{.}\)</span> Another advantage of Householder transformations is that they can be used to efficiently calculate QR decompositions. The next project activity shows how to use <a href="" class="xref" data-knowl="./knowl/lem_Householder.html" title="Lemma 25.9">Lemma 25.9</a> and Householder transformations to compute a QR decomposition through an example.</p>
+<p id="p-4366">The Householder matrix <span class="process-math">\(H\)</span> has two other important properties. Show that <span class="process-math">\(H\)</span> is symmetric and orthogonal.</p></article></article><p id="p-4367">There are many advantages to using Householder matrices. One is that instead of having to store all entries of the matrix <span class="process-math">\(H = I - 2 \frac{\vv \vv^{\tr}}{||\vv||^2}\text{,}\)</span> all we need to store is the entries of <span class="process-math">\(\vv\text{.}\)</span> Another advantage of Householder transformations is that they can be used to efficiently calculate QR decompositions. The next project activity shows how to use <a href="" class="xref" data-knowl="./knowl/lem_Householder.html" title="Lemma 25.9">Lemma 25.9</a> and Householder transformations to compute a QR decomposition through an example.</p>
 <article class="project project-like" id="act_MIMO_Householder"><h4 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">25.10</span><span class="period">.</span>
 </h4>
 <div class="introduction" id="introduction-420">
-<p id="p-4367">Assume that we have five receiving antennas and three transmitting antennas, and that</p>
-<div class="displaymath process-math">
+<p id="p-4368">Assume that we have five receiving antennas and three transmitting antennas, and that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{crc} 1.0\amp 0.0\amp 1.0 \\ 7.0\amp 7.0\amp 8.0 \\1.0\amp 2.0\amp 1.0 \\ 7.0\amp 7.0\amp 6.0 \\ 0.0\amp -1.0\amp 0.0 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-4368">(We use <span class="process-math">\(A\)</span> now instead of <span class="process-math">\(H\)</span> so as to avoid confusion with Householder matrices.) The calculations in this activity can get rather messy, so use appropriate technology and round entries to four decimal places to the right of the decimal.</p>
+<p id="p-4369">(We use <span class="process-math">\(A\)</span> now instead of <span class="process-math">\(H\)</span> so as to avoid confusion with Householder matrices.) The calculations in this activity can get rather messy, so use appropriate technology and round entries to four decimal places to the right of the decimal.</p>
 </div>
 <article class="task exercise-like" id="task-1440"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<p id="p-4369">Let <span class="process-math">\(\vx_1\)</span> be the first column of <span class="process-math">\(A\text{.}\)</span> Identify an appropriate Householder transformation <span class="process-math">\(H_1\)</span> so that <span class="process-math">\(H_1 \vx\)</span> is a constant multiple of <span class="process-math">\([1 \ 0 \ 0 \ 0 \ 0]^{\tr}\text{.}\)</span> Determine the matrix <span class="process-math">\(A_1\text{,}\)</span> where <span class="process-math">\(A_1 = H_1 A\text{.}\)</span> (Special note: when deciding which of <span class="process-math">\(\vx \pm \sigma \ve_1\)</span> to use to create <span class="process-math">\(H\text{,}\)</span> it is best to use the one whose sign is the same as <span class="process-math">\(x_1\)</span> (the first entry of <span class="process-math">\(\vx\)</span>). We won't go into the details, but this helps prevent problems due to cancellation,)</p></article><article class="task exercise-like" id="task-1441"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="introduction" id="introduction-421"><p id="p-4370">Next we consider just the bottom right <span class="process-math">\(4 \times 2\)</span> portion <span class="process-math">\(\hat{A}_2\)</span> of the matrix <span class="process-math">\(A_1\)</span> found in part (a).</p></div>
+<p id="p-4370">Let <span class="process-math">\(\vx_1\)</span> be the first column of <span class="process-math">\(A\text{.}\)</span> Identify an appropriate Householder transformation <span class="process-math">\(H_1\)</span> so that <span class="process-math">\(H_1 \vx\)</span> is a constant multiple of <span class="process-math">\([1 \ 0 \ 0 \ 0 \ 0]^{\tr}\text{.}\)</span> Determine the matrix <span class="process-math">\(A_1\text{,}\)</span> where <span class="process-math">\(A_1 = H_1 A\text{.}\)</span> (Special note: when deciding which of <span class="process-math">\(\vx \pm \sigma \ve_1\)</span> to use to create <span class="process-math">\(H\text{,}\)</span> it is best to use the one whose sign is the same as <span class="process-math">\(x_1\)</span> (the first entry of <span class="process-math">\(\vx\)</span>). We won't go into the details, but this helps prevent problems due to cancellation,)</p></article><article class="task exercise-like" id="task-1441"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="introduction" id="introduction-421"><p id="p-4371">Next we consider just the bottom right <span class="process-math">\(4 \times 2\)</span> portion <span class="process-math">\(\hat{A}_2\)</span> of the matrix <span class="process-math">\(A_1\)</span> found in part (a).</p></div>
 <article class="task exercise-like" id="task-1442"><h6 class="heading"><span class="codenumber">(i)</span></h6>
-<p id="p-4371">Repeat the process on <span class="process-math">\(\hat{A}_2\)</span> to find a Householder matrix <span class="process-math">\(\hat{H}_2\)</span> that will make the first column of <span class="process-math">\(\hat{A}_2\)</span> have all zeros below its first entry.</p></article><article class="task exercise-like" id="task-1443"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
-<p id="p-4372">Let</p>
-<div class="displaymath process-math">
+<p id="p-4372">Repeat the process on <span class="process-math">\(\hat{A}_2\)</span> to find a Householder matrix <span class="process-math">\(\hat{H}_2\)</span> that will make the first column of <span class="process-math">\(\hat{A}_2\)</span> have all zeros below its first entry.</p></article><article class="task exercise-like" id="task-1443"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<p id="p-4373">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 H_2 =  \left[ \begin{array}{cc} I_1\amp 0 \\ 0\amp \hat{H}_2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Explain what the matrix <span class="process-math">\(A_2 = H_2H_1A\)</span> is.</p></article></article><article class="task exercise-like" id="task-1444"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="introduction" id="introduction-422"><p id="p-4373">As a final step, we consider just the bottom right <span class="process-math">\(3 \times 1\)</span> portion <span class="process-math">\(\hat{A}_3\)</span> of the matrix <span class="process-math">\(A_2\)</span> and repeat the process.</p></div>
+<div class="introduction" id="introduction-422"><p id="p-4374">As a final step, we consider just the bottom right <span class="process-math">\(3 \times 1\)</span> portion <span class="process-math">\(\hat{A}_3\)</span> of the matrix <span class="process-math">\(A_2\)</span> and repeat the process.</p></div>
 <article class="task exercise-like" id="task-1445"><h6 class="heading"><span class="codenumber">(i)</span></h6>
-<p id="p-4374">Find a matrix <span class="process-math">\(\hat{H}_3\)</span> that produces zeros below the first entry.</p></article><article class="task exercise-like" id="task-1446"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
-<p id="p-4375">Let</p>
-<div class="displaymath process-math">
+<p id="p-4375">Find a matrix <span class="process-math">\(\hat{H}_3\)</span> that produces zeros below the first entry.</p></article><article class="task exercise-like" id="task-1446"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<p id="p-4376">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 H_3 = \left[ \begin{array}{cc}I_2\amp 0 \\ 0\amp \hat{H}_3 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">What matrix is <span class="process-math">\(H_3H_2H_1A\text{?}\)</span> Why?</p></article></article><article class="task exercise-like" id="task-1447"><h5 class="heading"><span class="codenumber">(d)</span></h5>
-<p id="p-4376">Explain why <span class="process-math">\(Q = H_1H_2H_3\)</span> is an orthogonal matrix. Then find an upper triangular matrix <span class="process-math">\(R\)</span> such that <span class="process-math">\(A = QR\text{.}\)</span></p></article></article><p id="p-4377"><a href="" class="xref" data-knowl="./knowl/act_MIMO_Householder.html" title="Project Activity 25.10">Project Activity 25.10</a> illustrates the general method for finding a QR decomposition of a matrix <span class="process-math">\(A\)</span> by using Householder transformations to reduce <span class="process-math">\(A\)</span> to an upper triangular matrix <span class="process-math">\(R\text{.}\)</span> The product of the Householder matrices is then the orthogonal matrix <span class="process-math">\(Q\text{.}\)</span> One final note: You may have noticed that the matrix <span class="process-math">\(Q\)</span> you found in this project was a square <span class="process-math">\(5 \times 5\)</span> matrix and <span class="process-math">\(R\)</span> was a <span class="process-math">\(5 \times 3\)</span> matrix, and so they have different sizes than the QR decomposition in this section. We could use the Gram-Schmidt process to obtain these larger matrices by extending the columns of a <span class="process-math">\(5 \times 3\)</span> matrix <span class="process-math">\(Q\)</span> to form an orthonormal basis for <span class="process-math">\(\R^5\text{.}\)</span> However, if we want a QR decomposition for <span class="process-math">\(A\)</span> in which <span class="process-math">\(Q\)</span> is <span class="process-math">\(5 \times 3\)</span> and <span class="process-math">\(R\)</span> is <span class="process-math">\(3 \times 3\)</span> from the work we did in <a href="" class="xref" data-knowl="./knowl/act_MIMO_Householder.html" title="Project Activity 25.10">Project Activity 25.10</a>, we can simply delete the last two columns of the matrix <span class="process-math">\(Q\)</span> and the last two rows of the matrix <span class="process-math">\(R\)</span> we calculated. This smaller QR decomposition is often referred to as a <dfn class="terminology">thin</dfn> QR decomposition.</p></section></section></div></main>
+<p id="p-4377">Explain why <span class="process-math">\(Q = H_1H_2H_3\)</span> is an orthogonal matrix. Then find an upper triangular matrix <span class="process-math">\(R\)</span> such that <span class="process-math">\(A = QR\text{.}\)</span></p></article></article><p id="p-4378"><a href="" class="xref" data-knowl="./knowl/act_MIMO_Householder.html" title="Project Activity 25.10">Project Activity 25.10</a> illustrates the general method for finding a QR decomposition of a matrix <span class="process-math">\(A\)</span> by using Householder transformations to reduce <span class="process-math">\(A\)</span> to an upper triangular matrix <span class="process-math">\(R\text{.}\)</span> The product of the Householder matrices is then the orthogonal matrix <span class="process-math">\(Q\text{.}\)</span> One final note: You may have noticed that the matrix <span class="process-math">\(Q\)</span> you found in this project was a square <span class="process-math">\(5 \times 5\)</span> matrix and <span class="process-math">\(R\)</span> was a <span class="process-math">\(5 \times 3\)</span> matrix, and so they have different sizes than the QR decomposition in this section. We could use the Gram-Schmidt process to obtain these larger matrices by extending the columns of a <span class="process-math">\(5 \times 3\)</span> matrix <span class="process-math">\(Q\)</span> to form an orthonormal basis for <span class="process-math">\(\R^5\text{.}\)</span> However, if we want a QR decomposition for <span class="process-math">\(A\)</span> in which <span class="process-math">\(Q\)</span> is <span class="process-math">\(5 \times 3\)</span> and <span class="process-math">\(R\)</span> is <span class="process-math">\(3 \times 3\)</span> from the work we did in <a href="" class="xref" data-knowl="./knowl/act_MIMO_Householder.html" title="Project Activity 25.10">Project Activity 25.10</a>, we can simply delete the last two columns of the matrix <span class="process-math">\(Q\)</span> and the last two rows of the matrix <span class="process-math">\(R\)</span> we calculated. This smaller QR decomposition is often referred to as a <dfn class="terminology">thin</dfn> QR decomposition.</p></section></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

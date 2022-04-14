@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:23:04-04:00       *-->
+<!--*       on 2022-04-14T13:01:11-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -753,7 +751,7 @@
 <p id="p-1963">The set <span class="process-math">\(\R^n\)</span> with vector addition and scalar multiplication has a nice algebraic structure. These operations satisfy a number of properties, such as associativity and commutativity of vector addition, the existence of an additive identity and additive inverse, distribution of scalar multiplication over vector addition, and others. These properties make it easier to work with the whole space since we can express the vectors as linear combinations of basis vectors in a unique way. This algebraic structure makes <span class="process-math">\(\R^n\)</span> a <dfn class="terminology">vector space</dfn>.</p>
 <p id="p-1964">There are many subsets of <span class="process-math">\(\R^n\)</span> that have this same structure. These subsets are called <dfn class="terminology">subspaces</dfn> of <span class="process-math">\(\R^n\text{.}\)</span> These are the sets of vectors for which the addition of any two vectors is defined within the set, the scalar multiple of any vector by any scalar is defined within the set and the set contains the zero vector. One type of subset with this structure is the span of a set of vectors.</p>
 <p id="p-1965">Recall that the span of a set of vectors <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> in <span class="process-math">\(\R^n\)</span> is the set of all linear combinations of the vectors. For example, if <span class="process-math">\(\vv_1=\left[ \begin{array}{c} 1\\1\\0 \end{array}  \right]\)</span> and <span class="process-math">\(\vv_2=\left[ \begin{array}{c} 1\\0\\1 \end{array}  \right]\text{,}\)</span> then a linear combination of these two vectors is of the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 c_1 \vv_1 + c_2 \vv_2 = c_1 \left[ \begin{array}{c} 1\\1\\0 \end{array}  \right] + c_2 \left[ \begin{array}{c} 1\\0\\1 \end{array}  \right] = \left[ \begin{array}{c} c_1+c_2 \\c_1 \\c_2 \end{array}  \right] \,\text{.}
 \end{equation*}
@@ -781,6 +779,6 @@ c_1 \vv_1 + c_2 \vv_2 = c_1 \left[ \begin{array}{c} 1\\1\\0 \end{array}  \right]
 <p id="p-1978">Suppose we have an arbitrary <span class="process-math">\(\vu\)</span> in <span class="process-math">\(W\text{.}\)</span> There is an additive inverse of <span class="process-math">\(\vu\)</span> in <span class="process-math">\(\R^n\text{.}\)</span> In other words, there is a <span class="process-math">\(\vu'\)</span> such that <span class="process-math">\(\vu+ \vu'=\vzero\text{.}\)</span> Should this <span class="process-math">\(\vu'\)</span> be also in <span class="process-math">\(W\text{?}\)</span> If so, explain why. If not, give a counterexample.</p></article><article class="task exercise-like" id="task-641"><h4 class="heading"><span class="codenumber">(f)</span></h4>
 <p id="p-1979">Look at the other properties of vector addition and scalar multiplication of vectors in <span class="process-math">\(\R^n\)</span> listed in <a href="" class="xref" data-knowl="./knowl/thm_vector_properties.html" title="Theorem 4.4">Theorem 4.4</a> in <a href="chap_vector_representation.html" class="internal" title="Chapter 4: Vector Representation">Chapter 4</a>. Which of these properties should also hold for vectors in <span class="process-math">\(W\text{?}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

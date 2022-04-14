@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:29:57-04:00       *-->
+<!--*       on 2022-04-14T13:08:13-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,96 +748,96 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_gram_schmidt_inner_prod"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">The Gram-Schmidt Process using Inner Products</span>
 </h2>
-<p id="p-6331">Our goal is to understand how the Gram-Schmidt process works in any inner product space.</p>
+<p id="p-6295">Our goal is to understand how the Gram-Schmidt process works in any inner product space.</p>
 <article class="exploration project-like" id="pa_6_d_2"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">36.1</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-632">
-<p id="p-6332">Let <span class="process-math">\(p_1(t) = t\text{,}\)</span> <span class="process-math">\(p_2(t) = 1+t+t^2\text{,}\)</span> and <span class="process-math">\(p_3(t) = t^3\)</span> in <span class="process-math">\(\pol_3\text{.}\)</span> Let <span class="process-math">\(\CB = \{p_1(t), p_2(t),
+<div class="introduction" id="introduction-627">
+<p id="p-6296">Let <span class="process-math">\(p_1(t) = t\text{,}\)</span> <span class="process-math">\(p_2(t) = 1+t+t^2\text{,}\)</span> and <span class="process-math">\(p_3(t) = t^3\)</span> in <span class="process-math">\(\pol_3\text{.}\)</span> Let <span class="process-math">\(\CB = \{p_1(t), p_2(t),
 p_3(t)\}\)</span> and let <span class="process-math">\(W= \Span \ \CB\text{.}\)</span> Throughout this activity, use the inner product on <span class="process-math">\(\pol_3\)</span> defined by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \langle p(t), q(t) \rangle = \int_{-1}^1 p(t)q(t) \, dt\text{.}
 \end{equation*}
 </div>
-<p id="p-6333">We want to construct an orthogonal basis <span class="process-math">\(\CC = \{q_1(t), q_2(t),
+<p id="p-6297">We want to construct an orthogonal basis <span class="process-math">\(\CC = \{q_1(t), q_2(t),
 q_3(t)\}\)</span> from <span class="process-math">\(\CB\)</span> so that <span class="process-math">\(\Span \ \CC = \Span \ \CB\text{.}\)</span> To begin, we start by letting <span class="process-math">\(q_1(t) = p_1(t)\text{.}\)</span></p>
 </div>
-<article class="task exercise-like" id="task-2146"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-6334">Now we want to find a polynomial in <span class="process-math">\(W\)</span> that is orthogonal to <span class="process-math">\(q_1(t)\text{.}\)</span> Let <span class="process-math">\(W_1 = \Span\{q_1(t)\}\text{.}\)</span> Explain why <span class="process-math">\(q_2(t) = \proj_{\perp W_1} p_2(t)\)</span> is in <span class="process-math">\(W\)</span> and is orthogonal to <span class="process-math">\(q_1(t)\text{.}\)</span> Then calculate the polynomial <span class="process-math">\(q_2(t)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2147"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-6335">Next we need to find a third polynomial <span class="process-math">\(q_3(t)\)</span> that is in <span class="process-math">\(W\)</span> and is orthogonal to both <span class="process-math">\(q_1(t)\)</span> and <span class="process-math">\(q_2(t)\text{.}\)</span> Let <span class="process-math">\(W_2 = \Span \{q_1(t), q_2(t)\}\text{.}\)</span> Explain why <span class="process-math">\(q_3(t) = \proj_{\perp W_2} p_3(t)\)</span> is in <span class="process-math">\(W\)</span> and is orthogonal to both <span class="process-math">\(q_1(t)\)</span> and <span class="process-math">\(q_2(t)\text{.}\)</span> Then calculate the polynomial <span class="process-math">\(q_3(t)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2148"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-6336">Explain why the set <span class="process-math">\(\{q_1(t),
-q_2(t), q_3(t)\}\)</span> is an orthogonal basis for <span class="process-math">\(W\text{.}\)</span></p></article></article><p id="p-6337"><a href="" class="xref" data-knowl="./knowl/pa_6_d_2.html" title="Preview Activity 36.1">Preview Activity 36.1</a> shows the first steps of the Gram-Schmidt process to construct an orthogonal basis from any basis of an inner product space. To understand how the process works in general, let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of an inner product space <span class="process-math">\(V\text{.}\)</span> Let <span class="process-math">\(\vw_1 = \vv_1\)</span> and let <span class="process-math">\(W_1 = \Span\{\vw_1\}\text{.}\)</span> Since <span class="process-math">\(\vw_1 = \vv_1\)</span> we have that <span class="process-math">\(W_1 = \Span\{\vw_1\} = \Span\{\vv_1\}\text{.}\)</span> Now consider the subspace</p>
-<div class="displaymath process-math">
+<article class="task exercise-like" id="task-2136"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-6298">Now we want to find a polynomial in <span class="process-math">\(W\)</span> that is orthogonal to <span class="process-math">\(q_1(t)\text{.}\)</span> Let <span class="process-math">\(W_1 = \Span\{q_1(t)\}\text{.}\)</span> Explain why <span class="process-math">\(q_2(t) = \proj_{\perp W_1} p_2(t)\)</span> is in <span class="process-math">\(W\)</span> and is orthogonal to <span class="process-math">\(q_1(t)\text{.}\)</span> Then calculate the polynomial <span class="process-math">\(q_2(t)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2137"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-6299">Next we need to find a third polynomial <span class="process-math">\(q_3(t)\)</span> that is in <span class="process-math">\(W\)</span> and is orthogonal to both <span class="process-math">\(q_1(t)\)</span> and <span class="process-math">\(q_2(t)\text{.}\)</span> Let <span class="process-math">\(W_2 = \Span \{q_1(t), q_2(t)\}\text{.}\)</span> Explain why <span class="process-math">\(q_3(t) = \proj_{\perp W_2} p_3(t)\)</span> is in <span class="process-math">\(W\)</span> and is orthogonal to both <span class="process-math">\(q_1(t)\)</span> and <span class="process-math">\(q_2(t)\text{.}\)</span> Then calculate the polynomial <span class="process-math">\(q_3(t)\text{.}\)</span></p></article><article class="task exercise-like" id="task-2138"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-6300">Explain why the set <span class="process-math">\(\{q_1(t),
+q_2(t), q_3(t)\}\)</span> is an orthogonal basis for <span class="process-math">\(W\text{.}\)</span></p></article></article><p id="p-6301"><a href="" class="xref" data-knowl="./knowl/pa_6_d_2.html" title="Preview Activity 36.1">Preview Activity 36.1</a> shows the first steps of the Gram-Schmidt process to construct an orthogonal basis from any basis of an inner product space. To understand how the process works in general, let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of an inner product space <span class="process-math">\(V\text{.}\)</span> Let <span class="process-math">\(\vw_1 = \vv_1\)</span> and let <span class="process-math">\(W_1 = \Span\{\vw_1\}\text{.}\)</span> Since <span class="process-math">\(\vw_1 = \vv_1\)</span> we have that <span class="process-math">\(W_1 = \Span\{\vw_1\} = \Span\{\vv_1\}\text{.}\)</span> Now consider the subspace</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pa_6_d_2.html">
 \begin{equation*}
 W_2 = \Span\{\vv_1, \vv_2\}
 \end{equation*}
 </div>
 <p class="continuation">of <span class="process-math">\(W\text{.}\)</span> The vectors <span class="process-math">\(\vv_1 = \vw_1\)</span> and <span class="process-math">\(\vv_2\)</span> are possibly not orthogonal, but we know the orthogonal projection of <span class="process-math">\(\vv_2\)</span> onto <span class="process-math">\(W_1^{\perp}\)</span> is orthogonal to <span class="process-math">\(\vw_1\text{.}\)</span> Let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pa_6_d_2.html">
 \begin{equation*}
 \vw_2 = \proj_{\perp W_1} \vv_2 = \vv_2 -  \frac{\langle \vv_2, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1\text{.}
 \end{equation*}
 </div>
-<p id="p-6338">Then <span class="process-math">\(\{\vw_1, \vw_2\}\)</span> is an orthogonal set. Note that <span class="process-math">\(\vw_1 = \vv_1 \neq \vzero\text{,}\)</span> and the fact that <span class="process-math">\(\vv_2 \notin W_1\)</span> implies that <span class="process-math">\(\vw_2 \neq \vzero\text{.}\)</span> So the set <span class="process-math">\(\{\vw_1, \vw_2\}\)</span> is linearly independent, being a set of non-zero orthogonal vectors. Now the question is whether <span class="process-math">\(\Span\{\vw_1,\vw_2\} = \Span\{\vv_1,\vv_2\}\text{.}\)</span> Note that <span class="process-math">\(\vw_2\)</span> is a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{,}\)</span> so <span class="process-math">\(\vw_2\)</span> is in <span class="process-math">\(\Span\{\vv_1,\vv_2\}\text{.}\)</span> Since <span class="process-math">\(\Span\{\vw_1,\vw_2\}\)</span> is a 2-dimensional subspace of the 2-dimensional space <span class="process-math">\(W_2\text{,}\)</span> it must be true that <span class="process-math">\(\Span\{\vw_1,\vw_2\} = W_2 = \Span\{\vv_1,\vv_2\}\text{.}\)</span></p>
-<p id="p-6339">Now we take the next step, adding <span class="process-math">\(\vv_3\)</span> into the mix. Let</p>
-<div class="displaymath process-math">
+<p id="p-6302">Then <span class="process-math">\(\{\vw_1, \vw_2\}\)</span> is an orthogonal set. Note that <span class="process-math">\(\vw_1 = \vv_1 \neq \vzero\text{,}\)</span> and the fact that <span class="process-math">\(\vv_2 \notin W_1\)</span> implies that <span class="process-math">\(\vw_2 \neq \vzero\text{.}\)</span> So the set <span class="process-math">\(\{\vw_1, \vw_2\}\)</span> is linearly independent, being a set of non-zero orthogonal vectors. Now the question is whether <span class="process-math">\(\Span\{\vw_1,\vw_2\} = \Span\{\vv_1,\vv_2\}\text{.}\)</span> Note that <span class="process-math">\(\vw_2\)</span> is a linear combination of <span class="process-math">\(\vv_1\)</span> and <span class="process-math">\(\vv_2\text{,}\)</span> so <span class="process-math">\(\vw_2\)</span> is in <span class="process-math">\(\Span\{\vv_1,\vv_2\}\text{.}\)</span> Since <span class="process-math">\(\Span\{\vw_1,\vw_2\}\)</span> is a 2-dimensional subspace of the 2-dimensional space <span class="process-math">\(W_2\text{,}\)</span> it must be true that <span class="process-math">\(\Span\{\vw_1,\vw_2\} = W_2 = \Span\{\vv_1,\vv_2\}\text{.}\)</span></p>
+<p id="p-6303">Now we take the next step, adding <span class="process-math">\(\vv_3\)</span> into the mix. Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 W_3 = \Span\{\vv_1,\vv_2,\vv_3\} = \Span\{\vw_1, \vw_2, \vv_3\}\text{.}
 \end{equation*}
 </div>
-<p id="p-6340">The vector</p>
-<div class="displaymath process-math">
+<p id="p-6304">The vector</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vw_3 = \proj_{\perp W_2} \vv_3 = \vv_3 - \frac{\langle \vv_3, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1 - \frac{\langle \vv_3, \vw_2 \rangle}{\langle \vw_2, \vw_2 \rangle} \vw_2
 \end{equation*}
 </div>
 <p class="continuation">is orthogonal to both <span class="process-math">\(\vw_1\)</span> and <span class="process-math">\(\vw_2\)</span> and, by construction, <span class="process-math">\(\vw_3\)</span> is a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> and <span class="process-math">\(\vv_3\text{.}\)</span> So <span class="process-math">\(\vw_3\)</span> is in <span class="process-math">\(W_3\text{.}\)</span> The fact that <span class="process-math">\(\vv_3 \notin W_2\)</span> implies that <span class="process-math">\(\vw_3 \neq \vzero\)</span> and <span class="process-math">\(\{\vw_1, \vw_2, \vw_3\}\)</span> is a linearly independent set. Since <span class="process-math">\(\Span\{\vw_1, \vw_2, \vw_3\}\)</span> is a 3-dimensional subspace of the 3-dimensional space <span class="process-math">\(W_3\text{,}\)</span> we conclude that <span class="process-math">\(\Span\{\vw_1, \vw_2, \vw_3\}\)</span> equals <span class="process-math">\(\Span\{\vv_1,\vv_2,\vv_3\}\text{.}\)</span></p>
-<p id="p-6341">We continue inductively in this same manner. If we have constructed a set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{k-1}\}\)</span> of <span class="process-math">\(k-1\)</span> orthogonal vectors such that</p>
-<div class="displaymath process-math">
+<p id="p-6305">We continue inductively in this same manner. If we have constructed a set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{k-1}\}\)</span> of <span class="process-math">\(k-1\)</span> orthogonal vectors such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k-1}\} = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k-1}\}\text{,}
 \end{equation*}
 </div>
 <p class="continuation">then we let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-241">
 \begin{align*}
 \vw_{k} \amp = \proj_{\perp W_{k-1}} \vv_k\\
 \amp = \vv_k - \ds \frac{\langle \vv_k, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1 - \frac{\langle \vv_k, \vw_2 \rangle}{\langle \vw_2, \vw_2 \rangle} \vw_2 - \cdots - \frac{\langle \vv_k, \vw_{k-1} \rangle}{\langle \vw_{k-1}, \vw_{k-1} \rangle} \vw_{k-1}\text{,}
 \end{align*}
 </div>
 <p class="continuation">where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 W_{k-1} = \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k-1}\}\text{.}
 \end{equation*}
 </div>
-<p id="p-6342">We know that <span class="process-math">\(\vw_k\)</span> is orthogonal to <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{k-1}\text{.}\)</span> Since <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{k-1}\text{,}\)</span> and <span class="process-math">\(\vv_k\)</span> are all in <span class="process-math">\(W_k = \Span\{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> we see that <span class="process-math">\(\vw_k\)</span> is also in <span class="process-math">\(W_k\text{.}\)</span> Since <span class="process-math">\(\vv_k \notin W_{k-1}\)</span> implies that <span class="process-math">\(\vw_k \neq \vzero\)</span> and <span class="process-math">\(\{\vw_1, \vw_2, \ldots, \vw_k\}\)</span> is a linearly independent set. Then <span class="process-math">\(\Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\}\)</span> is a <span class="process-math">\(k\)</span>-dimensional subspace of the <span class="process-math">\(k\)</span>-dimensional space <span class="process-math">\(W_k\text{,}\)</span> so it follows that</p>
-<div class="displaymath process-math">
+<p id="p-6306">We know that <span class="process-math">\(\vw_k\)</span> is orthogonal to <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{k-1}\text{.}\)</span> Since <span class="process-math">\(\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{k-1}\text{,}\)</span> and <span class="process-math">\(\vv_k\)</span> are all in <span class="process-math">\(W_k = \Span\{\vv_1, \vv_2, \ldots, \vv_k\}\)</span> we see that <span class="process-math">\(\vw_k\)</span> is also in <span class="process-math">\(W_k\text{.}\)</span> Since <span class="process-math">\(\vv_k \notin W_{k-1}\)</span> implies that <span class="process-math">\(\vw_k \neq \vzero\)</span> and <span class="process-math">\(\{\vw_1, \vw_2, \ldots, \vw_k\}\)</span> is a linearly independent set. Then <span class="process-math">\(\Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\}\)</span> is a <span class="process-math">\(k\)</span>-dimensional subspace of the <span class="process-math">\(k\)</span>-dimensional space <span class="process-math">\(W_k\text{,}\)</span> so it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\} = W_k = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k}\}\text{.}
 \end{equation*}
 </div>
-<p id="p-6343">This process will end when we have an orthogonal set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> with <span class="process-math">\(\Span\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> = <span class="process-math">\(W\text{.}\)</span></p>
-<p id="p-6344">We summarize the process in the following theorem.</p>
+<p id="p-6307">This process will end when we have an orthogonal set <span class="process-math">\(\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> with <span class="process-math">\(\Span\{\vw_1\text{,}\)</span> <span class="process-math">\(\vw_2\text{,}\)</span> <span class="process-math">\(\vw_3\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vw_{m}\}\)</span> = <span class="process-math">\(W\text{.}\)</span></p>
+<p id="p-6308">We summarize the process in the following theorem.</p>
 <article class="theorem theorem-like" id="thm_6_d_Gram_Schmidt_ips"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">36.1</span><span class="period">.</span><span class="space"> </span><span class="title">The Gram-Schmidt Process.</span>
 </h3>
-<p id="p-6345">Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of an inner product space <span class="process-math">\(V\text{.}\)</span> The set <span class="process-math">\(\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}\)</span> defined by</p>
+<p id="p-6309">Let <span class="process-math">\(\{\vv_1, \vv_2, \ldots, \vv_m\}\)</span> be a basis for a subspace <span class="process-math">\(W\)</span> of an inner product space <span class="process-math">\(V\text{.}\)</span> The set <span class="process-math">\(\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}\)</span> defined by</p>
 <ul class="disc">
-<li id="li-926"><p id="p-6346"><span class="process-math">\(\vw_1 = \vv_1\text{,}\)</span></p></li>
-<li id="li-927"><p id="p-6347"><span class="process-math">\(\vw_2 = \vv_2 - \ds \frac{\langle \vv_2, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1\text{,}\)</span></p></li>
-<li id="li-928"><p id="p-6348"><span class="process-math">\(\vw_3 = \vv_3 - \ds \frac{\langle \vv_3, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1 - \frac{\langle \vv_3, \vw_2 \rangle}{\langle \vw_2, \vw_2 \rangle} \vw_2\text{,}\)</span> <span class="process-math">\(\vdots\)</span></p></li>
-<li id="li-929"><p id="p-6349"><span class="process-math">\(\vw_m = \vv_m - \ds \frac{\langle \vv_m, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1 - \frac{\langle \vv_m, \vw_2 \rangle}{\langle \vw_2, \vw_2 \rangle} \vw_2 - \cdots - \frac{\langle \vv_m, \vw_{m-1} \rangle}{\langle \vw_{m-1}, \vw_{m-1} \rangle} \vw_{m-1}\text{.}\)</span></p></li>
+<li id="li-917"><p id="p-6310"><span class="process-math">\(\vw_1 = \vv_1\text{,}\)</span></p></li>
+<li id="li-918"><p id="p-6311"><span class="process-math">\(\vw_2 = \vv_2 - \ds \frac{\langle \vv_2, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1\text{,}\)</span></p></li>
+<li id="li-919"><p id="p-6312"><span class="process-math">\(\vw_3 = \vv_3 - \ds \frac{\langle \vv_3, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1 - \frac{\langle \vv_3, \vw_2 \rangle}{\langle \vw_2, \vw_2 \rangle} \vw_2\text{,}\)</span> <span class="process-math">\(\vdots\)</span></p></li>
+<li id="li-920"><p id="p-6313"><span class="process-math">\(\vw_m = \vv_m - \ds \frac{\langle \vv_m, \vw_1 \rangle}{\langle \vw_1, \vw_1 \rangle} \vw_1 - \frac{\langle \vv_m, \vw_2 \rangle}{\langle \vw_2, \vw_2 \rangle} \vw_2 - \cdots - \frac{\langle \vv_m, \vw_{m-1} \rangle}{\langle \vw_{m-1}, \vw_{m-1} \rangle} \vw_{m-1}\text{.}\)</span></p></li>
 </ul>
-<p id="p-6350">is an orthogonal basis for <span class="process-math">\(W\text{.}\)</span> Moreover,</p>
-<div class="displaymath process-math">
+<p id="p-6314">is an orthogonal basis for <span class="process-math">\(W\text{.}\)</span> Moreover,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k}\} = \Span\{\vv_1,\vv_2,\vv_3, \ldots, \vv_{k}\}
 \end{equation*}
 </div>
-<p class="continuation">for <span class="process-math">\(1\leq k\leq m\text{.}\)</span></p></article><p id="p-6351">The Gram-Schmidt process builds an orthogonal basis <span class="process-math">\(\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}\)</span> for us from a given basis. To make an orthonormal basis <span class="process-math">\(\{\vu_1, \vu_2, \vu_3, \ldots, \vu_{m}\}\text{,}\)</span> all we need do is normalize each basis vector: that is, for each <span class="process-math">\(i\text{,}\)</span> we let</p>
-<div class="displaymath process-math">
+<p class="continuation">for <span class="process-math">\(1\leq k\leq m\text{.}\)</span></p></article><p id="p-6315">The Gram-Schmidt process builds an orthogonal basis <span class="process-math">\(\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{m}\}\)</span> for us from a given basis. To make an orthonormal basis <span class="process-math">\(\{\vu_1, \vu_2, \vu_3, \ldots, \vu_{m}\}\text{,}\)</span> all we need do is normalize each basis vector: that is, for each <span class="process-math">\(i\text{,}\)</span> we let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vu_i = \ds \frac{\vw_i}{|| \vw_i ||} \,\text{.}
 \end{equation*}
@@ -847,19 +845,19 @@ W_{k-1} = \Span\{\vw_1, \vw_2, \vw_3, \ldots, \vw_{k-1}\}\text{.}
 <article class="activity project-like" id="act_6_d_gs_example"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">36.2</span><span class="period">.</span>
 </h3>
-<p id="p-6352">Use the Gram-Schmidt process to find an orthogonal basis for</p>
-<div class="displaymath process-math">
+<p id="p-6316">Use the Gram-Schmidt process to find an orthogonal basis for</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 W = \Span \left\{\left[ \begin{array}{c} 1\\0\\0\\1 \end{array}  \right], \left[ \begin{array}{r} 0\\1\\0\\-2 \end{array}  \right], \left[ \begin{array}{r} 4\\0\\-1\\0 \end{array}  \right] \right\}
 \end{equation*}
 </div>
 <p class="continuation">using the inner product</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left\langle [u_1 \ u_2 \ u_3 \ u_4]^{\tr}, [v_1 \ v_2 \ v_3 \ v_4]^{\tr} \right\rangle = u_1v_1 + 2u_2v_2 + 2u_3v_3 + u_4v_4\text{.}
 \end{equation*}
 </div></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

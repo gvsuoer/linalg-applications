@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:49-04:00       *-->
+<!--*       on 2022-04-14T12:59:28-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -752,7 +750,7 @@
 </h2>
 <p id="p-1140">In this section we will consider special functions which take vectors as inputs and produce vectors as outputs. We will use matrix multiplication to produce the output vectors.</p>
 <p id="p-1141">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix and <span class="process-math">\(\vx\)</span> is a vector in <span class="process-math">\(\R^n\text{,}\)</span> then the matrix-vector product <span class="process-math">\(A \vx\)</span> is a vector in <span class="process-math">\(\R^m\text{.}\)</span> (Pick some specific <span class="process-math">\(n, m\)</span> values to understand this statement better.) Therefore, left multiplication by the matrix <span class="process-math">\(A\)</span> takes an input vector <span class="process-math">\(\vx\)</span> in <span class="process-math">\(\R^n\)</span> and produces an output vector <span class="process-math">\(A\vx\)</span> in <span class="process-math">\(\R^m\text{,}\)</span> which we will refer to as the <dfn class="terminology">image</dfn> of <span class="process-math">\(\vx\)</span> under the transformation. This defines a function <span class="process-math">\(T\)</span> from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span> where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(\vx) = A \vx \,\text{.}
 \end{equation*}
@@ -762,19 +760,19 @@ T(\vx) = A \vx \,\text{.}
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">7.2</span><span class="period">.</span>
 </h3>
 <p id="p-1143">A <dfn class="terminology">matrix transformation</dfn> is a function <span class="process-math">\(T: \R^n \to \R^m\)</span> defined by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(\vx) = A\vx
 \end{equation*}
 </div>
 <p class="continuation">for some <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span></p></article><p id="p-1144">Many of the transformations we consider in this section are from <span class="process-math">\(\R^2\)</span> to <span class="process-math">\(\R^2\)</span> so that we can visualize the transformations. As an example, let us consider the transformation <span class="process-math">\(T\)</span> defined by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left(\left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right] \right) = \left[ \begin{array}{cr} 1\amp 0 \\ 0\amp -1 \end{array}  \right]\left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-1145">If we plot the input vectors <span class="process-math">\(\vu_1 = \left[ \begin{array}{c}  1 \\ 0 \end{array}  \right]\text{,}\)</span> <span class="process-math">\(\vu_2 = \left[ \begin{array}{c}  0\\1 \end{array}  \right]\text{,}\)</span> <span class="process-math">\(\vu_3 = \left[ \begin{array}{c} 1  \\ 2 \end{array}  \right]\text{,}\)</span> and <span class="process-math">\(\vu_4 = \left[ \begin{array}{r} -1  \\ 1 \end{array}  \right]\)</span> (as (blue) circles) and their images <span class="process-math">\(T(\vu_1) = \left[ \begin{array}{cr} 1\amp 0 \\ 0\amp -1 \end{array}  \right]\left[ \begin{array}{c} 1 \\ 0 \end{array}  \right] = \left[ \begin{array}{c} 1 \\ 0 \end{array}  \right]\text{,}\)</span> <span class="process-math">\(T(\vu_2) = \left[ \begin{array}{r} 0 \\ -1 \end{array}  \right]\text{,}\)</span> <span class="process-math">\(T(\vu_3) = \left[ \begin{array}{r} 1 \\ -2 \end{array}  \right]\text{,}\)</span> and <span class="process-math">\(T(\vu_4) = \left[ \begin{array}{r} -1 \\ -1 \end{array}  \right]\)</span> (as (red) <span class="times-sign">×</span>'s) on the same set of axes as shown in <a href="" class="xref" data-knowl="./knowl/F_PA_1g_1.html" title="Figure 7.3">Figure 7.3</a>, we see that this transformation reflects the input vectors across the <span class="process-math">\(x\)</span>-axis. We can also see this algebraically since the reflection of the point <span class="process-math">\((x_1,x_2)\)</span> around the <span class="process-math">\(x\)</span>-axis is the point <span class="process-math">\((x_1,-x_2)\text{,}\)</span> and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_PA_1g_1.html">
 \begin{equation*}
 T\left( \left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right] \right) = \left[ \begin{array}{r} x_1 \\ -x_2 \end{array}  \right]\text{.}
 \end{equation*}
@@ -787,7 +785,7 @@ T\left( \left[ \begin{array}{c} x_1 \\ x_2 \end{array}  \right] \right) = \left[
 <article class="task exercise-like" id="task-335"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="introduction" id="introduction-100">
 <p id="p-1147">Suppose a transformation <span class="process-math">\(T\)</span> is defined by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T\left( \left[ \begin{array}{c}  x_1\\x_2 \end{array}  \right] \right) = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 2 \end{array}  \right] \left[ \begin{array}{c}  x_1 \\ x_2 \end{array}  \right]\text{.}
 \end{equation*}
@@ -799,13 +797,13 @@ T\left( \left[ \begin{array}{c}  x_1\\x_2 \end{array}  \right] \right) = \left[ 
 <p id="p-1150">The transformation in the introduction performs a reflection across the <span class="process-math">\(x\)</span>-axis. Find a matrix transformation that performs a reflection across the <span class="process-math">\(y\)</span>-axis.</p></article><article class="task exercise-like" id="task-338"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="introduction" id="introduction-101">
 <p id="p-1151">Suppose a transformation <span class="process-math">\(T\)</span> is defined by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 T(\vx) = A\vx\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
@@ -817,6 +815,6 @@ A = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 0 \end{array}  \right]\text{.}
 <p id="p-1154">Is there an input vector which produces <span class="process-math">\(\vb = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]\)</span> as an output vector?</p></article><article class="task exercise-like" id="task-342"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
 <p id="p-1155">Find all input vectors that produce the output vector <span class="process-math">\(\vb = \left[ \begin{array}{c} 1 \\ 0 \end{array} \right]\text{.}\)</span> Is there a unique input vector, or multiple input vectors?</p></article></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

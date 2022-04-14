@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:21:10-04:00       *-->
+<!--*       on 2022-04-14T12:58:35-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,7 +749,7 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
 <p id="p-768">There is another useful way to represent a system of linear equations using a matrix-vector product that we investigate in this section. To understand how this product comes about, recall that we can represent the linear system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-63">
 \begin{alignat*}{5}
 x_1     \amp {}+{}   \amp {4}x_2   \amp {}+{}  \amp {2}x_3   \amp {}+{}  \amp {4}x_4  \amp {}={}  \amp 1\\
 {2}x_1   \amp {}-{}   \amp {}x_2     \amp {}-{}  \amp {5}x_3   \amp {}-{}  \amp {}x_4  \amp {}={}  \amp 2\\
@@ -759,21 +757,21 @@ x_1     \amp {}+{}   \amp {4}x_2   \amp {}+{}  \amp {2}x_3   \amp {}+{}  \amp {4
 \end{alignat*}
 </div>
 <p class="continuation">as a vector equation as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_PA1e_1">
 \begin{equation}
-x_1\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] + x_2\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right] + x_3\left[ \begin{array}{r} 2\\-5\\1 \end{array}  \right] + x_4\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right]= \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right]\text{.}\label{eq_PA1e_1}\tag{5.1}
+x_1\left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] + x_2\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right] + x_3\left[ \begin{array}{r} 2\\-5\\1 \end{array}  \right] + x_4\left[ \begin{array}{r} 4\\-1\\7 \end{array}  \right]= \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right]\text{.}\tag{5.1}
 \end{equation}
 </div>
 <p id="p-769">We can view the left hand side of Equation <a href="" class="xref" data-knowl="./knowl/eq_PA1e_1.html" title="Equation 5.1">(5.1)</a> as a <dfn class="terminology">matrix-vector product</dfn>. Specifically, if <span class="process-math">\(A = \left[ \begin{array}{crrr} 1\amp 4\amp 2\amp 4 \\ 2\amp -1\amp -5\amp -1 \\ 3\amp 7\amp 1\amp 7 \end{array} \right]\)</span> and <span class="process-math">\(\vx = \left[ \begin{array}{c} x_1 \\x_2 \\x_3 \\x_4 \end{array} \right]\text{,}\)</span> then we define the <dfn class="terminology">matrix-vector product</dfn> <span class="process-math">\(A\vx\)</span> as the left hand side Equation <a href="" class="xref" data-knowl="./knowl/eq_PA1e_1.html" title="Equation 5.1">(5.1)</a>. So the matrix-vector product <span class="process-math">\(A\vx\)</span> is the linear combination of the columns of <span class="process-math">\(A\)</span> with weights from the vector <span class="process-math">\(\vx\)</span> in order.</p>
 <p id="p-770">With this definition, the vector equation in <a href="" class="xref" data-knowl="./knowl/eq_PA1e_1.html" title="Equation 5.1">(5.1)</a> can be expressed as a matrix-vector equation as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA1e_1.html">
 \begin{equation*}
 \left[ \begin{array}{crrr} 1\amp 4\amp 2\amp 4 \\ 2\amp -1\amp -5\amp -1 \\ 3\amp 7\amp 1\amp 7 \end{array}  \right] \left[ \begin{array}{c} x_1 \\x_2 \\x_3\\x_4 \end{array}  \right] = \left[ \begin{array}{c} 1\\2\\3 \end{array}  \right] \,\text{.}
 \end{equation*}
 </div>
 <p id="p-771">We call this representation the <dfn class="terminology">matrix-vector form</dfn> of the system. Note that the matrix <span class="process-math">\(A\)</span> in this expression is the same as the coefficient matrix that appears in the augmented matrix representation of the system.</p>
 <p id="p-772">We can use the above definition of the matrix-vector product as a linear combination with any matrix and any vector, as long as it is meaningful to use the entries in the vector as weights for the columns of the matrix. For example, for <span class="process-math">\(A=\left[ \begin{array}{cc} 1\amp 2\\3\amp 1\\1\amp 1 \end{array}  \right]\)</span> and <span class="process-math">\(\vv = \left[ \begin{array}{c} 3\\4 \end{array}  \right]\text{,}\)</span> then we can define <span class="process-math">\(A\vv\)</span> to be the linear combination of the columns of <span class="process-math">\(A\)</span> with weights 3 and 4:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A\vv= 3 \left[ \begin{array}{c} 1\\3\\1 \end{array}  \right] + 4 \left[ \begin{array}{c} 2\\1\\1 \end{array}  \right] = \left[ \begin{array}{c} 11\\13\\7 \end{array}  \right] \,\text{.}
 \end{equation*}
@@ -784,14 +782,14 @@ A\vv= 3 \left[ \begin{array}{c} 1\\3\\1 \end{array}  \right] + 4 \left[ \begin{a
 </h3>
 <article class="task exercise-like" id="task-232"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-774">Write the vector equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pa_1_b.html">
 \begin{equation*}
 x_1 \left[ \begin{array}{c} 1 \\ 1 \\ 2 \end{array}  \right] +x_2 \left[ \begin{array}{c}  1\\ 2\\ 3 \end{array}  \right] + x_3 \left[ \begin{array}{r} -1 \\ 2 \\ -3 \end{array}  \right] = \left[ \begin{array}{c} 4 \\ 3\\ 11 \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">in matrix-vector form. Note that this is the vector equation whose augmented matrix representation was given in Problem 2 in <a href="" class="xref" data-knowl="./knowl/pa_1_b.html" title="Preview Activity 2.1">Preview Activity 2.1</a>. Compare your matrix <span class="process-math">\(A\)</span> and the right hand side vector to the augmented matrix. Do not solve the system.</p></article><article class="task exercise-like" id="task-233"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-775">Given the matrix-vector equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pa_1_b.html">
 \begin{equation*}
 \left[ \begin{array}{crr} 1 \amp  2 \amp  -1 \\ 0\amp 1\amp 2\\1\amp -2\amp -3 \end{array}  \right] \vx = \left[\begin{array}{r} -3\\3\\-7 \end{array} \right]
 \end{equation*}
@@ -804,31 +802,31 @@ x_1 \left[ \begin{array}{c} 1 \\ 1 \\ 2 \end{array}  \right] +x_2 \left[ \begin{
 <p id="p-779"><span class="process-math">\(\left[ \begin{array}{rrc} -6 \amp -2 \amp 1\\ 2 \amp -2 \amp 1 \end{array} \right] \left[ \begin{array}{r} 1\\-3 \\1 \end{array} \right]\)</span></p></article></article><article class="task exercise-like" id="task-238"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="introduction" id="introduction-67">
 <p id="p-780">As you might have noticed, systems with all the constants being 0 are special in that they always have a solution. (Why?) So we might consider grouping systems into two types: Those of the form <span class="process-math">\(A \vx = \vb\text{,}\)</span> where not all of the entries of the vector <span class="process-math">\(\vb\)</span> are <span class="process-math">\(0\text{,}\)</span> and those of the form <span class="process-math">\(A \vx = \vzero\text{,}\)</span> where <span class="process-math">\(\vzero\)</span> is the vector of all zeros. Systems like <span class="process-math">\(A \vx = \vb\text{,}\)</span> where <span class="process-math">\(\vb\)</span> contains at least one non-zero entry, are called <dfn class="terminology">nonhomogeneous</dfn> systems, and systems of the form <span class="process-math">\(A \vx = \vzero\)</span> are called <dfn class="terminology">homogeneous</dfn> systems. For every nonhomogeneous system <span class="process-math">\(A \vx = \vb\)</span> there is a corresponding homogeneous system <span class="process-math">\(A \vx = \vzero\text{,}\)</span> and there is a useful connection between the solutions to the nonhomogeneous system and the corresponding homogeneous system. For example, consider the nonhomogeneous system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A \vx = \vb
 \end{equation*}
 </div>
 <p class="continuation">with</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_PA1e_2">
 \begin{equation}
-A = \left[ \begin{array}{ccc} 1 \amp  1 \amp  2  \\ 1 \amp  2 \amp  1 \end{array}  \right], \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} 0 \\ -2 \end{array}  \right]\text{.}\label{eq_PA1e_2}\tag{5.2}
+A = \left[ \begin{array}{ccc} 1 \amp  1 \amp  2  \\ 1 \amp  2 \amp  1 \end{array}  \right], \ \vx = \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} 0 \\ -2 \end{array}  \right]\text{.}\tag{5.2}
 \end{equation}
 </div>
 <p class="continuation">The augmented matrix representation of this system is <span class="process-math">\([A \ | \ \vb]\text{.}\)</span> If we reduce this augmented matrix, we find</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccr|r} 1 \amp  0 \amp  3 \amp  2 \\ 0 \amp  1 \amp  -1 \amp  -2 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p class="continuation">From this RREF, we immediately see that the general solution is that <span class="process-math">\(x_3\)</span> is free, <span class="process-math">\(x_2 = x_3-2\text{,}\)</span> and <span class="process-math">\(x_1 = 2-3x_3\text{.}\)</span> In vector form, we can represent this general solution as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_PA1e_3">
 \begin{equation}
-\left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2-3x_3 \\ x_3-2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{r} 2 \\ -2 \\ 0 \end{array}  \right] + x_3\left[ \begin{array}{r} -3 \\ 1 \\ 1 \end{array}  \right]\text{.}\label{eq_PA1e_3}\tag{5.3}
+\left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2-3x_3 \\ x_3-2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{r} 2 \\ -2 \\ 0 \end{array}  \right] + x_3\left[ \begin{array}{r} -3 \\ 1 \\ 1 \end{array}  \right]\text{.}\tag{5.3}
 \end{equation}
 </div>
 <p class="continuation">The rightmost expression above is called the <dfn class="terminology">parametric vector form</dfn> of the solution. If we had a system where the general solution involved more than one free variable, then we would write the parametric vector form to include one vector multiplying each free variable. For example, if the general solution of a system were that <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_3\)</span> are free and <span class="process-math">\(x_1=2+x_2+3x_3\text{,}\)</span> then the parametric vector form would be</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vx = \left[ \begin{array}{c} 2+ x_2+3x_3 \\ x_2 \\ x_3 \end{array}  \right] = \left[ \begin{array}{c} 2 \\ 0 \\ 0 \end{array}  \right] + x_2 \left[ \begin{array}{c} 1 \\ 1 \\ 0 \end{array}  \right] + x_3 \left[ \begin{array}{c} 3 \\ 0 \\ 1 \end{array}  \right] \,\text{.}
 \end{equation*}
@@ -837,20 +835,20 @@ A = \left[ \begin{array}{ccc} 1 \amp  1 \amp  2  \\ 1 \amp  2 \amp  1 \end{array
 </div>
 <article class="task exercise-like" id="task-239"><h5 class="heading"><span class="codenumber">(i)</span></h5>
 <p id="p-781">Find the general solution to the homogeneous system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA1e_2.html ./knowl/eq_PA1e_3.html">
 \begin{equation*}
 A \vx = \vzero
 \end{equation*}
 </div>
 <p class="continuation">with <span class="process-math">\(A\)</span> and <span class="process-math">\(\vx\)</span> as in <a href="" class="xref" data-knowl="./knowl/eq_PA1e_2.html" title="Equation 5.2">(5.2)</a> and compare it to the solution to the nonhomogeneous system in <a href="" class="xref" data-knowl="./knowl/eq_PA1e_3.html" title="Equation 5.3">(5.3)</a>. What do you notice?</p></article><article class="task exercise-like" id="task-240"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
 <p id="p-782">Find the general solution to the nonhomogeneous system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A \vx = \vb
 \end{equation*}
 </div>
 <p class="continuation">with</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 4\amp -2 \end{array}  \right], \ \vx =  \left[ \begin{array}{c} x_1 \\ x_2 \\ x_3 \end{array}  \right], \ \text{ and }  \ \vb =  \left[ \begin{array}{r} -1 \\ 1 \end{array}  \right]\text{.}
 \end{equation*}
@@ -858,6 +856,6 @@ A = \left[ \begin{array}{ccr} 1\amp 2\amp -1 \\ 2\amp 4\amp -2 \end{array}  \rig
 <p class="continuation">and express it in parametric vector form. Then find the general solution to the corresponding homogeneous system and express it in parametric vector form. How are the two solution sets related?</p></article><article class="task exercise-like" id="task-241"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p id="p-783">Make a conjecture about the relationship between the solutions to a consistent nonhomogeneous system <span class="process-math">\(A \vx = \vb\)</span> and the corresponding homogeneous system <span class="process-math">\(A \vx = \vzero\text{.}\)</span> Be as specific as possible.</p></article></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

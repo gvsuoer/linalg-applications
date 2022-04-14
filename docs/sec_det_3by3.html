@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:20-04:00       *-->
+<!--*       on 2022-04-14T13:02:44-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -752,44 +750,44 @@
 </h2>
 <p id="p-2921">Earlier we defined the determinant of a <span class="process-math">\(3 \times 3\)</span> matrix. In this section we endeavor to understand the motivation behind that definition.</p>
 <p id="p-2922">We will repeat the process we went through in the <span class="process-math">\(2 \times 2\)</span> case to see how to define the determinant of a <span class="process-math">\(3 \times 3\)</span> matrix. Let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A =  \left[ \begin{array}{ccc} a_{11}\amp a_{12}\amp a_{13} \\ a_{21}\amp a_{22}\amp a_{23}\\ a_{31}\amp a_{32}\amp a_{33} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-2923">To find the inverse of <span class="process-math">\(A\)</span> we augment <span class="process-math">\(A\)</span> by the <span class="process-math">\(3 \times 3\)</span> identity matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 [A \ | \ I_3] = \left[ \begin{array}{cccccc} a_{11}\amp a_{12}\amp a_{13}\amp 1\amp 0\amp 0 \\ a_{21}\amp a_{22}\amp a_{23}\amp 0\amp 1\amp 0 \\ a_{31}\amp a_{32}\amp a_{33}\amp 0\amp 0\amp 1 \end{array}  \right]
 \end{equation*}
 </div>
 <p class="continuation">and row reduce the matrix (using appropriate technology) to obtain</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{rrrrrr} 1\amp 0\amp 0\amp \ds \frac{a_{33}a_{22}-a_{32}a_{23}}{d}\amp  \ds -\frac{a_{33}a_{12}-a_{32}a_{13}}{d}\amp  \ds \frac{-a_{13}a_{22}+a_{12}a_{23}}{d} \\ 0\amp 1\amp 0\amp  \ds -\frac{a_{33}a_{21}-a_{31}a_{23}}{d}\amp  \ds \frac{a_{33}a_{11}-a_{31}a_{13}}{d}\amp  \ds -\frac{a_{23}a_{11}-a_{21}a_{13}}{d} \\ 0\amp 0\amp 1\amp  \ds \frac{-a_{31}a_{22}+a_{32}a_{21}}{d}\amp  \ds -\frac{a_{32}a_{11}-a_{31}a_{12}}{d}\amp  \ds \frac{a_{22}a_{11}-a_{21}a_{12}}{d} \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_4_a_3by3_det">
 \begin{equation}
-\begin{aligned}d = a_{33}a_{11}a_{22}\amp -a_{33}a_{21}a_{12}-a_{31}a_{13}a_{22} \\ \amp -a_{32}a_{11}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}. \end{aligned}\label{eq_4_a_3by3_det}\tag{17.2}
+\begin{aligned}d = a_{33}a_{11}a_{22}\amp -a_{33}a_{21}a_{12}-a_{31}a_{13}a_{22} \\ \amp -a_{32}a_{11}a_{23}+a_{32}a_{21}a_{13}+a_{31}a_{12}a_{23}. \end{aligned}\tag{17.2}
 \end{equation}
 </div>
 <p id="p-2924">In this case, we can see that the inverse of the <span class="process-math">\(3 \times 3\)</span> matrix <span class="process-math">\(A\)</span> will be defined if and only if <span class="process-math">\(d \neq 0\text{.}\)</span> So, in the <span class="process-math">\(3 \times 3\)</span> case the determinant of <span class="process-math">\(A\)</span> will be given by the value of <span class="process-math">\(d\)</span> in Equation <a href="" class="xref" data-knowl="./knowl/eq_4_a_3by3_det.html" title="Equation 17.2">(17.2)</a>. What remains is for us to see how this is related to determinants of <span class="process-math">\(2 \times 2\)</span> sub-matrices of <span class="process-math">\(A\text{.}\)</span></p>
 <p id="p-2925">To start, we collect all terms involving <span class="process-math">\(a_{11}\)</span> in <span class="process-math">\(d\text{.}\)</span> A little algebra shows that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(A) = a_{11} \left( a_{33} a_{22} - a_{32} a_{23} \right) - a_{33} a_{21} a_{12} - a_{31} a_{13} a_{22} + a_{32}a_{21}a_{13} + a_{31} a_{12} a_{23}\text{.}
 \end{equation*}
 </div>
 <p id="p-2926">Now let's collect the remaining terms involving <span class="process-math">\(a_{12}\text{:}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(A) = a_{11} \left( a_{33} a_{22} - a_{32} a_{23} \right) - a_{12} \left(a_{33} a_{21} - a_{31} a_{23} \right)  - a_{31} a_{13} a_{22} + a_{32}a_{21}a_{13}\text{.}
 \end{equation*}
 </div>
 <p id="p-2927">Finally, we collect the terms involving <span class="process-math">\(a_{13}\text{:}\)</span></p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \det(A) = a_{11} \left( a_{33} a_{22} - a_{32} a_{23} \right) - a_{12} \left(a_{33} a_{21} - a_{31} a_{23} \right) + a_{13} \left(a_{32} a_{21} - a_{31} a_{22} \right)\text{.}
 \end{equation*}
@@ -798,7 +796,7 @@ A =  \left[ \begin{array}{ccc} a_{11}\amp a_{12}\amp a_{13} \\ a_{21}\amp a_{22}
 <ul class="disc">
 <li id="li-523">
 <p id="p-2929">Notice that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{33} a_{22} - a_{32} a_{23}
 \end{equation*}
@@ -807,7 +805,7 @@ a_{33} a_{22} - a_{32} a_{23}
 </li>
 <li id="li-524">
 <p id="p-2930">Similarly, the expression</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{33} a_{21} - a_{31} a_{23}
 \end{equation*}
@@ -816,7 +814,7 @@ a_{33} a_{21} - a_{31} a_{23}
 </li>
 <li id="li-525">
 <p id="p-2931">Finally, the expression</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_{32} a_{21} - a_{31} a_{22}
 \end{equation*}
@@ -826,6 +824,6 @@ a_{32} a_{21} - a_{31} a_{22}
 </ul>
 <p id="p-2932">Putting this all together gives us formula <a href="" class="xref" data-knowl="./knowl/eq_det_3by3.html" title="Equation 17.1">(17.1)</a> for the determinant of a <span class="process-math">\(3 \times 3\)</span> matrix as we defined earlier.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

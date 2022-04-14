@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:25:06-04:00       *-->
+<!--*       on 2022-04-14T13:03:43-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -753,27 +751,12 @@
 <article class="exercise exercise-like" id="exercise-190"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-325"><p id="p-3415">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2\\2\amp 1 \end{array} \right]\text{.}\)</span> Let <span class="process-math">\(\vx_0 = [1 \ 0]^{\tr}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1131"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3416">Find the eigenvalues and corresponding eigenvectors for <span class="process-math">\(A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-257" id="answer-257"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-257"><div class="answer solution-like"><p id="p-3417">Eigenvalues: <span class="process-math">\(3\)</span> and <span class="process-math">\(-1\text{;}\)</span> T<span class="process-math">\([1 \ -1]^{\tr}\)</span> is an eigenvector for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(-1\)</span> and <span class="process-math">\([1 \ 1]^{\tr}\)</span> is an eigenvector for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(3\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1132"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3418">Use appropriate technology to calculate <span class="process-math">\(\vx_k = A^k \vx_0\)</span> for <span class="process-math">\(k\)</span> up to 10. Compare to a dominant eigenvector for <span class="process-math">\(A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-258" id="answer-258"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-258"><div class="answer solution-like"><p id="p-3419">As <span class="process-math">\(k\)</span> increases, the vectors <span class="process-math">\(A^k \vx_0\)</span> are approaching the vector <span class="process-math">\([1 \ 1]^{\tr}\text{,}\)</span> which is a dominant eigenvector of <span class="process-math">\(A\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1133"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3420">Use the eigenvectors from part (b) to approximate the dominant eigenvalue for <span class="process-math">\(A\text{.}\)</span> Compare to the exact value of the dominant eigenvalue of <span class="process-math">\(A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-259" id="answer-259"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-259"><div class="answer solution-like"><p id="p-3421">The Rayleigh quotients <span class="process-math">\(r_k = \frac{\vx_{k+1}\cdot \vx_k}{\vx_k \cdot \vx_k}\)</span> approach the dominant eigenvalue <span class="process-math">\(3\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1134"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-3422">Assume that the other eigenvalue for <span class="process-math">\(A\)</span> is close to <span class="process-math">\(0\text{.}\)</span> Apply the inverse power method and compare the results to the remaining eigenvalue and eigenvectors for <span class="process-math">\(A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-260" id="answer-260"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-260"><div class="answer solution-like"><p id="p-3423">Apply the power method to <span class="process-math">\(B = (A - 0 I_2)^{-1} = A^{-1}\text{.}\)</span> As <span class="process-math">\(k\)</span> increases, the vectors <span class="process-math">\(B^k \vx_0\)</span> are approaching the vector <span class="process-math">\(\frac{1}{2}[1 \ -1]^{\tr}\text{,}\)</span> which is an eigenvector of <span class="process-math">\(A\text{.}\)</span> The Rayleigh quotients approach the other eigenvalue <span class="process-math">\(-1\)</span> of <span class="process-math">\(A\text{.}\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-191"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-3416">Find the eigenvalues and corresponding eigenvectors for <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1132"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3418">Use appropriate technology to calculate <span class="process-math">\(\vx_k = A^k \vx_0\)</span> for <span class="process-math">\(k\)</span> up to 10. Compare to a dominant eigenvector for <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1133"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-3420">Use the eigenvectors from part (b) to approximate the dominant eigenvalue for <span class="process-math">\(A\text{.}\)</span> Compare to the exact value of the dominant eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1134"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-3422">Assume that the other eigenvalue for <span class="process-math">\(A\)</span> is close to <span class="process-math">\(0\text{.}\)</span> Apply the inverse power method and compare the results to the remaining eigenvalue and eigenvectors for <span class="process-math">\(A\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-191"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <p id="p-3424">Let <span class="process-math">\(A = \left[ \begin{array}{rcc} 1\amp 2\amp 0\\-2\amp 1\amp 2 \\ 1\amp 3\amp 1 \end{array} \right]\text{.}\)</span> Use the power method to approximate a dominant eigenvector for <span class="process-math">\(A\text{.}\)</span> Use <span class="process-math">\(\vx_0 = [1 \ 1 \ 1]^{\tr}\)</span> as the seed. Then approximate the dominant eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-192"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
-<p id="p-3425">Let <span class="process-math">\(A = \left[ \begin{array}{rr} 3\amp -1\\-1\amp 3 \end{array} \right]\text{.}\)</span> Use the power method starting with <span class="process-math">\(\vx_0 = [1 \ 1]^{\tr}\text{.}\)</span> Explain why the method fails in this case to approximate a dominant eigenvector, and how you could adjust the seed to make the process work.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-261" id="answer-261"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-261"><div class="answer solution-like"><p id="p-3426"><span class="process-math">\([1 \ 1]^{\tr}\)</span> is an eigenvector for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(1\text{,}\)</span> so the vectors <span class="process-math">\(A^k \vx_0\)</span> are all equal to <span class="process-math">\(\vx_0\text{.}\)</span> We can adjust the seed to a non-eigenvector.</p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-193"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-3425">Let <span class="process-math">\(A = \left[ \begin{array}{rr} 3\amp -1\\-1\amp 3 \end{array} \right]\text{.}\)</span> Use the power method starting with <span class="process-math">\(\vx_0 = [1 \ 1]^{\tr}\text{.}\)</span> Explain why the method fails in this case to approximate a dominant eigenvector, and how you could adjust the seed to make the process work.</p></article><article class="exercise exercise-like" id="exercise-193"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-326"><p id="p-3427">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 0\amp 1\\1\amp 0 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1135"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3428">Find the eigenvalues and an eigenvector for each eigenvalue.</p></article><article class="task exercise-like" id="task-1136"><h4 class="heading"><span class="codenumber">(b)</span></h4>
@@ -790,24 +773,24 @@
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vx_5\)</span></td>
 </tr>
 <tr>
-<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\frac{\vv^{\tr}A\vv}{\vv^{\tr}\vv}\)</span></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
-<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{\vv^{\tr}A\vv}{\vv^{\tr}\vv}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
 </tr>
 </table></div>
 <div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b0 r0 l0 t1 lines"><span class="process-math">\(\vv\)</span></td>
-<td class="l m b0 r0 l0 t1 lines"><span class="process-math">\(\vx_6\)</span></td>
-<td class="l m b0 r0 l0 t1 lines"><span class="process-math">\(\vx_7\)</span></td>
-<td class="l m b0 r0 l0 t1 lines"><span class="process-math">\(\vx_8\)</span></td>
-<td class="l m b0 r0 l0 t1 lines"><span class="process-math">\(\vx_9\)</span></td>
-<td class="l m b0 r0 l0 t1 lines"><span class="process-math">\(\vx_{10}\)</span></td>
-<td class="l m b0 r0 l0 t1 lines"><span class="process-math">\(\vx_{11}\)</span></td>
+<td class="l m b0 r0 l0 t2 lines"><span class="process-math">\(\vv\)</span></td>
+<td class="l m b0 r0 l0 t2 lines"><span class="process-math">\(\vx_6\)</span></td>
+<td class="l m b0 r0 l0 t2 lines"><span class="process-math">\(\vx_7\)</span></td>
+<td class="l m b0 r0 l0 t2 lines"><span class="process-math">\(\vx_8\)</span></td>
+<td class="l m b0 r0 l0 t2 lines"><span class="process-math">\(\vx_9\)</span></td>
+<td class="l m b0 r0 l0 t2 lines"><span class="process-math">\(\vx_{10}\)</span></td>
+<td class="l m b0 r0 l0 t2 lines"><span class="process-math">\(\vx_{11}\)</span></td>
 </tr>
 <tr>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{\vv^{\tr}A\vv}{\vv^{\tr}\vv}\)</span></td>
@@ -818,10 +801,7 @@
 <td class="l m b0 r0 l0 t0 lines"></td>
 <td class="l m b0 r0 l0 t0 lines"></td>
 </tr>
-</table></div></figure></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-262" id="answer-262"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-262"><div class="answer solution-like"><p id="p-3432"><span class="process-math">\(8\)</span> is the dominant eigenvalue of <span class="process-math">\(A\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-195"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+</table></div></figure></p></article><article class="exercise exercise-like" id="exercise-195"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-327"><p id="p-3433">Let <span class="process-math">\(A = \left[ \begin{array}{cr} 4\amp -5 \\ 2\amp 15 \end{array} \right]\text{.}\)</span> The power method will approximate the dominant eigenvalue <span class="process-math">\(\lambda = 14\text{.}\)</span> In this exercise we explore what happens if we apply the power method to <span class="process-math">\(A^{-1}\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1138"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3434">Apply the power method to <span class="process-math">\(A^{-1}\)</span> to approximate the dominant eigenvalue of <span class="process-math">\(A^{-1}\text{.}\)</span> Use <span class="process-math">\([1 \ 1]^{\tr}\)</span> as the seed. How is this eigenvalue related to an eigenvalue of <span class="process-math">\(A\text{?}\)</span></p></article><article class="task exercise-like" id="task-1139"><h4 class="heading"><span class="codenumber">(b)</span></h4>
@@ -829,23 +809,20 @@
 <div class="introduction" id="introduction-328"><p id="p-3436">There are other algebraic methods that do not rely on the determinant of a matrix that can be used to find eigenvalues of a matrix. We examine one such method in this exercise. Let <span class="process-math">\(A\)</span> be any <span class="process-math">\(n \times n\)</span> matrix, and let <span class="process-math">\(\vv\)</span> be any vector in <span class="process-math">\(\R^n\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1140"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3437">Explain why the vectors</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vv, \ A\vv, \ A^2\vv, \ \ldots, \ A^n\vv
 \end{equation*}
 </div>
-<p class="continuation">are linearly dependent.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-263" id="answer-263"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-263"><div class="answer solution-like"><p id="p-3438">Since <span class="process-math">\(\R^n\)</span> has dimension <span class="process-math">\(n\text{,}\)</span> it follows that any set of <span class="process-math">\(n+1\)</span> vectors is linearly dependent.</p></div></div>
-</div></article><article class="task exercise-like" id="task-1141"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p class="continuation">are linearly dependent.</p></article><article class="task exercise-like" id="task-1141"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3439">Let <span class="process-math">\(c_0\text{,}\)</span> <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_n\)</span> be scalars, not all 0, so that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 c_0 \vv + c_1 A\vv + c_2 A^2 \vv + \cdots + c_n A^n \vv = \vzero\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Explain why there must be a smallest positive integer <span class="process-math">\(k\)</span> so that there are scalars <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_k\)</span> with <span class="process-math">\(a_k \neq 0\text{.}\)</span> such that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 a_0 \vv + a_1 A\vv + a_2 A^2 \vv + \cdots + a_k A^k \vv = \vzero\text{.}
 \end{equation*}
@@ -854,72 +831,51 @@ a_0 \vv + a_1 A\vv + a_2 A^2 \vv + \cdots + a_k A^k \vv = \vzero\text{.}
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-27" id="hint-27"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-27"><div class="hint solution-like"><p id="p-3440">Proceed down the list <span class="process-math">\(c_{n-1}\text{,}\)</span> <span class="process-math">\(c_{n-2}\text{,}\)</span> etc., until you reach a weight that is non-zero.</p></div></div>
 </div></article><article class="task exercise-like" id="task-1142"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-3441">Let</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 q(t) = a_0 + a_1t + a_2t^2 + \cdots + a_kt^k\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 q(A) = a_0 + a_1A + a_2A^2 + \cdots + a_kA^k
 \end{equation*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-141">
 \begin{align*}
 q(A)\vv \amp = (a_0 + a_1A + a_2A^2 + \cdots + a_kA^k)\vv\\
 \amp = a_0 \vv + a_1 A\vv + a_2 A^2 \vv + \cdots + a_k A^k \vv\\
 \amp = \vzero\text{.}
 \end{align*}
 </div>
-<p class="continuation">Suppose the polynomial <span class="process-math">\(q(t)\)</span> has a linear factor, say <span class="process-math">\(q(t) = (t-\lambda)Q(t)\)</span> for some degree <span class="process-math">\(k-1\)</span> polynomial <span class="process-math">\(Q(t)\text{.}\)</span> Explain why, if <span class="process-math">\(Q(A) \vv\)</span> is non-zero, <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(Q(A) \vv\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-264" id="answer-264"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-264"><div class="answer solution-like"><p id="p-3442"><span class="process-math">\(\vzero = q(A) \vv = (A-\lambda I_n) Q(A)\vv\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1143"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p class="continuation">Suppose the polynomial <span class="process-math">\(q(t)\)</span> has a linear factor, say <span class="process-math">\(q(t) = (t-\lambda)Q(t)\)</span> for some degree <span class="process-math">\(k-1\)</span> polynomial <span class="process-math">\(Q(t)\text{.}\)</span> Explain why, if <span class="process-math">\(Q(A) \vv\)</span> is non-zero, <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(Q(A) \vv\text{.}\)</span></p></article><article class="task exercise-like" id="task-1143"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="introduction" id="introduction-329"><p id="p-3443">This method allows us to find certain eigenvalues and eigenvectors, the roots of the polynomial <span class="process-math">\(q(t)\text{.}\)</span> Any other eigenvector must lie outside the eigenspaces we have already found, so repeating the process with a vector <span class="process-math">\(\vv\)</span> not in any of the known eigenspaces will produce different eigenvalues and eigenvectors. Let <span class="process-math">\(A = \left[ \begin{array}{ccr} 2\amp 2\amp -1 \\ 2\amp 2\amp 2 \\ 0\amp 0\amp 6 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1144"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-3444">Find the polynomial <span class="process-math">\(q(t)\text{.}\)</span> Use <span class="process-math">\(\vv = [1 \ 1 \ 1]^{\tr}\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-265" id="answer-265"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-265"><div class="answer solution-like"><p id="p-3445"><span class="process-math">\(q(t) = 24t - 10t^2+t^3\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1145"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-3446">Find all of the roots of <span class="process-math">\(q(t)\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-266" id="answer-266"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-266"><div class="answer solution-like"><p id="p-3447"><span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(4\text{,}\)</span> and <span class="process-math">\(6\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1146"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-3448">For each root <span class="process-math">\(\lambda\)</span> of <span class="process-math">\(q(t)\text{,}\)</span> find the polynomial <span class="process-math">\(Q(t)\)</span> and use this polynomial to determine an eigenvector of <span class="process-math">\(A\text{.}\)</span> Verify your work.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-267" id="answer-267"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-267"><div class="answer solution-like"><p id="p-3449">For <span class="process-math">\(t=0\text{,}\)</span> we have <span class="process-math">\(Q(t) = (4-t)t-4)(t-6)\text{,}\)</span> and <span class="process-math">\([6 \ -6 \ 0]^{\tr}\)</span> an eigenvector for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(0\text{.}\)</span> For <span class="process-math">\(t=4\)</span> we have <span class="process-math">\(Q(t) = t(t-6)\text{,}\)</span> and <span class="process-math">\([24 \ 24 \ 0]^{\tr}\)</span> is an eigenvector for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(4\text{.}\)</span> For <span class="process-math">\(t=6\)</span> we have <span class="process-math">\(Q(t) = t(t-4)\text{,}\)</span> and <span class="process-math">\([0 \ -6 \ -12]^{\tr}\)</span> is an eigenvector for <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(6\text{.}\)</span></p></div></div>
-</div></article></article></article><article class="exercise exercise-like" id="ex_4_d_dominant_eigenvalue"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<p id="p-3444">Find the polynomial <span class="process-math">\(q(t)\text{.}\)</span> Use <span class="process-math">\(\vv = [1 \ 1 \ 1]^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1145"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-3446">Find all of the roots of <span class="process-math">\(q(t)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1146"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-3448">For each root <span class="process-math">\(\lambda\)</span> of <span class="process-math">\(q(t)\text{,}\)</span> find the polynomial <span class="process-math">\(Q(t)\)</span> and use this polynomial to determine an eigenvector of <span class="process-math">\(A\text{.}\)</span> Verify your work.</p></article></article></article><article class="exercise exercise-like" id="ex_4_d_dominant_eigenvalue"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-330"><p id="p-3450">We have seen that the Rayleigh quotients approximate the dominant eigenvalue of a matrix <span class="process-math">\(A\text{.}\)</span> As an alternative to using Rayleigh quotients, we can keep track of the scaling factors. Recall that the scaling in the power method can be used to make the magnitudes of the successive approximations smaller and easier to work with. Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix and begin with a non-zero seed <span class="process-math">\(\vv_0\text{.}\)</span> We now want to keep track of the scaling factors, so let <span class="process-math">\(\alpha_0\)</span> be the component of <span class="process-math">\(\vv_0\)</span> with largest absolute value and let <span class="process-math">\(\vx_0 = \frac{1}{\alpha_0}\vv_0\text{.}\)</span> For <span class="process-math">\(k \geq 0\text{,}\)</span> let <span class="process-math">\(\vv_k = A\vx_{k-1}\text{,}\)</span> let <span class="process-math">\(\alpha_k\)</span> be the component of <span class="process-math">\(\vv_k\)</span> with largest absolute value and let <span class="process-math">\(\vx_k = \frac{1}{\alpha_k}\vv_k\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1147"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3451">Let <span class="process-math">\(A = \left[ \begin{array}{rc} 0\amp 1 \\ -8\amp 6 \end{array} \right]\text{.}\)</span> Use <span class="process-math">\(\vx_0 = [1 \ 1]^{\tr}\)</span> as the seed and calculate <span class="process-math">\(\alpha_k\)</span> for <span class="process-math">\(k\)</span> from <span class="process-math">\(1\)</span> to <span class="process-math">\(10\text{.}\)</span> Compare to the dominant eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1148"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3452">Assume that for large <span class="process-math">\(k\)</span> the vectors <span class="process-math">\(\vx_k\)</span> approach a dominant eigenvector with dominant eigenvalue <span class="process-math">\(\lambda\text{.}\)</span> Show now in general that the sequence of scaling factors <span class="process-math">\(\alpha_k\)</span> approaches <span class="process-math">\(\lambda\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-198"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
-<p id="p-3453">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix and let <span class="process-math">\(\alpha\)</span> be a scalar that is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span> Suppose that <span class="process-math">\(\vx\)</span> is an eigenvector of <span class="process-math">\(B = (A-\alpha I_n)^{-1}\)</span> with eigenvalue <span class="process-math">\(\beta\text{.}\)</span> Find an eigenvalue of <span class="process-math">\(A\)</span> in terms of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\alpha\)</span> with corresponding eigenvector <span class="process-math">\(\vx\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-268" id="answer-268"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-268"><div class="answer solution-like"><p id="p-3454">If <span class="process-math">\(\beta\)</span> is an eigenvalue of <span class="process-math">\(B\)</span> with eigenvector <span class="process-math">\(\vx\text{,}\)</span> then <span class="process-math">\(\frac{1}{\beta} + \alpha\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> with eigenvector <span class="process-math">\(\vx\text{.}\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-199"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
+<p id="p-3453">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(n \times n\)</span> matrix and let <span class="process-math">\(\alpha\)</span> be a scalar that is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span> Suppose that <span class="process-math">\(\vx\)</span> is an eigenvector of <span class="process-math">\(B = (A-\alpha I_n)^{-1}\)</span> with eigenvalue <span class="process-math">\(\beta\text{.}\)</span> Find an eigenvalue of <span class="process-math">\(A\)</span> in terms of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\alpha\)</span> with corresponding eigenvector <span class="process-math">\(\vx\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-199"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-331"><p id="p-3455">Label each of the following statements as True or False. Provide justification for your response.</p></div>
 <article class="task exercise-like" id="task-1149"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3456">The largest eigenvalue of a matrix is a dominant eigenvalue.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-269" id="answer-269"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-269"><div class="answer solution-like"><p id="p-3457">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-1150"><h4 class="heading">
+<p id="p-3456">The largest eigenvalue of a matrix is a dominant eigenvalue.</p></article><article class="task exercise-like" id="task-1150"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3458">If an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors and a dominant eigenvalue, then the sequence <span class="process-math">\(\{A^k \vx_0\}\)</span> converges to a dominant eigenvector of <span class="process-math">\(A\)</span> for any initial vector <span class="process-math">\(\vx_0\text{.}\)</span></p></article><article class="task exercise-like" id="task-1151"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3459">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> and <span class="process-math">\(\alpha\)</span> is not an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\lambda - \alpha\)</span> is an eigenvalue of <span class="process-math">\(A - \alpha I_n\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-270" id="answer-270"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-270"><div class="answer solution-like"><p id="p-3460">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1152"><h4 class="heading">
+<p id="p-3459">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> and <span class="process-math">\(\alpha\)</span> is not an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\lambda - \alpha\)</span> is an eigenvalue of <span class="process-math">\(A - \alpha I_n\text{.}\)</span></p></article><article class="task exercise-like" id="task-1152"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3461">Every square matrix has a dominant eigenvalue.</p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

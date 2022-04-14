@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:27:53-04:00       *-->
+<!--*       on 2022-04-14T13:06:12-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,13 +749,13 @@
 <section class="section" id="sec_pseudoinverses"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Pseudoinverses</span>
 </h2>
-<p id="p-5142">Not every matrix is invertible, so we cannot always solve a matrix equation <span class="process-math">\(A \vx = \vb\text{.}\)</span> However, every matrix has a pseudoinverse <span class="process-math">\(A^+\)</span> that acts something like an inverse. Even when we can't solve a matrix equation <span class="process-math">\(A \vx = \vb\)</span> because <span class="process-math">\(\vb\)</span> isn't in <span class="process-math">\(\Col A\text{,}\)</span> we can use the pseudoinverse of <span class="process-math">\(A\)</span> to “solve” the equation <span class="process-math">\(A \vx = \vb\)</span> with the “solution” <span class="process-math">\(A^+ \vb\text{.}\)</span> While not an exact solution, <span class="process-math">\(A^+ \vb\)</span> turns out to be the best approximation to a solution in the least squares sense. We will use the singular value decomposition to find the pseudoinverse of a matrix.</p>
+<p id="p-5106">Not every matrix is invertible, so we cannot always solve a matrix equation <span class="process-math">\(A \vx = \vb\text{.}\)</span> However, every matrix has a pseudoinverse <span class="process-math">\(A^+\)</span> that acts something like an inverse. Even when we can't solve a matrix equation <span class="process-math">\(A \vx = \vb\)</span> because <span class="process-math">\(\vb\)</span> isn't in <span class="process-math">\(\Col A\text{,}\)</span> we can use the pseudoinverse of <span class="process-math">\(A\)</span> to “solve” the equation <span class="process-math">\(A \vx = \vb\)</span> with the “solution” <span class="process-math">\(A^+ \vb\text{.}\)</span> While not an exact solution, <span class="process-math">\(A^+ \vb\)</span> turns out to be the best approximation to a solution in the least squares sense. We will use the singular value decomposition to find the pseudoinverse of a matrix.</p>
 <article class="exploration project-like" id="pa_7_d_2"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">30.7</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-507">
-<p id="p-5143">Let <span class="process-math">\(A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array}  \right]\text{.}\)</span> The singular value decomposition of <span class="process-math">\(A\)</span> is <span class="process-math">\(U \Sigma V^{\tr}\)</span> where</p>
-<div class="displaymath process-math">
+<div class="introduction" id="introduction-502">
+<p id="p-5107">Let <span class="process-math">\(A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array}  \right]\text{.}\)</span> The singular value decomposition of <span class="process-math">\(A\)</span> is <span class="process-math">\(U \Sigma V^{\tr}\)</span> where</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-204">
 \begin{align*}
 U \amp = \frac{\sqrt{2}}{2} \left[ \begin{array}{cr} 1\amp -1\\
 1\amp 1 \end{array} \right],\\
@@ -769,84 +767,84 @@ V \amp = \frac{1}{6} \left[ \begin{array}{rrr} \sqrt{6}\amp -3\sqrt{2}\amp 2\sqr
 \end{align*}
 </div>
 </div>
-<article class="task exercise-like" id="task-1715"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5144">Explain why <span class="process-math">\(A\)</span> is not an invertible matrix.</p></article><article class="task exercise-like" id="task-1716"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5145">Explain why the matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are invertible. How are <span class="process-math">\(U^{-1}\)</span> and <span class="process-math">\(V^{-1}\)</span> related to <span class="process-math">\(U^{\tr}\)</span> and <span class="process-math">\(V^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-1717"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-5146">Recall that one property of invertible matrices is that the inverse of a product of invertible matrices is the product of the inverses in the reverse order. If <span class="process-math">\(A\)</span> were invertible, then <span class="process-math">\(A^{-1}\)</span> would be <span class="process-math">\(\left(U \Sigma V^{\tr}\right)^{-1} = V \Sigma^{-1} U^{\tr}\text{.}\)</span> Even though <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are invertible, the matrix <span class="process-math">\(\Sigma\)</span> is not. But <span class="process-math">\(\Sigma\)</span> does contain non-zero eigenvalues that have reciprocals, so consider the matrix <span class="process-math">\(\Sigma^+ = \left[ \begin{array}{cc} \frac{1}{\sqrt{3}}\amp 0 \\ 0\amp 1 \\ 0\amp 0 \end{array} \right]\text{.}\)</span> Calculate the products <span class="process-math">\(\Sigma \Sigma^+\)</span> and <span class="process-math">\(\Sigma^+ \Sigma\text{.}\)</span> How are the results similar to that obtained with a matrix inverse?</p></article><article class="task exercise-like" id="task-1718"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<div class="introduction" id="introduction-508"><p id="p-5147">The only matrix in the singular value decomposition of <span class="process-math">\(A\)</span> that is not invertible is <span class="process-math">\(\Sigma\text{.}\)</span> But the matrix <span class="process-math">\(\Sigma^{+}\)</span> acts somewhat like an inverse of <span class="process-math">\(\Sigma\text{,}\)</span> so let us define <span class="process-math">\(A^+\)</span> as <span class="process-math">\(V \Sigma^+ U^{\tr}\text{.}\)</span> Now we explore a few properties of the matrix <span class="process-math">\(A^{+}\text{.}\)</span></p></div>
-<article class="task exercise-like" id="task-1719"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-5148">Calculate <span class="process-math">\(AA^+\)</span> and <span class="process-math">\(A^+A\)</span> for <span class="process-math">\(A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array} \right]\text{.}\)</span> What do you notice?</p></article><article class="task exercise-like" id="task-1720"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-5149">Calculate <span class="process-math">\(A^+AA^+\)</span> and <span class="process-math">\(AA^+A\)</span> for <span class="process-math">\(A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array} \right]\text{.}\)</span> What do you notice?</p></article></article></article><p id="p-5150">Only some square matrices have inverses. However, every matrix has a pseudoinverse. A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> provides something like an inverse when a matrix doesn't have an inverse. Pseudoinverses are useful to approximate solutions to linear systems. If <span class="process-math">\(A\)</span> is invertible, then the equation <span class="process-math">\(A \vx = \vb\)</span> has the solution <span class="process-math">\(\vx = A^{-1}\vb\text{,}\)</span> but when <span class="process-math">\(A\)</span> is not invertible and <span class="process-math">\(\vb\)</span> is not in <span class="process-math">\(\Col A\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vb\)</span> has no solution. In the invertible case of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> there is a matrix <span class="process-math">\(B\)</span> so that <span class="process-math">\(AB = BA = I_n\text{.}\)</span> This also implies that <span class="process-math">\(BAB = B\)</span> and <span class="process-math">\(ABA = A\text{.}\)</span> To mimic this situation when <span class="process-math">\(A\)</span> is not invertible, we search for a matrix <span class="process-math">\(A^+\)</span> (a pseudoinverse of <span class="process-math">\(A\)</span>) so that <span class="process-math">\(AA^+A = A\)</span> and <span class="process-math">\(A^+AA^+ = A^+\text{,}\)</span> as we saw in <a href="" class="xref" data-knowl="./knowl/pa_7_d_2.html" title="Preview Activity 30.7">Preview Activity 30.7</a>. Then it turns out that <span class="process-math">\(A^+\)</span> acts something like an inverse for <span class="process-math">\(A\text{.}\)</span> In this case, we approximate the solution to <span class="process-math">\(A \vx = \vb\)</span> by <span class="process-math">\(\vx^* = A^+\vb\text{,}\)</span> and we will see that the vector <span class="process-math">\(A\vx^* = AA^+\vb\)</span> turns out to be the vector in <span class="process-math">\(\Col A\)</span> that is closest to <span class="process-math">\(\vb\)</span> in the least squares sense.</p>
-<p id="p-5151">A reasonable question to ask is how we can find a pseudoinverse of a matrix <span class="process-math">\(A\text{.}\)</span> A singular value decomposition provides an answer to this question. If <span class="process-math">\(A\)</span> is an invertible <span class="process-math">\(n \times n\)</span> matrix, then 0 is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span> As a result, in the singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\)</span> of <span class="process-math">\(A\text{,}\)</span> the matrix <span class="process-math">\(\Sigma\)</span> is an invertible matrix (note that <span class="process-math">\(U\text{,}\)</span> <span class="process-math">\(\Sigma\text{,}\)</span> and <span class="process-math">\(V\)</span> are all <span class="process-math">\(n \times n\)</span> matrices in this case). So</p>
-<div class="displaymath process-math">
+<article class="task exercise-like" id="task-1705"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-5108">Explain why <span class="process-math">\(A\)</span> is not an invertible matrix.</p></article><article class="task exercise-like" id="task-1706"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5109">Explain why the matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are invertible. How are <span class="process-math">\(U^{-1}\)</span> and <span class="process-math">\(V^{-1}\)</span> related to <span class="process-math">\(U^{\tr}\)</span> and <span class="process-math">\(V^{\tr}\text{?}\)</span></p></article><article class="task exercise-like" id="task-1707"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-5110">Recall that one property of invertible matrices is that the inverse of a product of invertible matrices is the product of the inverses in the reverse order. If <span class="process-math">\(A\)</span> were invertible, then <span class="process-math">\(A^{-1}\)</span> would be <span class="process-math">\(\left(U \Sigma V^{\tr}\right)^{-1} = V \Sigma^{-1} U^{\tr}\text{.}\)</span> Even though <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are invertible, the matrix <span class="process-math">\(\Sigma\)</span> is not. But <span class="process-math">\(\Sigma\)</span> does contain non-zero eigenvalues that have reciprocals, so consider the matrix <span class="process-math">\(\Sigma^+ = \left[ \begin{array}{cc} \frac{1}{\sqrt{3}}\amp 0 \\ 0\amp 1 \\ 0\amp 0 \end{array} \right]\text{.}\)</span> Calculate the products <span class="process-math">\(\Sigma \Sigma^+\)</span> and <span class="process-math">\(\Sigma^+ \Sigma\text{.}\)</span> How are the results similar to that obtained with a matrix inverse?</p></article><article class="task exercise-like" id="task-1708"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="introduction" id="introduction-503"><p id="p-5111">The only matrix in the singular value decomposition of <span class="process-math">\(A\)</span> that is not invertible is <span class="process-math">\(\Sigma\text{.}\)</span> But the matrix <span class="process-math">\(\Sigma^{+}\)</span> acts somewhat like an inverse of <span class="process-math">\(\Sigma\text{,}\)</span> so let us define <span class="process-math">\(A^+\)</span> as <span class="process-math">\(V \Sigma^+ U^{\tr}\text{.}\)</span> Now we explore a few properties of the matrix <span class="process-math">\(A^{+}\text{.}\)</span></p></div>
+<article class="task exercise-like" id="task-1709"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<p id="p-5112">Calculate <span class="process-math">\(AA^+\)</span> and <span class="process-math">\(A^+A\)</span> for <span class="process-math">\(A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array} \right]\text{.}\)</span> What do you notice?</p></article><article class="task exercise-like" id="task-1710"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-5113">Calculate <span class="process-math">\(A^+AA^+\)</span> and <span class="process-math">\(AA^+A\)</span> for <span class="process-math">\(A = \left[\begin{array}{ccc} 1\amp 1\amp 0\\ 0\amp 1\amp 1 \end{array} \right]\text{.}\)</span> What do you notice?</p></article></article></article><p id="p-5114">Only some square matrices have inverses. However, every matrix has a pseudoinverse. A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> provides something like an inverse when a matrix doesn't have an inverse. Pseudoinverses are useful to approximate solutions to linear systems. If <span class="process-math">\(A\)</span> is invertible, then the equation <span class="process-math">\(A \vx = \vb\)</span> has the solution <span class="process-math">\(\vx = A^{-1}\vb\text{,}\)</span> but when <span class="process-math">\(A\)</span> is not invertible and <span class="process-math">\(\vb\)</span> is not in <span class="process-math">\(\Col A\text{,}\)</span> then the equation <span class="process-math">\(A \vx = \vb\)</span> has no solution. In the invertible case of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> there is a matrix <span class="process-math">\(B\)</span> so that <span class="process-math">\(AB = BA = I_n\text{.}\)</span> This also implies that <span class="process-math">\(BAB = B\)</span> and <span class="process-math">\(ABA = A\text{.}\)</span> To mimic this situation when <span class="process-math">\(A\)</span> is not invertible, we search for a matrix <span class="process-math">\(A^+\)</span> (a pseudoinverse of <span class="process-math">\(A\)</span>) so that <span class="process-math">\(AA^+A = A\)</span> and <span class="process-math">\(A^+AA^+ = A^+\text{,}\)</span> as we saw in <a href="" class="xref" data-knowl="./knowl/pa_7_d_2.html" title="Preview Activity 30.7">Preview Activity 30.7</a>. Then it turns out that <span class="process-math">\(A^+\)</span> acts something like an inverse for <span class="process-math">\(A\text{.}\)</span> In this case, we approximate the solution to <span class="process-math">\(A \vx = \vb\)</span> by <span class="process-math">\(\vx^* = A^+\vb\text{,}\)</span> and we will see that the vector <span class="process-math">\(A\vx^* = AA^+\vb\)</span> turns out to be the vector in <span class="process-math">\(\Col A\)</span> that is closest to <span class="process-math">\(\vb\)</span> in the least squares sense.</p>
+<p id="p-5115">A reasonable question to ask is how we can find a pseudoinverse of a matrix <span class="process-math">\(A\text{.}\)</span> A singular value decomposition provides an answer to this question. If <span class="process-math">\(A\)</span> is an invertible <span class="process-math">\(n \times n\)</span> matrix, then 0 is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span> As a result, in the singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\)</span> of <span class="process-math">\(A\text{,}\)</span> the matrix <span class="process-math">\(\Sigma\)</span> is an invertible matrix (note that <span class="process-math">\(U\text{,}\)</span> <span class="process-math">\(\Sigma\text{,}\)</span> and <span class="process-math">\(V\)</span> are all <span class="process-math">\(n \times n\)</span> matrices in this case). So</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A^{-1} = \left(U \Sigma V^{\tr}\right)^{-1} = V \Sigma^{-1} U^{\tr}\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Sigma^{-1} = \left[ \begin{array}{ccccc} \frac{1}{\sigma_1}\amp \amp \amp \amp  \\  \amp  \frac{1}{\sigma_2}\amp \amp 0\amp  \\  \amp \amp  \frac{1}{\sigma_3}\amp \amp  \\ \amp 0  \amp  \amp  \ddots \amp   \\ \amp \amp \amp \amp  \frac{1}{\sigma_n} \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<p id="p-5152">In this case, <span class="process-math">\(V \Sigma^{-1} U^{\tr}\)</span> is a singular value decomposition for <span class="process-math">\(A^{-1}\text{.}\)</span></p>
-<p id="p-5153">To understand in general how a pseudoinverse is found, let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix with <span class="process-math">\(m \neq n\text{,}\)</span> or an <span class="process-math">\(n \times n\)</span> with rank less than <span class="process-math">\(n\text{.}\)</span> In these cases <span class="process-math">\(A\)</span> does not have an inverse. But as in <a href="" class="xref" data-knowl="./knowl/pa_7_d_2.html" title="Preview Activity 30.7">Preview Activity 30.7</a>, a singular value decomposition provides a pseudoinverse <span class="process-math">\(A^+\)</span> for <span class="process-math">\(A\text{.}\)</span> Let <span class="process-math">\(U \Sigma V^{\tr}\)</span> be a singular value decomposition of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> of rank <span class="process-math">\(r\text{,}\)</span> with</p>
-<div class="displaymath process-math">
+<p id="p-5116">In this case, <span class="process-math">\(V \Sigma^{-1} U^{\tr}\)</span> is a singular value decomposition for <span class="process-math">\(A^{-1}\text{.}\)</span></p>
+<p id="p-5117">To understand in general how a pseudoinverse is found, let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix with <span class="process-math">\(m \neq n\text{,}\)</span> or an <span class="process-math">\(n \times n\)</span> with rank less than <span class="process-math">\(n\text{.}\)</span> In these cases <span class="process-math">\(A\)</span> does not have an inverse. But as in <a href="" class="xref" data-knowl="./knowl/pa_7_d_2.html" title="Preview Activity 30.7">Preview Activity 30.7</a>, a singular value decomposition provides a pseudoinverse <span class="process-math">\(A^+\)</span> for <span class="process-math">\(A\text{.}\)</span> Let <span class="process-math">\(U \Sigma V^{\tr}\)</span> be a singular value decomposition of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> of rank <span class="process-math">\(r\text{,}\)</span> with</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pa_7_d_2.html">
 \begin{equation*}
 \Sigma = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp \amp  \\ \amp  \sigma_2\amp \amp 0\amp \amp 0 \\ \amp \amp  \sigma_3\amp \amp \amp  \\ \amp  0 \amp  \amp  \ddots \amp  \amp  \\ \amp \amp \amp \amp  \sigma_r \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]
 \end{equation*}
 </div>
-<p id="p-5154"> The matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are invertible, but the matrix <span class="process-math">\(\Sigma\)</span> is not if <span class="process-math">\(A\)</span> is not invertible. If we let <span class="process-math">\(\Sigma^+\)</span> be the <span class="process-math">\(n \times m\)</span> matrix defined by</p>
-<div class="displaymath process-math">
+<p id="p-5118"> The matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are invertible, but the matrix <span class="process-math">\(\Sigma\)</span> is not if <span class="process-math">\(A\)</span> is not invertible. If we let <span class="process-math">\(\Sigma^+\)</span> be the <span class="process-math">\(n \times m\)</span> matrix defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Sigma^{+} = \left[ \begin{array}{ccccc|c} \frac{1}{\sigma_1}\amp \amp \amp \amp \amp  \\ \amp  \frac{1}{\sigma_2}\amp \amp 0\amp \amp 0 \\ \amp \amp  \frac{1}{\sigma_3}\amp \amp \amp  \\ \amp  0 \amp  \amp  \ddots \amp  \amp  \\ \amp \amp \amp \amp  \frac{1}{\sigma_r} \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">then <span class="process-math">\(\Sigma^{+}\)</span> will act much like an inverse of <span class="process-math">\(\Sigma\)</span> might. In fact, it is not difficult to see that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \Sigma\Sigma^{+} = \left[ \begin{array}{c|c} I_r\amp 0 \\ \hline 0\amp 0 \end{array}  \right] \text{ and }  \Sigma^{+}\Sigma = \left[ \begin{array}{c|c} I_r\amp 0 \\ \hline 0\amp 0 \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">where <span class="process-math">\(\Sigma\Sigma^{+}\)</span> is an <span class="process-math">\(m \times m\)</span> matrix and <span class="process-math">\(\Sigma^{+}\Sigma\)</span> is an <span class="process-math">\(n \times n\)</span> matrix.</p>
-<p id="p-5155">The matrix</p>
-<div class="displaymath process-math">
+<p id="p-5119">The matrix</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_pseudoinverse">
 \begin{equation}
-A^{+} = V\Sigma^{+}U^{\tr}\label{eq_pseudoinverse}\tag{30.10}
+A^{+} = V\Sigma^{+}U^{\tr}\tag{30.10}
 \end{equation}
 </div>
 <p class="continuation">is a <dfn class="terminology">pseudoinverse</dfn> of <span class="process-math">\(A\text{.}\)</span></p>
 <article class="activity project-like" id="activity-117"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">30.8</span><span class="period">.</span>
 </h3>
-<article class="task exercise-like" id="task-1721"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5156">Find the pseudoinverse <span class="process-math">\(A^+\)</span> of <span class="process-math">\(A = \left[ \begin{array}{rc} 0\amp 5\\ 4\amp 3 \\ -2\amp 1 \end{array}  \right]\text{.}\)</span> Use the singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\)</span> of <span class="process-math">\(A\text{,}\)</span> where</p>
-<div class="displaymath process-math">
+<article class="task exercise-like" id="task-1711"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-5120">Find the pseudoinverse <span class="process-math">\(A^+\)</span> of <span class="process-math">\(A = \left[ \begin{array}{rc} 0\amp 5\\ 4\amp 3 \\ -2\amp 1 \end{array}  \right]\text{.}\)</span> Use the singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\)</span> of <span class="process-math">\(A\text{,}\)</span> where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 U =  \left[ \begin{array}{crc} \frac{\sqrt{2}}{2}\amp \frac{\sqrt{3}}{3}\amp 1 \\ \frac{\sqrt{2}}{2}\amp -\frac{\sqrt{3}}{3}\amp 0 \\ 0\amp \frac{\sqrt{3}}{3}\amp 0 \end{array}  \right], \ \Sigma =  \left[ \begin{array}{cc} \sqrt{40}\amp 0 \\ 0\amp \sqrt{15} \\ 0\amp 0 \end{array}  \right], \ V = \frac{1}{\sqrt{5}} \left[ \begin{array}{cr} 1\amp -2 \\ 2\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
-</div></article><article class="task exercise-like" id="task-1722"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5157">The vector <span class="process-math">\(\vb = \left[ \begin{array}{c} 0\\0\\1 \end{array} \right]\)</span> is not in <span class="process-math">\(\Col A\text{.}\)</span> The vector <span class="process-math">\(\vx^* = A^+ \vb\)</span> is an approximation to a solution of <span class="process-math">\(A \vx = \vb\text{,}\)</span> and <span class="process-math">\(AA^+\vb\)</span> is in <span class="process-math">\(\Col A\text{.}\)</span> Find <span class="process-math">\(A\vx^*\)</span> and determine how far <span class="process-math">\(A\vx^*\)</span> is from <span class="process-math">\(\vb\text{.}\)</span></p></article></article><p id="p-5158">Pseudoinverses satisfy several properties that are similar to those of inverses. For example, we had an example in <a href="" class="xref" data-knowl="./knowl/pa_7_d_2.html" title="Preview Activity 30.7">Preview Activity 30.7</a> where <span class="process-math">\(AA^{+}A = A\)</span> and <span class="process-math">\(A^+AA^+ = A^+\text{.}\)</span> That <span class="process-math">\(A^+\)</span> always satisfies these properties is the subject of the next activity.</p>
+</div></article><article class="task exercise-like" id="task-1712"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5121">The vector <span class="process-math">\(\vb = \left[ \begin{array}{c} 0\\0\\1 \end{array} \right]\)</span> is not in <span class="process-math">\(\Col A\text{.}\)</span> The vector <span class="process-math">\(\vx^* = A^+ \vb\)</span> is an approximation to a solution of <span class="process-math">\(A \vx = \vb\text{,}\)</span> and <span class="process-math">\(AA^+\vb\)</span> is in <span class="process-math">\(\Col A\text{.}\)</span> Find <span class="process-math">\(A\vx^*\)</span> and determine how far <span class="process-math">\(A\vx^*\)</span> is from <span class="process-math">\(\vb\text{.}\)</span></p></article></article><p id="p-5122">Pseudoinverses satisfy several properties that are similar to those of inverses. For example, we had an example in <a href="" class="xref" data-knowl="./knowl/pa_7_d_2.html" title="Preview Activity 30.7">Preview Activity 30.7</a> where <span class="process-math">\(AA^{+}A = A\)</span> and <span class="process-math">\(A^+AA^+ = A^+\text{.}\)</span> That <span class="process-math">\(A^+\)</span> always satisfies these properties is the subject of the next activity.</p>
 <article class="activity project-like" id="act_7_d_Moore-Penrose"><h3 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">30.9</span><span class="period">.</span>
 </h3>
-<div class="introduction" id="introduction-509"><p id="p-5159">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix with singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\text{.}\)</span> Let <span class="process-math">\(A^{+}\)</span> be defined as in <a href="" class="xref" data-knowl="./knowl/eq_pseudoinverse.html" title="Equation 30.10">(30.10)</a>.</p></div>
-<article class="task exercise-like" id="task-1723"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-5160">Show that <span class="process-math">\(AA^{+}A = A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1724"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-5161">Show that <span class="process-math">\(A^{+}AA^{+} = A^{+}\text{.}\)</span></p></article></article><p id="p-5162"><a href="" class="xref" data-knowl="./knowl/act_7_d_Moore-Penrose.html" title="Activity 30.9">Activity 30.9</a> shows that <span class="process-math">\(A^{+}\)</span> satisfies properties that are similar to those of an inverse of <span class="process-math">\(A\text{.}\)</span> In fact, <span class="process-math">\(A^{+}\)</span> satisfies several other properties (that together can be used as defining properties) as stated in the next theorem. The conditions of <a href="" class="xref" data-knowl="./knowl/thm_7_d_pseudoinverse.html" title="Theorem 30.6: The Moore-Penrose Conditions">Theorem 30.6</a> are called the <dfn class="terminology">Penrose</dfn> or <dfn class="terminology">Moore-Penrose</dfn> conditions.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-50" id="fn-50"><sup> 50 </sup></a> Verification of the remaining parts of this theorem are left for the exercises.</p>
+<div class="introduction" id="introduction-504"><p id="p-5123">Let <span class="process-math">\(A\)</span> be an <span class="process-math">\(m \times n\)</span> matrix with singular value decomposition <span class="process-math">\(U \Sigma V^{\tr}\text{.}\)</span> Let <span class="process-math">\(A^{+}\)</span> be defined as in <a href="" class="xref" data-knowl="./knowl/eq_pseudoinverse.html" title="Equation 30.10">(30.10)</a>.</p></div>
+<article class="task exercise-like" id="task-1713"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<p id="p-5124">Show that <span class="process-math">\(AA^{+}A = A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1714"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-5125">Show that <span class="process-math">\(A^{+}AA^{+} = A^{+}\text{.}\)</span></p></article></article><p id="p-5126"><a href="" class="xref" data-knowl="./knowl/act_7_d_Moore-Penrose.html" title="Activity 30.9">Activity 30.9</a> shows that <span class="process-math">\(A^{+}\)</span> satisfies properties that are similar to those of an inverse of <span class="process-math">\(A\text{.}\)</span> In fact, <span class="process-math">\(A^{+}\)</span> satisfies several other properties (that together can be used as defining properties) as stated in the next theorem. The conditions of <a href="" class="xref" data-knowl="./knowl/thm_7_d_pseudoinverse.html" title="Theorem 30.6: The Moore-Penrose Conditions">Theorem 30.6</a> are called the <dfn class="terminology">Penrose</dfn> or <dfn class="terminology">Moore-Penrose</dfn> conditions.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-49" id="fn-49"><sup> 49 </sup></a> Verification of the remaining parts of this theorem are left for the exercises.</p>
 <article class="theorem theorem-like" id="thm_7_d_pseudoinverse"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">30.6</span><span class="period">.</span><span class="space"> </span><span class="title">The Moore-Penrose Conditions.</span>
 </h3>
-<p id="p-5163">A pseudoinverse of a matrix <span class="process-math">\(A\)</span> is a matrix <span class="process-math">\(A^+\)</span> that satisfies the following properties.</p>
+<p id="p-5127">A pseudoinverse of a matrix <span class="process-math">\(A\)</span> is a matrix <span class="process-math">\(A^+\)</span> that satisfies the following properties.</p>
 <ol class="decimal">
-<li id="li-780"><p id="p-5164"><span class="process-math">\(\displaystyle AA^{+}A = A\)</span></p></li>
-<li id="li-781"><p id="p-5165"><span class="process-math">\(\displaystyle A^{+}AA^{+} = A^{+}\)</span></p></li>
-<li id="li-782"><p id="p-5166"><span class="process-math">\(\displaystyle (AA^{+})^{\tr} = AA^{+}\)</span></p></li>
-<li id="li-783"><p id="p-5167"><span class="process-math">\(\displaystyle (A^{+}A)^{\tr} = A^{+}A\)</span></p></li>
-</ol></article><p id="p-5168">Also, there is a unique matrix <span class="process-math">\(A^+\)</span> that satisfies these properties. The verification of this property is left to the exercises.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-50"><div class="fn">
+<li id="li-771"><p id="p-5128"><span class="process-math">\(\displaystyle AA^{+}A = A\)</span></p></li>
+<li id="li-772"><p id="p-5129"><span class="process-math">\(\displaystyle A^{+}AA^{+} = A^{+}\)</span></p></li>
+<li id="li-773"><p id="p-5130"><span class="process-math">\(\displaystyle (AA^{+})^{\tr} = AA^{+}\)</span></p></li>
+<li id="li-774"><p id="p-5131"><span class="process-math">\(\displaystyle (A^{+}A)^{\tr} = A^{+}A\)</span></p></li>
+</ol></article><p id="p-5132">Also, there is a unique matrix <span class="process-math">\(A^+\)</span> that satisfies these properties. The verification of this property is left to the exercises.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-49"><div class="fn">
 <a href="" class="xref" data-knowl="./knowl/thm_7_d_pseudoinverse.html" title="Theorem 30.6: The Moore-Penrose Conditions">Theorem 30.6</a> is often given as the definition of a pseudoinverse.</div></div>
 </div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

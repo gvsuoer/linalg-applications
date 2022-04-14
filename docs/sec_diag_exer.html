@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:55-04:00       *-->
+<!--*       on 2022-04-14T13:03:31-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -754,34 +752,16 @@
 <article class="exercise exercise-like" id="exercise-175"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-304"><p id="p-3259">Determine if each of the following matrices is diagonalizable or not. For diagonalizable matrices, clearly identify a matrix <span class="process-math">\(P\)</span> which diagonalizes the matrix, and what the resulting diagonal matrix is.</p></div>
 <article class="task exercise-like" id="task-1072"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3260"><span class="process-math">\(A=\left[ \begin{array}{cr} 2\amp -1\\ 1\amp 4 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-237" id="answer-237"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-237"><div class="answer solution-like"><p id="p-3261">Not diagonalizable.</p></div></div>
-</div></article><article class="task exercise-like" id="task-1073"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3262"><span class="process-math">\(A=\left[ \begin{array}{rcr} -1 \amp 4 \amp -2 \\ -3 \amp 4 \amp 0 \\ -3 \amp 1 \amp 3 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-238" id="answer-238"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-238"><div class="answer solution-like"><p id="p-3263">Diagonalizable by <span class="process-math">\(P = \left[ \begin{array}{ccc} 1\amp 2\amp 1\\1\amp 3\amp 3\\1\amp 3\amp 4 \end{array} \right]\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-176"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-3260"><span class="process-math">\(A=\left[ \begin{array}{cr} 2\amp -1\\ 1\amp 4 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1073"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3262"><span class="process-math">\(A=\left[ \begin{array}{rcr} -1 \amp 4 \amp -2 \\ -3 \amp 4 \amp 0 \\ -3 \amp 1 \amp 3 \end{array} \right]\)</span></p></article></article><article class="exercise exercise-like" id="exercise-176"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <p id="p-3264">The <span class="process-math">\(3\times 3\)</span> matrix <span class="process-math">\(A\)</span> has two eigenvalues <span class="process-math">\(\lambda_1=2\)</span> and <span class="process-math">\(\lambda_2=3\text{.}\)</span> The vectors <span class="process-math">\(\left[ \begin{array}{c} 1\\2\\1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\left[ \begin{array}{r} 1\\-1\\2 \end{array} \right]\text{,}\)</span> and <span class="process-math">\(\left[ \begin{array}{c} 2\\4\\2 \end{array} \right]\)</span> are eigenvectors for <span class="process-math">\(\lambda_1=2\text{,}\)</span> while the vectors <span class="process-math">\(\left[ \begin{array}{c} 1\\1\\1 \end{array} \right], \left[ \begin{array}{c} 2\\2\\2 \end{array} \right]\)</span> are eigenvectors for <span class="process-math">\(\lambda_2=3\text{.}\)</span> Find the matrix <span class="process-math">\(A\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-177"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
-<p id="p-3265">Find a <span class="process-math">\(2\times 2\)</span> non-diagonal matrix <span class="process-math">\(A\)</span> and two different pairs of <span class="process-math">\(P\)</span> and <span class="process-math">\(D\)</span> matrices for which <span class="process-math">\(A=PDP^{-1}\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-239" id="answer-239"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-239"><div class="answer solution-like"><p id="p-3266"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2\\0\amp 2 \end{array} \right]\text{,}\)</span> <span class="process-math">\(P_1 = \left[ \begin{array}{cc} 1\amp 2 \\ 0\amp 1 \end{array} \right]\text{,}\)</span> we have <span class="process-math">\(D_1 = \left[ \begin{array}{cc} 1\amp 0 \\ 0\amp 2 \end{array} \right]\text{,}\)</span> <span class="process-math">\(P_2 = \left[ \begin{array}{cc} 2\amp 1 \\ 1\amp 0 \end{array} \right]\text{,}\)</span> <span class="process-math">\(D_2 = \left[ \begin{array}{cc} 2\amp 0 \\ 0\amp 1 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-178"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
+<p id="p-3265">Find a <span class="process-math">\(2\times 2\)</span> non-diagonal matrix <span class="process-math">\(A\)</span> and two different pairs of <span class="process-math">\(P\)</span> and <span class="process-math">\(D\)</span> matrices for which <span class="process-math">\(A=PDP^{-1}\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-178"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <p id="p-3267">Find a <span class="process-math">\(2\times 2\)</span> non-diagonal matrix <span class="process-math">\(A\)</span> and two different <span class="process-math">\(P\)</span> matrices for which <span class="process-math">\(A=PDP^{-1}\)</span> with the same <span class="process-math">\(D\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-179"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
-<p id="p-3268">Suppose a <span class="process-math">\(4\times 4\)</span> matrix <span class="process-math">\(A\)</span> has eigenvalues 2, 3 and 5 and the eigenspace for the eigenvalue 3 has dimension 2. Do we have enough information to determine if <span class="process-math">\(A\)</span> is diagonalizable? Explain.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-240" id="answer-240"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-240"><div class="answer solution-like"><p id="p-3269">Yes</p></div></div>
-</div></article><article class="exercise exercise-like" id="ex_4_c_diagonal_converse"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<p id="p-3268">Suppose a <span class="process-math">\(4\times 4\)</span> matrix <span class="process-math">\(A\)</span> has eigenvalues 2, 3 and 5 and the eigenspace for the eigenvalue 3 has dimension 2. Do we have enough information to determine if <span class="process-math">\(A\)</span> is diagonalizable? Explain.</p></article><article class="exercise exercise-like" id="ex_4_c_diagonal_converse"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <p id="p-3270">Let <span class="process-math">\(A\)</span> be a diagonalizable <span class="process-math">\(n \times n\)</span> matrix. Show that <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> linearly independent eigenvectors.</p></article><article class="exercise exercise-like" id="exercise-181"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
 <article class="task exercise-like" id="task-1074"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3271">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1\\0\amp 1 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{cc} 1\amp 2\\0\amp 1 \end{array} \right]\text{.}\)</span> Find the eigenvalues and eigenvectors of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> Conclude that it is possible for two different <span class="process-math">\(n \times n\)</span> matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> to have exactly the same eigenvectors and corresponding eigenvalues.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-241" id="answer-241"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-241"><div class="answer solution-like"><p id="p-3272">Eigenvalues, 1; eigenvectors : <span class="process-math">\(\Span \{[1 \ 0]^{\tr}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1075"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3273">A natural question to ask is if there are any conditions under which <span class="process-math">\(n \times n\)</span> matrices that have exactly the same eigenvectors and corresponding eigenvalues must be equal. Determine the answer to this question if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are both diagonalizable.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-242" id="answer-242"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-242"><div class="answer solution-like"><p id="p-3274">Diagonalizable</p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-182"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<p id="p-3271">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1\\0\amp 1 \end{array} \right]\)</span> and <span class="process-math">\(B = \left[ \begin{array}{cc} 1\amp 2\\0\amp 1 \end{array} \right]\text{.}\)</span> Find the eigenvalues and eigenvectors of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> Conclude that it is possible for two different <span class="process-math">\(n \times n\)</span> matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> to have exactly the same eigenvectors and corresponding eigenvalues.</p></article><article class="task exercise-like" id="task-1075"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3273">A natural question to ask is if there are any conditions under which <span class="process-math">\(n \times n\)</span> matrices that have exactly the same eigenvectors and corresponding eigenvalues must be equal. Determine the answer to this question if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are both diagonalizable.</p></article></article><article class="exercise exercise-like" id="exercise-182"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
 <article class="task exercise-like" id="task-1076"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3275">Show that if <span class="process-math">\(D\)</span> and <span class="process-math">\(D'\)</span> are <span class="process-math">\(n \times n\)</span> diagonal matrices, then <span class="process-math">\(DD' = D'D\text{.}\)</span></p></article><article class="task exercise-like" id="task-1077"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3276">Show that if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are <span class="process-math">\(n \times n\)</span> matrices and <span class="process-math">\(P\)</span> is an invertible <span class="process-math">\(n \times n\)</span> matrix such that <span class="process-math">\(P^{-1}AP = D\)</span> and <span class="process-math">\(P^{-1}BP = D'\)</span> with <span class="process-math">\(D\)</span> and <span class="process-math">\(D'\)</span> diagonal matrices, then <span class="process-math">\(AB = BA\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="ex_trace_eigenvalues"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
@@ -791,37 +771,28 @@
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">19.8</span><span class="period">.</span>
 </h4>
 <p id="p-3278">The <dfn class="terminology">trace</dfn> of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A = [a_{ij}]\)</span> is the sum of the diagonal entries of <span class="process-math">\(A\text{.}\)</span> That is,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \trace(A) = a_{11} + a_{22} + \cdots + a_{nn} = \sum_{i=1}^n a_{ii}\text{.}
 \end{equation*}
 </div></article>
 </div>
 <article class="task exercise-like" id="task-1078"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3279">Show that if <span class="process-math">\(R = [r_{ij}]\)</span> and <span class="process-math">\(S = [s_{ij}]\)</span> are <span class="process-math">\(n \times n\)</span> matrices, then <span class="process-math">\(\trace(RS) = \trace(SR)\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-243" id="answer-243"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-243"><div class="answer solution-like"><p id="p-3280">The <span class="process-math">\(ii\)</span> entry of <span class="process-math">\(RS\)</span> is <span class="process-math">\(r_{i1}s_{1i} + r_{i2}s_{2i} + \cdots + r_{in}s_{ni}\text{.}\)</span> The <span class="process-math">\(jj\)</span> entry of <span class="process-math">\(SR\)</span> is <span class="process-math">\(s_{j1}r_{1j} + s_{j2}r_{2j} + \cdots + s_{jn}r_{nj}\text{.}\)</span> Sum as <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> go from <span class="process-math">\(1\)</span> to <span class="process-math">\(n\text{.}\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1079"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3279">Show that if <span class="process-math">\(R = [r_{ij}]\)</span> and <span class="process-math">\(S = [s_{ij}]\)</span> are <span class="process-math">\(n \times n\)</span> matrices, then <span class="process-math">\(\trace(RS) = \trace(SR)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1079"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <div class="introduction" id="introduction-306"><p id="p-3281">Let <span class="process-math">\(A\)</span> be a diagonalizable <span class="process-math">\(n \times n\)</span> matrix, and let <span class="process-math">\(p(\lambda) = \det(A - \lambda I_n)\)</span> be the characteristic polynomial of <span class="process-math">\(A\text{.}\)</span> Let <span class="process-math">\(P\)</span> be an invertible matrix such that <span class="process-math">\(P^{-1}AP = D\text{,}\)</span> where <span class="process-math">\(D\)</span> is the diagonal matrix whose diagonal entries are <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_n\text{,}\)</span> the eigenvalues of <span class="process-math">\(A\)</span> (note that these eigenvalues may not all be distinct).</p></div>
 <article class="task exercise-like" id="task-1080"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-3282">Explain why <span class="process-math">\(\trace(A) = \trace(D)\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-244" id="answer-244"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-244"><div class="answer solution-like"><p id="p-3283"><span class="process-math">\(\trace(D) = \trace\left(P^{-1}(AP)\right) = \trace\left((AP)P^{-1}\right) = \trace(A)\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1081"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-3284">Show that the trace of an <span class="process-math">\(n \times n\)</span> diagonalizable matrix is the sum of the eigenvalues of the matrix.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-245" id="answer-245"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-245"><div class="answer solution-like"><p id="p-3285"><span class="process-math">\(\trace\left(A\right) = \trace(D) = \sum_{i=1}^n \lambda_i\)</span></p></div></div>
-</div></article></article></article><article class="exercise exercise-like" id="ex_4_c_matrix_exponential"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
+<p id="p-3282">Explain why <span class="process-math">\(\trace(A) = \trace(D)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1081"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-3284">Show that the trace of an <span class="process-math">\(n \times n\)</span> diagonalizable matrix is the sum of the eigenvalues of the matrix.</p></article></article></article><article class="exercise exercise-like" id="ex_4_c_matrix_exponential"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-307"><p id="p-3286">In this exercise we generalize the result of <a href="" class="xref" data-knowl="./knowl/ex_2_a_matrix_exponential.html" title="Exercise 12">Exercise 12</a> in <a href="chap_matrix_operations.html" class="internal" title="Chapter 8: Matrix Operations">Chapter 8</a> to arbitrary diagonalizable matrices.</p></div>
 <article class="task exercise-like" id="task-1082"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3287">Show that if</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 D=\left[ \begin{array}{ccccc} \lambda_1\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  \lambda_2\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  \lambda_n \end{array}  \right]\text{,}
 \end{equation*}
 </div>
 <p class="continuation">then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 e^D =  \left[ \begin{array}{ccccc} e^{\lambda_1}\amp  0 \amp 0\amp  \cdots \amp 0 \\ 0 \amp  e^{\lambda_2}\amp  0 \amp \cdots \amp  0 \\ \vdots \amp \vdots \amp \vdots \amp  \ddots \amp  \vdots \\ 0 \amp  0\amp  0 \amp \cdots \amp  e^{\lambda_n} \end{array}  \right]\text{.}
 \end{equation*}
@@ -829,42 +800,32 @@ e^D =  \left[ \begin{array}{ccccc} e^{\lambda_1}\amp  0 \amp 0\amp  \cdots \amp 
 <p id="p-3288">Now suppose that an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable, with <span class="process-math">\(P^{-1}AP\)</span> equal to a diagonal matrix <span class="process-math">\(D\text{.}\)</span> Show that <span class="process-math">\(e^A = Pe^DP^{-1}\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="ex_4_c_matrix_exponential_examples"><h3 class="heading"><span class="codenumber">11<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-308"><p id="p-3289">Let <span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 1\\0\amp 0 \end{array} \right]\)</span> and let <span class="process-math">\(B = \left[ \begin{array}{cr} 0\amp -1 \\ 0\amp 0 \end{array} \right]\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1084"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3290">Use the result of <a href="" class="xref" data-knowl="./knowl/ex_4_c_matrix_exponential.html" title="Exercise 10">Exercise 10</a> to calculate <span class="process-math">\(e^A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-246" id="answer-246"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-246"><div class="answer solution-like"><p id="p-3291"><span class="process-math">\(e^A = \left[ \begin{array}{cc} e\amp e-1\\0\amp 1 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1085"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3290">Use the result of <a href="" class="xref" data-knowl="./knowl/ex_4_c_matrix_exponential.html" title="Exercise 10">Exercise 10</a> to calculate <span class="process-math">\(e^A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1085"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3292">Calculate <span class="process-math">\(e^B\text{.}\)</span></p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-24" id="hint-24"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-24"><div class="hint solution-like"><p id="p-3293">Explain why <span class="process-math">\(B\)</span> is not diagonalizable.</p></div></div>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-247" id="answer-247"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-247"><div class="answer solution-like"><p id="p-3294"><span class="process-math">\(e^B = I_2 + B = \left[ \begin{array}{cr} 1\amp -1 \\ 0\amp 1 \end{array} \right]\text{.}\)</span></p></div></div>
 </div></article><article class="task exercise-like" id="task-1086"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3295">Use the result of <a href="" class="xref" data-knowl="./knowl/ex_4_c_matrix_exponential.html" title="Exercise 10">Exercise 10</a> to calculate <span class="process-math">\(e^{A+B}\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-248" id="answer-248"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-248"><div class="answer solution-like"><p id="p-3296"><span class="process-math">\(e^{A+B} = \left[ \begin{array}{cc} e\amp 0 \\ 0\amp 1 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1087"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<p id="p-3297">The real exponential function satisfies some familiar properties. For example, <span class="process-math">\(e^xe^y = e^ye^x\)</span> and <span class="process-math">\(e^{x+y} = e^x e^y\)</span> for any real numbers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> Does the matrix exponential satisfy the corresponding properties. That is, if <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are <span class="process-math">\(n \times n\)</span> matrices, must <span class="process-math">\(e^Xe^Y = e^Ye^X\)</span> and <span class="process-math">\(e^{X+Y} = e^X e^Y\text{?}\)</span> Explain.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-249" id="answer-249"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-249"><div class="answer solution-like"><p id="p-3298">No</p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-186"><h3 class="heading"><span class="codenumber">12<span class="period">.</span></span></h3>
+<p id="p-3295">Use the result of <a href="" class="xref" data-knowl="./knowl/ex_4_c_matrix_exponential.html" title="Exercise 10">Exercise 10</a> to calculate <span class="process-math">\(e^{A+B}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1087"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-3297">The real exponential function satisfies some familiar properties. For example, <span class="process-math">\(e^xe^y = e^ye^x\)</span> and <span class="process-math">\(e^{x+y} = e^x e^y\)</span> for any real numbers <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> Does the matrix exponential satisfy the corresponding properties. That is, if <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are <span class="process-math">\(n \times n\)</span> matrices, must <span class="process-math">\(e^Xe^Y = e^Ye^X\)</span> and <span class="process-math">\(e^{X+Y} = e^X e^Y\text{?}\)</span> Explain.</p></article></article><article class="exercise exercise-like" id="exercise-186"><h3 class="heading"><span class="codenumber">12<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-309"><p id="p-3299">In <a href="" class="xref" data-knowl="./knowl/ex_4_c_matrix_exponential_examples.html" title="Exercise 11">Exercise 11</a> we see that we cannot conclude that <span class="process-math">\(e^{X+Y} = e^X e^Y\)</span> for <span class="process-math">\(n \times n\)</span> matrices <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{.}\)</span> However, a more limited property is true.</p></div>
 <article class="task exercise-like" id="task-1088"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="introduction" id="introduction-310">&gt; <p id="p-3300">Follow the steps indicated to show that if <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix and <span class="process-math">\(s\)</span> and <span class="process-math">\(t\)</span> are any scalars, then <span class="process-math">\(e^{As} e^{At} = e^{A(s+t)}\text{.}\)</span> (Although we will not use it, you may assume that the series for <span class="process-math">\(e^A\)</span> converges for any square matrix <span class="process-math">\(A\text{.}\)</span>)</p>
 </div>
 <article class="task exercise-like" id="task-1089"><h5 class="heading"><span class="codenumber">(i)</span></h5>
 <p id="p-3301">Use the definition to show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 e^{As}e^{At} = \sum_{k \geq 0} \sum_{m \geq 0} \frac{s^kt^m}{k!}m! A^{k+m}\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-1090"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
 <p id="p-3302">Relabel and reorder terms with <span class="process-math">\(n = k+m\)</span> to show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 e^{As}e^{At} = sum_{n \geq 0} \frac{1}{n!} A^n \sum_{m = 0}^n \frac{n!}{(n-m)!m!} s^{n-m}t^m\text{.}
 \end{equation*}
 </div></article><article class="task exercise-like" id="task-1091"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p id="p-3303">Complete the problem using the Binomial Theorem that says</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 (s+t)^n =  \sum_{m = 0}^n \frac{n!} {(n-m)!m!} s^{n-m}t^m\text{.}
 \end{equation*}
@@ -872,34 +833,12 @@ e^{As}e^{At} = sum_{n \geq 0} \frac{1}{n!} A^n \sum_{m = 0}^n \frac{n!}{(n-m)!m!
 <p id="p-3304">Use the result of part (a) to show that <span class="process-math">\(e^A\)</span> is an invertible matrix for any <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span></p></article></article><article class="exercise exercise-like" id="exercise-187"><h3 class="heading"><span class="codenumber">13<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-311"><p id="p-3305">There is an interesting connection between the determinant of a matrix exponential and the trace of the matrix. Let <span class="process-math">\(A\)</span> be a diagonalizable <span class="process-math">\(n \times n\)</span> matrix with real entries. Let <span class="process-math">\(D = P^{-1}AP\)</span> for some invertible matrix <span class="process-math">\(P\text{,}\)</span> where <span class="process-math">\(D\)</span> is the diagonal matrix with entries <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_n\)</span> the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1093"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3306">Show that <span class="process-math">\(e^A = Pe^DP^{-1}\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-250" id="answer-250"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-250"><div class="answer solution-like"><div class="displaymath process-math" id="p-3307">
-\begin{align*}
-e^A \amp = e^{PDP^{-1}}\\
-\amp = \sum_{k \geq 0} \frac{1}{k!} \left(PDP^{-1}\right)^k\\
-\amp =  \sum_{k \geq 0} \frac{1}{k!} PD^kP^{-1}\\
-\amp =  P\left(\sum_{k \geq 0} \frac{1}{k!} D^k\right) P^{-1}\\
-\amp = Pe^DP^{-1}\text{.}
-\end{align*}
-</div></div></div>
-</div></article><article class="task exercise-like" id="task-1094"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3306">Show that <span class="process-math">\(e^A = Pe^DP^{-1}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1094"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-3308">Use <a href="" class="xref" data-knowl="./knowl/ex_trace_eigenvalues.html" title="Exercise 9">Exercise 9</a> to show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex_trace_eigenvalues.html">
 \begin{equation*}
 \det\left(e^A\right) = e^{\trace(A)}\text{.}
 \end{equation*}
-</div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-251" id="answer-251"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-251"><div class="answer solution-like"><div class="displaymath process-math" id="p-3309">
-\begin{align*}
-\det\left(e^A\right) \amp = \det\left(Pe^DP^{-1}\right)\\
-\amp =  \det\left(e^D\right)\\
-\amp = e^{\lambda_1}e^{\lambda^2} \cdots e^{\lambda_n}\\
-\amp = e^{\lambda_1+\lambda^2+ \cdots + \lambda_n}\\
-\amp = e^{\trace(A)}\text{.}
-\end{align*}
-</div></div></div>
 </div></article></article><article class="exercise exercise-like" id="ex_Cayley-Hamilton"><h3 class="heading"><span class="codenumber">14<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-312"><p id="p-3310">There is interesting relationship between a matrix and its characteristic equation that we explore in this exercise.</p></div>
 <article class="task exercise-like" id="task-1095"><h4 class="heading"><span class="codenumber">(a)</span></h4>
@@ -912,49 +851,34 @@ e^A \amp = e^{PDP^{-1}}\\
 <article class="task exercise-like" id="task-1099"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3316">If matrix <span class="process-math">\(A\)</span> is diagonalizable, then so is <span class="process-math">\(A^T\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-252" id="answer-252"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-252"><div class="answer solution-like"><p id="p-3317">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1100"><h4 class="heading">
+<p id="p-3316">If matrix <span class="process-math">\(A\)</span> is diagonalizable, then so is <span class="process-math">\(A^T\text{.}\)</span></p></article><article class="task exercise-like" id="task-1100"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3318">If matrix <span class="process-math">\(A\)</span> is diagonalizable, then <span class="process-math">\(A\)</span> is invertible.</p></article><article class="task exercise-like" id="task-1101"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3319">If an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable, then <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> distinct eigenvalues.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-253" id="answer-253"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-253"><div class="answer solution-like"><p id="p-3320">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-1102"><h4 class="heading">
+<p id="p-3319">If an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> is diagonalizable, then <span class="process-math">\(A\)</span> has <span class="process-math">\(n\)</span> distinct eigenvalues.</p></article><article class="task exercise-like" id="task-1102"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3321">If matrix <span class="process-math">\(A\)</span> is invertible and diagonalizable, then so is <span class="process-math">\(A^{-1}\text{.}\)</span></p></article><article class="task exercise-like" id="task-1103"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3322">If an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(C\)</span> is diagonalizable, then there exists a basis of <span class="process-math">\(\R^n\)</span> consisting of the eigenvectors of <span class="process-math">\(C\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-254" id="answer-254"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-254"><div class="answer solution-like"><p id="p-3323">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1104"><h4 class="heading">
+<p id="p-3322">If an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(C\)</span> is diagonalizable, then there exists a basis of <span class="process-math">\(\R^n\)</span> consisting of the eigenvectors of <span class="process-math">\(C\text{.}\)</span></p></article><article class="task exercise-like" id="task-1104"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3324">An <span class="process-math">\(n\times n\)</span> matrix with <span class="process-math">\(n\)</span> distinct eigenvalues is diagonalizable.</p></article><article class="task exercise-like" id="task-1105"><h4 class="heading">
 <span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3325">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> diagonalizable matrix, then there is a unique diagonal matrix such that <span class="process-math">\(P^{-1}AP = D\)</span> for some invertible matrix <span class="process-math">\(P\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-255" id="answer-255"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-255"><div class="answer solution-like"><p id="p-3326">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-1106"><h4 class="heading">
+<p id="p-3325">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> diagonalizable matrix, then there is a unique diagonal matrix such that <span class="process-math">\(P^{-1}AP = D\)</span> for some invertible matrix <span class="process-math">\(P\text{.}\)</span></p></article><article class="task exercise-like" id="task-1106"><h4 class="heading">
 <span class="codenumber">(h)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3327">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix with eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> then the dimension of the eigenspace of <span class="process-math">\(A\)</span> corresponding to the eigenvalue <span class="process-math">\(\lambda\)</span> is <span class="process-math">\(n - \rank(A - \lambda I_n)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1107"><h4 class="heading">
 <span class="codenumber">(i)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3328">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(e^\lambda\)</span> is an eigenvalue of <span class="process-math">\(e^A\text{.}\)</span> (See <a href="" class="xref" data-knowl="./knowl/ex_2_a_matrix_exponential.html" title="Exercise 12">Exercise 12</a> in <a href="chap_matrix_operations.html" class="internal" title="Chapter 8: Matrix Operations">Chapter 8</a> for information on the matrix exponential.)</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-256" id="answer-256"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-256"><div class="answer solution-like"><p id="p-3329">T</p></div></div>
-</div></article></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-33"><div class="fn">This result is true for any matrix, but the argument is more complicated.</div></div>
+<p id="p-3328">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of an <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(e^\lambda\)</span> is an eigenvalue of <span class="process-math">\(e^A\text{.}\)</span> (See <a href="" class="xref" data-knowl="./knowl/ex_2_a_matrix_exponential.html" title="Exercise 12">Exercise 12</a> in <a href="chap_matrix_operations.html" class="internal" title="Chapter 8: Matrix Operations">Chapter 8</a> for information on the matrix exponential.)</p></article></article></section><div class="hidden-content tex2jax_ignore" id="hk-fn-33"><div class="fn">This result is true for any matrix, but the argument is more complicated.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-34"><div class="fn">This result is known as the Cayley-Hamilton Theorem and is one of the fascinating results in linear algebra. This result is true for any square matrix.</div></div>
 </div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

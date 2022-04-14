@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:26:53-04:00       *-->
+<!--*       on 2022-04-14T13:05:23-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -750,12 +748,12 @@
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_orthog_diag_intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Introduction</span>
 </h2>
-<p id="p-4529">We have seen how to diagonalize a matrix — if we can find <span class="process-math">\(n\)</span> linearly independent eigenvectors of an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> and let <span class="process-math">\(P\)</span> be the matrix whose columns are those eigenvectors, then <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix with the eigenvalues down the diagonal in the same order corresponding to the eigenvectors placed in <span class="process-math">\(P\text{.}\)</span> We will see that in certain cases we can take this one step further and create an orthogonal matrix with eigenvectors as columns to diagonalize a matrix. This is called orthogonal diagonalization. Orthogonal diagonalizability is useful in that it allows us to find a “convenient” coordinate system in which to interpret the results of certain matrix transformations. A set of orthonormal basis vectors for an orthogonally diagonalizable matrix <span class="process-math">\(A\)</span> is called a set of <dfn class="terminology">principal axes</dfn> for <span class="process-math">\(A\text{.}\)</span> Orthogonal diagonalization will also play a crucial role in the singular value decomposition of a matrix, a decomposition that has been described by some as the “pinnacle” of linear algebra.</p>
+<p id="p-4530">We have seen how to diagonalize a matrix — if we can find <span class="process-math">\(n\)</span> linearly independent eigenvectors of an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> and let <span class="process-math">\(P\)</span> be the matrix whose columns are those eigenvectors, then <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix with the eigenvalues down the diagonal in the same order corresponding to the eigenvectors placed in <span class="process-math">\(P\text{.}\)</span> We will see that in certain cases we can take this one step further and create an orthogonal matrix with eigenvectors as columns to diagonalize a matrix. This is called orthogonal diagonalization. Orthogonal diagonalizability is useful in that it allows us to find a “convenient” coordinate system in which to interpret the results of certain matrix transformations. A set of orthonormal basis vectors for an orthogonally diagonalizable matrix <span class="process-math">\(A\)</span> is called a set of <dfn class="terminology">principal axes</dfn> for <span class="process-math">\(A\text{.}\)</span> Orthogonal diagonalization will also play a crucial role in the singular value decomposition of a matrix, a decomposition that has been described by some as the “pinnacle” of linear algebra.</p>
 <article class="definition definition-like" id="def_7_a_orthogonal__diagonalization"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">27.3</span><span class="period">.</span>
 </h3>
-<p id="p-4530">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">orthogonally diagonalizable</dfn> if there is an orthogonal matrix <span class="process-math">\(P\)</span> such that</p>
-<div class="displaymath process-math">
+<p id="p-4531">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is <dfn class="terminology">orthogonally diagonalizable</dfn> if there is an orthogonal matrix <span class="process-math">\(P\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 P^{\tr}AP
 \end{equation*}
@@ -764,13 +762,13 @@ P^{\tr}AP
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">27.1</span><span class="period">.</span>
 </h3>
 <article class="task exercise-like" id="task-1501"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="introduction" id="introduction-443"><p id="p-4531">For each matrix <span class="process-math">\(A\)</span> whose eigenvalues and corresponding eigenvectors are given, find a matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix.</p></div>
+<div class="introduction" id="introduction-443"><p id="p-4532">For each matrix <span class="process-math">\(A\)</span> whose eigenvalues and corresponding eigenvectors are given, find a matrix <span class="process-math">\(P\)</span> such that <span class="process-math">\(P^{-1}AP\)</span> is a diagonal matrix.</p></div>
 <article class="task exercise-like" id="task-1502"><h5 class="heading"><span class="codenumber">(i)</span></h5>
-<p id="p-4532"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 1 \end{array} \right]\)</span> with eigenvalues <span class="process-math">\(-1\)</span> and 3 and corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1 \\ 1 \end{array} \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]\text{.}\)</span></p></article><article class="task exercise-like" id="task-1503"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
-<p id="p-4533"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2 \\ 1\amp 2 \end{array} \right]\)</span> with eigenvalues <span class="process-math">\(0\)</span> and <span class="process-math">\(3\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -2 \\ 1 \end{array} \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]\text{.}\)</span></p></article><article class="task exercise-like" id="task-1504"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
-<p id="p-4534"><span class="process-math">\(A = \left[ \begin{array}{ccc} 1\amp 0\amp 1 \\ 0\amp 1\amp 1 \\ 1\amp 1\amp 2 \end{array} \right]\)</span> with eigenvalues <span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> and <span class="process-math">\(3\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1 \\ -1 \\ 1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]\text{,}\)</span> and <span class="process-math">\(\vv_3 = \left[ \begin{array}{c} 1 \\ 1 \\ 2 \end{array} \right]\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-1505"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-4535">Which matrices in part 1 seem to satisfy the orthogonal diagonalization requirement? Do you notice any common traits among these matrices?</p></article></article></section></div></main>
+<p id="p-4533"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2 \\ 2\amp 1 \end{array} \right]\)</span> with eigenvalues <span class="process-math">\(-1\)</span> and 3 and corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1 \\ 1 \end{array} \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]\text{.}\)</span></p></article><article class="task exercise-like" id="task-1503"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<p id="p-4534"><span class="process-math">\(A = \left[ \begin{array}{cc} 1\amp 2 \\ 1\amp 2 \end{array} \right]\)</span> with eigenvalues <span class="process-math">\(0\)</span> and <span class="process-math">\(3\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -2 \\ 1 \end{array} \right]\)</span> and <span class="process-math">\(\vv_2 = \left[ \begin{array}{c} 1 \\ 1 \end{array} \right]\text{.}\)</span></p></article><article class="task exercise-like" id="task-1504"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
+<p id="p-4535"><span class="process-math">\(A = \left[ \begin{array}{ccc} 1\amp 0\amp 1 \\ 0\amp 1\amp 1 \\ 1\amp 1\amp 2 \end{array} \right]\)</span> with eigenvalues <span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> and <span class="process-math">\(3\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1 = \left[ \begin{array}{r} -1 \\ -1 \\ 1 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\vv_2 = \left[ \begin{array}{r} -1 \\ 1 \\ 0 \end{array} \right]\text{,}\)</span> and <span class="process-math">\(\vv_3 = \left[ \begin{array}{c} 1 \\ 1 \\ 2 \end{array} \right]\text{.}\)</span></p></article></article><article class="task exercise-like" id="task-1505"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-4536">Which matrices in part 1 seem to satisfy the orthogonal diagonalization requirement? Do you notice any common traits among these matrices?</p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

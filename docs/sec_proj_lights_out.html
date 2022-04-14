@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:23:32-04:00       *-->
+<!--*       on 2022-04-14T13:01:44-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -763,16 +761,16 @@
 <li id="li-449"><p id="p-2324">For our purposes a better way to visualize a Lights Out configuration is as a <span class="process-math">\(25 \times 1\)</span> vector. The components in this vector correspond to the entries in the <span class="process-math">\(5 \times 5\)</span> grid with the correspondence given by the numbering demonstrated in <a href="" class="xref" data-knowl="./knowl/F_LO.html" title="Figure 13.10">Figure 13.10</a> (for the sake of space, this array is shown in a row instead of a column). Again, each component is assigned a 0 or 1 according to whether the light for that entry is off or on. In this view, each configuration is a vector with 25 components in <span class="process-math">\(\Z_2\text{.}\)</span></p></li>
 </ul>
 <figure class="figure figure-like" id="F_LO"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/LO.svg" role="img" class="contained"></div>
-<div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/LO_vector.svg" role="img" class="contained"></div>
+<div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/LO_vector.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">13.10<span class="period">.</span></span><span class="space"> </span>Two representations of the Lights Out game.</figcaption></figure><p id="p-2325">We will take the latter perspective and view the Lights Out game as if it is played on a <span class="process-math">\(25 \times 1\)</span> board with entries in <span class="process-math">\(\Z_2\text{.}\)</span> The space of all of these Lights Out configurations is denoted as <span class="process-math">\(\Z_2^{25}\)</span> (similar to <span class="process-math">\(\R^{25}\text{,}\)</span> but with entries in <span class="process-math">\(\Z_2\)</span> rather than <span class="process-math">\(\R\)</span>). Since <span class="process-math">\(\Z_2\)</span> is a field, the space <span class="process-math">\(\Z_2^{25}\)</span> is a vector space just as <span class="process-math">\(\R^{25}\)</span> is. This is the environment in which we will play the Lights Out game.</p>
 <p id="p-2326">If we think about the game as played on a <span class="process-math">\(25 \times 1\)</span> board, then pressing a square correlates to selecting one of the 25 components of a configuration vector. Each time we press a square, we make a move that changes the status of that square and all the squares vertically or horizontally adjacent to it from the <span class="process-math">\(5 \times 5\)</span> board. Recalling that adding 1 to a square has the effect of changing its status (from on to off or off to on), and each move that we make in the game can be represented as a <span class="process-math">\(25 \times 1\)</span> vector that is added to a configuration. For example, the move of pressing the first square is given by adding the vector</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vm_{1} = [ 1 \ 1 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0\  0 \ 0 \ 0 \ 0 \ 0 ]^{\tr}
 \end{equation*}
 </div>
 <p class="continuation">to a configuration vector and the move of pressing the second square is represented by adding the vector</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vm_{2} = [ 1 \ 1 \ 1 \ 0 \ 0 \ 0 \ 1 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0 \ 0\  0 \ 0 \ 0 \ 0 \ 0 ]^{\tr}\text{.}
 \end{equation*}
@@ -792,22 +790,22 @@
 <p id="p-2332">What happens if we press the <span class="process-math">\(i\)</span>th square twice in a row? Explain in terms of the action and the game and verify using vector addition.</p></article><article class="task exercise-like" id="task-744"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-2333">Explain why applying move <span class="process-math">\(\vm_i\)</span> then move <span class="process-math">\(\vm_j\)</span> is the same as applying move <span class="process-math">\(\vm_j\text{,}\)</span> then <span class="process-math">\(\vm_i\text{.}\)</span></p></article><article class="task exercise-like" id="task-745"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <p id="p-2334">Explain how the answers to the previous two questions show that to play the game we only need to determine which buttons to press (and only once each) without worrying about the order in which the buttons are pressed.</p></article></article><p id="p-2335">What we have seen is that to play the game we are really looking for scalars <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{25}\)</span> in <span class="process-math">\(\Z_2\)</span> (in other words, either 0 or 1) so that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_LO1">
 \begin{equation}
-x_1\vm_1 + x_2\vm_2 + \cdots + x_{25}\vm_{25} + \vc = \vzero\text{.}\label{eq_LO1}\tag{13.1}
+x_1\vm_1 + x_2\vm_2 + \cdots + x_{25}\vm_{25} + \vc = \vzero\text{.}\tag{13.1}
 \end{equation}
 </div>
 <article class="project project-like" id="project-40"><h3 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">13.7</span><span class="period">.</span>
 </h3>
 <p id="p-2336">Explain why <a href="" class="xref" data-knowl="./knowl/eq_LO1.html" title="Equation 13.1">(13.1)</a> has the equivalent matrix equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_LO1.html" id="eq_LO2">
 \begin{equation}
-M\vx = \vc\text{,}\label{eq_LO2}\tag{13.2}
+M\vx = \vc\text{,}\tag{13.2}
 \end{equation}
 </div>
 <p class="continuation">where <span class="process-math">\(M = \left[\vm_1 | \vm_2 | \cdots | \vm_{25} \right]\text{,}\)</span> or</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_LO1.html">
 \begin{equation*}
 M =  \left[ \begin{array}{c c c c c c c c c c c c c c c c c c c c c c c c c } 1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \amp  0 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \amp  1 \\ 0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  1 \end{array} \right]\text{.}
 \end{equation*}
@@ -820,19 +818,19 @@ M =  \left[ \begin{array}{c c c c c c c c c c c c c c c c c c c c c c c c c } 1 
 <article class="task exercise-like" id="task-746"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-2340">Find a basis for the column space of <span class="process-math">\(M\text{.}\)</span></p></article><article class="task exercise-like" id="task-747"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-2341">Explain why not every Lights Out puzzle can be solved. That is, explain why there are some initial configurations of lights on and off for which it is not possible to turn out all the lights (without turning off the game). Relate this to the column space of <span class="process-math">\(M\text{.}\)</span></p></article></article><p id="p-2342">The reduced row echelon form of the matrix <span class="process-math">\(M\)</span> (using algebra in <span class="process-math">\(\Z_2\)</span>):</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[ \begin{array}{ccccccccccccccccccccccccc} 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 0\amp 0\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 0\amp 1\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 1\amp 1\amp 1 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \\ 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0\amp 0 \end{array}  \right]\text{.}
 \end{equation*}
 </div>
 <p id="p-2343">To find conditions under which a Lights Out game is not solvable, we will demonstrate that if <span class="process-math">\(A\)</span> is an <span class="process-math">\(n \times n\)</span> matrix, then the scalar product of any vector in <span class="process-math">\(\Nul A^{\tr}\)</span> with any column of <span class="process-math">\(A\)</span> is <span class="process-math">\(\vzero\text{.}\)</span> Let <span class="process-math">\(A = [a_{ij}]\)</span> be an <span class="process-math">\(n \times n\)</span> matrix with columns <span class="process-math">\(\va_1\text{,}\)</span> <span class="process-math">\(\va_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\va_n\text{.}\)</span> Represent the entries in the <span class="process-math">\(i\)</span>th column as <span class="process-math">\(\va_i = [a_{1i} \ a_{2i} \ \ldots \ a_{ni}]^{\tr}\)</span> for each <span class="process-math">\(i\)</span> between 1 and <span class="process-math">\(n\text{.}\)</span> Note that <span class="process-math">\(\va_i\)</span> is also the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A^{\tr}\text{.}\)</span> Also, let <span class="process-math">\(\vx = [x_1 \ x_2 \ \ldots \ x_n]^{\tr}\)</span> be a vector in <span class="process-math">\(\Nul A^{\tr}\text{.}\)</span> Then <span class="process-math">\(A^{\tr} \vx = \vzero\text{.}\)</span> Using the row-column method of multiplying a matrix by a vector, when we multiply the <span class="process-math">\(i\)</span>th row of <span class="process-math">\(A^{\tr}\)</span> with <span class="process-math">\(\vx\)</span> we obtain</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_LO_dp">
 \begin{equation}
-a_{1i}x_1 + a_{2i}x_2 + \cdots + a_{ni}x_n = 0\text{.}\label{eq_LO_dp}\tag{13.3}
+a_{1i}x_1 + a_{2i}x_2 + \cdots + a_{ni}x_n = 0\text{.}\tag{13.3}
 \end{equation}
 </div>
 <p id="p-2344">This equation is valid for each <span class="process-math">\(i\)</span> between 1 and <span class="process-math">\(n\text{.}\)</span> Recall that the sum in <a href="" class="xref" data-knowl="./knowl/eq_LO_dp.html" title="Equation 13.3">(13.3)</a> is the scalar product of <span class="process-math">\(\va_i\)</span> and <span class="process-math">\(\vx\)</span> and is denoted <span class="process-math">\(\va_i \cdot \vx\text{.}\)</span> That is,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_LO_dp.html">
 \begin{equation*}
 \va_i \cdot \vx = a_{i1}x_1 + a_{i2}x_2 + \cdots + a_{in}x_n\text{.}
 \end{equation*}
@@ -848,14 +846,14 @@ a_{1i}x_1 + a_{2i}x_2 + \cdots + a_{ni}x_n = 0\text{.}\label{eq_LO_dp}\tag{13.3}
 <article class="task exercise-like" id="task-748"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-2348">Find a basis for the null space of <span class="process-math">\(M^{\tr}\text{.}\)</span> (Recall that <span class="process-math">\(M^{\tr} = M\text{,}\)</span> so you can use the reduced row echelon form of <span class="process-math">\(M\)</span> (using algebra in <span class="process-math">\(\Z_2\)</span>) given earlier.)</p></article><article class="task exercise-like" id="task-749"><h4 class="heading"><span class="codenumber">(b)</span></h4>
 <p id="p-2349">Use  <a href="" class="xref" data-knowl="./knowl/thm_LO_Nul_Col.html" title="Theorem 13.11">Theorem 13.11</a> to show that if <span class="process-math">\(\vc = [c_1 \  c_2 \  \ldots \  c_{25}]^{\tr}\)</span> is an initial Lights Out configuration that is solvable, then <span class="process-math">\(\vc\)</span> must be orthogonal to each of the vectors in a basis for <span class="process-math">\(\Nul M^{\tr}\text{.}\)</span> Then show that if <span class="process-math">\(\vc\)</span> is a solvable initial Lights Out configuration, <span class="process-math">\(\vc\)</span> must satisfy</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_LO_Nul_Col.html" id="md-107">
 \begin{align*}
 c_2 + c_3 + c_4 + c_6 + c_8 + c_{10} + c_{11} + c_{12} \amp + c_{14} + c_{15} + c_{16} + c_{18}\\
 \amp + c_{20} + c_{22} + c_{23} + c_{24} = 0
 \end{align*}
 </div>
 <p class="continuation">and</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/thm_LO_Nul_Col.html">
 \begin{equation*}
 c_1 + c_3 + c_5 + c_6 + c_8 + c_{10} + c_{16} + c_{18} + c_{20} + c_{21} + c_{23} + c_{25} = 0\text{.}
 \end{equation*}
@@ -865,6 +863,6 @@ c_1 + c_3 + c_5 + c_6 + c_8 + c_{10} + c_{16} + c_{18} + c_{20} + c_{21} + c_{23
 </h3>
 <p id="p-2350">Now that we know which Lights Out games can be solved, let <span class="process-math">\(\vc\)</span> be an initial configuration to a solvable Lights Out game. Explain how to find a solution to this game. Will the solution be unique? Explain.</p></article><p id="p-2351">Now that we have a strategy for solving the Lights Out game, use it to solve random puzzles at <a class="external" href="https://www.geogebra.org/m/wcmctahp" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/wcmctahp</code></a>, or create your own game to solve.</p></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

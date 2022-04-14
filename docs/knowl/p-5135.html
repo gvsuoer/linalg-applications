@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:44:39-04:00       *-->
+<!--*       on 2022-04-14T13:21:45-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,12 +15,22 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Therefore, the condition number of <span class="process-math">\(A\)</span> is</p>
-<div class="displaymath process-math">
+<p>It follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\proj_{\Col A} \vb \amp = \sum_{i=1}^r \vu_i (\vu_i \cdot \vb)\\
+\amp = \sum_{i=1}^r \vu_i (\vu_i^{\tr}\vb)\\
+\amp = \sum_{i=1}^r (\vu_i\vu_i^{\tr}) \vb\\
+\amp = \left(\sum_{i=1}^r (1)(\vu_i\vu_i^{\tr})\right)\vb + \left(\sum_{i=r+1}^m 0(\vu_i\vu_i^{\tr})\right) \vb\\
+\amp = (UDU^{\tr}) \vb\text{,}
+\end{align*}
+</div>
+<p class="continuation">where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-||A^{-1}|| \ ||A|| = \frac{\sigma_1}{\sigma_n}\text{.}
+D = \left[ \begin{array}{c|c} I_r \amp  \vzero \\ \hline \vzero \amp  \vzero \end{array}  \right]\text{.}
 \end{equation*}
 </div>
-<span class="incontext"><a href="sec_mtx_cond_num.html#p-5135">in-context</a></span>
+<span class="incontext"><a href="sec_ls_approx_SVD.html#p-5135" class="internal">in-context</a></span>
 </body>
 </html>

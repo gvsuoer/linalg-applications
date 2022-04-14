@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:25:40-04:00       *-->
+<!--*       on 2022-04-14T13:04:20-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -751,65 +749,33 @@
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Exercises</span>
 </h2>
 <article class="exercise exercise-like" id="ex_4_f_det_multiple"><h3 class="heading"><span class="codenumber">1<span class="period">.</span></span></h3>
-<p id="p-3808">Find a formula for <span class="process-math">\(\det(rA)\)</span> in terms of <span class="process-math">\(r\)</span> and <span class="process-math">\(\det(A)\text{,}\)</span> where <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix and <span class="process-math">\(r\)</span> is a scalar. Explain why your formula is valid.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-281" id="answer-281"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-281"><div class="answer solution-like"><p id="p-3809"><span class="process-math">\(\det(rA) = r^{n} \det(A)\)</span></p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-209"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
+<p id="p-3808">Find a formula for <span class="process-math">\(\det(rA)\)</span> in terms of <span class="process-math">\(r\)</span> and <span class="process-math">\(\det(A)\text{,}\)</span> where <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix and <span class="process-math">\(r\)</span> is a scalar. Explain why your formula is valid.</p></article><article class="exercise exercise-like" id="exercise-209"><h3 class="heading"><span class="codenumber">2<span class="period">.</span></span></h3>
 <p id="p-3810">Find <span class="process-math">\(\det(A)\)</span> by hand using elementary row operations where</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A= \left[ \begin{array}{rrrr} 1\amp 2\amp -1\amp 3\\ -1\amp -2\amp 3\amp -1\\ -2\amp -1\amp 2\amp -3\\ 1\amp 8\amp -3\amp 8 \end{array}  \right] \,\text{.}
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-210"><h3 class="heading"><span class="codenumber">3<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-365"><p id="p-3811">Consider the matrix <span class="process-math">\(A= \left[ \begin{array}{rrrr} 4\amp -1\amp -1\amp -1 \\ -1\amp 4\amp -1\amp -1\\ -1\amp -1\amp 4\amp -1\\ -1\amp -1\amp -1\amp 4 \end{array}  \right]\text{.}\)</span> We will find <span class="process-math">\(\det(A)\)</span> using elementary row operations. (This matrix arises in graph theory, and its determinant gives the number of spanning trees in the complete graph with 5 vertices. This number is also equal to the number of labeled trees with 5 vertices.)</p></div>
 <article class="task exercise-like" id="task-1251"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3812">Add rows <span class="process-math">\(R_2\text{,}\)</span> <span class="process-math">\(R_3\)</span> and <span class="process-math">\(R_4\)</span> to the first row in that order.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-282" id="answer-282"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-282"><div class="answer solution-like"><p id="p-3813"><span class="process-math">\(A_1= \left[ \begin{array}{rrrr} 1\amp 1\amp 1\amp 1 \\ -1\amp 4\amp -1\amp -1\\ -1\amp -1\amp 4\amp -1\\ -1\amp -1\amp -1\amp 4 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1252"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3814">Then add the new <span class="process-math">\(R_1\)</span> to rows <span class="process-math">\(R_2\text{,}\)</span> <span class="process-math">\(R_3\)</span> and <span class="process-math">\(R_4\)</span> to get a triangular matrix <span class="process-math">\(B\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-283" id="answer-283"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-283"><div class="answer solution-like"><p id="p-3815"><span class="process-math">\(B= \left[ \begin{array}{cccc} 1\amp 1\amp 1\amp 1 \\ 0\amp 5\amp 0\amp 0\\ 0\amp 0\amp 5\amp 0\\ 0\amp 0\amp 0\amp 5 \end{array} \right]\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1253"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<p id="p-3816">Find the determinant of <span class="process-math">\(B\text{.}\)</span> Then use <span class="process-math">\(\det(B)\)</span> and properties of how elementary row operations affect determinants to find <span class="process-math">\(\det(A)\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-284" id="answer-284"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-284"><div class="answer solution-like"><p id="p-3817"><span class="process-math">\(125 = \det(B) = \det(A_1) = \det(A)\)</span></p></div></div>
-</div></article><article class="task exercise-like" id="task-1254"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<p id="p-3812">Add rows <span class="process-math">\(R_2\text{,}\)</span> <span class="process-math">\(R_3\)</span> and <span class="process-math">\(R_4\)</span> to the first row in that order.</p></article><article class="task exercise-like" id="task-1252"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3814">Then add the new <span class="process-math">\(R_1\)</span> to rows <span class="process-math">\(R_2\text{,}\)</span> <span class="process-math">\(R_3\)</span> and <span class="process-math">\(R_4\)</span> to get a triangular matrix <span class="process-math">\(B\text{.}\)</span></p></article><article class="task exercise-like" id="task-1253"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<p id="p-3816">Find the determinant of <span class="process-math">\(B\text{.}\)</span> Then use <span class="process-math">\(\det(B)\)</span> and properties of how elementary row operations affect determinants to find <span class="process-math">\(\det(A)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1254"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <p id="p-3818">Generalize your work to find the determinant of the <span class="process-math">\(n\times n\)</span> matrix</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A= \left[ \begin{array}{rrrrrr} n\amp -1\amp -1\amp \cdots \amp -1\amp -1 \\ -1\amp n\amp -1\amp \cdots \amp -1\amp -1\\ \vdots \amp \vdots \amp \vdots \amp \cdots \amp  \vdots \amp  \vdots\\ -1\amp -1\amp -1\amp  \cdots\amp -1\amp n \end{array}  \right] \,\text{.}
 \end{equation*}
-</div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-285" id="answer-285"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-285"><div class="answer solution-like"><p id="p-3819"><span class="process-math">\(\det(A) = (n+1)^{n-1}\)</span></p></div></div>
 </div></article></article><article class="exercise exercise-like" id="exercise-211"><h3 class="heading"><span class="codenumber">4<span class="period">.</span></span></h3>
 <p id="p-3820">For which matrices <span class="process-math">\(A\text{,}\)</span> if any, is <span class="process-math">\(\det(A)=-\det(-A)\text{?}\)</span> Justify your answer.</p></article><article class="exercise exercise-like" id="exercise-212"><h3 class="heading"><span class="codenumber">5<span class="period">.</span></span></h3>
-<p id="p-3821">Find the inverse <span class="process-math">\(A^{-1}\)</span> of <span class="process-math">\(A=\left[ \begin{array}{ccc} 1\amp 0\amp 1 \\ 0\amp 1\amp 0\\2\amp 0\amp 1 \end{array} \right]\)</span> using the adjugate matrix.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-286" id="answer-286"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-286"><div class="answer solution-like"><div class="displaymath process-math" id="p-3822">
-\begin{align*}
-A^{-1} \amp = \frac{1}{\det(A)} \adj(A)\\
-\amp = \left[ \begin{array}{rcr} -1\amp 0\amp 1 \\ 0\amp 1\amp 0 \\ 2\amp 0\amp -1 \end{array} \right]
-\end{align*}
-</div></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-213"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
+<p id="p-3821">Find the inverse <span class="process-math">\(A^{-1}\)</span> of <span class="process-math">\(A=\left[ \begin{array}{ccc} 1\amp 0\amp 1 \\ 0\amp 1\amp 0\\2\amp 0\amp 1 \end{array} \right]\)</span> using the adjugate matrix.</p></article><article class="exercise exercise-like" id="exercise-213"><h3 class="heading"><span class="codenumber">6<span class="period">.</span></span></h3>
 <p id="p-3823">For an invertible <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> what is the relationship between <span class="process-math">\(\det(A)\)</span> and <span class="process-math">\(\det(\text{ adj } A)\text{?}\)</span> Justify your result.</p></article><article class="exercise exercise-like" id="exercise-214"><h3 class="heading"><span class="codenumber">7<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-366"><p id="p-3824">Let <span class="process-math">\(A = \left[ \begin{array}{ccc} a\amp b\amp 1\\c\amp d\amp 2\\e\amp f\amp 3 \end{array} \right]\text{,}\)</span> and assume that <span class="process-math">\(\det(A) = 2\text{.}\)</span> Determine the determinants of each of the following.</p></div>
 <article class="task exercise-like" id="task-1255"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<p id="p-3825"><span class="process-math">\(B= \left[ \begin{array}{ccc} a\amp b\amp 1\\3c\amp 3d\amp 6\\e+a\amp f+b\amp 4 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-287" id="answer-287"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-287"><div class="answer solution-like"><p id="p-3826">6</p></div></div>
-</div></article><article class="task exercise-like" id="task-1256"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<p id="p-3827"><span class="process-math">\(C = \left[ \begin{array}{ccr} 2e\amp 2f\amp 6 \\2c-2e\amp 2d-2f\amp -2\\2a\amp 2b\amp 2 \end{array} \right]\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-288" id="answer-288"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-288"><div class="answer solution-like"><p id="p-3828"><span class="process-math">\(-16\)</span></p></div></div>
-</div></article></article><article class="exercise exercise-like" id="exercise-215"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
+<p id="p-3825"><span class="process-math">\(B= \left[ \begin{array}{ccc} a\amp b\amp 1\\3c\amp 3d\amp 6\\e+a\amp f+b\amp 4 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1256"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<p id="p-3827"><span class="process-math">\(C = \left[ \begin{array}{ccr} 2e\amp 2f\amp 6 \\2c-2e\amp 2d-2f\amp -2\\2a\amp 2b\amp 2 \end{array} \right]\)</span></p></article></article><article class="exercise exercise-like" id="exercise-215"><h3 class="heading"><span class="codenumber">8<span class="period">.</span></span></h3>
 <p id="p-3829">Find the area of the parallelogram with one vertex at the origin and adjacent vertices at <span class="process-math">\((1,2)\)</span> and <span class="process-math">\((a,b)\text{.}\)</span> For which <span class="process-math">\((a,b)\)</span> is the area 0? When does this happen geometrically?</p></article><article class="exercise exercise-like" id="exercise-216"><h3 class="heading"><span class="codenumber">9<span class="period">.</span></span></h3>
-<p id="p-3830">Find the volume of the parallelepiped with one vertex at the origin and three adjacent vertices at <span class="process-math">\((3,2,0)\text{,}\)</span> <span class="process-math">\((1,1,1)\)</span> and <span class="process-math">\((1,3,c)\)</span> where <span class="process-math">\(c\)</span> is unknown. For which <span class="process-math">\(c\text{,}\)</span> is the volume 0? When does this happen geometrically?</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-289" id="answer-289"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-289"><div class="answer solution-like"><p id="p-3831"><span class="process-math">\(|c-7|\text{,}\)</span> volume is <span class="process-math">\(0\)</span> when the parallelelepiped is two-dimensional.</p></div></div>
-</div></article><article class="exercise exercise-like" id="exercise-217"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
+<p id="p-3830">Find the volume of the parallelepiped with one vertex at the origin and three adjacent vertices at <span class="process-math">\((3,2,0)\text{,}\)</span> <span class="process-math">\((1,1,1)\)</span> and <span class="process-math">\((1,3,c)\)</span> where <span class="process-math">\(c\)</span> is unknown. For which <span class="process-math">\(c\text{,}\)</span> is the volume 0? When does this happen geometrically?</p></article><article class="exercise exercise-like" id="exercise-217"><h3 class="heading"><span class="codenumber">10<span class="period">.</span></span></h3>
 <div class="introduction" id="introduction-367"><p id="p-3832">Find an <span class="process-math">\(LU\)</span> factorization of each of the following matrices <span class="process-math">\(A\text{.}\)</span> Use the <span class="process-math">\(LU\)</span> factorization to solve the system <span class="process-math">\(A \vx = \vb\)</span> for the given vector <span class="process-math">\(\vb\text{.}\)</span></p></div>
 <article class="task exercise-like" id="task-1257"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <p id="p-3833"><span class="process-math">\(A = \left[ \begin{array}{rcc} 2\amp 1\amp 3 \\ -1\amp 0\amp 1 \\ 2\amp 1\amp 5 \end{array} \right]\text{,}\)</span> <span class="process-math">\(\vb = \left[ \begin{array}{c} 1 \\ 2 \\ 1 \end{array} \right]\)</span></p></article><article class="task exercise-like" id="task-1258"><h4 class="heading"><span class="codenumber">(b)</span></h4>
@@ -831,32 +797,23 @@ A^{-1} \amp = \frac{1}{\det(A)} \adj(A)\\
 <article class="task exercise-like" id="task-1265"><h4 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3845">If two rows are equal in <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\det(A)=0\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-290" id="answer-290"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-290"><div class="answer solution-like"><p id="p-3846">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1266"><h4 class="heading">
+<p id="p-3845">If two rows are equal in <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\det(A)=0\text{.}\)</span></p></article><article class="task exercise-like" id="task-1266"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3847">If <span class="process-math">\(A\)</span> is a square matrix and <span class="process-math">\(R\)</span> is a row echelon form of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\det(A) = \det(R)\text{.}\)</span></p></article><article class="task exercise-like" id="task-1267"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3848">If a matrix <span class="process-math">\(A\)</span> is invertible, then 0 is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-291" id="answer-291"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-291"><div class="answer solution-like"><p id="p-3849">T</p></div></div>
-</div></article><article class="task exercise-like" id="task-1268"><h4 class="heading">
+<p id="p-3848">If a matrix <span class="process-math">\(A\)</span> is invertible, then 0 is not an eigenvalue of <span class="process-math">\(A\text{.}\)</span></p></article><article class="task exercise-like" id="task-1268"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3850">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times 2\)</span> matrix for which the image of the unit square under the transformation <span class="process-math">\(T(\vx)=A\vx\)</span> has zero area, then <span class="process-math">\(A\)</span> is non-invertible.</p></article><article class="task exercise-like" id="task-1269"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3851">Row operations do not change the determinant of a square matrix.</p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-292" id="answer-292"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-292"><div class="answer solution-like"><p id="p-3852">F</p></div></div>
-</div></article><article class="task exercise-like" id="task-1270"><h4 class="heading">
+<p id="p-3851">Row operations do not change the determinant of a square matrix.</p></article><article class="task exercise-like" id="task-1270"><h4 class="heading">
 <span class="codenumber">(f)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
 <p id="p-3853">If <span class="process-math">\(A_{ij}\)</span> is the matrix obtained from a square matrix <span class="process-math">\(A = [a_{ij}]\)</span> by deleting the <span class="process-math">\(i\)</span>th row and <span class="process-math">\(jth\)</span> column of <span class="process-math">\(A\text{,}\)</span> then</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="md-159">
 \begin{align*}
 a_{i1}(-1)^{i+1}\amp \det(A_{i1}) + a_{i2}(-1)^{i+2}\det(A_{i2}) + \cdots\\
 \amp \qquad + a_{in}(-1)^{i+n}\det(A_{in})\\
@@ -867,11 +824,8 @@ a_{i1}(-1)^{i+1}\amp \det(A_{i1}) + a_{i2}(-1)^{i+2}\det(A_{i2}) + \cdots\\
 <p class="continuation">for any <span class="process-math">\(i\)</span> and <span class="process-math">\(j\)</span> between <span class="process-math">\(1\)</span> and <span class="process-math">\(n\text{.}\)</span></p></article><article class="task exercise-like" id="task-1271"><h4 class="heading">
 <span class="codenumber">(g)</span><span class="space"> </span><span class="title">True/False.</span>
 </h4>
-<p id="p-3854">If <span class="process-math">\(A\)</span> is an invertible matrix, then <span class="process-math">\(\det\left(A^{\tr}A\right) &gt; 0\text{.}\)</span></p>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-293" id="answer-293"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-293"><div class="answer solution-like"><p id="p-3855">T</p></div></div>
-</div></article></article></section></div></main>
+<p id="p-3854">If <span class="process-math">\(A\)</span> is an invertible matrix, then <span class="process-math">\(\det\left(A^{\tr}A\right) &gt; 0\text{.}\)</span></p></article></article></section></div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

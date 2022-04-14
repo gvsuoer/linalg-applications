@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:22:29-04:00       *-->
+<!--*       on 2022-04-14T13:00:25-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -752,13 +750,13 @@
 <span class="type">Section</span> <span class="codenumber"></span> <span class="title">Dynamical Systems</span>
 </h2>
 <p id="p-1560">One real-life application of eigenvalues and eigenvectors is in analyzing the long-term behavior of <dfn class="terminology">discrete dynamical systems</dfn>. A <dfn class="terminology">dynamical system</dfn> is a system of variables whose values change with time. In discrete systems, the change is described by defining the values of the variables at time <span class="process-math">\(t+1\)</span> in terms of the values at time <span class="process-math">\(t\text{.}\)</span> For example, the discrete dynamical system</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 y_{t+1} = y_t + t
 \end{equation*}
 </div>
 <p class="continuation">relates the value of <span class="process-math">\(y\)</span> at time <span class="process-math">\(t+1\)</span> to the value of <span class="process-math">\(y\)</span> at time <span class="process-math">\(t\text{.}\)</span> This is in contrast with a differential equation<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-13" id="fn-13"><sup> 13 </sup></a> such as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \frac{dy}{dt} = y+t\text{,}
 \end{equation*}
@@ -772,9 +770,9 @@ y_{t+1} = y_t + t
 <article class="task exercise-like" id="task-487"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="introduction" id="introduction-140">
 <p id="p-1563">Consider a discrete dynamical system providing a simplified model of predator-prey interactions in biology, such as the system describing the populations of rabbits and foxes in a certain area. Suppose, for example, for a specific area the model is given by the following equations:</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_PA5_1_3">
 \begin{equation}
-\begin{alignedat}{4} r_{k+1}  \amp {}={}   \amp {1.14}r_k   \amp {}-{}  \amp {0.12}f_k \\ f_{k+1}  \amp {}={}   \amp {0.08}r_k   \amp {}+{}  \amp {0.86}f_k \end{alignedat}\label{eq_PA5_1_3}\tag{9.1}
+\begin{alignedat}{4} r_{k+1}  \amp {}={}   \amp {1.14}r_k   \amp {}-{}  \amp {0.12}f_k \\ f_{k+1}  \amp {}={}   \amp {0.08}r_k   \amp {}+{}  \amp {0.86}f_k \end{alignedat}\tag{9.1}
 \end{equation}
 </div>
 <p class="continuation">where <span class="process-math">\(r_i\)</span> represents the number of rabbits in the area <span class="process-math">\(i\)</span> years after a starting time value, and <span class="process-math">\(f_i\)</span> represents the number of foxes in year <span class="process-math">\(i\text{.}\)</span> We use <span class="process-math">\(r_0, f_0\)</span> to denote the initial population values.</p>
@@ -783,51 +781,51 @@ y_{t+1} = y_t + t
 <p id="p-1564">Suppose <span class="process-math">\(r_k=300\)</span> and <span class="process-math">\(f_k=100\)</span> for one year. Calculate rabbit and fox population values for the next year. In other words, find <span class="process-math">\(r_{k+1}, f_{k+1}\)</span> values.</p></article><article class="task exercise-like" id="task-489"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
 <p id="p-1565">Consider the coefficients of the variables <span class="process-math">\(r_k, f_k\)</span> in the the system of equations in <a href="" class="xref" data-knowl="./knowl/eq_PA5_1_3.html" title="Equation 9.1">(9.1)</a>. Can you explain the reasoning behind the signs and absolute sizes of the coefficients from the story that it models?</p></article><article class="task exercise-like" id="task-490"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p id="p-1566">Let <span class="process-math">\(\vx_k=\left[ \begin{array}{c} r_k \\ f_k \end{array}  \right]\text{.}\)</span> The vector <span class="process-math">\(\vx_k\)</span> is called the <dfn class="terminology">state vector</dfn> of the system at time <span class="process-math">\(k\text{,}\)</span> because it describes the state of the whole system at time <span class="process-math">\(k\text{.}\)</span> We can rewrite the system of equations in <a href="" class="xref" data-knowl="./knowl/eq_PA5_1_3.html" title="Equation 9.1">(9.1)</a> as a matrix-vector equation in terms of the state vectors at time <span class="process-math">\(k\)</span> and <span class="process-math">\(k+1\text{.}\)</span> More specifically, the equation will be of the form</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_3.html" id="eq_PA5_1_4">
 \begin{equation}
-\vx_{k+1} = A\vx_k\label{eq_PA5_1_4}\tag{9.2}
+\vx_{k+1} = A\vx_k\tag{9.2}
 \end{equation}
 </div>
 <p class="continuation">where <span class="process-math">\(A = \left[ \begin{array}{cr} 1.14 \amp  -0.12 \\ 0.08 \amp  0.86 \end{array}  \right]\text{.}\)</span> We will call this matrix the <dfn class="terminology">transition matrix</dfn> of the system. Check that <span class="process-math">\(A \left[ \begin{array}{c} 300\\100 \end{array}  \right]\)</span> gives us the population values you calculated in the first part above.</p></article><article class="task exercise-like" id="task-491"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
 <p id="p-1567">The transition matrix will help us simplify calculations of the population values. Note that equation <a href="" class="xref" data-knowl="./knowl/eq_PA5_1_4.html" title="Equation 9.2">(9.2)</a> implies that <span class="process-math">\(\vx_1 = A\vx_0\text{,}\)</span> <span class="process-math">\(\vx_2=A\vx_1\text{,}\)</span> <span class="process-math">\(\vx_3=A\vx_2\text{,}\)</span> and so on. This is a recursive method to find the population values as each year's population values depend on the previous year's population values. Using this approach, calculate <span class="process-math">\(\vx_k\)</span> for <span class="process-math">\(k\)</span> values up to 5 corresponding to the following <em class="emphasis">three different</em> initial rabbit-fox population values (all in thousands):</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_4.html">
 \begin{equation*}
 r_0=300 \;,\;  f_0=100
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_4.html">
 \begin{equation*}
 r_0=100 \;,\;  f_0=200
 \end{equation*}
 </div>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_PA5_1_4.html">
 \begin{equation*}
 r_0=1200 \;,\; f_0=750
 \end{equation*}
 </div>
 <p class="continuation">Can you guess the long-term behavior of the population values in each case? Are they both increasing? Decreasing? One increasing, one decreasing? How do the rabbit and fox populations compare?</p></article></article></article><p id="p-1568">A dynamical system is a system of variables whose values change with time. In <a href="" class="xref" data-knowl="./knowl/pa_2_b_2.html" title="Activity 9.4">Activity 9.4</a>, we considered the discrete dynamical system modeling the rabbit and fox population in an area, which is an example of a predator-prey system. The system was given by the equations from <a href="" class="xref" data-knowl="./knowl/eq_PA5_1_3.html" title="Equation 9.1">(9.1)</a>, where <span class="process-math">\(r_i\)</span> represented the number of rabbits in the area <span class="process-math">\(i\)</span> years after a starting time value, and <span class="process-math">\(f_i\)</span> represented the number of foxes in year <span class="process-math">\(i\text{.}\)</span> In this notation, <span class="process-math">\(r_0, f_0\)</span> corresponded to the initial population values.</p>
 <p id="p-1569"> As we saw in <a href="" class="xref" data-knowl="./knowl/pa_2_b_2.html" title="Activity 9.4">Activity 9.4</a>, if we define the state vector as <span class="process-math">\(\vx_k=\begin{bmatrix}r_k \\ f_k \end{bmatrix}\text{,}\)</span> the system of equations representing the dynamical system can be expressed as</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pa_2_b_2.html ./knowl/eq_state_vector_recursive_formula.html" id="eq_state_vector_recursive_formula">
 \begin{equation}
-\vx_{k+1} = A \vx_k\label{eq_state_vector_recursive_formula}\tag{9.3}
+\vx_{k+1} = A \vx_k\tag{9.3}
 \end{equation}
 </div>
 <p class="continuation">where <span class="process-math">\(A=\left[ \begin{array}{cr} 1.14 \amp  -0.12 \\ 0.08 \amp  0.86 \end{array}  \right]\)</span> represents the transition matrix. Note that equation <a href="" class="xref" data-knowl="./knowl/eq_state_vector_recursive_formula.html" title="Equation 9.3">(9.3)</a> encodes infinitely many equations including <span class="process-math">\(\vx_1 = A\vx_0\text{,}\)</span> <span class="process-math">\(\vx_2=A\vx_1\text{,}\)</span> <span class="process-math">\(\vx_3=A\vx_2\text{,}\)</span> and so on. This is a recursive formula for the population values as each year's population values are expressed in terms of the previous year's population values. If we want to calculate <span class="process-math">\(\vx_{10}\text{,}\)</span> this formula requires first finding the population values for years 1-9. However, we can obtain a non-recursive formula using matrix algebra. If we substitute <span class="process-math">\(\vx_1 = A\vx_0\)</span> into <span class="process-math">\(\vx_2=A\vx_1\)</span> and simplify, we find that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/pa_2_b_2.html ./knowl/eq_state_vector_recursive_formula.html">
 \begin{equation*}
 \vx_2=A\vx_1= A(A\vx_0) = A^2 \vx_0 \,\text{.}
 \end{equation*}
 </div>
 <p id="p-1570">Similarly, substituting <span class="process-math">\(\vx_2=A^2\vx_1\)</span> into the formula for <span class="process-math">\(\vx_3\)</span> gives</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vx_3 = A\vx_2=A(A^2 \vx_0) = A^3 \vx_0 \,\text{.}
 \end{equation*}
 </div>
 <p id="p-1571">This process can be continued inductively to show that</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_state_vector_closed_formula">
 \begin{equation}
-\vx_k=A^k \vx_0\label{eq_state_vector_closed_formula}\tag{9.4}
+\vx_k=A^k \vx_0\tag{9.4}
 \end{equation}
 </div>
 <p class="continuation">for every <span class="process-math">\(k\)</span> value. So to find the population values at any year <span class="process-math">\(k\text{,}\)</span> we only need to know the initial state vector <span class="process-math">\(\vx_0\text{.}\)</span></p>
@@ -836,7 +834,7 @@ r_0=1200 \;,\; f_0=750
 </h3>
 <div class="introduction" id="introduction-141">
 <p id="p-1572">In this activity the matrix <span class="process-math">\(A\)</span> is the transition matrix for the rabbit and fox population model,</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 A = \left[ \begin{array}{cr} 1.14 \amp  -0.12 \\ 0.08 \amp  0.86 \end{array}  \right]\text{.}
 \end{equation*}
@@ -853,6 +851,6 @@ k\)</span> and <span class="process-math">\(\vx_0\text{,}\)</span> find the stat
 <p id="p-1577">Express the initial state vector <span class="process-math">\(\vx_0=\left[ \begin{array}{c} 1200 \\ 750 \end{array} \right]\)</span> as a linear combination of the eigenvectors <span class="process-math">\(\vv_0=\left[ \begin{array}{c}300\\ 100 \end{array} \right], \vw_0=\left[ \begin{array}{c} 100\\200 \end{array} \right]\)</span> and use your result from the previous part to find a formula for <span class="process-math">\(\vx_k\text{.}\)</span> What happens to the population values as <span class="process-math">\(k\to \infty?\)</span></p></article></article><p id="p-1578">As you discovered in <a href="" class="xref" data-knowl="./knowl/act_dynamical_system.html" title="Activity 9.5">Activity 9.5</a>, we can use linearly independent eigenvectors of the transition matrix to find a closed formula for the state vector of a dynamical system, as long as the initial state vector can be expressed as a linear combination of the eigenvectors.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-13"><div class="fn">A differential equation is an equation that involves one or more derivatives of a function.</div></div>
 </div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

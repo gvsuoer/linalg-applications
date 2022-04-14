@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-03-23T14:24:14-04:00       *-->
+<!--*       on 2022-04-14T13:02:36-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -22,7 +22,6 @@
   tex: {
     inlineMath: [['\\(','\\)']],
     tags: "none",
-    useLabelIds: true,
     tagSide: "right",
     tagIndent: ".8em",
     packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
@@ -40,7 +39,7 @@
     paths: {pretext: "https://pretextbook.org/js/lib"},
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://unpkg.com/prismjs@v1.22.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -116,7 +115,7 @@
 \newcommand{\CS}{\mathcal{S}}
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
-\renewcommand{\CD}{\mathcal{D}}
+\newcommand{\CD}{\mathcal{D}}
 \newcommand{\CP}{\mathcal{P}}
 \newcommand{\CQ}{\mathcal{Q}}
 \newcommand{\CW}{\mathcal{W}}
@@ -583,7 +582,6 @@
 <li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
 <li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
 <li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
-<li><a href="sec_proj_indexing.html" data-scroll="sec_proj_indexing" class="internal">Project: Latent Semantic Indexing</a></li>
 </ul>
 </li>
 <li class="link">
@@ -756,15 +754,15 @@
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">16.7</span><span class="period">.</span>
 </h3>
 <p id="p-2845">Since planetary orbits are elliptical, not circular, we need to understand ellipses. An ellipse is a shape like a flattened circle. More specifically, while a circle is the set of points equidistant from a fixed point, and ellipse is a set of points so that the sum of the distances from a point on the ellipse to two fixed points (called foci) is a constant. We can use this definition to derive an equation for an ellipse. We will simplify by rotating and translating an ellipse so that its foci are at points <span class="process-math">\((-c,0)\)</span> and <span class="process-math">\((c,0)\text{,}\)</span> and the constant sum is <span class="process-math">\(2a\text{.}\)</span> Let <span class="process-math">\((x,y)\)</span> be a point on the ellipse as illustrated in <a href="" class="xref" data-knowl="./knowl/F_ellipse_cob.html" title="Figure 16.10">Figure 16.10</a>. Use the fact that the sum of the distances from <span class="process-math">\((x,y)\)</span> to the foci is <span class="process-math">\(2a\)</span> to show that <span class="process-math">\((x,y)\)</span> satisfies the equation</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_ellipse_cob.html" id="eq_orbit_ellipse">
 \begin{equation}
-\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\text{,}\label{eq_orbit_ellipse}\tag{16.2}
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\text{,}\tag{16.2}
 \end{equation}
 </div>
 <p class="continuation">where the points <span class="process-math">\((0,b)\)</span> and <span class="process-math">\((0,-b)\)</span> are the <span class="process-math">\(y\)</span> intercepts of the ellipse.</p>
 <figure class="figure figure-like" id="F_ellipse_cob"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/5_e_Ellipse.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.10<span class="period">.</span></span><span class="space"> </span>An ellipse.</figcaption></figure></article><p id="p-2846">The longer axis of an ellipse is called the major axis and the axis perpendicular to the major axis through the origin is the minor axis. Half of these axes (from the origin) are the semi-major axis and the semi-minor axis. So the parameter <span class="process-math">\(a\)</span> in <a href="" class="xref" data-knowl="./knowl/eq_orbit_ellipse.html" title="Equation 16.2">(16.2)</a> is the length of the semi-major axis and the parameter <span class="process-math">\(b\)</span> is the length of the semi-minor axis. Note that the points <span class="process-math">\((0,b)\)</span> and <span class="process-math">\((0,-b)\)</span> are the <span class="process-math">\(y\)</span> intercepts and the points <span class="process-math">\((a,0)\)</span> and <span class="process-math">\((-a,0)\)</span> are the <span class="process-math">\(x\)</span> intercepts of this ellipse. Note that if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are equal, then the ellipse is a circle. How far the ellipse deviates from a circle is called the <dfn class="terminology">eccentricity</dfn> (usually denoted as <span class="process-math">\(e\)</span>) of the ellipse. In other words, the eccentricity is a measure of how flattened en ellipse is, and this is determined by how close <span class="process-math">\(c\)</span> is to <span class="process-math">\(a\text{,}\)</span> or how close the ratio <span class="process-math">\(\frac{c}{a}\)</span> is to <span class="process-math">\(1\text{.}\)</span> Thus, we define the eccentricity of an ellipse by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_orbit_ellipse.html">
 \begin{equation*}
 e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}\text{.}
 \end{equation*}
@@ -779,7 +777,7 @@ e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}\text{.}
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">16.8</span><span class="period">.</span>
 </h3>
 <p id="p-2849">Explain why the change of basis matrix <span class="process-math">\(\underset{\CB' \leftarrow \CB''}{P}\)</span> is given by</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \underset{\CB' \leftarrow \CB''}{P} = \left[ \begin{array}{ccc} \cos(\gamma)\amp -\sin(\gamma)\amp 0 \\ \sin(\gamma)\amp \cos(\gamma)\amp 0 \\ 0\amp 0\amp 1 \end{array}  \right]\text{.}
 \end{equation*}
@@ -795,14 +793,14 @@ e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}\text{.}
 <p id="p-2854">Explain why the vector <span class="process-math">\([b \ -a \ 0]^{\tr}\)</span> lies on the <span class="process-math">\(x'\)</span> axis. We take this vector to point in the positive <span class="process-math">\(x'\)</span> direction. This gives us another representation of <span class="process-math">\(\vb'_1\)</span> — namely that <span class="process-math">\(\vb'_1 = \frac{1}{\sqrt{a^2+b^2}} [b \ -a \ 0]^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-949"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
 <p id="p-2855">Explain why a vector in the plane <span class="process-math">\(z = ax+by\)</span> orthogonal to <span class="process-math">\(\vb'_1\)</span> is <span class="process-math">\(\left[a \ b \ a^2+b^2 \right]^{\tr}\text{.}\)</span></p></article><article class="task exercise-like" id="task-950"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p id="p-2856">From the previous part we have</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vb'_2 = \frac{1}{\sqrt{a^2+b^2+(a^2+b^2)^2}} \left[b \ a \ a^2+b^2 \right]^{\tr}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Let <span class="process-math">\(G = \left(\frac{b}{\sqrt{a^2+b^2+(a^2+b^2)^2}}, \frac{a}{\sqrt{a^2+b^2+(a^2+b^2)^2}}, 0\right)\)</span> be the terminal point of the projection of <span class="process-math">\(\vb'_2\)</span> onto the <span class="process-math">\(xy\)</span> plane. Show that <span class="process-math">\(\overrightarrow{OG}\)</span> is orthogonal to <span class="process-math">\(\vb'_1\text{.}\)</span></p></article><article class="task exercise-like" id="task-951"><h5 class="heading"><span class="codenumber">(iv)</span></h5>
 <p id="p-2857">Let <span class="process-math">\(\beta\)</span> be the angle between the plane <span class="process-math">\(p\)</span> and the <span class="process-math">\(xy\)</span> plane as illustrated at right in <a href="" class="xref" data-knowl="./knowl/F_orbits.html" title="Figure 16.11">Figure 16.11</a>. Explain why <span class="process-math">\(||\overrightarrow{OG}|| = \cos(\beta)\text{.}\)</span> Then explain why</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_orbits.html">
 \begin{equation*}
 \vb'_2 = [ -\cos(\beta)\sin(\alpha) \ \cos(\beta)\cos(\alpha) \ \sin(\beta)]^{\tr}\text{.}
 \end{equation*}
@@ -812,7 +810,7 @@ e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}\text{.}
 </div></article></article><article class="task exercise-like" id="task-952"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="introduction" id="introduction-266">
 <p id="p-2859">Finally, we find <span class="process-math">\([\vb'_3]_{\CB}\text{.}\)</span> The cross product of <span class="process-math">\(\vb'_1\)</span> and <span class="process-math">\(\vb'_2\)</span> is a vector orthogonal to <span class="process-math">\(\vb'_1\)</span> and <span class="process-math">\(\vb'_2\text{,}\)</span> so</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F_orbits.html">
 \begin{equation*}
 \vb'_3 = \frac{1}{\sqrt{\left(a^2+b^2\right)^2+4a^2b^2}} \left[-a(a^2+b^2) \ -b(a^2+b^2) \ 2ab \right]^{\tr}\text{.}
 \end{equation*}
@@ -823,7 +821,7 @@ e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}\text{.}
 <p id="p-2860">Explain why the angle between <span class="process-math">\(\vb'_1\)</span> and <span class="process-math">\(\overrightarrow{OH}\)</span> is <span class="process-math">\(\frac{\pi}{2}\text{.}\)</span></p></article><article class="task exercise-like" id="task-954"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
 <p id="p-2861">Explain why <span class="process-math">\(||\overrightarrow{OH}|| = \sin(\beta)\text{.}\)</span> (Hint: Use the trigonometric identity <span class="process-math">\(\cos\left(\frac{\pi}{2}-A \right) = \sin(A)\text{.}\)</span>)</p></article><article class="task exercise-like" id="task-955"><h5 class="heading"><span class="codenumber">(iii)</span></h5>
 <p id="p-2862">Since the angle from <span class="process-math">\(\vb_1\)</span> to <span class="process-math">\(\overrightarrow{OH}\)</span> is negative, this angle is <span class="process-math">\(\alpha-\frac{\pi}{2}\text{.}\)</span> Use this angle and the previous information to find the coordinates of the point <span class="process-math">\(H\)</span> and, consequently, explain why</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \vb'_3  = [ \sin(\beta)\sin(\alpha) \ -\sin(\beta)\cos(\alpha) \ \cos(\beta)]^{\tr}\text{.}
 \end{equation*}
@@ -832,14 +830,14 @@ e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}\text{.}
 <a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-19" id="hint-19"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-19"><div class="hint solution-like"><p id="p-2863">Use the trigonometric identities <span class="process-math">\(\cos\left(A - \frac{\pi}{2} \right) = \sin(A)\)</span> and <span class="process-math">\(\sin\left(A - \frac{\pi}{2}\right) = -\cos(A)\text{.}\)</span></p></div></div>
 </div></article></article><article class="task exercise-like" id="task-956"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <p id="p-2864">Explain why the change of basis matrix <span class="process-math">\(\underset{\CB \leftarrow \CB'}{P}\)</span> from <span class="process-math">\(\CB'\)</span> to <span class="process-math">\(\CB\)</span> is</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \underset{\CB \leftarrow \CB'}{P} = \left[ \begin{array}{ccc} \cos(\alpha)\amp -\cos(\beta)\sin(\alpha)\amp \sin(\beta)\sin(\alpha) \\ \sin(\alpha)\amp \cos(\beta)\cos(\alpha)\amp -\sin(\beta)\cos(\alpha) \\ 0\amp \sin(\beta)\amp \cos(\beta) \end{array}  \right]\text{.}
 \end{equation*}
 </div></article></article><figure class="figure figure-like" id="F_ellipse_polar"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/5_e_ellipse_polar.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.12<span class="period">.</span></span><span class="space"> </span>Points on the ellipse in terms of angles.</figcaption></figure><p id="p-2865">With the change of basis matrices we can convert from any one coordinate system to the other. Note that all of the change of basis matrices are written in terms of angles, so it will be convenient to have a way to express points on our ellipses using angles as well. Given any point on an ellipse (or any point in the plane), we can represent the coordinates of that point in terms of the angle <span class="process-math">\(\theta\)</span> the vector through the origin and the point makes with the positive <span class="process-math">\(x\)</span>-axis and the distance <span class="process-math">\(r\)</span> from the origin to the point as shown in <a href="" class="xref" data-knowl="./knowl/F_ellipse_polar.html" title="Figure 16.12">Figure 16.12</a>. In this representation we have <span class="process-math">\(x = r\cos(\theta)\)</span> and <span class="process-math">\(y = r \sin(\theta)\text{.}\)</span></p>
 <p id="p-2866">So we can start in the <span class="process-math">\(x''y''\)</span> coordinate system with the coordinate vector of a point <span class="process-math">\(\left[\overrightarrow{OP}\right]_{\CB''} = [ r\cos(\theta) \ r\sin(\theta) \ 0]^{\tr}\text{.}\)</span> Then to view this point in the <span class="process-math">\(xy\)</span> system, we apply the change of basis matrices</p>
-<div class="displaymath process-math">
+<div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
 \left[\overrightarrow{OP}\right]_{\CB} = \underset{\CB \leftarrow \CB'}{P} \underset{\CB' \leftarrow \CB''}{P} [ r\cos(\theta) \ r\sin(\theta) \ 0]^{\tr}\text{.}
 \end{equation*}
@@ -847,6 +845,6 @@ e =\frac{c}{a} = \sqrt{1-\frac{b^2}{a^2}}\text{.}
 <p id="p-2867">Of course we can also covert from <span class="process-math">\(\CB\)</span> coordinates to <span class="process-math">\(\CB''\)</span> coordinates by applying the inverses of our change of basis matrices.</p></section><div class="hidden-content tex2jax_ignore" id="hk-fn-30"><div class="fn">This project is based on the paper “Planetary Orbits: Change of Basis in R<span class="process-math">\(^3\)</span>”, Donald Teets, <span class="booktitle">Teaching Mathematics and its Applications: An International Journal of the IMA</span>, Volume 17, Issue 2, 1 June 1998, Pages 66-68.</div></div>
 </div></main>
 </div>
-<script src="https://unpkg.com/prismjs@v1.22.0/components/prism-core.min.js"></script><script src="https://unpkg.com/prismjs@v1.22.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>
