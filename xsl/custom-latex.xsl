@@ -26,20 +26,27 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 ]>
 
 <!-- Identify as a stylesheet -->
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-    xmlns:xml="http://www.w3.org/XML/1998/namespace"
->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <!-- Override specific tenplates of the standard conversion -->
-<xsl:import href="../pretext-latex.xsl" />
-<xsl:import href="lin-alg-style.xsl" />
+<xsl:import pretext-href="pretext-latex.xsl" />
+<xsl:import href="./lin-alg-style.xsl" />
 
 <!-- Intend output for rendering by pdflatex -->
 <xsl:output method="text" />
 
 <xsl:param name="latex.preamble.late">
   <xsl:text>%This should load all the style information that ptx does not.&#xa;</xsl:text>
+  <xsl:text>\usepackage{setspace} </xsl:text>
+  <xsl:text>% Add line break before and after some elements&#xa;</xsl:text>
   
+  <xsl:text>\AtBeginEnvironment{example}{\vskip\baselineskip}&#xa;</xsl:text>
+  <xsl:text>\AfterEndEnvironment{example}{\vskip\baselineskip}&#xa;</xsl:text>
+
+  <xsl:text>\AfterEndEnvironment{divisionexercise}{\vskip\baselineskip}&#xa;</xsl:text>
+  <xsl:text>\AtBeginEnvironment{definition}{\vskip\baselineskip}&#xa;</xsl:text>
+  <xsl:text>\AfterEndEnvironment{definition}{\vskip\baselineskip}&#xa;</xsl:text>
+  <xsl:text>\setlength{\parskip}{0.27\baselineskip}&#xa;</xsl:text>
 </xsl:param>
 
 </xsl:stylesheet>
