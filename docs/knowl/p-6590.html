@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-04-14T13:25:17-04:00       *-->
+<!--*       on 2022-05-23T12:35:28-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,8 +14,31 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>We end this project with a short discussion of fractal dimension. The fractals we have seen are very strange in many ways, one of which is dimension. We have studied the dimensions of subspaces of <span class="process-math">\(R^n\)</span> — each subspace has an integer dimension that is determined by the number of elements in a basis. Fractals also have a dimension, but the dimension of a fractal is generally not an integer. To try to understand fractal dimension, notice that a line segment is self-similar. We can break up a line segment into 2 non-overlapping line segments of the same length, or 3, or 4, or any number of non-overlapping segments of the same length. A square is slightly different. We can partition a square into 4 non-overlapping squares, or 9 non-overlapping squares, or <span class="process-math">\(n^2\)</span> non-overlapping squares for any positive integer <span class="process-math">\(n\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F_Squares.html" title="Figure 37.21">Figure 37.21</a>.</p>
-<span class="incontext"><a href="sec_proj_fractals.html#p-6590" class="internal">in-context</a></span>
+<h6 class="heading"><span class="type">Paragraph</span></h6>
+<p>Test your IFS to make sure that it actually generates the Sierpinski carpet. There are many websites that allow you to do this, one of which is <a class="external" href="http://cs.lmu.edu/~ray/notes/ifs/" target="_blank"><code class="code-inline tex2jax_ignore">cs.lmu.edu/~ray/notes/ifs/</code></a>. In this program, the mapping <span class="process-math">\(f\)</span> defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(\vx) = \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right] \vx + \left[ \begin{array}{c} e\\f \end{array} \ \right]
+\end{equation*}
+</div>
+<p class="continuation">is represented as the string</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a \ b \ c \ d \ e \ f\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Most programs generally use a different algorithm to create the attractor, plotting points instead of sets. In this algorithm, each contraction mapping is assigned a probability as well (the larger parts of the figure are usually given higher probabilities), so you will enter each contraction mapping in the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a \ b \ c \ d \ e \ f \ p
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(p\)</span> is the probability attached to that contraction mapping. As an example, the IFS code for the Sierpinski triangle is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\begin{array}{ccccccc} 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 1  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0.5  \amp 0.43  \amp 0.33 \end{array}
+\end{equation*}
+</div>
+<span class="incontext"><a href="chap_linear_transformation.html#p-6590" class="internal">in-context</a></span>
 </body>
 </html>

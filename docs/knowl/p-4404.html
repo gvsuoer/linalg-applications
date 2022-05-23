@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-04-14T13:20:03-04:00       *-->
+<!--*       on 2022-05-23T12:30:12-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,13 +14,25 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>From the previous part, show that <span class="process-math">\(\vx^*\)</span> satisfies the equation</p>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The <span class="process-math">\(m\)</span> data points are known in this situation and the coefficients <span class="process-math">\(a_0\text{,}\)</span> <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_n\)</span> are the unknowns. To write the system in matrix-vector form, the coefficient matrix <span class="process-math">\(M\)</span> is</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
 \begin{equation*}
-A^{\tr}A\vx^* = A^{\tr}\vb\text{.}
+M = \left[ \begin{array}{cccccc} 1 \amp x_1 \amp x_1^2\amp \cdots  \amp x_1^{n-1} \amp x_1^{n} \\ 1 \amp x_2 \amp x_2^2\amp \cdots  \amp x_2^{n-1} \amp x_2^{n} \\ 1 \amp x_3 \amp x_3^2\amp \cdots  \amp x_3^{n-1} \amp x_3^{n} \\ \vdots \amp \vdots \amp \vdots \amp \cdots \amp\vdots \amp\vdots \\ 1 \amp x_m \amp x_m^2\amp \cdots  \amp x_m^{n-1} \amp x_m^{n} \end{array} \right]\text{,}
 \end{equation*}
 </div>
-<span class="incontext"><a href="sec_ls_approx.html#p-4404" class="internal">in-context</a></span>
+<p class="continuation">while the vectors <span class="process-math">\(\va\)</span> and <span class="process-math">\(\vy\)</span> are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\va = \left[ \begin{array}{c} a_{0} \\ a_{1} \\ a_{2} \\ \vdots \\ a_{n-1} \\a_{n} \end{array} \right] \text{ and } \vy = \left[ \begin{array}{c} y_{1} \\ y_{2} \\ y_{3} \\ \vdots \\ y_{m-1} \\ y_{m} \end{array} \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Letting <span class="process-math">\(\vy = [y_1 \ y_2 \ \ldots \ y_m]^{\tr}\)</span> and <span class="process-math">\(\vv_i = [x_1^{i-1} \ x_2^{i-1} \ \ldots \ x_m^{i-1}]^{\tr}\)</span> for <span class="process-math">\(1 \leq i \leq n+1\text{,}\)</span> the vector form of the system is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\vy = a_0\vv_1 + a_1 \vv_2 +  \cdots + a_n \vv_{n+1}\text{.}
+\end{equation*}
+</div>
+<span class="incontext"><a href="chap_least_squares.html#p-4404" class="internal">in-context</a></span>
 </body>
 </html>

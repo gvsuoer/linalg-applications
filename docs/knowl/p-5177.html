@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-04-14T13:21:53-04:00       *-->
+<!--*       on 2022-05-23T12:32:03-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,14 +14,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>A pseudoinverse <span class="process-math">\(A^{+}\)</span> of a matrix <span class="process-math">\(A\)</span> can be found through a singular value decomposition. Let <span class="process-math">\(U \Sigma V^{\tr}\)</span> be a singular value decomposition of an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(A\)</span> of rank <span class="process-math">\(r\text{,}\)</span> with</p>
 <div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\amp A =  4\left([3 \ 0 \ 4]^{\tr}\right)\left([2 \ 1 \ 1]\right)\\
-\amp - \left([4 \ 0 \ -3]^{\tr}\right)\left([1 \ 2 \ -2]\right)\\
-\amp + 2\left(\frac{1}{5}[0 \ 5 \ 0]^{\tr}\right)\left([-2 \ 2 \ 1]\right)\text{.}
-\end{align*}
+\begin{equation*}
+\Sigma = \left[ \begin{array}{ccccc|c} \sigma_1\amp \amp \amp \amp \amp  \\ \amp  \sigma_2\amp \amp 0\amp \amp  \\ \amp \amp  \sigma_3\amp \amp \amp 0 \\ \amp  0 \amp  \amp  \ddots \amp  \amp  \\ \amp \amp \amp \amp  \sigma_r \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec_pseudo_exer.html#p-5177" class="internal">in-context</a></span>
+<p class="continuation">If <span class="process-math">\(\Sigma^+\)</span> is the <span class="process-math">\(n \times m\)</span> matrix defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\Sigma^{+} = \left[ \begin{array}{ccccc|c} \frac{1}{\sigma_1}\amp \amp \amp \amp \amp  \\ \amp  \frac{1}{\sigma_2}\amp \amp 0\amp \amp  \\ \amp \amp  \frac{1}{\sigma_3}\amp \amp \amp 0 \\ \amp  0 \amp  \amp  \ddots \amp  \amp  \\ \amp \amp \amp \amp  \frac{1}{\sigma_r} \\ \hline \amp \amp 0\amp \amp \amp 0 \end{array}  \right]\text{,}
+\end{equation*}
+</div>
+<p class="continuation">then <span class="process-math">\(A^{+} = V\Sigma^{+}U^{\tr}\text{.}\)</span></p>
+<span class="incontext"><a href="chap_pseudoinverses.html#p-5177" class="internal">in-context</a></span>
 </body>
 </html>

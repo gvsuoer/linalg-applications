@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-04-14T13:25:38-04:00       *-->
+<!--*       on 2022-05-23T12:35:50-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,13 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>In this activity we see how to find the quadratic polynomials <span class="process-math">\(\ell_1(t)\text{,}\)</span> <span class="process-math">\(\ell_2(t)\text{,}\)</span> and <span class="process-math">\(\ell_3(t)\)</span> so that <span class="process-math">\(L(\ell_1(t)) =  \ve_1\text{,}\)</span> <span class="process-math">\(L(\ell_2(t)) = \ve_2\text{,}\)</span> and <span class="process-math">\(L(\ell_3(t)) = \ve_3\text{.}\)</span> Let <span class="process-math">\(\CB = \{\ve_1, \ve_2, \ve_3\}\)</span> and <span class="process-math">\(\CS = \{1,t,t^2\}\)</span> be the standard bases for <span class="process-math">\(\R^3\)</span> and <span class="process-math">\(\pol_2\text{,}\)</span> respectively.</p>
-<span class="incontext"><a href="sec_proj_secret.html#p-6730" class="internal">in-context</a></span>
+<p>The general algorithm for Shamir's Secret Sharing works by creating a polynomial with the secret code as one coefficient and random remaining coefficients. More specifically, to create a <span class="process-math">\((k,n)\)</span> threshold scheme, let <span class="process-math">\(a_0\)</span> be the secret code. Then choose at random <span class="process-math">\(k-1\)</span> positive integers <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_{k-1}\)</span> and create the polynomial</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+p(t) = a_0 + a_1t + a_2 t^2 + \cdots + a_{k-1}t^{k-1}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(a_0\)</span> is the secret. Evaluate <span class="process-math">\(p(t)\)</span> at <span class="process-math">\(n\)</span> different inputs <span class="process-math">\(t_1\text{,}\)</span> <span class="process-math">\(t_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(t_n\)</span> to create <span class="process-math">\(n\)</span> points <span class="process-math">\(P_1 = (t_1,p(t_1))\text{,}\)</span> <span class="process-math">\(P_2 = (t_2,p(t_2))\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(P_n = (t_n, p(t_n))\text{.}\)</span> Each participant is given one of these points. Since any collection of <span class="process-math">\(k\)</span> distinct points on the graph of <span class="process-math">\(p(t)\)</span> uniquely determines <span class="process-math">\(p(t)\text{,}\)</span> any combination of <span class="process-math">\(k\)</span> of the participants could reconstruct <span class="process-math">\(p(t)\text{.}\)</span> The secret is then <span class="process-math">\(p(0)\text{.}\)</span> (Note that, except under very restrictive circumstances, there is no polynomial of degree less than <span class="process-math">\(k\)</span> that passes through the given <span class="process-math">\(k\)</span> points, so it would be impossible for fewer than <span class="process-math">\(k\)</span> participants to reconstruct the message.)</p>
+<span class="incontext"><a href="chap_transformation_matrix.html#p-6730" class="internal">in-context</a></span>
 </body>
 </html>
