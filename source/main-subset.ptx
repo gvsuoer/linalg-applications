@@ -127,6 +127,7 @@
 
 </macros>
 <latex-image-preamble>
+
 \usepackage{tikz}
 \usepackage{tkz-graph}
 \usepackage{tkz-euclide}
@@ -137,12 +138,16 @@
 \usetikzlibrary{shapes}
 \usetikzlibrary{through,intersections,decorations,shadows,fadings}
 \usepackage{pgfplots}
+\usepackage{graphics}
+\setlength{\unitlength}{0.75cm}
 </latex-image-preamble>
 
 <rename element="objectives">Focus Questions</rename>
 <rename element="exploration">Preview Activity</rename>
 <rename element="project">Project Activity</rename>
 <rename element="remark">Reflection</rename>
+<rename element="chapter">Section</rename>
+<rename element="section">Subsection</rename>
 
 
   </docinfo>
@@ -165,12 +170,21 @@
       <xi:include href="./fm_preface.ptx"/>
     </frontmatter>
 
-      <xi:include href="./chap_determinants.ptx"/>
+    <part xml:id="part-chunking2">
+      <title>To Demonstrate Chunking</title>
+      <xi:include href="chap_gram_schmidt_ips.ptx" />
+      <xi:include href="chap_gram_schmidt.ptx" />
+    </part>
+
+    <!-- <part xml:id="part-superchap">
+      <title>Super Section! (Turn off Chunking)</title>
+      <xi:include href="superchap_intro_le.ptx" />
+      
+    </part> -->
+
 
     <backmatter>
-      <!-- <xi:include href="./bibliography.ptx"/> -->
       <xi:include href="./app_complex_numbers.ptx"/>
-      <!-- <xi:include href="./app_answers.ptx"/> -->
       <solutions xml:id="app_answers" divisional="answer hint">
         <title>Answers and Hints for Selected Exercises</title> 
       </solutions>
