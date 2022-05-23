@@ -93,6 +93,10 @@
     then <m>a_{ij}</m> counts the number of times word <m>i</m> appears in document <m>j</m>.
     The term-document matrix <m>A</m> for our library is
 
+  <image source="term-doc-mtx.png" width="100%">
+    <description></description>
+  </image>
+<!-- 
     <tabular>
       <row>
         <cell><nbsp/></cell>
@@ -280,7 +284,7 @@
         <cell right="medium">1</cell>
       </row>
     </tabular>
-    
+     -->
 
     <!-- <men xml:id="eq_LSI_A">
       \begin{array}{cc} 
@@ -541,24 +545,36 @@
     we must also convert the original query to a representation within the new term-document system represented by <m>A_k</m>.
     This new representation is called a
     <term>pseudo-document</term>.
+    <figure xml:id="fig-term-reduced">
+      <caption>Terms in the reduced concept space</caption>
+      <image source="term-reduced.png" width="70%">
+        <description></description>
+      </image>
+    </figure>
+
+    <figure xml:id="fig-doc-reduced">
+      <caption>Documnets in the reduced concept space</caption>
+      <image source="doc-reduced.png" width="90%">
+        <description></description>
+      </image>
+    </figure>
     <!-- <men xml:id="eq_LSI_newterms"> -->
-    <table xml:id="eq_LSI_newterms">
+    <!-- <table xml:id="eq_LSI_newterms">
      <title>Terms in the reduced concept space.</title>
-    <tabular>
-    <row>
+      <tabular>
+      <row>
       <cell><m>\begin{array}{c} \amp     \begin{array}{l} \text{ human }  \\ \text{ interface }   \\ \text{ computer }  \\ \text{ user }  \\ \text{ system }  \\ \text{ response }   \\ \text{ time }  \\ \text{ EPS }  \\ \text{ survey }  \\ \text{ trees }  \\ \text{ graph }  \\ \text{ minors } \end{array} \end{array}</m>  </cell><cell> <m>\begin{array}{cc} \left[ \begin{array}{rr}  - 0.22\amp - 0.11\\ - 0.20\amp - 0.07\\ - 0.24\amp  0.04\\ - 0.40\amp 0.06\\ - 0.64\amp - 0.17\\ - 0.27\amp 0.11\\ - 0.27\amp  0.11\\ - 0.30\amp -0.14\\ - 0.21\amp  0.27\\ - 0.01\amp 0.49\\ - 0.04\amp  0.62\\ - 0.03\amp 0.45 \end{array}    \right] \end{array}</m></cell>
-    </row>
-    </tabular>
-    </table>
+      </row>
+      </tabular>
+    </table> -->
   </p>
-  <p>
-    
+  <!-- <p>
     <men>
       \begin{array}{cc} \amp       \begin{array}{ccccccccc}c_1\amp   c_2\amp  \ \  c_3\amp  \ \  c_4\amp  \ c_5\amp m_1\amp m_2\amp m_3\amp m_4 \end{array}  \\ \amp  \left[   \begin{array}{rrrrrrrrr} - 0.20\amp - 0.61\amp - 0.46\amp - 0.54\amp - 0.28\amp - 0.00\amp - 0.01\amp - 0.02\amp - 0.08\\ - 0.06\amp  0.17\amp - 0.13\amp - 0.23\amp  0.11\amp  0.19\amp  0.44\amp  0.62\amp  0.53 \end{array}  \right] \end{array}
     </men>
     <table xml:id="eq_LSI_newdocs">
-    <title>Documents in the reduced concept space.</title>
-    <tabular halign="center">
+      <title>Documents in the reduced concept space.</title>
+      <tabular halign="center">
     
       <row>
         
@@ -598,8 +614,8 @@
       </row>
     </tabular>
 
-    </table>
-  </p>
+  </table>
+  </p> -->
 
   <project xml:id="act_LSI_concept_space">
     <introduction>
