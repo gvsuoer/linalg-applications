@@ -92,10 +92,13 @@
     If <m>A = [a_{ij}]</m> is the term-document matrix,
     then <m>a_{ij}</m> counts the number of times word <m>i</m> appears in document <m>j</m>.
     The term-document matrix <m>A</m> for our library is
-
-  <image source="term-doc-mtx.png" width="100%">
+  <figure xml:id="fig_LSI_A">
+    <caption>Term-document matrix for our library</caption>
+  
+  <image source="term-doc-mtx.png" width="80%">
     <description></description>
   </image>
+  </figure>
 <!-- 
     <tabular>
       <row>
@@ -446,7 +449,7 @@
       The singular value decomposition (SVD) allows us to produce new,
       improved term-document matrices.
       For this activity,
-      use the term-document matrix <m>A</m> in <xref ref="eq_LSI_A"/>.
+      use the term-document matrix <m>A</m> in <xref ref="fig_LSI_A"/>.
     </p>
     </introduction>
       <task>
@@ -547,7 +550,7 @@
     <term>pseudo-document</term>.
     <figure xml:id="fig-term-reduced">
       <caption>Terms in the reduced concept space</caption>
-      <image source="term-reduced.png" width="70%">
+      <image source="term-reduced.png" width="50%">
         <description></description>
       </image>
     </figure>
@@ -643,7 +646,7 @@
           <p>
             In our example, using <m>k=2</m>,
             the terms can now be represented as <m>2</m>-dimensional vectors
-            (the rows of <m>U_2</m>, see <xref ref="eq_LSI_newterms"/>),
+            (the rows of <m>U_2</m>, see <xref ref="fig-term-reduced"/>),
             or as points in the plane.
             More specifically, <em>human</em>
             is represented by the vector
@@ -651,7 +654,7 @@
             <m>[-0.22 \ -0.11]^{\tr}</m>,
             <em>interface</em> by <m>[- 0.20 \ - 0.07]^{\tr}</m>, etc.
             Similarly, the documents are represented by columns of <m>V_2</m>
-            (see <xref ref="eq_LSI_newdocs"/>),
+            (see <xref ref="fig-doc-reduced"/>),
             so that the document <m>c_1</m> is represented by <m>[-0.20 \ -0.06]^{\tr}</m>,
             <m>c_2</m> by <m>[-0.61 \ 0.17]^{\tr}</m>, etc.
             From this perspective we can visualize these documents in the plane.
