@@ -11,33 +11,30 @@
       <source>source/main.ptx</source>
       <publication>publication/publication.ptx</publication>
       <output-dir>output/html</output-dir>
+      <stringparam key="html.css.extra" value="external/custom_style.css"/>
     </target>
     <target name="latex">
       <format>latex</format>
       <source>source/main.ptx</source>
       <publication>publication/publication.ptx</publication>
       <output-dir>output/latex</output-dir>
-      
-      <!-- <stringparam key="exercise.divisional.answer" value="no"/> -->
-      <stringparam key="latex.geometry" value="top=1in, bottom=1in, outer=1.2in, inner=1.8in"/>
+      <stringparam key="latex.geometry" value="top=1in, bottom=1in, outer=1in, inner=1in"/>
       <xsl>xsl/custom-latex.xsl</xsl>
     </target>
-    <target name="pdf">
-      <format>pdf</format>
-      <source>source/main.ptx</source>
+    <target name="subset-latex">
+      <format>latex</format>
+      <source>source/main-subset.ptx</source>
       <publication>publication/publication.ptx</publication>
-      <output-dir>output/pdf</output-dir>
-      <!-- <xsl>xsl/custom-latex.xsl</xsl> -->
+      <output-dir>output/subset-latex</output-dir>
+      <stringparam key="latex.geometry" value="top=1in, bottom=1in, outer=1in, inner=1in"/>
+      <xsl>xsl/custom-latex.xsl</xsl>>
     </target>
-    <!-- To quickly build the html of a subset of your project, edit main-subset.ptx
-        and run `pretext build subset` (or `view` with watch option) -->
-    <target name="subset">
+    <target name="subset-html">
       <format>html</format>
       <source>source/main-subset.ptx</source>
       <publication>publication/publication.ptx</publication>
-      <output-dir>output/subset</output-dir>
-      <stringparam key="debug.skip-knowls" value="yes"/>
-      <!-- <xsl>xsl/custom-latex.xsl</xsl> -->
+      <output-dir>output/subset-html</output-dir>
+      <stringparam key="html.css.extra" value="external/custom_style.css"/>
     </target>
   </targets>
   <executables>

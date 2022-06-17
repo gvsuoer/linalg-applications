@@ -39,7 +39,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 <!-- Intend output for rendering by pdflatex -->
 <xsl:output method="text" encoding="UTF-8"/>
 
-
+<!-- Update page headers to fit all of the title content -->
 <xsl:template match="book" mode="titleps-style">
  <xsl:text>%% Plain pages should have the same font for page numbers
 %% Custom template to change chapter and section titles in header
@@ -61,5 +61,21 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 \pagestyle{headings}
 </xsl:text>
 </xsl:template>
+
+<!-- Remove diamond (\lozenge) from end of definitions -->
+<xsl:template match="definition" mode="tcb-style">
+ <xsl:text>{bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, }</xsl:text>
+</xsl:template>
+
+<xsl:template match="figure" mode="tcb-style">
+ 
+</xsl:template>
+
+<!-- Center justify text in figure captions -->
+<xsl:template match="figure" mode="environment">
+ <xsl:text>\tcbset{ figureptxstyle/.style={bwminimalstyle, middle=1ex, blockspacingstyle, fontlower=\blocktitlefont} }&#xa;</xsl:text>
+ <xsl:text>\newtcolorbox[use counter from=block]{figureptx}[3]{lower separated=false, before lower=\begin{center} {{\textbf{Figure~\thetcbcounter}\space#1}} \end{center}, phantomlabel={#2}, unbreakable, parbox=false, figureptxstyle, }</xsl:text>
+</xsl:template>
+
 
 </xsl:stylesheet>
