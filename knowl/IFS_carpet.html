@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-23T15:04:41-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="project project-like"><h4 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">37.8</span><span class="period">.</span>
+</h4>
+<div class="introduction">
+<p>A picture of an emerging Sierpinski carpet is shown at left in <a href="" class="xref" data-knowl="./knowl/F_Scarpet.html" title="Figure 37.18">Figure 37.18</a>. A Sage cell to illustrate this algorithm for producing approximations to the Sierpinski carpet can be found at <a class="external" href="http://faculty.gvsu.edu/schlicks/SCarpet_Sage.html" target="_blank"><code class="code-inline tex2jax_ignore">faculty.gvsu.edu/schlicks/SCarpet_Sage.html</code></a>. In this activity we will see how to find an iterated function system that will generate this fractal.</p>
+<figure class="figure figure-like"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/8_a_Scarpet_6.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">37.18<span class="period">.</span></span><span class="space"> </span>A Sierpinski carpet.</figcaption></figure>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p>To create an IFS to generate this fractal, we need to understand how many self-similar pieces make up this figure. Use the image at right in <a href="" class="xref" data-knowl="./knowl/F_Scarpet.html" title="Figure 37.18">Figure 37.18</a> to determine how many pieces we need.</p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p>For each of the self-similar pieces identified in part (a), find a linear transformation and a translation that maps the entire figure to the self-similar piece.</p>
+<div class="solutions"><a href="" class="hint-knowl original" data-knowl="./knowl/hint-121-hidden.html" title="Hint 37.8.b.1"><span class="type">Hint</span><span class="period">.</span></a></div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p>Test your IFS to make sure that it actually generates the Sierpinski carpet. There are many websites that allow you to do this, one of which is <a class="external" href="http://cs.lmu.edu/~ray/notes/ifs/" target="_blank"><code class="code-inline tex2jax_ignore">cs.lmu.edu/~ray/notes/ifs/</code></a>. In this program, the mapping <span class="process-math">\(f\)</span> defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(\vx) = \left[ \begin{array}{cc} a\amp b\\c\amp d \end{array}  \right] \vx + \left[ \begin{array}{c} e\\f \end{array} \ \right]
+\end{equation*}
+</div>
+<p class="continuation">is represented as the string</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a \ b \ c \ d \ e \ f\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Most programs generally use a different algorithm to create the attractor, plotting points instead of sets. In this algorithm, each contraction mapping is assigned a probability as well (the larger parts of the figure are usually given higher probabilities), so you will enter each contraction mapping in the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a \ b \ c \ d \ e \ f \ p
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(p\)</span> is the probability attached to that contraction mapping. As an example, the IFS code for the Sierpinski triangle is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\begin{array}{ccccccc} 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 1  \amp 0    \amp 0.33 \\ 0.5  \amp 0  \amp 0  \amp 0.5  \amp 0.5  \amp 0.43  \amp 0.33 \end{array}
+\end{equation*}
+</div></article></article><span class="incontext"><a href="chap_linear_transformation.html#IFS_carpet" class="internal">in-context</a></span>
+</body>
+</html>

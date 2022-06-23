@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-23T15:01:53-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proof"><h4 class="heading"><span class="type">Proof</span></h4>
+<p>Let <span class="process-math">\(A\)</span> be a matrix with <span class="process-math">\(k\)</span> distinct eigenvalues <span class="process-math">\(\lambda_1\text{,}\)</span> <span class="process-math">\(\lambda_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\lambda_k\)</span> and corresponding eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\text{.}\)</span> To understand why <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are linearly independent, we will argue by contradiction and suppose that the vectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are linearly dependent. Note that <span class="process-math">\(\vv_1\)</span> cannot be the zero vector (why?), so the set <span class="process-math">\(S_1=\{\vv_1\}\)</span> is linearly independent. If we include <span class="process-math">\(\vv_2\)</span> into this set, the set <span class="process-math">\(S_2 = \{\vv_1, \vv_2\}\)</span> may be linearly independent or dependent. If <span class="process-math">\(S_2\)</span> is linearly independent, then the set <span class="process-math">\(S_3 = \{\vv_1, \vv_2, \vv_3\}\)</span> may be linearly independent or dependent. We can continue adding additional vectors until we reach the set <span class="process-math">\(S_k = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_k\}\)</span> which we are assuming is linearly dependent. So there must be a smallest integer <span class="process-math">\(m \geq 2\)</span> such that the set <span class="process-math">\(S_m\)</span> is linearly dependent while <span class="process-math">\(S_{m-1}\)</span> is linearly independent. Since <span class="process-math">\(S_m = \{\vv_1, \vv_2, \vv_3, \ldots, \vv_m\}\)</span> is linearly dependent, there is a linear combination of <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_m\)</span> with weights not all 0 that is the zero vector. Let <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\)</span> be such weights, not all zero, so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation}
+c_1\vv_1 + c_2\vv_2 + \cdots + c_{m-1} \vv_{m-1} + c_m \vv_m = \vzero\tag{14.6}
+\end{equation}
+</div>
+<p>If we multiply both sides of <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues.html" title="Equation 14.6">(14.6)</a> on the left by the matrix <span class="process-math">\(A\)</span> we obtain</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_distinct_eigenvalues.html">
+\begin{align}
+A(c_1\vv_1 + c_{2}\vv_{2} + \cdots + c_m \vv_m) \amp = A\vzero\notag\\
+c_1A\vv_1 + c_{2}A\vv_{2} + \cdots + c_m A\vv_m \amp = \vzero\notag\\
+c_1 \lambda_1\vv_1 + c_{2}\lambda_{2}\vv_{2} + \cdots + c_m \lambda_m\vv_m \amp = \vzero\text{.}\tag{14.7}
+\end{align}
+</div>
+<p>If we multiply both sides of <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues.html" title="Equation 14.6">(14.6)</a> by <span class="process-math">\(\lambda_m\)</span> we obtain the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_distinct_eigenvalues.html">
+\begin{equation}
+c_1\lambda_m\vv_1 + c_{2}\lambda_m\vv_{2} + \cdots + c_m \lambda_m\vv_m = \vzero\text{.}\tag{14.8}
+\end{equation}
+</div>
+<p>Subtracting corresponding sides of equation <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues3.html" title="Equation 14.8">(14.8)</a> from <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues2.html" title="Equation 14.7">(14.7)</a> gives us</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq_distinct_eigenvalues3.html ./knowl/eq_distinct_eigenvalues2.html">
+\begin{equation}
+c_{1}(\lambda_{1}-\lambda_m)\vv_{1} + c_{2}(\lambda_{2}-\lambda_m)\vv_{2} + \cdots + c_{m-1} (\lambda_{m-1}-\lambda_m) \vv_{m-1} = \vzero\text{.}\tag{14.9}
+\end{equation}
+</div>
+<p>Recall that <span class="process-math">\(S_{m-1}\)</span> is a linearly independent set, so the only way a linear combination of vectors in <span class="process-math">\(S_{m-1}\)</span> can be <span class="process-math">\(\vzero\)</span> is if all of the weights are 0. Therefore, we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+c_{1}(\lambda_{1}-\lambda_m) = 0, \ \ c_{2}(\lambda_{2}-\lambda_m) = 0, \ \ \ldots, \ \ c_{m-1} (\lambda_{m-1}-\lambda_m) = 0\text{.}
+\end{equation*}
+</div>
+<p>Since the eigenvalues are all distinct, this can only happen if</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+c_1 = c_2 = \cdots = c_{m-1} = 0\text{.}
+\end{equation*}
+</div>
+<p>But equation <a href="" class="xref" data-knowl="./knowl/eq_distinct_eigenvalues.html" title="Equation 14.6">(14.6)</a> then implies that <span class="process-math">\(c_m = 0\)</span> and so all of the weights <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\)</span> are 0. However, when we assumed that the eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> were linearly dependent, this led to having at least one of the weights <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(c_m\)</span> be nonzero. This cannot happen, so our assumption that the eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> were linearly dependent must be false and we conclude that the eigenvectors <span class="process-math">\(\vv_1\text{,}\)</span> <span class="process-math">\(\vv_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(\vv_k\)</span> are linearly independent.</p></article><span class="incontext"><a href="chap_eigenspaces.html#proof-6" class="internal">in-context</a></span>
+</body>
+</html>

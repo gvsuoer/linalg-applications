@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-23T15:03:09-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="task exercise-like"><h5 class="heading">
+<span class="type">Task</span><span class="space"> </span><span class="codenumber">28.7.c</span><span class="period">.</span>
+</h5>
+<p><span class="process-math">\(4x^2+4y^2+4z^2+4xy+4xz+4yz-3=0\)</span></p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>We write the quadratic form <span class="process-math">\(Q(x,y,z)=4x^2+4y^2+4z^2+4xy+4xz+4yz\)</span> as <span class="process-math">\(\vx^{\tr} A \vx\text{,}\)</span> where <span class="process-math">\(\vx = \left[ \begin{array}{c} x\\y\\z \end{array}  \right]\)</span> and <span class="process-math">\(A = \left[ \begin{array}{ccc} 4\amp 2\amp 2\\2\amp 4\amp 2\\2\amp 2\amp 4 \end{array}  \right]\text{.}\)</span> The eigenvalues for <span class="process-math">\(A\)</span> are <span class="process-math">\(2\)</span> and <span class="process-math">\(8\text{,}\)</span> and bases for the corresponding eigenspaces <span class="process-math">\(E_2\)</span> and <span class="process-math">\(E_8\)</span> are <span class="process-math">\(\{[-1 \ 0 \ 1]^{\tr}, [-1 \ 1\ 0]^{\tr}\}\)</span> and <span class="process-math">\(\{[1 \ 1\ 1]^{\tr}\}\text{,}\)</span> respectively. Applying the Gram-Schmidt process to the basis for <span class="process-math">\(E_2\)</span> gives us an orthogonal basis <span class="process-math">\(\{\vw_1, \vw_2\}\)</span> of <span class="process-math">\(E_2\text{,}\)</span> where <span class="process-math">\(\vw_1 = [-1 \ 0 \ 1]^{\tr}\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+\vw_2 \amp =  [-1 \ 1 \ ]^{\tr} - \frac{ [-1 \ 0 \ 1]^{\tr} \cdot [-1 \ 1 \ 0]^{\tr}}{[-1 \ 0 \ 1]^{\tr} \cdot [-1 \ 0 \ 1]^{\tr}} [-1 \ 0 \ 1]^{\tr}\\
+\amp =  [-1 \ 1 \ 0]^{\tr} - \frac{1}{2}[-1 \ 0 \ 1]^{\tr}\\
+\amp = \frac{1}{2}[ -1 \ 2 \ -1]^{\tr}\text{.}
+\end{align*}
+</div>
+<p class="continuation">An orthogonal matrix <span class="process-math">\(P\)</span> that orthogonally diagonalizes <span class="process-math">\(A\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+P = \left[ \begin{array}{rrc} -\frac{1}{\sqrt{2}}\amp -\frac{1}{\sqrt{6}}\amp \frac{1}{\sqrt{3}} \\ 0\amp \frac{2}{\sqrt{6}}\amp \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{2}}\amp -\frac{1}{\sqrt{6}}\amp \frac{1}{\sqrt{3}} \end{array}  \right]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If <span class="process-math">\(\vy =  [u \ v \ w]^{\tr}\)</span> and we let <span class="process-math">\(\vx = P\vy\text{,}\)</span> then we can rewrite the quadratic equation <span class="process-math">\(4x^2+4y^2+4z^2+4xy+4xz+4yz = 3\)</span> as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+4x^2+4y^2+4z^2+4xy+4xz+4yz \amp = 3\\
+\vx^{\tr}A\vx \amp = 3\\
+(P\vy)^{\tr}A(P\vy) \amp = 3\\
+\vy^{\tr} P^{\tr}AP \vy \amp = 3\\
+\vy^{\tr} \left[ \begin{array}{ccc} 2\amp 0\amp 0\\
+0\amp 2\amp 0\\
+0\amp 0\amp 8 \end{array} \right] \vy \amp = 3\\
+2u^2+2v^2+8w^2 \amp = 3\text{.}
+\end{align*}
+</div>
+<p class="continuation">So the quadratic equation <span class="process-math">\(4x^2+4y^2+4z^2+4xy+4xz+4yz-3 = 0\)</span> is a ellipsoid.</p>
+</div></article><span class="incontext"><a href="chap_principal_axis_theorem.html#task-1580" class="internal">in-context</a></span>
+</body>
+</html>

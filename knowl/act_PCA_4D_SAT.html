@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-23T15:04:02-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="project project-like"><h4 class="heading">
+<span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">33.11</span><span class="period">.</span>
+</h4>
+<div class="introduction">
+<p>Let us now consider a problem with more than two variables. We continue to keep the data set small so that we can conveniently operate with it. <a href="" class="xref" data-knowl="./knowl/T_PCA_SAT.html" title="Table 33.12: SAT data">Table 33.12</a> presents additional information from ten states on four attributes related to the SAT — Participation rates, Evidence-Based Reading and Writing (EBRW) score, Math score, and average SAT score. Use technology as appropriate for this activity.</p>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">33.12<span class="period">.</span></span><span class="space"> </span>SAT data</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b1 r0 l0 t0 lines">State</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(6\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(7\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(8\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(9\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(10\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Rate</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(60\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(97\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(64\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(99\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(23\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(79\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(70\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">EBRW</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(595\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(540\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(522\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(508\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(565\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(512\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(643\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(574\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(534\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(539\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">Math</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(571\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(536\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(493\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(493\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(554\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(501\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(655\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(566\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(534\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(539\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">SAT</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1166\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1076\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1014\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1120\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1013\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1296\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1140\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1068\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1086\)</span></td>
+</tr>
+</table></div></figure>
+</div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p>Determine the centered data matrix <span class="process-math">\(X\)</span> for this data set.</p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p>Find the covariance matrix for this data set. Round to four decimal places.</p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<p>Find the principal components of <span class="process-math">\(X\text{.}\)</span> Include at least four decimal places accuracy.</p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<p>How much variation is accounted for in the data by the first principal component? In other words, if we reduce this data to one dimension, how much of the variation do we retain? Explain.</p></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<p>How much variation is accounted for in the data by the first two principal components? In other words, if we reduce this data to two dimensions, how much of the variation do we retain? Explain.</p></article></article><span class="incontext"><a href="chap_dimension.html#act_PCA_4D_SAT" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-04-14T13:08:53-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Application: Linear Differential Equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="An Inquiry-Based Introduction to Linear Algebra and Applications">
+<meta property="book:author" content="Feryal Alayont">
+<meta property="book:author" content="Steven Schlicker">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\ch}{char}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\J}{\mathbb{J}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\NE}{\mathcal{E}}
+\newcommand{\Mn}[1]{\mathcal{M}_{#1 \times #1}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Rn}{\R^n}
+\newcommand{\Mat}{\mathbf}
+\newcommand{\Seq}{\boldsymbol}
+\newcommand{\seq}[1]{\boldsymbol{#1}}
+\newcommand{\set}[1]{\mathcal{#1}}
+\newcommand{\abs}[1]{\left\lvert{}#1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cq}{\scalebox{.34}{\pscirclebox{ \textbf{?}}}}
+\newcommand{\cqup}{\,$^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}$}
+\newcommand{\cqupmath}{\,^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\cqupmathnospace}{^{\text{\scalebox{.2}{\pscirclebox{\textbf{?}}}}}}
+\newcommand{\uspace}[1]{\underline{}}
+\newcommand{\muspace}[1]{\underline{\mspace{#1 mu}}}
+\newcommand{\bspace}[1]{}
+\newcommand{\ie}{\emph{i}.\emph{e}.}
+\newcommand{\nq}[1]{\scalebox{.34}{\pscirclebox{\textbf{#1}}}}
+\newcommand{\equalwhy}{\stackrel{\cqupmath}{=}}
+\newcommand{\notequalwhy}{\stackrel{\cqupmath}{\neq}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\newcommand{\polyp}{p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots a_2x^2 + a_1x + a_0}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\lcm}{\text{lcm}}
+\newcommand{\Aut}{\text{Aut}}
+\newcommand{\Inn}{\text{Inn}}
+\newcommand{\Hol}{\text{Hol}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\bsq}{\hfill $\blacksquare$}
+\newcommand{\NIMdot}{{ $\cdot$ }}
+\newcommand{\eG}{e_{\scriptscriptstyle{G}}}
+\newcommand{\eGroup}[1]{e_{\scriptscriptstyle{#1}}}
+\newcommand{\Gdot}[1]{\cdot_{\scriptscriptstyle{#1}}}
+\newcommand{\rbar}{\overline{r}}
+\newcommand{\nuG}[1]{\nu_{\scriptscriptstyle{#1}}}
+\newcommand{\rightarray}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+\newcommand{\polymod}[1]{\mspace{5 mu}(\text{mod} #1)}
+\newcommand{\ts}{\mspace{2 mu}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\pol}{\mathbb{P}}
+\newcommand{\CS}{\mathcal{S}}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\CB}{\mathcal{B}}
+\newcommand{\CD}{\mathcal{D}}
+\newcommand{\CP}{\mathcal{P}}
+\newcommand{\CQ}{\mathcal{Q}}
+\newcommand{\CW}{\mathcal{W}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\nullity}{\text{nullity}}
+\newcommand{\trace}{\text{trace}}
+\newcommand{\Area}{\text{Area}}
+\newcommand{\Vol}{\text{Vol}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\var}{\text{var}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vf}{\mathbf{f}}
+\newcommand{\vg}{\mathbf{g}}
+\newcommand{\vh}{\mathbf{h}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\vs}{\mathbf{s}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vz}{\mathbf{z}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vF}{\mathbf{F}}
+\newcommand{\vP}{\mathbf{P}}
+\newcommand{\nin}{}
+\newcommand{\Dom}{\text{Dom}}
+\newcommand{\tr}{\mathsf{T}}
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\Row}{\text{Row }}
+\newcommand{\Col}{\text{Col }}
+\newcommand{\Nul}{\text{Nul }}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\Range}{\text{Range}}
+\newcommand{\Domain}{\text{Domain}}
+\newcommand{\hthin}{\hlinewd{.1pt}}
+\newcommand{\hthick}{\hlinewd{.7pt}}
+\newcommand{\pbreaks}{1}
+\newcommand{\pbreak}{
+}
+\newcommand{\lint}{\underline{}
+\int}
+\newcommand{\uint}{ \underline{}
+\int}
+
+
+\newcommand{\Si}{\text{Si}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
+<p class="byline">Feryal Alayont, Steven Schlicker</p>
+</div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="chap_transformations_eigenvalues.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="chap_transformations_eigenvalues.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec_eigen_trans_intro.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="chap_transformations_eigenvalues.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="chap_transformations_eigenvalues.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec_eigen_trans_intro.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="frontmatter" class="internal"><span class="title">Front Matter</span></a><ul><li><a href="fm_preface.html" data-scroll="fm_preface" class="internal">Preface</a></li></ul>
+</li>
+<li class="link part"><a href="part-systems.html" data-scroll="part-systems" class="internal"><span class="codenumber">I</span> <span class="title">Systems of Linear Equations</span></a></li>
+<li class="link">
+<a href="chap_intro_linear_systems.html" data-scroll="chap_intro_linear_systems" class="internal"><span class="codenumber">1</span> <span class="title">Introduction to Systems of Linear Equations</span></a><ul>
+<li><a href="sec_appl_elec_circuits.html" data-scroll="sec_appl_elec_circuits" class="internal">Application: Electrical Circuits</a></li>
+<li><a href="sec_intro_le_intro.html" data-scroll="sec_intro_le_intro" class="internal">Introduction</a></li>
+<li><a href="sec_notation.html" data-scroll="sec_notation" class="internal">Notation and Terminology</a></li>
+<li><a href="sec_solve_systems.html" data-scroll="sec_solve_systems" class="internal">Solving Systems of Linear Equations</a></li>
+<li><a href="sec_geom_solu_sets.html" data-scroll="sec_geom_solu_sets" class="internal">The Geometry of Solution Sets of Linear Systems</a></li>
+<li><a href="sec_intro_le_exam.html" data-scroll="sec_intro_le_exam" class="internal">Examples</a></li>
+<li><a href="sec_intro_le_summ.html" data-scroll="sec_intro_le_summ" class="internal">Summary</a></li>
+<li><a href="sec_intro_le_exer.html" data-scroll="sec_intro_le_exer" class="internal">Exercises</a></li>
+<li><a href="sec_1_a_circuits.html" data-scroll="sec_1_a_circuits" class="internal">Project: Modeling an Electrical Circuit and the Wheatstone Bridge Circuit</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_matrix_representation.html" data-scroll="chap_matrix_representation" class="internal"><span class="codenumber">2</span> <span class="title">The Matrix Representation of a Linear System</span></a><ul>
+<li><a href="sec_appl_area_curve.html" data-scroll="sec_appl_area_curve" class="internal">Application: Approximating Area Under a Curve</a></li>
+<li><a href="sec_mtx_lin_intro.html" data-scroll="sec_mtx_lin_intro" class="internal">Introduction</a></li>
+<li><a href="sec_simp_mtx_sys.html" data-scroll="sec_simp_mtx_sys" class="internal">Simplifying Linear Systems Represented in Matrix Form</a></li>
+<li><a href="sec_sys_inf_sols.html" data-scroll="sec_sys_inf_sols" class="internal">Linear Systems with Infinitely Many Solutions</a></li>
+<li><a href="sec_sys_no_sols.html" data-scroll="sec_sys_no_sols" class="internal">Linear Systems with No Solutions</a></li>
+<li><a href="sec_mtx_sys_exam.html" data-scroll="sec_mtx_sys_exam" class="internal">Examples</a></li>
+<li><a href="sec_mtx_sys_summ.html" data-scroll="sec_mtx_sys_summ" class="internal">Summary</a></li>
+<li><a href="sec_mtx_sys_exer.html" data-scroll="sec_mtx_sys_exer" class="internal">Exercises</a></li>
+<li><a href="sec_1_b_polynomial.html" data-scroll="sec_1_b_polynomial" class="internal">Project: Polynomial Interpolation to Approximate the Area Under a Curve</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_row_echelon_forms.html" data-scroll="chap_row_echelon_forms" class="internal"><span class="codenumber">3</span> <span class="title">Row Echelon Forms</span></a><ul>
+<li><a href="sec_appl_chem_react.html" data-scroll="sec_appl_chem_react" class="internal">Application: Balancing Chemical Reactions</a></li>
+<li><a href="sec_row_ech_intro.html" data-scroll="sec_row_ech_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mtx_ech_forms.html" data-scroll="sec_mtx_ech_forms" class="internal">The Echelon Forms of a Matrix</a></li>
+<li><a href="sec_num_sols_ls.html" data-scroll="sec_num_sols_ls" class="internal">Determining the Number of Solutions of a Linear System</a></li>
+<li><a href="sec_prod_ech_forms.html" data-scroll="sec_prod_ech_forms" class="internal">Producing the Echelon Forms</a></li>
+<li><a href="sec_row_ech_exam.html" data-scroll="sec_row_ech_exam" class="internal">Examples</a></li>
+<li><a href="sec_row_ech_summ.html" data-scroll="sec_row_ech_summ" class="internal">Summary</a></li>
+<li><a href="sec_row_ech_exer.html" data-scroll="sec_row_ech_exer" class="internal">Exercises</a></li>
+<li><a href="sec_prof_chem_react.html" data-scroll="sec_prof_chem_react" class="internal">Project: Modeling a Chemical Reaction</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_vector_representation.html" data-scroll="chap_vector_representation" class="internal"><span class="codenumber">4</span> <span class="title">Vector Representation</span></a><ul>
+<li><a href="sec_appl_knight.html" data-scroll="sec_appl_knight" class="internal">Application: The Knight's Tour</a></li>
+<li><a href="sec_vec_rep_intro.html" data-scroll="sec_vec_rep_intro" class="internal">Introduction</a></li>
+<li><a href="sec_vec_ops.html" data-scroll="sec_vec_ops" class="internal">Vectors and Vector Operations</a></li>
+<li><a href="sec_geom_vec_ops.html" data-scroll="sec_geom_vec_ops" class="internal">Geometric Representation of Vectors and Vector Operations</a></li>
+<li><a href="sec_lin_comb_vec.html" data-scroll="sec_lin_comb_vec" class="internal">Linear Combinations of Vectors</a></li>
+<li><a href="sec_vec_span.html" data-scroll="sec_vec_span" class="internal">The Span of a Set of Vectors</a></li>
+<li><a href="sec_vec_rep_exam.html" data-scroll="sec_vec_rep_exam" class="internal">Examples</a></li>
+<li><a href="sec_vec_rep_summ.html" data-scroll="sec_vec_rep_summ" class="internal">Summary</a></li>
+<li><a href="exercises-4.html" data-scroll="exercises-4" class="internal">Exercises</a></li>
+<li><a href="sec_proj_knight.html" data-scroll="sec_proj_knight" class="internal">Project: Analyzing Knight Moves</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_matrix_vector.html" data-scroll="chap_matrix_vector" class="internal"><span class="codenumber">5</span> <span class="title">The Matrix-Vector Form of a Linear System</span></a><ul>
+<li><a href="sec_appl_model_econ.html" data-scroll="sec_appl_model_econ" class="internal">Application: Modeling an Economy</a></li>
+<li><a href="sec_mv_form_intro.html" data-scroll="sec_mv_form_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mv_prod.html" data-scroll="sec_mv_prod" class="internal">The Matrix-Vector Product</a></li>
+<li><a href="sec_mv_form.html" data-scroll="sec_mv_form" class="internal">The Matrix-Vector Form of a Linear System</a></li>
+<li><a href="sec_homog_sys.html" data-scroll="sec_homog_sys" class="internal">Homogeneous and Nonhomogeneous Systems</a></li>
+<li><a href="sec_geom_homog_sys.html" data-scroll="sec_geom_homog_sys" class="internal">The Geometry of Solutions to the Homogeneous System</a></li>
+<li><a href="sec_mv_form_exam.html" data-scroll="sec_mv_form_exam" class="internal">Examples</a></li>
+<li><a href="sec_mv_form_summ.html" data-scroll="sec_mv_form_summ" class="internal">Summary</a></li>
+<li><a href="sec_mv_form_exer.html" data-scroll="sec_mv_form_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_io_models.html" data-scroll="sec_proj_io_models" class="internal">Project: Input-Output Models</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_independence.html" data-scroll="chap_independence" class="internal"><span class="codenumber">6</span> <span class="title">Linear Dependence and Independence</span></a><ul>
+<li><a href="sec_appl_bezier.html" data-scroll="sec_appl_bezier" class="internal">Application: Bézier Curves</a></li>
+<li><a href="sec_indep_intro.html" data-scroll="sec_indep_intro" class="internal">Introduction</a></li>
+<li><a href="lin_indep_intro_new.html" data-scroll="lin_indep_intro_new" class="internal">Linear Independence</a></li>
+<li><a href="sec_determ_lin_ind.html" data-scroll="sec_determ_lin_ind" class="internal">Determining Linear Independence</a></li>
+<li><a href="sec_min_span_set.html" data-scroll="sec_min_span_set" class="internal">Minimal Spanning Sets</a></li>
+<li><a href="sec_indep_exam.html" data-scroll="sec_indep_exam" class="internal">Examples</a></li>
+<li><a href="sec_indep_summ.html" data-scroll="sec_indep_summ" class="internal">Summary</a></li>
+<li><a href="sec_indep_exer.html" data-scroll="sec_indep_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_bezier.html" data-scroll="sec_proj_bezier" class="internal">Project: Generating Bézier Curves</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_matrix_transformations.html" data-scroll="chap_matrix_transformations" class="internal"><span class="codenumber">7</span> <span class="title">Matrix Transformations</span></a><ul>
+<li><a href="sec_appl_graphics.html" data-scroll="sec_appl_graphics" class="internal">Application: Computer Graphics</a></li>
+<li><a href="sec_mtx_trans_intro.html" data-scroll="sec_mtx_trans_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mtx_trans_prop.html" data-scroll="sec_mtx_trans_prop" class="internal">Properties of Matrix Transformations</a></li>
+<li><a href="sec_trans_onto_oto.html" data-scroll="sec_trans_onto_oto" class="internal">Onto and One-to-One Transformations</a></li>
+<li><a href="sec_mtx_trans_exam.html" data-scroll="sec_mtx_trans_exam" class="internal">Examples</a></li>
+<li><a href="sec_mtx_trans_summ.html" data-scroll="sec_mtx_trans_summ" class="internal">Summary</a></li>
+<li><a href="sec_mtx_trans_exer.html" data-scroll="sec_mtx_trans_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_geom_mtx.html" data-scroll="sec_proj_geom_mtx" class="internal">Project: The Geometry of Matrix Transformations</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-matrices.html" data-scroll="part-matrices" class="internal"><span class="codenumber">II</span> <span class="title">Matrices</span></a></li>
+<li class="link">
+<a href="chap_matrix_operations.html" data-scroll="chap_matrix_operations" class="internal"><span class="codenumber">8</span> <span class="title">Matrix Operations</span></a><ul>
+<li><a href="sec_appl_mtx_mult.html" data-scroll="sec_appl_mtx_mult" class="internal">Application: Algorithms for Matrix Multiplication</a></li>
+<li><a href="sec_mtx_ops_intro.html" data-scroll="sec_mtx_ops_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mtx_add_smult.html" data-scroll="sec_mtx_add_smult" class="internal">Properties of Matrix Addition and Multiplication by Scalars</a></li>
+<li><a href="sec_mtx_prod.html" data-scroll="sec_mtx_prod" class="internal">A Matrix Product</a></li>
+<li><a href="sec_mtx_transpose.html" data-scroll="sec_mtx_transpose" class="internal">The Transpose of a Matrix</a></li>
+<li><a href="sec_mtx_transpose_prop.html" data-scroll="sec_mtx_transpose_prop" class="internal">Properties of the Matrix Transpose</a></li>
+<li><a href="sec_mtx_ops_exam.html" data-scroll="sec_mtx_ops_exam" class="internal">Examples</a></li>
+<li><a href="sec_mtx_ops_summ.html" data-scroll="sec_mtx_ops_summ" class="internal">Summary</a></li>
+<li><a href="sec_mtx_ops_exer.html" data-scroll="sec_mtx_ops_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_starassen.html" data-scroll="sec_proj_starassen" class="internal">Project: Strassen's Algorithm and Partitioned Matrices</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_intro_eigenvals_eigenvects.html" data-scroll="chap_intro_eigenvals_eigenvects" class="internal"><span class="codenumber">9</span> <span class="title">Introduction to Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="sec_appl_pagerank.html" data-scroll="sec_appl_pagerank" class="internal">Application: The Google PageRank Algorithm</a></li>
+<li><a href="sec_eigen_intro.html" data-scroll="sec_eigen_intro" class="internal">Introduction</a></li>
+<li><a href="sec_eigval_eigvec.html" data-scroll="sec_eigval_eigvec" class="internal">Eigenvalues and Eigenvectors</a></li>
+<li><a href="sec_dynam_sys.html" data-scroll="sec_dynam_sys" class="internal">Dynamical Systems</a></li>
+<li><a href="sec_eigen_exam.html" data-scroll="sec_eigen_exam" class="internal">Examples</a></li>
+<li><a href="sec_eigen_summ.html" data-scroll="sec_eigen_summ" class="internal">Summary</a></li>
+<li><a href="sec_eigen_exer.html" data-scroll="sec_eigen_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_pagerank.html" data-scroll="sec_proj_pagerank" class="internal">Project: Understanding the PageRank Algorithm</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_matrix_inverse.html" data-scroll="chap_matrix_inverse" class="internal"><span class="codenumber">10</span> <span class="title">The Inverse of a Matrix</span></a><ul>
+<li><a href="sec_appl_arms_race.html" data-scroll="sec_appl_arms_race" class="internal">Application: Modeling an Arms Race</a></li>
+<li><a href="sec_inverse_intro.html" data-scroll="sec_inverse_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mtx_invertible.html" data-scroll="sec_mtx_invertible" class="internal">Invertible Matrices</a></li>
+<li><a href="sec_mtx_inverse.html" data-scroll="sec_mtx_inverse" class="internal">Finding the Inverse of a Matrix</a></li>
+<li><a href="sec_mtx_inverse_props.html" data-scroll="sec_mtx_inverse_props" class="internal">Properties of the Matrix Inverse</a></li>
+<li><a href="sec_inverse_exam.html" data-scroll="sec_inverse_exam" class="internal">Examples</a></li>
+<li><a href="sec_inverse_summ.html" data-scroll="sec_inverse_summ" class="internal">Summary</a></li>
+<li><a href="sec_inverse_exer.html" data-scroll="sec_inverse_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_arms_race.html" data-scroll="sec_proj_arms_race" class="internal">Project: The Richardson Arms Race Model</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_IMT.html" data-scroll="chap_IMT" class="internal"><span class="codenumber">11</span> <span class="title">The Invertible Matrix Theorem</span></a><ul>
+<li><a href="sec_imt_intro.html" data-scroll="sec_imt_intro" class="internal">Introduction</a></li>
+<li><a href="sec_imt.html" data-scroll="sec_imt" class="internal">The Invertible Matrix Theorem</a></li>
+<li><a href="sec_imt_exam.html" data-scroll="sec_imt_exam" class="internal">Examples</a></li>
+<li><a href="sec_imt_summ.html" data-scroll="sec_imt_summ" class="internal">Summary</a></li>
+<li><a href="sec_imt_exer.html" data-scroll="sec_imt_exer" class="internal">Exercises</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-vector-rn.html" data-scroll="part-vector-rn" class="internal"><span class="codenumber">III</span> <span class="title">The Vector Space <span class="process-math">\(\R^n\)</span></span></a></li>
+<li class="link">
+<a href="chap_R_n.html" data-scroll="chap_R_n" class="internal"><span class="codenumber">12</span> <span class="title">The Structure of <span class="process-math">\(\R^n\)</span></span></a><ul>
+<li><a href="sec_appl_romania.html" data-scroll="sec_appl_romania" class="internal">Application: Connecting GDP and Consumption in Romania</a></li>
+<li><a href="sec_rn_intro.html" data-scroll="sec_rn_intro" class="internal">Introduction</a></li>
+<li><a href="sec_vec_spaces.html" data-scroll="sec_vec_spaces" class="internal">Vector Spaces</a></li>
+<li><a href="sec_sub_space_span.html" data-scroll="sec_sub_space_span" class="internal">The Subspace Spanned by a Set of Vectors</a></li>
+<li><a href="sec_rn_exam.html" data-scroll="sec_rn_exam" class="internal">Examples</a></li>
+<li><a href="sec_rn_summ.html" data-scroll="sec_rn_summ" class="internal">Summary</a></li>
+<li><a href="sec_rn_exer.html" data-scroll="sec_rn_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_ls_approx.html" data-scroll="sec_proj_ls_approx" class="internal">Project: Least Sqaures Linear Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_null_space.html" data-scroll="chap_null_space" class="internal"><span class="codenumber">13</span> <span class="title">The Null Space and Column Space of a Matrix</span></a><ul>
+<li><a href="sec_appl_lights_out.html" data-scroll="sec_appl_lights_out" class="internal">Application: The Lights Out Game</a></li>
+<li><a href="sec_null_intro.html" data-scroll="sec_null_intro" class="internal">Introduction</a></li>
+<li><a href="sec_null_kernel.html" data-scroll="sec_null_kernel" class="internal">The Null Space of a Matrix and the Kernel of a Matrix Transformation</a></li>
+<li><a href="sec_column_range.html" data-scroll="sec_column_range" class="internal">The Column Space of a Matrix and the Range of a Matrix Transformation</a></li>
+<li><a href="sec_row_space.html" data-scroll="sec_row_space" class="internal">The Row Space of a Matrix</a></li>
+<li><a href="sec_null_col_base.html" data-scroll="sec_null_col_base" class="internal">Bases for <span class="process-math">\(\Nul A\)</span> and <span class="process-math">\(\Col A\)</span></a></li>
+<li><a href="sec_null_exam.html" data-scroll="sec_null_exam" class="internal">Examples</a></li>
+<li><a href="sec_null_summ.html" data-scroll="sec_null_summ" class="internal">Summary</a></li>
+<li><a href="sec_null_exer.html" data-scroll="sec_null_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_lights_out.html" data-scroll="sec_proj_lights_out" class="internal">Project: Solving the Lights Out Game</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_eigenspaces.html" data-scroll="chap_eigenspaces" class="internal"><span class="codenumber">14</span> <span class="title">Eigenspaces of a Matrix</span></a><ul>
+<li><a href="sec_appl_pop_dynam.html" data-scroll="sec_appl_pop_dynam" class="internal">Application: Population Dynamics</a></li>
+<li><a href="sec_egspace_intro.html" data-scroll="sec_egspace_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mtx_egspace.html" data-scroll="sec_mtx_egspace" class="internal">Eigenspaces of Matrix</a></li>
+<li><a href="sec_lin_ind_egvec.html" data-scroll="sec_lin_ind_egvec" class="internal">Linearly Independent Eigenvectors</a></li>
+<li><a href="sec_egspace_exam.html" data-scroll="sec_egspace_exam" class="internal">Examples</a></li>
+<li><a href="sec_egspace_summ.html" data-scroll="sec_egspace_summ" class="internal">Summary</a></li>
+<li><a href="sec_egspace_exer.html" data-scroll="sec_egspace_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_migration.html" data-scroll="sec_proj_migration" class="internal">Project: Modeling Population Migration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_bases_dimension.html" data-scroll="chap_bases_dimension" class="internal"><span class="codenumber">15</span> <span class="title">Bases and Dimension</span></a><ul>
+<li><a href="sec_appl_latt_crypt.html" data-scroll="sec_appl_latt_crypt" class="internal">Application: Lattice Based Cryptography</a></li>
+<li><a href="sec_base_dim_intro.html" data-scroll="sec_base_dim_intro" class="internal">Introduction</a></li>
+<li><a href="sec_dim_sub_rn.html" data-scroll="sec_dim_sub_rn" class="internal">The Dimension of a Subspace of <span class="process-math">\(\R^n\)</span></a></li>
+<li><a href="sec_cond_basis_subspace.html" data-scroll="sec_cond_basis_subspace" class="internal">Conditions for a Basis of a Subspace of <span class="process-math">\(\R^n\)</span></a></li>
+<li><a href="sec_find_basis_subspace.html" data-scroll="sec_find_basis_subspace" class="internal">Finding a Basis for a Subspace</a></li>
+<li><a href="sec_mtx_rank.html" data-scroll="sec_mtx_rank" class="internal">Rank of a Matrix</a></li>
+<li><a href="sec_base_dim_exam.html" data-scroll="sec_base_dim_exam" class="internal">Examples</a></li>
+<li><a href="sec_base_dim_summ.html" data-scroll="sec_base_dim_summ" class="internal">Summary</a></li>
+<li><a href="sec_base_dim_exer.html" data-scroll="sec_base_dim_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_ggh_crypto.html" data-scroll="sec_proj_ggh_crypto" class="internal">Project: The GGH Cryptosystem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_coordinate_vectors.html" data-scroll="chap_coordinate_vectors" class="internal"><span class="codenumber">16</span> <span class="title">Coordinate Vectors and Change of Basis</span></a><ul>
+<li><a href="sec_appl_orbits.html" data-scroll="sec_appl_orbits" class="internal">Application: Describing Orbits of Planets</a></li>
+<li><a href="sec_cob_intro.html" data-scroll="sec_cob_intro" class="internal">Introduction</a></li>
+<li><a href="sec_coor_base.html" data-scroll="sec_coor_base" class="internal">Bases as Coordinate Systems in <span class="process-math">\(\R^n\)</span></a></li>
+<li><a href="sec_cob_rn.html" data-scroll="sec_cob_rn" class="internal">Change of Basis in <span class="process-math">\(\R^n\)</span></a></li>
+<li><a href="sec_mtx_cob.html" data-scroll="sec_mtx_cob" class="internal">The Change of Basis Matrix in <span class="process-math">\(\R^n\)</span></a></li>
+<li><a href="sec_prop_mtx_cob.html" data-scroll="sec_prop_mtx_cob" class="internal">Properties of the Change of Basis Matrix</a></li>
+<li><a href="sec_cob_exam.html" data-scroll="sec_cob_exam" class="internal">Examples</a></li>
+<li><a href="sec_cob_summ.html" data-scroll="sec_cob_summ" class="internal">Summary</a></li>
+<li><a href="sec_cob_exer.html" data-scroll="sec_cob_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_orbits_cob.html" data-scroll="sec_proj_orbits_cob" class="internal">Project: Planetary Orbits and Change of Basis</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-eigen.html" data-scroll="part-eigen" class="internal"><span class="codenumber">IV</span> <span class="title">Eigenvalues and Eigenvectors</span></a></li>
+<li class="link">
+<a href="chap_determinants.html" data-scroll="chap_determinants" class="internal"><span class="codenumber">17</span> <span class="title">The Determinant</span></a><ul>
+<li><a href="sec_appl_area_vol.html" data-scroll="sec_appl_area_vol" class="internal">Application: Area and Volume</a></li>
+<li><a href="sec_det_intro.html" data-scroll="sec_det_intro" class="internal">Introduction</a></li>
+<li><a href="sec_det_square.html" data-scroll="sec_det_square" class="internal">The Determinant of a Square Matrix</a></li>
+<li><a href="sec_cofactors.html" data-scroll="sec_cofactors" class="internal">Cofactors</a></li>
+<li><a href="sec_det_3by3.html" data-scroll="sec_det_3by3" class="internal">The Determinant of a <span class="process-math">\(3 \times 3\)</span> Matrix</a></li>
+<li><a href="sec_det_remember.html" data-scroll="sec_det_remember" class="internal">Two Devices for Remembering Determinants</a></li>
+<li><a href="sec_det_exam.html" data-scroll="sec_det_exam" class="internal">Examples</a></li>
+<li><a href="sec_det_summ.html" data-scroll="sec_det_summ" class="internal">Summary</a></li>
+<li><a href="sec_det_exer.html" data-scroll="sec_det_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_det_area_vol.html" data-scroll="sec_proj_det_area_vol" class="internal">Project: Area and Volume Using Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_characteristic_equation.html" data-scroll="chap_characteristic_equation" class="internal"><span class="codenumber">18</span> <span class="title">The Characteristic Equation</span></a><ul>
+<li><a href="sec_appl_thermo.html" data-scroll="sec_appl_thermo" class="internal">Application: Modeling the Second Law of Thermodynamics</a></li>
+<li><a href="sec_chareq_intro.html" data-scroll="sec_chareq_intro" class="internal">Introduction</a></li>
+<li><a href="sec_chareq.html" data-scroll="sec_chareq" class="internal">The Characteristic Equation</a></li>
+<li><a href="sec_egspace_geom.html" data-scroll="sec_egspace_geom" class="internal">Eigenspaces, A Geometric Example</a></li>
+<li><a href="sec_egspace_dims.html" data-scroll="sec_egspace_dims" class="internal">Dimensions of Eigenspaces</a></li>
+<li><a href="sec_chareq_exam.html" data-scroll="sec_chareq_exam" class="internal">Examples</a></li>
+<li><a href="sec_chareq_summ.html" data-scroll="sec_chareq_summ" class="internal">Summary</a></li>
+<li><a href="sec_chareq_exer.html" data-scroll="sec_chareq_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_ehrenfest.html" data-scroll="sec_proj_ehrenfest" class="internal">Project: The Ehrenfest Model</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_diagonalization.html" data-scroll="chap_diagonalization" class="internal"><span class="codenumber">19</span> <span class="title">Diagonalization</span></a><ul>
+<li><a href="sec_appl_fib_num.html" data-scroll="sec_appl_fib_num" class="internal">Application: The Fibonacci Numbers</a></li>
+<li><a href="sec_diag_intro.html" data-scroll="sec_diag_intro" class="internal">Introduction</a></li>
+<li><a href="sec_diag.html" data-scroll="sec_diag" class="internal">Diagonalization</a></li>
+<li><a href="sec_mtx_similar.html" data-scroll="sec_mtx_similar" class="internal">Similar Matrices</a></li>
+<li><a href="sec_sim_mtx_trans.html" data-scroll="sec_sim_mtx_trans" class="internal">Similarity and Matrix Transformations</a></li>
+<li><a href="sec_diag_general.html" data-scroll="sec_diag_general" class="internal">Diagonalization in General</a></li>
+<li><a href="sec_diag_exam.html" data-scroll="sec_diag_exam" class="internal">Examples</a></li>
+<li><a href="sec_diag_summ.html" data-scroll="sec_diag_summ" class="internal">Summary</a></li>
+<li><a href="sec_diag_exer.html" data-scroll="sec_diag_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_binet_fibo.html" data-scroll="sec_proj_binet_fibo" class="internal">Project: Binet's Formula for the Fibonacci Numbers</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_approx_eigenvalues.html" data-scroll="chap_approx_eigenvalues" class="internal"><span class="codenumber">20</span> <span class="title">Approximating Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="sec_appl_leslie_mtx.html" data-scroll="sec_appl_leslie_mtx" class="internal">Application: Leslie Matrices and Population Modeling</a></li>
+<li><a href="sec_app_eigen_intro.html" data-scroll="sec_app_eigen_intro" class="internal">Introduction</a></li>
+<li><a href="sec_power_method.html" data-scroll="sec_power_method" class="internal">The Power Method</a></li>
+<li><a href="sec_power_method_inv.html" data-scroll="sec_power_method_inv" class="internal">The Inverse Power Method</a></li>
+<li><a href="sec_app_eigen_exam.html" data-scroll="sec_app_eigen_exam" class="internal">Examples</a></li>
+<li><a href="sec_app_eigen_summ.html" data-scroll="sec_app_eigen_summ" class="internal">Summary</a></li>
+<li><a href="sec_app_eigen_exer.html" data-scroll="sec_app_eigen_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_sheep_herd.html" data-scroll="sec_proj_sheep_herd" class="internal">Project: Managing a Sheep Herd</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_complex_eigenvalues.html" data-scroll="chap_complex_eigenvalues" class="internal"><span class="codenumber">21</span> <span class="title">Complex Eigenvalues</span></a><ul>
+<li><a href="sec_appl_gershgorin.html" data-scroll="sec_appl_gershgorin" class="internal">Application: The Gershgorin Disk Theorem</a></li>
+<li><a href="sec_comp_eigen_intro.html" data-scroll="sec_comp_eigen_intro" class="internal">Introduction</a></li>
+<li><a href="sec_comp_eigen.html" data-scroll="sec_comp_eigen" class="internal">Complex Eigenvalues</a></li>
+<li><a href="sec_mtx_rotate_scale.html" data-scroll="sec_mtx_rotate_scale" class="internal">Rotation and Scaling Matrices</a></li>
+<li><a href="sec_mtx_comp_eigen.html" data-scroll="sec_mtx_comp_eigen" class="internal">Matrices with Complex Eigenvalues</a></li>
+<li><a href="sec_comp_eigen_exam.html" data-scroll="sec_comp_eigen_exam" class="internal">Examples</a></li>
+<li><a href="sec_comp_eigen_summ.html" data-scroll="sec_comp_eigen_summ" class="internal">Summary</a></li>
+<li><a href="sec_comp_eigen_exer.html" data-scroll="sec_comp_eigen_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_gershgorin.html" data-scroll="sec_proj_gershgorin" class="internal">Project: Understanding the Gershgorin Disk Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_det_properties.html" data-scroll="chap_det_properties" class="internal"><span class="codenumber">22</span> <span class="title">Properties of Determinants</span></a><ul>
+<li><a href="sec_det_prop_intro.html" data-scroll="sec_det_prop_intro" class="internal">Introduction</a></li>
+<li><a href="sec_det_row_ops.html" data-scroll="sec_det_row_ops" class="internal">Elementary Row Operations and Their Effects on the Determinant</a></li>
+<li><a href="sec_mtx_elem.html" data-scroll="sec_mtx_elem" class="internal">Elementary Matrices</a></li>
+<li><a href="sec_det_geom.html" data-scroll="sec_det_geom" class="internal">Geometric Interpretation of the Determinant</a></li>
+<li><a href="sec_inv_cramers.html" data-scroll="sec_inv_cramers" class="internal">An Explicit Formula for the Inverse and Cramer's Rule</a></li>
+<li><a href="sec_det_transpose.html" data-scroll="sec_det_transpose" class="internal">The Determinant of the Transpose</a></li>
+<li><a href="sec_det_row_swap.html" data-scroll="sec_det_row_swap" class="internal">Row Swaps and Determinants</a></li>
+<li><a href="sec_cofactor_expand.html" data-scroll="sec_cofactor_expand" class="internal">Cofactor Expansions</a></li>
+<li><a href="sec_mtx_lu_factor.html" data-scroll="sec_mtx_lu_factor" class="internal">The LU Factorization of a Matrix</a></li>
+<li><a href="sec_det_prop_exam.html" data-scroll="sec_det_prop_exam" class="internal">Examples</a></li>
+<li><a href="sec_det_prop_summ.html" data-scroll="sec_det_prop_summ" class="internal">Summary</a></li>
+<li><a href="sec_det_prop_exer.html" data-scroll="sec_det_prop_exer" class="internal">Exercises</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-orthog.html" data-scroll="part-orthog" class="internal"><span class="codenumber">V</span> <span class="title">Orthoginality</span></a></li>
+<li class="link">
+<a href="chap_dot_product.html" data-scroll="chap_dot_product" class="internal"><span class="codenumber">23</span> <span class="title">The Dot Product in <span class="process-math">\(\R^n\)</span></span></a><ul>
+<li><a href="sec_appl_figs_computer.html" data-scroll="sec_appl_figs_computer" class="internal">Application: Hidden Figures in Computer Graphics</a></li>
+<li><a href="sec_dot_prod_intro.html" data-scroll="sec_dot_prod_intro" class="internal">Introduction</a></li>
+<li><a href="sec_dist_vec.html" data-scroll="sec_dist_vec" class="internal">The Distance Between Vectors</a></li>
+<li><a href="sec_angle_vec.html" data-scroll="sec_angle_vec" class="internal">The Angle Between Two Vectors</a></li>
+<li><a href="sec_orthog_proj.html" data-scroll="sec_orthog_proj" class="internal">Orthogonal Projections</a></li>
+<li><a href="sec_orthog_comp.html" data-scroll="sec_orthog_comp" class="internal">Orthogonal Complements</a></li>
+<li><a href="sec_dot_prod_exam.html" data-scroll="sec_dot_prod_exam" class="internal">Examples</a></li>
+<li><a href="sec_dot_prod_summ.html" data-scroll="sec_dot_prod_summ" class="internal">Summary</a></li>
+<li><a href="sec_dot_prod_exer.html" data-scroll="sec_dot_prod_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_back_face.html" data-scroll="sec_proj_back_face" class="internal">Project: Back-Face Culling</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_orthogonal_basis.html" data-scroll="chap_orthogonal_basis" class="internal"><span class="codenumber">24</span> <span class="title">Orthogonal and Orthonormal Bases in <span class="process-math">\(\R^n\)</span></span></a><ul>
+<li><a href="sec_appl_3d_rotate.html" data-scroll="sec_appl_3d_rotate" class="internal">Application: Rotations in 3D</a></li>
+<li><a href="sec_orthog_set_intro.html" data-scroll="sec_orthog_set_intro" class="internal">Introduction</a></li>
+<li><a href="sec_orthog_sets.html" data-scroll="sec_orthog_sets" class="internal">Orthogonal Sets</a></li>
+<li><a href="sec_orthog_bases_prop.html" data-scroll="sec_orthog_bases_prop" class="internal">Properties of Orthogonal Bases</a></li>
+<li><a href="sec_orthon_bases.html" data-scroll="sec_orthon_bases" class="internal">Orthonormal Bases</a></li>
+<li><a href="sec_orthog_mtx.html" data-scroll="sec_orthog_mtx" class="internal">Orthogonal Matrices</a></li>
+<li><a href="sec_orthog_set_exam.html" data-scroll="sec_orthog_set_exam" class="internal">Examples</a></li>
+<li><a href="sec_orthog_set_summ.html" data-scroll="sec_orthog_set_summ" class="internal">Summary</a></li>
+<li><a href="sec_orthog_set_exer.html" data-scroll="sec_orthog_set_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_3d_rotate.html" data-scroll="sec_proj_3d_rotate" class="internal">Project: Understanding Rotations in 3-Space</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_gram_schmidt.html" data-scroll="chap_gram_schmidt" class="internal"><span class="codenumber">25</span> <span class="title">Projections onto Subspaces and the Gram-Schmidt Process in <span class="process-math">\(\R^n\)</span></span></a><ul>
+<li><a href="sec_mimo.html" data-scroll="sec_mimo" class="internal">Application: MIMO Systems</a></li>
+<li><a href="sec_gram_schmidt_intro_noip.html" data-scroll="sec_gram_schmidt_intro_noip" class="internal">Introduction</a></li>
+<li><a href="sec_proj_subsp_orth.html" data-scroll="sec_proj_subsp_orth" class="internal">Projections onto Subspaces and Orthogonal Projections</a></li>
+<li><a href="sec_best_approx.html" data-scroll="sec_best_approx" class="internal">Best Approximations</a></li>
+<li><a href="sec_gram_schmidt_process.html" data-scroll="sec_gram_schmidt_process" class="internal">The Gram-Schmidt Process</a></li>
+<li><a href="sec_qr_fact.html" data-scroll="sec_qr_fact" class="internal">The QR Factorization of a Matrix</a></li>
+<li><a href="sec_gram_schmidt_examples.html" data-scroll="sec_gram_schmidt_examples" class="internal">Examples</a></li>
+<li><a href="sec_gram_schmidt_summ_noips.html" data-scroll="sec_gram_schmidt_summ_noips" class="internal">Summary</a></li>
+<li><a href="sec_gram_schmidt_exercises.html" data-scroll="sec_gram_schmidt_exercises" class="internal">Exercises</a></li>
+<li><a href="sec_project_mimo.html" data-scroll="sec_project_mimo" class="internal">Project: MIMO Systems and Householder Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_least_squares.html" data-scroll="chap_least_squares" class="internal"><span class="codenumber">26</span> <span class="title">Least Squares Approximations</span></a><ul>
+<li><a href="sec_appl_fit_func.html" data-scroll="sec_appl_fit_func" class="internal">Application: Fitting Functions to Data</a></li>
+<li><a href="sec_ls_intro.html" data-scroll="sec_ls_intro" class="internal">Introduction</a></li>
+<li><a href="sec_ls_approx.html" data-scroll="sec_ls_approx" class="internal">Least Squares Approximations</a></li>
+<li><a href="sec_ls_exam.html" data-scroll="sec_ls_exam" class="internal">Examples</a></li>
+<li><a href="sec_ls_summ.html" data-scroll="sec_ls_summ" class="internal">Summary</a></li>
+<li><a href="sec_ls_exer.html" data-scroll="sec_ls_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_ls_approx_other.html" data-scroll="sec_proj_ls_approx_other" class="internal">Project: Other Least Squares Approximations</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-app-orthog.html" data-scroll="part-app-orthog" class="internal"><span class="codenumber">VI</span> <span class="title">Applications of Orthogonality</span></a></li>
+<li class="link">
+<a href="chap_orthogonal_diagonalization.html" data-scroll="chap_orthogonal_diagonalization" class="internal"><span class="codenumber">27</span> <span class="title">Orthogonal Diagonalization</span></a><ul>
+<li><a href="sec_appl_mulit_2nd_deriv.html" data-scroll="sec_appl_mulit_2nd_deriv" class="internal">Application: The Multivariable Second Derivative Test</a></li>
+<li><a href="sec_orthog_diag_intro.html" data-scroll="sec_orthog_diag_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mtx_symm.html" data-scroll="sec_mtx_symm" class="internal">Symmetric Matrices</a></li>
+<li><a href="sec_spec_decomp_symm_mtx.html" data-scroll="sec_spec_decomp_symm_mtx" class="internal">The Spectral Decomposition of a Symmetric Matrix <span class="process-math">\(A\)</span></a></li>
+<li><a href="sec_orthog_diag_exam.html" data-scroll="sec_orthog_diag_exam" class="internal">Examples</a></li>
+<li><a href="sec_orthog_diag_summ.html" data-scroll="sec_orthog_diag_summ" class="internal">Summary</a></li>
+<li><a href="sec_orthog_diag_exer.html" data-scroll="sec_orthog_diag_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_two_var_deriv.html" data-scroll="sec_proj_two_var_deriv" class="internal">Project: The Second Derivative Test for Functions of Two Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_principal_axis_theorem.html" data-scroll="chap_principal_axis_theorem" class="internal"><span class="codenumber">28</span> <span class="title">Quadratic Forms and the Principal Axis Theorem</span></a><ul>
+<li><a href="sec_appl_tennis.html" data-scroll="sec_appl_tennis" class="internal">Application: The Tennis Racket Effect</a></li>
+<li><a href="sec_pat_intro.html" data-scroll="sec_pat_intro" class="internal">Introduction</a></li>
+<li><a href="sec_eqs_quad_r2.html" data-scroll="sec_eqs_quad_r2" class="internal">Equations Involving Quadratic Forms in <span class="process-math">\(\R^2\)</span></a></li>
+<li><a href="sec_class_quad_forms.html" data-scroll="sec_class_quad_forms" class="internal">Classifying Quadratic Forms</a></li>
+<li><a href="sec_pat_inner_prod.html" data-scroll="sec_pat_inner_prod" class="internal">Inner Products</a></li>
+<li><a href="sec_pat_exam.html" data-scroll="sec_pat_exam" class="internal">Examples</a></li>
+<li><a href="sec_pat_summ.html" data-scroll="sec_pat_summ" class="internal">Summary</a></li>
+<li><a href="sec_pat_exer.html" data-scroll="sec_pat_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_tennis.html" data-scroll="sec_proj_tennis" class="internal">Project: The Tennis Racket Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_SVD.html" data-scroll="chap_SVD" class="internal"><span class="codenumber">29</span> <span class="title">The Singular Value Decomposition</span></a><ul>
+<li><a href="sec_appl_search_engn.html" data-scroll="sec_appl_search_engn" class="internal">Application: Search Engines and Semantics</a></li>
+<li><a href="sec_svd_intro.html" data-scroll="sec_svd_intro" class="internal">Introduction</a></li>
+<li><a href="sec_mtx_op_norm.html" data-scroll="sec_mtx_op_norm" class="internal">The Operator Norm of a Matrix</a></li>
+<li><a href="sec_svd.html" data-scroll="sec_svd" class="internal">The SVD</a></li>
+<li><a href="sec_svd_mtx_spaces.html" data-scroll="sec_svd_mtx_spaces" class="internal">SVD and the Null, Column, and Row Spaces of a Matrix</a></li>
+<li><a href="sec_svd_exam.html" data-scroll="sec_svd_exam" class="internal">Examples</a></li>
+<li><a href="sec_svd_summ.html" data-scroll="sec_svd_summ" class="internal">Summary</a></li>
+<li><a href="sec_svd_exer.html" data-scroll="sec_svd_exer" class="internal">Exercises</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_pseudoinverses.html" data-scroll="chap_pseudoinverses" class="internal"><span class="codenumber">30</span> <span class="title">Using the Singular Value Decomposition</span></a><ul>
+<li><a href="sec_appl_gps.html" data-scroll="sec_appl_gps" class="internal">Application: Global Positioning System</a></li>
+<li><a href="sec_pseudo_intro.html" data-scroll="sec_pseudo_intro" class="internal">Introduction</a></li>
+<li><a href="sec_img_conpress.html" data-scroll="sec_img_conpress" class="internal">Image Compression</a></li>
+<li><a href="sec_err_approx_img.html" data-scroll="sec_err_approx_img" class="internal">Calculating the Error in Approximating an Image</a></li>
+<li><a href="sec_mtx_cond_num.html" data-scroll="sec_mtx_cond_num" class="internal">The Condition Number of a Matrix</a></li>
+<li><a href="sec_pseudoinverses.html" data-scroll="sec_pseudoinverses" class="internal">Pseudoinverses</a></li>
+<li><a href="sec_ls_approx_SVD.html" data-scroll="sec_ls_approx_SVD" class="internal">Least Squares Approximations</a></li>
+<li><a href="sec_pseudo_exam.html" data-scroll="sec_pseudo_exam" class="internal">Examples</a></li>
+<li><a href="sec_pseudo_summ.html" data-scroll="sec_pseudo_summ" class="internal">Summary</a></li>
+<li><a href="sec_pseudo_exer.html" data-scroll="sec_pseudo_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_gps.html" data-scroll="sec_proj_gps" class="internal">Project: GPS and Least Squares</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-vec-spaces.html" data-scroll="part-vec-spaces" class="internal"><span class="codenumber">VII</span> <span class="title">Vector Spaces</span></a></li>
+<li class="link">
+<a href="chap_vector_spaces.html" data-scroll="chap_vector_spaces" class="internal"><span class="codenumber">31</span> <span class="title">Vector Spaces</span></a><ul>
+<li><a href="sec_appl_hat_puzzle.html" data-scroll="sec_appl_hat_puzzle" class="internal">Application: The Hat Puzzle</a></li>
+<li><a href="sec_vec_space_intro.html" data-scroll="sec_vec_space_intro" class="internal">Introduction</a></li>
+<li><a href="sec_space_like_rn.html" data-scroll="sec_space_like_rn" class="internal">Spaces with Similar Structure to <span class="process-math">\(\R^n\)</span></a></li>
+<li><a href="sec_vec_space.html" data-scroll="sec_vec_space" class="internal">Vector Spaces</a></li>
+<li><a href="sec_subspaces.html" data-scroll="sec_subspaces" class="internal">Subspaces</a></li>
+<li><a href="sec_vec_space_exam.html" data-scroll="sec_vec_space_exam" class="internal">Examples</a></li>
+<li><a href="sec_vec_space_summ.html" data-scroll="sec_vec_space_summ" class="internal">Summary</a></li>
+<li><a href="sec_vec_space_exer.html" data-scroll="sec_vec_space_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_hamming_hat_puzzle.html" data-scroll="sec_proj_hamming_hat_puzzle" class="internal">Project: Hamming Codes and the Hat Puzzle</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_bases.html" data-scroll="chap_bases" class="internal"><span class="codenumber">32</span> <span class="title">Bases for Vector Spaces</span></a><ul>
+<li><a href="sec_img_compress.html" data-scroll="sec_img_compress" class="internal">Application: Image Compression</a></li>
+<li><a href="sec_bases_intro.html" data-scroll="sec_bases_intro" class="internal">Introduction</a></li>
+<li><a href="sec_lin_indep.html" data-scroll="sec_lin_indep" class="internal">Linear Independence</a></li>
+<li><a href="sec_bases.html" data-scroll="sec_bases" class="internal">Bases</a></li>
+<li><a href="sec_basis_vec_space.html" data-scroll="sec_basis_vec_space" class="internal">Finding a Basis for a Vector Space</a></li>
+<li><a href="sec_bases_exam.html" data-scroll="sec_bases_exam" class="internal">Examples</a></li>
+<li><a href="sec_bases_summ.html" data-scroll="sec_bases_summ" class="internal">Summary</a></li>
+<li><a href="sec_bases_exer.html" data-scroll="sec_bases_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_img_compress.html" data-scroll="sec_proj_img_compress" class="internal">Project: Image Compression with Wavelets</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_dimension.html" data-scroll="chap_dimension" class="internal"><span class="codenumber">33</span> <span class="title">The Dimension of a Vector Space</span></a><ul>
+<li><a href="sec_appl_pca.html" data-scroll="sec_appl_pca" class="internal">Application: Principal Component Analysis</a></li>
+<li><a href="sec_dims_intro.html" data-scroll="sec_dims_intro" class="internal">Introduction</a></li>
+<li><a href="sec_finite_dim_space.html" data-scroll="sec_finite_dim_space" class="internal">Finite Dimensional Vector Spaces</a></li>
+<li><a href="sec_dim_subspace.html" data-scroll="sec_dim_subspace" class="internal">The Dimension of a Subspace</a></li>
+<li><a href="sec_cond_basis_vec_space.html" data-scroll="sec_cond_basis_vec_space" class="internal">Conditions for a Basis of a Vector Space</a></li>
+<li><a href="sec_dims_exam.html" data-scroll="sec_dims_exam" class="internal">Examples</a></li>
+<li><a href="sec_dims_summ.html" data-scroll="sec_dims_summ" class="internal">Summary</a></li>
+<li><a href="sec_dims_exer.html" data-scroll="sec_dims_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_pca.html" data-scroll="sec_proj_pca" class="internal">Project: Understanding Principal Component Analysis</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_coordinate_vectors_vector_spaces.html" data-scroll="chap_coordinate_vectors_vector_spaces" class="internal"><span class="codenumber">34</span> <span class="title">Coordinate Vectors and Coordinate Transformations</span></a><ul>
+<li><a href="sec_appl_sums.html" data-scroll="sec_appl_sums" class="internal">Application: Calculating Sums</a></li>
+<li><a href="sec_coor_vec_intro.html" data-scroll="sec_coor_vec_intro" class="internal">Introduction</a></li>
+<li><a href="sec_coord_trans.html" data-scroll="sec_coord_trans" class="internal">The Coordinate Transformation</a></li>
+<li><a href="sec_coord_vec_exam.html" data-scroll="sec_coord_vec_exam" class="internal">Examples</a></li>
+<li><a href="sec_coord_vec_summ.html" data-scroll="sec_coord_vec_summ" class="internal">Summary</a></li>
+<li><a href="sec_coord_vec_exer.html" data-scroll="sec_coord_vec_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_sum_powers.html" data-scroll="sec_proj_sum_powers" class="internal">Project: Finding Formulas for Sums of Powers</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_inner_products.html" data-scroll="chap_inner_products" class="internal"><span class="codenumber">35</span> <span class="title">Inner Product Spaces</span></a><ul>
+<li><a href="sec_appl_fourier.html" data-scroll="sec_appl_fourier" class="internal">Application: Fourier Series</a></li>
+<li><a href="sec_inner_prod_intro.html" data-scroll="sec_inner_prod_intro" class="internal">Introduction</a></li>
+<li><a href="sec_inner_prod_spaces.html" data-scroll="sec_inner_prod_spaces" class="internal">Inner Product Spaces</a></li>
+<li><a href="sec_vec_length.html" data-scroll="sec_vec_length" class="internal">The Length of a Vector</a></li>
+<li><a href="sec_inner_prod_orthog.html" data-scroll="sec_inner_prod_orthog" class="internal">Orthogonality in Inner Product Spaces</a></li>
+<li><a href="sec_inner_prog_orthog_bases.html" data-scroll="sec_inner_prog_orthog_bases" class="internal">Orthogonal and Orthonormal Bases in Inner Product Spaces</a></li>
+<li><a href="sec_orthog_proj_subspace.html" data-scroll="sec_orthog_proj_subspace" class="internal">Orthogonal Projections onto Subspaces</a></li>
+<li><a href="sec_inner_prod_approx.html" data-scroll="sec_inner_prod_approx" class="internal">Best Approximations in Inner Product Spaces</a></li>
+<li><a href="sec_orthog_comp_ip.html" data-scroll="sec_orthog_comp_ip" class="internal">Orthogonal Complements</a></li>
+<li><a href="sec_inner_prod_exam.html" data-scroll="sec_inner_prod_exam" class="internal">Examples</a></li>
+<li><a href="sec_inner_prod_summ.html" data-scroll="sec_inner_prod_summ" class="internal">Summary</a></li>
+<li><a href="sec_inner_prod_exer.html" data-scroll="sec_inner_prod_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_fourier.html" data-scroll="sec_proj_fourier" class="internal">Project: Fourier Series and Musical Tones</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_gram_schmidt_ips.html" data-scroll="chap_gram_schmidt_ips" class="internal"><span class="codenumber">36</span> <span class="title">The Gram-Schmidt Process in Inner Product Spaces</span></a><ul>
+<li><a href="sec_appl_gaussian_quad.html" data-scroll="sec_appl_gaussian_quad" class="internal">Application: Gaussian Quadrature</a></li>
+<li><a href="sec_gram_schmidt_intro.html" data-scroll="sec_gram_schmidt_intro" class="internal">Introduction</a></li>
+<li><a href="sec_gram_schmidt_inner_prod.html" data-scroll="sec_gram_schmidt_inner_prod" class="internal">The Gram-Schmidt Process using Inner Products</a></li>
+<li><a href="sec_gram_schmidt_exam.html" data-scroll="sec_gram_schmidt_exam" class="internal">Examples</a></li>
+<li><a href="sec_gram_schmidt_summ_ips.html" data-scroll="sec_gram_schmidt_summ_ips" class="internal">Summary</a></li>
+<li><a href="sec_gram_schmidt_exer.html" data-scroll="sec_gram_schmidt_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_gaussian_quad.html" data-scroll="sec_proj_gaussian_quad" class="internal">Project: Gaussian Quadrature and Legendre Polynomials</a></li>
+</ul>
+</li>
+<li class="link part"><a href="part-lin-trans.html" data-scroll="part-lin-trans" class="internal"><span class="codenumber">VIII</span> <span class="title">Linear Transformations</span></a></li>
+<li class="link">
+<a href="chap_linear_transformation.html" data-scroll="chap_linear_transformation" class="internal"><span class="codenumber">37</span> <span class="title">Linear Transformations</span></a><ul>
+<li><a href="sec_appl_fractals.html" data-scroll="sec_appl_fractals" class="internal">Application: Fractals</a></li>
+<li><a href="sec_lin_trans_intro.html" data-scroll="sec_lin_trans_intro" class="internal">Introduction</a></li>
+<li><a href="sec_onto_oneone.html" data-scroll="sec_onto_oneone" class="internal">Onto and One-to-One Transformations</a></li>
+<li><a href="sec_kernel_range.html" data-scroll="sec_kernel_range" class="internal">The Kernel and Range of Linear Transformation</a></li>
+<li><a href="sec_isomorph.html" data-scroll="sec_isomorph" class="internal">Isomorphisms</a></li>
+<li><a href="sec_lin_trans_exam.html" data-scroll="sec_lin_trans_exam" class="internal">Examples</a></li>
+<li><a href="sec_lin_trans_summ.html" data-scroll="sec_lin_trans_summ" class="internal">Summary</a></li>
+<li><a href="sec_lin_trans_exer.html" data-scroll="sec_lin_trans_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_fractals.html" data-scroll="sec_proj_fractals" class="internal">Project: Fractals via Iterated Function Systems</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_transformation_matrix.html" data-scroll="chap_transformation_matrix" class="internal"><span class="codenumber">38</span> <span class="title">The Matrix of a Linear Transformation</span></a><ul>
+<li><a href="sec_appl_secret.html" data-scroll="sec_appl_secret" class="internal">Application: Secret Sharing Algorithms</a></li>
+<li><a href="sec_mtxof_trans_intro.html" data-scroll="sec_mtxof_trans_intro" class="internal">Introduction</a></li>
+<li><a href="sec_trans_rn_rm.html" data-scroll="sec_trans_rn_rm" class="internal">Linear Transformations from <span class="process-math">\(\R^n\)</span> to <span class="process-math">\(\R^m\)</span></a></li>
+<li><a href="sec_mtx_lin_trans.html" data-scroll="sec_mtx_lin_trans" class="internal">The Matrix of a Linear Transformation</a></li>
+<li><a href="sec_ker_mtx.html" data-scroll="sec_ker_mtx" class="internal">A Connection between <span class="process-math">\(\Ker(T)\)</span> and a Matrix Representation of <span class="process-math">\(T\)</span></a></li>
+<li><a href="sec_mtxof_trans_exam.html" data-scroll="sec_mtxof_trans_exam" class="internal">Examples</a></li>
+<li><a href="sec_mtxof_trans_summ.html" data-scroll="sec_mtxof_trans_summ" class="internal">Summary</a></li>
+<li><a href="sec_mtxof_trans_exer.html" data-scroll="sec_mtxof_trans_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_secret.html" data-scroll="sec_proj_secret" class="internal">Project: Shamir's Secret Sharing and Lagrange Polynomials</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_transformations_eigenvalues.html" data-scroll="chap_transformations_eigenvalues" class="internal"><span class="codenumber">39</span> <span class="title">Eigenvalues of Linear Transformations</span></a><ul>
+<li><a href="sec_appl_diff_eq.html" data-scroll="sec_appl_diff_eq" class="active">Application: Linear Differential Equations</a></li>
+<li><a href="sec_eigen_trans_intro.html" data-scroll="sec_eigen_trans_intro" class="internal">Introduction</a></li>
+<li><a href="sec_find_eigen_trans.html" data-scroll="sec_find_eigen_trans" class="internal">Finding Eigenvalues and Eigenvectors of Linear Transformations</a></li>
+<li><a href="sec_diagonal.html" data-scroll="sec_diagonal" class="internal">Diagonalization</a></li>
+<li><a href="sec_eigen_trans_exam.html" data-scroll="sec_eigen_trans_exam" class="internal">Examples</a></li>
+<li><a href="sec_eigen_trans_summ.html" data-scroll="sec_eigen_trans_summ" class="internal">Summary</a></li>
+<li><a href="sec_eigen_trans_exer.html" data-scroll="sec_eigen_trans_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_diff_eq.html" data-scroll="sec_proj_diff_eq" class="internal">Project: Linear Transformations and Differential Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="chap_JCF.html" data-scroll="chap_JCF" class="internal"><span class="codenumber">40</span> <span class="title">The Jordan Canonical Form</span></a><ul>
+<li><a href="sec_appl_epidemic.html" data-scroll="sec_appl_epidemic" class="internal">Application: The Bailey Model of an Epidemic</a></li>
+<li><a href="sec_jordan_intro.html" data-scroll="sec_jordan_intro" class="internal">Introduction</a></li>
+<li><a href="sec_eigen_dne.html" data-scroll="sec_eigen_dne" class="internal">When an Eigenvalue Decomposition Does Not Exist</a></li>
+<li><a href="sec_gen_eigen_jordan.html" data-scroll="sec_gen_eigen_jordan" class="internal">Generalized Eigenvectors and the Jordan Canonical Form</a></li>
+<li><a href="sec_mtx_jordan_geom.html" data-scroll="sec_mtx_jordan_geom" class="internal">Geometry of Matrix Transformations using the Jordan Canonical Form</a></li>
+<li><a href="sec_jordan_proof.html" data-scroll="sec_jordan_proof" class="internal">Proof of the Existence of the Jordan Canonical Form</a></li>
+<li><a href="sec_mtx_nilpotent.html" data-scroll="sec_mtx_nilpotent" class="internal">Nilpotent Matrices and Invariant Subspaces</a></li>
+<li><a href="sec_jordan.html" data-scroll="sec_jordan" class="internal">The Jordan Canonical Form</a></li>
+<li><a href="sec_jordan_exam.html" data-scroll="sec_jordan_exam" class="internal">Examples</a></li>
+<li><a href="sec_jordan_summ.html" data-scroll="sec_jordan_summ" class="internal">Summary</a></li>
+<li><a href="sec_jordan_exer.html" data-scroll="sec_jordan_exer" class="internal">Exercises</a></li>
+<li><a href="sec_proj_epidemic.html" data-scroll="sec_proj_epidemic" class="internal">Project: Modeling an Epidemic</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter-1.html" data-scroll="backmatter-1" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link">
+<a href="app_complex_numbers.html" data-scroll="app_complex_numbers" class="internal"><span class="codenumber">A</span> <span class="title">Complex Numbers</span></a><ul>
+<li><a href="sec_complex_numbers.html" data-scroll="sec_complex_numbers" class="internal">Complex Numbers</a></li>
+<li><a href="sec_conj_modulus.html" data-scroll="sec_conj_modulus" class="internal">Conjugates and Modulus</a></li>
+<li><a href="sec_complex_vect.html" data-scroll="sec_complex_vect" class="internal">Complex Vectors</a></li>
+</ul>
+</li>
+<li class="link"><a href="app_answers.html" data-scroll="app_answers" class="internal"><span class="codenumber">B</span> <span class="title">Answers and Hints for Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sec_appl_diff_eq"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber"></span> <span class="title">Application: Linear Differential Equations</span>
+</h2>
+<p id="p-6748">A body in motion obeys Newton's second law that force equals mass times acceleration, or <span class="process-math">\(F = ma\text{.}\)</span> Here <span class="process-math">\(F\)</span> is the force acting on the object, <span class="process-math">\(m\)</span> the mass of the object, and <span class="process-math">\(a\)</span> the acceleration of the object. For example, if a mass is hanging from a spring, gravity acts to pull the mass downward and the spring acts to pull the mass up. Hooke?s law says that the force of the spring acting on mass is proportional to the displacement <span class="process-math">\(y\)</span> of the spring from equilibrium. There is also a damping force that weakens the action of the spring that might be due to air resistance or the medium in which the system is enclosed. If this mass is not too large, then the resistance can be taken to be proportional to the velocity <span class="process-math">\(v\)</span> of the mass. This produces forces <span class="process-math">\(F = ma\)</span> acting to pull the mass down and forces <span class="process-math">\(-ky\)</span> and <span class="process-math">\(- bv\)</span> acting in the opposite direction, where <span class="process-math">\(k\)</span> and <span class="process-math">\(b\)</span> are constant. A similar type of analysis would apply to an object falling through the air, where the resistant to falling could be proportional to the velocity of the object. Since <span class="process-math">\(v = y'\)</span> and <span class="process-math">\(a = y''\text{,}\)</span> equating the forces produces the equation'</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="eq_de_1">
+\begin{equation}
+my'' = -ky-by'\text{.}\tag{39.1}
+\end{equation}
+</div>
+<p id="p-6749"> Any equation that involves one or more derivatives of a function is called a <dfn class="terminology">differential equation</dfn>. Differential equations are used to model many different types of behavior in disciplines including engineering, physics, economics, and biology. Later in this section we will see how differential equations can be represented by linear transformations, and see how we can exploit this idea to solve certain types of differential equations (including <a href="" class="xref" data-knowl="./knowl/eq_de_1.html" title="Equation 39.1">(39.1)</a>).</p></section></div></main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>

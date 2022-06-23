@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-23T15:04:34-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">37.13</span><span class="period">.</span>
+</h4>
+<div class="introduction"><p>Let <span class="process-math">\(T : \pol_2 \to \pol_3\)</span> be defined by <span class="process-math">\(T(p(t)) = tp(t)+p(0)\text{.}\)</span></p></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<p>Show that <span class="process-math">\(T\)</span> is a linear transformation.</p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>To show that <span class="process-math">\(T\)</span> is a linear transformation we must show that <span class="process-math">\(T(p(t)+q(t)) = T(p(t)) + T(q(t))\)</span> and <span class="process-math">\(T(cp(t)) = cT(p(t))\)</span> for every <span class="process-math">\(p(t)\text{,}\)</span> <span class="process-math">\(q(t)\)</span> in <span class="process-math">\(\pol_2\)</span> and any scalar <span class="process-math">\(c\text{.}\)</span> Let <span class="process-math">\(p(t)\)</span> and <span class="process-math">\(q(t)\)</span> be in <span class="process-math">\(\pol_2\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+T(p(t)+q(t)) \amp = t(p(t)+q(t)) + (p(0)+q(0))\\
+\amp = \left(tp(t) + p(0)\right) + \left( tq(t) + q(0) \right)\\
+\amp = T(p(t)) + T(q(t))
+\end{align*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+T(cp(t)) = tcp(t) + cp(0) = c\left(tp(t)+p(0)\right) = cT(p(t))\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Therefore, <span class="process-math">\(T\)</span> is a linear transformation.</p>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<p>Is <span class="process-math">\(T\)</span> one-to-one? Justify your answer.</p>
+<div class="solution solution-like">
+<h5 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h5>
+<p>To determine if <span class="process-math">\(T\)</span> is one-to-one, we find <span class="process-math">\(\Ker(T)\text{.}\)</span> Suppose <span class="process-math">\(p(t) = a_0+a_1t+a_2t^2  \in \Ker(T)\text{.}\)</span> Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 = T(p(t)) = tp(t) + p(0) =  a_0t+a_1t^2 +a_2t^3 + a_0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Equating coefficients on like powers of <span class="process-math">\(t\)</span> shows that <span class="process-math">\(a_0 = a_1 = a_2 = 0\text{.}\)</span> Thus, <span class="process-math">\(p(t) = 0\)</span> and <span class="process-math">\(\Ker(T) = \{0\}\text{.}\)</span> Thus, <span class="process-math">\(T\)</span> is one-to-one.</p>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<p>Find three different polynomials in <span class="process-math">\(\Range(T)\text{.}\)</span></p>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h6>
+<p>We can find three polynomials in <span class="process-math">\(\Range(T)\)</span> by applying <span class="process-math">\(T\)</span> to three different polynomials in <span class="process-math">\(\pol_2\text{.}\)</span> So three polynomials in <span class="process-math">\(\Range(T)\)</span> are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+T(1) \amp = t+1\\
+T(t) \amp = t^2\\
+T\left(t^2\right) \amp = t^3\text{.}
+\end{align*}
+</div>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<p>Find, if possible, a polynomial that is not in <span class="process-math">\(\Range(T)\text{.}\)</span></p>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h6>
+<p>A polynomial <span class="process-math">\(q(t) = b_0+b_1t+b_2t^2+b_3t^3\)</span> is in <span class="process-math">\(\Range(T)\)</span> if <span class="process-math">\(q(t) = T(p(t))\)</span> for some polynomial <span class="process-math">\(p(t) = a_0+a_1t+a_2t^2\)</span> in <span class="process-math">\(\pol_2\text{.}\)</span> This would require that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+b_0+b_1t+b_2t^2+b_3t^3 = a_0t+a_1t^2+a_2t^3+a_0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">But this would mean that <span class="process-math">\(b_0 = a_0 = b_1\text{.}\)</span> So the polynomial <span class="process-math">\(1+2t+t^2+t^3\)</span> is not in <span class="process-math">\(\Range(T)\text{.}\)</span></p>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(iii)</span></h6>
+<p>Describe <span class="process-math">\(\Range(T)\text{.}\)</span> What is <span class="process-math">\(\dim(\Range(T))\text{?}\)</span> Is <span class="process-math">\(T\)</span> an onto transformation? Explain.</p>
+<div class="solution solution-like">
+<h6 class="heading">
+<span class="type">Solution</span><span class="period">.</span>
+</h6>
+<p>Let <span class="process-math">\(q(t)\)</span> be in <span class="process-math">\(\Range(T)\text{.}\)</span> Then <span class="process-math">\(q(t) = T(p(t))\)</span> for some polynomial <span class="process-math">\(p(t) = a_0+a_1t+a_2t^2 \in \pol_2\text{.}\)</span> Thus,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{align*}
+q(t) \amp = T(p(t))\\
+\amp = tp(t) + p(0)\\
+\amp = a_0t+a_1t^2+a_2t^3 + a_0\\
+\amp = a_0(t+1) + a_1t^2 +a_2t^3\text{.}
+\end{align*}
+</div>
+<p class="continuation">Therefore, <span class="process-math">\(\Range(T) = \Span\{t+1, t^2, t^3\}\text{.}\)</span> Since the reduced row echelon form of <span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0\\1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1 \end{array}  \right]\)</span> is <span class="process-math">\(\left[ \begin{array}{ccc} 1\amp 0\amp 0\\0\amp 1\amp 0\\0\amp 0\amp 1\\0\amp 0\amp 0 \end{array}  \right]\text{,}\)</span> we conclude that the set <span class="process-math">\(\{t+1, t^2, t^3\}\)</span> is linearly independent. Thus, <span class="process-math">\(\dim(\Range(T)) = 3\text{.}\)</span> Since <span class="process-math">\(\Range(T)\)</span> is a three-dimensional subspace of the four-dimensional space <span class="process-math">\(\pol_3\text{,}\)</span> it follows that <span class="process-math">\(T\)</span> is not onto.</p>
+</div></article></article></article><span class="incontext"><a href="chap_linear_transformation.html#example-77" class="internal">in-context</a></span>
+</body>
+</html>
