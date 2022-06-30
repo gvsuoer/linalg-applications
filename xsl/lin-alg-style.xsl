@@ -78,7 +78,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 </xsl:template>
 
 <!-- Add box around all objectives -->
-<xsl:template match="definition" mode="tcb-style">
+<xsl:template match="objectives" mode="tcb-style">
  <xsl:text>{size=normal, colback=white, colbacktitle=white, coltitle=black, colframe=black, blockspacingstyle, sharp corners, fonttitle=\blocktitlefont\large\bfseries, titlerule=0ex, toprule=0.3ex, toptitle=0.5ex, top=2ex, bottom=0.5ex, bottomrule=0.3ex}</xsl:text>
 </xsl:template>
 
