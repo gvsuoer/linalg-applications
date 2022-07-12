@@ -39,6 +39,10 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 <!-- Intend output for rendering by pdflatex -->
 <xsl:output method="text" encoding="UTF-8"/>
 
+<!-- Looking for table/matrix shading? This is actually a feature of the package `colortbl` and -->
+<!-- is not an XSL customization. See sec_inv_cramers, sec_det_transpose, and sec_cofactor_expand -->
+<!-- for LaTeX code (\cellcolor). -->
+
 <!-- Update page headers to fit all of the title content -->
 <xsl:template match="book" mode="titleps-style">
  <xsl:text>%% Plain pages should have the same font for page numbers
