@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-06-29T17:35:21-04:00       *-->
+<!--*       on 2022-07-12T16:06:16-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -86,7 +86,7 @@ eBookConfig.enable_chatcodes =  false;
 <link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.2.1/runestone.e4d5592da655219f.css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{colortbl}\usepackage{amsmath}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
@@ -1223,7 +1223,7 @@ A=\left[ \begin{array}{cccr} 1 \amp  2\amp  3\amp  4\\ 0 \amp  0 \amp  2 \amp  -
 <li id="li-454"><p id="p-2335">We can view each configuration as a <span class="process-math">\(5 \times 5\)</span> matrix. In this situation, we label the entries in the grid as shown in <a href="" class="xref" data-knowl="./knowl/F_LO.html" title="Figure 13.10">Figure 13.10</a>. Each entry in the grid will be assigned a 0 or 1 according to whether the light in that entry is off or on.</p></li>
 <li id="li-455"><p id="p-2336">For our purposes a better way to visualize a Lights Out configuration is as a <span class="process-math">\(25 \times 1\)</span> vector. The components in this vector correspond to the entries in the <span class="process-math">\(5 \times 5\)</span> grid with the correspondence given by the numbering demonstrated in <a href="" class="xref" data-knowl="./knowl/F_LO.html" title="Figure 13.10">Figure 13.10</a> (for the sake of space, this array is shown in a row instead of a column). Again, each component is assigned a 0 or 1 according to whether the light for that entry is off or on. In this view, each configuration is a vector with 25 components in <span class="process-math">\(\Z_2\text{.}\)</span></p></li>
 </ul>
-<figure class="figure figure-like" id="F_LO"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/LO.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="F_LO"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/LO.svg" role="img" class="contained"></div>
 <div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/LO_vector.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">13.10<span class="period">.</span></span><span class="space"> </span>Two representations of the Lights Out game.</figcaption></figure><p id="p-2337">We will take the latter perspective and view the Lights Out game as if it is played on a <span class="process-math">\(25 \times 1\)</span> board with entries in <span class="process-math">\(\Z_2\text{.}\)</span> The space of all of these Lights Out configurations is denoted as <span class="process-math">\(\Z_2^{25}\)</span> (similar to <span class="process-math">\(\R^{25}\text{,}\)</span> but with entries in <span class="process-math">\(\Z_2\)</span> rather than <span class="process-math">\(\R\)</span>). Since <span class="process-math">\(\Z_2\)</span> is a field, the space <span class="process-math">\(\Z_2^{25}\)</span> is a vector space just as <span class="process-math">\(\R^{25}\)</span> is. This is the environment in which we will play the Lights Out game.</p>
 <p id="p-2338">If we think about the game as played on a <span class="process-math">\(25 \times 1\)</span> board, then pressing a square correlates to selecting one of the 25 components of a configuration vector. Each time we press a square, we make a move that changes the status of that square and all the squares vertically or horizontally adjacent to it from the <span class="process-math">\(5 \times 5\)</span> board. Recalling that adding 1 to a square has the effect of changing its status (from on to off or off to on), and each move that we make in the game can be represented as a <span class="process-math">\(25 \times 1\)</span> vector that is added to a configuration. For example, the move of pressing the first square is given by adding the vector</p>

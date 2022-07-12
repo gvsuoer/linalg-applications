@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-06-29T17:35:40-04:00       *-->
+<!--*       on 2022-07-12T16:06:35-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -86,7 +86,7 @@ eBookConfig.enable_chatcodes =  false;
 <link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.2.1/runestone.e4d5592da655219f.css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{colortbl}\usepackage{amsmath}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
@@ -799,11 +799,11 @@ eBookConfig.enable_chatcodes =  false;
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Application: Hidden Figures in Computer Graphics</span>
 </h3>
 <p id="p-3876">In video games, the speed at which a computer can render changing graphics views is vitally important. To increase a computer's ability to render a scene, programs often try to identify those parts of the images a viewer could see and those parts the viewer could not see. For example, in a scene involving buildings, the viewer could not see any images blocked by a solid building. In the mathematical world, this can be visualized by graphing surfaces. In <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we see a crude image of a house made up of small polygons (this is how programs generally represent surfaces). On the left in <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we see all of the polygons that are needed to construct the entire surface, even those polygons that lie behind others which we could not see if the surface was solid. On the right in <a href="" class="xref" data-knowl="./knowl/F_House.html" title="Figure 23.1">Figure 23.1</a> we have hidden the parts of the polygons that we cannot see from our view.</p>
-<figure class="figure figure-like" id="F_House"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/6_a_House.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="F_House"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/6_a_House.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.1<span class="period">.</span></span><span class="space"> </span>Images of a house.</figcaption></figure><p id="p-3877">We also see this idea in mathematics when we graph surfaces. <a href="" class="xref" data-knowl="./knowl/F_Surface.html" title="Figure 23.2">Figure 23.2</a> shows the graph of the surface defined by <span class="process-math">\(f(x,y) = \sqrt{4-x^2}\)</span> that is made up of polygons. At left we see all of the polygons and at right only those parts that would be visible from our viewing perspective.</p>
-<figure class="figure figure-like" id="F_Surface"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><img src="external/6_a_Surface_1.svg" role="img" class="contained"></div>
-<div class="sbspanel top" style="width:50%;"><img src="external/6_a_Surface_2.svg" role="img" class="contained"></div>
+<figure class="figure figure-like" id="F_Surface"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel top" style="width:37.5%;"><img src="external/6_a_Surface_1.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:37.5%;"><img src="external/6_a_Surface_2.svg" role="img" class="contained"></div>
 </div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">23.2<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(f(x,y) = \sqrt{4-x^2}\text{.}\)</span></figcaption></figure><p id="p-3878">By eliminating the parts of the polygons we cannot see from our viewing perspective, the computer program can more quickly render the viewing image. Later in this section we will explore one method for how programs remove the hidden portions of images. This process involves the dot product of vectors.</p></section><section class="section" id="sec_dot_prod_intro"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber"></span> <span class="title">Introduction</span>
@@ -859,7 +859,7 @@ eBookConfig.enable_chatcodes =  false;
 \vu \cdot \vv = \vu^{\tr}\vv
 \end{equation*}
 </div>
-<p class="continuation"><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-40" id="fn-40"><sup> 40 </sup></a>.</p>
+<p class="continuation"><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-39" id="fn-39"><sup> 39 </sup></a>.</p>
 <section class="paragraphs" id="paragraphs-28"><h4 class="heading"><span class="title">IMPORTANT NOTE.</span></h4>
 <p id="p-3890">The dot product is only defined between two vectors with the <em class="emphasis">same number of components</em>.</p></section><article class="exploration project-like" id="pa_6_a"><h4 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">23.1</span><span class="period">.</span>
@@ -932,7 +932,7 @@ eBookConfig.enable_chatcodes =  false;
 \cos(\theta) = \frac{\vu \cdot \vv}{||\vu|| \ ||\vv||}\text{.}\tag{23.1}
 \end{equation}
 </div>
-<p id="p-3916">Of particular interest to us will be the situation where vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are <dfn class="terminology">orthogonal</dfn> (perpendicular).<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-41" id="fn-41"><sup> 41 </sup></a> Intuitively, we think of two vectors as orthogonal if the angle between them is <span class="process-math">\(90^{\circ}\text{.}\)</span></p>
+<p id="p-3916">Of particular interest to us will be the situation where vectors <span class="process-math">\(\vu\)</span> and <span class="process-math">\(\vv\)</span> are <dfn class="terminology">orthogonal</dfn> (perpendicular).<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-40" id="fn-40"><sup> 40 </sup></a> Intuitively, we think of two vectors as orthogonal if the angle between them is <span class="process-math">\(90^{\circ}\text{.}\)</span></p>
 <article class="activity project-like" id="act_6_a_orthogonality"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">23.2</span><span class="period">.</span>
 </h4>
@@ -1418,8 +1418,8 @@ A\vu \cdot \vv = \vu \cdot A^{\tr} \vv\text{.}
       render the current polygon
   end if
 end for
-</code></pre></div></article></article><p id="p-4063">As a final comment, back-face culling generally reduces the number of polygons to be rendered by half. This algorithm is not perfect and does not always do what we want it to do (e.g., it may not remove all parts of a polygon that we don't see), so there are other algorithms to use in concert with back-face culling to correctly render objects.</p></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-40"><div class="fn">Technically, <span class="process-math">\(\vu^{\tr}\vv\)</span> is a <span class="process-math">\(1 \times 1\)</span> matrix and not a scalar, but we usually think of <span class="process-math">\(1 \times 1\)</span> matrices as scalars.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-41"><div class="fn">We use the term orthogonal instead of perpendicular because we will be able to extend this idea to situations where we normally don't think of objects as being perpendicular.</div></div>
+</code></pre></div></article></article><p id="p-4063">As a final comment, back-face culling generally reduces the number of polygons to be rendered by half. This algorithm is not perfect and does not always do what we want it to do (e.g., it may not remove all parts of a polygon that we don't see), so there are other algorithms to use in concert with back-face culling to correctly render objects.</p></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-39"><div class="fn">Technically, <span class="process-math">\(\vu^{\tr}\vv\)</span> is a <span class="process-math">\(1 \times 1\)</span> matrix and not a scalar, but we usually think of <span class="process-math">\(1 \times 1\)</span> matrices as scalars.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-40"><div class="fn">We use the term orthogonal instead of perpendicular because we will be able to extend this idea to situations where we normally don't think of objects as being perpendicular.</div></div>
 </div></main>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>

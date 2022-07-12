@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-06-29T17:36:23-04:00       *-->
+<!--*       on 2022-07-12T16:07:23-04:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -86,7 +86,7 @@ eBookConfig.enable_chatcodes =  false;
 <link rel="stylesheet" type="text/css" href="https://runestone.academy/cdn/runestone/6.2.1/runestone.e4d5592da655219f.css">
 </head>
 <body class="pretext-book ignore-math has-toc has-sidebar-left">
-<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\usepackage{amsmath}
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{colortbl}\usepackage{amsmath}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\E}{\mathbb{E}}
 \DeclareMathOperator{\ch}{char}
@@ -1163,7 +1163,7 @@ q(t) \rangle = \int_0^1 p(t)q(t) \, dt\text{.}\)</span> Use appropriate technolo
 \int_{-1}^1 f(t) \ dt \approx w_1f(t_1) + w_2 f(t_2) + \cdots + w_n f(t_n) = \sum_{i=1}^n w_if(t_i)\text{,}\tag{36.4}
 \end{equation}
 </div>
-<p class="continuation">where the <span class="process-math">\(w_i\)</span> (weights) and the <span class="process-math">\(t_i\)</span> (nodes) are points in the interval <span class="process-math">\([-1,1]\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-63" id="fn-63"><sup> 63 </sup></a>. Gaussian quadrature describes how to find the weights and the points in <a href="" class="xref" data-knowl="./knowl/eq_GQ.html" title="Equation 36.4">(36.4)</a> to obtain suitable approximations. We begin to explore Gaussian quadrature with the simplest cases.</p>
+<p class="continuation">where the <span class="process-math">\(w_i\)</span> (weights) and the <span class="process-math">\(t_i\)</span> (nodes) are points in the interval <span class="process-math">\([-1,1]\)</span><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-62" id="fn-62"><sup> 62 </sup></a>. Gaussian quadrature describes how to find the weights and the points in <a href="" class="xref" data-knowl="./knowl/eq_GQ.html" title="Equation 36.4">(36.4)</a> to obtain suitable approximations. We begin to explore Gaussian quadrature with the simplest cases.</p>
 <article class="project project-like" id="act_GQ_1"><h4 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">36.3</span><span class="period">.</span>
 </h4>
@@ -1224,7 +1224,7 @@ w_1t_1^{2n-1} + w_2t_2^{2n-1} + \cdots + w_nt_n^{2n-1} \amp = \int_{-1}^1 t^{2n-
 <p id="p-6449">Now we will see the more elegant way to find the nodes. As we will show for some cases, the nodes can be found as roots of a set of orthogonal polynomials in <span class="process-math">\(\pol_n\)</span> with the inner product <span class="process-math">\(\langle f(t),
 g(t) \rangle = \int_{-1}^1 f(t)g(t) \ dt\text{.}\)</span> Begin with the basis <span class="process-math">\(\CS_n = \{1, t, t^2, \ldots,
 t^n\}\)</span> of <span class="process-math">\(\pol_n\text{.}\)</span> Use appropriate technology to find an orthogonal basis <span class="process-math">\(B_5\)</span> for <span class="process-math">\(\pol_5\)</span> obtained by applying the Gram-Schmidt process to <span class="process-math">\(\CS_n\text{.}\)</span> The polynomials in this basis are called <dfn class="terminology">Legendre polynomials</dfn>. Check that the nodes are roots of the Legendre polynomials by finding roots of these polynomials using any method. Explain why the <span class="process-math">\(t_i\)</span> appear to be roots of the Legendre polynomials.</p></article></article><p id="p-6450">Although it would take us beyond the scope of this project to verify this fact, the nodes in the <span class="process-math">\(n\)</span>th Gaussian quadrature approximation <a href="" class="xref" data-knowl="./knowl/eq_GQ.html" title="Equation 36.4">(36.4)</a> are in fact the roots of the <span class="process-math">\(n\)</span>th order Legendre polynomial. In other words, if <span class="process-math">\(p_n(t)\)</span> is the <span class="process-math">\(n\)</span>th order Legendre polynomial, then <span class="process-math">\(t_1\text{,}\)</span> <span class="process-math">\(t_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(t_n\)</span> are the roots of <span class="process-math">\(p_n(t)\)</span> in <span class="process-math">\([-1,1]\text{.}\)</span> Gaussian quadrature as described in <a href="" class="xref" data-knowl="./knowl/eq_GQ.html" title="Equation 36.4">(36.4)</a> using the polynomial <span class="process-math">\(p_n(t)\)</span> is exact if the integrand <span class="process-math">\(f(t)\)</span> is a polynomial of degree less than <span class="process-math">\(2n\text{.}\)</span></p>
-<p id="p-6451">We can find the corresponding weights, <span class="process-math">\(w_i\text{,}\)</span> using the formula<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-64" id="fn-64"><sup> 64 </sup></a></p>
+<p id="p-6451">We can find the corresponding weights, <span class="process-math">\(w_i\text{,}\)</span> using the formula<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-63" id="fn-63"><sup> 63 </sup></a></p>
 <div class="displaymath process-math" data-contains-math-knowls="" id="eq_GQ_weights">
 \begin{equation}
 w_i = \frac{2}{(1-t_i^2)(q_n '(t_i))^2}\text{,}\tag{36.7}
@@ -1242,8 +1242,8 @@ w_i = \frac{2}{(1-t_i^2)(q_n '(t_i))^2}\text{,}\tag{36.7}
 <article class="project project-like" id="project-131"><h4 class="heading">
 <span class="type">Project Activity</span><span class="space"> </span><span class="codenumber">36.7</span><span class="period">.</span>
 </h4>
-<p id="p-6457">Consider the problem of approximating an integral of the form <span class="process-math">\(I = \int_a^b g(x) \ dx\text{.}\)</span> Show that the change of variables <span class="process-math">\(x = \frac{(b - a)t}{2} + \frac{a + b}{2}\text{,}\)</span> <span class="process-math">\(f(t) = \frac{(b - a)g(x)}{2}\)</span> reduces the integral <span class="process-math">\(I\)</span> to the form <span class="process-math">\(I = \int_{-1}^1 f(t) \ dt\text{.}\)</span> (This change of variables can be derived by finding a linear function that maps the interval <span class="process-math">\([a,b]\)</span> to the interval <span class="process-math">\([-1,1]\text{.}\)</span>)</p></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-63"><div class="fn">As we will see later, integrations over <span class="process-math">\([a,b]\)</span> can be converted to an integral over <span class="process-math">\([-1,1]\)</span> with a change of variable.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-64"><div class="fn">Abramowitz, Milton; Stegun, Irene A., eds. (1972), sec. 25.4, Integration, Handbook of Mathematical Functions (with Formulas, Graphs, and Mathematical Tables), Dover,</div></div>
+<p id="p-6457">Consider the problem of approximating an integral of the form <span class="process-math">\(I = \int_a^b g(x) \ dx\text{.}\)</span> Show that the change of variables <span class="process-math">\(x = \frac{(b - a)t}{2} + \frac{a + b}{2}\text{,}\)</span> <span class="process-math">\(f(t) = \frac{(b - a)g(x)}{2}\)</span> reduces the integral <span class="process-math">\(I\)</span> to the form <span class="process-math">\(I = \int_{-1}^1 f(t) \ dt\text{.}\)</span> (This change of variables can be derived by finding a linear function that maps the interval <span class="process-math">\([a,b]\)</span> to the interval <span class="process-math">\([-1,1]\text{.}\)</span>)</p></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-62"><div class="fn">As we will see later, integrations over <span class="process-math">\([a,b]\)</span> can be converted to an integral over <span class="process-math">\([-1,1]\)</span> with a change of variable.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-63"><div class="fn">Abramowitz, Milton; Stegun, Irene A., eds. (1972), sec. 25.4, Integration, Handbook of Mathematical Functions (with Formulas, Graphs, and Mathematical Tables), Dover,</div></div>
 </div></main>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
