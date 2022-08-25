@@ -20,7 +20,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************-->
 
 <!DOCTYPE xsl:stylesheet [
-    <!ENTITY % entities SYSTEM "entities.ent">
+    <!ENTITY % entities SYSTEM "./core/entities.ent">
     %entities;
 ]>
 
