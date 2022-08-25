@@ -28,9 +28,11 @@ The code used to generate this book can be found in this repository. This includ
 
 ## Compilation Instructions
 
-To edit the files used to compile this book, we recommend [following the instructions](http://math.oscarlevin.com/2021/07/13/new-pretext-tutorial.html) from Oscar Levin, University of Northern Colorado.
+To edit the files used to compile this book, we recommend using a good text editor (such as Visual Studio Code). You will also need a recent Python installation, and LaTeX. After properly installing the necessary software, you may use the command line to install the PreTeXt CLI through `pip install pretext`. 
 
-Essentially, you will need a text editor, such as Visual Studio Code, Python, and LaTeX. After properly installing the necessary software, you may use the command line to install the PreTeXt-CLI through `pip install pretextbook`. Then familarize yourself with PreTeXt with
+Note: the CLI has updated and no longer is called `pretextbook`. To see if you have this installation, type `pretext --version` into your terminal. If it returns a number less than 1.0, you do not have the most recent version. If this is the case, uninstall `pretextbook` with `pip uninstall pretextbook` and install the new version with `pip install pretext`. 
+
+Then familarize yourself with PreTeXt with
 
 ```
 pretext new book
@@ -44,3 +46,7 @@ cd linalg-applications
 ```
 
 Edit the files you would like to, then submit a pull request. Alternatively, you can submit an issue (the issues tab at the top of this page) so we, the authors, and other developers may address it.
+
+To build the HTML site, use `pretext build web`, then `pretext view web` to start a local server to see how your build looks. If everything looks good push to GitHub. To update the official HTML, switch to the main branch and use `pretext build web` to make sure you have the most up-to-date build. Then, *if you have write access to the repository*, you can use `pretext deploy`.
+
+To make a new pdf, first try `pretext build pdf`. This may not work. If this is the case, use `pretext build latex`, open the file in your LaTeX program and compile the pdf manually from that file.
