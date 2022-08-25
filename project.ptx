@@ -36,9 +36,18 @@
       <output-dir>output/subset-html</output-dir>
       <stringparam key="html.css.extra" value="external/custom_style.css"/>
     </target>
+    <target name="pdf" pdf-method="xelatex">
+      <format>pdf</format>
+      <source>source/main.ptx</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/pdf</output-dir>
+      <xsl>xsl/custom-latex.xsl</xsl>
+      <!-- Set margins here. For electronic pdf, make all values the same -->
+      <stringparam key="latex.geometry" value="top=1in, bottom=1in, outer=1in, inner=1in"/>
+    </target>
   </targets>
   <executables>
-      <tex>xelatex</tex>
+      <latex>xelatex</latex>
       <pdfsvg>pdf2svg</pdfsvg>
       <asy>asy</asy>
       <sage>sage</sage>

@@ -29,7 +29,7 @@ along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <!-- Override specific tenplates of the standard conversion -->
-<xsl:import pretext-href="pretext-latex.xsl" />
+<xsl:import href="./core/pretext-latex.xsl" />
 <xsl:import href="./lin-alg-style.xsl" />
 
 <!-- Intend output for rendering by pdflatex -->
