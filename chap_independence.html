@@ -46,7 +46,8 @@ window.MathJax = {
 },
 };
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
-<script async="" src="https://cse.google.com/cse.js?cx=a16e70a6cb1434676"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.13/pretext_search.js"></script><link href="https://pretextbook.org/css/0.4/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
@@ -192,7 +193,14 @@ window.MathJax = {
 <h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
 <p class="byline">Feryal Alayont, Steven Schlicker</p>
 </div>
-<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+<div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<ol id="searchresults"></ol>
+</div>
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
@@ -1466,6 +1474,5 @@ x_1 \vv_1 + x_2 \vv_2 + \cdots + x_k \vv_k = \vzero\text{.}
 <p id="p-1142">More complicated and realistic shapes can be represented by piecing together two or more Bézier curves as illustrated with the letter “S” in <a href="" class="xref" data-knowl="./knowl/F_Letter_S.html" title="Figure 6.1">Figure 6.1</a>. Suppose we have two cubic Bézier curves, the first with control points <span class="process-math">\(\vp_0\text{,}\)</span> <span class="process-math">\(\vp_1\text{,}\)</span> <span class="process-math">\(\vp_2\text{,}\)</span> and <span class="process-math">\(\vp_3\)</span> and the second with control points <span class="process-math">\(\vp_0'\text{,}\)</span> <span class="process-math">\(\vp_1'\text{,}\)</span> <span class="process-math">\(\vp_2'\text{,}\)</span> and <span class="process-math">\(\vp_3'\text{.}\)</span> You may have noticed that <span class="process-math">\(\vp_1\)</span> lies on the tangent line to the first Bézier curve at <span class="process-math">\(\vp_0\)</span> and that <span class="process-math">\(\vp_2\)</span> lies on the tangent line to the first Bézier curve at <span class="process-math">\(\vp_3\text{.}\)</span> (Play around with the program <code class="code-inline tex2jax_ignore">Cubic Bezier</code> to convince yourself of these statements. This can be proved in a straightforward manner using vector calculus.) So if we want to make a smooth curve from these two Bézier curves, the curves will need to join together smoothly at <span class="process-math">\(\vp_3\)</span> and <span class="process-math">\(\vp_0'\text{.}\)</span> This will force <span class="process-math">\(\vp_3 = \vp_0'\)</span> and the tangents at <span class="process-math">\(\vp_3 = \vp_0'\)</span> will have to match. This implies that <span class="process-math">\(\vp_2\text{,}\)</span> <span class="process-math">\(\vp_3\text{,}\)</span> and <span class="process-math">\(\vp_1'\)</span> all have to lie on this common tangent line. Keeping this idea in mind, use the GeoGebra file <code class="code-inline tex2jax_ignore">Cubic Bezier Pair</code> at <a class="external" href="https://www.geogebra.org/m/UwxQ6RPk" target="_blank"><code class="code-inline tex2jax_ignore">geogebra.org/m/UwxQ6RPk</code></a> to find control points for the pair of Bézier curves that create your own letter S.</p></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-12"><div class="fn">The plural of basis is bases.</div></div>
 </div></main>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

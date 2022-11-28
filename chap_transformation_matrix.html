@@ -46,7 +46,8 @@ window.MathJax = {
 },
 };
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
-<script async="" src="https://cse.google.com/cse.js?cx=a16e70a6cb1434676"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.13/pretext_search.js"></script><link href="https://pretextbook.org/css/0.4/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
@@ -192,7 +193,14 @@ window.MathJax = {
 <h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
 <p class="byline">Feryal Alayont, Steven Schlicker</p>
 </div>
-<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+<div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<ol id="searchresults"></ol>
+</div>
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
@@ -1347,6 +1355,5 @@ p(t) = y_1 \ell_1(t) + y_2 \ell_2(t) + y_3 \ell_3(t)\text{.}\tag{38.3}
 <p class="continuation">Explain why <span class="process-math">\(p(t)\)</span> is a polynomial in <span class="process-math">\(\pol_n\)</span> whose graph contains the points <span class="process-math">\((t_i,y_i)\)</span> for <span class="process-math">\(i\)</span> from <span class="process-math">\(1\)</span> to <span class="process-math">\(n+1\text{.}\)</span></p></article><article class="task exercise-like" id="task-2311"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <p id="p-6799">The previous part demonstrates that there is always a polynomial in <span class="process-math">\(\pol_n\)</span> whose graph contains the points <span class="process-math">\((t_1,y_1)\text{,}\)</span> <span class="process-math">\((t_2,y_2)\text{,}\)</span> <span class="process-math">\((t_3,y_3)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((t_n,y_n)\text{,}\)</span> and <span class="process-math">\((t_{n+1},y_{n+1})\)</span> with distinct <span class="process-math">\(t_i\text{.}\)</span> The last piece we need is to know that this polynomial is unique. Use the fact that a polynomial of degree <span class="process-math">\(n\)</span> can have at most <span class="process-math">\(n\)</span> roots to show that if <span class="process-math">\(f(t)\)</span> and <span class="process-math">\(g(t)\)</span> are two polynomials in <span class="process-math">\(\pol_n\)</span> whose graphs contain the points <span class="process-math">\((t_1,y_1)\text{,}\)</span> <span class="process-math">\((t_2,y_2)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((t_n,y_n)\text{,}\)</span> <span class="process-math">\((t_{n+1},y_{n+1})\)</span> with distinct values of <span class="process-math">\(t_i\text{,}\)</span> then <span class="process-math">\(f(t) = g(t)\text{.}\)</span> This completes Shamir's Secret Sharing algorithm.</p></article></article></section></section></div></main>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

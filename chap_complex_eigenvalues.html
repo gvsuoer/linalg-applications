@@ -46,7 +46,8 @@ window.MathJax = {
 },
 };
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
-<script async="" src="https://cse.google.com/cse.js?cx=a16e70a6cb1434676"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.13/pretext_search.js"></script><link href="https://pretextbook.org/css/0.4/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
@@ -192,7 +193,14 @@ window.MathJax = {
 <h1 class="heading"><a href="book-1.html"><span class="title">An Inquiry-Based Introduction to Linear Algebra and Applications</span></a></h1>
 <p class="byline">Feryal Alayont, Steven Schlicker</p>
 </div>
-<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+<div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<ol id="searchresults"></ol>
+</div>
 </div></div>
 <nav id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
@@ -1216,6 +1224,5 @@ A = \left[ \begin{array}{rcr} 3\amp 1\amp -1 \\ 5\amp 12\amp 6 \\ -2\amp 4\amp -
 <figure class="figure figure-like" id="F_Gershgorin_2"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/Gershgorin_2.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">21.9<span class="period">.</span></span><span class="space"> </span>How eigenvalues move.</figcaption></figure><p id="p-3642">Let <span class="process-math">\(p(t,x)\)</span> be the characteristic polynomial of <span class="process-math">\(A(t)\text{.}\)</span> Note that these characteristic polynomials are functions of both <span class="process-math">\(t\)</span> and <span class="process-math">\(x\text{.}\)</span> Since polynomials are continuous functions, their roots (the eigenvalues of <span class="process-math">\(A(t)\)</span>) are continuous for <span class="process-math">\(t \in [0,1]\)</span> as well. Let <span class="process-math">\(\lambda(t)\)</span> be an eigenvalue of <span class="process-math">\(A(t)\text{.}\)</span> Note that <span class="process-math">\(\lambda(1)\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> and <span class="process-math">\(\lambda(0)\)</span> is one of the <span class="process-math">\(a_{ii}\)</span> and is therefore in <span class="process-math">\(S\text{.}\)</span> We will argue that <span class="process-math">\(\lambda(t)\)</span> is in <span class="process-math">\(S\)</span> for every value of <span class="process-math">\(t\)</span> in <span class="process-math">\([0,1]\text{.}\)</span> Let <span class="process-math">\(r_i\)</span> be the radius of <span class="process-math">\(D_i\)</span> and let <span class="process-math">\(D(t)_i\)</span> be the Gershgorin disk of <span class="process-math">\(A(t)\)</span> with the same center as <span class="process-math">\(D_i\)</span> and radius <span class="process-math">\(r(t)_i = tr_i\text{.}\)</span> Let <span class="process-math">\(S(t) = \cup_{1 \leq i \leq m} D(s)_i\text{.}\)</span> Since <span class="process-math">\(r(s)_i \leq r_i\text{,}\)</span> it follows that <span class="process-math">\(D(s)_i \subseteq D_i\)</span> and so <span class="process-math">\(S(t) \cap S' = \emptyset\)</span> as well. From topology, we know that since the disks <span class="process-math">\(D_i\)</span> are closed, the union <span class="process-math">\(S\)</span> of these disks is also closed. Similarly, <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(S'\)</span> are closed. Thus, <span class="process-math">\(\lambda(t)\)</span> is continuous in a closed set and so does not leave the set. Thus, <span class="process-math">\(\lambda(t)\)</span> is in <span class="process-math">\(S\)</span> for every value of <span class="process-math">\(t\)</span> in <span class="process-math">\([0,1]\text{.}\)</span></p></article></section></section></div></main>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>
